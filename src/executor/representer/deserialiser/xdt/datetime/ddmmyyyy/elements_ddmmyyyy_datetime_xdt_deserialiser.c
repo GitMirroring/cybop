@@ -39,54 +39,47 @@
 /**
  * Deserialises the ddmmyyyy elements wide character data into a datetime model.
  *
- * @param p0 the destination model item
+ * @param p0 the destination datetime
  * @param p1 the source data
  */
 void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt datetime ddmmyyyy elements.");
 
-    // The day destination and source.
-    int dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    void* ds = p1;
-    // The month destination and source.
-    int md = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    void* ms = p1;
-    // The year destination and source.
-    int yd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The year/month/day/hour/minute/second.
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int min = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The year/month/day source.
     void* ys = p1;
+    void* ms = p1;
+    void* ds = p1;
 
-    // Adjust day/month/year source.
+    // Adjust year/month/day source.
+    // CAUTION! Process numbers in this order: d/m/y.
+    // It should also work the other way around, but to
+    // be sure, the source is read from left to right.
     move_position((void*) &ds, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     move_position((void*) &ms, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     move_position((void*) &ys, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Deserialise day/month/year source.
-    deserialise_cybol_integer_value_primitive((void*) &dd, ds, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    deserialise_cybol_integer_value_primitive((void*) &md, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-    deserialise_cybol_integer_value_primitive((void*) &yd, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Deserialise year/month/day source.
+    // CAUTION! Process numbers in this order: d/m/y.
+    // It should also work the other way around, but to
+    // be sure, the source is read from left to right.
+    deserialise_cybol_integer_value_primitive((void*) &d, ds, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value_primitive((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_cybol_integer_value_primitive((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements dd: %i\n", dd);
-fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements md: %i\n", md);
-fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements yd: %i\n", yd);
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements y: %i\n", y);
 
-    // The result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Deserialise year/month/day/hour/minute/second.
+    deserialise_time_scale_gregorian_calendar(p0, (void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s);
 
-    //?? TODO: Do calculations here!
-    // See e.g.:
-    // Method "computeTime" in:
-    // http://docjar.com/html/api/java/util/GregorianCalendar.java.html
-    // also:
-    // http://docjar.com/html/api/java/util/Date.java.html
-    // and also comment "Data flow in Calendar" in:
-    // http://www.docjar.com/html/api/java/util/Calendar.java.html
-
-    // Copy result to destination.
-    overwrite_item_element(p0, (void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements p0 data: %i\n", *((int*) *((void**) p0)));
-fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements p0 count: %i\n", *((int*) *((void**) (p0 + sizeof(void*)))));
+fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements y POST: %i\n", y);
 }
 
 /* ELEMENTS_DDMMYYYY_DATETIME_XDT_DESERIALISER_SOURCE */

@@ -58,6 +58,7 @@
  * - QYYYY_DATETIME_STATE_CYBOI_FORMAT
  * - DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT
  * - HHMMHHMM_DURATION_STATE_CYBOI_FORMAT
+ * - YYYY_DURATION_STATE_CYBOI_FORMAT
  *
  * CAUTION! The format of some fields DIFFERS between old and
  * new versions of the xDT standard documents.

@@ -37,7 +37,7 @@
 /**
  * Deserialises the ddmmyyyy wide character data into a datetime model.
  *
- * @param p0 the destination model item
+ * @param p0 the destination datetime
  * @param p1 the source data
  * @param p2 the source count
  */
