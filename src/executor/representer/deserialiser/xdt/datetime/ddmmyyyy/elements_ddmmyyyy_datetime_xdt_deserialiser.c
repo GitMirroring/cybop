@@ -74,8 +74,6 @@ void deserialise_xdt_datetime_ddmmyyyy_elements(void* p0, void* p1) {
     deserialise_cybol_integer_value_primitive((void*) &m, ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     deserialise_cybol_integer_value_primitive((void*) &y, ys, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST deserialise xdt datetime ddmmyyyy elements y: %i\n", y);
-
     // Deserialise year/month/day/hour/minute/second.
     deserialise_time_scale_gregorian_calendar(p0, (void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s);
 
