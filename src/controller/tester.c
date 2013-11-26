@@ -34,6 +34,7 @@
 //#include "../tester/caster_tester.c"
 #include "../tester/communicator_tester.c"
 #include "../tester/comparator_tester.c"
+#include "../tester/compound_tester.c"
 #include "../tester/constant_tester.c"
 //#include "../tester/converter_tester.c"
 //#include "../tester/copier_tester.c"
@@ -137,6 +138,7 @@ void test() {
 //    test_caster();
     test_communicator();
     test_comparator();
+    test_compound();
 //    test_converter();
 //    test_copier();
 //    test_finder();

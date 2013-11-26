@@ -31,15 +31,9 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/duration_state_cyboi_name.c"
-#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/accessor/getter/duration_getter.c"
+#include "../../../executor/modifier/copier/datetime_copier.c"
 #include "../../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Copies the duration.
@@ -61,18 +55,18 @@ void copy_duration(void* p0, void* p1) {
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination value, start, end.
-    copy_array_forward((void*) &dv, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) START_DURATION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &de, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) END_DURATION_STATE_CYBOI_NAME);
+    get_duration_element((void*) &dv, (void*) p0, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
+    get_duration_element((void*) &ds, (void*) p0, (void*) START_DURATION_STATE_CYBOI_NAME);
+    get_duration_element((void*) &de, (void*) p0, (void*) END_DURATION_STATE_CYBOI_NAME);
     // Get source value, start, end.
-    copy_array_forward((void*) &sv, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ss, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) START_DURATION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) END_DURATION_STATE_CYBOI_NAME);
+    get_duration_element((void*) &sv, (void*) p1, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
+    get_duration_element((void*) &ss, (void*) p1, (void*) START_DURATION_STATE_CYBOI_NAME);
+    get_duration_element((void*) &se, (void*) p1, (void*) END_DURATION_STATE_CYBOI_NAME);
 
-    // Set source- to destination duration.
-    copy_array_forward(dv, sv, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    copy_array_forward(ds, ss, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    copy_array_forward(de, se, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Copy source- to destination values.
+    copy_datetime(dv, sv);
+    copy_datetime(ds, ss);
+    copy_datetime(de, se);
 }
 
 /* DURATION_COPIER_SOURCE */

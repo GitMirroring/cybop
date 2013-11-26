@@ -54,9 +54,6 @@ void fill_array_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
     // Fill given element repeatedly into array.
     // The count and size are adjusted inside.
-    // CAUTION! Hand over the count twice, as
-    // count of elements to be removed (third parametre)
-    // AND as array count (fifth parametre).
     overwrite_array(p0, p1, p2, p3, p4, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5, p6, p7);
 }
 

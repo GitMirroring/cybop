@@ -30,7 +30,6 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../executor/memoriser/reallocator/array_reallocator.c"
@@ -252,7 +251,17 @@ void remove_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not remove array. The destination index is outside the array boundaries.");
         fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p3: %i\n", *((int*) p3));
-        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p4: %i\n", *((int*) p4));
+        
+        if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p0 array: %i\n", *((void**) p0));
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p1 type: %i\n", *((int*) p1));
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p2 count: %i\n", p2);
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p3 index: %i\n", *((int*) p3));
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries p4 array count: %i\n", p4);
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p5 array size: %i\n", *((int*) p5));
+        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p6 flag: %i\n", *((int*) p6));
+        }
+//        fwprintf(stdout, L"Could not remove array. The destination index is outside the array boundaries *p4: %i\n", *((int*) p4));
     }
 }
 

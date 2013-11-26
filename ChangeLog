@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-11-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up compound accessor- and copier files for complex/datetime/duration/fraction
+        * Add file "compound_tester.c"
+
 2013-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement gregorian calendar serialiser

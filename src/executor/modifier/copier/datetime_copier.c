@@ -29,8 +29,8 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/getter/datetime_getter.c"
 #include "../../../executor/modifier/copier/double_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
@@ -38,29 +38,30 @@
 
 /**
  * Copies the datetime.
+ * 
+ * CAUTION! The datetime IS a pointer reference,
+ * since its elements are accessed via pointers.
  *
- * @param p0 the destination
- * @param p1 the source
+ * @param p0 the destination (pointer reference)
+ * @param p1 the source (pointer reference)
  */
 void copy_datetime(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy datetime.");
 
     // The destination julian day, julian second.
-    // CAUTION! Initialise with destination parametre.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source julian day, julian second.
-    // CAUTION! Initialise with source parametre.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination julian day, julian second.
-    get_datetime_element((void*) &dd, (void*) &p0, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    get_datetime_element((void*) &ds, (void*) &p0, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &dd, (void*) p0, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ds, (void*) p0, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
     // Get source julian day, julian second.
-    get_datetime_element((void*) &sd, (void*) &p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    get_datetime_element((void*) &ss, (void*) &p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &sd, (void*) p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ss, (void*) p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 
     // Copy source- to destination values.
     copy_integer(dd, sd);
