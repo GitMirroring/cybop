@@ -26,10 +26,6 @@
 #ifndef VALUE_INTEGER_CYBOL_SERIALISER_SOURCE
 #define VALUE_INTEGER_CYBOL_SERIALISER_SOURCE
 
-#ifdef WIN32
-    #include <windows.h>
-#endif
-
 #include <stdio.h>
 #include <string.h>
 #include <wchar.h>

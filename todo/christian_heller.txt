@@ -11,6 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Continue with ddmmyyyy_datetime_xdt_serialiser.c and other files in "serialiser/xdt/datetime/"
         * Debug memory access error in file "array_remover.c" line 255 (p4 is null) and file "array_deallocator.c"
             where calling "empty_array" fails for datetime type, which calls file "array_remover.c"
         * Implement "utc" datetime de-/serialiser

@@ -31,6 +31,7 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/representer/deserialiser/xdt/datetime/mmyy/elements_mmyy_datetime_xdt_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -43,6 +44,20 @@
 void deserialise_xdt_datetime_mmyy(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise xdt datetime mmyy.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_equal((void*) &r, p2, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        deserialise_xdt_datetime_mmyy_elements(p0, p1);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise xdt datetime mmyy. The source count is unequal 4.");
+    }
 }
 
 /* MMYY_DATETIME_XDT_DESERIALISER_SOURCE */
