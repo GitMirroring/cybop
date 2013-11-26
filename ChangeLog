@@ -23,6 +23,10 @@
         * Clean up compound accessor- and copier files for complex/datetime/duration/fraction
         * Add file "compound_tester.c"
 
+2013-11-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue datetime xdt deserialiser
+
 2013-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement gregorian calendar serialiser
