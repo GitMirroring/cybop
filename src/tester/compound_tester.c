@@ -32,6 +32,9 @@
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/accessor/getter/datetime_getter.c"
+#include "../executor/accessor/getter/fraction_getter.c"
+#include "../executor/accessor/setter/fraction_setter.c"
+#include "../executor/modifier/copier/integer_copier.c"
 #include "../logger/logger.c"
 
 /**
@@ -80,20 +83,79 @@ void test_compound_fraction() {
 
     fwprintf(stdout, L"Test compound fraction.");
 
-    // The fraction.
-    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int fc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int fs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination fraction.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ds = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // The source fraction.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ss = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination numerator, denominator.
+    int dn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The source numerator, denominator.
+    int sn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int sd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Allocate fraction.
+    // Allocate source fraction.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &fd, (void*) &fs, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &d, (void*) &ds, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &s, (void*) &ss, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
-    fwprintf(stdout, L"TEST fd: %i\n", fd);
+    // Initialise source numerator, denominator.
+    set_fraction_element((void*) s, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    set_fraction_element((void*) s, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
-    // Deallocate fraction.
-    deallocate_array((void*) &fd, (void*) &fc, (void*) &fs, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    //
+    // Check pre values.
+    //
+
+    // Get destination numerator, denominator.
+    get_fraction_element((void*) &dn, (void*) d, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &dd, (void*) d, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    // Get source numerator, denominator.
+    get_fraction_element((void*) &sn, (void*) s, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &sd, (void*) s, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+
+    fwprintf(stdout, L"TEST pre dn: %i\n", dn);
+    fwprintf(stdout, L"TEST pre dd: %i\n", dd);
+    fwprintf(stdout, L"TEST pre sn: %i\n", sn);
+    fwprintf(stdout, L"TEST pre sd: %i\n", sd);
+
+    //
+    // Copy source to destination.
+    //
+
+    copy_fraction(d, s);
+
+    //
+    // Check post values.
+    //
+
+    // Reset destination numerator, denominator.
+    dn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // Reset source numerator, denominator.
+    sn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    sd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Get destination numerator, denominator.
+    get_fraction_element((void*) &dn, (void*) d, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &dd, (void*) d, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    // Get source numerator, denominator.
+    get_fraction_element((void*) &sn, (void*) s, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &sd, (void*) s, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+
+    fwprintf(stdout, L"TEST post dn: %i\n", dn);
+    fwprintf(stdout, L"TEST post dd: %i\n", dd);
+    fwprintf(stdout, L"TEST post sn: %i\n", sn);
+    fwprintf(stdout, L"TEST post sd: %i\n", sd);
+
+    // Deallocate source fraction.
+    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &s, (void*) &sc, (void*) &ss, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**

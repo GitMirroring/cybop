@@ -11,9 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Continue with ddmmyyyy_datetime_xdt_serialiser.c and other files in "serialiser/xdt/datetime/"
+        * Debug "Bus error"
         * Debug memory access error in file "array_remover.c" line 255 (p4 is null) and file "array_deallocator.c"
             where calling "empty_array" fails for datetime type, which calls file "array_remover.c"
+        * Continue with ddmmyyyy_datetime_xdt_serialiser.c and other files in "serialiser/xdt/datetime/"
         * Implement "utc" datetime de-/serialiser
         * See "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
 

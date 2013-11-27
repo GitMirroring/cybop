@@ -30,96 +30,73 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
+#include "../../../executor/modifier/copier/double_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/type_size/integral_type_size.c"
 
 /**
- * Gets the offset belonging to the element at the given index.
- *
- * @param p0 the destination offset
- * @param p1 the source element index
- */
-void get_datetime_element_offset(void* p0, void* p1) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get datetime element offset.");
-
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // CAUTION! Add the type sizes of all elements PRECEDING
-            // this one, but NOT the type size of this element itself.
-            copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // CAUTION! Add the type sizes of all elements PRECEDING
-            // this one, but NOT the type size of this element itself.
-            copy_integer(p0, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            calculate_integer_add(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get datetime element offset. The given source element index is not known.");
-    }
-}
-
-/**
  * Gets the source datetime's element at the given index.
  *
- * @param p0 the destination data (pointer reference)
- * @param p1 the source data (pointer reference)
- * @param p2 the source element index
+ * @param p0 the destination data
+ * @param p1 the source
+ * @param p2 the source index
  */
 void get_datetime_element(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get datetime element.");
 
-    // The offset memory area.
-    int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The element pointer.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Determine offset.
-    get_datetime_element_offset((void*) &o, p2);
+    // Initialise element pointer.
+    copy_pointer((void*) &e, (void*) &p1);
 
-    if (o >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The element pointer.
-        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+        compare_integer_equal((void*) &r, p2, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
 
-        // Initialise element pointer.
-        copy_pointer((void*) &e, p1);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Add offset to element pointer.
-        // CAUTION! The pointer type is needed here, since
-        // the result is a pointer to which the offset is added.
-        calculate_pointer_add((void*) &e, (void*) &o);
+            // Add offset to element pointer.
+            // CAUTION! Add the type sizes of all elements PRECEDING
+            // this one, but NOT the type size of this element itself.
+            // CAUTION! The pointer type is needed here, since
+            // the result is a pointer to which the offset is added.
+            calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        // Copy element pointer to destination.
-        copy_pointer(p0, (void*) &e);
+            // Copy element to destination.
+            copy_integer(p0, e);
+        }
+    }
 
-    } else {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get datetime element. The offset is invalid.");
+        compare_integer_equal((void*) &r, p2, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Add offset to element pointer.
+            // CAUTION! Add the type sizes of all elements PRECEDING
+            // this one, but NOT the type size of this element itself.
+            // CAUTION! The pointer type is needed here, since
+            // the result is a pointer to which the offset is added.
+            calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+
+            // Copy element to destination.
+            copy_double(p0, e);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get datetime element. The given source index is not known.");
     }
 }
 

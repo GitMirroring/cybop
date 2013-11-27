@@ -115,10 +115,15 @@ void allocate_array(void* p0, void* p1, void* p2) {
 
             if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // Initialise array elements with null pointer.
+                // Initialise array elements.
                 //
                 // CAUTION! Initialising with zero values is essential, since
                 // cyboi frequently tests variables for null pointer values.
+                //
+                // Whether the values will be interpreted as
+                // zero integer or zero float or null pointer or
+                // something else, depends on the programming
+                // context, i.e. where the array got allocated.
                 memset(*a, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tma);
 
             } else {

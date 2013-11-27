@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FRACTION_GETTER_SOURCE
-#define FRACTION_GETTER_SOURCE
+#ifndef FRACTION_SETTER_SOURCE
+#define FRACTION_SETTER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -39,15 +39,15 @@
 #include "../../../variable/type_size/integral_type_size.c"
 
 /**
- * Gets the source fraction's element at the given index.
+ * Sets the destination fraction's element at the given index.
  *
- * @param p0 the destination data
- * @param p1 the source
+ * @param p0 the destination
+ * @param p1 the source data
  * @param p2 the source index
  */
-void get_fraction_element(void* p0, void* p1, void* p2) {
+void set_fraction_element(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get fraction element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set fraction element.");
 
     // The element pointer.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -55,7 +55,7 @@ void get_fraction_element(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element pointer.
-    copy_pointer((void*) &e, (void*) &p1);
+    copy_pointer((void*) &e, (void*) &p0);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -66,12 +66,14 @@ void get_fraction_element(void* p0, void* p1, void* p2) {
             // Add offset to element pointer.
             // CAUTION! Add the type sizes of all elements PRECEDING
             // this one, but NOT the type size of this element itself.
+            // CAUTION! Multiplication with just one type size is NOT used,
+            // since some compound types have elements of different type.
             // CAUTION! The pointer type is needed here, since
             // the result is a pointer to which the offset is added.
             calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             // Copy element to destination.
-            copy_integer(p0, e);
+            copy_integer(e, p1);
         }
     }
 
@@ -84,20 +86,22 @@ void get_fraction_element(void* p0, void* p1, void* p2) {
             // Add offset to element pointer.
             // CAUTION! Add the type sizes of all elements PRECEDING
             // this one, but NOT the type size of this element itself.
+            // CAUTION! Multiplication with just one type size is NOT used,
+            // since some compound types have elements of different type.
             // CAUTION! The pointer type is needed here, since
             // the result is a pointer to which the offset is added.
             calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 
             // Copy element to destination.
-            copy_integer(p0, e);
+            copy_integer(e, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get fraction element. The given source index is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set fraction element. The given source index is not known.");
     }
 }
 
-/* FRACTION_GETTER_SOURCE */
+/* FRACTION_SETTER_SOURCE */
 #endif

@@ -28,11 +28,10 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
 #include "../../../executor/accessor/getter/complex_getter.c"
-#include "../../../executor/modifier/copier/double_copier.c"
+#include "../../../executor/accessor/setter/complex_setter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -45,23 +44,17 @@ void copy_complex(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy complex.");
 
-    // The destination real, imaginary.
-    void* dr = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source real, imaginary.
-    void* sr = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
+    double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    // Get destination real, imaginary.
-    get_complex_element((void*) &dr, (void*) p0, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &di, (void*) p0, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     // Get source real, imaginary.
-    get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &r, p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &i, p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
-    // Copy source- to destination values.
-    copy_double(dr, sr);
-    copy_double(di, si);
+    // Copy source real, imaginary to destination.
+    set_complex_element(p0, (void*) &r, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    set_complex_element(p0, (void*) &i, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 }
 
 /* COMPLEX_COPIER_SOURCE */

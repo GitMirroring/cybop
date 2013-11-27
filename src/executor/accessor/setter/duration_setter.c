@@ -23,31 +23,31 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FRACTION_GETTER_SOURCE
-#define FRACTION_GETTER_SOURCE
+#ifndef DURATION_SETTER_SOURCE
+#define DURATION_SETTER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/duration_state_cyboi_name.c"
 #include "../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/modifier/copier/datetime_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/type_size/integral_type_size.c"
+#include "../../../variable/type_size/compound_type_size.c"
 
 /**
- * Gets the source fraction's element at the given index.
+ * Sets the destination duration's element at the given index.
  *
- * @param p0 the destination data
- * @param p1 the source
+ * @param p0 the destination
+ * @param p1 the source data
  * @param p2 the source index
  */
-void get_fraction_element(void* p0, void* p1, void* p2) {
+void set_duration_element(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get fraction element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Set duration element.");
 
     // The element pointer.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -55,49 +55,74 @@ void get_fraction_element(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element pointer.
-    copy_pointer((void*) &e, (void*) &p1);
+    copy_pointer((void*) &e, (void*) &p0);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p2, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Add offset to element pointer.
             // CAUTION! Add the type sizes of all elements PRECEDING
             // this one, but NOT the type size of this element itself.
+            // CAUTION! Multiplication with just one type size is NOT used,
+            // since some compound types have elements of different type.
             // CAUTION! The pointer type is needed here, since
             // the result is a pointer to which the offset is added.
             calculate_pointer_add((void*) &e, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             // Copy element to destination.
-            copy_integer(p0, e);
+            copy_datetime(e, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p2, (void*) START_DURATION_STATE_CYBOI_NAME);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Add offset to element pointer.
             // CAUTION! Add the type sizes of all elements PRECEDING
             // this one, but NOT the type size of this element itself.
+            // CAUTION! Multiplication with just one type size is NOT used,
+            // since some compound types have elements of different type.
             // CAUTION! The pointer type is needed here, since
             // the result is a pointer to which the offset is added.
-            calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+            calculate_pointer_add((void*) &e, (void*) DATETIME_COMPOUND_TYPE_SIZE);
 
             // Copy element to destination.
-            copy_integer(p0, e);
+            copy_datetime(e, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not get fraction element. The given source index is not known.");
+        compare_integer_equal((void*) &r, p2, (void*) END_DURATION_STATE_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Add offset to element pointer.
+            // CAUTION! Add the type sizes of all elements PRECEDING
+            // this one, but NOT the type size of this element itself.
+            // CAUTION! Multiplication with just one type size is NOT used,
+            // since some compound types have elements of different type.
+            // CAUTION! The pointer type is needed here, since
+            // the result is a pointer to which the offset is added.
+            calculate_pointer_add((void*) &e, (void*) DATETIME_COMPOUND_TYPE_SIZE);
+            calculate_pointer_add((void*) &e, (void*) DATETIME_COMPOUND_TYPE_SIZE);
+
+            // Copy element to destination.
+            copy_datetime(e, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not set duration element. The given source index is not known.");
     }
 }
 
-/* FRACTION_GETTER_SOURCE */
+/* DURATION_SETTER_SOURCE */
 #endif

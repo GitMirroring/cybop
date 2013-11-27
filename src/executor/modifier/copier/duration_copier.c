@@ -28,11 +28,10 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/duration_state_cyboi_name.c"
 #include "../../../executor/accessor/getter/duration_getter.c"
-#include "../../../executor/modifier/copier/datetime_copier.c"
+#include "../../../executor/accessor/setter/duration_setter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -45,28 +44,32 @@ void copy_duration(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy duration.");
 
-    // The destination value, start, end.
-    void* dv = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source value, start, end.
-    void* sv = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ss = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* v = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get destination value, start, end.
-    get_duration_element((void*) &dv, (void*) p0, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
-    get_duration_element((void*) &ds, (void*) p0, (void*) START_DURATION_STATE_CYBOI_NAME);
-    get_duration_element((void*) &de, (void*) p0, (void*) END_DURATION_STATE_CYBOI_NAME);
+    // Allocate source value, start, end.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &v, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    allocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    allocate_array((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+
     // Get source value, start, end.
-    get_duration_element((void*) &sv, (void*) p1, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
-    get_duration_element((void*) &ss, (void*) p1, (void*) START_DURATION_STATE_CYBOI_NAME);
-    get_duration_element((void*) &se, (void*) p1, (void*) END_DURATION_STATE_CYBOI_NAME);
+    get_duration_element(v, p1, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
+    get_duration_element(s, p1, (void*) START_DURATION_STATE_CYBOI_NAME);
+    get_duration_element(e, p1, (void*) END_DURATION_STATE_CYBOI_NAME);
 
-    // Copy source- to destination values.
-    copy_datetime(dv, sv);
-    copy_datetime(ds, ss);
-    copy_datetime(de, se);
+    // Copy source value, start, end to destination.
+    set_duration_element(p0, v, (void*) VALUE_DURATION_STATE_CYBOI_NAME);
+    set_duration_element(p0, s, (void*) START_DURATION_STATE_CYBOI_NAME);
+    set_duration_element(p0, e, (void*) END_DURATION_STATE_CYBOI_NAME);
+
+    // Deallocate source value, start, end.
+    deallocate_array((void*) &v, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
 /* DURATION_COPIER_SOURCE */

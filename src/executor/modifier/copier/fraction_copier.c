@@ -28,11 +28,10 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/fraction_state_cyboi_name.c"
 #include "../../../executor/accessor/getter/fraction_getter.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/accessor/setter/fraction_setter.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -45,23 +44,17 @@ void copy_fraction(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy fraction.");
 
-    // The destination numerator, denominator.
-    void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source numerator, denominator.
-    void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int sd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get destination numerator, denominator.
-    get_fraction_element((void*) &dn, (void*) p0, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    get_fraction_element((void*) &dd, (void*) p0, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
     // Get source numerator, denominator.
-    get_fraction_element((void*) &sn, (void*) p1, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    get_fraction_element((void*) &sd, (void*) p1, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &sn, p1, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &sd, p1, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
-    // Copy source- to destination values.
-    copy_integer(dn, sn);
-    copy_integer(dd, sd);
+    // Copy source numerator, denominator to destination.
+    set_fraction_element(p0, (void*) &sn, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    set_fraction_element(p0, (void*) &sd, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 }
 
 /* FRACTION_COPIER_SOURCE */

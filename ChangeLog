@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-11-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add compound setters for complex/datetime/duration/fraction
+        * Redesign compound getters and copiers for complex/datetime/duration/fraction
+
 2013-11-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up compound accessor- and copier files for complex/datetime/duration/fraction
