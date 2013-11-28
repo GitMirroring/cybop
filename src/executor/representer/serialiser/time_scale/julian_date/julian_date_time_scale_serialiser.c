@@ -42,28 +42,32 @@
 /**
  * Serialises the source datetime into the destination julian date (jd) double.
  *
- * @param p0 the destination data
- * @param p1 the source data
+ * @param p0 the destination double
+ * @param p1 the source datetime
  */
 void serialise_time_scale_julian_date(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise time scale julian date.");
 
     // The source julian day, julian second.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The source julian day as double.
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Get source julian day, julian second.
-    get_datetime_element((void*) &d, (void*) &p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    get_datetime_element((void*) &s, (void*) &p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &d, p1, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &s, p1, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    //
+    // Julian date.
+    //
 
     // Cast julian day into a double number.
-    cast_double_integer((void*) &dd, d);
+    cast_double_integer((void*) &dd, (void*) &d);
 
     // Initialise destination julian date.
-    copy_double(p0, s);
+    copy_double(p0, (void*) &s);
     // Denormalise fractional part
     // from duration of day in solar seconds.
     calculate_double_divide(p0, (void*) DAY_SOLAR_DURATION_TIME_SCALE_MODEL);

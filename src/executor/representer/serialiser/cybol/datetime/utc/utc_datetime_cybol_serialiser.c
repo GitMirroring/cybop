@@ -52,7 +52,16 @@ void serialise_cybol_datetime_utc(void* p0, void* p1, void* p2) {
     int min = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
+    // Serialise datetime.
     serialise_time_scale_gregorian_calendar((void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s, p1);
+
+    //?? TODO: Replace the following using ISO format!
+    //?? The following lines are just for testing.
+
+    // Serialise year/month/day/hour/minute/second.
+    serialise_cybol_integer_value(p0, (void*) &d, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_cybol_integer_value(p0, (void*) &m, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_cybol_integer_value(p0, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* UTC_DATETIME_CYBOL_SERIALISER_SOURCE */

@@ -54,6 +54,7 @@
 // This media type is a CYBOL extension.
 //
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
  * The datetime/ddmmyyyy state cybol type.
  *
@@ -137,6 +138,7 @@ static wchar_t MJD_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'e'
 static wchar_t* MJD_DATETIME_STATE_CYBOL_FORMAT = MJD_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
 static int* MJD_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
  * The datetime/mmyy state cybol type.
  *
@@ -172,6 +174,7 @@ static wchar_t POSIX_DATETIME_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'a', L't', L'
 static wchar_t* POSIX_DATETIME_STATE_CYBOL_FORMAT = POSIX_DATETIME_STATE_CYBOL_FORMAT_ARRAY;
 static int* POSIX_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
  * The datetime/qyyyy state cybol type.
  *

@@ -42,9 +42,9 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the jd/mjd/tjd wide character data into a datetime model.
+ * Deserialises the source jd/mjd/tjd wide character data into the destination datetime item.
  *
- * @param p0 the destination model item
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the jd/mjd/tjd correction
@@ -54,29 +54,27 @@ void deserialise_cybol_datetime_jd_basic(void* p0, void* p1, void* p2, void* p3)
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol datetime jd basic.");
 
     // The temporary datetime.
-    // CAUTION! This value is TEMPORARY.
-    // It is needed for assigning the julian day and julian second.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source julian date.
     double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Allocate temporary datetime.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 
     // Deserialise source julian date.
     deserialise_cybol_decimal_fraction_value_primitive((void*) &s, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Add jd/mjd/tjd correction.
     calculate_double_add((void*) &s, p3);
     // Deserialise julian date.
-    deserialise_time_scale_julian_date(d, (void*) &s);
+    deserialise_time_scale_julian_date(t, (void*) &s);
 
-    // Append temporary datetime data to destination.
-    append_item_element(p0, d, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Append temporary datetime to destination.
+    append_item_element(p0, t, (void*) DATETIME_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate temporary datetime.
-    deallocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
 /* BASIC_JD_DATETIME_CYBOL_DESERIALISER_SOURCE */

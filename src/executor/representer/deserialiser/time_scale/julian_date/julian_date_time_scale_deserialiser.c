@@ -32,33 +32,36 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
 #include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../../../executor/accessor/getter/datetime_getter.c"
+#include "../../../../../executor/accessor/setter/datetime_setter.c"
 #include "../../../../../executor/calculator/basic/double/floor_double_calculator.c"
 #include "../../../../../executor/calculator/basic/double/multiply_double_calculator.c"
 #include "../../../../../executor/calculator/basic/double/subtract_double_calculator.c"
 #include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
+#include "../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/copier/double_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the julian date (jd) double into a datetime.
+ * Deserialises the source julian date (jd) double into the destination datetime.
  *
- * @param p0 the destination data
- * @param p1 the source data
+ * @param p0 the destination datetime
+ * @param p1 the source double
  */
 void deserialise_time_scale_julian_date(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale julian date.");
 
     // The destination julian day, julian second.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The destination julian day as double.
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    // Get destination julian day, julian second.
-    get_datetime_element((void*) &d, (void*) &p0, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    get_datetime_element((void*) &s, (void*) &p0, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    //
+    // Julian day.
+    //
 
     // Extract integer part of source julian date data,
     // by rounding downwards to the nearest integer.
@@ -69,16 +72,24 @@ void deserialise_time_scale_julian_date(void* p0, void* p1) {
     calculate_double_floor((void*) &dd, p1);
 
     // Cast julian day into an integer number.
-    cast_integer_double(d, (void*) &dd);
+    cast_integer_double((void*) &d, (void*) &dd);
+
+    //
+    // Julian second.
+    //
 
     // Initialise julian second with source julian date.
-    copy_double(s, p1);
+    copy_double((void*) &s, p1);
     // Extract fractional part of source, by
     // subtracting the julian day integer part.
-    calculate_double_subtract(s, (void*) &dd);
+    calculate_double_subtract((void*) &s, (void*) &dd);
     // Normalise fractional part of source
     // to duration of day in solar seconds.
-    calculate_double_multiply(s, (void*) DAY_SOLAR_DURATION_TIME_SCALE_MODEL);
+    calculate_double_multiply((void*) &s, (void*) DAY_SOLAR_DURATION_TIME_SCALE_MODEL);
+
+    // Set destination julian day, julian second.
+    set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 }
 
 /* JULIAN_DATE_TIME_SCALE_DESERIALISER_SOURCE */

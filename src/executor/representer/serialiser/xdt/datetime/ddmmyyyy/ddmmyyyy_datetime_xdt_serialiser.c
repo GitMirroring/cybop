@@ -37,7 +37,7 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into ddmmyyyy date wide character data.
+ * Serialises the source datetime into the destination ddmmyyyy wide character data.
  *
  * @param p0 the destination item
  * @param p1 the source datetime
@@ -46,11 +46,6 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt datetime ddmmyyyy.");
 
-    // The serialised year/month/day/hour/minute/second item.
-    void* yi = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serialised year/month/day/hour/minute/second item data, count.
-    void* yd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* yc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The year/month/day/hour/minute/second.
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -62,26 +57,10 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1) {
     // Serialise datetime.
     serialise_time_scale_gregorian_calendar((void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s, p1);
 
-    // Allocate serialised year/month/day/hour/minute/second year item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &yi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
     // Serialise year/month/day/hour/minute/second.
-    serialise_cybol_integer_value(yi, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-
-    // Get serialised year/month/day/hour/minute/second item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &yd, yi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &yc, yi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // Append date elements.
-    append_item_element(p0, (void*) &yd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, yc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-    // Deallocate serialised year/month/day/hour/minute/second item.
-    deallocate_item((void*) &yi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    serialise_cybol_integer_value(p0, (void*) &d, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_cybol_integer_value(p0, (void*) &m, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_cybol_integer_value(p0, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 }
 
 /* DDMMYYYY_DATETIME_XDT_SERIALISER_SOURCE */

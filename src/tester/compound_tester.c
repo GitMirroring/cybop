@@ -31,8 +31,13 @@
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/accessor/getter/complex_getter.c"
 #include "../executor/accessor/getter/datetime_getter.c"
+#include "../executor/accessor/getter/duration_getter.c"
 #include "../executor/accessor/getter/fraction_getter.c"
+#include "../executor/accessor/setter/complex_setter.c"
+#include "../executor/accessor/setter/datetime_setter.c"
+#include "../executor/accessor/setter/duration_setter.c"
 #include "../executor/accessor/setter/fraction_setter.c"
 #include "../executor/modifier/copier/integer_copier.c"
 #include "../logger/logger.c"
@@ -42,7 +47,7 @@
  */
 void test_compound_complex() {
 
-    fwprintf(stdout, L"Test compound complex.");
+    fwprintf(stdout, L"Test compound complex.\n");
 }
 
 /**
@@ -50,22 +55,86 @@ void test_compound_complex() {
  */
 void test_compound_datetime() {
 
-    fwprintf(stdout, L"Test compound datetime.");
+    fwprintf(stdout, L"Test compound datetime.\n");
 
-    // The datetime.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ds = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    // The destination datetime.
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source datetime.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The destination julian day, julian second.
+    int dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double ds = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The source julian day, julian second.
+    int sd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double ss = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    // Allocate datetime.
+    // Allocate source datetime.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &dd, (void*) &ds, (void*) DATETIME_STATE_CYBOI_TYPE);
+    allocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    allocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 
-    fwprintf(stdout, L"TEST dd: %i\n", dd);
+    // The example julian day, julian second.
+    // ---------------------------------------------------------
+    // Gregorian Calendar                       | Julian Date
+    // ---------------------------------------------------------
+    // Tuesday, 5th November 2013, 23:28:30 UT  | 2456602.47813
+    // ---------------------------------------------------------
+    int ed = 2456602;
+    double es = 47813;
 
-    // Deallocate datetime.
-    deallocate_array((void*) &dd, (void*) &dc, (void*) &ds, (void*) DATETIME_STATE_CYBOI_TYPE);
+    // Initialise source julian day, julian second.
+    set_datetime_element((void*) s, (void*) &ed, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    set_datetime_element((void*) s, (void*) &es, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    //
+    // Check pre values.
+    //
+
+    // Get destination julian day, julian second.
+    get_datetime_element((void*) &dd, (void*) d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ds, (void*) d, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    // Get source julian day, julian second.
+    get_datetime_element((void*) &sd, (void*) s, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ss, (void*) s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    fwprintf(stdout, L"TEST pre dd: %i\n", dd);
+    fwprintf(stdout, L"TEST pre ds: %f\n", ds);
+    fwprintf(stdout, L"TEST pre sd: %i\n", sd);
+    fwprintf(stdout, L"TEST pre ss: %f\n", ss);
+
+    //
+    // Copy source to destination.
+    //
+
+    copy_datetime(d, s);
+
+    //
+    // Check post values.
+    //
+
+    // Reset destination julian day, julian second.
+    dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    ds = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // Reset source julian day, julian second.
+    sd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    ss = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    // Get destination julian day, julian second.
+    get_datetime_element((void*) &dd, (void*) d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ds, (void*) d, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    // Get source julian day, julian second.
+    get_datetime_element((void*) &sd, (void*) s, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    get_datetime_element((void*) &ss, (void*) s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+
+    fwprintf(stdout, L"TEST post dd: %i\n", dd);
+    fwprintf(stdout, L"TEST post ds: %f\n", ds);
+    fwprintf(stdout, L"TEST post sd: %i\n", sd);
+    fwprintf(stdout, L"TEST post ss: %f\n", ss);
+
+    // Deallocate source datetime.
+    deallocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -73,7 +142,7 @@ void test_compound_datetime() {
  */
 void test_compound_duration() {
 
-    fwprintf(stdout, L"Test compound duration.");
+    fwprintf(stdout, L"Test compound duration.\n");
 }
 
 /**
@@ -81,16 +150,12 @@ void test_compound_duration() {
  */
 void test_compound_fraction() {
 
-    fwprintf(stdout, L"Test compound fraction.");
+    fwprintf(stdout, L"Test compound fraction.\n");
 
     // The destination fraction.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ds = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The source fraction.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int ss = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The destination numerator, denominator.
     int dn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -101,8 +166,8 @@ void test_compound_fraction() {
     // Allocate source fraction.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &d, (void*) &ds, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
-    allocate_array((void*) &s, (void*) &ss, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
     // Initialise source numerator, denominator.
     set_fraction_element((void*) s, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
@@ -154,8 +219,8 @@ void test_compound_fraction() {
     fwprintf(stdout, L"TEST post sd: %i\n", sd);
 
     // Deallocate source fraction.
-    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &s, (void*) &sc, (void*) &ss, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -169,9 +234,9 @@ void test_compound() {
     // in order for them to be executed.
 
 //    test_compound_complex();
-//    test_compound_datetime();
+    test_compound_datetime();
 //    test_compound_duration();
-    test_compound_fraction();
+//    test_compound_fraction();
 }
 
 /* COMPOUND_TESTER */

@@ -125,6 +125,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     // datetime
     //
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT);
@@ -175,6 +176,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) MMYY_DATETIME_STATE_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MMYY_DATETIME_STATE_CYBOL_FORMAT_COUNT);
@@ -195,6 +197,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) QYYYY_DATETIME_STATE_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) QYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT);
@@ -249,6 +252,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     // duration
     //
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT);
@@ -259,6 +263,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) HHMMHHMM_DURATION_STATE_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT);
@@ -309,6 +314,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) YYYY_DURATION_STATE_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) YYYY_DURATION_STATE_CYBOL_FORMAT_COUNT);

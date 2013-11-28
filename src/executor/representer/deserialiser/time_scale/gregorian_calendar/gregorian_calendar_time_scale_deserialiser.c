@@ -37,7 +37,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the gregorian calendar date into a datetime.
+ * Deserialises the source gregorian calendar date into the destination datetime.
  *
  * @param p0 the destination datetime
  * @param p1 the source year integer
@@ -52,17 +52,17 @@ void deserialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, voi
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale gregorian calendar.");
 
     // The destination julian day, julian second.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get destination julian day, julian second.
-    get_datetime_element((void*) &d, (void*) &p0, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
-    get_datetime_element((void*) &s, (void*) &p0, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Deserialise source gregorian calendar date into datetime.
-    deserialise_time_scale_gregorian_calendar_julian_day(d, p1, p2, p3);
-    deserialise_time_scale_gregorian_calendar_julian_second(s, p4, p5, p6);
-    deserialise_time_scale_gregorian_calendar_normalise(d, s);
+    deserialise_time_scale_gregorian_calendar_julian_day((void*) &d, p1, p2, p3);
+    deserialise_time_scale_gregorian_calendar_julian_second((void*) &s, p4, p5, p6);
+    deserialise_time_scale_gregorian_calendar_normalise((void*) &d, (void*) &s);
+
+    // Set destination julian day, julian second.
+    set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
+    set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);
 }
 
 /* GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */

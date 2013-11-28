@@ -58,6 +58,7 @@ static int* TERMINAL_COLOUR_STATE_CYBOI_FORMAT = NUMBER_52_INTEGER_STATE_CYBOI_M
 // datetime
 //
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The ddmmyyyy datetime state cyboi format. */
 static int* DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -73,12 +74,14 @@ static int* JULIAN_DATETIME_STATE_CYBOI_FORMAT = NUMBER_103_INTEGER_STATE_CYBOI_
 /** The mjd datetime state cyboi format. */
 static int* MJD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_104_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The mmyy datetime state cyboi format. */
 static int* MMYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_105_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The posix datetime state cyboi format. */
 static int* POSIX_DATETIME_STATE_CYBOI_FORMAT = NUMBER_106_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The qyyyy datetime state cyboi format. */
 static int* QYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_107_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -98,9 +101,11 @@ static int* UTC_DATETIME_STATE_CYBOI_FORMAT = NUMBER_111_INTEGER_STATE_CYBOI_MOD
 // duration
 //
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The ddmmyyyyddmmyyyy duration state cyboi format. */
 static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT = NUMBER_150_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The hhmmhhmm duration state cyboi format. */
 static int* HHMMHHMM_DURATION_STATE_CYBOI_FORMAT = NUMBER_151_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -116,6 +121,7 @@ static int* JULIAN_DURATION_STATE_CYBOI_FORMAT = NUMBER_154_INTEGER_STATE_CYBOI_
 /** The si duration state cyboi format. */
 static int* SI_DURATION_STATE_CYBOI_FORMAT = NUMBER_155_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The yyyy duration state cyboi format. */
 static int* YYYY_DURATION_STATE_CYBOI_FORMAT = NUMBER_156_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

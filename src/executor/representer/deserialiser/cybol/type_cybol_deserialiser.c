@@ -83,6 +83,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
     // datetime
     //
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
@@ -133,6 +134,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) MMYY_DATETIME_STATE_CYBOI_FORMAT);
@@ -153,6 +155,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) QYYYY_DATETIME_STATE_CYBOI_FORMAT);
@@ -207,6 +210,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
     // duration
     //
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT);
@@ -217,6 +221,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) HHMMHHMM_DURATION_STATE_CYBOI_FORMAT);
@@ -267,6 +272,7 @@ void deserialise_cybol_type(void* p0, void* p1) {
         }
     }
 
+    //?? TODO: Possibly delete this block later, since it is an xdt constant.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) YYYY_DURATION_STATE_CYBOI_FORMAT);

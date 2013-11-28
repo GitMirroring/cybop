@@ -37,6 +37,7 @@
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/part_html_serialiser.c"
@@ -85,6 +86,23 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     // datetime
     //
 
+    //??
+    //?? TODO: TEST only. Delete the DDMMYYYY block below later.
+    //??
+// Forward declaration.
+// void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
+#include "../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_xdt_datetime_ddmmyyyy(p0, p1);
+        }
+    }
+    //?? TODO: END OF DELETION
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) UTC_DATETIME_STATE_CYBOI_FORMAT);
@@ -92,6 +110,20 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_cybol_datetime_utc(p0, p1, p2);
+        }
+    }
+
+    //
+    // duration
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) ISO_DURATION_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_duration_iso(p0, p1, p2);
         }
     }
 

@@ -11,14 +11,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Debug "Bus error"
-        * Debug memory access error in file "array_remover.c" line 255 (p4 is null) and file "array_deallocator.c"
-            where calling "empty_array" fails for datetime type, which calls file "array_remover.c"
-        * Continue with ddmmyyyy_datetime_xdt_serialiser.c and other files in "serialiser/xdt/datetime/"
+        * FOR TESTING: Adapt model diagram serialiser (worked fine) and html serialiser (did not work)
+        * Continue datetime xdt serialisers
+        * Fill one-digit to two-digit numbers in datetime xdt serialisers
         * Implement "utc" datetime de-/serialiser
-        * See "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+        * Correct datetime conversion, whose serialised date differs from the deserialised by one day
+            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+        * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model
 
-        * Delete all if-else clauses with "text/plain" format, in order to increase efficiency
+        * Delete all if-else clauses with "text/plain" format, in order to increase xdt deserialiser efficiency
         * Complete file "field_description_xdt_model.c" using xDT standard documents and
             http://www.gnumed.de/~ncq/gnumed/api/Gnumed.business.gmXdtMappings-pysrc.html
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it

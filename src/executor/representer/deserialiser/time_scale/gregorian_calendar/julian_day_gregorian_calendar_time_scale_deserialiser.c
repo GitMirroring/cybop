@@ -63,6 +63,7 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
     int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double cd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The comparison result.
@@ -96,8 +97,8 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
     }
 
     // Initialise destination julian day.
-    cast_double_integer(p0, p1);
-    calculate_double_multiply(p0, (void*) YEAR_JULIAN_DURATION_TIME_SCALE_MODEL);
+    cast_double_integer((void*) &cd, p1);
+    calculate_double_multiply((void*) &cd, (void*) YEAR_JULIAN_DURATION_TIME_SCALE_MODEL);
 
     // Reset comparison result.
     copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -106,10 +107,10 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        calculate_double_subtract(p0, (void*) &X_CONSTANT);
+        calculate_double_subtract((void*) &cd, (void*) &X_CONSTANT);
     }
 
-    cast_integer_double((void*) &c, p0);
+    cast_integer_double((void*) &c, (void*) &cd);
 
     copy_integer((void*) &d, p2);
     calculate_integer_add((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);

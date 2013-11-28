@@ -36,9 +36,9 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime into a destination jd/mjd/tjd wide character.
+ * Serialises the source datetime into destination jd/mjd/tjd wide character data.
  *
- * @param p0 the destination model item
+ * @param p0 the destination item
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the jd/mjd/tjd correction

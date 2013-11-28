@@ -1,15 +1,18 @@
 <model>
 
+<!--
     <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06041971"/>
+-->
+    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="01041971"/>
 
     <part name="gregorian" channel="inline" format="datetime/gregorian" model="1971-04-06"/>
 
-    <!-- 1st January 2008 14 h MEZ corresponds to JD 2 454 467.04167 -->
+    <!-- 1st January 2008 14 h CET corresponds to JD 2 454 467.04167 -->
     <part name="jd" channel="inline" format="datetime/jd" model="2454467.04167"/>
 
     <part name="julian" channel="inline" format="datetime/julian" model=""/>
 
-    <!-- 1st January 2008 14 h MEZ corresponds to MJD 54 466.54167 -->
+    <!-- 1st January 2008 14 h CET corresponds to MJD 54 466.54167 -->
     <part name="mjd" channel="inline" format="datetime/mjd" model="54466.54167"/>
 
     <!--

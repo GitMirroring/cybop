@@ -129,6 +129,21 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // datetime
     //
 
+    //??
+    //?? TODO: TEST only. Delete the DDMMYYYY block below later.
+    //??
+// Forward declaration.
+void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_xdt_datetime_ddmmyyyy(p0, p2, p3);
+        }
+    }
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) GREGORIAN_DATETIME_STATE_CYBOI_FORMAT);

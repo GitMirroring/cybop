@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-11-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt datetime de-/serialisers to new datetime accessor functions
+        * Fix bug that datetime de-/serialisers did sometimes use "array" directly and other times "item"
+
 2013-11-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add compound setters for complex/datetime/duration/fraction

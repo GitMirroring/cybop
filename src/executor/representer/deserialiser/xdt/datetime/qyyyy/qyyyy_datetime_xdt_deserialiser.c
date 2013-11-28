@@ -35,7 +35,7 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the qyyyy date wide character data into a datetime model.
+ * Deserialises the qyyyy date wide character data into a datetime.
  *
  * @param p0 the destination model item
  * @param p1 the source data

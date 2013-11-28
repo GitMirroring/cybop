@@ -54,6 +54,7 @@
 // This media type is a CYBOL extension.
 //
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
  * The duration/ddmmyyyyddmmyyyy state cybol type.
  *
@@ -70,6 +71,7 @@ static wchar_t DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u
 static wchar_t* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT = DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
  * The duration/hhmmhhmm state cybol type.
  *
@@ -163,6 +165,7 @@ static wchar_t SI_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a',
 static wchar_t* SI_DURATION_STATE_CYBOL_FORMAT = SI_DURATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* SI_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
  * The duration/yyyy state cybol type.
  *
