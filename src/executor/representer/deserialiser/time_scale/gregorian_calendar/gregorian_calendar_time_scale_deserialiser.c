@@ -60,6 +60,8 @@ void deserialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, voi
     deserialise_time_scale_gregorian_calendar_julian_second((void*) &s, p4, p5, p6);
     deserialise_time_scale_gregorian_calendar_normalise((void*) &d, (void*) &s);
 
+fwprintf(stdout, L"TEST deserialise time scale gregorian calendar d: %i\n", d);
+
     // Set destination julian day, julian second.
     set_datetime_element(p0, (void*) &d, (void*) JULIAN_DAY_DATETIME_STATE_CYBOI_NAME);
     set_datetime_element(p0, (void*) &s, (void*) JULIAN_SECOND_DATETIME_STATE_CYBOI_NAME);

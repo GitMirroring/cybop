@@ -280,6 +280,8 @@ offset of UTC at the instant of switching from UTC to TI.
 Conversion:
 
 http://www.astro-toolbox.com/
+    classes: AstroToolbox/mie/Aconst.java, AstroToolbox/mie/JulianTime.java <--(inherits from)-- AstroToolbox/TimeScale.java
+    especially deserialisation functions: AstroToolbox/mie/JulianTime.java::julianDay() and AstroToolbox/mie/JulianTime.java::setDmyHms()
 Julian Day --> any other: http://www.fourmilab.ch/documents/calendar/
 TAI --> TT: http://cr.yp.to/libtai/tai64.html
 Gregorian --> Julian Calendar: http://www.scribd.com/doc/28678552/Astronomische-Berechnungen

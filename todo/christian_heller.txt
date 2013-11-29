@@ -11,9 +11,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement "utc" datetime de-/serialiser
-        * Correct datetime conversion, whose serialised date differs from the deserialised by ONE DAY
+        * Debug datetime conversion, whose serialised date differs from the deserialised by ONE DAY;
+            see file "gregorian_calendar_time_scale_deserialiser.c";
+            the error is definitely in file "julian_day_gregorian_calendar_time_scale_deserialiser.c",
+            since the function call of "deserialise_time_scale_gregorian_calendar_normalise" did not change the result anymore;
+            the JulianTime.java::julianDay was precisely and correctly reimplemented in CYBOI (already checked again);
+            so where is the error? (serialisation seems to work fine);
+            --> very likely in calculation of variables a, c and b --> check formula with:
+                http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
+                http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
             see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+        * Implement "utc" datetime de-/serialiser
         * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model OR leave them in cybol, so that model diagram and html etc. work fine?
 
         * Delete all if-else clauses with "text/plain" format, in order to increase xdt deserialiser efficiency
