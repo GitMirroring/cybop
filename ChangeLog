@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-11-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete ddmmyyyy/mmyyyy/qyyyy datetime xdt serialisers
+        * Fill day/month/year with "zero" wide character, if having too few digits, in datetime xdt serialisers
+
 2013-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt datetime de-/serialisers to new datetime accessor functions

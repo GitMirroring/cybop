@@ -1,9 +1,6 @@
 <model>
 
-<!--
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06041971"/>
--->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="01041971"/>
+    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="01040071"/>
 
     <part name="gregorian" channel="inline" format="datetime/gregorian" model="1971-04-06"/>
 

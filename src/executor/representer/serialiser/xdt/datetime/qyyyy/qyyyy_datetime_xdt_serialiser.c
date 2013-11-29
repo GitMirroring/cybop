@@ -26,16 +26,28 @@
 #ifndef QYYYY_DATETIME_XDT_SERIALISER_SOURCE
 #define QYYYY_DATETIME_XDT_SERIALISER_SOURCE
 
+#include "../../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../../executor/representer/serialiser/cybol/integer/value_integer_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/time_scale/gregorian_calendar/gregorian_calendar_time_scale_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/quarter_qyyyy_datetime_xdt_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the datetime model into a qyyyy date.
+ * Serialises the source datetime into the destination qyyyy wide character data.
  *
  * @param p0 the destination model item
  * @param p1 the source data
@@ -44,6 +56,97 @@
 void serialise_xdt_datetime_qyyyy(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xdt datetime qyyyy.");
+
+    // The year/month/day/hour/minute/second.
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int m = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int min = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double s = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The quarter.
+    int q = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The year wide character item.
+    void* yi = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The year wide character item data/count.
+    void* yd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* yc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The year comparison result.
+    int yr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Allocate year wide character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &yi, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Serialise datetime.
+    serialise_time_scale_gregorian_calendar((void*) &y, (void*) &m, (void*) &d, (void*) &h, (void*) &min, (void*) &s, p1);
+
+    // Determine quarter, depending on month.
+    serialise_xdt_datetime_qyyyy_quarter((void*) &q, (void*) &m);
+
+    // Serialise year.
+    serialise_cybol_integer_value(yi, (void*) &y, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+
+    // Get serialised item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &yd, yi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &yc, yi, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    //
+    // Compose destination wide character data.
+    //
+    // CAUTION! If a year has too few digits,
+    // then it gets filled up with prepended zeros.
+    //
+    // CAUTION! Mind the order: qyyyy
+    //
+
+    // The quarter.
+    serialise_cybol_integer_value(p0, (void*) &q, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+
+    // The year.
+    if (yr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &yr, yc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+
+        if (yr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (yr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &yr, yc, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
+
+        if (yr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(p0, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (yr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &yr, yc, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+
+        if (yr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) DIGIT_ZERO_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+    }
+
+    append_item_element(p0, yd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, yc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    // Deallocate year wide character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    deallocate_item((void*) &yi, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* QYYYY_DATETIME_XDT_SERIALISER_SOURCE */

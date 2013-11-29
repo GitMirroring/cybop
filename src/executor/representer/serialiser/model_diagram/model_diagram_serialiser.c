@@ -93,13 +93,11 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // datetime
     //
 
-/*??
     //??
     //?? TODO: TEST only. Delete the DDMMYYYY block below later.
     //??
 // Forward declaration.
-// void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
-#include "../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
+void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p6, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);
@@ -110,7 +108,6 @@ void serialise_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
     //?? TODO: END OF DELETION
-*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

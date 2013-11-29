@@ -90,8 +90,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     //?? TODO: TEST only. Delete the DDMMYYYY block below later.
     //??
 // Forward declaration.
-// void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
-#include "../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
+void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p5, (void*) DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT);

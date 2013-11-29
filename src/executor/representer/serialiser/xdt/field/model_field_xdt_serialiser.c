@@ -75,7 +75,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_xdt_datetime_ddmmyyyy(p0, p1, p2);
+            serialise_xdt_datetime_ddmmyyyy(p0, p1);
         }
     }
 
@@ -153,7 +153,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_integer(p0, p1, p2);
+            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
