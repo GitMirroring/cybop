@@ -1,0 +1,80 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.15.0 2013-09-22
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef RUNNING_DAY_TIME_SCALE_DESERIALISER_SOURCE
+#define RUNNING_DAY_TIME_SCALE_DESERIALISER_SOURCE
+
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/correction/month_correction_time_scale_deserialiser.c"
+#include "../../../../../logger/logger.c"
+
+/**
+ * Deserialises the source calendar month and day into the destination running day.
+ *
+ * CAUTION! This calculation MAY be used for both, the Julian AND Gregorian calendar.
+ *
+ * http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender#Berechnung_des_laufenden_Tages
+ *
+ * @param p0 the destination running day integer
+ * @param p1 the source month integer
+ * @param p2 the source day integer
+ */
+void deserialise_time_scale_running_day(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale running day.");
+
+    // The leap year correction.
+    int lc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The month correction.
+    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The running day.
+    int rd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Calculate leap year correction.
+    deserialise_time_scale_correction_leap_year((void*) &lc, p1);
+    // Calculate month correction.
+    deserialise_time_scale_correction_month((void*) &mc, p1);
+
+    // Calculate running day.
+    copy_integer((void*) &rd, p1);
+    calculate_integer_subtract((void*) &rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_multiply((void*) &rd, (void*) NUMBER_30_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_add((void*) &rd, (void*) &lc);
+    calculate_integer_add((void*) &rd, (void*) &mc);
+    calculate_integer_add((void*) &rd, p2);
+
+    // Copy running day to destination.
+    copy_integer(p0, (void*) &rd);
+}
+
+/* RUNNING_DAY_TIME_SCALE_DESERIALISER_SOURCE */
+#endif

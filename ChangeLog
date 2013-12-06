@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-12-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement time scale de-/serialiser for running day from/to month/day
+
 2013-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete ddmmyyyy/mmyyyy/qyyyy datetime xdt serialisers
@@ -44,11 +48,11 @@
 
 2013-11-08  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement gregorian calendar serialiser
+        * Implement time scale gregorian calendar serialiser
 
 2013-11-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement gregorian calendar deserialiser
+        * Implement time scale gregorian calendar deserialiser
 
 2013-11-01  Christian Heller  <christian.heller@tuxtax.de>
 
