@@ -54,7 +54,7 @@ void calculate_integer_modulo(void* p0, void* p1) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer modulo.");
 
-            *r = *r / *d;
+            *r = *r % *d;
 
         } else {
 

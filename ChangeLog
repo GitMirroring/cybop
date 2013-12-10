@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-12-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement weekday time scale serialiser using datetime/julian date as input
+
 2013-12-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement time scale de-/serialiser for running day from/to month/day

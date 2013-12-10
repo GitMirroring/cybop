@@ -1,0 +1,80 @@
+/*
+ * Copyright (C) 1999-2013. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.15.0 2013-09-22
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef WEEKDAY_TIME_SCALE_SERIALISER_SOURCE
+#define WEEKDAY_TIME_SCALE_SERIALISER_SOURCE
+
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../constant/model/time_scale/week_time_scale_model.c"
+#include "../../../../../executor/calculator/basic/double/add_double_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/modulo_integer_calculator.c"
+#include "../../../../../executor/caster/integer/double_integer_caster.c"
+#include "../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
+#include "../../../../../logger/logger.c"
+
+/**
+ * Serialises the source julian date into the destination weekday.
+ *
+ * CAUTION! This calculation MAY be used for both, the Julian AND Gregorian calendar.
+ *
+ * http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+ *
+ * The calculated number corresponds to the following weekdays:
+ *
+ * 0 = Sunday
+ * 1 = Monday
+ * 2 = Tuesday
+ * 3 = Wednesday
+ * 4 = Thursday
+ * 5 = Friday
+ * 6 = Saturday
+ *
+ * @param p0 the destination weekday integer
+ * @param p1 the source datetime
+ */
+void serialise_time_scale_weekday(void* p0, void* p1) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise time scale weekday.");
+
+    // The julian date.
+    double d = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+
+    // Serialise datetime into julian date.
+    serialise_time_scale_julian_date((void*) &d, p1);
+
+    // Add day correction.
+    calculate_double_add((void*) &d, (void*) DAY_CORRECTION_WEEK_TIME_SCALE_MODEL);
+
+    // Convert julian date double into weekday integer.
+    cast_integer_double(p0, (void*) &d);
+
+    // Divide by day count in order to determine modulo.
+    calculate_integer_modulo(p0, (void*) DAY_COUNT_WEEK_TIME_SCALE_MODEL);
+}
+
+/* WEEKDAY_TIME_SCALE_SERIALISER_SOURCE */
+#endif
