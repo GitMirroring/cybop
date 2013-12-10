@@ -21,6 +21,7 @@
 2013-12-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement weekday time scale serialiser using datetime/julian date as input
+        * Implement new algorithm for time scale gregorian calendar deserialiser considering leap years etc.
 
 2013-12-06  Christian Heller  <christian.heller@tuxtax.de>
 

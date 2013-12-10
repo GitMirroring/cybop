@@ -28,25 +28,22 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
-#include "../../../../../executor/calculator/basic/double/multiply_double_calculator.c"
-#include "../../../../../executor/calculator/basic/double/subtract_double_calculator.c"
+#include "../../../../../constant/model/time_scale/calendar_time_scale_model.c"
+#include "../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/divide_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/modulo_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
-#include "../../../../../executor/caster/basic/double/integer_double_caster.c"
-#include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
-#include "../../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/check_reform_julian_day_gregorian_calendar_time_scale_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/running_day/running_day_time_scale_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the source year/month/day into the destination julian day.
+ *
+ * http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
  *
  * @param p0 the destination julian day integer
  * @param p1 the source year integer
@@ -57,92 +54,91 @@ void deserialise_time_scale_gregorian_calendar_julian_day(void* p0, void* p1, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale gregorian calendar julian day.");
 
-    // The flag indicating whether or not the given date (year/month/day)
-    // lies AFTER the Gregorian calendar reform.
-    int reform = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    int a = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    double cd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    int d = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    double dd = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The constants.
-    double X_CONSTANT = 0.75;
-    double Y_CONSTANT = 30.6001;
-    int Z_CONSTANT = 1720994;
+    // The running day.
+    int rd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The running year.
+    int ry = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The full 400-year-cycles since the first year.
+    int n400 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number of full 100-year-cycles of the last 400-year-cycle.
+    int n100 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number of full 4-year-cycles of the last 100-year-cycle.
+    int n4 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number of full years in the last, incomplete 4-year-cycle.
+    int n1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The full years in the last, incomplete 400-year-cycle.
+    int r400 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The number of full years in the last, incomplete 100-year-cycle.
+    int r100 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The overall 400-year-cycles.
+    int o400 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The overall 100-year-cycles.
+    int o100 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The overall 4-year-cycles.
+    int o4 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The overall years.
+    int o1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    compare_integer_smaller((void*) &r, p2, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL);
+    // Calculate running day.
+    deserialise_time_scale_running_day((void*) &rd, p1, p2, p3);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Initialise running year.
+    copy_integer((void*) &ry, p1);
 
-        calculate_integer_subtract(p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        calculate_integer_add(p2, (void*) NUMBER_12_INTEGER_STATE_CYBOI_MODEL);
-    }
+    // Calculate running year.
+    calculate_integer_subtract((void*) &ry, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    deserialise_time_scale_gregorian_calendar_julian_day_check_reform((void*) &reform, p1, p2, p3);
+    // Initialise number of full 400-year-cycles since the first year.
+    copy_integer((void*) &n400, (void*) &ry);
+    // Initialise number of full years in the last, incomplete 400-year-cycle.
+    copy_integer((void*) &r400, (void*) &ry);
 
-    if (reform != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Calculate number of full 400-year-cycles since the first year.
+    calculate_integer_divide((void*) &n400, (void*) CYCLE_400_YEAR_CALENDAR_TIME_SCALE_MODEL);
+    // Calculate number of full years in the last, incomplete 400-year-cycle.
+    calculate_integer_modulo((void*) &r400, (void*) CYCLE_400_YEAR_CALENDAR_TIME_SCALE_MODEL);
 
-        copy_integer((void*) &a, p1);
-        calculate_integer_divide((void*) &a, (void*) NUMBER_100_INTEGER_STATE_CYBOI_MODEL);
+    // Initialise number of full 100-year-cycles of the last 400-year-cycle.
+    copy_integer((void*) &n100, (void*) &r400);
+    // Initialise number of full years in the last, incomplete 100-year-cycle.
+    copy_integer((void*) &r100, (void*) &r400);
 
-        copy_integer((void*) &c, (void*) &a);
-        calculate_integer_divide((void*) &c, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
+    // Calculate number of full 100-year-cycles of the last 400-year-cycle.
+    calculate_integer_divide((void*) &n100, (void*) CYCLE_100_YEAR_CALENDAR_TIME_SCALE_MODEL);
+    // Calculate number of full years in the last, incomplete 100-year-cycle.
+    calculate_integer_modulo((void*) &r100, (void*) CYCLE_100_YEAR_CALENDAR_TIME_SCALE_MODEL);
 
-        copy_integer((void*) &b, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
-        calculate_integer_subtract((void*) &b, (void*) &a);
-        calculate_integer_add((void*) &b, (void*) &c);
-    }
+    // Initialise number of full 4-year-cycles of the last 100-year-cycle.
+    copy_integer((void*) &n4, (void*) &r100);
+    // Initialise number of full years in the last, incomplete 4-year-cycle.
+    copy_integer((void*) &n1, (void*) &r100);
 
-    // Initialise destination julian day.
-    cast_double_integer((void*) &cd, p1);
-    calculate_double_multiply((void*) &cd, (void*) YEAR_JULIAN_DURATION_TIME_SCALE_MODEL);
+    // Calculate number of full 4-year-cycles of the last 100-year-cycle.
+    calculate_integer_divide((void*) &n4, (void*) CYCLE_4_YEAR_CALENDAR_TIME_SCALE_MODEL);
+    // Calculate number of full years in the last, incomplete 4-year-cycle.
+    calculate_integer_modulo((void*) &n1, (void*) CYCLE_4_YEAR_CALENDAR_TIME_SCALE_MODEL);
 
-    // Reset comparison result.
-    copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise full cycles.
+    copy_integer((void*) &o400, (void*) &n400);
+    copy_integer((void*) &o100, (void*) &n100);
+    copy_integer((void*) &o4, (void*) &n4);
+    copy_integer((void*) &o1, (void*) &n1);
 
-    compare_integer_smaller((void*) &r, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Calculate full cycles.
+    calculate_integer_multiply((void*) &o400, (void*) CYCLE_400_DAY_CALENDAR_TIME_SCALE_MODEL);
+    calculate_integer_multiply((void*) &o100, (void*) CYCLE_100_DAY_CALENDAR_TIME_SCALE_MODEL);
+    calculate_integer_multiply((void*) &o4, (void*) CYCLE_4_DAY_CALENDAR_TIME_SCALE_MODEL);
+    calculate_integer_multiply((void*) &o1, (void*) CYCLE_1_DAY_CALENDAR_TIME_SCALE_MODEL);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Initialise julian day.
+    copy_integer(p0, (void*) DAY_0_JULIAN_DATE_TIME_SCALE_MODEL);
 
-        calculate_double_subtract((void*) &cd, (void*) &X_CONSTANT);
-    }
-
-    cast_integer_double((void*) &c, (void*) &cd);
-
-    copy_integer((void*) &d, p2);
-    calculate_integer_add((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-    cast_double_integer((void*) &dd, (void*) &d);
-    calculate_double_multiply((void*) &dd, (void*) &Y_CONSTANT);
-    cast_integer_double((void*) &d, (void*) &dd);
-
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day a: %i\n", a);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day c: %i\n", c);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day b: %i\n", b);
-
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0: %i\n", *((int*) p0));
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p3: %i\n", *((int*) p3));
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day c: %i\n", c);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day d: %i\n", d);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day Z_CONSTANT: %i\n", Z_CONSTANT);
-
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 0: %i\n", *((int*) p0));
-    copy_integer(p0, p3);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 1: %i\n", *((int*) p0));
-    calculate_integer_add(p0, (void*) &c);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 2: %i\n", *((int*) p0));
-    calculate_integer_add(p0, (void*) &d);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 3: %i\n", *((int*) p0));
-    calculate_integer_add(p0, (void*) &Z_CONSTANT);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 4: %i\n", *((int*) p0));
-
-    if (reform != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        calculate_integer_add(p0, (void*) &b);
-fwprintf(stdout, L"TEST deserialise time scale gregorian calendar julian day *p0 5: %i\n", *((int*) p0));
-    }
+    // Calculate julian day.
+    calculate_integer_add(p0, (void*) &o400);
+    calculate_integer_add(p0, (void*) &o100);
+    calculate_integer_add(p0, (void*) &o4);
+    calculate_integer_add(p0, (void*) &o1);
+    calculate_integer_add(p0, (void*) &rd);
 }
 
 /* JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE */

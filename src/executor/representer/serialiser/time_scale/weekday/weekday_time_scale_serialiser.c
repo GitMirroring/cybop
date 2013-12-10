@@ -53,6 +53,9 @@
  * 5 = Friday
  * 6 = Saturday
  *
+ * CAUTION! It is NOT the task of cyboi to translate strings into any language.
+ * This has to be done in cybol, e.g. by special localisation libraries.
+ *
  * @param p0 the destination weekday integer
  * @param p1 the source datetime
  */

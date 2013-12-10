@@ -28,11 +28,13 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/correction/detection_leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/leap_year_correction_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/correction/month_correction_time_scale_deserialiser.c"
 #include "../../../../../logger/logger.c"
@@ -45,13 +47,16 @@
  * http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender#Berechnung_des_laufenden_Tages
  *
  * @param p0 the destination running day integer
- * @param p1 the source month integer
- * @param p2 the source day integer
+ * @param p1 the source year integer
+ * @param p2 the source month integer
+ * @param p3 the source day integer
  */
-void deserialise_time_scale_running_day(void* p0, void* p1, void* p2) {
+void deserialise_time_scale_running_day(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise time scale running day.");
 
+    // The leap year flag.
+    int lf = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The leap year correction.
     int lc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The month correction.
@@ -59,18 +64,31 @@ void deserialise_time_scale_running_day(void* p0, void* p1, void* p2) {
     // The running day.
     int rd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Calculate leap year correction.
-    deserialise_time_scale_correction_leap_year((void*) &lc, p1);
+    // Determine if year is a leap year.
+    deserialise_time_scale_correction_leap_year_detection((void*) &lf, p1);
+
+    if (lf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // CAUTION! If this block is NOT processed,
+        // i.e. if this is NOT a leap year,
+        // then the leap year correction value
+        // keeps its initial value zero from above,
+        // so that the addition below has NO effect.
+
+        // Calculate leap year correction.
+        deserialise_time_scale_correction_leap_year((void*) &lc, p2);
+    }
+
     // Calculate month correction.
-    deserialise_time_scale_correction_month((void*) &mc, p1);
+    deserialise_time_scale_correction_month((void*) &mc, p2);
 
     // Calculate running day.
-    copy_integer((void*) &rd, p1);
+    copy_integer((void*) &rd, p2);
     calculate_integer_subtract((void*) &rd, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     calculate_integer_multiply((void*) &rd, (void*) NUMBER_30_INTEGER_STATE_CYBOI_MODEL);
     calculate_integer_add((void*) &rd, (void*) &lc);
     calculate_integer_add((void*) &rd, (void*) &mc);
-    calculate_integer_add((void*) &rd, p2);
+    calculate_integer_add((void*) &rd, p3);
 
     // Copy running day to destination.
     copy_integer(p0, (void*) &rd);

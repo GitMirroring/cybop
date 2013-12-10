@@ -72,4 +72,4 @@ Help and Support
         * Josh Triplett <josh@joshtriplett.org> (various hints on event handling architecture and new function "xcb_block_until_event")
 
 External References (GNU GPL Projects)
-        * Dieter Egger <dieter.egger@bv.tum.de> (Java based project http://www.astro-toolbox.com/)
+        * Dieter Egger <dieter.egger@bv.tum.de> (calendar/date/time conversion Java project http://www.astro-toolbox.com/)
