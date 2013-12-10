@@ -1,0 +1,15 @@
+#
+# Copyright (C) 2013-2013. Florian Pachel.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author Florian Pachel <florian.pachel@gmx.de>
+#
+
+        * Complete files "field_description_xdt_model.c" and "xdt_field_description_serialiser.c", following all BDT standard documents
+        * Continue files "field_bdt_xdt_selector.c" and "end_compound_field_bdt_xdt_selector.c" and also consider German KVDT standard which extends xDT
