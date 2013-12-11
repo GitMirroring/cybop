@@ -38,6 +38,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Tobias Köhler <tk@snake-universe.tk> (debian packaging; cross-compilation using pre-processor defines and mingw; serial port communication)
         * Marcel Wesberg <marcel.wesberg@it2010.ba-leipzig.de> (calculator and comparator functions for double, pointer, fraction, complex)
         * Birgit Heller <birgit.h@arcor.de> (xdt constants and translation)
+        * Florian Pachel <florian.pachel@gmx.de> (xdt constants)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
