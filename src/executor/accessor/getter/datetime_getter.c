@@ -42,8 +42,8 @@
 /**
  * Gets the source datetime's element at the given index.
  *
- * @param p0 the destination data
- * @param p1 the source
+ * @param p0 the destination element
+ * @param p1 the source datetime
  * @param p2 the source index
  */
 void get_datetime_element(void* p0, void* p1, void* p2) {

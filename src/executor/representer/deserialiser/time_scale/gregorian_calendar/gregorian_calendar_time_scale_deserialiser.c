@@ -28,17 +28,20 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/datetime_state_cyboi_name.c"
-#include "../../../../../executor/accessor/getter/datetime_getter.c"
-#include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_deserialiser.c"
+#include "../../../../../executor/accessor/setter/datetime_setter.c"
 //?? #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/ALTERNATIVE_julian_day_gregorian_calendar_time_scale_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_day_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/julian_second_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/time_scale/gregorian_calendar/normalise_gregorian_calendar_time_scale_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the source gregorian calendar date into the destination datetime.
+ *
+ * http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
  *
  * @param p0 the destination datetime
  * @param p1 the source year integer
@@ -65,6 +68,7 @@ void deserialise_time_scale_gregorian_calendar(void* p0, void* p1, void* p2, voi
     // "ALTERNATIVE_julian_day_gregorian_calendar_time_scale_deserialiser.c"
     deserialise_time_scale_gregorian_calendar_julian_day((void*) &d, p1, p2, p3);
     deserialise_time_scale_gregorian_calendar_julian_second((void*) &s, p4, p5, p6);
+
 //?? fwprintf(stdout, L"TEST deserialise time scale gregorian calendar d: %i\n", d);
 //?? fwprintf(stdout, L"TEST deserialise time scale gregorian calendar s: %f\n", s);
     //?? TODO: Normalisation has not been tested in detail yet!

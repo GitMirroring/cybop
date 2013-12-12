@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-12-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement new algorithm for time scale gregorian calendar serialiser
+
 2013-12-11  Florian Pachel <florian.pachel@gmx.de>
 
         * Continue file "field_description_xdt_model.c", following BDT standard document

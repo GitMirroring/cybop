@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Implement new algorithm for time scale gregorian calendar serialiser
+        * Correct new algorithm for time scale gregorian calendar serialiser
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
             see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
@@ -22,6 +22,8 @@
             indem man die "vergangenen Sekunden seit 1.1.1970 00:00 (time_t)"
             durch 60*60*24 = 86400 dividiert und die Konstante 2440587,5 addiert;
             --> http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+        * Implement a "timer" based on unix system time; see java.util.Timer
+        * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
 
         * Delete all if-else clauses with "text/plain" format, in order to increase xdt deserialiser efficiency
         * Complete file "field_description_xdt_model.c" using xDT standard documents and
