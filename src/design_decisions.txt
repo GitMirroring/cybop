@@ -1,9 +1,14 @@
 #
 # Copyright (C) 1999-2013. Christian Heller.
 #
+# This file lists arguments for certain design decisions.
+# Its content may later be moved into the cyboi book
+# or a cyboi FAQ on the website.
+#
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
+# @version CYBOP 0.15.0 2013-09-22
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -36,6 +41,7 @@ It is NOT possible.
 - in the end it is the responsibility of the CYBOL developer
   to decide if he wants to work with integer or double values
 - a combination of both worlds is not possible, nor necessary
+- if needed, there is always the "cast/" operations in cybol
 
 HTML Formatting
 _______________
@@ -280,8 +286,6 @@ offset of UTC at the instant of switching from UTC to TI.
 Conversion:
 
 http://www.astro-toolbox.com/
-    classes: AstroToolbox/mie/Aconst.java, AstroToolbox/mie/JulianTime.java <--(inherits from)-- AstroToolbox/TimeScale.java
-    especially deserialisation functions: AstroToolbox/mie/JulianTime.java::julianDay() and AstroToolbox/mie/JulianTime.java::setDmyHms()
 Julian Day --> any other: http://www.fourmilab.ch/documents/calendar/
 TAI --> TT: http://cr.yp.to/libtai/tai64.html
 Gregorian --> Julian Calendar: http://www.scribd.com/doc/28678552/Astronomische-Berechnungen

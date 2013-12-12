@@ -26,30 +26,40 @@ _____________
 Project
 _______
 
+        * Apply and get accepted as official GNU project
         * Update build (automake) scripts
         * Provide Debian package
+        * Find Debian developer as official package maintainer
 
 CYBOL
 _____
 
         * Create complex tui application, e.g. a calculator
+
         * Convert shell script "clean_result_directory.sh" to cybol
-        * Write cybol application communicating with microcontroller device, usable also from Windows via serial API(Win32::SerialPort)
-        * Advance wui design for "presence" application
+        * Provide tui menu for script
+
+        * Write cybol application communicating with microcontroller device,
+        * Make it usable also from Windows via serial API(Win32::SerialPort)
+        * Test communication in microcontroller lecture
+
+        * LATER (when tcp sockets work): Advance wui design for "presence" application
 
 CYBOI
 _____
 
-        * Compile cyboi using native visual studio, since mingw troubles with some functionality (ask Tobias Köhler)
-        * Make cyboi usable on mobile devices
+        * Compile cyboi for win32 using native visual studio, since mingw troubles with some functionality (ask Tobias Köhler)
         * Make cyboi compilable for Mac OSX using pre-processor defines
-        * Make cyboi cross-compilable for various architectures, e.g. ARM processor
-        * Factor out parts of cyboi into special libraries, e.g. x-window-system,
-            in order to minimise cyboi size for usage in embedded systems and to improve portability
+        * Make cyboi cross-compilable for various architectures, e.g. ARM processor (Raspberry Pi)
+        * Make cyboi usable on mobile devices
 
-        * Add calculator functions for types: complex, duration
+        * Factor out parts of cyboi (e.g. x-window-system) into libraries, to improve portability
+        * Adapt automake script accordingly
+        * Minimise cyboi size for usage in embedded systems
+
+        * Add calculator functions for types: complex, datetime, duration
+        * Add comparator functions for types: complex, datetime, duration
         * Find solution for handling calculation of pointer difference in file "difference_pointer_calculator.c"
-        * Add comparator functions for types: complex, duration
 
         * Implement bit manipulation functions in directory "executor/manipulator/"
 
@@ -58,19 +68,22 @@ _____
             list_directory_contents_unix_shell.c and
             list_directory_contents_win32_command.c and
             move (paste) to list_directory_contents.c
-        * use local copy of paths instead of replacing original paths
-        * add "replace" container function in directory "executor/modifier"
+        * Use local copy of paths instead of replacing original paths
+        * Add "replace" container function in directory "executor/modifier/" (really necessary? "overwrite" exists)
 
         * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"
         * Add constants for file formats in directory "src/constant/language/"
         * Add constants for mime types in directory "cybop/src/constant/format/cybol/"
+        * Add constants for xdt medical data formats in directory "cybop/src/constant/model/xdt/"
 
-        * Erstellen verschiedener Layout Manager Algorithmen zur Positionierung grafischer Komponenten (Arithmetik, ähnlich Swing und Qt)
-        * Bereitstellen grafischer Standardkomponenten (Geometrie, ähnlich Swing), chosen e.g. via "component" property in cybol
-        * Erstellen eines Anmeldemaske-Dialoges als Beispiel
-        * Anbindung von OpenGL und Umsetzung einfacher CYBOL 3D Modelle
+        * Create different layout manager algorithms for positioning of graphical components (arithmetics, similar to Swing and Qt)
+        * Provide graphical standard components (geometry, similar to Swing), e.g. "button", chosen via "component" property in cybol
+        * Create login- or file open/save dialogue as example
 
-        * Implement communication via udp socket
+        * Integrate OpenGL
+        * Process simple 3D models provided as CYBOL files
+
+        * LATER (when tcp sockets work): Implement communication via udp socket
 
         * Create css serialiser (and, optionally, deserialiser)
         * Prepare ldap communication (investigate protocol structure)
@@ -86,13 +99,14 @@ Tool
 ____
 
         * Extend cybol editor, e.g. Eclipse plug-in
+        * Upload plug-in to official Eclipse website
         * Update sensitive keyword list
         * Add autocompletion for property tags
         * Offer list of file links when "channel" is "file"
         * Use complex annotations for syntax checking of erroneous structures
         * Fix smaller bugs, e.g. race conditions between annotations and syntax highlighting
+        * Enable code folding for single parts
         * Offer settings page for configuration of editor colours, tab width etc.
         * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
         * Update lexicon data by automatically reading from specification directory structure "doc/books/cybol/cybol/"
         * Implement constraint tags
-        * Enable code folding for single parts

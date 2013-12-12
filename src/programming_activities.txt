@@ -6,6 +6,7 @@ Architecture
 ____________
 
 Philosophise and think --> e.g. container framework --> one week to many months
+Investigate standards and existing solutions --> e.g. calendar/date/time/duration --> two months
 Design prototype --> one to three months
 
 New Data Format Im-/Export
