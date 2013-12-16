@@ -533,28 +533,28 @@ static wchar_t* ID_125_FIELD_DESCRIPTION_XDT_MODEL = L"Telefaxnummer des SV";
 static int* ID_125_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 126 field description xdt model. */
-static wchar_t* ID_126_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_126_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_126_FIELD_DESCRIPTION_XDT_MODEL = L"Regionaler Systembetreuer (SB)";
+static int* ID_126_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 127 field description xdt model. */
-static wchar_t* ID_127_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_127_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_127_FIELD_DESCRIPTION_XDT_MODEL = L"Straße des SB";
+static int* ID_127_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 128 field description xdt model. */
-static wchar_t* ID_128_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_128_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_128_FIELD_DESCRIPTION_XDT_MODEL = L"PLZ des SB";
+static int* ID_128_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 129 field description xdt model. */
-static wchar_t* ID_129_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_129_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_129_FIELD_DESCRIPTION_XDT_MODEL = L"Ort des SB";
+static int* ID_129_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 130 field description xdt model. */
-static wchar_t* ID_130_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_130_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_130_FIELD_DESCRIPTION_XDT_MODEL = L"Telefonnummer des SB";
+static int* ID_130_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 131 field description xdt model. */
-static wchar_t* ID_131_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_131_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_131_FIELD_DESCRIPTION_XDT_MODEL = L"Telefaxnummer des SB";
+static int* ID_131_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 132 field description xdt model. */
 static wchar_t* ID_132_FIELD_DESCRIPTION_XDT_MODEL = L"Versions- und Release-Stand der Software";
@@ -1229,28 +1229,28 @@ static wchar_t* ID_299_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_299_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 300 field description xdt model. */
-static wchar_t* ID_300_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_300_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_300_FIELD_DESCRIPTION_XDT_MODEL = L"Abrechnung von (zertifikatspflichtigen) Laborleistungen";
+static int* ID_300_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_55_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 301 field description xdt model. */
-static wchar_t* ID_301_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_301_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_301_FIELD_DESCRIPTION_XDT_MODEL = L"pnSD/uu-Analysen";
+static int* ID_301_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 302 field description xdt model. */
-static wchar_t* ID_302_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_302_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_302_FIELD_DESCRIPTION_XDT_MODEL = L"Gerätetyp";
+static int* ID_302_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 303 field description xdt model. */
-static wchar_t* ID_303_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_303_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_303_FIELD_DESCRIPTION_XDT_MODEL = L"Hersteller";
+static int* ID_303_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 304 field description xdt model. */
-static wchar_t* ID_304_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_304_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_304_FIELD_DESCRIPTION_XDT_MODEL = L"Analyt-ID";
+static int* ID_304_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 305 field description xdt model. */
-static wchar_t* ID_305_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_305_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_305_FIELD_DESCRIPTION_XDT_MODEL = L"RV-Zertifikat";
+static int* ID_305_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 306 field description xdt model. */
 static wchar_t* ID_306_FIELD_DESCRIPTION_XDT_MODEL = L"Vertrags_ID des behandelnden Arztes";
@@ -12041,20 +12041,20 @@ static wchar_t* ID_3002_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_3002_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3003 field description xdt model. */
-static wchar_t* ID_3003_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_3003_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_3003_FIELD_DESCRIPTION_XDT_MODEL = L"Schein-ID";
+static int* ID_3003_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3004 field description xdt model. */
-static wchar_t* ID_3004_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_3004_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_3004_FIELD_DESCRIPTION_XDT_MODEL = L"Kartentyp/-generation";
+static int* ID_3004_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3005 field description xdt model. */
-static wchar_t* ID_3005_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_3005_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_3005_FIELD_DESCRIPTION_XDT_MODEL = L"Kennziffer SA";
+static int* ID_3005_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3006 field description xdt model. */
-static wchar_t* ID_3006_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_3006_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_3006_FIELD_DESCRIPTION_XDT_MODEL = L"CDM7 Version";
+static int* ID_3006_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3007 field description xdt model. */
 static wchar_t* ID_3007_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -16434,8 +16434,8 @@ static wchar_t* ID_4100_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4100_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4101 field description xdt model. */
-static wchar_t* ID_4101_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4101_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4101_FIELD_DESCRIPTION_XDT_MODEL = L"Quartal";
+static int* ID_4101_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4102 field description xdt model. */
 static wchar_t* ID_4102_FIELD_DESCRIPTION_XDT_MODEL = L"Ausstellungsdatum";
@@ -16462,8 +16462,8 @@ static wchar_t* ID_4107_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4107_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4108 field description xdt model. */
-static wchar_t* ID_4108_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4108_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4108_FIELD_DESCRIPTION_XDT_MODEL = L"Zulassungsnummer (mobiles Lesegerät)";
+static int* ID_4108_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_36_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4109 field description xdt model. */
 static wchar_t* ID_4109_FIELD_DESCRIPTION_XDT_MODEL = L"Letzter Einlesetag der KVK im Quartal";
@@ -16522,20 +16522,20 @@ static wchar_t* ID_4122_FIELD_DESCRIPTION_XDT_MODEL = L"Abrechnungsgebiet";
 static int* ID_4122_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4123 field description xdt model. */
-static wchar_t* ID_4123_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4123_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4123_FIELD_DESCRIPTION_XDT_MODEL = L"Personenkreis / Untersuchungskategorie";
+static int* ID_4123_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_38_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4124 field description xdt model. */
-static wchar_t* ID_4124_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4124_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4124_FIELD_DESCRIPTION_XDT_MODEL = L"SKT-Zusatzangaben";
+static int* ID_4124_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4125 field description xdt model. */
-static wchar_t* ID_4125_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4125_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4125_FIELD_DESCRIPTION_XDT_MODEL = L"Gültigkeitszeitraum von ... bis ...";
+static int* ID_4125_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4126 field description xdt model. */
-static wchar_t* ID_4126_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4126_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4126_FIELD_DESCRIPTION_XDT_MODEL = L"SKT-Bemerkungen";
+static int* ID_4126_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4127 field description xdt model. */
 static wchar_t* ID_4127_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -16854,8 +16854,8 @@ static wchar_t* ID_4205_FIELD_DESCRIPTION_XDT_MODEL = L"Auftrag";
 static int* ID_4205_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4206 field description xdt model. */
-static wchar_t* ID_4206_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4206_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4206_FIELD_DESCRIPTION_XDT_MODEL = L"Mutm. Tag der Entbindung";
+static int* ID_4206_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4207 field description xdt model. */
 static wchar_t* ID_4207_FIELD_DESCRIPTION_XDT_MODEL = L"Diagnose / Verdachtsdiagnose";
@@ -16962,20 +16962,20 @@ static wchar_t* ID_4232_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4232_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4233 field description xdt model. */
-static wchar_t* ID_4233_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4233_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4233_FIELD_DESCRIPTION_XDT_MODEL = L"Stationäre Behandlung von ...bis ...";
+static int* ID_4233_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_36_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4234 field description xdt model. */
-static wchar_t* ID_4234_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4234_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4234_FIELD_DESCRIPTION_XDT_MODEL = L"anerkannte Psychotherapie";
+static int* ID_4234_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4235 field description xdt model. */
-static wchar_t* ID_4235_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4235_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4235_FIELD_DESCRIPTION_XDT_MODEL = L"Datum des Anerkennungsbescheides";
+static int* ID_4235_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4236 field description xdt model. */
-static wchar_t* ID_4236_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4236_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4236_FIELD_DESCRIPTION_XDT_MODEL = L"Abklärung somatischer Ursachen vor Aufnahme einer Psychotherapie";
+static int* ID_4236_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_64_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4237 field description xdt model. */
 static wchar_t* ID_4237_FIELD_DESCRIPTION_XDT_MODEL = L"Krankenhauseinweisung in Krankenhaus / Krankenhaus-Name";
@@ -17002,24 +17002,24 @@ static wchar_t* ID_4242_FIELD_DESCRIPTION_XDT_MODEL = L"LANR: Lebenslange Arztnu
 static int* ID_4242_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_58_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4243 field description xdt model. */
-static wchar_t* ID_4243_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4243_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4243_FIELD_DESCRIPTION_XDT_MODEL = L"Weiterbehandelnder Arzt";
+static int* ID_4243_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4244 field description xdt model. */
-static wchar_t* ID_4244_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4244_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4244_FIELD_DESCRIPTION_XDT_MODEL = L"Bewilligte Leistung";
+static int* ID_4244_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4245 field description xdt model. */
-static wchar_t* ID_4245_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4245_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4245_FIELD_DESCRIPTION_XDT_MODEL = L"Anzahl bewilligter Leistungen";
+static int* ID_4245_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_29_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4246 field description xdt model. */
-static wchar_t* ID_4246_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4246_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4246_FIELD_DESCRIPTION_XDT_MODEL = L"Anzahl abgerechneter Leistungen";
+static int* ID_4246_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4247 field description xdt model. */
-static wchar_t* ID_4247_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4247_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4247_FIELD_DESCRIPTION_XDT_MODEL = L"Antragsdatum Anerkennungsbescheid";
+static int* ID_4247_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4248 field description xdt model. */
 static wchar_t* ID_4248_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -17074,48 +17074,48 @@ static wchar_t* ID_4260_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4260_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4261 field description xdt model. */
-static wchar_t* ID_4261_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4261_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4261_FIELD_DESCRIPTION_XDT_MODEL = L"Kurart";
+static int* ID_4261_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4262 field description xdt model. */
-static wchar_t* ID_4262_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4262_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4262_FIELD_DESCRIPTION_XDT_MODEL = L"Durchführung als Kompaktkur";
+static int* ID_4262_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4263 field description xdt model. */
-static wchar_t* ID_4263_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4263_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4263_FIELD_DESCRIPTION_XDT_MODEL = L"genehmigte Kurdauer in Wochen";
+static int* ID_4263_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_29_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4264 field description xdt model. */
-static wchar_t* ID_4264_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4264_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4264_FIELD_DESCRIPTION_XDT_MODEL = L"Anreisetag";
+static int* ID_4264_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4265 field description xdt model. */
-static wchar_t* ID_4265_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4265_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4265_FIELD_DESCRIPTION_XDT_MODEL = L"Abreisetag";
+static int* ID_4265_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4266 field description xdt model. */
-static wchar_t* ID_4266_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4266_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4266_FIELD_DESCRIPTION_XDT_MODEL = L"Kurabbruch am";
+static int* ID_4266_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4267 field description xdt model. */
-static wchar_t* ID_4267_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4267_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4267_FIELD_DESCRIPTION_XDT_MODEL = L"Bewilligte Kurverlängerung in Wochen";
+static int* ID_4267_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_36_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4268 field description xdt model. */
-static wchar_t* ID_4268_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4268_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4268_FIELD_DESCRIPTION_XDT_MODEL = L"Bewilligungsdatum Kurverlängerung";
+static int* ID_4268_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4269 field description xdt model. */
-static wchar_t* ID_4269_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4269_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4269_FIELD_DESCRIPTION_XDT_MODEL = L"Verhaltenspräventive Maßnahmen angeregt";
+static int* ID_4269_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_39_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4270 field description xdt model. */
-static wchar_t* ID_4270_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+static wchar_t* ID_4270_FIELD_DESCRIPTION_XDT_MODEL = L"Verhaltenspräventive Maßnahmen durchgeführt";
 static int* ID_4270_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4271 field description xdt model. */
-static wchar_t* ID_4271_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_4271_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_4271_FIELD_DESCRIPTION_XDT_MODEL = L"Kompaktkur nicht möglich";
+static int* ID_4271_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 4272 field description xdt model. */
 static wchar_t* ID_4272_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -20030,16 +20030,16 @@ static wchar_t* ID_4999_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4999_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5000 field description xdt model. */
-static wchar_t* ID_5000_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5000_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5000_FIELD_DESCRIPTION_XDT_MODEL = L"Leistungstag";
+static int* ID_5000_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5001 field description xdt model. */
-static wchar_t* ID_5001_FIELD_DESCRIPTION_XDT_MODEL = L"GNR";
-static int* ID_5001_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5001_FIELD_DESCRIPTION_XDT_MODEL = L"Gebührennummer (GNR)";
+static int* ID_5001_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5002 field description xdt model. */
-static wchar_t* ID_5002_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5002_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5002_FIELD_DESCRIPTION_XDT_MODEL = L"Art der Untersuchung";
+static int* ID_5002_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5003 field description xdt model. */
 static wchar_t* ID_5003_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -20050,20 +20050,20 @@ static wchar_t* ID_5004_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5004_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5005 field description xdt model. */
-static wchar_t* ID_5005_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5005_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5005_FIELD_DESCRIPTION_XDT_MODEL = L"Multiplikator";
+static int* ID_5005_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5006 field description xdt model. */
-static wchar_t* ID_5006_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5006_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5006_FIELD_DESCRIPTION_XDT_MODEL = L"Um-Uhrzeit";
+static int* ID_5006_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5007 field description xdt model. */
 static wchar_t* ID_5007_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5007_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5008 field description xdt model. */
-static wchar_t* ID_5008_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5008_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5008_FIELD_DESCRIPTION_XDT_MODEL = L"DKM";
+static int* ID_5008_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5009 field description xdt model. */
 static wchar_t* ID_5009_FIELD_DESCRIPTION_XDT_MODEL = L"Begründung";
@@ -20074,16 +20074,16 @@ static wchar_t* ID_5010_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5010_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5011 field description xdt model. */
-static wchar_t* ID_5011_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+static wchar_t* ID_5011_FIELD_DESCRIPTION_XDT_MODEL = L"Sachkosten-Bezeichnung";
 static int* ID_5011_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5012 field description xdt model. */
-static wchar_t* ID_5012_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5012_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5012_FIELD_DESCRIPTION_XDT_MODEL = L"Sachkosten/Materialkosten in Cent";
+static int* ID_5012_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5013 field description xdt model. */
-static wchar_t* ID_5013_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5013_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5013_FIELD_DESCRIPTION_XDT_MODEL = L"Prozent der Leistung";
+static int* ID_5013_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5014 field description xdt model. */
 static wchar_t* ID_5014_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -20094,48 +20094,48 @@ static wchar_t* ID_5015_FIELD_DESCRIPTION_XDT_MODEL = L"Organ";
 static int* ID_5015_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5016 field description xdt model. */
-static wchar_t* ID_5016_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5016_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5016_FIELD_DESCRIPTION_XDT_MODEL = L"Name des Arztes";
+static int* ID_5016_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5017 field description xdt model. */
-static wchar_t* ID_5017_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5017_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5017_FIELD_DESCRIPTION_XDT_MODEL = L"Besuchsort bei Hausbesuchen";
+static int* ID_5017_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5018 field description xdt model. */
-static wchar_t* ID_5018_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5018_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5018_FIELD_DESCRIPTION_XDT_MODEL = L"Zone bei Besuchen";
+static int* ID_5018_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5019 field description xdt model. */
-static wchar_t* ID_5019_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5019_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5019_FIELD_DESCRIPTION_XDT_MODEL = L"Erbringungsort/Standort des Gerätes";
+static int* ID_5019_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5020 field description xdt model. */
-static wchar_t* ID_5020_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5020_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5020_FIELD_DESCRIPTION_XDT_MODEL = L"Wiederholungsuntersuchung";
+static int* ID_5020_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5021 field description xdt model. */
-static wchar_t* ID_5021_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5021_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5021_FIELD_DESCRIPTION_XDT_MODEL = L"Jahr der letzten Krebsfrüherkennungsuntersuchung";
+static int* ID_5021_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_48_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5022 field description xdt model. */
 static wchar_t* ID_5022_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5022_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5023 field description xdt model. */
-static wchar_t* ID_5023_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5023_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5023_FIELD_DESCRIPTION_XDT_MODEL = L"GO-Nummern-Zusatz";
+static int* ID_5023_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5024 field description xdt model. */
-static wchar_t* ID_5024_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5024_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5024_FIELD_DESCRIPTION_XDT_MODEL = L"GNR-Zusatzkennzeichen poststationär erbrachte Leistungen";
+static int* ID_5024_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_56_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5025 field description xdt model. */
-static wchar_t* ID_5025_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5025_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5025_FIELD_DESCRIPTION_XDT_MODEL = L"Aufnahmedatum";
+static int* ID_5025_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5026 field description xdt model. */
-static wchar_t* ID_5026_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5026_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5026_FIELD_DESCRIPTION_XDT_MODEL = L"Entlassungsdatum";
+static int* ID_5026_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5027 field description xdt model. */
 static wchar_t* ID_5027_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -20166,48 +20166,48 @@ static wchar_t* ID_5033_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5033_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5034 field description xdt model. */
-static wchar_t* ID_5034_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5034_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5034_FIELD_DESCRIPTION_XDT_MODEL = L"OP-Datum";
+static int* ID_5034_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5035 field description xdt model. */
-static wchar_t* ID_5035_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5035_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5035_FIELD_DESCRIPTION_XDT_MODEL = L"OP-Schlüssel";
+static int* ID_5035_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5036 field description xdt model. */
-static wchar_t* ID_5036_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5036_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5036_FIELD_DESCRIPTION_XDT_MODEL = L"GNR als Begründung";
+static int* ID_5036_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5037 field description xdt model. */
-static wchar_t* ID_5037_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5037_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5037_FIELD_DESCRIPTION_XDT_MODEL = L"Gesamt-Schnitt-Naht-Zeit (Minuten)";
+static int* ID_5037_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5038 field description xdt model. */
-static wchar_t* ID_5038_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5038_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5038_FIELD_DESCRIPTION_XDT_MODEL = L"Komplikation";
+static int* ID_5038_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5039 field description xdt model. */
 static wchar_t* ID_5039_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5039_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5040 field description xdt model. */
-static wchar_t* ID_5040_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5040_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5040_FIELD_DESCRIPTION_XDT_MODEL = L"Patientennummer (EDV) des FEK-Bogens";
+static int* ID_5040_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_36_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5041 field description xdt model. */
-static wchar_t* ID_5041_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+static wchar_t* ID_5041_FIELD_DESCRIPTION_XDT_MODEL = L"Seitenlokalisation OPS";
 static int* ID_5041_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5042 field description xdt model. */
-static wchar_t* ID_5042_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5042_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5042_FIELD_DESCRIPTION_XDT_MODEL = L"Mengenangabe KM /AM";
+static int* ID_5042_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5043 field description xdt model. */
-static wchar_t* ID_5043_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5043_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5043_FIELD_DESCRIPTION_XDT_MODEL = L"Maßeinheit KM /AM";
+static int* ID_5043_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5044 field description xdt model. */
-static wchar_t* ID_5044_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5044_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5044_FIELD_DESCRIPTION_XDT_MODEL = L"Betriebswirtschaftlich kalkulierter Preis in Cent";
+static int* ID_5044_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_49_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5045 field description xdt model. */
 static wchar_t* ID_5045_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -20422,12 +20422,12 @@ static wchar_t* ID_5097_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_5097_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5098 field description xdt model. */
-static wchar_t* ID_5098_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5098_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5098_FIELD_DESCRIPTION_XDT_MODEL = L"(N)BSNR des Ortes der Leistungserbringung";
+static int* ID_5098_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_41_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5099 field description xdt model. */
-static wchar_t* ID_5099_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_5099_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_5099_FIELD_DESCRIPTION_XDT_MODEL = L"Lebenslange Arztnummer (LANR) des Leistungserbringers";
+static int* ID_5099_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_53_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 5100 field description xdt model. */
 static wchar_t* ID_5100_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -36438,8 +36438,8 @@ static wchar_t* ID_9101_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9101_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9102 field description xdt model. */
-static wchar_t* ID_9102_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9102_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9102_FIELD_DESCRIPTION_XDT_MODEL = L"Empfänger";
+static int* ID_9102_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9103 field description xdt model. */
 static wchar_t* ID_9103_FIELD_DESCRIPTION_XDT_MODEL = L"Datum der Erstellung";
@@ -36490,12 +36490,12 @@ static wchar_t* ID_9114_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9114_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9115 field description xdt model. */
-static wchar_t* ID_9115_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9115_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9115_FIELD_DESCRIPTION_XDT_MODEL = L"Erstellungsdatum ADT-Datenpaket";
+static int* ID_9115_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9116 field description xdt model. */
-static wchar_t* ID_9116_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9116_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9116_FIELD_DESCRIPTION_XDT_MODEL = L"Erstellungsdatum KADT-Datenpaket";
+static int* ID_9116_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9117 field description xdt model. */
 static wchar_t* ID_9117_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -36518,8 +36518,8 @@ static wchar_t* ID_9121_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9121_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9122 field description xdt model. */
-static wchar_t* ID_9122_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9122_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9122_FIELD_DESCRIPTION_XDT_MODEL = L"Erstellungsdatum SADT-Datenpaket";
+static int* ID_9122_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9123 field description xdt model. */
 static wchar_t* ID_9123_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -36558,8 +36558,8 @@ static wchar_t* ID_9131_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9131_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9132 field description xdt model. */
-static wchar_t* ID_9132_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9132_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9132_FIELD_DESCRIPTION_XDT_MODEL = L"enthaltene Datenpakete dieser Datei";
+static int* ID_9132_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9133 field description xdt model. */
 static wchar_t* ID_9133_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -36846,8 +36846,8 @@ static wchar_t* ID_9203_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9203_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9204 field description xdt model. */
-static wchar_t* ID_9204_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9204_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9204_FIELD_DESCRIPTION_XDT_MODEL = L"Abrechnungsquartal";
+static int* ID_9204_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9205 field description xdt model. */
 static wchar_t* ID_9205_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -36878,8 +36878,8 @@ static wchar_t* ID_9211_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9211_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9212 field description xdt model. */
-static wchar_t* ID_9212_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9212_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9212_FIELD_DESCRIPTION_XDT_MODEL = L"Version der Satzbeschreibung";
+static int* ID_9212_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_28_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9213 field description xdt model. */
 static wchar_t* ID_9213_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -37030,8 +37030,8 @@ static wchar_t* ID_9249_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9249_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9250 field description xdt model. */
-static wchar_t* ID_9250_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9250_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9250_FIELD_DESCRIPTION_XDT_MODEL = L"AVWG-Prüfnummer der AVS";
+static int* ID_9250_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9251 field description xdt model. */
 static wchar_t* ID_9251_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -37070,12 +37070,12 @@ static wchar_t* ID_9259_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_9259_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9260 field description xdt model. */
-static wchar_t* ID_9260_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9260_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9260_FIELD_DESCRIPTION_XDT_MODEL = L"Anzahl Teilabrechnungen";
+static int* ID_9260_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9261 field description xdt model. */
-static wchar_t* ID_9261_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9261_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9261_FIELD_DESCRIPTION_XDT_MODEL = L"Abrechnungsteil x von y";
+static int* ID_9261_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9262 field description xdt model. */
 static wchar_t* ID_9262_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
@@ -39634,8 +39634,8 @@ static wchar_t* ID_9900_FIELD_DESCRIPTION_XDT_MODEL = L"ID der Datensatzbeschrei
 static int* ID_9900_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_28_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9901 field description xdt model. */
-static wchar_t* ID_9901_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-static int* ID_9901_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ID_9901_FIELD_DESCRIPTION_XDT_MODEL = L"Systeminterner Parameter";
+static int* ID_9901_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 9902 field description xdt model. */
 static wchar_t* ID_9902_FIELD_DESCRIPTION_XDT_MODEL = L"Verantwortliche Stelle für die Datensatzbeschreibung";
