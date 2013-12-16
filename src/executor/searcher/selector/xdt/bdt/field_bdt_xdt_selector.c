@@ -195,7 +195,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_0307_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_307_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -391,7 +391,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                                                                        
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_0925_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_925_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -401,7 +401,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
                                                                                        
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_0919_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_919_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -446,8 +446,8 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                                  
--    //
+
+    //
     // Record 6100
     //
 
@@ -527,7 +527,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_0080_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_80_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -577,7 +577,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_0925_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_925_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -587,7 +587,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_0919_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_919_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -845,11 +845,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
 
     //
-    // ... else ...
-    //
-
-    //
-    // Record 6310
+    // Record 6310 (GDT)
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -881,8 +877,6 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
-    
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

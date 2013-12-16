@@ -12,4 +12,5 @@
 #
 
         * Complete files "field_description_xdt_model.c", following all BDT standard documents
-        * Continue files "field_bdt_xdt_selector.c" and "end_compound_field_bdt_xdt_selector.c" and also consider German KVDT standard which extends xDT
+        * Continue files "field_bdt_xdt_selector.c"
+        * Implement "src/executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-12-16  Florian Pachel <florian.pachel@gmx.de>
+
+        * Complete file "field_description_xdt_model.c" and "field_bdt_xdt_selector.c", following BDT standard document
+        * Consider German KVDT standard which extends xDT
+
 2013-12-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement new algorithm for time scale gregorian calendar serialiser
