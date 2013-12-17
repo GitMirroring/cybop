@@ -83,7 +83,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9806(p0, p1);
         }
     }
 
@@ -93,7 +93,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9801(p0, p1);
         }
     }
 
@@ -103,7 +103,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9802(p0, p1);
         }
     }
         
@@ -117,7 +117,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9806(p0, p1);
         }
     }
 
@@ -127,7 +127,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9801(p0, p1);
         }
     }
 
@@ -137,7 +137,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1297(p0, p1);
         }
     }
 
@@ -147,7 +147,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1298(p0, p1);
         }
     }
 
@@ -157,7 +157,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1299(p0, p1);
         }
     }
             
@@ -170,7 +170,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1210(p0, p1);
         }
     }
 
@@ -180,7 +180,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_307(p0, p1);
         }
     }
 
@@ -190,7 +190,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1250(p0, p1);
         }
     }
 
@@ -200,7 +200,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1271(p0, p1);
         }
     }
 
@@ -210,7 +210,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1290(p0, p1);
         }
     }
 
@@ -220,7 +220,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1297(p0, p1);
         }
     }
 
@@ -230,7 +230,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1298(p0, p1);
         }
     }
 
@@ -240,7 +240,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1299(p0, p1);
         }
     }
                                                             
@@ -254,7 +254,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1301(p0, p1);
         }
     }
 
@@ -264,7 +264,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1303(p0, p1);
         }
     }
 
@@ -274,7 +274,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1305(p0, p1);
         }
     }
 
@@ -284,7 +284,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1330(p0, p1);
         }
     }
                                                                             
@@ -298,7 +298,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1400(p0, p1);
         }
     }
                                                                                 
@@ -312,7 +312,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1500(p0, p1);
         }
     }
 
@@ -322,7 +322,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1502(p0, p1);
         }
     }
 
@@ -332,7 +332,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
                                                                                     
@@ -342,7 +342,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1503(p0, p1);
         }
     }
                                                                                        
@@ -356,7 +356,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1600(p0, p1);
         }
     }
                                                                                        
@@ -366,7 +366,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6206(p0, p1);
         }
     }
                                                                                        
@@ -376,7 +376,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_925(p0, p1);
         }
     }
                                                                                        
@@ -386,7 +386,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_919(p0, p1);
         }
     }
                                                                                        
@@ -396,7 +396,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6207(p0, p1);
         }
     }
                                                                                            
@@ -410,7 +410,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1703(p0, p1);
         }
     }
                                                                                               
@@ -424,7 +424,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_1800(p0, p1);
         }
     }
 
@@ -438,7 +438,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9801(p0, p1);
         }
     }
                                                                                               
@@ -448,7 +448,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3632(p0, p1);
         }
     }
 
@@ -458,7 +458,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3528(p0, p1);
         }
     }
                                                                                               
@@ -468,7 +468,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3120(p0, p1);
         }
     }
                                                                                               
@@ -478,7 +478,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3602(p0, p1);
         }
     }
                                                                                               
@@ -488,7 +488,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3310(p0, p1);
         }
     }
                                                                                                   
@@ -512,7 +512,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_80(p0, p1);
         }
     }
 
@@ -522,7 +522,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6011(p0, p1);
         }
     }
 
@@ -532,7 +532,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3622(p0, p1);
         }
     }
 
@@ -542,7 +542,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3623(p0, p1);
         }
     }
     
@@ -552,7 +552,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6230(p0, p1);
         }
     }
     
@@ -562,7 +562,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_925(p0, p1);
         }
     }
 
@@ -572,7 +572,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_919(p0, p1);
         }
     }
     
@@ -582,7 +582,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_3637(p0, p1);
         }
     }
     
@@ -592,7 +592,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6325(p0, p1);
         }
     }
     
@@ -602,7 +602,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_9971(p0, p1);
         }
     }
     
@@ -612,7 +612,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_2803(p0, p1);
         }
     }
         
@@ -626,7 +626,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
         
@@ -640,7 +640,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
             
@@ -654,7 +654,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
             
@@ -668,7 +668,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
             
@@ -682,7 +682,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_8000(p0, p1);
         }
     }
             
@@ -696,7 +696,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5000(p0, p1);
         }
     }
         
@@ -706,7 +706,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
         
@@ -716,7 +716,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5012(p0, p1);
         }
     }
             
@@ -730,7 +730,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_4218(p0, p1);
         }
     }
         
@@ -740,7 +740,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5000(p0, p1);
         }
     }
         
@@ -750,7 +750,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
         
@@ -760,7 +760,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5012(p0, p1);
         }
     }
                     
@@ -773,7 +773,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5000(p0, p1);
         }
     }
                     
@@ -783,7 +783,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5001(p0, p1);
         }
     }
                     
@@ -793,7 +793,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_5012(p0, p1);
         }
     }
                     
@@ -826,6 +826,20 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     //
 
     //
+    // Record frei
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_8010_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_8010(p0, p1);
+        }
+    }
+
+    //
     // Record 6310 (GDT)
     //
 
@@ -835,7 +849,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6200(p0, p1);
         }
     }
 
@@ -845,7 +859,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6206(p0, p1);
         }
     }
 
@@ -855,7 +869,7 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            select_xdt_bdt_field_compound_end_TODO(p0, p1);
+            select_xdt_bdt_field_compound_end_6226(p0, p1);
         }
     }
 
