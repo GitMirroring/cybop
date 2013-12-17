@@ -26,8 +26,6 @@
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
 
         * Delete all if-else clauses with "text/plain" format, in order to increase xdt deserialiser efficiency
-        * Complete file "field_description_xdt_model.c" using xDT standard documents and
-            http://www.gnumed.de/~ncq/gnumed/api/Gnumed.business.gmXdtMappings-pysrc.html
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
