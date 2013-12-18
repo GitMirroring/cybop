@@ -425,7 +425,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p12, (void*) NUMBER_1703_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p12, (void*) NUMBER_1702_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -878,6 +878,70 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
         }
     }
 
+    //
+    // Record Obj_Allergien
+    //
+
+    //
+    // Record Obj_Anhang
+    //
+
+    //
+    // Record Obj_Basisdiagnostik
+    //
+
+    //
+    // Record Obj_Betriebsstätte
+    //
+
+    //
+    // Record Obj_Diabetis
+    //
+
+    //
+    // Record Obj_Diagnose
+    //
+
+    //
+    // Record Obj_Epilipsie
+    //
+
+    //
+    // Record Obj_Impfungen
+    //
+
+    //
+    // Record Obj_Implantat
+    //
+
+    //
+    // Record Obj_Laborergebnis
+    //
+
+    //
+    // Record Obj_Medikationsplan
+    //
+
+    //
+    // Record Obj_Mutterschaft
+    //
+
+    //
+    // Record Obj_Patient
+    //
+
+    //
+    // Record Obj_Röntgenpass
+    //
+
+    //
+    // Record Obj_Standardadresse
+    //
+
+    //
+    // Record Obj_Strahlenpass
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The COMPOUND xdt fields have been filtered above.
