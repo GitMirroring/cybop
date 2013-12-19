@@ -16216,8 +16216,7 @@ static int* ID_4045_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_
 static wchar_t* ID_4046_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4046_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The id 4047 field description xdt model. */Kategorie
-
+/** The id 4047 field description xdt model. */
 static wchar_t* ID_4047_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_4047_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

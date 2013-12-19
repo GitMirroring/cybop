@@ -56,7 +56,7 @@ void select_xdt_bdt_field_compound_end_9806(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_0218_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_218_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
