@@ -32,6 +32,50 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -410,14 +454,10 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-<<<<<<< .mine
             select_xdt_bdt_field_compound_end_1702(p0, p1);
-=======
-            select_xdt_bdt_field_compound_end_1703(p0, p1);
->>>>>>> .r2410
         }
     }
-                                                                                              
+
     //
     // Record text
     //
