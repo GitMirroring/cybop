@@ -26,7 +26,12 @@ _____________
 Project
 _______
 
-        * Apply and get accepted as official GNU project
+        * Reapply to become accepted as official GNU project; requirements to be fulfilled:
+            - Include the sources of all documents into the distributable tarball cybop-0.12.0/
+              --> really? This will grow it up to 500 MB in size due to the images
+            - Write an actual manual that is updated as necessary to reflect the current state of cybop;
+            - Give a brief overview which documents should be read first if someone was trying to use the system
+
         * Update build (automake) scripts
         * Provide Debian package
         * Find Debian developer as official package maintainer
@@ -42,6 +47,8 @@ _____
         * Write cybol application communicating with microcontroller device,
         * Make it usable also from Windows via serial API(Win32::SerialPort)
         * Test communication in microcontroller lecture
+
+        * LATER (when gui works): Provide default dialogues (similar to JOptionPane) as cybol applications
 
         * LATER (when tcp sockets work): Advance wui design for "presence" application
 

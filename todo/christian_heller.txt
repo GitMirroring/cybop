@@ -11,6 +11,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Datetime
+________
+
         * Correct new algorithm for time scale gregorian calendar serialiser
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
@@ -25,6 +28,9 @@
         * Implement a "timer" based on unix system time; see java.util.Timer
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
 
+xDT
+___
+
         * Delete all if-else clauses with "text/plain" format, in order to increase xdt deserialiser efficiency
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
@@ -35,7 +41,8 @@
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
 
-        * Clean up local directory "tmp/" and collect new ideas from code examples
+Clone
+_____
 
         * Delete file "part_copier.c"
         * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
@@ -43,37 +50,27 @@
             USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
             shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
 
+TUI
+___
+
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
+        * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
+            to find out why file descriptor-to-stream conversion does not work
+            (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
+            --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
+
+GUI
+___
 
         * Set title and icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c"
         * Add font and text "Rectangle Label" of file "window.cybol" following xcb tutorial
         * Extend gui serialiser for "x window system" and "win32 display"
         * Specify gui component in cybol property "shape" or "super"?
 
-        * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
-            (appears in function call "fwprintf" of file "stream_terminal_sender.c";
-            but in some application this works just fine, e.g. in "helloworld" with terminal output)
-            --> also happens when "sensing" is deactivated in "tui/run.cybol"
-            --> it definitely has to do with sending a tui
-            --> probably, the reason is serialisation into "message/ansi-escape-code",
-                since with sending deactivated, no memory leaks are reported
-                AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
-            --> bug causing memory leak is NOT in one of the files like e.g. "character_ansi_escape_code_serialiser.c" etc.,
-                uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
-            --> all "malloc" function calls were already checked; they are freed correctly for terminal
-            ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
-
-        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
-            --> possibly, state and logic models need to be handled differently (at least path/reference)
-
-        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
-        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
-
-        * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
-            http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
-            http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
+WUI
+___
 
         * Reactivate socket functionality
         * Study "libcurl3" library for URL transfer
@@ -106,44 +103,19 @@
         * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
         * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
             the corresponding type may be forwarded between functions as parametre
-
         * Implement session on application level (e.g. in Res Medicinae)
+        * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
+            http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
+            http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
 
-        * Try to increase performance by commenting out "memset" in array allocation
-        * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
-        * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
-            http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
+Serial Port
+___________
 
-        * Optimise signal (event) handling
-            You don't need to get a character to block on a terminal or serial port.
-            You should just select() or poll() or epoll() or similar on the file
-            descriptor.  Likewise with sockets, and in fact you can watch many file
-            descriptors with a single select/poll/epoll/etc.  That'll eliminate the
-            unget.
+        * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
+        * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
 
-            Ideally, you should use one of those calls on your main thread rather
-            than flag variables.  If you have to wait on something for which you
-            don't have a file descriptor, you could always spin off a thread and
-            have it write a byte to a pipe when ready, then add the read end of the
-            pipe as another file descriptor to block on.
-
-            You might also look at timerfd, signalfd, and similar calls; those make
-            it possible to include even more things in your select/poll/epoll.
-
-            Depending on your target platforms, you may also find the portable libevent
-            or libev wrappers useful, rather than calling epoll or similar directly.
-
-        * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
-            to find out why file descriptor-to-stream conversion does not work
-            (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
-            --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
-
-        * Rename "number/double" into "number/float" in all cybol example applications
-
-        * Check out possible usage of "const" for constants:
-            http://www.noxeos.com/2011/07/29/c-const-static-keywords/
-        * Check possible simplification of constants definition using:
-            int* var = (int[]) { 6 };
+OpenGL
+______
 
         * Add OpenGL functionality
             Ich hab' das Problem nun gelöst!
@@ -158,15 +130,73 @@
             ich habe es allerdings noch zu Debug-Zwecken aktiviert gelassen.
             Christian Thiele <post@thiele-christian.de>
 
-        * Provide default dialogues (similar to JOptionPane) as cybol applications
+Container
+_________
 
-        * Include the sources of all documents into the distributable tarball cybop-0.12.0/
-            --> really? This will grow it up to 500 MB in size due to the images
-        * Write an actual manual that is updated as necessary to reflect the current state of cybop;
-            give a brief overview which ones should be read first if someone was trying to use the system
-        * Reapply to become an official GNU project
+        * Add a "fill_array" function, useful e.g. in function "startup_internal_memory";
+            possibly use function pointer to hand over function to be executed as loop body
+
+        * Use "memmove" for "modify/insert" and "modify/remove" and similar functions?
+        * Offer "push" as synonym/delegation for "overwrite" (at end)/"append" and "pop" for "remove" (from end)
+        * Make "modify/clean" function use "modify/pop" then
+        * Optimise performance by NOT comparing every single element of an array for its type,
+            but rather ONLY ONCE compare for the type at first and then process all array elements
+
+        * Try to increase (and measure) performance by commenting out "memset" in array allocation
+        * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
+        * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
+            http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
+
+Project
+_______
+
+        * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
+            (appears in function call "fwprintf" of file "stream_terminal_sender.c";
+            but in some application this works just fine, e.g. in "helloworld" with terminal output)
+            --> also happens when "sensing" is deactivated in "tui/run.cybol"
+            --> it definitely has to do with sending a tui
+            --> probably, the reason is serialisation into "message/ansi-escape-code",
+                since with sending deactivated, no memory leaks are reported
+                AND sending to terminal works fine without leaks for "shell_output", "helloworld" etc.
+            --> bug causing memory leak is NOT in one of the files like e.g. "character_ansi_escape_code_serialiser.c" etc.,
+                uncommenting lines sporadically delivers leaks, depending on which cybol application gets executed
+            --> all "malloc" function calls were already checked; they are freed correctly for terminal
+            ==> TODO: check function calls of "realloc" and "free", since there MIGHT be the bug
+
+        * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
+            --> possibly, state and logic models need to be handled differently (at least path/reference)
+
+        * Clean up local directory "tmp/" and collect new ideas from code examples
+
+        * Optimise signal (event) handling
+            You don't need to get a character to block on a terminal or serial port.
+            You should just select() or poll() or epoll() or similar on the file
+            descriptor.  Likewise with sockets, and in fact you can watch many file
+            descriptors with a single select/poll/epoll/etc.  That'll eliminate the
+            unget.
+            Ideally, you should use one of those calls on your main thread rather
+            than flag variables.  If you have to wait on something for which you
+            don't have a file descriptor, you could always spin off a thread and
+            have it write a byte to a pipe when ready, then add the read end of the
+            pipe as another file descriptor to block on.
+            You might also look at timerfd, signalfd, and similar calls; those make
+            it possible to include even more things in your select/poll/epoll.
+            Depending on your target platforms, you may also find the portable libevent
+            or libev wrappers useful, rather than calling epoll or similar directly.
+
+        * Rename "number/double" into "number/float" in all cybol example applications
+
+        * Refactor loops into an own function using function pointers? See "language/loop.c"!
+
+        * Check out possible usage of "const" for constants:
+            http://www.noxeos.com/2011/07/29/c-const-static-keywords/
+        * Check possible simplification of constants definition using:
+            int* var = (int[]) { 6 };
 
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
+
+Super
+_____
 
         * Check out handling of "super" property. Is it necessary at all?
             ==> use "prototype programming" paradigm-like behaviour, i.e.:
@@ -184,42 +214,42 @@
                 so the upper-most category for a tui model may be one that
                 provides ALL essential properties like "shape", "border", "background" etc.
 
-        Q: Why should a tui knowledge template NOT be implemented with properties of abstraction "knowledge" or "reference" (formerly "encapsulated"), as follows:
+        Q: Why should a tui knowledge template NOT be implemented with properties of format "knowledge" or "reference", as follows:
 
-            <part name="apw_entry" channel="inline" abstraction="character" model="a - Starte Arztpraxis Wiegand (APW) im DOS Emulator (DOSemu)">
-                <property name="position" channel="inline" abstraction="integer" model="1,3,0"/>
-                <property name="size" channel="inline" abstraction="integer" model="68,1,1"/>
-                <property name="shape" channel="inline" abstraction="knowledge" model=".revue.settings.tui.shape"/>
-                <property name="layout" channel="inline" abstraction="knowledge" model=".revue.settings.tui.layout"/>
-                <property name="background" channel="inline" abstraction="knowledge" model=".revue.settings.tui.menu_item_background"/>
-                <property name="foreground" channel="inline" abstraction="knowledge" model=".revue.settings.tui.menu_item_foreground"/>
-                <property name="bold" channel="inline" abstraction="knowledge" model=".revue.settings.tui.bold"/>
-                <property name="previous" channel="inline" abstraction="character" model=".revue.tui.main_window.menu.exit_entry"/>
-                <property name="next" channel="inline" abstraction="character" model=".revue.tui.main_window.menu.backup_entry"/>
-                <property name="button_press_action" channel="inline" abstraction="character" model=".revue.logic.functionality.start_apw"/>
+            <part name="apw_entry" channel="inline" format="character" model="a - Starte Arztpraxis Wiegand (APW) im DOS Emulator (DOSemu)">
+                <property name="position" channel="inline" format="integer" model="1,3,0"/>
+                <property name="size" channel="inline" format="integer" model="68,1,1"/>
+                <property name="shape" channel="inline" format="knowledge" model=".revue.settings.tui.shape"/>
+                <property name="layout" channel="inline" format="knowledge" model=".revue.settings.tui.layout"/>
+                <property name="background" channel="inline" format="knowledge" model=".revue.settings.tui.menu_item_background"/>
+                <property name="foreground" channel="inline" format="knowledge" model=".revue.settings.tui.menu_item_foreground"/>
+                <property name="bold" channel="inline" format="knowledge" model=".revue.settings.tui.bold"/>
+                <property name="previous" channel="inline" format="character" model=".revue.tui.main_window.menu.exit_entry"/>
+                <property name="next" channel="inline" format="character" model=".revue.tui.main_window.menu.backup_entry"/>
+                <property name="button_press_action" channel="inline" format="character" model=".revue.logic.functionality.start_apw"/>
             </part>
 
         A1: Because the user interface logic "select_next_part.cybol" and "select_previous_part.cybol",
             and potentially other logic templates do access the properties, in order to set their value, for example:
 
-            <part name="assemble_current_element_background" channel="inline" abstraction="operation" model="add">
-                <property name="summand_1" channel="inline" abstraction="knowledge" model=".revue.tui.main_window.menu#focus"/>
-                <property name="summand_2" channel="inline" abstraction="character" model="#background"/>
-                <property name="sum" channel="inline" abstraction="knowledge" model=".revue.temporary.character"/>
-                <property name="abstraction" channel="inline" abstraction="character" model="character"/>
+            <part name="assemble_current_element_background" channel="inline" format="calculate/add" model="">
+                <property name="summand_1" channel="inline" format="knowledge" model=".revue.tui.main_window.menu#focus"/>
+                <property name="summand_2" channel="inline" format="character" model="#background"/>
+                <property name="sum" channel="inline" format="knowledge" model=".revue.temporary.character"/>
+                <property name="type" channel="inline" format="character" model="character"/>
             </part>
-            <part name="unfocus_background" channel="inline" abstraction="operation" model="copy">
-                <property name="source" channel="inline" abstraction="knowledge" model=".revue.settings.tui.menu_item_background"/>
-                <property name="destination" channel="inline" abstraction="encapsulated" model=".revue.temporary.character"/>
-                <property name="abstraction" channel="inline" abstraction="character" model="character"/>
+            <part name="unfocus_background" channel="inline" format="modify/overwrite" model="copy">
+                <property name="source" channel="inline" format="knowledge" model=".revue.settings.tui.menu_item_background"/>
+                <property name="destination" channel="inline" format="reference" model=".revue.temporary.character"/>
+                <property name="type" channel="inline" format="character" model="character"/>
             </part>
 
             This copies a new background colour value from ".revue.settings.tui.menu_item_background" to the
             destination element's property "#background", which is stored in ".revue.temporary.character".
             But by copying the colour value to the "#background" property, that property does not contain
             a knowledge path of the kind ".revue.settings.tui.menu_item_background" anymore, but rather
-            a simple colour value like "blue". At that time, the abstraction "knowledge" would NOT be
-            correct anymore, because the simple colour value is of abstraction "character" instead.
+            a simple colour value like "blue". At that time, the format "knowledge" would NOT be
+            correct anymore, because the simple colour value is of format "character" instead.
 
         A2: Even if CYBOI-internal procedures implemented a mechanism that tried to retrieve the
             real model that a knowledge model path pointed to, this would NOT solve the problem!
@@ -228,24 +258,24 @@
 
             --> RULE to avoid the problems described in A1 and A2:
             Single properties of a textual user interface (tui) should not be stored as knowledge path
-            of abstraction "knowledge" or "encapsulated", but always as primitive values.
+            of format "knowledge" or "reference", but always as primitive values.
             To ease application development, however, there is the possibility to use the "super" property,
             which permits the inheritance of properties like colours etc. Following an example:
 
-            <part name="main_window" channel="file" abstraction="compound" model="revue/tui/main_window/window.cybol">
-                <property name="super" channel="inline" abstraction="knowledge" model=".revue.settings.tui.window"/>
-                <property name="position" channel="inline" abstraction="integer" model="0,0,0"/>
-                <property name="size" channel="inline" abstraction="integer" model="80,24,1"/>
+            <part name="main_window" channel="file" format="compound" model="revue/tui/main_window/window.cybol">
+                <property name="super" channel="inline" format="knowledge" model=".revue.settings.tui.window"/>
+                <property name="position" channel="inline" format="integer" model="0,0,0"/>
+                <property name="size" channel="inline" format="integer" model="80,24,1"/>
             </part>
 
             A corresponding settings file may look like this:
 
             <model>
-                <part name="shape" channel="inline" abstraction="character" model="rectangle"/>
-                <part name="layout" channel="inline" abstraction="character" model="coordinates"/>
-                <part name="background" channel="inline" abstraction="character" model="blue"/>
-                <part name="foreground" channel="inline" abstraction="character" model="white"/>
-                <part name="bold" channel="inline" abstraction="boolean" model="true"/>
+                <part name="shape" channel="inline" format="character" model="rectangle"/>
+                <part name="layout" channel="inline" format="character" model="coordinates"/>
+                <part name="background" channel="inline" format="character" model="blue"/>
+                <part name="foreground" channel="inline" format="character" model="white"/>
+                <part name="bold" channel="inline" format="boolean" model="true"/>
             </model>
 
             CAUTION! The solution proposed above does not (yet) work satisfyingly.
@@ -268,20 +298,15 @@
             ==> for now, as temporary solution, the properties are stored redundantly (twice) in the template
                 that needs them (for example "menu_item" entries in the resmedicinae-revue menu) and in its super template
 
-        * Add a "fill_array" function, useful e.g. in function "startup_internal_memory";
-            possibly use function pointer to hand over function to be executed as loop body
-
-        * Use "memmove" for "modify/insert" and "modify/remove" and similar functions?
-        * Offer "push" as synonym/delegation for "overwrite" (at end)/"append" and "pop" for "remove" (from end)
-        * Make "modify/clean" function use "modify/pop" then
-        * Optimise performance by NOT comparing every single element of an array for its type,
-            but rather ONLY ONCE compare for the type at first and then process all array elements
-        * Refactor loops into an own function using function pointers? See "language/loop.c"!
+Sensing Threads
+_______________
 
         * Optimise sleeping in sensing threads:
+
             (0) usleep
             usleep(msec * 1000); // Mikrosekunden warten (1ms = 1000Âµs)
             http://www.die.net/doc/linux/man/man3/usleep.3.html
+
             (1) select
             Relativ portabel ist select(2), das man für diese Zwecke mißbrauchen kann:
             struct timeval tv;
@@ -290,6 +315,7 @@
             select(0, 0, 0, 0, &tv);
             Allerdings ist nicht gewährleistet, daß die Wartezeit exakt eingehalten
             wird; unter IRIX-5.3 war die kürzeste Wartezeit immer 10 ms.
+
             (2) clock
             Die C++-Standardbibliothek weiÃ nicht allzuviel von Zeit. Das genaueste
             dÃ¼rfte die Funktion 'clock()' sein. Daraus kannst du dir mittels
@@ -302,9 +328,12 @@
             while (elapsed < 0.01);
             FÃ¼r alles Bessere (kein busy-waiting, bessere Genauigkeit usw.) musst du
             auf systemspezifische Funktionen zurÃ¼ckgreifen (usleep? setitimer?).
+
             (3) POSIX Thread
             Such mal in der posix Thread API.
+
             (4) Vielleicht findet man auch was bei boost.
+
             (5) Windows
             Is there a way to suspend the active thread for 1.6 msec?
             I mean I cannot use sleep, intstead I would like to use something like the linux's usleep.
@@ -314,16 +343,19 @@
             gets the control back because there may be more threads waiting in the queue.
             Thread switching is usually done every 10 mS in a single core system and every 15 mS
             in case of a multicore CPU so forget everything about an accuracy better than 50-100 mS.
+
             -- other opinion, still for Windows:
             Maybe you could try a select() call on an unused port.
             select is a blocking function that takes in a delay with us precision.
             There isn't going to be any activity on this port since it is unused,
             and it waits for the desired amount of time.
             This should work despite the issues pointed above, if you are using only one thread.
+
             --
             usleep() works with microseconds.
             In windows for getting microsecond precesion you should use QueryPerformanceCounter() winapi function.
             Here you can find how get that precesion using it.
+
             #include <windows.h>
             void uSleep(int waitTime) {
                 __int64 time1 = 0, time2 = 0, freq = 0;
@@ -333,6 +365,7 @@
                     QueryPerformanceCounter((LARGE_INTEGER *) &time2);
                 } while((time2-time1) < waitTime);
             }
+
             (Platform independence)
             sleep() is not platform-independent.
             usleep() is not platform-independent either. Also, it takes it's
@@ -347,6 +380,7 @@
             (C++ Example)
             Es geht auch so (auf verschiedenen Unix-Derivaten)
             C++:
+
             #define TRUE          1
             #define NONE          0                    (oder auch NULL)
             #define ERRINTR(e)   ((e) == EINTR)
@@ -385,6 +419,7 @@
                 }
             return(ret);
             }
+
             Der Aufruf select() macht ein blockierendes Warten, bis die Zeitscheibe abgelaufen ist, also analog sleep().
             Kann man natürlich auch für usec anpassen ;-)
             http://www.c-plusplus.de/forum/144938-full
