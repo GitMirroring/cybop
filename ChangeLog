@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-12-20  Florian Pachel <florian.pachel@gmx.de>
+
+        * Extend bdt xdt selectors, following BDT and GDT standard documents
+
 2013-12-16  Florian Pachel <florian.pachel@gmx.de>
 
         * Complete file "field_description_xdt_model.c" and "field_bdt_xdt_selector.c", following BDT standard document

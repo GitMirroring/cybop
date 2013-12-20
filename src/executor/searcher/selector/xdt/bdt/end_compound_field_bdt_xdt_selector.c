@@ -77,12 +77,17 @@
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3623_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3632_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3637_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_3649_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_3651_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_3652_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3656_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3658_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3660_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3662_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_3673_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3689_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_3700_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_4217_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_4218_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_5000_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_5001_end_compound_field_bdt_xdt_selector.c"
@@ -93,6 +98,7 @@
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6200_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6206_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6207_end_compound_field_bdt_xdt_selector.c"
+#include "../../../../../executor/searcher/selector/xdt/bdt/number_6208_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6212_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6226_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_6230_end_compound_field_bdt_xdt_selector.c"
@@ -113,7 +119,6 @@
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_9802_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_9806_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../executor/searcher/selector/xdt/bdt/number_9900_end_compound_field_bdt_xdt_selector.c"
-#include "../../../../../executor/searcher/selector/xdt/bdt/number_9971_end_compound_field_bdt_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -680,16 +685,6 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) NUMBER_9971_INTEGER_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            select_xdt_bdt_field_compound_end_9971(p0, p1);
-        }
-    }
-    
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_2803_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -1225,6 +1220,16 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_6208_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_6208(p0, p1);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p2, (void*) NUMBER_6212_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -1383,6 +1388,78 @@ void select_xdt_bdt_field_compound_end(void* p0, void* p1, void* p2) {
         }
     }
 
+    //
+    // Record Obj_Dauermedikament (GDT)
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_3651_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_3651(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_3652_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_3652(p0, p1);
+        }
+    }
+   
+    //
+    // Record Obj_Dauerdiagnose (GDT)
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_3649_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_3649(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_3673_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_3673(p0, p1);
+        }
+    }
+    
+    //
+    // Record Obj_Überweisung (GDT)
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_4217_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_4217(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p2, (void*) NUMBER_4218_INTEGER_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            select_xdt_bdt_field_compound_end_4218(p0, p1);
+        }
+    }
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // CAUTION! Do NOT log this case, since it is
