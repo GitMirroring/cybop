@@ -51,77 +51,52 @@ void select_xdt_bdt_field_compound_end_1400(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_3622_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8200_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_3623_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_1402_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6205_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6001_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6210_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6003_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6211_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6004_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6215_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6006_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6230_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6008_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6280_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6007_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6285_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6221_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6286_INTEGER_STATE_CYBOI_MODEL);
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6290_INTEGER_STATE_CYBOI_MODEL);
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6291_INTEGER_STATE_CYBOI_MODEL);
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_6325_INTEGER_STATE_CYBOI_MODEL);
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8401_INTEGER_STATE_CYBOI_MODEL);
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8990_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) NUMBER_8201_INTEGER_STATE_CYBOI_MODEL);
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
