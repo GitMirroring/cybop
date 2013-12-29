@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2013-12-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add slides for short lightning talk on cybop to directory "doc/lightning_talk/"
+
 2013-12-20  Florian Pachel <florian.pachel@gmx.de>
 
         * Extend bdt xdt selectors, following BDT and GDT standard documents
