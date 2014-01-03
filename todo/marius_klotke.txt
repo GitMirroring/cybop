@@ -8,7 +8,11 @@
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
 # @version CYBOP 0.15.0 2013-09-22
-# @author Christian Heller <christian.heller@tuxtax.de>
+# @author Marius Klotke <marius.klotke@it2011.ba-leipzig.de>
 #
 
- 
+CYBOI
+_____
+
+        * Integrate OpenGL
+        * Process simple 3D models provided as CYBOL files
