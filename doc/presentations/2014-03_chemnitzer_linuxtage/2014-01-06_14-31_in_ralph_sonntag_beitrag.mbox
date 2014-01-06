@@ -1,0 +1,88 @@
+From vortraege@linux-tage.de Mon, 06 Jan 2014 14:31:59 +0100
+X-Spam-Checker-Version: SpamAssassin 3.3.2 (2011-06-06) on deneb.ba-leipzig.de
+X-Spam-Status: No, score=-0.1 required=5.0 tests=BAYES_00,RDNS_NONE, TO_NO_BRKTS_NORDNS,T_DKIM_INVALID,T_FRT_CONTACT autolearn=no version=3.3.2
+Received: from [80.67.29.17] (helo=mx08.ispgateway.de) by namib.ispgateway.de with esmtp (Exim 4.68) (envelope-from <vortraege@linux-tage.de>) id 1W0AHf-0008JO-Tw; Mon, 06 Jan 2014 14:31:59 +0100
+Return-Path: <vortraege@linux-tage.de>
+X-Envelope-To: christian.heller@tuxtax.de
+Received: from [134.109.228.40] (helo=cora.hrz.tu-chemnitz.de) by mx08.ispgateway.de with esmtps (TLSv1:AES256-SHA:256) (Exim 4.68) (envelope-from <vortraege@linux-tage.de>) id 1W0AHf-00065f-Pc for christian.heller@tuxtax.de; Mon, 06 Jan 2014 14:31:59 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=tu-chemnitz.de; s=dkim2010; h=Date:Message-Id:Content-Transfer-Encoding:Content-type:From:Subject:To; bh=Axql5DoLIYaYk3D02CDWFA3BQNg+Gqf1c1xMFvXd4r4=; b=rLPVIbbU3CDBe/hfFxJGqrRmOKzGIj8TQ6UnMjqQCnzNmoktHk6zfs5TbxnL2jA6JZSMch/UirrZBUazdKckiHxvr7wOqcgkzYv3V4Qq1t++oDe9q+CRcbmtLd7TnOy0PiRlX7xwLHcp/f8Q/Avoat3eqqSrOATXSxq2g69Y6yw=;
+Received: from pat.hrz.tu-chemnitz.de ([134.109.133.4] helo=mailbox.hrz.tu-chemnitz.de) by cora.hrz.tu-chemnitz.de with esmtps (UNKNOWN:DHE-RSA-AES256-GCM-SHA384:256) (Exim 4.80.1) (envelope-from <vortraege@linux-tage.de>) id 1W0AHf-00044Y-5h for christian.heller@tuxtax.de; Mon, 06 Jan 2014 14:31:59 +0100
+Received: from clt.hrz.tu-chemnitz.de ([134.109.228.118]) by mailbox.hrz.tu-chemnitz.de with esmtp (Exim 4.80.1) (envelope-from <vortraege@linux-tage.de>) id 1W0AHf-0008Tx-2e for christian.heller@tuxtax.de; Mon, 06 Jan 2014 14:31:59 +0100
+Received: by clt.hrz.tu-chemnitz.de (Postfix, from userid 48) id 091F31584; Mon,  6 Jan 2014 14:31:59 +0100 (CET)
+To: christian.heller@tuxtax.de
+Subject: Ihr Beitrag bei den Chemnitzer Linux-Tagen 2014
+X-PHP-Originating-Script: 555:call_submit.html
+From: Ralph Sontag <vortraege@linux-tage.de>
+X-Mailer: PHP/5.3.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <20140106133159.091F31584@clt.hrz.tu-chemnitz.de>
+Date: Mon, 06 Jan 2014 14:31:59 +0100
+X-Scan-AV: mailbox.hrz.tu-chemnitz.de;2014-01-06 14:31:59;183d2875412eec3c0fd37ce0ef6a5425
+X-purgate: clean
+X-purgate-type: clean
+X-purgate-ID: 154106::1389015119-000004C5-9AEBCA38/0-0/0-0
+X-Scan-SA: cora.hrz.tu-chemnitz.de;2014-01-06 14:31:59;6ae2b957592acd352dc1830119c08402
+MIME-Version: 1.0
+
+Hallo!=0A=0AVielen Dank f=C3=BCr Ihren Beitrag zu den Chemnitzer Linux-Tage=
+n 2014!=0ADiese E-Mail ist eine Best=C3=A4tigung der Anmeldung und soll Ihn=
+en=0Agleichzeitig einige wichtige Informationen =C3=BCbermitteln.=0A=0A=0A*=
+* =C3=84nderungen am Beitrag **=0A=0ABitte wenden Sie sich f=C3=BCr =C3=84n=
+derungen am Beitrag an die unten=0Aangegebene Ansprechperson.=0A=0A=0A** Au=
+sf=C3=BChrliche Beschreibung / "Kurz-Paper" **=0A=0AWir bitten Sie, uns ein=
+e etwas ausf=C3=BChrlichere Beschreibung Ihres=0AVortrags oder Workshops zu=
+ schicken. Darunter stellen wir uns ein=0A"Kurz-Paper" vor, das einen Umfan=
+g von etwa einer Seite hat.=0A=0AEs soll die Besucher =C3=BCber Ihren Beitr=
+ag informieren und =C3=BCber=0Aden Abstrakt hinausgehende Informationen lie=
+fern, beispielsweise:=0A=0A - Planen Sie eine praktische Vorf=C3=BChrung im=
+ Rahmen des Beitrages?=0A - Welche einschl=C3=A4gigen Webseiten/Literaturqu=
+ellen gibt es zum Thema?=0A - Welches Vorwissen ist erforderlich?=0A - Bei =
+Workshops:=0A     - Was sollen die Besucher selbst am Rechner machen?=0A   =
+  - Welche Lernziele sollen erreicht werden?=0A=0ABitte schicken Sie Ihr Ku=
+rz-Paper in einem standardisierten Format=0A(z.B. Plain Text, LaTeX, Postsc=
+ript, PDF, StarOffice/OpenOffice)=0Aper E-Mail an Ralph Sontag (vortraege@l=
+inux-tage.de)=0A=0AWir verlinken das Paper auf unseren WWW-Seiten.=0A=0A=0A=
+** Weitere Fragen oder Probleme? **=0A=0ABei Fragen und Problem kontaktiere=
+n Sie bitte:=0A=0ARalph Sontag=0A    E-Mail: vortraege@linux-tage.de=0A    =
+Telefon: (0371) 531 - 25807=0A=0AViele Gr=C3=BC=C3=9Fe, das Team der Chemni=
+tzer Linux-Tage 2014.=0A
+
+Hier nochmal die von Ihnen =C3=BCbermittelten Daten:
+Anrede:             Herr
+Titel:              Prof. Dr.
+Vorname:            Christian
+Nachname:           Heller
+E-Mail:             christian.heller@tuxtax.de
+Webseite (privat):  http://www.familia-heller.de/
+Beruf:              Dozent f=C3=BCr Informatik
+Firma:              Staatliche Studienakademie Leipzig
+Webseite (Firma):   http://www.ba-leipzig.de/
+Beitragstitel:      Cybernetics Oriented Programming (CYBOP)
+Webseite (Beitrag): http://www.cybop.org/
+
+Abstract:           CYBOP ist eine neue Theorie des Programmierens. Ihr Zie=
+l ist es, die Komplexit=C3=A4t von Software-Systemen zu verringern. Innerha=
+lb des CYBOP-Projektes sind entstanden: (1) die XML-basierte Programmierspr=
+ache CYBOL; (2) der in C geschriebene Interpreter CYBOI.
+
+Das durch CYBOL definierte Vokabular kennt vier XML-Tags und vier XML-Attri=
+bute. Damit werden Anwendungen vollst=C3=A4ndig und plattformunabh=C3=A4ngi=
+g beschrieben. Im CYBOI l=C3=A4uft eine Endlosschleife zur Ereignisverarbei=
+tung. Er bedient s=C3=A4mtliche Kommunikationskan=C3=A4le und ist vollst=C3=
+=A4ndig internationalisiert.
+
+Vorkenntnisse:      Programmierkenntnisse hilfreich
+
+Bedarf:             Keine
+
+Bemerkungen:        Inhalt/Ablauf:
+30 min Herunterladen Software, Compilieren, Starten
+60 min Ausf=C3=BChren und Erl=C3=A4utern von CYBOL-Beispielanwendungen
+10 min Pause
+80 min Eigene CYBOL-Beispiele programmieren oder Architektur des CYBOI-Inte=
+rpreters besprechen
+(wird spontan, je nach Interessenlage der Anwesenden, entschieden)
+
+
+
