@@ -87,17 +87,11 @@ _____
         * Use local copy of paths instead of replacing original paths
         * Add "replace" container function in directory "executor/modifier/" (really necessary? "overwrite" exists)
 
-        * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"
-        * Add constants for file formats in directory "src/constant/language/"
-        * Add constants for mime types in directory "cybop/src/constant/format/cybol/"
         * Add constants for xdt medical data formats in directory "cybop/src/constant/model/xdt/"
 
         * Create different layout manager algorithms for positioning of graphical components (arithmetics, similar to Swing and Qt)
         * Provide graphical standard components (geometry, similar to Swing), e.g. "button", chosen via "component" property in cybol
         * Create login- or file open/save dialogue as example
-
-        * Integrate OpenGL
-        * Process simple 3D models provided as CYBOL files
 
         * LATER (when tcp sockets work): Implement communication via udp socket
 

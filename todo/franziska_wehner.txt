@@ -1,0 +1,16 @@
+#
+# Copyright (C) 1999-2013. Christian Heller.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author franziska.wehner@it2011.ba-leipzig.de
+#
+
+        * Add constants for file formats in directory "src/constant/language/"
+        * Add constants for mime types in directory "cybop/src/constant/format/cybol/"
+        * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"
