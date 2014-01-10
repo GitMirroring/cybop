@@ -1,0 +1,18 @@
+#
+# Copyright (C) 2014-2014. Cedric Thomas.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author Cedric Thomas <cedric.thomas@it2011.ba-leipzig.de>
+#
+
+				* example for TUI / GUI
+				* calculator for simple operations
+
+				* example for TUI / GUI
+				* "soccer world champion chip" - system
