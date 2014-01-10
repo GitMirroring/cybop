@@ -1,0 +1,3 @@
+* Design and write test functions in directory "test/"
+* Process them all automatically when starting cyboi with the option "--test"
+* Let them produce an "OK" or "ERROR", in the style of JUnit
