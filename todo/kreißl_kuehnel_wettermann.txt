@@ -1,0 +1,4 @@
+- Erweiterungen an CYBOI
+	- logische Operatoren (and,not,or,nor,...)
+	- komplexe Zahlen
+	- Testanwendung
