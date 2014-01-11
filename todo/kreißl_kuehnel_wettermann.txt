@@ -1,4 +1,23 @@
-- Erweiterungen an CYBOI
-	- logische Operatoren (and,not,or,nor,...)
-	- komplexe Zahlen
-	- Testanwendung
+#
+# Copyright (C) 2014-2014. Kevin Wettermann.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author Tony Kreißl <tony.kreissl@it2011.ba-leipzig.de>
+# @author Sascha Kühnel <sascha.kuehnel@it2011.ba-leipzig.de>
+# @author Kevin Wettermann <kevin.wettermann@it2011.ba-leipzig.de>
+#
+
+CYBOI
+_____
+
+        * Add calculator functions for type complex
+        * Add comparator functions for type complex
+        * Extend boolean and bitwise logic operations in directory "executor/logifier/"
+        * Implement bit manipulation functions in directory "executor/manipulator/"
+        * Test new source code (perhaps ask group fricke_stengel_engelmann)

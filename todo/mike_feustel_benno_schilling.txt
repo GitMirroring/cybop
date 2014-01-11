@@ -1,3 +1,0 @@
-       * Compile cyboi for win32 using native visual studio, since mingw troubles with some functionality (ask Tobias Köhler)
-	   * Identify memory leaks using valgrind        
-	   * Provide some items marked as todo

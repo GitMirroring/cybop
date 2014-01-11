@@ -64,8 +64,6 @@ _____
 CYBOI
 _____
 
-        * Compile cyboi for win32 using native visual studio, since mingw troubles with some functionality (ask Tobias Köhler)
-        * Make cyboi compilable for Mac OSX using pre-processor defines
         * Make cyboi cross-compilable for various architectures, e.g. ARM processor (Raspberry Pi)
         * Make cyboi usable on mobile devices
 
@@ -73,18 +71,10 @@ _____
         * Adapt automake script accordingly
         * Minimise cyboi size for usage in embedded systems
 
-        * Add calculator functions for types: complex, datetime, duration
-        * Add comparator functions for types: complex, datetime, duration
+        * Add calculator functions for types datetime, duration
+        * Add comparator functions for types datetime, duration
         * Find solution for handling calculation of pointer difference in file "difference_pointer_calculator.c"
 
-        * Implement bit manipulation functions in directory "executor/manipulator/"
-
-        * Provide more shell commands in a platform-independent way, usable on posix and win32
-        * Extract (cut) common (redundant) code from e.g.
-            list_directory_contents_unix_shell.c and
-            list_directory_contents_win32_command.c and
-            move (paste) to list_directory_contents.c
-        * Use local copy of paths instead of replacing original paths
         * Add "replace" container function in directory "executor/modifier/" (really necessary? "overwrite" exists)
 
         * Add constants for xdt medical data formats in directory "cybop/src/constant/model/xdt/"
@@ -98,8 +88,6 @@ _____
         * Create css serialiser (and, optionally, deserialiser)
         * Prepare ldap communication (investigate protocol structure)
         * Create latex serialiser
-
-        * Identify memory leaks using valgrind        
 
 Tool
 ____

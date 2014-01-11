@@ -1,1 +1,17 @@
- * Make cyboi compilable for Mac OSX using pre-processor defines
+#
+# Copyright (C) 2014-2014. Markus Hinkelmann.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author Markus Hinkelmann <markus.hinkelmann@it2011.ba-leipzig.de>
+#
+
+CYBOI
+_____
+
+        * Make cyboi compilable for Mac OSX using pre-processor defines

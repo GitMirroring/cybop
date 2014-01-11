@@ -1,5 +1,0 @@
-#
-# @author Aleksej Tokarev <Aleksej.Tokarev@it2011.ba-leipzig.de>
-# @thema Kommunikation über serielle Schnittstelle
-#
-

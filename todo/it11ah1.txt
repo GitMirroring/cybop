@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 2014-2014. AHE.
 #
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.

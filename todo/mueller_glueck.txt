@@ -1,0 +1,23 @@
+#
+# Copyright (C) 2014-2014. Alexander Müller.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.15.0 2013-09-22
+# @author Alexander Müller <alexander.mueller@it2011.ba-leipzig.de>
+# @author Kevin Glück <kevin.glueck@it2011.ba-leipzig.de>
+#
+
+CYBOI
+_____
+
+        * Provide more shell commands in a platform-independent way, usable on posix and win32
+        * Extract (cut) common (redundant) code from e.g.
+            list_directory_contents_unix_shell.c and
+            list_directory_contents_win32_command.c and
+            move (paste) to list_directory_contents.c
+        * Use local copy of paths instead of replacing original paths

@@ -11,8 +11,8 @@
 # @author Cedric Thomas <cedric.thomas@it2011.ba-leipzig.de>
 #
 
-				* example for TUI / GUI
-				* calculator for simple operations
+CYBOL
+_____
 
-				* example for TUI / GUI
-				* "soccer world champion chip" - system
+        * Create complex tui application, e.g. a calculator
+        * Create "soccer world championship" system
