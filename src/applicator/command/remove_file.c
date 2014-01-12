@@ -28,6 +28,7 @@
 
 #include <unistd.h>
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -36,14 +37,13 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix_commander/remove_file_unix_commander.c"
+    #include "../../executor/commander/unix/remove_file_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 #ifdef WIN32
-    #include "../../executor/commander/windows_commander/remove_file_windows_commander.c"
+    #include "../../executor/commander/windows/remove_file_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
 #endif
 

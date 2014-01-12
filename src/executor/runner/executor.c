@@ -77,7 +77,7 @@ void execute(void* p0, void* p1) {
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    #ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef GNU_LINUX_OPERATING_SYSTEM
         // Append shell command.
         append_item_element(c, (void*) SHELL_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHELL_UNIX_COMMAND_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Append shell command.
@@ -86,13 +86,13 @@ void execute(void* p0, void* p1) {
         // Append user command.
         append_item_element(c, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(c, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #endif
+#endif
 
     append_item_element(c, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    #ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef GNU_LINUX_OPERATING_SYSTEM
         append_item_element(c, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #endif
+#endif
     // Append null character as string termination.
     append_item_element(c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 

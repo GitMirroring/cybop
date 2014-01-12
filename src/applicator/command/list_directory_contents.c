@@ -28,24 +28,15 @@
 
 #include <unistd.h>
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/list_directory_contents_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/commander/basic/list_contents_commander.c"
 #include "../../logger/logger.c"
-
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix_commander/list_directory_contents_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
-    #include "../../executor/commander/windows_commander/list_directory_contents_windows_commander.c"
-    #include "../../constant/model/command/win32_command_model.c"
-#endif
 
 /**
  * Lists the directory contents.
@@ -187,14 +178,7 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2) {
     // Get sort by extension part model item data.
     copy_array_forward((void*) &sbemd, sbem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    list_directory_contents_unix_commander(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
-#endif
-
-#ifdef WIN32
-    list_directory_contents_windows_commander(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
-#endif
+    list_contents_commander(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
 }
 
 /* LIST_DIRECTORY_CONTENTS_SOURCE */

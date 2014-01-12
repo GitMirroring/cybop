@@ -50,9 +50,6 @@ _____
 
         * Create complex tui application, e.g. a calculator
 
-        * Convert shell script "clean_result_directory.sh" to cybol
-        * Provide tui menu for script
-
         * Write cybol application communicating with microcontroller device,
         * Make it usable also from Windows via serial API(Win32::SerialPort)
         * Test communication in microcontroller lecture

@@ -28,6 +28,7 @@
 
 #include <unistd.h>
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -36,19 +37,18 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix_commander/tape_archiver_unix_commander.c"
+    #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 #ifdef WIN32
-    #include "../../executor/commander/windows_commander/tape_archiver_windows_commander.c"
+    #include "../../executor/commander/windows/tape_archiver_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
 #endif
 
 /**
- * Packs/Unpacks a directory or file 
+ * Packs/Unpacks a directory or file
  *
  * Expected parametres:
  * - source (required): the source for archiving

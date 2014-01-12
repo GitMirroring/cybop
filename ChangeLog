@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare example file "list_contents_commander.c" for shell command processing
+
 2014-01-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add brochure to directory "doc/presentations/prospectus/"
