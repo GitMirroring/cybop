@@ -75,16 +75,6 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                compare_integer_greater_or_equal(p0, p1, p2);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
             if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -95,11 +85,11 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                compare_integer_smaller_or_equal(p0, p1, p2);
+                compare_integer_greater_or_equal(p0, p1, p2);
             }
         }
 
@@ -110,6 +100,16 @@ void compare_integer(void* p0, void* p1, void* p2, void* p3) {
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_integer_smaller(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_integer_smaller_or_equal(p0, p1, p2);
             }
         }
 

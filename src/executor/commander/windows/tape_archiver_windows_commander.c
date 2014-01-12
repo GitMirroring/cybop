@@ -34,7 +34,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/command_option/win32/tape_archiver_win32_command_option_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/commander/windows_commander/unix_to_windows_path_adapter_for_windows_commander.c"
+//?? #include "../../../executor/commander/windows_commander/unix_to_windows_path_adapter_for_windows_commander.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../variable/reallocation_factor.c"
 
@@ -117,8 +117,8 @@ void tape_archiver_windows_commander(void* smd, void* smc, void* dmd, void* dmc,
         }
 
         // Append source and destination path.
-        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
-        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
+//??        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
+//??        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
 
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

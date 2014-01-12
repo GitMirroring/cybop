@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rewrite unix-to-windows path conversion file "executor/commander/basic/adapt_unix_to_windows_path_commander.c"
+        * Clean up "wide_character_comparator.c" and "unsigned_long_comparator.c" by adding corresponding sub directories
+
 2014-01-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare example file "list_contents_commander.c" for shell command processing

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_DIRECTORY_CONTENTS_SOURCE
-#define LIST_DIRECTORY_CONTENTS_SOURCE
+#ifndef LIST_CONTENTS_SOURCE
+#define LIST_CONTENTS_SOURCE
 
 #include <unistd.h>
 
@@ -58,9 +58,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  */
-void apply_list_directory_contents(void* p0, void* p1, void* p2) {
+void apply_list_contents(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list directory contents.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list contents.");
 
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -178,8 +178,8 @@ void apply_list_directory_contents(void* p0, void* p1, void* p2) {
     // Get sort by extension part model item data.
     copy_array_forward((void*) &sbemd, sbem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    list_contents_commander(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
+    command_list_contents(pmd, pmc, amd, lmd, orpemd, rmd, smd, sbfsmd, sbmdmd, sbemd);
 }
 
-/* LIST_DIRECTORY_CONTENTS_SOURCE */
+/* LIST_CONTENTS_SOURCE */
 #endif

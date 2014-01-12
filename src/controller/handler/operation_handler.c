@@ -37,7 +37,7 @@
 #include "../../applicator/command/archive_file.c"
 #include "../../applicator/command/copy_file.c"
 #include "../../applicator/command/echo_message.c"
-#include "../../applicator/command/list_directory_contents.c"
+#include "../../applicator/command/list_contents.c"
 #include "../../applicator/command/move_file.c"
 #include "../../applicator/command/remove_file.c"
 #include "../../applicator/command/tape_archiver.c"
@@ -464,7 +464,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_list_directory_contents(p0, p1, p3);
+            apply_list_contents(p0, p1, p3);
         }
     }
 

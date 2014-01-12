@@ -25,18 +25,22 @@ _____
         * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
         * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
 
-        * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
-        * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
-
         * Add new file with options for each command to directory "constant/name/command_option/"
         * Add new file for differing options to sub directory "unix/" or "windows/"
 
+        * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+        * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+
         * Add new file for each new command to directory "executor/commander/basic/" (see example file "list_contents_commander.c")
-        * Consider platform using preprocessor defines
+        * Consider platform (unix or windows) using preprocessor defines
+
+        * Clean up existing command files by renaming files and functions uniformly
         * Merge old files from sub directories "unix" and "windows"
         * Delete sub directories "unix" and "windows"
-        * CAUTION! Use local copy of paths instead of replacing original paths (TODO for Christian Heller);
-            see and replace file "executor/commander/windows/unix_to_windows_path_adapter_for_windows_commander.c"
+
+        * Add new file for each command (cybol operation) to directory "applicator/command/"
+
+        * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
 
 CYBOL
 _____

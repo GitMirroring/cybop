@@ -34,7 +34,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/command_option/win32/move_file_win32_command_option_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/commander/windows_commander/unix_to_windows_path_adapter_for_windows_commander.c"
+//?? #include "../../../executor/commander/windows_commander/unix_to_windows_path_adapter_for_windows_commander.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../variable/reallocation_factor.c"
 
@@ -93,8 +93,8 @@ void move_file_windows_commander(void* smd, void* smc, void* dmd, void* dmc, voi
         }
 
         // Append source and destination path.
-        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
-        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
+//??        apply_unix_to_windows_path_adapter_for_windows_commander(smd, smc);
+//??        apply_unix_to_windows_path_adapter_for_windows_commander(dmd, dmc);
 
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

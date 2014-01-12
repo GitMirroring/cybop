@@ -28,10 +28,18 @@
 
 #include <stdlib.h>
 #include <string.h>
+
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/comparator/basic/wide_character/equal_wide_character_comparator.c"
+#include "../../../executor/comparator/basic/wide_character/greater_wide_character_comparator.c"
+#include "../../../executor/comparator/basic/wide_character/greater_or_equal_wide_character_comparator.c"
+#include "../../../executor/comparator/basic/wide_character/smaller_wide_character_comparator.c"
+#include "../../../executor/comparator/basic/wide_character/smaller_or_equal_wide_character_comparator.c"
+#include "../../../executor/comparator/basic/wide_character/unequal_wide_character_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -48,108 +56,76 @@ void compare_wide_character(void* p0, void* p1, void* p2, void* p3) {
 
         int* a = (int*) p3;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare wide character.");
 
-            wchar_t* rv = (wchar_t*) p2;
+        // The comparison result.
+        // CAUTION! It is used instead of if-else statements.
+        // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                wchar_t* lv = (wchar_t*) p1;
+            if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    int* res = (int*) p0;
-
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare wide character.");
-
-                    // The comparison result.
-                    // CAUTION! It is used instead of if-else statements.
-                    // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
-                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (*a == *EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                            if (*lv == *rv) {
-
-                                *res = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                            }
-                        }
-                    }
-
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                            if (*lv < *rv) {
-
-                                *res = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                            }
-                        }
-                    }
-
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                            if (*lv > *rv) {
-
-                                *res = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                            }
-                        }
-                    }
-
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                            if (*lv <= *rv) {
-
-                                *res = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                            }
-                        }
-                    }
-
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
-
-                            r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                            if (*lv >= *rv) {
-
-                                *res = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                            }
-                        }
-                    }
-
-                    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The operation type is unknown.");
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The result is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The left value is null.");
+                compare_wide_character_equal(p0, p1, p2);
             }
+        }
 
-        } else {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The right value is null.");
+            if (*a == *GREATER_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_wide_character_greater(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_wide_character_greater_or_equal(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *SMALLER_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_wide_character_smaller(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_wide_character_smaller_or_equal(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*a == *UNEQUAL_COMPARE_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_wide_character_unequal(p0, p1, p2);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare wide character. The operation type is unknown.");
         }
 
     } else {

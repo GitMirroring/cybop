@@ -29,6 +29,8 @@
 #include <unistd.h>
 
 #include "../../../constant/model/command/unix_command_model.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #ifdef WIN32
@@ -38,8 +40,10 @@
     #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
 #endif
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../executor/runner/executor.c"
+#include "../../../logger/logger.c"
 
 /**
  * Lists the directory contents.
@@ -55,7 +59,9 @@
  * @param p8 the sort by modification date model data
  * @param p9 the sort by extension model data
  */
-void list_contents_commander(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command list contents.");
 
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -81,15 +87,37 @@ void list_contents_commander(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Append path option.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        // The path item.
+        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The path item data, count.
+        void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
 #ifdef WIN32
-        //?? TODO: Convert slash to backslash.
-        //?? CAUTION! Use local copy of paths instead of replacing original ones.
-        //?? TODO: Introduce local variable here!
-        apply_unix_to_windows_path_adapter_for_windows_commander(pmd, pmc);
+        // Allocate path item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Convert slash to backslash.
+        command_adapt_unix_to_windows_path(p, p0, p1);
+
+        // Get path item data, count.
+        copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+        pd = p0;
+        pc = p1;
 #endif
 
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+#ifdef WIN32
+        // Deallocate path item.
+        deallocate_item((void*) &p, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+#endif
     }
 
     // Reset comparison result.
