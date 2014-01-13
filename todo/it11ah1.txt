@@ -11,8 +11,10 @@
 # @author AHE
 #
 
-Headline
-________
+CYBOI
+_____
 
-        * some Text
-        * more Text
+        * Continue decoder and encoder in directory "executor/converter/"
+
+        * Write short cybol application for testing
+        * Test conversion using differently encoded text files

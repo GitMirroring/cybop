@@ -14,6 +14,14 @@
 CYBOI
 _____
 
-        * Add constants for file formats in directory "src/constant/language/"
-        * Add constants for mime types in directory "cybop/src/constant/format/cybol/"
-        * Add constants for unicode character code block in directory "cybop/src/constant/model/character_code/unicode/"
+        * Investigate MIME specification for data type definitions
+        * Add mime type constants to corresponding category file in directory "cybop/src/constant/format/cybol/state/"
+        * Add mime type constants to file "constant/format/cyboi/state_cyboi_format.c"
+
+        * Replace placeholder strings with actual constants in files of directory "constant/model/character_code/iso_8859/"
+
+        * Add constants to new files in directory "constant/model/character_code/windows/"
+        * Add constants to new files in directory "constant/model/character_code/dos/"
+
+        * Factor out unicode characters into separate files oriented on code blocks
+        * Add constants to new files in directory "constant/model/character_code/unicode/"

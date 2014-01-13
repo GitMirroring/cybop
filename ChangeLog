@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rewrite file "difference_pointer_calculator.c"
+        * Remove outdated constants files
+
 2014-01-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rewrite unix-to-windows path conversion file "executor/commander/basic/adapt_unix_to_windows_path_commander.c"

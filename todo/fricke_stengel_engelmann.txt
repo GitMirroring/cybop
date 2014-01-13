@@ -16,6 +16,35 @@
 CYBOI
 _____
 
-        * Design and write test functions in directory "test/"
-        * Process them all automatically when starting cyboi with the option "--test"
+        * Rethink test framework
+        * Process test functions automatically when starting cyboi with the option "--test"
         * Let them produce an "OK" or "ERROR", in the style of JUnit
+        * Possibly write results into a file "test.txt"
+
+        * Create the following sub directories in directory "test/":
+            comparator/
+            calculator/
+            logifier/
+            manipulator/
+            caster/
+            commander/
+            runner/
+            memoriser/
+            accessor/
+            modifier/
+            converter/
+            representer/
+            communicator/
+            maintainer/
+            lifeguard/
+            referencer/
+
+        * Create test files in these sub directories, e.g.:
+            calculator/fraction_calculator_tester.c
+            calculator/integer_calculator_tester.c
+        * Process files in the sub directory order given above
+            (basic functionality is first, more complex functionality follows at the end)
+
+        * Fill files with test functions
+
+        * Adapt file "controller/tester.c"

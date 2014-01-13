@@ -16,8 +16,13 @@
 CYBOI
 _____
 
-        * Add calculator functions for type complex
-        * Add comparator functions for type complex
+        * Add calculator functions for type complex in directory "executor/calculator/basic/"
+        * See "fraction" as example
+
+        * Add comparator functions for type complex in directory "executor/comparator/basic/"
+
         * Extend boolean and bitwise logic operations in directory "executor/logifier/"
+
         * Implement bit manipulation functions in directory "executor/manipulator/"
-        * Test new source code (perhaps ask group fricke_stengel_engelmann)
+
+        * Test new source code (possibly ask group fricke_stengel_engelmann for help)

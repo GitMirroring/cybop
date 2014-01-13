@@ -16,3 +16,5 @@ _____
 
         * Create complex tui application, e.g. a calculator
         * Create "soccer world championship" system
+
+        * See example applications "helloworld", "tui", "ui_control"

@@ -22,6 +22,8 @@ _____
             http://de.wikipedia.org/wiki/Windows_PowerShell#Cmdlets
         * Create useful and uniform names for commands using pattern "verb-noun"
 
+        * Add commands to directory "constant/model/command/"
+
         * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
         * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
 

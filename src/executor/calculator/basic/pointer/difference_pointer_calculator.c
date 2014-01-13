@@ -34,27 +34,36 @@
 /**
  * Calculates the difference between two pointers.
  *
- * @param p0 the difference, which is the minuend BEFORE the operation
- * @param p1 the subtrahend
+ * @param p0 the difference
+ * @param p1 the minuend
+ * @param p2 the subtrahend
  */
-void calculate_pointer_difference(void* p0, void* p1) {
+void calculate_pointer_difference(void* p0, void* p1, void* p2) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        void* s = (void*) p1;
+        void** s = (void**) p2;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            void* d = (void*) p0;
+            void** m = (void**) p1;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer difference.");
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            //?? TODO: How to return a difference of type "int"
-            //?? if both of the given parametres are of type "void*"?
+                int* d = (int*) p0;
+
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer difference.");
+
+                *d = *m - *s;
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer difference. The difference is null.");
+            }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer difference. The difference is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate pointer difference. The minuend is null.");
         }
 
     } else {

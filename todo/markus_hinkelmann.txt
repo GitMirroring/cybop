@@ -15,3 +15,8 @@ CYBOI
 _____
 
         * Make cyboi compilable for Mac OSX using pre-processor defines
+
+        * Comment out problematic code in a first step
+        * Distinguish between "linux" and "darwin" using preprocessor defines, later
+
+        * Provide platform-dependent features, e.g. "executor/representer/serialiser/gui/"

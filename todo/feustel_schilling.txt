@@ -16,4 +16,8 @@ CYBOI
 _____
 
         * Compile cyboi for win32 using native visual studio, since mingw troubles with some functionality
-        * Provide some items marked as todo
+
+        * Comment out problematic code in a first step
+        * Distinguish between "linux" and "win32" using preprocessor defines, later
+
+        * Provide platform-dependent features, e.g. "executor/representer/serialiser/gui/"

@@ -14,5 +14,13 @@
 CYBOI
 _____
 
-        * Integrate OpenGL
-        * Process simple 3D models provided as CYBOL files
+        * Think about how to represent OpenGL 3D world models in CYBOL
+        * Provide example files in CYBOL format
+
+        * List functionality belonging to an OpenGL engine
+        * Make suggestions on how to integrate OpenGL functions into CYBOI
+
+        * Consider platform-independency
+        * Discuss interaction of OpenGL with XCB and win32 display
+        * See directory "executor/representer/serialiser/gui/"
+        * Ask developer group "feustel_schilling"
