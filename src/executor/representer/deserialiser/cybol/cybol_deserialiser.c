@@ -35,6 +35,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/colour/terminal_colour_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/jd_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/mjd_datetime_cybol_deserialiser.c"
@@ -58,7 +59,6 @@
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/language_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/terminal_colour_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -114,6 +114,16 @@ void deserialise_cybol(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //
     // colour
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) RGB_COLOUR_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_cybol_integer(p0, p2, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

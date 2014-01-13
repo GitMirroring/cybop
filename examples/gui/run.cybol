@@ -43,7 +43,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".logic"/>
         <property name="receiver" channel="inline" format="text/plain" model="test_gui_logic.txt"/>
     </part>
-    <!-- TEST only. Delete later. -->
+    <!-- TEST only. Necessary for displaying test messages on console. Delete later. -->
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>

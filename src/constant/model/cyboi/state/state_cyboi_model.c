@@ -28,22 +28,6 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The complex cyboi model count. */
-//?? DELETE LATER! REPLACED BY COMPLEX_COMPOUND_TYPE_SIZE
-//?? static int* COMPLEX_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The datetime cyboi model count. */
-//?? DELETE LATER! REPLACED BY DATETIME_COMPOUND_TYPE_SIZE
-//?? static int* DATETIME_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The duration cyboi model count. */
-//?? DELETE LATER! REPLACED BY DURATION_COMPOUND_TYPE_SIZE
-//?? static int* DURATION_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The fraction cyboi model count. */
-//?? DELETE LATER! REPLACED BY FRACTION_COMPOUND_TYPE_SIZE
-//?? static int* FRACTION_STATE_CYBOI_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The internal memory cyboi model count. */
 static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

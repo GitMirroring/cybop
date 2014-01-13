@@ -26,14 +26,15 @@
 #ifndef TERMINAL_COLOUR_CYBOL_DESERIALISER_SOURCE
 #define TERMINAL_COLOUR_CYBOL_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/colour/terminal_colour_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/colour/terminal_colour_cybol_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Deserialises the terminal colour into a cyboi-internal integer value.

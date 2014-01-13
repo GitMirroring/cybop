@@ -22,6 +22,7 @@
 
         * Rewrite file "difference_pointer_calculator.c"
         * Remove outdated constants files
+        * Add rgb colour format to cybol de-/serialiser
 
 2014-01-12  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -65,6 +65,13 @@ void serialise_cybol_type(void* p0, void* p1) {
     // ======================================================================
 
     //
+    // CAUTION! Only EXISTING internal types have to be serialised.
+    // The types RGB_COLOUR_STATE_CYBOI_FORMAT and TERMINAL_COLOUR_STATE_CYBOI_FORMAT
+    // for instance, do NOT exist as internal types, but only as formats.
+    // Therefore, a section "colour" does not exist here.
+    //
+
+    //
     // datetime
     //
 
