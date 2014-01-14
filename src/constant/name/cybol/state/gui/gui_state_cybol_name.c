@@ -50,6 +50,11 @@ static wchar_t ICON_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'i', L'c', L'o', L'n'};
 static wchar_t* ICON_GUI_STATE_CYBOL_NAME = ICON_GUI_STATE_CYBOL_NAME_ARRAY;
 static int* ICON_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The icon_title gui state cybol name. */
+static wchar_t ICON_TITLE_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'i', L'c', L'o', L'n', '_', L't', L'i', L't', L'l', L'e'};
+static wchar_t* ICON_TITLE_GUI_STATE_CYBOL_NAME = ICON_TITLE_GUI_STATE_CYBOL_NAME_ARRAY;
+static int* ICON_TITLE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The layout gui state cybol name. */
 static wchar_t LAYOUT_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'l', L'a', L'y', L'o', L'u', L't'};
 static wchar_t* LAYOUT_GUI_STATE_CYBOL_NAME = LAYOUT_GUI_STATE_CYBOL_NAME_ARRAY;

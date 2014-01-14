@@ -3,6 +3,7 @@
         <!-- This flag indicates that this is a window to which the properties are to be applied. -->
         <property name="window" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
+        <property name="icon_title" channel="inline" format="text/plain" model="GUI Example"/>
         <property name="icon" channel="file" format="png" model="gui/icon.png"/>
         <property name="position" channel="inline" format="number/integer" model="30,30"/>
         <property name="size" channel="inline" format="number/integer" model="600,400"/>

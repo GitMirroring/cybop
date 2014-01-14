@@ -83,6 +83,7 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
 
+/*??
 fwprintf(stdout, L"TEST serialise gui rectangle h: %i\n", *((int*) h));
 fwprintf(stdout, L"TEST serialise gui rectangle w: %i\n", *((int*) w));
 fwprintf(stdout, L"TEST serialise gui rectangle y: %i\n", *((int*) y));
@@ -95,6 +96,7 @@ fwprintf(stdout, L"TEST serialise gui rectangle d: %i\n", d);
 fwprintf(stdout, L"TEST serialise gui rectangle *d: %i\n", *((uint32_t*) d));
 fwprintf(stdout, L"TEST serialise gui rectangle gc: %i\n", gc);
 fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
+*/
 
                                     // The value mask.
                                     // CAUTION! It is possible to set several attributes
@@ -102,8 +104,8 @@ fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
 //??                                    uint32_t m = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
                                     uint32_t m = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
                                     // The values.
-                                    // CAUTION! They have to be in the
-                                    // SAME ORDER as given in the mask above.
+                                    // CAUTION! They have to be IN THE SAME ORDER
+                                    // as given in the value mask above.
                                     uint32_t v[2];
                                     // The rectangle.
                                     xcb_rectangle_t r;
