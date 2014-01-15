@@ -16,14 +16,14 @@ ___
 
         * Correct handling of wchar_t for setting title and icon title of window in file "properties_gui_serialiser.c"
             Is "format" 32 really for wchar_t? Or is encoding into utf-8 necessary?
-        * Make window being positioned and sized correctly in file "properties_gui_serialiser.c"
         * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c"
-        * See:
-            http://xcb.freedesktop.org/windowcontextandmanipulation/
+            (not documented in xcb tutorial)
             /home/project/cybop/tmp/xcb_xproto_h.html
-
+        * Fill rectangles with background colour
+        * Paint gui component hierarchy testwise
         * Add font and text "Rectangle Label" of file "window.cybol" following xcb tutorial
-        * Extend gui serialiser for "x window system" and "win32 display"
+            http://xcb.freedesktop.org/tutorial/
+        * Extend gui serialiser for "win32 display"
         * Specify gui component in cybol property "shape" or "super"?
 
 Datetime

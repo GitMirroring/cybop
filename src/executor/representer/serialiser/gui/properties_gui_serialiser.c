@@ -328,9 +328,9 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
             //?? TODO
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-
                 if (tmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+                    // The title count as integer.
                     int* tmci = (int*) tmc;
 
                     // Set title of window.
@@ -346,6 +346,7 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
 
                 if (itmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+                    // The icon title count as integer.
                     int* itmci = (int*) itmc;
 
                     // Set title of window icon.
@@ -358,6 +359,27 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
 
                 // Set icon.
                 //?? TODO
+
+                // The value mask.
+                // CAUTION! It is possible to set several attributes
+                // at the same time by OR'ing these values in valuemask.
+                uint32_t mask = XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y | XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT;
+                // The values.
+                // CAUTION! They have to be IN THE SAME ORDER
+                // as given in the value mask above.
+                uint32_t values[4];
+
+                // Initialise values.
+                // CAUTION! Initialise values BEFORE using them
+                // in function calls further below.
+                // Otherwise, the window configuration will fail.
+                values[0] = pmdx;
+                values[1] = pmdy;
+                values[2] = smdx;
+                values[3] = smdy;
+
+                // Configure window position and size.
+                xcb_configure_window(connexion, *window, mask, values);
 #endif
             }
 

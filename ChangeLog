@@ -18,9 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Set position and size of window in gui serialiser
+
 2014-01-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Set title and icon title of window in file "properties_gui_serialiser.c"
+        * Set title and icon title of window in gui serialiser
 
 2014-01-13  Christian Heller  <christian.heller@tuxtax.de>
 
