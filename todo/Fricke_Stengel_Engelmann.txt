@@ -1,6 +1,0 @@
-Unit testing:
-
-- Testsystem modularisieren
-- Kommandozeilenparameter zum Testen einzelner Module hinzufügen
-  -> Testen aller Module oder Testen eines Untermodules 
-- Tests evtl. über externes Programm ausführen

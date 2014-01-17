@@ -48,3 +48,7 @@ _____
         * Fill files with test functions
 
         * Adapt file "controller/tester.c"
+
+Further ideas:
+
+        * Add command line parameters to test one module at a time
