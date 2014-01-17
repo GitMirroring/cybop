@@ -328,37 +328,69 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
             //?? TODO
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-                if (tmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                //
+                // Title
+                //
 
-                    // The title count as integer.
-                    int* tmci = (int*) tmc;
+                // The title model data terminated item.
+                void* tmdt = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The icon title model data terminated item.
+                void* itmdt = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The title model data terminated item data.
+                void* tmdtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The icon title model data terminated item data.
+                void* itmdtd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-                    // Set title of window.
-                    // CAUTION! The sixth parametre specifies
-                    // the format of the property (8, 16, 32),
-                    // whereby 32 is used for wchar_t data (4 byte = 32 bit).
-                    xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 32, *tmci, tmd);
+                // Allocate title model data terminated item.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                allocate_item((void*) &tmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                // Allocate icon title model data terminated item.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                allocate_item((void*) &itmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-                } else {
+                // Encode title model data terminated wide character- into multibyte character data.
+                encode_utf_8(tmdt, tmd, tmc);
+                // Encode icon title model data terminated wide character- into multibyte character data.
+                encode_utf_8(itmdt, itmd, itmc);
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui properties. The title count is null.");
-                }
+                // Add null termination character to title model data terminated.
+                append_item_element(tmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                // Add null termination character to icon title model data terminated.
+                append_item_element(itmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-                if (itmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                // Get title model data terminated item data.
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                copy_array_forward((void*) &tmdtd, tmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                // Get icon title model data terminated item data.
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                copy_array_forward((void*) &itmdtd, itmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-                    // The icon title count as integer.
-                    int* itmci = (int*) itmc;
+                // Set title.
+                // CAUTION! The sixth parametre specifies
+                // the format of the property (8, 16, 32),
+                // whereby 32 is used for wchar_t data (4 byte = 32 bit).
+                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8, strlen(tmdtd), tmdtd);
+                // Set icon title.
+                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, 8, strlen(itmdtd), itmdtd);
 
-                    // Set title of window icon.
-                    xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, 32, *itmci, itmd);
+                // Deallocate title model data terminated item.
+                deallocate_item((void*) &tmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                // Deallocate icon title model data terminated item.
+                deallocate_item((void*) &itmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-                } else {
+                //
+                // Icon
+                //
 
-                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui properties. The icon title count is null.");
-                }
-
-                // Set icon.
+                // Set icon
                 //?? TODO
+                //?? xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, 32, *imci, imd);
 
                 // The value mask.
                 // CAUTION! It is possible to set several attributes

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Correct setting of window title by using utf-8-encoded char data in gui serialiser
+
 2014-01-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Set position and size of window in gui serialiser
