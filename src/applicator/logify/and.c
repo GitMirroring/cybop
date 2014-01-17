@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/logic/logic_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/logifier/and_boolean_logifier.c"
+#include "../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
@@ -45,8 +45,38 @@
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
+ * @param p2 the knowledge memory
  */
-void apply_and(void* p0, void* p1) {
+void apply_and(void* p0, void* p1, void* p2) { 
+
+  log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply Boolean-AND."); 
+  
+  // The output part. 
+  void* o = *NULL_POINTER_STATE_CYBOI_MODEL; 
+  // The input_1 part. 
+  void* i1 = *NULL_POINTER_STATE_CYBOI_MODEL;
+  // The input_2 part. 
+  void* i2 = *NULL_POINTER_STATE_CYBOI_MODEL; 
+  
+  // Get input_1 part. 
+  get_part_knowledge((void*) &i1, p0, (void*) INPUT_1_LOGIC_LOGIC_CYBOL_NAME, (void*) INPUT_1_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+  
+   // Get input_2 part. 
+  get_part_knowledge((void*) &i2, p0, (void*) INPUT_2_LOGIC_LOGIC_CYBOL_NAME, (void*) INPUT_2_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2); 
+ 
+  // Get output part. 
+  get_part_knowledge((void*) &o, p0, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2); 
+ 
+  fwprintf(stdout, L"i1: %i\n", i1);
+  fwprintf(stdout, L"i2: %i\n", *((int*) i2));
+  fwprintf(stdout, L"o: %i\n", *((int*) o));
+  
+  // Calculate output by applying operation. 
+  logify_boolean_and(o, i1, i2); 
+  
+  //fwprintf(stdout, L"i1: %i\n", *((int*) i1));
+  //fwprintf(stdout, L"i2: %i\n", *((int*) i2));
+  //fwprintf(stdout, L"o: %i\n", *((int*) o));
 }
 
 /* AND_SOURCE */
