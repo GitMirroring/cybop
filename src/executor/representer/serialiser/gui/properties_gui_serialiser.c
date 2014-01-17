@@ -26,7 +26,15 @@
 #ifndef PROPERTIES_GUI_SERIALISER_SOURCE
 #define PROPERTIES_GUI_SERIALISER_SOURCE
 
-#include <xcb/xcb.h>
+#ifdef WIN32
+	#include <xcb/xcb.h>
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+	#include <xcb/xcb.h>
+#endif
+#ifdef __APPLE__
+//??TODO
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

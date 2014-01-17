@@ -33,8 +33,12 @@
 
 #ifdef WIN32
     #include "../../../../executor/communicator/sender/win32_display/win32_display_sender.c"
-#else
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
+#endif
+#ifdef __APPLE__
+	//??ADD GUI Support for Apple??
 #endif
 
 /**
@@ -58,9 +62,14 @@ void send_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
 #ifdef WIN32
     send_win32_display(p7);
-#else
+#endif
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     send_x_window_system(p7);
 #endif
+#ifdef __APPLE__
+	//??ADD GUI Support for Apple??
+#endif
+
 }
 
 /* DISPLAY_SENDER_SOURCE */

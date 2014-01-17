@@ -39,6 +39,10 @@
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
 #endif
+#ifdef __APPLE__
+    #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+#endif
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"

@@ -295,6 +295,9 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                     #ifdef GNU_LINUX_OPERATING_SYSTEM
                         n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
                     #endif
+                    #ifdef __APPLE__
+					    n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                    #endif
 
                     if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
