@@ -78,9 +78,9 @@ static int* ACAD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * AppleFile-Dateien files.
  * Registered.
  */
-static wchar_t APLLEFILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'a', L'p', L'p', L'l', L'e', L'f', L'i', L'l', L'e'};
+static wchar_t APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'a', L'p', L'p', L'l', L'e', L'f', L'i', L'l', L'e'};
 static wchar_t* APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT = APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
-static int* APLLEFILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/astound state cybol type.
@@ -123,8 +123,8 @@ static int* DXF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * Suffixes: spl
  */
 static wchar_t FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'f', L'u', L't', L'u', L'r', L'e', L's', L'p', L'l', L'a', L's', L'h'};
-static wchar_t* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT = FUTURESPALSH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
-static int* FUTURESPALSH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT = FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static int* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/gzip state cybol type.
@@ -155,7 +155,7 @@ static int* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * Registered.
  * Suffixes: hqx
  */
-static wchar_t MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L'a', L'c', L'-' L'b', L'i', L'n', L'h', L'e', L'x', L'4', L'0'};
+static wchar_t MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L'a', L'c', L'-', L'b', L'i', L'n', L'h', L'e', L'x', L'4', L'0'};
 static wchar_t* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT = MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
