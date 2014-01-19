@@ -2,6 +2,8 @@
     <part name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
         <property name="position" channel="inline" format="number/integer" model="50,50"/>
         <property name="size" channel="inline" format="number/integer" model="300,200"/>
+        <property name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
+        <property name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
         <property name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
         <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </part>

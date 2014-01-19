@@ -11,10 +11,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Replace tabs with four spaces in all source code, before next release
+        * Change copyright year to 2014 in all source code files
+
 GUI
 ___
 
-        * Fill rectangles with background colour
+        * Fill rectangles with background colour (Does a "fill" function exist in addition to just "draw"?)
+        * Prepare "shape" or "component" cybol property for stating the kind of gui component, e.g. "button"
+            or, respectively, the kind of shape, e.g. "rectangle";
+            other necessary properties depend on the kind of shape/component;
+            gui components are thus drawn inside cyboi;
+            however, all common 2D shapes need to be provided as "component" as well
         * Paint gui component hierarchy testwise
         * Add font and text "Rectangle Label" of file "window.cybol" following xcb tutorial
             http://xcb.freedesktop.org/tutorial/

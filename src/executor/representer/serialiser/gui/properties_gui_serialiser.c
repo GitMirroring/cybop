@@ -26,16 +26,6 @@
 #ifndef PROPERTIES_GUI_SERIALISER_SOURCE
 #define PROPERTIES_GUI_SERIALISER_SOURCE
 
-#ifdef WIN32
-	#include <xcb/xcb.h>
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-	#include <xcb/xcb.h>
-#endif
-#ifdef __APPLE__
-//??TODO
-#endif
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -47,10 +37,14 @@
 #include "../../../../logger/logger.c"
 
 #ifdef WIN32
-    //?? TODO
+    #include <xcb/xcb.h>
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include <xcb/xcb.h>
     #include "../../../../executor/representer/serialiser/gui/rectangle_gui_serialiser.c"
+#endif
+#ifdef __APPLE__
+    //?? TODO
 #endif
 
 /**

@@ -83,6 +83,9 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
 
+                                    // Get screen's default colour map.
+                                    xcb_colormap_t cm = (*s).default_colormap;
+
 /*??
 fwprintf(stdout, L"TEST serialise gui rectangle h: %i\n", *((int*) h));
 fwprintf(stdout, L"TEST serialise gui rectangle w: %i\n", *((int*) w));
@@ -98,6 +101,37 @@ fwprintf(stdout, L"TEST serialise gui rectangle gc: %i\n", gc);
 fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
 */
 
+                                    /*??
+                                    DELETE LATER:
+                                    XCB_GC_FUNCTION
+                                    XCB_GC_PLANE_MASK
+                                    XCB_GC_FOREGROUND
+                                    XCB_GC_BACKGROUND
+                                    XCB_GC_LINE_WIDTH
+                                    XCB_GC_LINE_STYLE
+                                    XCB_GC_CAP_STYLE
+                                    XCB_GC_JOIN_STYLE
+                                    XCB_GC_FILL_STYLE
+                                    XCB_GC_FILL_RULE
+                                    XCB_GC_TILE
+                                    XCB_GC_STIPPLE
+                                    XCB_GC_TILE_STIPPLE_ORIGIN_X
+                                    XCB_GC_TILE_STIPPLE_ORIGIN_Y
+                                    XCB_GC_FONT
+                                    XCB_GC_SUBWINDOW_MODE
+                                    XCB_GC_GRAPHICS_EXPOSURES
+                                    XCB_GC_CLIP_ORIGIN_X
+                                    XCB_GC_CLIP_ORIGIN_Y
+                                    XCB_GC_CLIP_MASK
+                                    XCB_GC_DASH_OFFSET
+                                    XCB_GC_DASH_LIST
+                                    XCB_GC_ARC_MODE
+                                    */
+
+                                    // The colour cookie.
+                                    xcb_alloc_color_cookie_t cc = xcb_alloc_color(c, cm, 65535, 0, 0);
+                                    // The colour reply.
+                                    xcb_alloc_color_reply_t* cr = xcb_alloc_color_reply(c, cc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
                                     // The value mask.
                                     // CAUTION! It is possible to set several attributes
                                     // at the same time by OR'ing these values in valuemask.
@@ -114,13 +148,14 @@ fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
                                     // CAUTION! Initialise values BEFORE using them
                                     // in function calls further below.
                                     // Otherwise, drawings will not be displayed.
-                                    v[0] = s->black_pixel;
+//??                                    v[0] = (*s).black_pixel;
+                                    v[0] = (*cr).pixel;
                                     v[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-/*??
+                                    /*?? DELETE LATER. Just another example:
                                     v[0] = s->white_pixel;
                                     v[1] = s->black_pixel;
 //??                                    v[2] = font;
-*/
+                                    */
 
                                     // Initialise rectangle.
                                     r.x = *x;
@@ -128,7 +163,7 @@ fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
                                     r.width = *w;
                                     r.height = *h;
 
-                                    // Create graphic context.
+                                    // Change graphic context.
                                     xcb_change_gc(c, *gc, m, v);
 
                                     // Draw rectangle.

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Apply colour to drawn test rectangle in gui serialiser
+
 2014-01-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct setting of window title by using utf-8-encoded char data in gui serialiser
