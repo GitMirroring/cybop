@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide values for command line argument "--test", in order to call one test at a time
+
 2014-01-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Apply colour to drawn test rectangle in gui serialiser
