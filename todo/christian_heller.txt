@@ -203,6 +203,9 @@ _______
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
+        * Check possible simplification of string constants using double quotes; see file "field_description_xdt_model.c":
+            static wchar_t* ID_0_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+            static int* ID_0_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
 

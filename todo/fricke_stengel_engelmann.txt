@@ -17,9 +17,6 @@ CYBOI
 _____
 
         * Rethink test framework
-        * Process test functions automatically when starting cyboi with the option "--test"
-        * Let them produce an "OK" or "ERROR", in the style of JUnit
-        * Possibly write results into a file "test.txt"
 
         * Create the following sub directories in directory "test/":
             comparator/
@@ -39,6 +36,11 @@ _____
             lifeguard/
             referencer/
 
+        * Adapt file "constant/model/cyboi/option/test_unit_option_cyboi_model.c"
+        * Adapt file "constant/model/cyboi/test/unit_test_cyboi_model.c"
+        * Adapt file "executor/searcher/selector/command_line/test_unit_command_line_selector.c"
+        * Adapt file "controller/tester.c"
+
         * Create test files in these sub directories, e.g.:
             calculator/fraction_calculator_tester.c
             calculator/integer_calculator_tester.c
@@ -47,8 +49,5 @@ _____
 
         * Fill files with test functions
 
-        * Adapt file "controller/tester.c"
-
-Further ideas:
-
-        * Add command line parameters to test one module at a time
+        * Process test functions when starting cyboi with e.g. "cyboi --test=calculator"
+        * Let them produce an "OK" or "ERROR", in the style of JUnit
