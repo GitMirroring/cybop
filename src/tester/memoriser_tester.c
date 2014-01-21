@@ -294,14 +294,14 @@ void test_memoriser_array_wide_character() {
  */
 void test_memoriser() {
 
-//    fwprintf(stdout, L"TEST memoriser.\n");
+    fwprintf(stdout, L"TEST memoriser.\n");
 
-//    test_memoriser_array_resizing();
+    test_memoriser_array_resizing();
 
-//    test_memoriser_part();
-//    test_memoriser_item();
-//    test_memoriser_array();
-//    test_memoriser_array_wide_character();
+    test_memoriser_part();
+    test_memoriser_item();
+    test_memoriser_array();
+    test_memoriser_array_wide_character();
 }
 
 /* MEMORISER_TESTER */

@@ -40,11 +40,12 @@
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the log file stream (pointer reference)
- * @param p4 the arguments data (pointer reference)
- * @param p5 the arguments count
+ * @param p3 the test unit
+ * @param p4 the log file stream (pointer reference)
+ * @param p5 the arguments data (pointer reference)
+ * @param p6 the arguments count
  */
-void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
@@ -62,10 +63,10 @@ void optionalise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Get command line options, among others the file name data, count.
-    deserialise_command_line(p0, p1, p2, f, p4, p5);
+    deserialise_command_line(p0, p1, p2, p3, f, p5, p6);
 
     // Optionalise log file handing over terminated log file name item.
-    optionalise_log_file(p3, f);
+    optionalise_log_file(p4, f);
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Begin log.");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"(See file 'optionaliser.c' for this message.)");

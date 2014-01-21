@@ -419,11 +419,11 @@ void test_finder_array() {
  */
 void test_finder() {
 
-//    fwprintf(stdout, L"TEST finder.\n");
+    fwprintf(stdout, L"TEST finder.\n");
 
-//    test_finder_part_hierarchical();
-//    test_finder_part_by_name();
-//    test_finder_array();
+    test_finder_part_hierarchical();
+    test_finder_part_by_name();
+    test_finder_array();
 }
 
 /* FINDER_TESTER */

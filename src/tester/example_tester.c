@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EMPTY_TESTER
-#define EMPTY_TESTER
+#ifndef EXAMPLE_TESTER_SOURCE
+#define EXAMPLE_TESTER_SOURCE
 
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -37,17 +37,17 @@
 #include "../logger/logger.c"
 
 //
-// This is an empty test file.
-// It is provided to test miscellaneous things
-// which are not to be archived in subversion (svn).
+// This is an example test file.
+// It is to demonstrate testing.
+// Examples for using the fwprintf function are given.
 //
 
 /**
  * Tests something 1.
  */
-void test_empty_1() {
+void test_example_1() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty 1.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test example 1.");
 
     // Add YOUR SOURCE CODE here!
 
@@ -59,9 +59,9 @@ void test_empty_1() {
 /**
  * Tests something 2.
  */
-void test_empty_2() {
+void test_example_2() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty 2.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test example 2.");
 
     char c = 'X';
     char* s = "ABC";
@@ -76,9 +76,9 @@ void test_empty_2() {
 /**
  * Tests something 3.
  */
-void test_empty_3() {
+void test_example_3() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test empty 3.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test example 3.");
 
     int sum = 0;
 //    int summand = 3;
@@ -102,17 +102,17 @@ void test_empty_3() {
 /**
  * Tests something.
  */
-void test_empty() {
+void test_example() {
 
-//    fwprintf(stdout, L"TEST empty.\n");
+    fwprintf(stdout, L"TEST example.\n");
 
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-//    test_empty_1();
-//    test_empty_2();
-//    test_empty_3();
+    test_example_1();
+    test_example_2();
+    test_example_3();
 }
 
-/* EMPTY_TESTER */
+/* EXAMPLE_TESTER_SOURCE */
 #endif

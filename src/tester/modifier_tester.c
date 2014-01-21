@@ -323,11 +323,11 @@ void test_modifier_array() {
  */
 void test_modifier() {
 
-//    fwprintf(stdout, L"TEST modifier.\n");
+    fwprintf(stdout, L"TEST modifier.\n");
 
-//    test_modifier_part_compound();
-//    test_modifier_part_wide_character_insert();
-//    test_modifier_array();
+    test_modifier_part_compound();
+    test_modifier_part_wide_character_insert();
+    test_modifier_array();
 }
 
 /* MODIFIER_TESTER */

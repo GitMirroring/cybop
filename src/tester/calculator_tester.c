@@ -79,7 +79,7 @@ void test_calculator_pointer() {
  */
 void test_calculator() {
 
-//    test_calculator_pointer();
+    test_calculator_pointer();
 }
 
 /* CALCULATOR_TESTER */

@@ -131,9 +131,9 @@ void test_referencer_part() {
  */
 void test_referencer() {
 
-//    fwprintf(stdout, L"TEST referencer.\n");
+    fwprintf(stdout, L"TEST referencer.\n");
 
-//    test_referencer_part();
+    test_referencer_part();
 }
 
 /* REFERENCER_TESTER */

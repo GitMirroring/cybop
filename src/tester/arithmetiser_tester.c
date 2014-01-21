@@ -78,10 +78,10 @@ void test_arithmetiser_multiplicator() {
  */
 void test_arithmetiser() {
 
-//    fwprintf(stdout, L"TEST arithmetiser.\n");
+    fwprintf(stdout, L"TEST arithmetiser.\n");
 
-//    test_arithmetiser_integer_adder();
-//    test_arithmetiser_multiplicator();
+    test_arithmetiser_integer_adder();
+    test_arithmetiser_multiplicator();
 }
 
 /* ARITHMETISER_TESTER */

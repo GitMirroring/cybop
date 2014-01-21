@@ -33,6 +33,7 @@
 #else
     #include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
 #endif
+
 #include "../logger/logger.c"
 
 /**

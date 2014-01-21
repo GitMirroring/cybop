@@ -368,13 +368,13 @@ void test_comparator_double() {
  */
 void test_comparator() {
 
-//    fwprintf(stdout, L"TEST comparator.\n");
+    fwprintf(stdout, L"TEST comparator.\n");
 
-//    test_comparator_ascii_character();
-//    test_comparator_array();
-//    test_comparator_part();
-//    test_comparator_pointer();
-//    test_comparator_double();
+    test_comparator_ascii_character();
+    test_comparator_array();
+    test_comparator_part();
+    test_comparator_pointer();
+    test_comparator_double();
 }
 
 /* COMPARATOR_TESTER */

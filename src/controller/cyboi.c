@@ -77,10 +77,7 @@ int main(int p0, char** p1) {
     // it will not harm the operating system, as the memory occupied by
     // the application will be freed automatically on process shutdown.
     //
-
-    //
-    //?? TODO: YET TO ANSWER: How is that with forgotten threads?
-    //?? Are they killed automatically when a process is shut down?
+    // Presumably, forgotten threads are killed automatically, too.
     //
 
     // Return 1 to indicate an error, by default.
@@ -165,6 +162,8 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
         int m = *HELP_OPERATION_MODE_CYBOI_MODEL;
         // The cybol knowledge file path item.
         void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The test unit.
+        int t = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
         // Allocate cybol knowledge file path item.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -172,7 +171,7 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
         allocate_item((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Optionalise command line argument options.
-        optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) LOG_OUTPUT, (void*) p1, (void*) &p0);
+        optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) &t, (void*) LOG_OUTPUT, (void*) p1, (void*) &p0);
 
         // Orient log output file stream.
         //
@@ -187,16 +186,18 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
 
         if (m == *VERSION_OPERATION_MODE_CYBOI_MODEL) {
 
+            // Print version information on screen.
             inform((void*) stdout);
 
         } else if (m == *HELP_OPERATION_MODE_CYBOI_MODEL) {
 
+            // Print help message on screen.
             help((void*) stdout);
 
         } else if (m == *TEST_OPERATION_MODE_CYBOI_MODEL) {
 
-            // Call test function.
-            test();
+            // Call test unit function.
+            test((void*) &t);
 
         } else if (m == *KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL) {
 

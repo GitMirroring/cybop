@@ -77,9 +77,9 @@ void test_type_sizes() {
  */
 void test_variable() {
 
-//    fwprintf(stdout, L"TEST variable.\n");
+    fwprintf(stdout, L"TEST variable.\n");
 
-//    test_type_sizes();
+    test_type_sizes();
 }
 
 /* VARIABLE_TESTER */

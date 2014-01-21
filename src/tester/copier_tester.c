@@ -146,9 +146,9 @@ void test_copier_part() {
  */
 void test_copier() {
 
-//    fwprintf(stdout, L"TEST copier.\n");
+    fwprintf(stdout, L"TEST copier.\n");
 
-//    test_copier_part();
+    test_copier_part();
 }
 
 /* COPIER_TESTER */

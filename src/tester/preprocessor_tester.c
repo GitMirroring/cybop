@@ -55,9 +55,9 @@ void test_preprocessor_directives() {
  */
 void test_preprocessor() {
 
-//    fwprintf(stdout, L"TEST preprocessor.\n");
+    fwprintf(stdout, L"TEST preprocessor.\n");
 
-//    test_preprocessor_directives();
+    test_preprocessor_directives();
 }
 
 /* PREPROCESSOR_TESTER */

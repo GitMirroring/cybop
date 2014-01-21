@@ -128,11 +128,11 @@ void test_accessor_array_setter() {
  */
 void test_accessor() {
 
-//    fwprintf(stdout, L"TEST accessor.\n");
+    fwprintf(stdout, L"TEST accessor.\n");
 
-//    test_accessor_size_determiner();
-//    test_accessor_assigner();
-//    test_accessor_array_setter();
+    test_accessor_size_determiner();
+    test_accessor_assigner();
+    test_accessor_array_setter();
 }
 
 /* ACCESSOR_TESTER */

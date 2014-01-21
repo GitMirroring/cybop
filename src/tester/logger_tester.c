@@ -74,11 +74,11 @@ void test_logger_terminated_message() {
  */
 void test_logger() {
 
-//    fwprintf(stdout, L"TEST logger.\n");
+    fwprintf(stdout, L"TEST logger.\n");
 
-//    test_logger_stdout();
-//    test_logger_message();
-//    test_logger_terminated_message();
+    test_logger_stdout();
+    test_logger_message();
+    test_logger_terminated_message();
 }
 
 /* LOGGER_TESTER */

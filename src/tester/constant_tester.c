@@ -61,9 +61,9 @@ void test_constant_float() {
  */
 void test_constant() {
 
-//    fwprintf(stdout, L"TEST constant.\n");
+    fwprintf(stdout, L"TEST constant.\n");
 
-//    test_constant_float();
+    test_constant_float();
 }
 
 /* CONSTANT_TESTER */

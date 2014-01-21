@@ -594,22 +594,22 @@ void test_pointer_addition() {
  */
 void test_pointer() {
 
-//    fwprintf(stdout, L"TEST pointer.\n");
+    fwprintf(stdout, L"TEST pointer.\n");
 
-//    test_pointer_null();
-//    test_pointer_cast();
-//    test_pointer_return();
+    test_pointer_null();
+    test_pointer_cast();
+    test_pointer_return();
 
-//    test_character_array_with_termination();
-//    test_character_array_single_element();
-//    test_character_array_multiple_elements();
+    test_character_array_with_termination();
+    test_character_array_single_element();
+    test_character_array_multiple_elements();
 
-//    test_integer_array();
+    test_integer_array();
 
-//    test_pointer_array();
-//    test_pointer_array_with_null_values();
+    test_pointer_array();
+    test_pointer_array_with_null_values();
 
-//    test_pointer_addition();
+    test_pointer_addition();
 }
 
 /* POINTER_TESTER */

@@ -113,9 +113,9 @@ void test_representer_number_byte() {
  */
 void test_representer() {
 
-//    fwprintf(stdout, L"TEST representer.\n");
+    fwprintf(stdout, L"TEST representer.\n");
 
-//    test_representer_number_byte();
+    test_representer_number_byte();
 }
 
 /* REPRESENTER_TESTER */

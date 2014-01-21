@@ -28,7 +28,6 @@
 
 #ifdef WIN32
     #include <windows.h>
-/* WIN32_ENVIRONMENT */
 #endif
 
 #include <stdio.h>
@@ -48,11 +47,12 @@
  * @param p0 the operation mode
  * @param p1 the cybol knowledge file path item
  * @param p2 the log level
- * @param p3 the terminated log file name item (multibyte character data)
- * @param p4 the command line data (pointer reference)
- * @param p5 the command line index
+ * @param p3 the test unit
+ * @param p4 the terminated log file name item (multibyte character data)
+ * @param p5 the command line data (pointer reference)
+ * @param p6 the command line index
  */
-void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! DO NOT use logging functionality here!
     // The logger will not work before its options are set.
@@ -80,10 +80,10 @@ void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // even though the char** gets casted to void** inside.
     //
     // A workaround as the following is NOT necessary:
-    // char** tmp1 = (char**) p4;
-    // char** tmp2 = tmp1 + (*((int*) p5));
+    // char** tmp1 = (char**) p5;
+    // char** tmp2 = tmp1 + (*((int*) p6));
     // ad = (void*) *tmp2;
-    copy_array_forward((void*) &ad, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+    copy_array_forward((void*) &ad, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     if (ad != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -102,7 +102,7 @@ void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
         //
         ac = strlen((char*) ad);
 
-        deserialise_command_line_argument_wide(p0, p1, p2, p3, ad, (void*) &ac);
+        deserialise_command_line_argument_wide(p0, p1, p2, p3, p4, ad, (void*) &ac);
 
     } else {
 

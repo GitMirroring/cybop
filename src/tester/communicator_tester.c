@@ -635,20 +635,22 @@ void test_communicator_mesa_opengl() {
  */
 void test_communicator() {
 
-//    fwprintf(stdout, L"TEST communicator.\n");
+    fwprintf(stdout, L"TEST communicator.\n");
 
-//    test_stdout_stdout();
-//    test_wide_character_wprintf();
-//    test_wide_character_output();
+/*??
+    test_stdout_stdout();
+    test_wide_character_wprintf();
+    test_wide_character_output();
 
-//    test_communicator_file_read();
-//    test_communicator_file_write();
+    test_communicator_file_read();
+    test_communicator_file_write();
 
-//    test_communicator_console_input();
-//    test_communicator_console_output();
+    test_communicator_console_input();
+    test_communicator_console_output();
 
-//    test_communicator_mesa_opengl_standard(int argc, char **argv);
-//    test_communicator_mesa_opengl(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (char**) NULL_POINTER_STATE_CYBOI_MODEL);
+    test_communicator_mesa_opengl_standard(int argc, char **argv);
+    test_communicator_mesa_opengl(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (char**) NULL_POINTER_STATE_CYBOI_MODEL);
+*/
 }
 
 /* COMMUNICATOR_TESTER */

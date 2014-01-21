@@ -67,9 +67,9 @@ void test_assembler_register() {
  */
 void test_assembler() {
 
-//    fwprintf(stdout, L"TEST assembler.\n");
+    fwprintf(stdout, L"TEST assembler.\n");
 
-//    test_assembler_register();
+    test_assembler_register();
 }
 
 /* ASSEMBLER_TESTER */
