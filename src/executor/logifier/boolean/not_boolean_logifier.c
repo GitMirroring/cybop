@@ -36,29 +36,21 @@
 /**
  * Negates the given value following boolean logic.
  *
- * @param p0 the result (number 1 if operand is false; number 0 if operand is true; unchanged if null)
- * @param p1 the value
+ * @param p0 the output, which is the first operand BEFORE the operation (number 1 if operand is false; number 0 otherwise; unchanged if null)
  */
 void logify_boolean_not(void* p0) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* v = (int*) p1;
+        int* o = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean not.");
 
-        if !(*v) {
-
-            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        } else {
-
-            copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
+        *o = !(*o);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean not. The value is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean not. The output is null.");
     }
 }
 

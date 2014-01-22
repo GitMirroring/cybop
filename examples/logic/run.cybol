@@ -27,8 +27,7 @@
     <!-- Calculate -->
     <part name="calculate_result" channel="inline" format="logify/and" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
-        <property name="input_1" channel="inline" format="path/knowledge" model=".app.operand_1"/>
-        <property name="input_2" channel="inline" format="path/knowledge" model=".app.operand_2"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
     </part>
 
     <!-- Write knowledge tree into file. -->

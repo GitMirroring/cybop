@@ -30,15 +30,10 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The input 1 logic logic cybol name. */
-static wchar_t INPUT_1_LOGIC_LOGIC_CYBOL_NAME_ARRAY[] = {L'i', L'n', L'p', L'u', L't', L'_', L'1'};
-static wchar_t* INPUT_1_LOGIC_LOGIC_CYBOL_NAME = INPUT_1_LOGIC_LOGIC_CYBOL_NAME_ARRAY;
-static int* INPUT_1_LOGIC_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The input 2 logic logic cybol name. */
-static wchar_t INPUT_2_LOGIC_LOGIC_CYBOL_NAME_ARRAY[] = {L'i', L'n', L'p', L'u', L't', L'_', L'2'};
-static wchar_t* INPUT_2_LOGIC_LOGIC_CYBOL_NAME = INPUT_2_LOGIC_LOGIC_CYBOL_NAME_ARRAY;
-static int* INPUT_2_LOGIC_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The input logic logic cybol name. */
+static wchar_t INPUT_LOGIC_LOGIC_CYBOL_NAME_ARRAY[] = {L'i', L'n', L'p', L'u', L't'};
+static wchar_t* INPUT_LOGIC_LOGIC_CYBOL_NAME = INPUT_LOGIC_LOGIC_CYBOL_NAME_ARRAY;
+static int* INPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The output logic logic cybol name. */
 static wchar_t OUTPUT_LOGIC_LOGIC_CYBOL_NAME_ARRAY[] = {L'o', L'u', L't', L'p', L'u', L't'};

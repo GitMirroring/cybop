@@ -59,7 +59,8 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p7, p10);
+        logify_boolean_or((void*) &r, p7);
+        logify_boolean_and((void*) &r, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -67,9 +68,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p9, p10);
+        logify_boolean_or((void*) &r, p9);
+        logify_boolean_and((void*) &r, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,9 +82,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p8, p10);
+        logify_boolean_or((void*) &r, p8);
+        logify_boolean_and((void*) &r, p10);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,9 +96,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p7, p12);
+        logify_boolean_or((void*) &r, p7);
+        logify_boolean_and((void*) &r, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -97,9 +110,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p9, p12);
+        logify_boolean_or((void*) &r, p9);
+        logify_boolean_and((void*) &r, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -107,9 +124,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p8, p12);
+        logify_boolean_or((void*) &r, p8);
+        logify_boolean_and((void*) &r, p12);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -117,9 +138,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p7, p11);
+        logify_boolean_or((void*) &r, p7);
+        logify_boolean_and((void*) &r, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -127,9 +152,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p9, p11);
+        logify_boolean_or((void*) &r, p9);
+        logify_boolean_and((void*) &r, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -137,9 +166,13 @@ void serialise_tui_character(void* p0, void* p1, void* p2, void* p3, void* p4, v
         }
     }
 
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        logify_boolean_and((void*) &r, p8, p11);
+        logify_boolean_or((void*) &r, p8);
+        logify_boolean_and((void*) &r, p11);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

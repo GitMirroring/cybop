@@ -61,8 +61,11 @@ void serialise_html_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Append html tag properties.
     serialise_html_attributes(p0, p3, p4);
 
+    // Initialise comparison result.
+    logify_boolean_or((void*) &r, p5);
+
     // Check if content is empty AND element is allowed to be void.
-    logify_boolean_and((void*) &r, p5, p6);
+    logify_boolean_and((void*) &r, p6);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

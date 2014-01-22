@@ -36,35 +36,31 @@
 /**
  * Connects the given values following boolean logic.
  *
- * @param p0 the result (number 1 if true; unchanged otherwise)
- * @param p1 the left value
- * @param p2 the right value
+ * @param p0 the output, which is the first operand BEFORE the operation (number 1 if true; number 0 otherwise)
+ * @param p1 the input
  */
-void logify_boolean_and(void* p0, void* p1, void* p2) {
+void logify_boolean_and(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* rv = (int*) p2;
+        int* i = (int*) p1;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* lv = (int*) p1;
+            int* o = (int*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean and.");
 
-            if ((*lv) && (*rv)) {
-
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            *o = (*o) && (*i);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The left value is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The output is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The right value is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean and. The input is null.");
     }
 }
 

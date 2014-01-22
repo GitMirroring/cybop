@@ -37,6 +37,7 @@
 #include "../../executor/lifeguard/sensor/display/display_sensor.c"
 #include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
 #include "../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../executor/logifier/boolean/or_boolean_logifier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
 #include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
@@ -160,12 +161,19 @@ void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         // running in parallel to this main thread.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Initialise results.
+            logify_boolean_or((void*) &c, p0);
+            logify_boolean_or((void*) &d, p2);
+            logify_boolean_or((void*) &s, p4);
+            logify_boolean_or((void*) &t, p6);
+            logify_boolean_or((void*) &w, p8);
+
             // Check if both, enabled flag AND interrupt request are TRUE.
-            logify_boolean_and((void*) &c, p0, p1);
-            logify_boolean_and((void*) &d, p2, p3);
-            logify_boolean_and((void*) &s, p4, p5);
-            logify_boolean_and((void*) &t, p6, p7);
-            logify_boolean_and((void*) &w, p8, p9);
+            logify_boolean_and((void*) &c, p1);
+            logify_boolean_and((void*) &d, p3);
+            logify_boolean_and((void*) &s, p5);
+            logify_boolean_and((void*) &t, p7);
+            logify_boolean_and((void*) &w, p9);
 
             if (c || d || s || t || w) {
 
