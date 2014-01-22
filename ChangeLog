@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare "apply_logify" operation
+
 2014-01-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide values for command line argument "--test", in order to call one test at a time

@@ -1,5 +1,5 @@
 <model>
-  <part name="operand_1" channel="inline" format="logicvalue/boolean" model="false"/>
-  <part name="operand_2" channel="inline" format="logicvalue/boolean" model="true"/>
-  <part name="result" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="operand_1" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="operand_2" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="result" channel="inline" format="logicvalue/boolean" model="true"/>
 </model>
