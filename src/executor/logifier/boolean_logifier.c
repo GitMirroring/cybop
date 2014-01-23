@@ -32,6 +32,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../executor/logifier/boolean/not_boolean_logifier.c"
+#include "../../executor/logifier/boolean/or_boolean_logifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -74,8 +76,8 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Only one parametre is required.
-//??            logify_boolean_neg(p0, *NULL_POINTER_STATE_CYBOI_MODEL);
+            // CAUTION! Only ONE parametre is required.
+//??            logify_boolean_neg(p0);
         }
     }
 
@@ -95,8 +97,8 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Only one parametre is required.
-//??            logify_boolean_not(p0, *NULL_POINTER_STATE_CYBOI_MODEL);
+            // CAUTION! Only ONE parametre is required.
+            logify_boolean_not(p0);
         }
     }
 
@@ -106,7 +108,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            logify_boolean_or(p0, p1);
+            logify_boolean_or(p0, p1);
         }
     }
 

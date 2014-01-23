@@ -92,7 +92,7 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3) {
     fwprintf(stdout, L"pre o: %i\n", *((int*) omd));
 
     // Calculate output by applying operation.
-    logify_boolean(o, i, p3);
+    logify_boolean(omd, imd, p3);
 
     fwprintf(stdout, L"post i: %i\n", *((int*) imd));
     fwprintf(stdout, L"post o: %i\n", *((int*) omd));

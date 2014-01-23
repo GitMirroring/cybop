@@ -25,7 +25,7 @@
     </part>
 
     <!-- Calculate -->
-    <part name="calculate_result" channel="inline" format="logify/and" model="">
+    <part name="calculate_result" channel="inline" format="logify/or" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
         <property name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
     </part>
