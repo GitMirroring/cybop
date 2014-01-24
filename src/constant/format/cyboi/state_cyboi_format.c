@@ -232,6 +232,52 @@ static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INT
 static int* ZIP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// audio
+//
+
+/** The basic audio state cyboi format. */
+static int* BASIC_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The echospeech audio state cyboi format. */
+static int* ECHOSPEECH_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mpeg audio state cyboi format. */
+static int* MPEG_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The tsplayer audio state cyboi format. */
+static int* TSPLAYER_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vorbis audio state cyboi format. */
+static int* VORBIS_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The voxware audio state cyboi format. */
+static int* VOXWARE_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-aiff audio state cyboi format. */
+static int* X_AIFF_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-dspeech audio state cyboi format. */
+static int* X_DSPEECH_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-midi audio state cyboi format. */
+static int* X_MIDI_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-mpeg audio state cyboi format. */
+static int* X_MPEG_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-pn-realaudio audio state cyboi format. */
+static int* X_PN_REALAUDIO_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-pn-realaudio-plugin audio state cyboi format. */
+static int* X_PN_REALAUDIO_PLUGIN_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-qt-stream audio state cyboi format. */
+static int* X_QT_STREAM_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-wav audio state cyboi format. */
+static int* X_WAV_AUDIO_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // colour
 //
 

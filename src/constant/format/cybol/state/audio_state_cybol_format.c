@@ -53,6 +53,26 @@
 //
 
 /**
+ * The audio/basic state cybol type.
+ *
+ * Sound files.
+ * Registered.
+ * Suffixes: au, snd
+ */
+static wchar_t* BASIC_AUDIO_STATE_CYBOL_FORMAT = L"audio/basic";
+static int* BASIC_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/echospeech state cybol type.
+ *
+ * Echospeed files.
+ * Registered.
+ * Suffixes: es
+ */
+static wchar_t* ECHOSPEECH_AUDIO_STATE_CYBOL_FORMAT = L"audio/echospeech";
+static int* ECHOSPEECH_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The audio/mpeg state cybol type.
  *
  * MP3 or other MPEG audio.
@@ -63,11 +83,15 @@ static wchar_t MPEG_AUDIO_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'u', L'd', L'i', 
 static wchar_t* MPEG_AUDIO_STATE_CYBOL_FORMAT = MPEG_AUDIO_STATE_CYBOL_FORMAT_ARRAY;
 static int* MPEG_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/*??
-audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
-audio/vnd.rn-realaudio: RealAudio; Documented in RealPlayer Customer Support Answer 2559
-audio/x-wav: WAV audio
-*/
+/**
+ * The audio/tsplayer state cybol type.
+ *
+ * TS-Player files.
+ * Registered.
+ * Suffixes: tsi
+ */
+static wchar_t* TSPLAYER_AUDIO_STATE_CYBOL_FORMAT = L"audio/tsplayer";
+static int* TSPLAYER_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The audio/vorbis state cybol type.
@@ -75,6 +99,101 @@ audio/x-wav: WAV audio
 static wchar_t VORBIS_AUDIO_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
 static wchar_t* VORBIS_AUDIO_STATE_CYBOL_FORMAT = VORBIS_AUDIO_STATE_CYBOL_FORMAT_ARRAY;
 static int* VORBIS_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/voxware state cybol type.
+ *
+ * Vox files.
+ * Registered.
+ * Suffixes: vox
+ */
+static wchar_t* VOXWARE_AUDIO_STATE_CYBOL_FORMAT = L"audio/voxware";
+static int* VOXWARE_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-aiff state cybol type.
+ *
+ * Vox files.
+ * Registered.
+ * Suffixes: aif, aiff, aifc
+ */
+static wchar_t* X_AIFF_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-aiff";
+static int* X_AIFF_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-dspeech state cybol type.
+ *
+ * speech files.
+ * Registered.
+ * Suffixes: dus, cht
+ */
+static wchar_t* X_DSPEECH_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-dspeech";
+static int* X_DSPEECH_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-midi state cybol type.
+ *
+ * MIDI files.
+ * Registered.
+ * Suffixes: mid, midi
+ */
+static wchar_t* X_MIDI_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-midi";
+static int* X_MIDI_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-mpeg state cybol type.
+ *
+ * MPEG files.
+ * Registered.
+ * Suffixes: mp2
+ */
+static wchar_t* X_MPEG_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-mpeg";
+static int* X_MPEG_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-pn-realaudio state cybol type.
+ *
+ * RealAudio files.
+ * Registered.
+ * Suffixes: ram, ra
+ */
+static wchar_t* X_PN_REALAUDIO_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-pn-realaudio";
+static int* X_PN_REALAUDIO_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-pn-realaudio-plugin state cybol type.
+ *
+ * RealAudio-Plugin files.
+ * Registered.
+ * Suffixes: rpm
+ */
+static wchar_t* X_PN_REALAUDIO_PLUGIN_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-pn-realaudio-plugin";
+static int* X_PN_REALAUDIO_PLUGIN_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-qt-stream state cybol type.
+ *
+ * Quicktime-Streaming files.
+ * Registered.
+ * Suffixes: stream
+ */
+static wchar_t* X_QT_STREAM_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-qt-stream";
+static int* X_QT_STREAM_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The audio/x-wav state cybol type.
+ *
+ * WAV files.
+ * Registered.
+ * Suffixes: wav
+ */
+static wchar_t* X_WAV_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-wav";
+static int* X_WAV_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/*??
+audio/x-ms-wma: Windows Media Audio; Documented in Microsoft KB 288102
+audio/vnd.rn-realaudio: RealAudio; Documented in RealPlayer Customer Support Answer 2559
+*/
 
 /* AUDIO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
