@@ -1,0 +1,36 @@
+<model>
+
+  // ...Initialisierung
+  <part name="init_opengl" channel="inline" format="graphic/opengl_init" model=""/>
+
+  // Aufbau der 3D Szene
+
+  <part name="open_window" channel="inline" format="graphic/opengl_open_window" model="">
+    <property name="title" channel="inline" format="text/plain" model="OpenGL Demo"/>
+    <property name="size" channel="inline" format="number/integer" model="1920,1080"/>
+    <property name="color_depth" channel="inline" format="number/integer" model="32"/>
+    <property name="antialiasing" channel="inline" format="number/integer" model="0"/>
+    <property name="fullscreen" channel="inline" format="logicvalue/boolean" model="false"/>
+    optional: <property name="monitor" channel="inline" format="number/integer" model="0"/>
+  </part>
+  <part name="model_house" channel="inline" format="graphic/opengl_create_model" model="">
+    <property name="mesh" channel="inline" format="element/part" model="opengl/house.cybol"/>
+  </part>
+  <part name="camera" channel="inline" format="graphic/opengl_move_camera" model="">
+    <property name="position" chanel="inline" format="number/float" model="3.0f,0.5f,3.0f" />
+    <property name="viewpoint" chanel="inline" format="number/float" model="0.0f,0.5f,0.0f" />
+    <property name="fov" chanel="inline" format="number/float" model="45.0f" />
+  </part>
+  <part name="model_move" channel="inline" format="graphic/opengl_move_model" model="">
+    <property name="model" chanel="inline" format="path/knowledge" model="model_house" />
+    <property name="scale" chanel="inline" format="number/float" model="1.0f,1.0f,1.0f" />
+    <property name="rotation" chanel="inline" format="number/float" model="0.0f,0.0f,0.0f" />
+    <property name="translation" chanel="inline" format="number/float" model="0.0f,0.0f,0.0f" />
+  </part>
+
+  // Starten einer endlosschleife bis die Anwendung geschlossen wird
+  // oder Reaktion auf Eingaben und dann neu Zeichnen
+  
+  <part name="draw" chanel="inline" format="graphic/opengl_draw" model="Draw_OpenGL" />
+  
+</model>

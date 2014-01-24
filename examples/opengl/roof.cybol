@@ -1,0 +1,31 @@
+ <model>
+
+  <part name="front" channel="inline" format="element/part" model="opengl/triangle.cybol">
+    <property name="position" chanel="inline" format="number/double" model="0,0f,0.5f,0.5f" />
+    <property name="scale" chanel="inline" format="number/double" model="0.71f,0.71f,1.0f" />
+    <property name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,45.0f" />
+    <property name="color" chanel="inline" format="number/double" model="r,g,b" />
+  </part>
+
+  <part name="back" channel="inline" format="element/part" model="opengl/triangle.cybol">
+    <property name="position" chanel="inline" format="number/double" model="0,0f,0.5f,-0.5f" />
+    <property name="scale" chanel="inline" format="number/double" model="0.71f,0.71f,1.0f" />
+    <property name="rotation" chanel="inline" format="number/double" model="0.0f,180.0f,45.0f" />
+    <property name="color" chanel="inline" format="number/double" model="r,g,b" />
+  </part>
+
+  <part name="left_plane" channel="file" format="element/part" model="opengl/plane.cybol">
+    <property name="position" chanel="inline" format="number/double" model="-0,25f,0.25f,0.0f" />
+    <property name="scale" chanel="inline" format="number/double" model="0.71f,1.0f,1.0f" />
+    <property name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,315.0f" />
+    <property name="color" chanel="inline" format="number/double" model="r,g,b" />
+  </part>
+
+  <part name="right_plane" channel="file" format="element/part" model="opengl/plane.cybol">
+    <property name="position" chanel="inline" format="number/double" model="0.25f,0.25f,0.0f" />
+    <property name="scale" chanel="inline" format="number/double" model="0.71f,1.0f,1.0f" />
+    <property name="rotation" chanel="inline" format="number/double" model="0.0f,0.0f,45.0f" />
+    <property name="color" chanel="inline" format="number/double" model="r,g,b" />
+  </part>
+
+</model>
