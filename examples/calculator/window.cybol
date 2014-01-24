@@ -1,0 +1,10 @@
+<model>
+    <part name="menu" channel="file" format="element/part" model="tui/menu.cybol">
+        <property name="position" channel="inline" format="number/integer" model="1,1"/>
+        <property name="size" channel="inline" format="number/integer" model="92,10"/>
+        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="red"/>
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="border" channel="inline" format="text/plain" model="ascii"/>
+    </part>
+</model>
