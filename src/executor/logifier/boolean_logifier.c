@@ -60,13 +60,15 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
+	//NAND
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NAND_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            logify_boolean_nand(p0, p1);
+            logify_boolean_nand(p0, p1);
         }
     }
 
@@ -81,15 +83,19 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+	//NOR
+	
+	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) NOR_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            logify_boolean_nor(p0, p1);
+            logify_boolean_nor(p0, p1);
         }
     }
+
+	//NOT
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,6 +108,8 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
+	//OR
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) OR_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -112,23 +120,27 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+	//XNOR
+	
+	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XNOR_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            logify_boolean_xnor(p0, p1);
+            logify_boolean_xnor(p0, p1);
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+	//XOR
+	
+	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XOR_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            logify_boolean_xor(p0, p1);
+            logify_boolean_xor(p0, p1);
         }
     }
 
