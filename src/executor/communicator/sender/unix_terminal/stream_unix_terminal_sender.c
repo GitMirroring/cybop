@@ -92,12 +92,6 @@ void send_unix_terminal_stream(void* p0, void* p1, void* p2) {
             // of type "wchar_t".
             int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
 			
-			FILE * pFile;
-            pFile = fopen ("/Users/markushinkelmann/log.log","a+");
-            fwprintf(pFile, L"Test data: \%s\n", (char*) p1);
-
-            fclose (pFile);
-			
             // Test error value.
             //
             // CAUTION! The macro WEOF is an integer value that is
