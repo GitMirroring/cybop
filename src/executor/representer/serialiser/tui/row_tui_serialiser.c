@@ -44,6 +44,10 @@
     #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #endif
+#ifdef __APPLE__
+#include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+#include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+#endif
 
 /**
  * Serialises the row into tui.
@@ -119,6 +123,10 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 #ifdef GNU_LINUX_OPERATING_SYSTEM
         serialise_ansi_escape_code_position(p0, (void*) &x, p10);
 #endif
+#ifdef __APPLE__
+        serialise_ansi_escape_code_position(p0, (void*) &x, p10);
+#endif
+        
 
         serialise_tui_character((void*) &ch, p2, p3, p4, p5, p6, p7, (void*) &lp, (void*) &cp, (void*) &rp, p11, p12, p13);
 
@@ -126,6 +134,9 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         serialise_win32_console_character(p1, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
+        serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+#endif
+#ifdef __APPLE__
         serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 #endif
 

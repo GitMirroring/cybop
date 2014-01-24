@@ -44,6 +44,10 @@
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
 #endif
+#ifdef __APPLE__
+#include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
+#endif
+
 
 /**
  * Serialises the properties into tui.
@@ -308,6 +312,10 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 #ifdef GNU_LINUX_OPERATING_SYSTEM
     serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
 #endif
+#ifdef __APPLE__
+    serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
+#endif
+
 
     // Serialise rectangle border and area.
     serialise_tui_rectangle(p0, p1, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);
