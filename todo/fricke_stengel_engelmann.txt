@@ -16,9 +16,9 @@
 CYBOI
 _____
 
-        * Rethink test framework
+        * Rethink test framework --> done
 
-        * Create the following sub directories in directory "test/":
+        * Create the following sub directories in directory "test/": --> done (recreate the directory structure of the cyboi source code structure)
             comparator/
             calculator/
             logifier/
