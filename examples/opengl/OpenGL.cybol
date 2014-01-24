@@ -16,7 +16,8 @@
   <part name="model_house" channel="inline" format="graphic/opengl_create_model" model="">
     <property name="mesh" channel="inline" format="element/part" model="opengl/house.cybol"/>
   </part>
-  <part name="camera" channel="inline" format="graphic/opengl_move_camera" model="">
+  <part name="camera" channel="inline" format="transform/move" model="">
+    <property name="camera" chanel="inline" format="path/knowledge" model="model_house" />
     <property name="position" chanel="inline" format="number/float" model="3.0f,0.5f,3.0f" />
     <property name="viewpoint" chanel="inline" format="number/float" model="0.0f,0.5f,0.0f" />
     <property name="fov" chanel="inline" format="number/float" model="45.0f" />

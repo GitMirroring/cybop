@@ -11,7 +11,7 @@
 # @author Marius Klotke <marius.klotke@it2011.ba-leipzig.de>
 #
 
-CYBOI
+CYBOL
 _____
 
         * Think about how to represent OpenGL 3D world models in CYBOL
@@ -24,3 +24,38 @@ _____
         * Discuss interaction of OpenGL with XCB and win32 display
         * See directory "executor/representer/serialiser/gui/"
         * Ask developer group "feustel_schilling"
+
+CYBOI
+_____
+
+-- Commands
+        * Add operations to file "constant/format/cybol/logic/transform_logic_cybol_format.c"
+        * Add operations to file "constant/format/cyboi/logic_cyboi_format.c"
+-- Logic
+        * Add new directory "constant/name/cybol/logic/transform/"
+        * Add new file for each "transform" operation to directory "constant/name/cybol/logic/transform/"
+        * Add properties to these new files
+-- State
+        * Add new directory "constant/name/cybol/state/opengl/"
+        * Add new file "opengl_state_cybol_name.c" operation to directory "constant/name/cybol/logic/opengl/"
+        * Add properties to this one new file, e.g. position, scale, rotation, colour
+
+        * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+        * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+
+        * Adapt "startup" in directory "executor/maintain/" and shutdown
+        * Create and adapt directory "executor/communicator/sender/" (not receiver)
+	* Create and adapt "executor/representer/serialiser/opengl/" (not deserialiser)
+
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
+        * Add new file for each transform cybol operation to directory "applicator/tranform/"
+
+        * Add commands to section with comment "transform" in file "controller/handler/operation_handler.c"
+    //
+    // transform
+    //
+
+    if ...
