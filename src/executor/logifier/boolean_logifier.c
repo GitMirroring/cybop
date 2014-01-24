@@ -34,6 +34,10 @@
 #include "../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../executor/logifier/boolean/not_boolean_logifier.c"
 #include "../../executor/logifier/boolean/or_boolean_logifier.c"
+#include "../../executor/logifier/boolean/nor_boolean_logifier.c"
+#include "../../executor/logifier/boolean/xnor_boolean_logifier.c"
+#include "../../executor/logifier/boolean/nand_boolean_logifier.c"
+#include "../../executor/logifier/boolean/xor_boolean_logifier.c"
 #include "../../logger/logger.c"
 
 /**
