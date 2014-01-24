@@ -26,6 +26,8 @@ _____
 
         * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
         * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
+        
+        * Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
 
         * Add new file with options for each command to directory "constant/name/command_option/"
         * Add new file for differing options to sub directory "unix/" or "windows/"
