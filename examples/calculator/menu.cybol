@@ -4,30 +4,30 @@
         <property name="position" channel="inline" format="number/integer" model="2,1"/>
         <property name="size" channel="inline" format="number/integer" model="4,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </part>
     <part name="info_enteroparation" channel="inline" format="text/plain" model="Enter: <Number> <Operation> <Number> and then Enter-Key - 1 Space between each is important">
         <property name="position" channel="inline" format="number/integer" model="2,3"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </part>
     <part name="info_countoperation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </part>
 	<part name="info_numbers" channel="inline" format="text/plain" model="2. Numbers are Double">
         <property name="position" channel="inline" format="number/integer" model="2,6"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </part>
 	<part name="exit" channel="inline" format="text/plain" model="3. Esc - Exit Calculator">
         <property name="position" channel="inline" format="number/integer" model="2,7"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
     </part>
 </model>

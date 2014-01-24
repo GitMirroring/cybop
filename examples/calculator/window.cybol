@@ -1,9 +1,9 @@
 <model>
     <part name="menu" channel="file" format="element/part" model="calculator/menu.cybol">
         <property name="position" channel="inline" format="number/integer" model="2,2"/>
-        <property name="size" channel="inline" format="number/integer" model="94,10"/>
+        <property name="size" channel="inline" format="number/integer" model="95,10"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
