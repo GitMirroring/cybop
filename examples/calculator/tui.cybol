@@ -1,7 +1,7 @@
 <model>
     <part name="window" channel="file" format="element/part" model="calculator/window.cybol">
         <property name="position" channel="inline" format="number/integer" model="0,0"/>
-        <property name="size" channel="inline" format="number/integer" model="80,20/>
+        <property name="size" channel="inline" format="number/integer" model="96,20/>
         <property name="background" channel="inline" format="colour/terminal" model="orange"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
