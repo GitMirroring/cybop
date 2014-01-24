@@ -726,8 +726,7 @@ static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_
  * Registered.
  * Suffixes: zip
  */
-static wchar_t ZIP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'z', L'i', L'p'};
-static wchar_t* ZIP_APPLICATION_STATE_CYBOL_FORMAT = ZIP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ZIP_APPLICATION_STATE_CYBOL_FORMAT = L"application/zip";
 static int* ZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??

@@ -42,6 +42,196 @@
 //
 
 //
+// application
+//
+
+/** The acad application state cyboi format. */
+static int* ACAD_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The applefile application state cyboi format. */
+static int* APPLEFILE_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The astound application state cyboi format. */
+static int* ASTOUND_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The dsptype application state cyboi format. */
+static int* DSPTYPE_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The dxf application state cyboi format. */
+static int* DXF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The futuresplash application state cyboi format. */
+static int* FUTURESPLASH_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The gzip application state cyboi format. */
+static int* GZIP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The listenup application state cyboi format. */
+static int* LISTENUP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mac-binhex40 application state cyboi format. */
+static int* MAC_BINHEX40_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mbedlet application state cyboi format. */
+static int* MBEDLET_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mif application state cyboi format. */
+static int* MIF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The msexcel application state cyboi format. */
+static int* MSEXCEL_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mshelp application state cyboi format. */
+static int* MSHELP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mspowerpoint application state cyboi format. */
+static int* MSPOWERPOINT_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The msword application state cyboi format. */
+static int* MSWORD_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The octet-stream application state cyboi format. */
+static int* OCTET_STREAM_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The oda application state cyboi format. */
+static int* ODA_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The pdf application state cyboi format. */
+static int* PDF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The postscript application state cyboi format. */
+static int* POSTSCRIPT_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The RTC application state cyboi format. */
+static int* RTC_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rtf application state cyboi format. */
+static int* RTF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The studiom application state cyboi format. */
+static int* STUDIOM_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The toolbook application state cyboi format. */
+static int* TOOLBOOK_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vnd.ms-excel application state cyboi format. */
+static int* VND_MS_EXCEL_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vocaltec-media-desc application state cyboi format. */
+static int* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vocaltec-media-file application state cyboi format. */
+static int* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xhtml+xml application state cyboi format. */
+static int* XHTML_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xml application state cyboi format. */
+static int* XML_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-bcpio application state cyboi format. */
+static int* X_BCPIO_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-compress application state cyboi format. */
+static int* X_COMPRESS_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-cpio application state cyboi format. */
+static int* X_CPIO_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-csh application state cyboi format. */
+static int* X_CSH_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-director application state cyboi format. */
+static int* X_DIRECTOR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-dvi application state cyboi format. */
+static int* X_DVI_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-envoy application state cyboi format. */
+static int* X_ENVOY_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-gtar application state cyboi format. */
+static int* X_GTAR_STREAM_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-httpd-php application state cyboi format. */
+static int* X_HTTPD_PHP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-javascript application state cyboi format. */
+static int* X_JAVASCRIPT_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-latex application state cyboi format. */
+static int* X_LATEX_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-macbinary application state cyboi format. */
+static int* X_MACBINARY_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-mif application state cyboi format. */
+static int* X_MIF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-netcdf application state cyboi format. */
+static int* X_NETCDF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-nschat application state cyboi format. */
+static int* X_NSCHAT_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-sh application state cyboi format. */
+static int*X_SH_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-shar application state cyboi format. */
+static int* X_SHAR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-sprite application state cyboi format. */
+static int* X_SPRITE_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-stuffit application state cyboi format. */
+static int* X_STUFFIT_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-supercard application state cyboi format. */
+static int* X_SUPERCARD_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-sv4cpio application state cyboi format. */
+static int* X_SV4CPIO_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-sv4crc application state cyboi format. */
+static int* X_SV4CRC_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-tar application state cyboi format. */
+static int* X_TAR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-tcl application state cyboi format. */
+static int* X_TCL_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-tex application state cyboi format. */
+static int* X_TEX_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-texinfo application state cyboi format. */
+static int* X_TEXINFO_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-troff application state cyboi format. */
+static int* X_TROFF_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-troff-man application state cyboi format. */
+static int* X_TROFF_MAN_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-troff-me application state cyboi format. */
+static int* X_TROFF_ME_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-troff-ms application state cyboi format. */
+static int* X_TROFF_MS_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-ustar application state cyboi format. */
+static int* X_USTAR_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-wais-source application state cyboi format. */
+static int* X_WAIS_SOURCE_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-www-form-urlencoded application state cyboi format. */
+static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The zip application state cyboi format. */
+static int* ZIP_APPLICATION_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // colour
 //
 
