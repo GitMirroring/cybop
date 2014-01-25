@@ -57,6 +57,7 @@ void serialise_character_reference_character(void* p0, void* p1, void* p2) {
         }
     }
 
+/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) SGML_TEXT_STATE_CYBOI_LANGUAGE);
@@ -66,6 +67,7 @@ void serialise_character_reference_character(void* p0, void* p1, void* p2) {
             // Not implemented yet.
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
