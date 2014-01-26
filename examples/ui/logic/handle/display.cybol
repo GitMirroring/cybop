@@ -1,0 +1,48 @@
+<model>
+    <!-- If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
+    <part name="reset" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+    </part>
+    <part name="receive" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
+        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.gui.window"/>
+    </part>
+    <!--
+        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
+        Otherwise, another signal might be executed before, so that this signal could possibly
+        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
+        The "flow/sequence" operation ensures that the given model is executed directly.
+    -->
+    <!-- CAUTION! Use path/reference format here, since the action is just a string pointing to the actual model to be executed. -->
+    <part name="execute" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/reference" model=".app.gui.action"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2013. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.15.0 2013-09-22
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
