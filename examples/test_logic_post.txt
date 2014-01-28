@@ -1,0 +1,3 @@
+[selected_node] | element/part | 
++-result | logicvalue/boolean | false
++-operand | logicvalue/boolean | false
