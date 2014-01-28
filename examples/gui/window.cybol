@@ -1,10 +1,18 @@
 <model>
-    <part name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
-        <property name="position" channel="inline" format="number/integer" model="50,50"/>
+    <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 65535. -->
+    <part name="rectangle_0" channel="inline" format="text/plain" model="Hello, World!">
+        <property name="position" channel="inline" format="number/integer" model="50,100"/>
         <property name="size" channel="inline" format="number/integer" model="300,200"/>
-        <property name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
-        <property name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <property name="foreground" channel="inline" format="colour/rgb" model="0,0,65535"/>
+        <property name="background" channel="inline" format="colour/rgb" model="65535,65535,65535"/>
         <property name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
+        <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+    </part>
+    <part name="rectangle_1" channel="inline" format="text/plain" model="CYBOP Demo">
+        <property name="position" channel="inline" format="number/integer" model="400,300"/>
+        <property name="size" channel="inline" format="number/integer" model="400,200"/>
+        <property name="foreground" channel="inline" format="colour/rgb" model="65535,65535,65535"/>
+        <property name="background" channel="inline" format="colour/rgb" model="0,0,65535"/>
         <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
     </part>
 </model>
