@@ -1,5 +1,5 @@
 <model>
-    <part name="result" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="result" channel="inline" format="logicvalue/boolean" model="25"/>
     <part name="operation" channel="inline" format="logify/not" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
         <property name="input" channel="inline" format="path/knowledge" model=".app.result"/>

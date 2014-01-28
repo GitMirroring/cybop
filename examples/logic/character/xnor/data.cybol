@@ -1,6 +1,6 @@
 <model>
-    <part name="result" channel="inline" format="logicvalue/boolean" model="false"/>
-    <part name="operand" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="result" channel="inline" format="logicvalue/boolean" model="25"/>
+    <part name="operand" channel="inline" format="logicvalue/boolean" model="13"/>
     <part name="operation" channel="inline" format="logify/xnor" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
         <property name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
