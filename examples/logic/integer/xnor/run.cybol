@@ -1,0 +1,41 @@
+<model>
+    <part name="create_app" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="app"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+    <!-- create Terminal -->
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part> 
+
+
+    <!-- include data -->
+    <part name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="logic/integer/xnor/data.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
+
+    <!-- Calculate -->
+    <part name="calculate_result" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.operation"/>
+    </part>
+
+    <!-- Print -->
+    <part name="print_result" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</model>
