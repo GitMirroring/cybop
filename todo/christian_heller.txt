@@ -17,6 +17,7 @@
 GUI
 ___
 
+        * Continue with function "serialise_gui_rectangle"; complete comments for local variables (taken from xcb api)
         * Fill rectangles with background colour (Does a "fill" function exist in addition to just "draw"?)
         * Prepare "shape" or "component" cybol property for stating the kind of gui component, e.g. "button"
             or, respectively, the kind of shape, e.g. "rectangle";
