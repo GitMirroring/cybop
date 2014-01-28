@@ -106,8 +106,8 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3) {
     // Calculate output by applying operation.
     logify_value(omd, imd, p3, tmd);
 
-    //fwprintf(stdout, L"post i: %i\n", *((int*) imd));
-    //fwprintf(stdout, L"post o: %i\n", *((int*) omd));
+    fwprintf(stdout, L"post i: %i\n", *((int*) imd));
+    fwprintf(stdout, L"post o: %i\n", *((int*) omd));
 }
 
 /* LOGIFY_SOURCE */

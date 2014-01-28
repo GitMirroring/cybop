@@ -23,44 +23,47 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BOOLEAN_LOGIFIER_SOURCE
-#define BOOLEAN_LOGIFIER_SOURCE
+#ifndef INTEGER_LOGIFIER_SOURCE
+#define INTEGER_LOGIFIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../executor/logifier/boolean/not_boolean_logifier.c"
-#include "../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../executor/logifier/boolean/nor_boolean_logifier.c"
-#include "../../executor/logifier/boolean/xnor_boolean_logifier.c"
-#include "../../executor/logifier/boolean/nand_boolean_logifier.c"
-#include "../../executor/logifier/boolean/xor_boolean_logifier.c"
+#include "../../executor/logifier/integer/and_integer_logifier.c"
+#include "../../executor/logifier/integer/not_integer_logifier.c"
+#include "../../executor/logifier/integer/or_integer_logifier.c"
+#include "../../executor/logifier/integer/nor_integer_logifier.c"
+#include "../../executor/logifier/integer/xnor_integer_logifier.c"
+#include "../../executor/logifier/integer/nand_integer_logifier.c"
+#include "../../executor/logifier/integer/xor_integer_logifier.c"
+#include "../../executor/logifier/integer/neg_integer_logifier.c"
 #include "../../logger/logger.c"
 
 /**
- * Connects the given values following the given boolean logic operation.
+ * Connects the given values following the given integer bitwise logic operation.
  *
  * @param p0 the output (number 1 if true; unchanged otherwise)
  * @param p1 the input
  * @param p2 the operation type
  */
-void logify_boolean(void* p0, void* p1, void* p2) {
+void logify_integer(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify integer.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+      //AND
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) AND_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_and(p0, p1);
+            logify_integer_and(p0, p1);
         }
     }
 
@@ -71,9 +74,11 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_nand(p0, p1);
+            logify_integer_nand(p0, p1);
         }
     }
+    
+      //NEG
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,7 +87,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Only ONE parametre is required.
-//??            logify_boolean_neg(p0);
+            logify_integer_neg(p0);
         }
     }
 
@@ -94,7 +99,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_nor(p0, p1);
+            logify_integer_nor(p0, p1);
         }
     }
 
@@ -105,51 +110,50 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 	    
             // CAUTION! Only ONE parametre is required.
-            logify_boolean_not(p0);
+            logify_integer_not(p0);
         }
     }
 
 	//OR
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) OR_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_or(p0, p1);
+            logify_integer_or(p0, p1);
         }
     }
 
 	//XNOR
 	
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XNOR_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_xnor(p0, p1);
+            logify_integer_xnor(p0, p1);
         }
     }
 
 	//XOR
 	
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) XOR_LOGIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_xor(p0, p1);
+            logify_integer_xor(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean. The operation type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer. The operation type is unknown.");
     }
 }
 
-/* BOOLEAN_LOGIFIER_SOURCE */
+/* INTEGER_LOGIFIER_SOURCE */
 #endif

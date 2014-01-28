@@ -32,6 +32,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/logifier/boolean_logifier.c"
+#include "../../executor/logifier/integer_logifier.c"
+#include "../../executor/logifier/character_logifier.c"
 #include "../../logger/logger.c"
 
 
@@ -91,25 +93,29 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
     }
 
     //
-    // number
-    /*
+    // number - CHARACTER
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) CHARACTER_NUMBER_STATE_CYBOI_TYPE);
+        compare_integer_equal((void*) &r, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             logify_character(p0, p1, p2);
         }
     }
-
+    
+    //
+    // number - INTEGER
+    //
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+	    
             logify_integer(p0, p1, p2);
         }
     }
@@ -118,7 +124,6 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not calculate value. The operand type is unknown.");
     }
-    */
 }
 
 /* VALUE_LOGIFIER_SOURCE */

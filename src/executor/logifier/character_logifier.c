@@ -33,16 +33,16 @@
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../executor/logifier/character/and_character_logifier.c"
 #include "../../executor/logifier/character/not_character_logifier.c"
-#include "../../executor/logifier/character/or_boolean_logifier.c"
-#include "../../executor/logifier/character/nor_boolean_logifier.c"
-#include "../../executor/logifier/character/xnor_boolean_logifier.c"
-#include "../../executor/logifier/character/nand_boolean_logifier.c"
-#include "../../executor/logifier/character/xor_boolean_logifier.c"
-#include "../../executor/logifier/character/neg_boolean_logifier.c"
+#include "../../executor/logifier/character/or_character_logifier.c"
+#include "../../executor/logifier/character/nor_character_logifier.c"
+#include "../../executor/logifier/character/xnor_character_logifier.c"
+#include "../../executor/logifier/character/nand_character_logifier.c"
+#include "../../executor/logifier/character/xor_character_logifier.c"
+#include "../../executor/logifier/character/neg_character_logifier.c"
 #include "../../logger/logger.c"
 
 /**
- * Connects the given values following the given boolean logic operation.
+ * Connects the given values following the given character bitwise logic operation.
  *
  * @param p0 the output (number 1 if true; unchanged otherwise)
  * @param p1 the input
@@ -55,6 +55,8 @@ void logify_character(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //AND
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p2, (void*) AND_LOGIFY_LOGIC_CYBOI_FORMAT);
@@ -75,6 +77,8 @@ void logify_character(void* p0, void* p1, void* p2) {
             logify_character_nand(p0, p1);
         }
     }
+
+    //NEG
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

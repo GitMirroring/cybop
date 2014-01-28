@@ -150,6 +150,17 @@ static wchar_t* INTEGER_NUMBER_STATE_CYBOL_FORMAT = INTEGER_NUMBER_STATE_CYBOL_F
 static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The number/character state cybol type.
+ *
+ * Character number (integral data type).
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CHARACTER_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'c', L'h', L'a', L'r', L'a', L'c', L't', L'e', L'r'};
+static wchar_t* CHARACTER_NUMBER_STATE_CYBOL_FORMAT = CHARACTER_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static int* CHARACTER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The number/line-speed state cybol type.
  *
  * Integer number (integral data type), prefixed with a "B".
