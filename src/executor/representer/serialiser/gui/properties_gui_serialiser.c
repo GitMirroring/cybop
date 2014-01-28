@@ -330,10 +330,6 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
             //?? TODO
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-                //
-                // Title
-                //
-
                 // The title model data terminated item.
                 void* tmdt = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // The icon title model data terminated item.
@@ -342,6 +338,14 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 void* tmdtd = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // The icon title model data terminated item data.
                 void* itmdtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The value mask.
+                // CAUTION! It is possible to set several attributes
+                // at the same time by OR'ing these values in valuemask.
+                uint32_t mask = XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y | XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT;
+                // The values.
+                // CAUTION! They have to be IN THE SAME ORDER
+                // as given in the value mask above.
+                uint32_t values[4];
 
                 // Allocate title model data terminated item.
                 // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -356,6 +360,15 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 encode_utf_8(tmdt, tmd, tmc);
                 // Encode icon title model data terminated wide character- into multibyte character data.
                 encode_utf_8(itmdt, itmd, itmc);
+
+                // Initialise values.
+                // CAUTION! Initialise values BEFORE using them
+                // in function calls further below.
+                // Otherwise, the window configuration will fail.
+                values[0] = pmdx;
+                values[1] = pmdy;
+                values[2] = smdx;
+                values[3] = smdy;
 
                 // Add null termination character to title model data terminated.
                 append_item_element(tmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -375,45 +388,24 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
 
                 // Set title.
                 // CAUTION! The sixth parametre specifies
-                // the format of the property (8, 16, 32),
-                // whereby 32 is used for wchar_t data (4 byte = 32 bit).
-                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, 8, strlen(tmdtd), tmdtd);
+                // the format of the property (8, 16, 32).
+                // However, number 32 (= 4 byte) for
+                // specifying "wchar_t" data did NOT work.
+                // Therefore, "char" data with string
+                // termination character are used now.
+                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(tmdtd), tmdtd);
                 // Set icon title.
-                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, 8, strlen(itmdtd), itmdtd);
+                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(itmdtd), itmdtd);
+                // Set icon
+                //?? TODO
+                //?? xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, *NUMBER_32_INTEGER_STATE_CYBOI_MODEL, *imci, imd);
+                // Configure window position and size.
+                xcb_configure_window(connexion, *window, mask, values);
 
                 // Deallocate title model data terminated item.
                 deallocate_item((void*) &tmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
                 // Deallocate icon title model data terminated item.
                 deallocate_item((void*) &itmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-                //
-                // Icon
-                //
-
-                // Set icon
-                //?? TODO
-                //?? xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, 32, *imci, imd);
-
-                // The value mask.
-                // CAUTION! It is possible to set several attributes
-                // at the same time by OR'ing these values in valuemask.
-                uint32_t mask = XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y | XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT;
-                // The values.
-                // CAUTION! They have to be IN THE SAME ORDER
-                // as given in the value mask above.
-                uint32_t values[4];
-
-                // Initialise values.
-                // CAUTION! Initialise values BEFORE using them
-                // in function calls further below.
-                // Otherwise, the window configuration will fail.
-                values[0] = pmdx;
-                values[1] = pmdy;
-                values[2] = smdx;
-                values[3] = smdy;
-
-                // Configure window position and size.
-                xcb_configure_window(connexion, *window, mask, values);
 #endif
             }
 

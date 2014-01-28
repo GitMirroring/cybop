@@ -83,64 +83,78 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
 
-                                    // Get screen's default colour map.
-                                    xcb_colormap_t cm = (*s).default_colormap;
-
-/*??
-fwprintf(stdout, L"TEST serialise gui rectangle h: %i\n", *((int*) h));
-fwprintf(stdout, L"TEST serialise gui rectangle w: %i\n", *((int*) w));
-fwprintf(stdout, L"TEST serialise gui rectangle y: %i\n", *((int*) y));
-fwprintf(stdout, L"TEST serialise gui rectangle x: %i\n", *((int*) x));
-fwprintf(stdout, L"TEST serialise gui rectangle c: %i\n", c);
-fwprintf(stdout, L"TEST serialise gui rectangle *c: %i\n", *((uint32_t*) c));
-fwprintf(stdout, L"TEST serialise gui rectangle s: %i\n", s);
-fwprintf(stdout, L"TEST serialise gui rectangle *s: %i\n", *((uint32_t*) s));
-fwprintf(stdout, L"TEST serialise gui rectangle d: %i\n", d);
-fwprintf(stdout, L"TEST serialise gui rectangle *d: %i\n", *((uint32_t*) d));
-fwprintf(stdout, L"TEST serialise gui rectangle gc: %i\n", gc);
-fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
-*/
-
-                                    /*??
-                                    DELETE LATER:
-                                    XCB_GC_FUNCTION
-                                    XCB_GC_PLANE_MASK
-                                    XCB_GC_FOREGROUND
-                                    XCB_GC_BACKGROUND
-                                    XCB_GC_LINE_WIDTH
-                                    XCB_GC_LINE_STYLE
-                                    XCB_GC_CAP_STYLE
-                                    XCB_GC_JOIN_STYLE
-                                    XCB_GC_FILL_STYLE
-                                    XCB_GC_FILL_RULE
-                                    XCB_GC_TILE
-                                    XCB_GC_STIPPLE
-                                    XCB_GC_TILE_STIPPLE_ORIGIN_X
-                                    XCB_GC_TILE_STIPPLE_ORIGIN_Y
-                                    XCB_GC_FONT
-                                    XCB_GC_SUBWINDOW_MODE
-                                    XCB_GC_GRAPHICS_EXPOSURES
-                                    XCB_GC_CLIP_ORIGIN_X
-                                    XCB_GC_CLIP_ORIGIN_Y
-                                    XCB_GC_CLIP_MASK
-                                    XCB_GC_DASH_OFFSET
-                                    XCB_GC_DASH_LIST
-                                    XCB_GC_ARC_MODE
-                                    */
-
-                                    // The colour cookie.
-                                    xcb_alloc_color_cookie_t cc = xcb_alloc_color(c, cm, 65535, 0, 0);
-                                    // The colour reply.
-                                    xcb_alloc_color_reply_t* cr = xcb_alloc_color_reply(c, cc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
                                     // The value mask.
                                     // CAUTION! It is possible to set several attributes
                                     // at the same time by OR'ing these values in valuemask.
-//??                                    uint32_t m = XCB_GC_BACKGROUND | XCB_GC_FOREGROUND; //?? | XCB_GC_FONT;
-                                    uint32_t m = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
+                                    uint32_t m = XCB_GC_FOREGROUND
+                                        | XCB_GC_BACKGROUND
+                                        | XCB_GC_LINE_WIDTH
+                                        | XCB_GC_LINE_STYLE
+                                        | XCB_GC_CAP_STYLE
+                                        | XCB_GC_JOIN_STYLE
+                                        | XCB_GC_FILL_STYLE
+                                        | XCB_GC_FILL_RULE
+                                        | XCB_GC_FONT;
                                     // The values.
                                     // CAUTION! They have to be IN THE SAME ORDER
                                     // as given in the value mask above.
-                                    uint32_t v[2];
+                                    uint32_t v[9];
+                                    // Get screen's default colour map.
+                                    xcb_colormap_t cm = (*s).default_colormap;
+                                    // The foreground colour cookie.
+                                    xcb_alloc_color_cookie_t ccf = xcb_alloc_color(c, cm, 65535, 65535, 65535);
+                                    // The background colour cookie.
+                                    xcb_alloc_color_cookie_t ccb = xcb_alloc_color(c, cm, 0, 0, 65535);
+                                    // The foreground colour reply.
+                                    xcb_alloc_color_reply_t* crf = xcb_alloc_color_reply(c, ccf, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+                                    // The background colour reply.
+                                    xcb_alloc_color_reply_t* crb = xcb_alloc_color_reply(c, ccb, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+                                    // The line width measured in pixels.
+                                    int lw = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // The line style defining which sections of a line are drawn.
+                                    //
+                                    // Possible values:
+                                    //
+                                    // Solid: full path of the line is drawn
+                                    // DoubleDash: full path of the line is drawn,
+                                    //     but even dashes are filled differently
+                                    //     than odd dashes (see fill-style), with
+                                    //     Butt cap-style used where even and odd dashes meet
+                                    // OnOffDash: only even dashes are drawn, and
+                                    //     cap-style applies to all internal ends of
+                                    //     individual dashes (except NotLast is treated as Butt)
+                                    int ls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // The cap style.
+                                    //
+                                    // Possible values:
+                                    //
+                                    // NotLast: result is equivalent to Butt,
+                                    //     except that for a line-width of zero
+                                    //     the final endpoint is not drawn
+                                    // Butt: result is square at the endpoint
+                                    //     (perpendicular to the slope of the line)
+                                    //     with no projection beyond
+                                    // Round: result is a circular arc with its
+                                    //     diameter equal to the line-width,
+                                    //     centered on the endpoint;
+                                    //     equivalent to Butt for line-width zero
+                                    // Projecting: result is square at the end,
+                                    //     but the path continues beyond the endpoint
+                                    //     for a distance equal to half the line-width;
+                                    //     equivalent to Butt for line-width zero
+                                    int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // The join style.
+                                    //
+                                    // Possible values:
+                                    //
+                                    // Miter The outer edges of the two lines extend to meet at an angle. However, if the angle is less than 11 degrees, a Bevel join-style is used instead. Round The result is a circular arc with a diameter equal to the line-width, centered on the joinpoint. Bevel The result is Butt endpoint styles, and then the triangular notch is filled
+                                    int js = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // The fill style.
+                                    int fs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // The fill rule.
+                                    int fr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // The font.
+                                    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                                     // The rectangle.
                                     xcb_rectangle_t r;
 
@@ -148,14 +162,31 @@ fwprintf(stdout, L"TEST serialise gui rectangle *gc: %i\n", *((uint32_t*) gc));
                                     // CAUTION! Initialise values BEFORE using them
                                     // in function calls further below.
                                     // Otherwise, drawings will not be displayed.
-//??                                    v[0] = (*s).black_pixel;
-                                    v[0] = (*cr).pixel;
-                                    v[1] = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                                    /*?? DELETE LATER. Just another example:
-                                    v[0] = s->white_pixel;
-                                    v[1] = s->black_pixel;
-//??                                    v[2] = font;
-                                    */
+                                    if (crf != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                        v[0] = (*crf).pixel;
+
+                                    } else {
+
+                                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The foreground colour reply is null.");
+                                    }
+
+                                    if (crb != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                        v[1] = (*crb).pixel;
+
+                                    } else {
+
+                                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The background colour reply is null.");
+                                    }
+
+                                    v[2] = lw;
+                                    v[3] = ls;
+                                    v[4] = cs;
+                                    v[5] = js;
+                                    v[6] = fs;
+                                    v[7] = fr;
+                                    v[8] = f;
 
                                     // Initialise rectangle.
                                     r.x = *x;
