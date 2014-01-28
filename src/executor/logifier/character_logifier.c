@@ -23,21 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BOOLEAN_LOGIFIER_SOURCE
-#define BOOLEAN_LOGIFIER_SOURCE
+#ifndef CHARACTER_LOGIFIER_SOURCE
+#define CHARACTER_LOGIFIER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
-#include "../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../executor/logifier/boolean/not_boolean_logifier.c"
-#include "../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../executor/logifier/boolean/nor_boolean_logifier.c"
-#include "../../executor/logifier/boolean/xnor_boolean_logifier.c"
-#include "../../executor/logifier/boolean/nand_boolean_logifier.c"
-#include "../../executor/logifier/boolean/xor_boolean_logifier.c"
+#include "../../executor/logifier/character/and_character_logifier.c"
+#include "../../executor/logifier/character/not_character_logifier.c"
+#include "../../executor/logifier/character/or_boolean_logifier.c"
+#include "../../executor/logifier/character/nor_boolean_logifier.c"
+#include "../../executor/logifier/character/xnor_boolean_logifier.c"
+#include "../../executor/logifier/character/nand_boolean_logifier.c"
+#include "../../executor/logifier/character/xor_boolean_logifier.c"
+#include "../../executor/logifier/character/neg_boolean_logifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -47,9 +48,9 @@
  * @param p1 the input
  * @param p2 the operation type
  */
-void logify_boolean(void* p0, void* p1, void* p2) {
+void logify_character(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify boolean.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify character.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -60,7 +61,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_and(p0, p1);
+            logify_character_and(p0, p1);
         }
     }
 
@@ -71,7 +72,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_nand(p0, p1);
+            logify_character_nand(p0, p1);
         }
     }
 
@@ -82,7 +83,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Only ONE parametre is required.
-//??            logify_boolean_neg(p0);
+            logify_character_neg(p0);
         }
     }
 
@@ -94,7 +95,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_nor(p0, p1);
+            logify_character_nor(p0, p1);
         }
     }
 
@@ -105,7 +106,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 	    
             // CAUTION! Only ONE parametre is required.
-            logify_boolean_not(p0);
+            logify_character_not(p0);
         }
     }
 
@@ -117,7 +118,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_or(p0, p1);
+            logify_character_or(p0, p1);
         }
     }
 
@@ -129,7 +130,7 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_xnor(p0, p1);
+            logify_character_xnor(p0, p1);
         }
     }
 
@@ -141,15 +142,15 @@ void logify_boolean(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            logify_boolean_xor(p0, p1);
+            logify_character_xor(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify boolean. The operation type is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character. The operation type is unknown.");
     }
 }
 
-/* BOOLEAN_LOGIFIER_SOURCE */
+/* CHARACTER_LOGIFIER_SOURCE */
 #endif

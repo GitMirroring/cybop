@@ -33,7 +33,7 @@
 #include "../../constant/name/cybol/logic/logic/logic_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
-#include "../../executor/logifier/boolean_logifier.c"
+#include "../../executor/logifier/value_logifier.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -55,47 +55,59 @@
  * @param p3 the operation type
  */
 void apply_logify(void* p0, void* p1, void* p2, void* p3) {
-
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply logify.");
 
     // The output part.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The output part model item.
     void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The type part model item.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The output part model item data.
     void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The input part model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
+    // The type part model item data.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    
     // Get output part.
     get_part_knowledge((void*) &o, p0, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get input part.
     get_part_knowledge((void*) &i, p0, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get type part.
+    get_part_knowledge((void*) &t, p0, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get output part model item.
     copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get input part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get type part model item.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get output part model item data.
     copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get input part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get type part model item data.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     fwprintf(stdout, L"pre i: %i\n", *((int*) imd));
     fwprintf(stdout, L"pre o: %i\n", *((int*) omd));
-
+    fwprintf(stdout, L"pre t: %i\n", *((int*) tmd));
+     
     // Calculate output by applying operation.
-    logify_boolean(omd, imd, p3);
+    logify_value(omd, imd, p3, tmd);
 
-    fwprintf(stdout, L"post i: %i\n", *((int*) imd));
-    fwprintf(stdout, L"post o: %i\n", *((int*) omd));
+    //fwprintf(stdout, L"post i: %i\n", *((int*) imd));
+    //fwprintf(stdout, L"post o: %i\n", *((int*) omd));
 }
 
 /* LOGIFY_SOURCE */
