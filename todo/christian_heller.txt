@@ -17,19 +17,16 @@
 GUI
 ___
 
-        * Continue with function "serialise_gui_rectangle"; complete comments for local variables (taken from xcb api)
-        * Fill rectangles with background colour (Does a "fill" function exist in addition to just "draw"?)
-        * Prepare "shape" or "component" cybol property for stating the kind of gui component, e.g. "button"
-            or, respectively, the kind of shape, e.g. "rectangle";
+        * Define constants for all possible values in function "serialise_gui_rectangle",
+            e.g. "shape" cybol property like "button" or "rectangle";
             other necessary properties depend on the kind of shape/component;
             gui components are thus drawn inside cyboi;
             however, all common 2D shapes need to be provided as "component" as well
-        * Paint gui component hierarchy testwise
-        * Add font and text "Rectangle Label" of file "window.cybol" following xcb tutorial
-            http://xcb.freedesktop.org/tutorial/
+        * Split function "serialise_gui_rectangle"
+        * Paint gui component hierarchy and properties
         * Extend gui serialiser for "win32 display"
-        * Specify gui component in cybol property "shape" or "super"?
         * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
+        * API: http://xcb.freedesktop.org/manual/group__XCB____API.html
 
 Datetime
 ________

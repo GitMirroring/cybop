@@ -30,20 +30,41 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The rectangle shape cybol model. */
-static wchar_t RECTANGLE_SHAPE_CYBOL_MODEL_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'g', L'l', L'e'};
-static wchar_t* RECTANGLE_SHAPE_CYBOL_MODEL = RECTANGLE_SHAPE_CYBOL_MODEL_ARRAY;
-static int* RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The arc shape cybol model. */
+static wchar_t* ARC_SHAPE_CYBOL_MODEL = L"arc";
+static int* ARC_SHAPE_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The circle shape cybol model. */
-static wchar_t CIRCLE_SHAPE_CYBOL_MODEL_ARRAY[] = {L'c', L'i', L'r', L'c', L'l', L'e'};
-static wchar_t* CIRCLE_SHAPE_CYBOL_MODEL = CIRCLE_SHAPE_CYBOL_MODEL_ARRAY;
-static int* CIRCLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The button shape cybol model. */
+static wchar_t* BUTTON_SHAPE_CYBOL_MODEL = L"button";
+static int* BUTTON_SHAPE_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The filled_arc shape cybol model. */
+static wchar_t* FILLED_ARC_SHAPE_CYBOL_MODEL = L"filled_arc";
+static int* FILLED_ARC_SHAPE_CYBOL_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The filled_polygon shape cybol model. */
+static wchar_t* FILLED_POLYGON_SHAPE_CYBOL_MODEL = L"filled_polygon";
+static int* FILLED_POLYGON_SHAPE_CYBOL_MODEL_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The filled_rectangle shape cybol model. */
+static wchar_t* FILLED_RECTANGLE_SHAPE_CYBOL_MODEL = L"filled_rectangle";
+static int* FILLED_RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The label shape cybol model. */
+static wchar_t* LABEL_SHAPE_CYBOL_MODEL = L"label";
+static int* LABEL_SHAPE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The point_cloud shape cybol model. */
+static wchar_t* POINT_CLOUD_SHAPE_CYBOL_MODEL = L"point_cloud";
+static int* POINT_CLOUD_SHAPE_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The polygon shape cybol model. */
-static wchar_t POLYGON_SHAPE_CYBOL_MODEL_ARRAY[] = {L'p', L'o', L'l', L'y', L'g', L'o', L'n'};
-static wchar_t* POLYGON_SHAPE_CYBOL_MODEL = POLYGON_SHAPE_CYBOL_MODEL_ARRAY;
+static wchar_t* POLYGON_SHAPE_CYBOL_MODEL = L"polygon";
 static int* POLYGON_SHAPE_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rectangle shape cybol model. */
+static wchar_t* RECTANGLE_SHAPE_CYBOL_MODEL = L"rectangle";
+static int* RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SHAPE_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

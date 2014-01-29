@@ -83,7 +83,7 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
 
-                                    // The value mask.
+                                    // The graphic context value mask.
                                     // CAUTION! It is possible to set several attributes
                                     // at the same time by OR'ing these values in valuemask.
                                     uint32_t m = XCB_GC_FOREGROUND
@@ -95,73 +95,104 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                         | XCB_GC_FILL_STYLE
                                         | XCB_GC_FILL_RULE
                                         | XCB_GC_FONT;
-                                    // The values.
+                                    // The graphic context values.
                                     // CAUTION! They have to be IN THE SAME ORDER
                                     // as given in the value mask above.
                                     uint32_t v[9];
                                     // Get screen's default colour map.
                                     xcb_colormap_t cm = (*s).default_colormap;
-                                    // The foreground colour cookie.
-                                    xcb_alloc_color_cookie_t ccf = xcb_alloc_color(c, cm, 65535, 65535, 65535);
-                                    // The background colour cookie.
-                                    xcb_alloc_color_cookie_t ccb = xcb_alloc_color(c, cm, 0, 0, 65535);
-                                    // The foreground colour reply.
+                                    // The colour cookie foreground.
+                                    xcb_alloc_color_cookie_t ccf = xcb_alloc_color(c, cm, 65535, 0, 0);
+                                    // The colour cookie background.
+                                    xcb_alloc_color_cookie_t ccb = xcb_alloc_color(c, cm, 0, 65535, 0);
+                                    // The colour reply foreground.
                                     xcb_alloc_color_reply_t* crf = xcb_alloc_color_reply(c, ccf, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
-                                    // The background colour reply.
+                                    // The colour reply background.
                                     xcb_alloc_color_reply_t* crb = xcb_alloc_color_reply(c, ccb, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
                                     // The line width measured in pixels.
-                                    int lw = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    int lw = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
                                     // The line style defining which sections of a line are drawn.
                                     //
                                     // Possible values:
                                     //
-                                    // Solid: full path of the line is drawn
-                                    // DoubleDash: full path of the line is drawn,
-                                    //     but even dashes are filled differently
+                                    // XCB_LINE_STYLE_SOLID: FULL PATH of the line is drawn
+                                    // XCB_LINE_STYLE_DOUBLE_DASH: full path of the line is drawn,
+                                    //     but EVEN DASHES are filled DIFFERENTLY
                                     //     than odd dashes (see fill-style), with
                                     //     Butt cap-style used where even and odd dashes meet
-                                    // OnOffDash: only even dashes are drawn, and
+                                    // XCB_LINE_STYLE_ON_OFF_DASH: ONLY EVEN DASHES are drawn, and
                                     //     cap-style applies to all internal ends of
                                     //     individual dashes (except NotLast is treated as Butt)
-                                    int ls = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                                    // The cap style.
+                                    int ls = XCB_LINE_STYLE_DOUBLE_DASH; //?? XCB_LINE_STYLE_SOLID;
+                                    // The cap style defining how the endpoints of a path are drawn.
                                     //
                                     // Possible values:
                                     //
-                                    // NotLast: result is equivalent to Butt,
+                                    // XCB_CAP_STYLE_NOT_LAST: result is EQUIVALENT TO Butt,
                                     //     except that for a line-width of zero
                                     //     the final endpoint is not drawn
-                                    // Butt: result is square at the endpoint
+                                    // XCB_CAP_STYLE_BUTT: result is SQUARE at the endpoint
                                     //     (perpendicular to the slope of the line)
                                     //     with no projection beyond
-                                    // Round: result is a circular arc with its
+                                    // XCB_CAP_STYLE_ROUND: result is a CIRCULAR ARC with its
                                     //     diameter equal to the line-width,
                                     //     centered on the endpoint;
                                     //     equivalent to Butt for line-width zero
-                                    // Projecting: result is square at the end,
-                                    //     but the path continues beyond the endpoint
+                                    // XCB_CAP_STYLE_PROJECTING: result is SQUARE at the end,
+                                    //     but the path continues BEYOND the endpoint
                                     //     for a distance equal to half the line-width;
                                     //     equivalent to Butt for line-width zero
-                                    int cs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                                    // The join style.
+                                    int cs = XCB_CAP_STYLE_NOT_LAST;
+                                    // The join style defining how corners are drawn for wide lines.
                                     //
                                     // Possible values:
                                     //
-                                    // Miter The outer edges of the two lines extend to meet at an angle. However, if the angle is less than 11 degrees, a Bevel join-style is used instead. Round The result is a circular arc with a diameter equal to the line-width, centered on the joinpoint. Bevel The result is Butt endpoint styles, and then the triangular notch is filled
-                                    int js = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                                    // The fill style.
-                                    int fs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    // XCB_JOIN_STYLE_MITER: OUTER EDGES of the two lines extend to MEET at an angle;
+                                    //     however, if the angle is less than 11 degrees,
+                                    //     a Bevel join-style is used instead
+                                    // XCB_JOIN_STYLE_ROUND: result is a CIRCULAR ARC with a diameter
+                                    //     equal to the line-width, centered on the joinpoint
+                                    // XCB_JOIN_STYLE_BEVEL: result is Butt endpoint styles,
+                                    //     and then the TRIANGULAR NOTCH IS FILLED
+                                    int js = XCB_JOIN_STYLE_MITER;
+                                    // The fill style defining the contents of the
+                                    // source for line, text, and fill requests.
+                                    //
+                                    // Possible values:
+                                    //
+                                    // XCB_FILL_STYLE_SOLID
+                                    // XCB_FILL_STYLE_TILED
+                                    // XCB_FILL_STYLE_STIPPLED
+                                    // XCB_FILL_STYLE_OPAQUE_STIPPLED
+                                    int fs = XCB_FILL_STYLE_SOLID;
                                     // The fill rule.
-                                    int fr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                                    // The font.
-                                    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                                    //
+                                    // Possible values:
+                                    //
+                                    // XCB_FILL_RULE_EVEN_ODD
+                                    // XCB_FILL_RULE_WINDING
+                                    int fr = XCB_FILL_RULE_EVEN_ODD;
+                                    // The font defining the font to use for
+                                    // the ImageText8 and ImageText16 requests.
+                                    //
+                                    // CAUTION! This function asks the x server
+                                    // to attribute an id to the font.
+                                    xcb_font_t f = xcb_generate_id(c);
+                                    // Open font.
+                                    //
+                                    // CAUTION! Use command "xlsfonts" in terminal
+                                    // to know which are the fonts available.
+                                    xcb_open_font(c, f, strlen("7x13"), "7x13");
                                     // The rectangle.
                                     xcb_rectangle_t r;
 
-                                    // Initialise values.
+                                    //
+                                    // Initialise graphic context values.
                                     // CAUTION! Initialise values BEFORE using them
                                     // in function calls further below.
                                     // Otherwise, drawings will not be displayed.
+                                    //
+
                                     if (crf != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                                         v[0] = (*crf).pixel;
@@ -197,8 +228,31 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                     // Change graphic context.
                                     xcb_change_gc(c, *gc, m, v);
 
+/*??
+                                    // Draw point.
+                                    xcb_poly_point();
+                                    // Draw line.
+                                    xcb_poly_line();
                                     // Draw rectangle.
+*/
                                     xcb_poly_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
+/*??
+                                    // Draw elliptical arc.
+                                    xcb_poly_arc();
+
+                                    // Fill polygon defined by points.
+                                    xcb_fill_poly();
+                                    // Fill rectangle.
+                                    xcb_poly_fill_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
+                                    // Fill elliptic arc.
+                                    xcb_poly_fill_arc();
+*/
+
+                                    // Draw text.
+                                    xcb_image_text_8(c, strlen("TEST"), *d, *gc, *x + 20, *y + 20, "TEST");
+
+                                    // Close font.
+                                    xcb_close_font(c, f);
 
                                 } else {
 
