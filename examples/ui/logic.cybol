@@ -1,5 +1,8 @@
 <model>
     <part name="startup" channel="file" format="element/part" model="ui/logic/startup.cybol"/>
+    <part name="greet_world" channel="file" format="element/part" model="ui/logic/greet_world.cybol"/>
+    <part name="greet_cybop" channel="file" format="element/part" model="ui/logic/greet_cybop.cybol"/>
+    <part name="translate" channel="file" format="element/part" model="ui/logic/translate.cybol"/>
     <part name="send" channel="file" format="element/part" model="ui/logic/send.cybol"/>
     <part name="sense" channel="file" format="element/part" model="ui/logic/sense.cybol"/>
     <part name="handle" channel="file" format="element/part" model="ui/logic/handle.cybol"/>

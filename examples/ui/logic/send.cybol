@@ -14,7 +14,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="tui_cursor" channel="inline" format="communicate/send" model="">
@@ -24,12 +24,14 @@
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.tui.cursor"/>
     </part>
+<!--
     <part name="gui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.gui"/>
     </part>
+-->
 <!--
     <part name="scene" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
@@ -38,6 +40,16 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app.scene"/>
     </part>
 -->
+    <part name="html" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/html">
+            <constraint name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </property>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.index"/>
+        <property name="receiver" channel="inline" format="text/plain" model="wui.html"/>
+    </part>
 <!--
     <part name="serialise_wui" channel="inline" format="represent/serialise" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.http_response"/>

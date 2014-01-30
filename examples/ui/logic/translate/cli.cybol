@@ -1,14 +1,16 @@
 <model>
-    <part name="menu" channel="file" format="element/part" model="ui/tui/menu.cybol">
-        <property name="position" channel="inline" format="number/integer" model="5,2"/>
-        <property name="size" channel="inline" format="number/integer" model="70,10"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <!-- This property is evaluated by win32 console only. -->
-        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="border" channel="inline" format="text/plain" model="ascii"/>
+<!--
+    <part name="copy_to_box1" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.box1"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.greeting"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+    <part name="copy_to_box2" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.box2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.greeting"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+-->
 </model>
 
 <!--

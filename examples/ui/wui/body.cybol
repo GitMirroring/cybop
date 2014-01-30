@@ -1,8 +1,19 @@
 <model>
-    <part name="index" channel="file" format="element/part" model="ui/wui/index.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="html"/>
+    <part name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
+        <property name="tag" channel="inline" format="text/plain" model="h1"/>
     </part>
-    <!-- Further html files may follow here. -->
+    <part name="box1" channel="inline" format="text/plain" model="empty">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
+        <property name="class" channel="inline" format="text/plain" model="box1"/>
+    </part>
+    <part name="box2" channel="inline" format="text/plain" model="empty">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="box2"/>
+    </part>
+    <part name="control" channel="file" format="element/part" model="ui/wui/control.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="control"/>
+    </part>
 </model>
 
 <!--

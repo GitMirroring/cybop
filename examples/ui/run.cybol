@@ -12,6 +12,12 @@
         <property name="message" channel="inline" format="text/plain" model="ui/app.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app"/>
     </part>
+    <part name="startup" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
+    </part>
+    <part name="greet" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+    </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -20,12 +26,6 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app"/>
         <property name="receiver" channel="inline" format="text/plain" model="test_ui.txt"/>
-    </part>
-    <part name="startup" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
-    </part>
-    <part name="send" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.send"/>
     </part>
     <part name="sense" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.sense"/>

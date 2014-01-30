@@ -1,16 +1,44 @@
 <model>
-    <part name="window" channel="file" format="element/part" model="ui/tui/window.cybol">
-        <property name="position" channel="inline" format="number/integer" model="0,0"/>
-        <property name="size" channel="inline" format="number/integer" model="80,15"/>
+    <part name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
+        <property name="position" channel="inline" format="number/integer" model="5,2"/>
+        <property name="size" channel="inline" format="number/integer" model="60,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="green"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="box1" channel="inline" format="text/plain" model="empty">
+        <property name="position" channel="inline" format="number/integer" model="10,5"/>
+        <property name="size" channel="inline" format="number/integer" model="40,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="yellow"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
+    <part name="box2" channel="inline" format="text/plain" model="empty">
+        <property name="position" channel="inline" format="number/integer" model="20,15"/>
+        <property name="size" channel="inline" format="number/integer" model="40,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+    <part name="control" channel="file" format="element/part" model="ui/tui/control.cybol">
+        <property name="position" channel="inline" format="number/integer" model="10,20"/>
+        <property name="size" channel="inline" format="number/integer" model="60,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="gray"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
     <part name="cursor" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="0,16"/>
+        <property name="position" channel="inline" format="number/integer" model="10,20"/>
     </part>
     <part name="command" channel="inline" format="text/plain" model=""/>
     <!--

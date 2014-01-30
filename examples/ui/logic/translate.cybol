@@ -1,8 +1,9 @@
 <model>
-    <part name="index" channel="file" format="element/part" model="ui/wui/index.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="html"/>
-    </part>
-    <!-- Further html files may follow here. -->
+    <part name="cli" channel="file" format="element/part" model="ui/logic/translate/cli.cybol"/>
+    <part name="tui" channel="file" format="element/part" model="ui/logic/translate/tui.cybol"/>
+    <part name="gui" channel="file" format="element/part" model="ui/logic/translate/gui.cybol"/>
+    <part name="scene" channel="file" format="element/part" model="ui/logic/translate/scene.cybol"/>
+    <part name="wui" channel="file" format="element/part" model="ui/logic/translate/wui.cybol"/>
 </model>
 
 <!--

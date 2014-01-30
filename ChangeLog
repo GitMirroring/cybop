@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend "ui" cybol example application with wui and tui
+
 2014-01-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue gui serialiser by adding values like line style, fill style, font etc.
