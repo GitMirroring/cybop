@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-01-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename "ui_control" cybol example application into "tui_control"
+
 2014-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend "ui" cybol example application with wui and tui

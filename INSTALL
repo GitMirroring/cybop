@@ -221,10 +221,11 @@ ___________________________
     /home/cybop/src/controller/cyboi knowledge_tree_access/run.cybol
     /home/cybop/src/controller/cyboi helloworld/run.cybol
     /home/cybop/src/controller/cyboi tui/run.cybol
-    /home/cybop/src/controller/cyboi ui_control/run.cybol
+    /home/cybop/src/controller/cyboi tui_control/run.cybol
     /home/cybop/src/controller/cyboi gui/run.cybol
-    /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
     /home/cybop/src/controller/cyboi wui/run.cybol
+    /home/cybop/src/controller/cyboi ui/run.cybol
+    /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
     /home/cybop/src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
     /home/cybop/src/controller/cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
