@@ -26,12 +26,16 @@
 #ifndef DATAGRAM_SOCKET_RECEIVER_SOURCE
 #define DATAGRAM_SOCKET_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    #include <sys/socket.h>
+#elif WIN32
+    typedef int socklen_t;
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#else
     #include <sys/socket.h>
 #endif
-#ifdef WIN32
-    typedef int socklen_t;
-#endif
+
 #include <errno.h>
 #include <stdio.h>
 
@@ -113,7 +117,9 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The socket argument is not a valid file descriptor.");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef WIN32
+                            //?? Add WIN32 support
+#else
                         } else if (errno == ENOTSOCK) {
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive from datagram socket. The descriptor socket is not a socket.");

@@ -38,16 +38,15 @@
 #include "../../../../executor/representer/serialiser/tui/rectangle_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#ifdef __APPLE__
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
+#elif WIN32
     #include "../../../../executor/representer/serialiser/win32_console/attributes_win32_console_serialiser.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
+#else
     #include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
 #endif
-#ifdef __APPLE__
-#include "../../../../executor/representer/serialiser/ansi_escape_code/attributes_ansi_escape_code_serialiser.c"
-#endif
-
 
 /**
  * Serialises the properties into tui.
@@ -306,16 +305,15 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
     // Serialise attributes.
-#ifdef WIN32
-    serialise_win32_console_attributes(p1, bgmd, fgmd, hmd, imd, blmd, umd, bmd, inmd);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
-#endif
 #ifdef __APPLE__
     serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
+#elif WIN32
+    serialise_win32_console_attributes(p1, bgmd, fgmd, hmd, imd, blmd, umd, bmd, inmd);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
+#else
+    serialise_ansi_escape_code_attributes(p0, bgmd, fgmd, hmd, imd, blmd, umd, bmd);
 #endif
-
 
     // Serialise rectangle border and area.
     serialise_tui_rectangle(p0, p1, (void*) &pmdx, (void*) &smdx, (void*) &pmdy, (void*) &smdy, bomd, bomc);

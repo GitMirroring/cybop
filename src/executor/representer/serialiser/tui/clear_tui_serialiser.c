@@ -31,10 +31,14 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+
+#ifdef __APPLE__
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
+#elif WIN32
     #include "../../../../executor/representer/serialiser/win32_console/clear_win32_console_serialiser.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
+#else
     #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
 #endif
 
@@ -67,12 +71,18 @@ void serialise_tui_clear(void* p0, void* p1, void* p2, void* p3) {
         // Only clear terminal screen if clear flag is set.
         if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef WIN32
-            serialise_win32_console_clear(p1);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+            
+            
+        #ifdef __APPLE__
             serialise_ansi_escape_code_clear(p0);
-#endif
+        #elif WIN32
+            serialise_win32_console_clear(p1);
+        #elif GNU_LINUX_OPERATING_SYSTEM
+            serialise_ansi_escape_code_clear(p0);
+        #else
+            serialise_ansi_escape_code_clear(p0);
+        #endif
+            
         }
     }
 }

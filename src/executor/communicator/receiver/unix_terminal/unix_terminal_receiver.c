@@ -46,7 +46,13 @@
  * @param p4 the internal memory data
  */
 void receive_unix_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
+    
+    FILE * pFile;
+    pFile = fopen ("/Users/markushinkelmann/log.log","a+");
+    fwprintf(pFile, L"Recive unix terminal");
+    
+    fclose (pFile);
+    
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive unix terminal.");
 
     // The decoded message item.

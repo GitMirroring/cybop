@@ -65,15 +65,20 @@
 void startup_opengl(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup opengl.");
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
+#ifdef __APPLE__
+    //??Check OPENGL Support for APPLE
+#elif WIN32
+    //??Check OPENGL Support for WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
     // Startup display AT FIRST.
     // The opengl environment needs a window
     // to have something to paint on.
     startup_display(p0);
-
-/* GNU_LINUX_OPERATING_SYSTEM */
+#else
+    // Startup display AT FIRST.
+    // The opengl environment needs a window
+    // to have something to paint on.
+    startup_display(p0);
 #endif
 }
 

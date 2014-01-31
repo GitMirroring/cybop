@@ -33,10 +33,13 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#ifdef __APPLE__
+    #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
+#elif WIN32
     #include "../../../../executor/representer/deserialiser/win32_console/win32_console_deserialiser.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
+#else
     #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #endif
 
@@ -51,10 +54,13 @@ void deserialise_tui(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise tui.");
 
-#ifdef WIN32
+#ifdef __APPLE__
+    deserialise_ansi_escape_code(p0, p1, p2);
+#elif WIN32
     deserialise_win32_console(p0, p1, p2);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    deserialise_ansi_escape_code(p0, p1, p2);
+#else
     deserialise_ansi_escape_code(p0, p1, p2);
 #endif
 }

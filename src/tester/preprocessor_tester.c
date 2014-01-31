@@ -35,15 +35,17 @@ void test_preprocessor_directives() {
 
     log_write((void*) stdout, L"Test preprocessor directives:\n");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    log_write((void*) stdout, L"GNU_LINUX\n");
-#elif WINDOWS_OPERATING_SYSTEM
-    log_write((void*) stdout, L"WINDOWS\n");
+    
+#ifdef __APPLE__
+    log_write((void*) stdout, L"MAC OS X\n");
 #elif WIN32
     log_write((void*) stdout, L"WIN32\n");
+#elif WINDOWS_OPERATING_SYSTEM
+    log_write((void*) stdout, L"WINDOWS\n");
+#elif GNU_LINUX_OPERATING_SYSTEM
+    log_write((void*) stdout, L"GNU_LINUX\n");
 #else
     log_write((void*) stdout, L"OTHER\n");
-/* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 }
 

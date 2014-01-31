@@ -37,14 +37,18 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     #include "../../executor/commander/unix/move_file_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
+#elif WIN32
     #include "../../executor/commander/windows/move_file_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix/move_file_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#else
+    #include "../../executor/commander/unix/move_file_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 /**
@@ -140,12 +144,14 @@ void apply_move_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     move_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
-#endif
-
-#ifdef WIN32
+#elif WIN32
     move_file_windows_commander(smd, smc, dmd, dmc, fmd, imd);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    move_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
+#else
+    move_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
 #endif
 }
 

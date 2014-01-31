@@ -27,9 +27,15 @@
 #define CLOSE_SERIAL_PORT_SHUTTER_SOURCE
 
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+
+#ifdef __APPLE__
     #include <termios.h>
-/* GNU_LINUX_OPERATING_SYSTEM */
+#elif WIN32
+    //?? Add Win support
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
+    #include <termios.h>
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -63,13 +69,16 @@ void shutdown_serial_port_close(void* p0) {
 
         int e = -1;
         // Close file descriptor.
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+        #ifdef __APPLE__
             e = close(*d);
-#endif
-#ifdef WIN32
+        #elif WIN32
             //?? TODO: Use handle instead of file descriptor here!
-//??            e = CloseHandle(*d);
-#endif
+            //??            e = CloseHandle(*d);
+        #elif GNU_LINUX_OPERATING_SYSTEM
+            e = close(*d);
+        #else
+            e = close(*d);
+        #endif
 
         // The normal return value from "close" is zero;
         // a value of minus one is returned in case of failure.
@@ -91,11 +100,22 @@ void shutdown_serial_port_close(void* p0) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. EIO.");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-            } else if (errno == EDQUOT) {
-
+                #ifdef __APPLE__
+                    } else if (errno == EDQUOT) {
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-#endif
+
+                #elif WIN32
+                        //?? Add WIN support
+                #elif GNU_LINUX_OPERATING_SYSTEM
+                    } else if (errno == EDQUOT) {
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
+
+                #else
+                    } else if (errno == EDQUOT) {
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
+
+                #endif
+
             } else {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. An unknown error occured.");

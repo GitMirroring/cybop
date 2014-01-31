@@ -29,10 +29,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-#ifdef WIN32
+#ifdef __APPLE__
+    #include <termios.h>
+#elif WIN32
     #include <io.h>
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
     #include <termios.h>
 #endif
 
@@ -54,7 +57,7 @@
  */
 void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifndef WIN32
     // The serial port file descriptor item.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial port file descriptor item data.
@@ -250,6 +253,7 @@ fwprintf(stdout, L"TEST open *spdi: %i\n", *spdi);
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item already exists.");
         fwprintf(stdout, L"%s\n", "Could not startup serial port open. The serial port file descriptor item already exists.");
     }
+//All UNIX like OS
 #endif
 }
 

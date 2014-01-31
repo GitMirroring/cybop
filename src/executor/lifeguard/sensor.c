@@ -158,7 +158,23 @@ void sense(void* p0, void* p1, void* p2) {
             // Set handler.
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+            // Run sensing thread ONLY for unix terminal.
+            // CAUTION! A sensing thread for win32 console is NOT necessary,
+            // since its input gets sensed in the main thread.
+            // Therefore, the function "sense_unix_terminal" and NOT
+            // "sense_terminal" is called here.
+            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
+#elif WIN32
+            //Not needed
+#elif GNU_LINUX_OPERATING_SYSTEM
+            // Run sensing thread ONLY for unix terminal.
+            // CAUTION! A sensing thread for win32 console is NOT necessary,
+            // since its input gets sensed in the main thread.
+            // Therefore, the function "sense_unix_terminal" and NOT
+            // "sense_terminal" is called here.
+            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
+#else
             // Run sensing thread ONLY for unix terminal.
             // CAUTION! A sensing thread for win32 console is NOT necessary,
             // since its input gets sensed in the main thread.

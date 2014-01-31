@@ -36,10 +36,13 @@
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
+#elif WIN32
     #include "../../../../executor/maintainer/shutter/win32_console/win32_console_shutter.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
+#else
     #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
 #endif
 
@@ -71,13 +74,15 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         // Interrupt terminal service thread.
         interrupt_thread(p1, p2);
 
-#ifdef WIN32
+#ifdef __APPLE__
+        shutdown_unix_terminal(ip, op, p0);
+#elif WIN32
         shutdown_win32_console(ip, op, p0);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+        shutdown_unix_terminal(ip, op, p0);
+#else
         shutdown_unix_terminal(ip, op, p0);
 #endif
-
         // Deallocate input- and output array.
         deallocate_array((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         deallocate_array((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

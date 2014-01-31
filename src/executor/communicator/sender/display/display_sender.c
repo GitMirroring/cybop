@@ -31,14 +31,15 @@
 #include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-    #include "../../../../executor/communicator/sender/win32_display/win32_display_sender.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
-#endif
+
 #ifdef __APPLE__
-	//??ADD GUI Support for Apple??
+    //?? Add cocoa support for Apple
+#elif WIN32
+    #include "../../../../executor/communicator/sender/win32_display/win32_display_sender.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
+#else
+    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_sender.c"
 #endif
 
 /**
@@ -60,14 +61,14 @@ void send_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Serialise (draw) source onto window.
     serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
 
-#ifdef WIN32
-    send_win32_display(p7);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    send_x_window_system(p7);
-#endif
 #ifdef __APPLE__
-	//??ADD GUI Support for Apple??
+    //?? Add cocoa support for Apple
+#elif WIN32
+    send_win32_display(p7);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    send_x_window_system(p7);
+#else
+    send_x_window_system(p7);
 #endif
 
 }

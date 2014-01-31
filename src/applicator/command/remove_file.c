@@ -37,14 +37,18 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     #include "../../executor/commander/unix/remove_file_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
+#elif WIN32
     #include "../../executor/commander/windows/remove_file_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix/remove_file_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#else
+    #include "../../executor/commander/unix/remove_file_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 /**
@@ -137,13 +141,14 @@ void apply_remove_file(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     remove_file_unix_commander(pmd, pmc, fmd, imd, rmd, vmd);
-#endif
-
-#ifdef WIN32
+#elif WIN32
     remove_file_windows_commander(pmd, pmc, fmd, imd, rmd);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    remove_file_unix_commander(pmd, pmc, fmd, imd, rmd, vmd);
+#else
+    remove_file_unix_commander(pmd, pmc, fmd, imd, rmd, vmd);
 #endif
 }
 

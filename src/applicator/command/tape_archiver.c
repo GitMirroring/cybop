@@ -37,14 +37,18 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
+#elif WIN32
     #include "../../executor/commander/windows/tape_archiver_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#else
+    #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 /**
@@ -155,13 +159,14 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     tape_archiver_unix_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-#endif
-
-#ifdef WIN32
+#elif WIN32
     tape_archiver_windows_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    tape_archiver_unix_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
+#else
+    tape_archiver_unix_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
 #endif
 }
 /* TAPE_ARCHIVER_SOURCE */

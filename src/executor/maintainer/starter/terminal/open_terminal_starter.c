@@ -37,10 +37,14 @@
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+#elif WIN32
     #include "../../../../executor/maintainer/starter/win32_console/open_win32_console_starter.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+#else
     #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
 #endif
 
@@ -86,13 +90,15 @@ void startup_terminal_open(void* p0) {
         copy_array_forward(p0, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef WIN32
+#ifdef __APPLE__
+        startup_unix_terminal_open(ip, op, p0);
+#elif WIN32
         startup_win32_console_open(ip, op, p0);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+        startup_unix_terminal_open(ip, op, p0);
+#else
         startup_unix_terminal_open(ip, op, p0);
 #endif
-
     } else {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal open. The input- or output item or both already exist.");

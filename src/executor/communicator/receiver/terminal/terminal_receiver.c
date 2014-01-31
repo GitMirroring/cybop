@@ -30,10 +30,13 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#ifdef __APPLE__
+    #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_receiver.c"
+#elif WIN32
     #include "../../../../executor/communicator/receiver/win32_console/win32_console_receiver.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_receiver.c"
+#else
     #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_receiver.c"
 #endif
 
@@ -52,11 +55,19 @@
 void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
+    FILE * pFile;
+    pFile = fopen ("/Users/markushinkelmann/log.log","a+");
+    fwprintf(pFile, L"Recive Data: receive_terminal");
+    
+    fclose (pFile);
 
-#ifdef WIN32
+#ifdef __APPLE__
+    receive_unix_terminal(p0, p1, p6, p7, p5);
+#elif WIN32
     receive_win32_console(p0, p1, p2, p3, p4, p5, p6, p7);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    receive_unix_terminal(p0, p1, p6, p7, p5);
+#else
     receive_unix_terminal(p0, p1, p6, p7, p5);
 #endif
 }

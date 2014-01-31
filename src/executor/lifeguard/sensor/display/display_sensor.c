@@ -30,10 +30,13 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#ifdef __APPLE__
+    //?? Add cocoa support for apple
+#elif WIN32
     #include "../../../../executor/lifeguard/sensor/win32_display/win32_display_sensor.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
+#else
     #include "../../../../executor/lifeguard/sensor/x_window_system/x_window_system_sensor.c"
 #endif
 
@@ -48,11 +51,14 @@ void sense_display(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
-#ifdef WIN32
+    
+#ifdef __APPLE__
+    //?? Add cocoa support for apple
+#elif WIN32
     sense_win32_display(p0, p1);
-#endif
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    sense_x_window_system(p0, p1, p2);
+#else
     sense_x_window_system(p0, p1, p2);
 #endif
 }

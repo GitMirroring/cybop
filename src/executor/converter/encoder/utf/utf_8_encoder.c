@@ -288,15 +288,13 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                     // anonymous state only known to the function internally is used instead.
                     // It just indicates where conversion is started.
                     int n = -1;
-                    #ifdef WIN32
+                    #ifdef __APPLE__
+                        n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+                    #elif WIN32
                         int len = WideCharToMultiByte (65001, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, 0, NULL, NULL);
                         n =  WideCharToMultiByte (65001, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
-                    #endif
-                    #ifdef GNU_LINUX_OPERATING_SYSTEM
+                    #elif GNU_LINUX_OPERATING_SYSTEM
                         n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-                    #endif
-                    #ifdef __APPLE__
-					    n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
                     #endif
 
                     if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {

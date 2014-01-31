@@ -26,9 +26,16 @@
 #ifndef RAW_SOCKET_RECEIVER_SOURCE
 #define RAW_SOCKET_RECEIVER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    #include <sys/socket.h>
+#elif WIN32
+    //?? Check support for Apple
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#else
     #include <sys/socket.h>
 #endif
+
 #include <errno.h>
 #include <stdio.h>
 

@@ -26,10 +26,13 @@
 #ifndef COMMUNICATOR_TESTER
 #define COMMUNICATOR_TESTER
 
-#ifdef WIN32
+#ifdef __APPLE__
+    #include <termios.h>
+#elif WIN32
     #include <windows.h>
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
     #include <termios.h>
 #endif
 
@@ -168,7 +171,9 @@ void test_wide_character_output() {
 
     log_write((void*) stdout, L"Test wide character array with termination:\n");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef WIN32
+        //?? Add Linux support
+#else
     // Possible locales are: LANG, LC_CTYPE, LC_ALL.
     // CAUTION! This setting is necessary for UTF-8 Unicode characters to work.
     char* loc = setlocale(LC_ALL, "");
@@ -388,7 +393,9 @@ void test_communicator_console_input() {
 
     log_write((void*) stdout, L"Test communicator console input:\n");
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef WIN32
+    //?? Add Win32 support
+#else
     // The terminal device name.
     FILE* t = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The old termios settings.

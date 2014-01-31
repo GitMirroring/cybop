@@ -34,14 +34,23 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+#ifdef __APPLE__
+// CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+// since its input gets sensed in the corresponding sensing thread.
+// Therefore, the following include is disabled.
+// #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+#elif WIN32
     #include "../../../../executor/lifeguard/sensor/win32_console/win32_console_sensor.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following include is disabled.
-    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+// CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+// since its input gets sensed in the corresponding sensing thread.
+// Therefore, the following include is disabled.
+// #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+#else
+// CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+// since its input gets sensed in the corresponding sensing thread.
+// Therefore, the following include is disabled.
+// #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #endif
 
 /**
@@ -55,11 +64,19 @@ void sense_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
-#ifdef WIN32
+#ifdef __APPLE__
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following function call is disabled.
+    // sense_unix_terminal(p0, p1, p2);
+#elif WIN32
     sense_win32_console(p0, p1, p2);
-#endif
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following function call is disabled.
+    // sense_unix_terminal(p0, p1, p2);
+#else
     // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
     // since its input gets sensed in the corresponding sensing thread.
     // Therefore, the following function call is disabled.

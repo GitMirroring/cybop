@@ -28,13 +28,12 @@
 
 
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+
+#ifdef __APPLE__
     #include <sys/ioctl.h>
     #include <termios.h>
-#endif
-#ifdef WIN32
-    // source: sys/termios.h
-
+#elif WIN32
+// source: sys/termios.h
     #define NCCS        20
 
     typedef unsigned int    tcflag_t;
@@ -52,6 +51,12 @@
     };
 
     #define TCGETA          0x5405
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/ioctl.h>
+    #include <termios.h>
+#else
+    #include <sys/ioctl.h>
+    #include <termios.h>
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -71,8 +76,9 @@
  * @param p2 the internal memory data
  */
 void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef WIN32
+    //?? Port to WIN32
+#else
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;

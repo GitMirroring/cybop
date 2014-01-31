@@ -77,13 +77,16 @@ void interrupt_thread(void* p0, void* p1) {
             // It is processed in the interrupt_service_system_signal_handler
             // procedure, situated in the following module:
             // controller/manager/system_signal_handler_manager.c
-            #ifdef WIN32
-                // Pthread-Win32 only supports a zero value!
-                // ...
-            #endif
-            #ifdef GNU_LINUX_OPERATING_SYSTEM
-                pthread_kill(*t, SIGUSR1);
-            #endif
+#ifdef __APPLE__
+            pthread_kill(*t, SIGUSR1);
+#elif WIN32
+            // Pthread-Win32 only supports a zero value!
+            // ...
+#elif GNU_LINUX_OPERATING_SYSTEM
+            pthread_kill(*t, SIGUSR1);
+#else
+            pthread_kill(*t, SIGUSR1);
+#endif
 
             // Wait for thread to finish.
             pthread_join(*t, *NULL_POINTER_STATE_CYBOI_MODEL);

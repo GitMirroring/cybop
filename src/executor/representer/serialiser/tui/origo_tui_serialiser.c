@@ -31,14 +31,15 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
-    #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
-#endif
+
 #ifdef __APPLE__
-#include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+#elif WIN32
+    #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+#else
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #endif
 
 /**
@@ -64,17 +65,15 @@ void serialise_tui_origo(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // since cursor positioning is NOT wanted for cli.
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef WIN32
-        serialise_win32_console_position(p1, p2, p3);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-        serialise_ansi_escape_code_position(p0, p2, p3);
-#endif
 #ifdef __APPLE__
         serialise_ansi_escape_code_position(p0, p2, p3);
+#elif WIN32
+        serialise_win32_console_position(p1, p2, p3);
+#elif GNU_LINUX_OPERATING_SYSTEM
+        serialise_ansi_escape_code_position(p0, p2, p3);
+#else
+        serialise_ansi_escape_code_position(p0, p2, p3);
 #endif
-        
-        
     }
 }
 

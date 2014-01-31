@@ -60,7 +60,10 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
         compare_integer_unequal((void*) &n, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (n != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-#ifdef WIN32
+            
+#ifdef __APPLE__
+            append_item_element(p0, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif WIN32
             // CAUTION! Do NOT use the following source code here:
             // append_item_element(p0, (void*) CARRIAGE_RETURN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             // append_item_element(p0, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -69,12 +72,9 @@ void serialise_tui_newline(void* p0, void* p1, void* p2, void* p3) {
             // but NOT the destination item (encapsulating a wide character array).
             // Therefore, delegate newline generation to a function.
             serialise_win32_console_character(p1, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT);
-#endif
-            
-#ifdef __APPLE__
-            append_item_element(p0, (void*) MACINTOSH_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MACINTOSH_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#else
             append_item_element(p0, (void*) UNIX_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UNIX_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
         }

@@ -45,15 +45,24 @@
 void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-
+#ifdef __APPLE__
+    //??Check OPENGL Support for APPLE    
+#elif WIN32
+    //??Check OPENGL Support for WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
     // Shutdown display AT LAST.
     // The opengl environment needed a window
     // to have something to paint on.
     shutdown_display(p0, p1, p2);
-
-/* GNU_LINUX_OPERATING_SYSTEM */
+    
+    /* GNU_LINUX_OPERATING_SYSTEM */
+#else
+    // Shutdown display AT LAST.
+    // The opengl environment needed a window
+    // to have something to paint on.
+    shutdown_display(p0, p1, p2);
+    
+    /* GNU_LINUX_OPERATING_SYSTEM */
 #endif
 }
 

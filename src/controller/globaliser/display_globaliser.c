@@ -26,7 +26,13 @@
 #ifndef DISPLAY_GLOBALISER_SOURCE
 #define DISPLAY_GLOBALISER_SOURCE
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    //?? Add Cocoa support
+#elif WIN32
+    //?? Add WIN32 support
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../controller/globaliser/x_window_system_globaliser.c"
+#else
     #include "../../controller/globaliser/x_window_system_globaliser.c"
 #endif
 
@@ -35,7 +41,13 @@
  */
 void globalise_display() {
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    //?? Add Cocoa support
+#elif WIN32
+    //?? Add WIN32 support
+#elif GNU_LINUX_OPERATING_SYSTEM
+    globalise_x_window_system();
+#else
     globalise_x_window_system();
 #endif
 }

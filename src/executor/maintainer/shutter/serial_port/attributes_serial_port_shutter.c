@@ -28,9 +28,15 @@
 
 
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+
+#ifdef __APPLE__
     #include <termios.h>
-/* GNU_LINUX_OPERATING_SYSTEM */
+#elif WIN32
+    //?? No import required?
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
+    #include <termios.h>
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -49,7 +55,9 @@
  */
 void shutdown_serial_port_attributes(void* p0, void* p1) {
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef WIN32
+    //?? WIN Support required?
+#else
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;

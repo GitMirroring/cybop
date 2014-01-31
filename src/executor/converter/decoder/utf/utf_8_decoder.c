@@ -284,17 +284,16 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
                     // anonymous state only known to the function internally is used instead.
                     // It just indicates where conversion is started.
                     int n = -1;
-                    #ifdef WIN32
-                        int len = MultiByteToWideChar (65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, 0);
-                        n =  MultiByteToWideChar (65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, len);
-                    #endif
-                    #ifdef GNU_LINUX_OPERATING_SYSTEM
-                        n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-                    #endif
-                    #ifdef __APPLE__
-						n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);					
-                    #endif
-
+#ifdef __APPLE__
+                    n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+#elif WIN32
+                    int len = MultiByteToWideChar (65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, 0);
+                    n =  MultiByteToWideChar (65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, len);
+#elif GNU_LINUX_OPERATING_SYSTEM
+                    n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+#else
+                    n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+#endif
 
                     if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

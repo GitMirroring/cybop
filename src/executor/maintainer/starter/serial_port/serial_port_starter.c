@@ -28,7 +28,13 @@
 
 #include <fcntl.h>
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    #include <termios.h>
+#elif WIN32
+    //Not needed
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
     #include <termios.h>
 #endif
 

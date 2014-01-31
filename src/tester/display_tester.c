@@ -68,8 +68,10 @@ void test_display_drawing() {
     xcb_arc_t arcs[] = {
         { 10, 100, 60, 40, 0, 90 << 6 },
         { 90, 100, 55, 40, 0, 270 << 6 }};
-
-#ifdef WIN32
+    
+#ifdef __APPLE__
+    //?? TODO: Add support for Cocoa
+#elif WIN32
     int screenNum,i;
     int rc;
 
@@ -95,8 +97,12 @@ void test_display_drawing() {
     }
 
     xcb_screen_t *screen = iter.data;
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    // Open connection to x server.
+    xcb_connection_t* connection = xcb_connect(NULL, NULL);
+    // Get first screen.
+    xcb_screen_t* screen = xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
+#else
     // Open connection to x server.
     xcb_connection_t* connection = xcb_connect(NULL, NULL);
     // Get first screen.

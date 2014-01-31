@@ -27,9 +27,15 @@
 #define SERIAL_PORT_SHUTTER_SOURCE
 
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
     #include <termios.h>
- #endif
+#elif WIN32
+    //Not needed
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
+    #include <termios.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

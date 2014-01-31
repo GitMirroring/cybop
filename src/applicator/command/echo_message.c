@@ -37,14 +37,19 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+
+#ifdef __APPLE__
     #include "../../executor/commander/unix/echo_message_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
+#elif WIN32
     #include "../../executor/commander/windows/echo_message_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix/echo_message_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#else
+    #include "../../executor/commander/unix/echo_message_unix_commander.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 /**
@@ -83,12 +88,15 @@ void apply_echo_message(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+    
+#ifdef __APPLE__
     echo_message_unix_commander(mmd, mmc);
-#endif
-
-#ifdef WIN32
+#elif WIN32
     echo_message_windows_commander(mmd, mmc);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    echo_message_unix_commander(mmd, mmc);
+#else
+    echo_message_unix_commander(mmd, mmc);
 #endif
 }
 

@@ -28,7 +28,15 @@
 
 
 #include <stdio.h>
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    #include <sys/ioctl.h>
+    #include <termios.h>
+#elif WIN32
+    //?? Add WIN32 support
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/ioctl.h>
+    #include <termios.h>
+#else
     #include <sys/ioctl.h>
     #include <termios.h>
 #endif
@@ -48,8 +56,41 @@
  * @param p0 the file descriptor data
  */
 void startup_serial_port_status_get(void* p0) {
-// not ported to WIN32 at the moment ...
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+
+#ifdef __APPLE__
+    //??Check support for apple - differnet librarys
+#elif WIN32
+    // not ported to WIN32 at the moment ...
+    //?? Add WIN32 support
+#elif GNU_LINUX_OPERATING_SYSTEM
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        
+        int* d = (int*) p0;
+        
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status get.");
+        
+        // The serial port status.
+        int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // Get serial port status.
+        int e = ioctl(*d, TIOCMGET, &s);
+        
+        if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            
+            startup_serial_port_status_set(p0, (void*) &s);
+            
+        } else {
+            
+            // Close serial port on error.
+            close(*d);
+            
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The retrieval of the status of bits failed.");
+        }
+        
+    } else {
+        
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The serial port file descriptor data is null.");
+    }    
+#else
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;

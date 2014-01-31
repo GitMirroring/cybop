@@ -36,15 +36,17 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef WIN32
+
+#ifdef __APPLE__
+    //?? Add support for Cocooa
+#elif WIN32
     #include <xcb/xcb.h>
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
     #include <xcb/xcb.h>
     #include "../../../../executor/representer/serialiser/gui/rectangle_gui_serialiser.c"
-#endif
-#ifdef __APPLE__
-    //?? TODO
+#else
+    #include <xcb/xcb.h>
+    #include "../../../../executor/representer/serialiser/gui/rectangle_gui_serialiser.c"
 #endif
 
 /**
@@ -313,23 +315,103 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
             if ((wmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
                 // This is a gui child element and NOT the root window.
-
-#ifdef WIN32
-            //?? TODO
+#ifdef __APPLE__
+                //?? Add support for Cocoa
+#elif WIN32
+                //?? Add support for WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
+                // Serialise rectangle border and area.
+                serialise_gui_rectangle(p0, p1, p2, p3, (void*) &pmdx, (void*) &pmdy, (void*) &smdx, (void*) &smdy);
+#else
+                // Serialise rectangle border and area.
+                serialise_gui_rectangle(p0, p1, p2, p3, (void*) &pmdx, (void*) &pmdy, (void*) &smdx, (void*) &smdy);
 #endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-            // Serialise rectangle border and area.
-            serialise_gui_rectangle(p0, p1, p2, p3, (void*) &pmdx, (void*) &pmdy, (void*) &smdx, (void*) &smdy);
-#endif
-
             } else {
 
                 // This is the root window.
 
-#ifdef WIN32
-            //?? TODO
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+                //?? Add support for Cocoa
+#elif WIN32
+                //?? Add support for WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
+                // The title model data terminated item.
+                void* tmdt = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The icon title model data terminated item.
+                void* itmdt = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The title model data terminated item data.
+                void* tmdtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The icon title model data terminated item data.
+                void* itmdtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The value mask.
+                // CAUTION! It is possible to set several attributes
+                // at the same time by OR'ing these values in valuemask.
+                uint32_t mask = XCB_CONFIG_WINDOW_X | XCB_CONFIG_WINDOW_Y | XCB_CONFIG_WINDOW_WIDTH | XCB_CONFIG_WINDOW_HEIGHT;
+                // The values.
+                // CAUTION! They have to be IN THE SAME ORDER
+                // as given in the value mask above.
+                uint32_t values[4];
+                
+                // Allocate title model data terminated item.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                allocate_item((void*) &tmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                // Allocate icon title model data terminated item.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                allocate_item((void*) &itmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                
+                // Encode title model data terminated wide character- into multibyte character data.
+                encode_utf_8(tmdt, tmd, tmc);
+                // Encode icon title model data terminated wide character- into multibyte character data.
+                encode_utf_8(itmdt, itmd, itmc);
+                
+                // Initialise values.
+                // CAUTION! Initialise values BEFORE using them
+                // in function calls further below.
+                // Otherwise, the window configuration will fail.
+                values[0] = pmdx;
+                values[1] = pmdy;
+                values[2] = smdx;
+                values[3] = smdy;
+                
+                // Add null termination character to title model data terminated.
+                append_item_element(tmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                // Add null termination character to icon title model data terminated.
+                append_item_element(itmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                
+                // Get title model data terminated item data.
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                copy_array_forward((void*) &tmdtd, tmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                // Get icon title model data terminated item data.
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                copy_array_forward((void*) &itmdtd, itmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                
+                // Set title.
+                // CAUTION! The sixth parametre specifies
+                // the format of the property (8, 16, 32).
+                // However, number 32 (= 4 byte) for
+                // specifying "wchar_t" data did NOT work.
+                // Therefore, "char" data with string
+                // termination character are used now.
+                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(tmdtd), tmdtd);
+                // Set icon title.
+                xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON_NAME, XCB_ATOM_STRING, *NUMBER_8_INTEGER_STATE_CYBOI_MODEL, strlen(itmdtd), itmdtd);
+                // Set icon
+                //?? TODO
+                //?? xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, *NUMBER_32_INTEGER_STATE_CYBOI_MODEL, *imci, imd);
+                // Configure window position and size.
+                xcb_configure_window(connexion, *window, mask, values);
+                
+                // Deallocate title model data terminated item.
+                deallocate_item((void*) &tmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                // Deallocate icon title model data terminated item.
+                deallocate_item((void*) &itmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+#else
                 // The title model data terminated item.
                 void* tmdt = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // The icon title model data terminated item.
