@@ -1,5 +1,5 @@
 <model>
-    <part name="window" channel="file" format="element/part" model="calculator/menu_window.cybol">
+    <part name="menu_window" channel="file" format="element/part" model="calculator/menu_window.cybol">
         <property name="position" channel="inline" format="number/integer" model="0,0"/>
         <property name="size" channel="inline" format="number/integer" model="99,20/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -7,6 +7,17 @@
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
+	    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="= ">
+        <property name="position" channel="inline" format="number/integer" model="2,14"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+    </part>
+    <part name="info_count_operation" channel="inline" format="path/knowledge" model=".safetmp.first_number_result">
+        <property name="position" channel="inline" format="number/integer" model="4,14"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+    </part>
+	
     <part name="cursor" channel="inline" format="text/plain" model="">
         <property name="position" channel="inline" format="number/integer" model="2,13"/>
     </part>

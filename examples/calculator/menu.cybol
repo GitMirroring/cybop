@@ -6,19 +6,19 @@
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="info_enteroparation" channel="inline" format="text/plain" model="Enter: <Number><1. Space><Operation><2. Space><Number><Enter>">
+    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter: <Number><1. Space><Operation><2. Space><Number><Enter>">
         <property name="position" channel="inline" format="number/integer" model="2,3"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="info_countoperation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation (+, -, *, /)">
+    <part name="info_count_operation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation (+, -, *, /)">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-	<part name="info_numbers" channel="inline" format="text/plain" model="2. Number-Datatypes are Double">
+	<part name="info_numbers" channel="inline" format="text/plain" model="2. Number-Datatypes are Integer">
         <property name="position" channel="inline" format="number/integer" model="2,6"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>

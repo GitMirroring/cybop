@@ -1,4 +1,8 @@
 <model>
     <part name="command" channel="inline" format="text/plain" model=""/>
     <part name="path" channel="inline" format="path/knowledge" model=""/>
+	
+    <part name="first_number_result" channel="inline" format="text/plain" model=""/>
+    <part name="second_number" channel="inline" format="text/plain" model=""/>
+    <part name="operation" channel="inline" format="text/plain" model=""/>
 </model>

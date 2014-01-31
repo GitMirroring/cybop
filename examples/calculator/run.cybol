@@ -78,7 +78,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 	<!-- Send Window on Terminal -->
-    <part name="send_menu_window" channel="inline" format="communicate/send" model="">
+    <part name="set_menu_window" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
@@ -95,7 +95,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
     </part>
 	<!-- Set Handler for Terminal -->
-    <part name="handler_commands" channel="inline" format="live/sense" model="">
+    <part name="set_handler_commands_reading" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
     </part>	
