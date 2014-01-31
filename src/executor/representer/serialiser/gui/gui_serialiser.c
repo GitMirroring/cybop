@@ -35,6 +35,7 @@
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/part_gui_serialiser.c"
+#include "../../../../executor/representer/serialiser/gui/text_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -156,7 +157,7 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            append_item_element(p0, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            serialise_gui_text(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
