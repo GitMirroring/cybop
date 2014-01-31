@@ -132,5 +132,16 @@ static wchar_t TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L
 static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/change-permission logic cybol format.
+ *
+ * Changes the permission of a file or directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'h', L'a', L'n', L'g', L'e', L'-', L'p', L'e', L'r', L'm', L'i', L's', L's', L'i', L'o', L'n'};
+static wchar_t* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

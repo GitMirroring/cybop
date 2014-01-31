@@ -186,6 +186,9 @@ static int* REMOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_705_INTEGER_STATE_CYBOI_M
 /** The tape archiver command logic cyboi format. */
 static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_706_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The change-permission command logic cyboi format. */
+static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_707_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //
