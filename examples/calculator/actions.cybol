@@ -1,5 +1,5 @@
 <model>
-	<part>
-		
-	</part>
+    <part name="enter" channel="inline" format="path/knowledge" model=".logic.enter_start_calculation"/>
+    <part name="space" channel="inline" format="path/knowledge" model=".logic.space_check_operation"/>
+    <part name="escape" channel="inline" format="path/knowledge" model=".logic.exit"/>
 </model>

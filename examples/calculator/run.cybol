@@ -1,40 +1,26 @@
 <model>
 	<!-- Create and Initialise Components -->
-	<part name="create_temporary" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="temporary"/>
+	
+	<part name="create_safetmp" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="safetmp"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
+	    <part name="init_safetmp" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="calculator/safetmp.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".safetmp"/>
+    </part>
+	
     <part name="create_logic" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="logic"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
-    <part name="create_tui" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="tui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_actions" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="actions"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_handler" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="handler"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-	
-    <part name="initialise_temporary" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="calculator/temporary.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary"/>
-    </part>
-    <part name="initialise_logic" channel="inline" format="communicate/receive" model="">
+	    <part name="init_logic" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -42,7 +28,13 @@
         <property name="message" channel="inline" format="text/plain" model="calculator/logic.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".logic"/>
     </part>
-    <part name="initialise_tui" channel="inline" format="communicate/receive" model="">
+	
+    <part name="create_tui" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="tui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+	    <part name="init_tui" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -50,7 +42,13 @@
         <property name="message" channel="inline" format="text/plain" model="calculator/tui.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".tui"/>
     </part>
-    <part name="initialise_actions" channel="inline" format="communicate/receive" model="">
+	
+    <part name="create_actions" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="actions"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+	    <part name="init_actions" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -58,7 +56,13 @@
         <property name="message" channel="inline" format="text/plain" model="calculator/actions.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".actions"/>
     </part>
-    <part name="initialise_handler" channel="inline" format="communicate/receive" model="">
+	
+    <part name="create_handler" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="handler"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="init_handler" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -68,17 +72,18 @@
     </part>
 
 	<!-- Startup Application -->
+	
 	<!-- Startup Terminal -->
 	<part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 	<!-- Send Window on Terminal -->
-    <part name="send_terminal" channel="inline" format="communicate/send" model="">
+    <part name="send_menu_window" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 	<!-- Set Cursor -->
@@ -90,7 +95,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
     </part>
 	<!-- Set Handler for Terminal -->
-    <part name="sense_commands" channel="inline" format="live/sense" model="">
+    <part name="handler_commands" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
     </part>	
