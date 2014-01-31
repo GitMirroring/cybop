@@ -1,4 +1,5 @@
 <model>
+    <part name="terminal" channel="file" format="element/part" model="ui/logic/handle/terminal.cybol"/>
     <part name="display" channel="file" format="element/part" model="ui/logic/handle/display.cybol"/>
 </model>
 
