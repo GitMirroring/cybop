@@ -143,5 +143,16 @@ static wchar_t CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o
 static wchar_t* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/word count logic cybol format.
+ *
+ * Outputs the Number of rows, words and bytes for every file
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'w', L'o', L'r', L'd', L'-', L'c', L'o', L'u', L'n', L't'};
+static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

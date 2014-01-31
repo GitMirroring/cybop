@@ -189,6 +189,9 @@ static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_706_INTEGER_STATE_
 /** The change-permission command logic cyboi format. */
 static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_707_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The word count command logic cyboi format. */
+static int* WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_708_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //

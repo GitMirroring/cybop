@@ -1,4 +1,4 @@
- 
+  
 /*
  * Copyright (C) 1999-2013. Christian Heller.
  *
@@ -24,8 +24,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHANGE_PERMISSION_COMMANDER_SOURCE
-#define CHANGE_PERMISSION_COMMANDER_SOURCE
+#ifndef WORD_COUNT_COMMANDER_SOURCE
+#define WORD_COUNT_COMMANDER_SOURCE
 
 #include <unistd.h>
 
@@ -35,10 +35,10 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #ifdef WIN32
-    //#include "../../../constant/name/command_option/win32/change_permission_win32_command_option_name.c"
+    //#include "../../../constant/name/command_option/win32/word_count_win32_command_option_name.c"
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/name/command_option/unix/change_permission_unix_command_option_name.c"
+    #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
 #endif
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
@@ -48,22 +48,18 @@
 
 /**
  * Lists the directory contents.
- *q
+ *
  * @param p0 the path model data
  * @param p1 the path model count
- * @param p2 the user model data
- * @param p3 the user model count
- * @param p4 the group model data
- * @param p5 the group model count
- * @param p6 the other model data
- * @param p7 the other model count
- * @param p8 the recursive model data
- * @param p9 the silent model data
- * @param p10 the verbose model data
+ * @param p2 the byte model data
+ * @param p3 the char model data
+ * @param p4 the line model data
+ * @param p5 the max-line-length model data
+ * @param p6 the word model data
  */
-void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command change permission.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command word count.");
 
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,7 +79,7 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
     //append_item_element(arg, (void*) DIR_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DIR_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 #ifdef GNU_LINUX_OPERATING_SYSTEM
-    append_item_element(arg, (void*) CHANGE_PERMISSION_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHANGE_PERMISSION_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(arg, (void*) WORD_COUNT_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WORD_COUNT_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
   
       // Append path option.
@@ -122,70 +118,72 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
 #endif
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // example: u=rwx,g=,o=rw
-    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) LATIN_SMALL_LETTER_U_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-   
-    append_item_element(arg, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) LATIN_SMALL_LETTER_G_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, p4, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    
-    append_item_element(arg, (void*) COMMA_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);    
-    append_item_element(arg, (void*) LATIN_SMALL_LETTER_O_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-  
-  
-    // optional recursive parameter
+
+     
+    // optional byte count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append recursive option.
+        // Append byte count option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, (void*) RECURSIVE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, (void*) BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }
+      
+    // optional char count parameter
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_unequal((void*) &r, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append char count option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) CHAR_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHAR_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }
+     
+  
+    // optional line count parameter
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_unequal((void*) &r, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append line count option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
     
-    // optional silent parameter
+    // optional max-line-length count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append sort by modification date option.
+        // Append max-line-length count option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, (void*) MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
   
-    // optional verbose parameter
+    // optional word count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append sort by modification date option.
+        // Append word count option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, (void*) WORD_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WORD_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
   
     // required parameter
@@ -204,5 +202,5 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* CHANGE_PERMISSION_COMMANDER_SOURCE */
+/* WORD_COUNT_COMMANDER_SOURCE */
 #endif

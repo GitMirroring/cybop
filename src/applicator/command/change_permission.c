@@ -163,5 +163,5 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     command_change_permission(pmd, pmc, umd, umc, gmd, gmc, omd, omc, rmd, smd, vmd);
 }
 
-/* LIST_CONTENTS_SOURCE */
+/* CHANGE_PERMISSION_SOURCE */
 #endif
