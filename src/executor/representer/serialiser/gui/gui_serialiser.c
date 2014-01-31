@@ -29,13 +29,12 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/part_gui_serialiser.c"
-#include "../../../../executor/representer/serialiser/gui/text_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -56,10 +55,13 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
 
-fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
-
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    
+    //?? TODO: Define local variable of type char* as buffer.
+    //?? Serialise primitive values below into this variable.
+    //?? Hand over variable to function "serialise_gui_properties".
+    //?? Destroy variable at the very end of this function.
 
     //
     // datetime
@@ -71,7 +73,8 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_datetime_utc(p0, p4, p5);
+//??            serialise_cybol_datetime_utc(LOCAL_VAR, p4, p5);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -86,6 +89,9 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_gui_part(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+            
+            // CAUTION! Do NOT call function "serialise_gui_properties" here.
+            // It is called inside the "serialise_gui_part" function.
         }
     }
 
@@ -99,7 +105,8 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_boolean(p0, p4, p5);
+//??            serialise_cybol_boolean(LOCAL_VAR, p4, p5);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -113,7 +120,8 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_complex(p0, p4, p5);
+//??            serialise_cybol_complex(LOCAL_VAR, p4, p5);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -123,7 +131,8 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_fraction_decimal(p0, p4, p5);
+//??            serialise_cybol_fraction_decimal(LOCAL_VAR, p4, p5);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -133,7 +142,8 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_vulgar_fraction(p0, p4, p5);
+//??            serialise_vulgar_fraction(LOCAL_VAR, p4, p5);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -143,7 +153,8 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_integer(p0, p4, p5, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+//??            serialise_cybol_integer(LOCAL_VAR, p4, p5, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
@@ -153,17 +164,43 @@ fwprintf(stdout, L"TEST serialise gui: %i\n", *((int*) p9));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p9, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_text(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+            // CAUTION! The data are available in various formats.
+            // They ALL are serialised uniformly into wide character strings.
+            //
+            // So do data with format "text/ascii".
+            // Since they are available with type "char",
+            // they have to get serialised into "wchar_t" here.
+            //
+            // When sending data over some channel, they are mostly
+            // encoded back into a multibyte character sequence of type "char".
+            // It is true, this double-conversion could be avoided if catching
+            // data with format "text/ascii" in file "file_sender.c".
+            // But in order to be able to uniformly process all data,
+            // this loss in efficiency is taken.
+
+//??            decode(LOCAL_VAR, p1, p2, (void*) UTF_8_CYBOI_ENCODING);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui. The source format is unknown.");
+        compare_integer_equal((void*) &r, p9, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            append_item_element(LOCAL_VAR, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??            serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui. The format is unknown.");
     }
 }
 
