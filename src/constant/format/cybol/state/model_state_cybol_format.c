@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner
  */
 
 #ifndef MODEL_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
@@ -53,9 +54,12 @@
 
 /**
  * The model/vrml state cybol type.
+ *
+ * Visualization of virtual worlds (VRML)
+ * Registered.
+ * Suffixes: wrl
  */
-static wchar_t VRML_MODEL_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'o', L'd', L'e', L'l', L'/', L'v', L'r', L'm', L'l'};
-static wchar_t* VRML_MODEL_STATE_CYBOL_FORMAT = VRML_MODEL_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* VRML_MODEL_STATE_CYBOL_FORMAT = L"image/vrml";
 static int* VRML_MODEL_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MODEL_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

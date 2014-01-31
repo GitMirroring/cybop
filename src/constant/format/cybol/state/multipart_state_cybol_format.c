@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner
  */
 
 #ifndef MULTIPART_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
@@ -52,19 +53,103 @@
 //
 
 /**
+ * The multipart/alternative state cybol type.
+ *
+ * mixed multipart data.
+ * Registered.
+ */
+static wchar_t* ALTERNATIVE_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/alternative";
+static int* ALTERNATIVE_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/byteranges state cybol type.
+ *
+ * multipart data with Byte information.
+ * Registered.
+ */
+static wchar_t* BYTERANGES_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/byteranges";
+static int* BYTERANGES_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/digest state cybol type.
+ *
+ * multipart data / selection.
+ * Registered.
+ */
+static wchar_t* DIGEST_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/digest";
+static int* DIGEST_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/encrypted state cybol type.
+ *
+ * encrypted multipart data.
+ * Registered.
+ */
+static wchar_t* ENCRYPTED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/encrypted";
+static int* ENCRYPTED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/form-data state cybol type.
+ *
+ * multipart data from HTML form (f.e. file upload).
+ * Registered.
+ */
+static wchar_t* FORM_DATA_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/form-data";
+static int* FORM_DATA_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The multipart/mixed state cybol type.
  *
- * multipart/mixed: MIME E-mail; Defined in RFC 2045 and RFC 2046
+ * mixed multipart data: MIME E-mail; Defined in RFC 2045 and RFC 2046.
+ * Registered.
  */
-static wchar_t MIXED_MULTIPART_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'u', L'l', L't', L'i', L'p', L'a', L'r', L't', L'/', L'm', L'i', L'x', L'e', L'd'};
-static wchar_t* MIXED_MULTIPART_STATE_CYBOL_FORMAT = MIXED_MULTIPART_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MIXED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/mixed";
 static int* MIXED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/*??
-multipart/alternative: MIME E-mail; Defined in RFC 2045 and RFC 2046
-multipart/related: MIME E-mail; Defined in RFC 2387 and used by MHTML (HTML mail)
-multipart/form-data: MIME Webform; Defined in RFC 2388
-*/
+/**
+ * The multipart/parallel state cybol type.
+ *
+ * multipart data parallel.
+ * Registered.
+ */
+static wchar_t* PARALLEL_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/parallel";
+static int* PARALLEL_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/related state cybol type.
+ *
+ * multipart data connected.
+ * Registered.
+ */
+static wchar_t* RELATED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/related";
+static int* RELATED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/report state cybol type.
+ *
+ * multipart data / report.
+ * Registered.
+ */
+static wchar_t* REPORT_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/report";
+static int* REPORT_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/signed state cybol type.
+ *
+ * multipart data referred.
+ * Registered.
+ */
+static wchar_t* SIGNED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/signed";
+static int* SIGNED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The multipart/voice-message state cybol type.
+ *
+ * multipart data / voice message.
+ * Registered.
+ */
+static wchar_t* VOICE_MESSAGE_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/voice-message";
+static int* VOICE_MESSAGE_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MULTIPART_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

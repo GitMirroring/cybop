@@ -56,7 +56,7 @@
  * The image/cis-cod state cybol type.
  *
  * CIS-Cod files.
- * Registeres.
+ * Registered.
  * Suffixes: cod
  */
 static wchar_t* CIS_COD_IMAGE_STATE_CYBOL_FORMAT = L"image/cis-cod";
@@ -66,7 +66,7 @@ static int* CIS_COD_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  * The image/cmu-raster state cybol type.
  *
  * CMU-Raster files.
- * Registeres.
+ * Registered.
  * Suffixes: ras
  */
 static wchar_t* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT = L"image/cmu-raster";
@@ -76,7 +76,7 @@ static int* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * The image/fif state cybol type.
  *
  * FIF files.
- * Registeres.
+ * Registered.
  * Suffixes: fif
  */
 static wchar_t* FIF_IMAGE_STATE_CYBOL_FORMAT = L"image/fif";
@@ -96,7 +96,7 @@ static int* GIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  * The image/ief state cybol type.
  *
  * IEF files.
- * Registeres.
+ * Registered.
  * Suffixes: ief
  */
 static wchar_t* IEF_IMAGE_STATE_CYBOL_FORMAT = L"image/ief";
@@ -136,7 +136,7 @@ static int* TIFF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * The image/vasa state cybol type.
  *
  * Vasa files.
- * Registeres.
+ * Registered.
  * Suffixes: mcf
  */
 static wchar_t* VASA_IMAGE_STATE_CYBOL_FORMAT = L"image/vasa";
@@ -146,7 +146,7 @@ static int* VASA_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  * The image/vnd.wap.wbmp state cybol type.
  *
  * Bitmap files (WAP).
- * Registeres.
+ * Registered.
  * Suffixes: wbmp
  */
 static wchar_t* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT = L"image/vnd.wap.wbmp";
@@ -156,7 +156,7 @@ static int* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * The image/x-freehand state cybol type.
  *
  * Freehand files.
- * Registeres.
+ * Registered.
  * Suffixes: fh4, fh5, fhc
  */
 static wchar_t* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT = L"image/x-freehand";
@@ -166,7 +166,7 @@ static int* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  * The image/x-icon state cybol type.
  *
  * Icon files (f.e. Favoriten-Icons).
- * Registeres.
+ * Registered.
  * Suffixes: ico
  */
 static wchar_t* X_ICON_IMAGE_STATE_CYBOL_FORMAT = L"image/x-icon";
@@ -176,7 +176,7 @@ static int* X_ICON_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  * The image/x-portable-anymap state cybol type.
  *
  * PBM Anymap files.
- * Registeres.
+ * Registered.
  * Suffixes: pnm
  */
 static wchar_t* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-anymap";
@@ -186,7 +186,7 @@ static int* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  * The image/x-portable-bitmap state cybol type.
  *
  * PBM Bitmap files.
- * Registeres.
+ * Registered.
  * Suffixes: pbm
  */
 static wchar_t* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-bitmap";
@@ -196,7 +196,7 @@ static int* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  * The image/x-portable-graymap state cybol type.
  *
  * PBM Graymap files.
- * Registeres.
+ * Registered.
  * Suffixes: pgm
  */
 static wchar_t* X_PORTABLE_GARYMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-graymap";
@@ -206,7 +206,7 @@ static int* X_PORTABLE_GRAYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * The image/x-portable-pixmap state cybol type.
  *
  * PBM Pixmap files.
- * Registeres.
+ * Registered.
  * Suffixes: ppm
  */
 static wchar_t* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-pixmap";
@@ -216,7 +216,7 @@ static int* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  * The image/x-rgb state cybol type.
  *
  * RGB files.
- * Registeres.
+ * Registered.
  * Suffixes: rgb
  */
 static wchar_t* X_RGB_IMAGE_STATE_CYBOL_FORMAT = L"image/x-rgb";
@@ -226,7 +226,7 @@ static int* X_RGB_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * The image/x-windowdump state cybol type.
  *
  * X-Windows Dump.
- * Registeres.
+ * Registered.
  * Suffixes: xwd
  */
 static wchar_t* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-windowdump";
@@ -236,7 +236,7 @@ static int* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  * The image/x-xbitmap state cybol type.
  *
  * XBM files.
- * Registeres.
+ * Registered.
  * Suffixes: xbm
  */
 static wchar_t* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-xbitmap";
@@ -246,7 +246,7 @@ static int* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  * The image/x-xpixmap state cybol type.
  *
  * XPM files.
- * Registeres.
+ * Registered.
  * Suffixes: xpm
  */
 static wchar_t* X_XPIXMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-xpixmap";

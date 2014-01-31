@@ -465,6 +465,25 @@ static int* X_XPIXMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_
 static int* BOOLEAN_LOGICVALUE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// message
+//
+
+/** The external-body message state cyboi format. */
+static int* EXTERNAL_BODY_MESSAGE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The http message state cyboi format. */
+static int* HTTP_MESSAGE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The news message state cyboi format. */
+static int* NEWS_MESSAGE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The partial message state cyboi format. */
+static int* PARTIAL_MESSAGE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rfc822 message state cyboi format. */
+static int* RFC822_MESSAGE_STATE_CYBOI_FORMAT = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // meta
 //
 
@@ -482,6 +501,50 @@ static int* FORMAT_META_STATE_CYBOI_FORMAT = NUMBER_333_INTEGER_STATE_CYBOI_MODE
 
 /** The type meta state cyboi format. */
 static int* TYPE_META_STATE_CYBOI_FORMAT = NUMBER_334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// model
+//
+
+/** The vrml model state cyboi format. */
+static int* VRML_MODEL_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// multipart
+//
+
+/** The alternative multipart state cyboi format. */
+static int* ALTERNATIVE_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The byteranges multipart state cyboi format. */
+static int* BYTERANGES_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The digest multipart state cyboi format. */
+static int* DIGEST_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The encrypted multipart state cyboi format. */
+static int* ENCRYPTED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The form-data multipart state cyboi format. */
+static int* FORM_DATA_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mixed multipart state cyboi format. */
+static int* MIXED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The parallel multipart state cyboi format. */
+static int* PARALLEL_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The related multipart state cyboi format. */
+static int* RELATED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The report multipart state cyboi format. */
+static int* REPORT_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The signed multipart state cyboi format. */
+static int* SIGNED_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The voice-message multipart state cyboi format. */
+static int* VOICE_MESSAGE_MULTIPART_STATE_CYBOI_FORMAT = NUMBER_330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // number
