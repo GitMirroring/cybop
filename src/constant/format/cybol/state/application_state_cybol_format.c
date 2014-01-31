@@ -306,13 +306,33 @@ static int* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
 /**
  * The application/toolbook state cybol type.
  *
- * Toolbook files
+ * Toolbook files.
  * Registered.
  * Suffixes: tbk
  */
 static wchar_t TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L't', L'o', L'o', L'l', L'b', L'o', L'o', L'k'};
 static wchar_t* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT = TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/vnd.wap.wmlc state cybol type.
+ *
+ * WMLC files (WAP).
+ * Registered.
+ * Suffixes: wmlc
+ */
+static wchar_t* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.wap.wmlc";
+static int* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The application/vnd.wap.wmlscriptc state cybol type.
+ *
+ * WML-Script-C files (WAP).
+ * Registered.
+ * Suffixes: wmlsc
+ */
+static wchar_t* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.wap.wmlscriptc";
+static int* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The application/vocaltec-media-desc.

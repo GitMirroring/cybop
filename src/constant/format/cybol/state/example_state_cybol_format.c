@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner
  */
 
 #ifndef EXAMPLE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
@@ -56,8 +57,7 @@
  *
  * This is just offered by IANA for testing reasons.
  */
-static wchar_t EXAMPLE_STATE_CYBOL_FORMAT_ARRAY[] = {L'e', L'x', L'a', L'm', L'p', L'l', L'e'};
-static wchar_t* EXAMPLE_STATE_CYBOL_FORMAT = EXAMPLE_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* EXAMPLE_STATE_CYBOL_FORMAT = L"example";
 static int* EXAMPLE_STATE_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EXAMPLE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

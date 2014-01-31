@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner
  */
 
 #ifndef TEXT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
@@ -61,9 +62,48 @@
  *
  * It is used for single-byte-characters in CYBOL.
  */
-static wchar_t ASCII_TEXT_STATE_CYBOL_FORMAT_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'a', L's', L'c', L'i', L'i'};
-static wchar_t* ASCII_TEXT_STATE_CYBOL_FORMAT = ASCII_TEXT_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ASCII_TEXT_STATE_CYBOL_FORMAT = L"text/ascii";
 static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/comma-separated-values state cybol type.
+ *
+ * comma-separated data files.
+ * Registered.
+ * Suffixes: csv
+ */
+static wchar_t* COMMA_SEPARATED_VALUES_TEXT_STATE_CYBOL_FORMAT = L"text/comma-separated-values";
+static int* COMMA_SEPARATED_VALUES_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/css state cybol type.
+ *
+ * CSS Stylesheet files.
+ * Registered.
+ * Suffixes: css
+ */
+static wchar_t* CSS_TEXT_STATE_CYBOL_FORMAT = L"text/css";
+static int* CSS_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/html state cybol type.
+ *
+ * HTML files.
+ * Registered.
+ * Suffixes: htm, html, shtml
+ */
+static wchar_t* HTML_TEXT_STATE_CYBOL_FORMAT = L"text/html";
+static int* HTML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/javascript state cybol type.
+ *
+ * JavaScript files.
+ * Registered.
+ * Suffixes: js
+ */
+static wchar_t* JAVASCRIPT_TEXT_STATE_CYBOL_FORMAT = L"text/javascript";
+static int* JAVASCRIPT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The text/plain state cybol type.
@@ -74,9 +114,107 @@ static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * This language (media type) is also used for strings (character vectors) in CYBOL.
  */
-static wchar_t PLAIN_TEXT_STATE_CYBOL_FORMAT_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'p', L'l', L'a', L'i', L'n'};
-static wchar_t* PLAIN_TEXT_STATE_CYBOL_FORMAT = PLAIN_TEXT_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* PLAIN_TEXT_STATE_CYBOL_FORMAT = L"text/plain";
 static int* PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/richtext state cybol type.
+ *
+ * Richtext files.
+ * Registered.
+ * Suffixes: rtx
+ */
+static wchar_t* RICHTEXT_TEXT_STATE_CYBOL_FORMAT = L"text/richtext";
+static int* RICHTEXT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/rtf state cybol type.
+ *
+ * Microsoft RTF files.
+ * Registered.
+ * Suffixes: rtf
+ */
+static wchar_t* RTF_TEXT_STATE_CYBOL_FORMAT = L"text/rtf";
+static int* RTF_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/tab-separated-values state cybol type.
+ *
+ * tab separated data files.
+ * Registered.
+ * Suffixes: tsv
+ */
+static wchar_t* TAB_SEPARATED_VALUES_TEXT_STATE_CYBOL_FORMAT = L"text/tab-separated-values";
+static int* TAB_SEPARATED_VALUES_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/vnd.wap.wml state cybol type.
+ *
+ * WML files (WAP).
+ * Registered.
+ * Suffixes: wml
+ */
+static wchar_t* VND_WAP_WML_TEXT_STATE_CYBOL_FORMAT = L"text/vnd.wap.wml";
+static int* VND_WAP_WML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/vnd.wap.wmlscript state cybol type.
+ *
+ * WML Script files (WAP).
+ * Registered.
+ * Suffixes: wmls
+ */
+static wchar_t* VND_WAP_WMLSCRIPT_TEXT_STATE_CYBOL_FORMAT = L"text/vnd.wap.wmlscript";
+static int* VND_WAP_WMLSCRIPT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/xml state cybol type.
+ *
+ * XML files.
+ * Registered.
+ * Suffixes: xml
+ */
+static wchar_t* XML_TEXT_STATE_CYBOL_FORMAT = L"text/xml";
+static int* XML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/xml-external-parsed-entity state cybol type.
+ *
+ * external parsed XML files.
+ * Registered.
+ */
+static wchar_t* XML_EXTERNAL_PARSED_ENTITY_TEXT_STATE_CYBOL_FORMAT = L"text/xml-external-parsed-entity";
+static int* XML_EXTERNAL_PARSED_ENTITY_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/x-setext state cybol type.
+ *
+ * SeText files.
+ * Registered.
+ * Suffixes: etx
+ */
+static wchar_t* X_SETEXT_TEXT_STATE_CYBOL_FORMAT = L"text/x-setext";
+static int* X_SETEXT_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/x-sgml state cybol type.
+ *
+ * SGML files.
+ * Registered.
+ * Suffixes: sgm, sgml
+ */
+static wchar_t* X_SGML_TEXT_STATE_CYBOL_FORMAT = L"text/x-sgml";
+static int* X_SGML_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The text/x-speech state cybol type.
+ *
+ * Speech files.
+ * Registered.
+ * Suffixes: talk, spc
+ */
+static wchar_t* X_SPEECH_TEXT_STATE_CYBOL_FORMAT = L"text/x-speech";
+static int* X_SPEECH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TEXT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner
  */
 
 #ifndef VIDEO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
@@ -92,6 +93,26 @@ static wchar_t* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT = QUICKTIME_VIDEO_STATE_CYBOL
 static int* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The video/vnd.vivo state cybol type.
+ *
+ * Vivo files.
+ * Registered.
+ * Suffixes: viv, vivo
+ */
+static wchar_t* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT = L"video/vnd.vivo";
+static int* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The video/x-msvideo state cybol type.
+ *
+ * Microsoft AVI files.
+ * Registered.
+ * Suffixes: avi
+ */
+static wchar_t* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT = L"video/x-msvideo";
+static int* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The video/x-ms-wmv state cybol type.
  *
  * Windows Media Video.
@@ -101,6 +122,16 @@ static int* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
 static wchar_t X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'x', L'-', L'm', L's', L'-', L'w', L'm', L'v'};
 static wchar_t* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT = X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_ARRAY;
 static int* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The video/x-sgi-movie state cybol type.
+ *
+ * Movie files.
+ * Registered.
+ * Suffixes: movie
+ */
+static wchar_t* X_SGI_MOVIE_VIDEO_STATE_CYBOL_FORMAT = L"video/x-sgi-movie";
+static int* X_SGI_MOVIE_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* VIDEO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

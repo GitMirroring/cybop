@@ -588,11 +588,95 @@ static int* KNOWLEDGE_PATH_STATE_CYBOI_FORMAT = NUMBER_401_INTEGER_STATE_CYBOI_M
 /** The ascii text state cyboi format. */
 static int* ASCII_TEXT_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The comma-separated-values text state cyboi format. */
+static int* COMMA_SEPARATED_VALUES_TEXT_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The css text state cyboi format. */
+static int* CSS_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The html text state cyboi format. */
 static int* HTML_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The javascript text state cyboi format. */
+static int* JAVASCRIPT_TEXT_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The plain text state cyboi format. */
 static int* PLAIN_TEXT_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The richtext text state cyboi format. */
+static int* RICHTEXT_TEXT_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The rtf text state cyboi format. */
+static int* RTF_TEXT_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The tab-separated-values text state cyboi format. */
+static int* TAB_SEPARATED_VALUES_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vnd.wap.wml text state cyboi format. */
+static int* VND_WAP_WML_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vnd.wap.wmlscript text state cyboi format. */
+static int* VND_WAP_WMLSCRIPT_TEXT_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xml text state cyboi format. */
+static int* XML_TEXT_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The xml-external-parsed-entity text state cyboi format. */
+static int* XML_EXTERNAL_PARSED_ENTITY_TEXT_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-setext text state cyboi format. */
+static int* X_SETEXT_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-sgml text state cyboi format. */
+static int* X_SGML_TEXT_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-speech text state cyboi format. */
+static int* X_SPEECH_TEXT_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// video
+//
+
+/** The avi video state cyboi format. */
+static int* AVI_VIDEO_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mp4 video state cyboi format. */
+static int* MP4_VIDEO_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The mpeg video state cyboi format. */
+static int* MPEG_VIDEO_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The quicktime video state cyboi format. */
+static int* QUICKTIME_VIDEO_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vnd.vivo video state cyboi format. */
+static int* VND_VIVO_VIDEO_STATE_CYBOI_FORMAT = NUMBER_420_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-msvideo video state cyboi format. */
+static int* X_MSVIDEO_VIDEO_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-ms-wmv video state cyboi format. */
+static int* X_MS_WMV_VIDEO_STATE_CYBOI_FORMAT = NUMBER_421_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-sgi-movie video state cyboi format. */
+static int* X_SGI_MOVIE_VIDEO_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// workbook
+//
+
+/** The formulaone workbook state cyboi format. */
+static int* FORMULAONE_WORKBOOK_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// x-world
+//
+
+/** The x-3dmf x-world state cyboi format. */
+static int* FX_3DMF_X_WORLD_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-vrml x-world state cyboi format. */
+static int* X_VRML_X_WORLD_STATE_CYBOI_FORMAT = NUMBER_422_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STATE_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif
