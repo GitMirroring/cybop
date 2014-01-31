@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner> 
  */
 
 #ifndef APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE

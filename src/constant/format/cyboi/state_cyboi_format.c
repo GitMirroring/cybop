@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Franziska Wehner
  */
 
 #ifndef STATE_CYBOI_FORMAT_CONSTANT_SOURCE
@@ -334,6 +335,13 @@ static int* TJD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_110_INTEGER_STATE_CYBOI_MOD
 static int* UTC_DATETIME_STATE_CYBOI_FORMAT = NUMBER_111_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// drawing
+//
+
+/** The x-dwf drawing state cyboi format. */
+static int* X_DWF_DRWAING_STATE_CYBOI_FORMAT = NUMBER_50_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // duration
 //
 
@@ -384,6 +392,70 @@ static int* EXAMPLE_STATE_CYBOI_FORMAT = NUMBER_230_INTEGER_STATE_CYBOI_MODEL_AR
 
 /** The package fonts state cyboi format. */
 static int* PACKAGE_FONTS_STATE_CYBOI_FORMAT = NUMBER_250_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// image
+//
+
+/** The cis-cod image state cyboi format. */
+static int* CIS_COD_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The cmu-raster image state cyboi format. */
+static int* CMU_RASTER_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The fif image state cyboi format. */
+static int* FIF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The gif image state cyboi format. */
+static int* GIF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ief image state cyboi format. */
+static int* IEF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The jpeg image state cyboi format. */
+static int* JPEG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The png image state cyboi format. */
+static int* PNG_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The tiff image state cyboi format. */
+static int* TIFF_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vasa image state cyboi format. */
+static int* VASA_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The vnd.wap.wbmp image state cyboi format. */
+static int* VND_WAP_WBMP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-freehand image state cyboi format. */
+static int* X_FREEHAND_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-icon image state cyboi format. */
+static int* X_ICON_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-portable-anymap image state cyboi format. */
+static int* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-portable-bitmap image state cyboi format. */
+static int* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-portable-graymap image state cyboi format. */
+static int* X_PORTABLE_GARYMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-portable-pixmap image state cyboi format. */
+static int* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-rgb image state cyboi format. */
+static int* X_RGB_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-windowdump image state cyboi format. */
+static int* X_WINDOWDUMP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-xbitmap image state cyboi format. */
+static int* X_XBITMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The x-xpixmap image state cyboi format. */
+static int* X_XPIXMAP_IMAGE_STATE_CYBOI_FORMAT = NUMBER_221_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // logicvalue
