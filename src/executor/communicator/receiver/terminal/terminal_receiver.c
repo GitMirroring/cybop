@@ -55,11 +55,12 @@
 void receive_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive terminal.");
-    FILE * pFile;
-    pFile = fopen ("/Users/markushinkelmann/log.log","a+");
-    fwprintf(pFile, L"Recive Data: receive_terminal");
-    
+
+/*?? TEST ONLY! Commented out, since error occured on computers without path "/Users/markushinkelmann/".
+    FILE* pFile = fopen("/Users/markushinkelmann/log.log", "a+");
+    fwprintf(pFile, L"TEST post: Recive Data: receive_terminal");
     fclose (pFile);
+*/
 
 #ifdef __APPLE__
     receive_unix_terminal(p0, p1, p6, p7, p5);

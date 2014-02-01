@@ -35,22 +35,22 @@
 #include "../../../../logger/logger.c"
 
 #ifdef __APPLE__
-// CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-// since its input gets sensed in the corresponding sensing thread.
-// Therefore, the following include is disabled.
-// #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following include is disabled.
+    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #elif WIN32
     #include "../../../../executor/lifeguard/sensor/win32_console/win32_console_sensor.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-// CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-// since its input gets sensed in the corresponding sensing thread.
-// Therefore, the following include is disabled.
-// #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following include is disabled.
+    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #else
-// CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-// since its input gets sensed in the corresponding sensing thread.
-// Therefore, the following include is disabled.
-// #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following include is disabled.
+    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #endif
 
 /**

@@ -166,7 +166,7 @@ void sense(void* p0, void* p1, void* p2) {
             // "sense_terminal" is called here.
             sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
 #elif WIN32
-            //Not needed
+            // Not needed.
 #elif GNU_LINUX_OPERATING_SYSTEM
             // Run sensing thread ONLY for unix terminal.
             // CAUTION! A sensing thread for win32 console is NOT necessary,

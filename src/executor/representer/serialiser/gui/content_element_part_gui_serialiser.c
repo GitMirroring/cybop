@@ -32,8 +32,8 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 
-#ifndef __APPLE__ 
-	#include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
+#ifndef __APPLE__
+    #include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
 #endif
 
 #include "../../../../logger/logger.c"
@@ -66,16 +66,47 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 
 fwprintf(stdout, L"TEST serialise gui part element content model count: %i\n", *((int*) p5));
 fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\n", *((int*) p7));
-	
-	#ifndef __APPLE__ 
-    	// Append properties.
-	    serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
 
-    	// Serialise embedded model.
-    	serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
-    #else
-    	//?? Apple complete gui adaptions needed
-    #endif
+//??     if (p11 == part) {
+
+        // This IS a part.
+        // Therefore, draw properties first and
+        // only afterwards, dive into the hierarchy.
+        // Otherwise, inner elements would be drawn first
+        // and outer elements, drawn later,
+        // would overpaint them again.
+
+#ifndef __APPLE__
+    // Append properties.
+    serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
+
+    // Serialise embedded model.
+    serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
+#else
+    //?? Apple complete gui adaptions needed
+#endif
+
+/*??
+    } else {
+
+        // This is NOT a part, but a primitive value.
+        // Therefore, serialise value first and
+        // only afterwards, draw its properties.
+        // The reason is that the serialised value
+        // has to be handed over AS TEXT to the properties,
+        // in order to be drawn correctly inside.
+
+#ifndef __APPLE__
+    // Serialise embedded model.
+    serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
+
+    // Append properties.
+    serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
+#else
+    //?? Apple complete gui adaptions needed
+#endif
+    }
+*/
 }
 
 /* CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE */

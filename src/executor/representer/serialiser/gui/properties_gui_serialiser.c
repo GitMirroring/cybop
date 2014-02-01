@@ -36,11 +36,10 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-
 #ifdef __APPLE__
     //?? Add support for Cocooa
 #elif WIN32
-    #include <xcb/xcb.h>
+    //?? TODO
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include <xcb/xcb.h>
     #include "../../../../executor/representer/serialiser/gui/rectangle_gui_serialiser.c"
@@ -74,7 +73,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui properties.");
 
-fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
+//?? fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
 
             // The super part.
             void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -351,7 +350,7 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 // CAUTION! They have to be IN THE SAME ORDER
                 // as given in the value mask above.
                 uint32_t values[4];
-                
+
                 // Allocate title model data terminated item.
                 // CAUTION! Due to memory allocation handling, the size MUST NOT
                 // be negative or zero, but have at least a value of ONE.
@@ -360,12 +359,12 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 // CAUTION! Due to memory allocation handling, the size MUST NOT
                 // be negative or zero, but have at least a value of ONE.
                 allocate_item((void*) &itmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-                
+
                 // Encode title model data terminated wide character- into multibyte character data.
                 encode_utf_8(tmdt, tmd, tmc);
                 // Encode icon title model data terminated wide character- into multibyte character data.
                 encode_utf_8(itmdt, itmd, itmc);
-                
+
                 // Initialise values.
                 // CAUTION! Initialise values BEFORE using them
                 // in function calls further below.
@@ -374,12 +373,12 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 values[1] = pmdy;
                 values[2] = smdx;
                 values[3] = smdy;
-                
+
                 // Add null termination character to title model data terminated.
                 append_item_element(tmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
                 // Add null termination character to icon title model data terminated.
                 append_item_element(itmdt, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                
+
                 // Get title model data terminated item data.
                 // CAUTION! Retrieve data ONLY AFTER having called desired functions!
                 // Inside the structure, arrays may have been reallocated,
@@ -390,7 +389,7 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 // Inside the structure, arrays may have been reallocated,
                 // with elements pointing to different memory areas now.
                 copy_array_forward((void*) &itmdtd, itmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-                
+
                 // Set title.
                 // CAUTION! The sixth parametre specifies
                 // the format of the property (8, 16, 32).
@@ -406,7 +405,7 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
                 //?? xcb_change_property(connexion, XCB_PROP_MODE_REPLACE, *window, XCB_ATOM_WM_ICON, XCB_ATOM_CARDINAL, *NUMBER_32_INTEGER_STATE_CYBOI_MODEL, *imci, imd);
                 // Configure window position and size.
                 xcb_configure_window(connexion, *window, mask, values);
-                
+
                 // Deallocate title model data terminated item.
                 deallocate_item((void*) &tmdt, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
                 // Deallocate icon title model data terminated item.

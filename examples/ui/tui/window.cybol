@@ -1,0 +1,65 @@
+<model>
+    <part name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
+        <property name="position" channel="inline" format="number/integer" model="5,2"/>
+        <property name="size" channel="inline" format="number/integer" model="60,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="box1" channel="inline" format="text/plain" model="empty">
+        <property name="position" channel="inline" format="number/integer" model="10,5"/>
+        <property name="size" channel="inline" format="number/integer" model="40,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="yellow"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="border" channel="inline" format="text/plain" model="ascii"/>
+    </part>
+    <part name="box2" channel="inline" format="text/plain" model="empty">
+        <property name="position" channel="inline" format="number/integer" model="20,15"/>
+        <property name="size" channel="inline" format="number/integer" model="40,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+    <part name="control" channel="file" format="element/part" model="ui/tui/control.cybol">
+        <property name="position" channel="inline" format="number/integer" model="10,20"/>
+        <property name="size" channel="inline" format="number/integer" model="60,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="gray"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2013. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.15.0 2013-09-22
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

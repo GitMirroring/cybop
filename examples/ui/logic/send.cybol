@@ -14,15 +14,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.tui"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="tui_cursor" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.cursor"/>
     </part>
 <!--
     <part name="gui" channel="inline" format="communicate/send" model="">

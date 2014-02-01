@@ -57,7 +57,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    
+
     //?? TODO: Define local variable of type char* as buffer.
     //?? Serialise primitive values below into this variable.
     //?? Hand over variable to function "serialise_gui_properties".
@@ -89,7 +89,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             serialise_gui_part(p0, p1, p2, p3, p4, p5, p6, p7, p8);
-            
+
             // CAUTION! Do NOT call function "serialise_gui_properties" here.
             // It is called inside the "serialise_gui_part" function.
         }

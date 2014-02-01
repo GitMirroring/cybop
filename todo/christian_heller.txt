@@ -17,6 +17,7 @@
 GUI
 ___
 
+        * Sort out serialisation of part and primitives in gui serialiser
         * Define constants for all possible values in function "serialise_gui_rectangle",
             e.g. "shape" cybol property like "button" or "rectangle";
             other necessary properties depend on the kind of shape/component;

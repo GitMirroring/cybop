@@ -119,11 +119,11 @@ void check_wait(void* p0, void* p1) {
     }
 
 /*??
-fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) c));
-fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) d));
-fwprintf(stdout, L"TEST wait *serial_port_irq: %i\n", *((int*) s));
-fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) t));
-fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) w));
+fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) ci));
+fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) di));
+fwprintf(stdout, L"TEST wait *serial_port_irq: %i\n", *((int*) si));
+fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) ti));
+fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) wi));
 */
 
     // The sleep loop above is left as soon as at least one of the
