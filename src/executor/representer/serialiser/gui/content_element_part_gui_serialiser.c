@@ -67,29 +67,33 @@ void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 fwprintf(stdout, L"TEST serialise gui part element content model count: %i\n", *((int*) p5));
 fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\n", *((int*) p7));
 
-//??     if (p11 == part) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // This IS a part.
-        // Therefore, draw properties first and
-        // only afterwards, dive into the hierarchy.
-        // Otherwise, inner elements would be drawn first
-        // and outer elements, drawn later,
-        // would overpaint them again.
+    compare_integer_equal((void*) &r, p11, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+    // This IS a part.
+    // Therefore, draw properties first and
+    // only afterwards, dive into the hierarchy.
+    // Otherwise, inner elements would be drawn first
+    // and outer elements, drawn later,
+    // would overpaint them again.
 
 #ifndef __APPLE__
-    // Append properties.
-    serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
+        // Append properties.
+        serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
 
-    // Serialise embedded model.
-    serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
+        // Serialise embedded model.
+        serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
 #else
-    //?? Apple complete gui adaptions needed
+        //?? Apple complete gui adaptions needed
 #endif
 
-/*??
     } else {
 
-        // This is NOT a part, but a primitive value.
+        // This is NOT a part, but a PRIMITIVE VALUE.
         // Therefore, serialise value first and
         // only afterwards, draw its properties.
         // The reason is that the serialised value
@@ -97,16 +101,33 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
         // in order to be drawn correctly inside.
 
 #ifndef __APPLE__
-    // Serialise embedded model.
-    serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
+/*??
+        //?? TODO: Define local variable of type char* as buffer.
+        //?? Serialise primitive values below into this variable.
+        //?? Hand over variable to function "serialise_gui_properties".
+        //?? Destroy variable at the very end of this function.
 
-    // Append properties.
-    serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
+        // The text item.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Allocate text item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Serialise embedded model into text item.
+        serialise_gui(t, p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
+
+        // Draw text using properties.
+        serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
+
+        // Deallocate text item.
+        deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+*/
 #else
     //?? Apple complete gui adaptions needed
 #endif
     }
-*/
 }
 
 /* CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE */

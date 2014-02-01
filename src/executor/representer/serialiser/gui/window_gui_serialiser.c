@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROPERTIES_GUI_SERIALISER_SOURCE
-#define PROPERTIES_GUI_SERIALISER_SOURCE
+#ifndef WINDOW_GUI_SERIALISER_SOURCE
+#define WINDOW_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,12 +34,20 @@
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-//?? #include "../../../../executor/representer/serialiser/gui/context_gui_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/gui/window_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
+#ifdef __APPLE__
+    //?? Add support for Cocooa
+#elif WIN32
+    #include "../../../../executor/representer/serialiser/gui/win32_display/window_win32_display_serialiser.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/gui/win32_display/window_x_window_system_serialiser.c"
+#else
+    #include "../../../../executor/representer/serialiser/gui/win32_display/window_x_window_system_serialiser.c"
+#endif
+
 /**
- * Serialises the properties into gui.
+ * Serialises the properties into a window.
  *
  * @param p0 the connexion
  * @param p1 the screen
@@ -51,7 +59,7 @@
  * @param p7 the source whole properties count
  * @param p8 the knowledge memory part
  */
-void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -61,7 +69,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
             xcb_connection_t* connexion = (xcb_connection_t*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui properties.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui window.");
 
 //?? fwprintf(stdout, L"TEST serialise gui properties: %i\n", p8);
 
@@ -291,39 +299,26 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
             calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
             calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
-            // The comparison result.
-            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            // Find out if this is the root window.
-            compare_integer_equal((void*) &r, wmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // CAUTION! The comparison of wmd for null IS NECESSARY,
-            // since the "window" cybol property flag is OPTIONAL.
-            // If this check for null were removed, then the
-            // "else" branch below would ALWAYS be executed.
-            if ((wmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
-
-                // This is a gui child element and NOT the root window.
-
-//??                serialise_gui_context(p0, p1, p2, p3, (void*) &pmdx, (void*) &pmdy, (void*) &smdx, (void*) &smdy);
-
-            } else {
-
-                // This is the root window.
-
-//??                serialise_gui_window();
-            }
+#ifdef __APPLE__
+            //?? Add support for Cocoa
+#elif WIN32
+//??            serialise_win32_display_window();
+#elif GNU_LINUX_OPERATING_SYSTEM
+            serialise_x_window_system_window();
+#else
+            serialise_x_window_system_window();
+#endif
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui properties. The connexion is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui window. The connexion is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui properties. The window is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui window. The window is null.");
     }
 }
 
-/* PROPERTIES_GUI_SERIALISER_SOURCE */
+/* WINDOW_GUI_SERIALISER_SOURCE */
 #endif

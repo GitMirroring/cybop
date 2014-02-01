@@ -17,15 +17,8 @@
 GUI
 ___
 
-        * Sort out serialisation of part and primitives in gui serialiser
-        * Define constants for all possible values in function "serialise_gui_rectangle",
-            e.g. "shape" cybol property like "button" or "rectangle";
-            other necessary properties depend on the kind of shape/component;
-            gui components are thus drawn inside cyboi;
-            however, all common 2D shapes need to be provided as "component" as well
-        * Split function "serialise_gui_rectangle"
-        * Paint gui component hierarchy and properties
-        * Extend gui serialiser for "win32 display"
+        * Continue drawing for x window system in gui serialiser
+        * Extend gui serialiser for win32 display
         * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
         * API: http://xcb.freedesktop.org/manual/group__XCB____API.html
 

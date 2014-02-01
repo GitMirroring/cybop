@@ -54,9 +54,9 @@ static int* FILLED_RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_C
 static wchar_t* LABEL_SHAPE_CYBOL_MODEL = L"label";
 static int* LABEL_SHAPE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The point_cloud shape cybol model. */
-static wchar_t* POINT_CLOUD_SHAPE_CYBOL_MODEL = L"point_cloud";
-static int* POINT_CLOUD_SHAPE_CYBOL_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The point shape cybol model. */
+static wchar_t* POINT_SHAPE_CYBOL_MODEL = L"point";
+static int* POINT_SHAPE_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The polygon shape cybol model. */
 static wchar_t* POLYGON_SHAPE_CYBOL_MODEL = L"polygon";
@@ -65,6 +65,10 @@ static int* POLYGON_SHAPE_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL
 /** The rectangle shape cybol model. */
 static wchar_t* RECTANGLE_SHAPE_CYBOL_MODEL = L"rectangle";
 static int* RECTANGLE_SHAPE_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The segment shape cybol model. */
+static wchar_t* SEGMENT_SHAPE_CYBOL_MODEL = L"segment";
+static int* SEGMENT_SHAPE_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SHAPE_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

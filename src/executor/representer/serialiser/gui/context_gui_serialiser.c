@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef RECTANGLE_GUI_SERIALISER_SOURCE
-#define RECTANGLE_GUI_SERIALISER_SOURCE
+#ifndef SHAPE_GUI_SERIALISER_SOURCE
+#define SHAPE_GUI_SERIALISER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -33,10 +33,11 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/representer/serialiser/gui/shape/rectangle_shape_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the rectangle into gui.
+ * Serialises the shape into gui.
  *
  * @param p0 the connexion
  * @param p1 the screen
@@ -47,7 +48,7 @@
  * @param p6 the width
  * @param p7 the height
  */
-void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -81,7 +82,7 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     xcb_connection_t* c = (xcb_connection_t*) p0;
 
-                                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui rectangle.");
+                                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui shape.");
 
                                     // The graphic context value mask.
                                     // CAUTION! It is possible to set several attributes
@@ -183,8 +184,6 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                     // CAUTION! Use command "xlsfonts" in terminal
                                     // to know which are the fonts available.
                                     xcb_open_font(c, f, strlen("7x13"), "7x13");
-                                    // The rectangle.
-                                    xcb_rectangle_t r;
 
                                     //
                                     // Initialise graphic context values.
@@ -199,7 +198,7 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     } else {
 
-                                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The foreground colour reply is null.");
+                                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The foreground colour reply is null.");
                                     }
 
                                     if (crb != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -208,7 +207,7 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                     } else {
 
-                                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The background colour reply is null.");
+                                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The background colour reply is null.");
                                     }
 
                                     v[2] = lw;
@@ -219,36 +218,16 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
                                     v[7] = fr;
                                     v[8] = f;
 
-                                    // Initialise rectangle.
-                                    r.x = *x;
-                                    r.y = *y;
-                                    r.width = *w;
-                                    r.height = *h;
-
                                     // Change graphic context.
                                     xcb_change_gc(c, *gc, m, v);
 
-/*??
-                                    // Draw point.
-                                    xcb_poly_point();
-                                    // Draw line.
-                                    xcb_poly_line();
-                                    // Draw rectangle.
-*/
-                                    xcb_poly_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
-/*??
-                                    // Draw elliptical arc.
-                                    xcb_poly_arc();
-
-                                    // Fill polygon defined by points.
-                                    xcb_fill_poly();
-                                    // Fill rectangle.
-                                    xcb_poly_fill_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
-                                    // Fill elliptic arc.
-                                    xcb_poly_fill_arc();
-*/
+                                    // Serialise shape.
+                                    serialise_gui_shape();
 
                                     // Draw text.
+                                    // CAUTION! This has to be done for ALL shapes.
+                                    // A text is NOT treated as shape itself,
+                                    // but may instead be drawn into the shape.
                                     xcb_image_text_8(c, strlen("TEST"), *d, *gc, *x + 20, *y + 20, "TEST");
 
                                     // Close font.
@@ -256,44 +235,44 @@ void serialise_gui_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                                 } else {
 
-                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The connexion is null.");
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The connexion is null.");
                                 }
 
                             } else {
 
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The screen is null.");
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The screen is null.");
                             }
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The window is null.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The window is null.");
                         }
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The graphic context is null.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The graphic context is null.");
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The position x is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The position x is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The position y is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The position y is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The width is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The width is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui rectangle. The height is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise gui shape. The height is null.");
     }
 }
 
-/* RECTANGLE_GUI_SERIALISER_SOURCE */
+/* SHAPE_GUI_SERIALISER_SOURCE */
 #endif

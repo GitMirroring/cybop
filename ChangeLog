@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-02-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Sort out serialisation of part and primitives in gui serialiser
+        * Prepare platform-independency in gui serialiser
+
 2014-01-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename "ui_control" cybol example application into "tui_control"
