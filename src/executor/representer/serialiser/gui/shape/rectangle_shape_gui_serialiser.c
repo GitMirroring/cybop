@@ -39,15 +39,16 @@
  * Serialises the rectangle shape into gui.
  *
  * @param p0 the connexion
- * @param p2 the window
- * @param p3 the graphic context
+ * @param p1 the window
+ * @param p2 the graphic context
+ * @param p3 the win32 device context
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the source whole properties data
  * @param p7 the source whole properties count
  * @param p8 the knowledge memory part
  */
-void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui shape rectangle.");
 
@@ -56,11 +57,11 @@ void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void*
 #ifdef __APPLE__
     //?? Add support for Cocoa
 #elif WIN32
-    serialise_win32_display_rectangle();
+    serialise_win32_display_rectangle(p3, x, y, w, h);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_rectangle();
+    serialise_x_window_system_rectangle(p0, p1, p2, x, y, w, h);
 #else
-    serialise_x_window_system_rectangle();
+    serialise_x_window_system_rectangle(p0, p1, p2, x, y, w, h);
 #endif
 }
 

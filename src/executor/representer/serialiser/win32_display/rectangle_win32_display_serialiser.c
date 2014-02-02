@@ -26,7 +26,7 @@
 #ifndef RECTANGLE_WIN32_DISPLAY_SERIALISER_SOURCE
 #define RECTANGLE_WIN32_DISPLAY_SERIALISER_SOURCE
 
-#include <xcb/xcb.h>
+#include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -38,28 +38,92 @@
 /**
  * Serialises the rectangle into win32 display.
  *
- * @param p0 the connexion
- * @param p2 the window
- * @param p3 the graphic context
- * @param p4 the source properties data
- * @param p5 the source properties count
- * @param p6 the source whole properties data
- * @param p7 the source whole properties count
- * @param p8 the knowledge memory part
+ * @param p0 the win32 device context
+ * @param p1 the position x
+ * @param p2 the position y
+ * @param p3 the width
+ * @param p4 the height
  */
-void serialise_win32_display_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_win32_display_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 display rectangle.");
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //?? TODO:
-    // Line and Curve Functions:
-    // http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
-    // Filled Shape Functions:
-    // http://msdn.microsoft.com/en-us/library/windows/desktop/dd162715%28v=vs.85%29.aspx
-    // DrawTextEx function:
-    // http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
+        int* h = (int*) p4;
 
-    //?? xcb_poly_rectangle(c, *d, *gc, rc, &r);
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* w = (int*) p3;
+
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                int* y = (int*) p2;
+
+                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    int* x = (int*) p1;
+
+                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // The handle to the device context.
+                        //
+                        // CAUTION! The device context type is defined as:
+                        // typedef HANDLE HDC;
+                        // typedef PVOID HANDLE;
+                        // typedef void* PVOID;
+                        //
+                        // The HDC type is: void*
+                        // Therefore, cast parametre value AS IS
+                        // to handle (WITHOUT dereferencing).
+                        HDC h = (HDC) p0;
+
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 display rectangle.");
+
+                        // The x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.
+                        int x1 = x;
+                        // The y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.
+                        int y1 = y;
+                        // The x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.
+                        int x2 = x + w;
+                        // The y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.
+                        int y2 = y + h;
+
+                        // Draw rectangle.
+                        BOOL b = Rectangle(h, x1, y1, x2, y2);
+
+                        // If the return value is zero, then an error occured.
+                        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                            // Get the calling thread's last-error code.
+                            DWORD e = GetLastError();
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. A windows system error occured.");
+                            log_windows_system_error((void*) &e);
+                        }
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. The device context is null.");
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. The position x is null.");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. The position y is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. The width is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display rectangle. The height is null.");
+    }
 }
 
 /* RECTANGLE_WIN32_DISPLAY_SERIALISER_SOURCE */

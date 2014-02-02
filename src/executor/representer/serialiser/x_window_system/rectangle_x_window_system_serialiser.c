@@ -39,40 +39,98 @@
  * Serialises the rectangle into x window system.
  *
  * @param p0 the connexion
- * @param p2 the window
- * @param p3 the graphic context
- * @param p4 the source properties data
- * @param p5 the source properties count
- * @param p6 the source whole properties data
- * @param p7 the source whole properties count
- * @param p8 the knowledge memory part
+ * @param p1 the window
+ * @param p2 the graphic context
+ * @param p3 the position x
+ * @param p4 the position y
+ * @param p5 the width
+ * @param p6 the height
  */
-void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system rectangle.");
+    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //?? TODO:
-    // http://xcb.freedesktop.org/manual/group__XCB____API.html
+        int* h = (int*) p6;
 
-    // The rectangle count (number of given rectangles).
-    // CAUTION! Divide model count by four, since each
-    // rectangle is specified by four coordinates.
-    //?? TODO: int rc = model_count / 4;
-    int rc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //?? TODO: Loop over rectangles.
+            int* w = (int*) p5;
 
-    // The rectangle.
-    xcb_rectangle_t r;
+            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Initialise rectangle.
-    r.x = *x;
-    r.y = *y;
-    r.width = *w;
-    r.height = *h;
+                int* y = (int*) p4;
 
-    // Draw rectangle.
-    xcb_poly_rectangle(c, *d, *gc, rc, &r);
+                if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    int* x = (int*) p3;
+
+                    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        xcb_gcontext_t* gc = (xcb_gcontext_t*) p2;
+
+                        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                            xcb_drawable_t* d = (xcb_drawable_t*) p1;
+
+                            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                xcb_connection_t* c = (xcb_connection_t*) p0;
+
+                                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system rectangle.");
+
+                                // The rectangle count (number of given rectangles).
+                                //
+                                // CAUTION! Only ONE rectangle may be processed in cyboi,
+                                // since it was decided that rectangles have to be
+                                // specified by one cybol part, one for each rectangle.
+                                // Therefore, the rectangle count is set to 1.
+                                int rc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                                // The rectangle data.
+                                xcb_rectangle_t rd;
+
+                                // Initialise rectangle.
+                                rd.x = *x;
+                                rd.y = *y;
+                                rd.width = *w;
+                                rd.height = *h;
+
+                                // Draw rectangle.
+                                xcb_poly_rectangle(c, *d, *gc, rc, &rd);
+
+                            } else {
+
+                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The connexion is null.");
+                            }
+
+                        } else {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The window is null.");
+                        }
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The graphic context is null.");
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The position x is null.");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The position y is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The width is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system rectangle. The height is null.");
+    }
 }
 
 /* RECTANGLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE */

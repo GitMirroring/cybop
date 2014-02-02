@@ -19,8 +19,23 @@ ___
 
         * Continue drawing for x window system in gui serialiser
         * Extend gui serialiser for win32 display
+            HDC hdc;
+            PAINTSTRUCT PaintStruct;
+            hdc = BeginPaint(hWnd, &PaintStruct);
+            TextOut(hdc,0,0,str, strlen(str));
+            EndPaint(hWnd, &PaintStruct);
+        * http://xcb.freedesktop.org/manual/group__XCB____API.html
         * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
-        * API: http://xcb.freedesktop.org/manual/group__XCB____API.html
+
+        * Extend gui serialiser for win32 display; API:
+        * Line and Curve Functions:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
+        * Filled Shape Functions:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162715%28v=vs.85%29.aspx
+        * DrawTextEx function:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
+        * Windows Data Types:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
 Datetime
 ________
@@ -67,6 +82,8 @@ ___
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
+        * Windows Data Types:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
         * Inspect starter, shutter, sensor, receiver, sender for channel "terminal",
             to find out why file descriptor-to-stream conversion does not work
             (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
