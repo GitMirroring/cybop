@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-02-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new gui layout serialiser
+
 2014-02-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Sort out serialisation of part and primitives in gui serialiser

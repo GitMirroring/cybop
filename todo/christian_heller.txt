@@ -17,7 +17,8 @@
 GUI
 ___
 
-        * Implement new layout serialiser to be called from file "initial_gui_serialiser.c"
+        * Move functionality from file "element_gui_serialiser.c" into "absolute_layout_serialiser.c"
+        * Continue layout serialiser to be called from file "initial_gui_serialiser.c"
             hand over whole "layout" property;
             evaluate all elements' "cell" property;
             adjust position and size of each element
