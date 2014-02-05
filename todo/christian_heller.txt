@@ -17,6 +17,14 @@
 GUI
 ___
 
+        * Implement new layout serialiser to be called from file "initial_gui_serialiser.c"
+            hand over whole "layout" property;
+            evaluate all elements' "cell" property;
+            adjust position and size of each element
+            (cybol properties position and size always have to be given and may be overwritten;
+            if layout is "absolute" then they are not overwritten OR: they are overwritten
+            but just whole's position is added since element's position is relative to whole's origo)
+
         * Continue drawing for x window system in gui serialiser
         * Extend gui serialiser for win32 display
             HDC hdc;
@@ -28,6 +36,8 @@ ___
         * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
 
         * Extend gui serialiser for win32 display; API:
+        * Complete example using rectangle:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145175%28v=vs.85%29.aspx
         * Line and Curve Functions:
             http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
         * Filled Shape Functions:

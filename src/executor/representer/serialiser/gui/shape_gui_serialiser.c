@@ -26,8 +26,6 @@
 #ifndef SHAPE_GUI_SERIALISER_SOURCE
 #define SHAPE_GUI_SERIALISER_SOURCE
 
-#include <xcb/xcb.h>
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -43,23 +41,29 @@
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the position x
- * @param p5 the position y
- * @param p6 the width
- * @param p7 the height
+ * @param p4 the win32 device context
+ * @param p5 the source properties data
+ * @param p6 the source properties count
+ * @param p7 the source whole properties data
+ * @param p8 the source whole properties count
+ * @param p9 the position x
+ * @param p10 the position y
+ * @param p11 the width
+ * @param p12 the height
+ * @param p13 the shape
  */
-void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ARC_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARC_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) ARC_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARC_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_arc(p0, p2, p3);
+//??            serialise_gui_shape_arc(p0, p2, p3);
 //??    win32: Arc(X, Y, RADIUS, START, SWEEP)
 //??    xcb_poly_arc();
         }
@@ -67,96 +71,96 @@ void serialise_gui_shape(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) BUTTON_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BUTTON_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) BUTTON_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BUTTON_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_button(p0, p2, p3);
+//??            serialise_gui_shape_button(p0, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILLED_ARC_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_filled_arc(p0, p2, p3);
+//??            serialise_gui_shape_filled_arc(p0, p2, p3);
 //??    xcb_poly_fill_arc();
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILLED_POLYGON_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_filled_polygon(p0, p2, p3);
+//??            serialise_gui_shape_filled_polygon(p0, p2, p3);
 //??    xcb_fill_poly();
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FILLED_RECTANGLE_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_filled_rectangle(p0, p2, p3);
+//??            serialise_gui_shape_filled_rectangle(p0, p2, p3);
 //??    xcb_poly_fill_rectangle(c, *d, *gc, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL, &r);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) LABEL_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LABEL_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) LABEL_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LABEL_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_label(p0, p2, p3);
+//??            serialise_gui_shape_label(p0, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) POINT_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POINT_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) POINT_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POINT_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_point(p0, p2, p3);
+//??            serialise_gui_shape_point(p0, p2, p3);
 //??    xcb_poly_point();
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) POLYGON_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POLYGON_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) POLYGON_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POLYGON_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_polygon(p0, p2, p3);
+//??            serialise_gui_shape_polygon(p0, p2, p3);
 //??    xcb_poly_line();
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) RECTANGLE_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RECTANGLE_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) RECTANGLE_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RECTANGLE_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_rectangle(p0, p2, p3);
+            serialise_gui_shape_rectangle(p0, p1, p2, p3, p4, p9, p10, p11, p12);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SEGMENT_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SEGMENT_SHAPE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p13, (void*) SEGMENT_SHAPE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SEGMENT_SHAPE_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_shape_segment(p0, p2, p3);
+//??            serialise_gui_shape_segment(p0, p2, p3);
 //??    xcb_poly_segment();
         }
     }

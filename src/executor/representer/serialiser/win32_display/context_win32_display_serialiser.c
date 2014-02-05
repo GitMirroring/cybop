@@ -23,8 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CONTEXT_GUI_SERIALISER_SOURCE
-#define CONTEXT_GUI_SERIALISER_SOURCE
+#ifndef CONTEXT_WIN32_DISPLAY_SERIALISER_SOURCE
+#define CONTEXT_WIN32_DISPLAY_SERIALISER_SOURCE
+
+#include <windows.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,42 +35,37 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
-    //?? Add support for Cocoa
-#elif WIN32
-    #include "../../../../executor/representer/serialiser/win32_display/context_win32_display_serialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
-#else
-    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
-#endif
-
 /**
- * Serialises the gui context.
+ * Serialises the win32 display context.
  *
- * @param p0 the connexion
- * @param p1 the screen
- * @param p2 the window
- * @param p3 the graphic context
- * @param p4 the win32 device context
- * @param p5 the source properties data
- * @param p6 the source properties count
- * @param p7 the knowledge memory part
+ * @param p0 the win32 device context
+ * @param p1 the source properties data
+ * @param p2 the source properties count
+ * @param p3 the knowledge memory part
  */
-void serialise_gui_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_win32_display_context(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui context.");
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-#ifdef __APPLE__
-    //?? Add support for Cocoa
-#elif WIN32
-    serialise_win32_display_context(p4, p5, p6, p7);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_context(p0, p1, p2, p3, p5, p6, p7);
-#else
-    serialise_x_window_system_context(p0, p1, p2, p3, p5, p6, p7);
-#endif
+        // The handle to the device context.
+        //
+        // CAUTION! The device context type is defined as:
+        // typedef HANDLE HDC;
+        // typedef PVOID HANDLE;
+        // typedef void* PVOID;
+        //
+        // The HDC type is: void*
+        // Therefore, cast parametre value AS IS
+        // to handle (WITHOUT dereferencing).
+        HDC h = (HDC) p0;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 display context.");
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display context. The device context is null.");
+    }
 }
 
-/* CONTEXT_GUI_SERIALISER_SOURCE */
+/* CONTEXT_WIN32_DISPLAY_SERIALISER_SOURCE */
 #endif

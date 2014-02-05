@@ -39,38 +39,39 @@
  * Serialises the rectangle into x window system.
  *
  * @param p0 the connexion
- * @param p1 the window
- * @param p2 the graphic context
- * @param p3 the position x
- * @param p4 the position y
- * @param p5 the width
- * @param p6 the height
+ * @param p1 the screen
+ * @param p2 the window
+ * @param p3 the graphic context
+ * @param p4 the position x
+ * @param p5 the position y
+ * @param p6 the width
+ * @param p7 the height
  */
-void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* h = (int*) p6;
+        int* h = (int*) p7;
 
-        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* w = (int*) p5;
+            int* w = (int*) p6;
 
-            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* y = (int*) p4;
+                int* y = (int*) p5;
 
-                if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* x = (int*) p3;
+                    int* x = (int*) p4;
 
-                    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                        xcb_gcontext_t* gc = (xcb_gcontext_t*) p2;
+                        xcb_gcontext_t* gc = (xcb_gcontext_t*) p3;
 
-                        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                            xcb_drawable_t* d = (xcb_drawable_t*) p1;
+                            xcb_drawable_t* d = (xcb_drawable_t*) p2;
 
                             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef WINDOW_GUI_SERIALISER_SOURCE
-#define WINDOW_GUI_SERIALISER_SOURCE
+#ifndef ELEMENT_GUI_SERIALISER_SOURCE
+#define ELEMENT_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -34,53 +34,35 @@
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/representer/serialiser/gui/context_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
-    //?? Add support for Cocooa
-#elif WIN32
-    #include "../../../../executor/representer/serialiser/win32_display/window_win32_display_serialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/x_window_system/window_x_window_system_serialiser.c"
-#else
-    #include "../../../../executor/representer/serialiser/x_window_system/window_x_window_system_serialiser.c"
-#endif
-
 /**
- * Serialises the gui window properties.
+ * Serialises the gui element properties.
  *
  * @param p0 the connexion
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the source properties data
- * @param p5 the source properties count
- * @param p6 the source whole properties data
- * @param p7 the source whole properties count
- * @param p8 the knowledge memory part
+ * @param p4 the win32 device context
+ * @param p5 the source properties data
+ * @param p6 the source properties count
+ * @param p7 the source whole properties data
+ * @param p8 the source whole properties count
+ * @param p9 the knowledge memory part
  */
-void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui window.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui element.");
 
     // The super part.
     void* super = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The title part.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The icon part.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The icon title part.
-    void* it = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The size part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The background part.
-    void* bg = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The foreground part.
-    void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The border part.
-    void* bo = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The shape part.
+    void* sh = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The layout part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole position part.
@@ -90,22 +72,12 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     // The super part model item.
     void* superm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The title part model item.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The icon part model item.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The icon title part model item.
-    void* itm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The size part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The background part model item.
-    void* bgm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The foreground part model item.
-    void* fgm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The border part model item.
-    void* bom = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The shape part model item.
+    void* shm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The layout part model item.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The whole position part model item.
@@ -116,26 +88,12 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // The super part model item data, count.
     void* supermd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* supermc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The title part model item data, count.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The icon part model item data, count.
-    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The icon title part model item data, count.
-    void* itmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* itmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The position part model item data.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The size part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The background part model item data.
-    void* bgmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The foreground part model item data.
-    void* fgmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The border part model item data, count.
-    void* bomd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bomc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The shape part model item data.
+    void* shmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The layout part model item data, count.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -159,14 +117,9 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
     // Get parts.
     get_part_knowledge((void*) &super, p4, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p5, p8);
-    get_part_knowledge((void*) &t, p4, (void*) TITLE_GUI_STATE_CYBOL_NAME, (void*) TITLE_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
-    get_part_knowledge((void*) &i, p4, (void*) ICON_GUI_STATE_CYBOL_NAME, (void*) ICON_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
-    get_part_knowledge((void*) &it, p4, (void*) ICON_TITLE_GUI_STATE_CYBOL_NAME, (void*) ICON_TITLE_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
     get_part_knowledge((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
     get_part_knowledge((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
-    get_part_knowledge((void*) &bg, p4, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
-    get_part_knowledge((void*) &fg, p4, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
-//??    get_part_knowledge((void*) &bo, p4, (void*) BORDER_GUI_STATE_CYBOL_NAME, (void*) BORDER_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
+    get_part_knowledge((void*) &sh, p4, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
     get_part_knowledge((void*) &l, p4, (void*) LAYOUT_GUI_STATE_CYBOL_NAME, (void*) LAYOUT_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
 
     // Get super part model item.
@@ -181,21 +134,6 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     // the default property value of the super part is used.
     //
 
-    if (t == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        get_part_knowledge((void*) &t, supermd, (void*) TITLE_GUI_STATE_CYBOL_NAME, (void*) TITLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
-    }
-
-    if (i == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        get_part_knowledge((void*) &i, supermd, (void*) ICON_GUI_STATE_CYBOL_NAME, (void*) ICON_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
-    }
-
-    if (it == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        get_part_knowledge((void*) &it, supermd, (void*) ICON_TITLE_GUI_STATE_CYBOL_NAME, (void*) ICON_TITLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
-    }
-
     if (p == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         get_part_knowledge((void*) &p, supermd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
@@ -206,19 +144,9 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
         get_part_knowledge((void*) &s, supermd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
     }
 
-    if (bg == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (sh == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
-    }
-
-    if (fg == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        get_part_knowledge((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
-    }
-
-    if (bo == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-//??        get_part_knowledge((void*) &bo, supermd, (void*) BORDER_GUI_STATE_CYBOL_NAME, (void*) BORDER_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
     }
 
     if (l == *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -231,13 +159,9 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     get_part_knowledge((void*) &ws, p6, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p7, p8);
 
     // Get part model items.
-    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bgm, bg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &fgm, fg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bom, bo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &shm, sh, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get part model items from whole properties.
@@ -245,16 +169,9 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     copy_array_forward((void*) &wsm, ws, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get part model item data.
-    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &tmc, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &imc, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bgmd, bgm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &fgmd, fgm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bomd, bom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bomc, bom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &shmd, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
@@ -280,16 +197,21 @@ void serialise_gui_window(void* p0, void* p1, void* p2, void* p3, void* p4, void
     calculate_integer_add((void*) &pmdx, (void*) &wpmdx);
     calculate_integer_add((void*) &pmdy, (void*) &wpmdy);
 
-#ifdef __APPLE__
-    //?? Add support for Cocoa
-#elif WIN32
-    serialise_win32_display_window();
-#elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_window();
-#else
-    serialise_x_window_system_window();
-#endif
+    // Serialise context.
+    serialise_gui_context(p0, p1, p2, p3, p4, p5, p6, p9);
+
+    // Serialise shape.
+    serialise_gui_shape(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, shmd);
+
+    // Draw text.
+    // CAUTION! This has to be done for ALL shapes.
+    // A text is NOT treated as shape itself,
+    // but may instead be drawn into the shape.
+    xcb_image_text_8(c, strlen("TEST"), *d, *gc, *x + 20, *y + 20, "TEST");
+
+    // Close font.
+    xcb_close_font(c, f);
 }
 
-/* WINDOW_GUI_SERIALISER_SOURCE */
+/* ELEMENT_GUI_SERIALISER_SOURCE */
 #endif

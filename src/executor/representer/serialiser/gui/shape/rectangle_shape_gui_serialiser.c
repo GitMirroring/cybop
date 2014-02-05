@@ -26,8 +26,6 @@
 #ifndef RECTANGLE_SHAPE_GUI_SERIALISER_SOURCE
 #define RECTANGLE_SHAPE_GUI_SERIALISER_SOURCE
 
-#include <xcb/xcb.h>
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -35,33 +33,41 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
+#ifdef __APPLE__
+    //?? Add support for Cocoa
+#elif WIN32
+    #include "../../../../executor/representer/serialiser/win32_display/rectangle_win32_display_serialiser.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/representer/serialiser/x_window_system/rectangle_x_window_system_serialiser.c"
+#else
+    #include "../../../../executor/representer/serialiser/x_window_system/rectangle_x_window_system_serialiser.c"
+#endif
+
 /**
  * Serialises the rectangle shape into gui.
  *
  * @param p0 the connexion
- * @param p1 the window
- * @param p2 the graphic context
- * @param p3 the win32 device context
- * @param p4 the source properties data
- * @param p5 the source properties count
- * @param p6 the source whole properties data
- * @param p7 the source whole properties count
- * @param p8 the knowledge memory part
+ * @param p1 the screen
+ * @param p2 the window
+ * @param p3 the graphic context
+ * @param p4 the win32 device context
+ * @param p5 the position x
+ * @param p6 the position y
+ * @param p7 the width
+ * @param p8 the height
  */
 void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui shape rectangle.");
 
-    //?? TODO: Get cybol properties and hand over to below functions.
-
 #ifdef __APPLE__
     //?? Add support for Cocoa
 #elif WIN32
-    serialise_win32_display_rectangle(p3, x, y, w, h);
+    serialise_win32_display_rectangle(p4, p5, p6, p7, p8);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_rectangle(p0, p1, p2, x, y, w, h);
+    serialise_x_window_system_rectangle(p0, p1, p2, p3, p5, p6, p7, p8);
 #else
-    serialise_x_window_system_rectangle(p0, p1, p2, x, y, w, h);
+    serialise_x_window_system_rectangle(p0, p1, p2, p3, p5, p6, p7, p8);
 #endif
 }
 
