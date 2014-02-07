@@ -43,7 +43,7 @@
  * @param p5 the operand array count
  */
 void calculate_all_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
-
+  
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all array.");
 
     // The comparison result.

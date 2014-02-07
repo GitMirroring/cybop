@@ -69,7 +69,7 @@ void calculate_all_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
  * @param p3 the operand type
  */
 void calculate_all_part(void* p0, void* p1, void* p2, void* p3) {
-
+  
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all part.");
 
     // The result model.

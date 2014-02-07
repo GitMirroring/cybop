@@ -61,7 +61,7 @@
  * @param p3 the operation type
  */
 void apply_calculate(void* p0, void* p1, void* p2, void* p3) {
-
+  
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
     // The result part.

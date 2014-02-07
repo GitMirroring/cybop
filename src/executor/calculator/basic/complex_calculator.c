@@ -44,7 +44,7 @@
  * @param p2 the operation type
  */
 void calculate_complex(void* p0, void* p1, void* p2) {
-
+  
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate complex.");
 
     // The comparison result.

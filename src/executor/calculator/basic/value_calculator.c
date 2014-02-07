@@ -77,6 +77,7 @@ void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
  * @param p3 the operand type
  */
 void calculate_value(void* p0, void* p1, void* p2, void* p3) {
+    fwprintf(stdout, L"testausgabe3\n");
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate value.");
 
@@ -112,7 +113,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
     }
     
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+	
         compare_integer_equal((void*) &r, p3, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -207,7 +208,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
  * @param p4 the index
  */
 void calculate_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
+  
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate value offset.");
 
     // The result value, operand value.

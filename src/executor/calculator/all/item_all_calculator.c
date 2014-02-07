@@ -45,7 +45,7 @@
  * @param p5 the result item element index
  */
 void calculate_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
-
+   
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all item element.");
 
     // The result item element.
@@ -91,7 +91,7 @@ void calculate_all_item_element(void* p0, void* p1, void* p2, void* p3, void* p4
  * @param p3 the operand type
  */
 void calculate_all_item(void* p0, void* p1, void* p2, void* p3) {
-
+  
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate all item.");
 
     // The result data, count.

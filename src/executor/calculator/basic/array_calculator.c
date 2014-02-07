@@ -45,7 +45,7 @@
  * @param p4 the count
  */
 void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
+  
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate array elements.");
 
     // The loop variable.
@@ -64,16 +64,16 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
         // b) would have to be reset to true in each loop cycle.
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
-
+    
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+      
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
-
+	
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+	  
             break;
         }
-
+        
         calculate_value_offset(p0, p1, p2, p3, (void*) &j);
 
         j++;
