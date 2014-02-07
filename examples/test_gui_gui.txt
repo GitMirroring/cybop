@@ -1,0 +1,18 @@
+[selected_node] | element/part | 
++-window | element/part | 
+| +-rectangle | text/plain | Rectangle Label
+| | #-position | number/integer | 50,50
+| | #-size | number/integer | 300,200
+| | #-button-release | text/plain | .logic.print_message
+| | #-expose | text/plain | .logic.refresh_display
+| #-window | logicvalue/boolean | true
+| #-title | text/plain | GUI Example
+| #-icon_title | text/plain | Iconised GUI Example
+| #-icon |  | 
+| #-position | number/integer | 30,30
+| #-size | number/integer | 600,400
+| #-background | colour/rgb | 255,255,255
+| #-foreground | colour/rgb | 255,0,0
+| #-layout | text/plain | absolute
+| #-expose | text/plain | .logic.refresh_display
++-action | text/plain | 

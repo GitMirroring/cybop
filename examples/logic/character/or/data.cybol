@@ -1,9 +1,9 @@
 <model>
-    <part name="result" channel="inline" format="logicvalue/boolean" model="25"/>
-    <part name="operand" channel="inline" format="logicvalue/boolean" model="13"/>
+    <part name="result" channel="inline" format="number/byte" model="25"/>
+    <part name="operand" channel="inline" format="number/byte" model="13"/>
     <part name="operation" channel="inline" format="logify/or" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
         <property name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
-	<property name="type" channel="inline" format="meta/type" model="number/character"/>
+	<property name="type" channel="inline" format="meta/type" model="number/byte"/>
     </part>
 </model>

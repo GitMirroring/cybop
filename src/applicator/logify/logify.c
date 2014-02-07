@@ -99,15 +99,20 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3) {
     // Get type part model item data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"pre i: %i\n", *((int*) imd));
-    fwprintf(stdout, L"pre o: %i\n", *((int*) omd));
-    fwprintf(stdout, L"pre t: %i\n", *((int*) tmd));
+    //fwprintf(stdout, L"pre i: %i\n", *((int*) imd));
+    //fwprintf(stdout, L"pre o: %i\n", *((int*) omd));
+    //fwprintf(stdout, L"pre t: %i\n", *((int*) tmd));
      
+    
+    //fwprintf(stdout, L"pre i: %c\n", *((char*) imd));
+    //fwprintf(stdout, L"pre o: %c\n", *((char*) omd));
+    //fwprintf(stdout, L"pre t: %c\n", *((char*) tmd));
+    
     // Calculate output by applying operation.
     logify_value(omd, imd, p3, tmd);
 
-    fwprintf(stdout, L"post i: %i\n", *((int*) imd));
-    fwprintf(stdout, L"post o: %i\n", *((int*) omd));
+    //fwprintf(stdout, L"post i: %c\n", *((char*) imd));
+    //fwprintf(stdout, L"post o: %c\n", *((char*) omd));
 }
 
 /* LOGIFY_SOURCE */

@@ -97,11 +97,11 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
     //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
+      
+        compare_integer_equal((void*) &r, p3, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
+	
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
+	  
             logify_character(p0, p1, p2);
         }
     }

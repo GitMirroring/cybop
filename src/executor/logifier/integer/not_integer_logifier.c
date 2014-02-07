@@ -47,7 +47,10 @@ void logify_integer_not(void* p0) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify integer not.");
 
         *v = ~(*v);
-
+	
+	if(*v < 0){
+	    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
+	}
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify integer not. The value is null.");

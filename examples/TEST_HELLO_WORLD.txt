@@ -1,0 +1,9 @@
+[selected_node] | element/part | 
++-string | text/plain | Hello, World!
+| #-position | number/integer | 5,2
+| #-size | number/integer | 60,4
+| #-foreground | colour/terminal | green
+| #-background | colour/terminal | blue
+| #-underline | logicvalue/boolean | true
++-cursor | text/plain | 
+| #-position | number/integer | 0,8

@@ -27,3 +27,10 @@ _____
         * Implement bit manipulation functions in directory "executor/manipulator/"
 
         * Test new source code (possibly ask group fricke_stengel_engelmann for help)
+
+NOTE
+____
+
+	* Added error messages for logic-operations with overflow (nand, nor, xnor, not, neg)
+
+	* error while printing byte-values in terminal-applications

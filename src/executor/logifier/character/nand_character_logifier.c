@@ -50,9 +50,14 @@ void logify_character_nand(void* p0, void* p1) {
             unsigned char* v = (unsigned char*) p0;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify character nand.");
-
-            *v = ~((*v) & (*m));
-
+	    
+	    *v = ~((*v) & (*m));
+	    
+	    if(*v < 0){
+	      log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
+	    }
+	    
+	    
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character nand. The value is null.");
