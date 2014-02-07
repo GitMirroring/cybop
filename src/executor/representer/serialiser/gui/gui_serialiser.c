@@ -29,11 +29,19 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/colour/terminal_colour_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex/polar_complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction/decimal_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/part_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -59,6 +67,30 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     //
+    // colour
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) RGB_COLOUR_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) TERMINAL_COLOUR_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_colour_terminal(p0, p1);
+        }
+    }
+
+    //
     // datetime
     //
 
@@ -68,7 +100,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_datetime_utc(p0, p4, p5);
+            serialise_cybol_datetime_utc(p0, p4, p5);
         }
     }
 
@@ -103,8 +135,99 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     }
 
     //
+    // meta
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) CHANNEL_META_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_channel(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) ENCODING_META_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_encoding(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) LANGUAGE_META_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_language(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) FORMAT_META_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_format(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) TYPE_META_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The temporary format item.
+            void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The temporary format item data.
+            void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Allocate temporary format item.
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            // CAUTION! Initialise integer items with a size of ONE,
+            // in order to avoid later reallocation when overwriting
+            // the element and to thus increase efficiency.
+            allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // Decode cyboi runtime type into cyboi format.
+            // CAUTION! For one cyboi runtime type, many formats may exist (1:n).
+            // For example, a complex number may be given in cartesian or polar coordinates.
+            // Since this is ambiguous, a DEFAULT FORMAT is assigned to each type.
+            serialise_cybol_type(f, p1);
+            // Get temporary format item data.
+            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+            // Inside the structure, arrays may have been reallocated,
+            // with elements pointing to different memory areas now.
+            copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            // Decode cybol source format (mime type as string) into cyboi-internal type (an integer).
+            serialise_cybol_format(p0, fd);
+
+            // Deallocate temporary format item.
+            deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        }
+    }
+
+    //
     // number
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) BYTE_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_byte(p0, p1, p2);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -112,7 +235,17 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_complex(p0, p4, p5);
+            serialise_cybol_fraction_decimal(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_complex_polar(p0, p1, p2);
         }
     }
 
@@ -122,7 +255,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_fraction_decimal(p0, p4, p5);
+            serialise_cybol_fraction_decimal(p0, p1, p2);
         }
     }
 
@@ -132,7 +265,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_vulgar_fraction(p0, p4, p5);
+            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -142,7 +275,31 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_integer(p0, p4, p5, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
+    // path
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -170,7 +327,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // But in order to be able to uniformly process all data,
             // this loss in efficiency is taken.
 
-//??            decode(p0, p1, p2, (void*) UTF_8_CYBOI_ENCODING);
+            decode(p0, p1, p2, (void*) UTF_8_CYBOI_ENCODING);
         }
     }
 
@@ -180,7 +337,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

@@ -30,7 +30,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/representer/deserialiser/cybol/decimal_fraction/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -44,10 +44,30 @@ void deserialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex cartesian.");
 
+    //
+    // CAUTION! A complex number consists of
+    // two double numbers. However, the function
+    // "deserialise_cybol_fraction_decimal"
+    // is NOT called directly here, since:
+    //
+    // (1) an uneven number of double values
+    // might be given, which would lead to
+    // wrong results;
+    //
+    // (2) an extension of the destination
+    // complex number always comprises
+    // memory space for TWO double numbers,
+    // so that an extension for just one
+    // double number would lead to errors
+    // like segmentation faults when trying
+    // to access the complex number, if only
+    // allocated for one instead of two doubles
+    //
+
     // The temporary complex.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate temporary double item.
+    // Allocate temporary complex item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
@@ -56,7 +76,7 @@ void deserialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
     // (two double numbers representing a complex number).
     deserialise_cybol_fraction_decimal(t, p1, p2);
 
-    // Append temporary datetime to destination.
+    // Append temporary complex to destination.
     append_item(p0, t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate temporary complex.

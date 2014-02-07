@@ -30,7 +30,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/representer/deserialiser/cybol/decimal_fraction/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -43,6 +43,29 @@
 void deserialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar.");
+
+    //
+    // CAUTION! A complex number consists of
+    // two double numbers. However, the function
+    // "deserialise_cybol_fraction_decimal"
+    // is NOT called directly here, since:
+    //
+    // (1) an uneven number of double values
+    // might be given, which would lead to
+    // wrong results;
+    //
+    // (2) an extension of the destination
+    // complex number always comprises
+    // memory space for TWO double numbers,
+    // so that an extension for just one
+    // double number would lead to errors
+    // like segmentation faults when trying
+    // to access the complex number, if only
+    // allocated for one instead of two doubles
+    //
+    // (3) polar coordinates have to be
+    // transformed into cartesian coordinates
+    //
 
 /*??
     // The temporary complex.

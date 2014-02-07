@@ -11,10 +11,22 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+CONTINUE
+________
+
+        * Provide de-/serialiser also for cartesian complex and vulgar fraction,
+            in order to adapt the count by simply multiplying/dividing by TWO,
+            because complex and fraction each have TWO elements,
+            but when de-/serialising using double/int functions,
+            these elements are counted single and not as one complex/fraction
+
+RELEASE
+_______
+
         * Replace tabs with four spaces in all source code, before next release
         * Change copyright year to 2014 in all source code files
         * Move file "tester.c" back into directory "controller/"
-        * Use comparison with concrete constants and NOT areas with fixed values, since constants may change and areas would not be valid then anymore
+        * Unify all pre-processor if-defs
 
 GUI
 ___
@@ -184,6 +196,11 @@ _________
         * Optimise "replace_array" function by replacing offset with constantly growing variable (less addition in loop necessary)
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
+
+Executor
+________
+
+        * Implement part serialiser called from file "cybol_serialiser.c"
 
 Project
 _______

@@ -20,7 +20,8 @@
 
 2014-02-07  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add cartesian- and polar complex deserialiser
+        * Add cartesian- and polar complex de-/serialiser
+        * Clean up decimal- and vulgar fraction de-/serialiser
 
 2014-02-05  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -42,7 +42,7 @@
  * Gets the source fraction's element at the given index.
  *
  * @param p0 the destination data
- * @param p1 the source
+ * @param p1 the source fraction
  * @param p2 the source index
  */
 void get_fraction_element(void* p0, void* p1, void* p2) {

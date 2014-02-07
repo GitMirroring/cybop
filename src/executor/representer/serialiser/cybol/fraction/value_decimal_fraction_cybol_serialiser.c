@@ -32,8 +32,6 @@
     #define swprintf _snwprintf
 #endif
 
-#include <stdio.h>
-#include <string.h>
 #include <wchar.h>
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"

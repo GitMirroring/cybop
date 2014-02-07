@@ -37,7 +37,7 @@
 #include "../../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../../executor/modifier/appender/item_appender.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/decimal_fraction/primitive_value_decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/primitive_value_decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/time_scale/julian_date/julian_date_time_scale_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 

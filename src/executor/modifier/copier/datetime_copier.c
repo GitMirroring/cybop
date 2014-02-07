@@ -37,9 +37,9 @@
 
 /**
  * Copies the datetime.
- * 
- * @param p0 the destination
- * @param p1 the source
+ *
+ * @param p0 the destination datetime
+ * @param p1 the source datetime
  */
 void copy_datetime(void* p0, void* p1) {
 

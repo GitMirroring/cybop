@@ -35,12 +35,13 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/colour/terminal_colour_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/decimal_fraction/decimal_fraction_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex/polar_complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction/decimal_fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/encoding_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
@@ -273,7 +274,17 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_complex(p0, p1, p2);
+            serialise_cybol_fraction_decimal(p0, p1, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            serialise_cybol_complex_polar(p0, p1, p2);
         }
     }
 
@@ -293,7 +304,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_cybol_fraction_vulgar(p0, p2, p3);
+            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

@@ -31,7 +31,7 @@
 #include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../executor/calculator/basic/double/subtract_double_calculator.c"
-#include "../../../../../../executor/representer/serialiser/cybol/decimal_fraction/value_decimal_fraction_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/cybol/fraction/value_decimal_fraction_cybol_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/time_scale/julian_date/julian_date_time_scale_serialiser.c"
 #include "../../../../../../logger/logger.c"
 

@@ -51,7 +51,8 @@
 #include "../../../../executor/representer/deserialiser/cybol/duration/jd/jd_duration_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/duration/julian/julian_duration_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/duration/si/si_duration_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/decimal_fraction/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/fraction/vulgar/vulgar_fraction_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
@@ -429,26 +430,6 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! A compound number consists of
-            // two double numbers. However, the function
-            // "deserialise_cybol_fraction_decimal"
-            // was NOT called directly here, since:
-            //
-            // (1) an uneven number of double values
-            // might be given, which would lead to
-            // wrong results;
-            //
-            // (2) an extension of the destination
-            // complex number always comprises
-            // memory space for TWO double numbers,
-            // so that an extension for just one
-            // double number would lead to errors
-            // like segmentation faults when trying
-            // to access the complex number, if only
-            // allocated for one instead of two doubles
-            //
-
             deserialise_cybol_complex_cartesian(p0, p2, p3);
         }
     }
@@ -458,29 +439,6 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
         compare_integer_equal((void*) &r, p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            //
-            // CAUTION! A compound number consists of
-            // two double numbers. However, the function
-            // "deserialise_cybol_fraction_decimal"
-            // was NOT called directly here, since:
-            //
-            // (1) an uneven number of double values
-            // might be given, which would lead to
-            // wrong results;
-            //
-            // (2) an extension of the destination
-            // complex number always comprises
-            // memory space for TWO double numbers,
-            // so that an extension for just one
-            // double number would lead to errors
-            // like segmentation faults when trying
-            // to access the complex number, if only
-            // allocated for one instead of two doubles
-            //
-            // (3) polar coordinates have to be
-            // transformed into cartesian coordinates
-            //
 
             deserialise_cybol_complex_polar(p0, p2, p3);
         }
@@ -502,7 +460,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            deserialise_cybol_fraction_vulgar(p0, p2, p3);
+            deserialise_cybol_fraction_vulgar(p0, p2, p3);
         }
     }
 

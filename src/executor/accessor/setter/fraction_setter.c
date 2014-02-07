@@ -41,7 +41,7 @@
 /**
  * Sets the destination fraction's element at the given index.
  *
- * @param p0 the destination
+ * @param p0 the destination fraction
  * @param p1 the source data
  * @param p2 the source index
  */

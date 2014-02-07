@@ -31,12 +31,12 @@
 #include <string.h>
 #include <wchar.h>
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/representer/deserialiser/cybol/decimal_fraction/vector_decimal_fraction_cybol_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/vector_decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../../logger/logger.c"
 
 /**
  * Deserialises the wide character data into a double item.
