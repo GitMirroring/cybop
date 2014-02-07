@@ -34,12 +34,16 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#ifdef WIN32
+#ifdef __APPLE__
+    #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
+#elif WIN32
     //#include "../../../constant/name/command_option/win32/word_count_win32_command_option_name.c"
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
+#else
     #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
 #endif
+
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
@@ -75,13 +79,15 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-#ifdef WIN32
-    //append_item_element(arg, (void*) DIR_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DIR_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#ifdef __APPLE__
+    append_item_element(arg, (void*) WORD_COUNT_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WORD_COUNT_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif WIN32
+ //append_item_element(arg, (void*) DIR_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DIR_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    append_item_element(arg, (void*) WORD_COUNT_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WORD_COUNT_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#else
     append_item_element(arg, (void*) WORD_COUNT_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WORD_COUNT_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
-  
       // Append path option.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -91,20 +97,25 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-#ifdef WIN32
+#ifdef __APPLE__
+        pd = p0;
+        pc = p1;
+#elif WIN32
         // Allocate path item.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
+        
         // Convert slash to backslash.
         command_adapt_unix_to_windows_path(p, p0, p1);
-
+        
         // Get path item data, count.
         copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-#endif
-#ifdef GNU_LINUX_OPERATING_SYSTEM
+#elif GNU_LINUX_OPERATING_SYSTEM
+        pd = p0;
+        pc = p1;
+#else
         pd = p0;
         pc = p1;
 #endif
