@@ -63,8 +63,12 @@
  * @param p7 the sort by file size model data
  * @param p8 the sort by modification date model data
  * @param p9 the sort by extension model data
+ * @param p10 the almost-all model data
+ * @param p11 the export model data
+ * @param p12 the export model count
+ * 
  */
-void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command list contents.");
 
@@ -222,6 +226,63 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, (void*) SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
+    
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append sort by extension option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) ALMOST_ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALMOST_ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }
+    
+    
+      // Append path option.
+    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // The path item.
+        void* pe = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The path item data, count.
+        void* ped = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* pec = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+#ifdef __APPLE__
+        ped = p11;
+        pec = p12;
+#elif WIN32
+        // Allocate path item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &pe, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        
+        // Convert slash to backslash.
+        command_adapt_unix_to_windows_path(pe, p11, p12);
+        
+        // Get path item data, count.
+        copy_array_forward((void*) &ped, pe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &pec, pe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        
+#elif GNU_LINUX_OPERATING_SYSTEM
+        ped = p11;
+        pec = p12;
+#else
+        ped = p11;
+        pec = p12;
+#endif
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);    
+	append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, ped, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#ifdef WIN32
+        // Deallocate path item.
+        deallocate_item((void*) &pe, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+#endif
+    }
+  
 
     // Get arguments item data, count.
     copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
