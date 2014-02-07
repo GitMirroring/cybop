@@ -36,6 +36,8 @@
 #include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/colour/terminal_colour_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/complex/cartesian_complex_cybol_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/cybol/complex/polar_complex_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/gregorian/gregorian_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/jd_datetime_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/datetime/jd/mjd_datetime_cybol_deserialiser.c"
@@ -54,7 +56,6 @@
 #include "../../../../executor/representer/deserialiser/cybol/boolean_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/byte_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/channel_cybol_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/cybol/complex_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/cybol/fraction_cybol_deserialiser.c"
@@ -428,8 +429,60 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: Implement the following function!
-//??            deserialise_cartesian_complex(p0, p2, p3);
+            //
+            // CAUTION! A compound number consists of
+            // two double numbers. However, the function
+            // "deserialise_cybol_fraction_decimal"
+            // was NOT called directly here, since:
+            //
+            // (1) an uneven number of double values
+            // might be given, which would lead to
+            // wrong results;
+            //
+            // (2) an extension of the destination
+            // complex number always comprises
+            // memory space for TWO double numbers,
+            // so that an extension for just one
+            // double number would lead to errors
+            // like segmentation faults when trying
+            // to access the complex number, if only
+            // allocated for one instead of two doubles
+            //
+
+            deserialise_cybol_complex_cartesian(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) COMPLEX_POLAR_NUMBER_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! A compound number consists of
+            // two double numbers. However, the function
+            // "deserialise_cybol_fraction_decimal"
+            // was NOT called directly here, since:
+            //
+            // (1) an uneven number of double values
+            // might be given, which would lead to
+            // wrong results;
+            //
+            // (2) an extension of the destination
+            // complex number always comprises
+            // memory space for TWO double numbers,
+            // so that an extension for just one
+            // double number would lead to errors
+            // like segmentation faults when trying
+            // to access the complex number, if only
+            // allocated for one instead of two doubles
+            //
+            // (3) polar coordinates have to be
+            // transformed into cartesian coordinates
+            //
+
+            deserialise_cybol_complex_polar(p0, p2, p3);
         }
     }
 
@@ -449,8 +502,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //?? TODO: Rename into "deserialise_vulgar_fraction"!
-//??            deserialise_fraction(p0, p2, p3);
+//??            deserialise_cybol_fraction_vulgar(p0, p2, p3);
         }
     }
 

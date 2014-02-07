@@ -44,7 +44,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the wide character data into an integer value primitive.
+ * Deserialises the wide character data into a double value primitive.
  *
  * @param p0 the destination data
  * @param p1 the source data

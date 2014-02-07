@@ -13,6 +13,8 @@
 
         * Replace tabs with four spaces in all source code, before next release
         * Change copyright year to 2014 in all source code files
+        * Move file "tester.c" back into directory "controller/"
+        * Use comparison with concrete constants and NOT areas with fixed values, since constants may change and areas would not be valid then anymore
 
 GUI
 ___
