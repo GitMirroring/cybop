@@ -59,10 +59,10 @@ void calculate_complex_add(void* p0, void* p1) {
     copy_array_forward((void*) &sr, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     copy_array_forward((void*) &si, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     // Copy temporary source numerator value.
-    copy_integer((void*) &tsn, sn);
+    //copy_integer((void*) &tsn, sn); // KGLUECK: Error bei Make erzeugt !!!
 
-    fwprintf(stdout, L"pre i: %d\n", *((double*) dn));
-    fwprintf(stdout, L"pre o: %d\n", *((double*) dd));
+    //fwprintf(stdout, L"pre i: %d\n", *((double*) dn)); // KGLUECK: Error bei Make erzeugt !!!
+    //fwprintf(stdout, L"pre o: %d\n", *((double*) dd)); // KGLUECK: Error bei Make erzeugt !!!
     //fwprintf(stdout, L"pre t: %i\n", *((int*) tmd));
     
     
