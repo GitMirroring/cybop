@@ -77,7 +77,8 @@ void serialise_layout_part_element_content(void* p0, void* p1, void* p2, void* p
     // CAUTION! The parametres layout and
     // layout properties are SWAPPED here,
     // so that after comparison for layout,
-    // the layout parametre may be omitted inside.
+    // the layout parametre may be omitted inside,
+    // without having to change the order of other parametres.
     serialise_layout(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &lp, (void*) &l);
 }
 

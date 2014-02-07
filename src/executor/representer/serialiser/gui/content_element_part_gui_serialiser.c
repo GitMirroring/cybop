@@ -31,11 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-
-#ifndef __APPLE__
-    #include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
-#endif
-
+#include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -74,22 +70,21 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    // This IS a part.
-    // Therefore, draw properties first and
-    // only afterwards, dive into the hierarchy.
-    // Otherwise, inner elements would be drawn first
-    // and outer elements, drawn later,
-    // would overpaint them again.
+        // This IS a part.
+        // Therefore, draw properties first and
+        // only afterwards, dive into the hierarchy.
+        // Otherwise, inner elements would be drawn first
+        // and outer elements, drawn later,
+        // would overpaint them again.
 
-#ifndef __APPLE__
+        // Serialise properties.
+        serialise_layout_part_element_content(c, s, w, gc, p0, p1, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p6);
+
         // Append properties.
         serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
 
         // Serialise embedded model.
         serialise_gui(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11);
-#else
-        //?? Apple complete gui adaptions needed
-#endif
 
     } else {
 
@@ -100,7 +95,6 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
         // has to be handed over AS TEXT to the properties,
         // in order to be drawn correctly inside.
 
-#ifndef __APPLE__
 /*??
         //?? TODO: Define local variable of type char* as buffer.
         //?? Serialise primitive values below into this variable.
@@ -124,9 +118,6 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
         // Deallocate text item.
         deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 */
-#else
-    //?? Apple complete gui adaptions needed
-#endif
     }
 }
 

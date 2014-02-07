@@ -81,11 +81,60 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Get part model item data.
     copy_array_forward((void*) &rmd, rm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    
-    //?? TODO: Calculate MANY positions (one for each cell)
-    // and just ONE width and ONE height (equal for ALL cells in grid).
 
-    serialise_layout_part(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+    // The row count.
+    int rc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The column count.
+    int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int cr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_greater((void*) &cr, rmd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    if (cr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Calculate column count.
+        // cc = (source_model_count + *rmd - 1) / *rmd;
+        copy_integer((void*) &cc, source_model_count);
+        calculate_integer_add((void*) &cc, rmd);
+        calculate_integer_subtract((void*) &cc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_divide((void*) &cc, rmd);
+
+    } else {
+
+        // Calculate column count.
+        // rc = (source_model_count + *cmd - 1) / *cmd;
+        copy_integer((void*) &rc, source_model_count);
+        calculate_integer_add((void*) &rc, cmd);
+        calculate_integer_subtract((void*) &rc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_divide((void*) &rc, cmd);
+    }
+
+    // The current position (x, y).
+    // CAUTION! They are TEMPORARY and get
+    // MANIPULATED inside the called function.
+    int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The current size (width, height).
+    // CAUTION! They are TEMPORARY and get
+    // MANIPULATED inside the called function.
+    int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Initialise current position.
+    copy_integer((void*) &x, whole_x);
+    copy_integer((void*) &y, whole_y);
+    // Initialise current size.
+    copy_integer((void*) &w, whole_width);
+    copy_integer((void*) &h, whole_height);
+    calculate_integer_divide((void*) &w, (void*) &cc);
+    calculate_integer_divide((void*) &h, (void*) &rc);
+
+    //?? TODO: Hand over function pointer to manipulate position and size?
+    // The advantage is, that "serialise_layout_part" and other looping
+    // functions would not have to be copied into redundant source code.
+    // This is a form of "callback".
+    serialise_layout_part(p0, p1, p2, p3, p4, (void*) &x, (void*) &y, (void*) &w, (void*) &h, &FUNCTION_POINTER);
 }
 
 /* GRID_LAYOUT_SERIALISER_SOURCE */

@@ -17,6 +17,11 @@
 GUI
 ___
 
+        * Introduce "stretch" property for border layout with possible values "horizontal" and "vertical",
+            to determine if north-south or east-west element are maximised;
+            do NOT assign "north" etc. to elements;
+            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
+            if "stretch" is "vertical", then use order: west, east, north, south, centre
         * Move functionality from file "element_gui_serialiser.c" into "absolute_layout_serialiser.c"
         * Continue layout serialiser to be called from file "initial_gui_serialiser.c"
             hand over whole "layout" property;
