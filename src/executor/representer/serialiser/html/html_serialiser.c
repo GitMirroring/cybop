@@ -34,10 +34,12 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/colour/terminal_colour_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/complex/polar_complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex/cartesian/cartesian_complex_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/complex/polar/polar_complex_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/datetime/utc/utc_datetime_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/duration/iso/iso_duration_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/cybol/fraction/decimal_fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/fraction/vulgar/vulgar_fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/byte_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/channel_cybol_serialiser.c"
@@ -269,7 +271,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_fraction_decimal(p0, p1, p2);
+            serialise_cybol_complex_cartesian(p0, p1, p2);
         }
     }
 
@@ -299,7 +301,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_integer(p0, p1, p2, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+            serialise_cybol_fraction_vulgar(p0, p1, p2);
         }
     }
 

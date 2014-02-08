@@ -23,15 +23,16 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
-#define POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
+#ifndef CARTESIAN_COMPLEX_CYBOL_DESERIALISER_SOURCE
+#define CARTESIAN_COMPLEX_CYBOL_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/complex/cartesian/data_cartesian_complex_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../../logger/logger.c"
 
 /**
  * Deserialises the wide character data into a complex item.
@@ -40,9 +41,9 @@
  * @param p1 the source wide character data
  * @param p2 the source wide character count
  */
-void deserialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
+void deserialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex cartesian.");
 
     //
     // CAUTION! A complex number consists of
@@ -63,30 +64,32 @@ void deserialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
     // to access the complex number, if only
     // allocated for one instead of two doubles
     //
-    // (3) polar coordinates have to be
-    // transformed into cartesian coordinates
-    //
 
-/*??
-    // The temporary complex.
+    // The temporary double item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary double item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate temporary double item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 
     // Deserialise source data
-    // (two double numbers representing a complex number).
+    // (two or more double numbers representing one or more complex numbers).
     deserialise_cybol_fraction_decimal(t, p1, p2);
 
-    // Append temporary datetime to destination.
-    append_item(p0, t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Get temporary double item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Deallocate temporary complex.
-    deallocate_item((void*) &t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
-*/
+    // Deserialise double data.
+    deserialise_cybol_complex_cartesian_data(p0, td, tc);
+
+    // Deallocate temporary double item.
+    deallocate_item((void*) &t, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 }
 
-/* POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */
+/* CARTESIAN_COMPLEX_CYBOL_DESERIALISER_SOURCE */
 #endif

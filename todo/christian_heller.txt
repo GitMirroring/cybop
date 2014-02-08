@@ -14,6 +14,8 @@
 CONTINUE
 ________
 
+        * File "cartesian_complex_cybol_serialiser.c";
+            Test with file "add_complex_calculator.c"
         * Provide de-/serialiser also for cartesian complex and vulgar fraction,
             in order to adapt the count by simply multiplying/dividing by TWO,
             because complex and fraction each have TWO elements,
