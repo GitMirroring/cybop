@@ -21,7 +21,7 @@
  *
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
- * @author Franziska Wehner
+ * @author Franziska Wehner <franziska.wehner@it2011.ba-leipzig.de>
  */
 
 #ifndef STATE_CYBOI_FORMAT_CONSTANT_SOURCE
@@ -32,14 +32,16 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
-// CAUTION! These constants have been put into just ONE file,
+// CAUTION! These constants should actually be put into just ONE file,
 // because they have to be assigned a unique identification integer,
 // which is easier to verify having they here altogether.
 //
-// CAUTION! However, STATE and LOGIC constants have been split into TWO files.
+// However, STATE and LOGIC constants have been split into TWO files,
+// for reasons of better overview.
+//
 // Mind the following ranges and DO NOT MIX them:
-// - state constants: 0..499
-// - logic constants: 500..999
+// - state constants: 0..999
+// - logic constants: 1000..2999
 //
 
 //

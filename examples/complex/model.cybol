@@ -1,6 +1,6 @@
 <model>
-    <part name="result" channel="inline" format="number/complex-cartesian" model="5,25.5"/>
-    <part name="operand" channel="inline" format="number/complex-cartesian" model="10.5,11.11"/>
+    <part name="result" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
+    <part name="operand" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
 </model>
 
 <!--

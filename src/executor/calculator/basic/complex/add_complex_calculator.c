@@ -32,17 +32,18 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/accessor/getter/complex_getter.c"
 #include "../../../../executor/accessor/setter/complex_setter.c"
+#include "../../../../executor/calculator/basic/double/add_double_calculator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Adds the source fraction to the destination fraction.
+ * Adds the source complex number to the destination complex number.
  *
- * @param p0 the destination fraction
- * @param p1 the source fraction
+ * @param p0 the destination complex number
+ * @param p1 the source complex number
  */
 void calculate_complex_add(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction add.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate complex add.");
 
     // The destination real and imaginary.
     double dr = *NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL;
@@ -58,19 +59,19 @@ void calculate_complex_add(void* p0, void* p1) {
     get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"pre dr: %d\n", dr);
-fwprintf(stdout, L"pre di: %d\n", di);
-fwprintf(stdout, L"pre sr: %d\n", sr);
-fwprintf(stdout, L"pre si: %d\n", si);
+fwprintf(stdout, L"pre dr: %f\n", dr);
+fwprintf(stdout, L"pre di: %f\n", di);
+fwprintf(stdout, L"pre sr: %f\n", sr);
+fwprintf(stdout, L"pre si: %f\n", si);
 
     // Add real value.
-//    calculate_double_add((void*) &dr, (void*) &sr);
+    calculate_double_add((void*) &dr, (void*) &sr);
 
     // Add imaginary value.
-//    calculate_double_add((void*) &di, (void*) &si);
+    calculate_double_add((void*) &di, (void*) &si);
 
-fwprintf(stdout, L"post dr: %d\n", dr);
-fwprintf(stdout, L"post di: %d\n", di);
+fwprintf(stdout, L"post dr: %f\n", dr);
+fwprintf(stdout, L"post di: %f\n", di);
 
     // Set destination real and imaginary
     // (just copies the values inside).

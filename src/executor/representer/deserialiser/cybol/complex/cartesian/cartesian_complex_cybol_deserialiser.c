@@ -77,7 +77,8 @@ void deserialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 
     // Deserialise source data
-    // (two or more double numbers representing one or more complex numbers).
+    // (Two or more double numbers represent
+    // one or more complex numbers, respectively).
     deserialise_cybol_fraction_decimal(t, p1, p2);
 
     // Get temporary double item data, count.

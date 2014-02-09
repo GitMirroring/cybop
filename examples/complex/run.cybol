@@ -1,11 +1,9 @@
 <model>
-
     <part name="create_model" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="model"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
-
     <part name="initialise_model" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -14,11 +12,9 @@
         <property name="message" channel="inline" format="text/plain" model="complex/model.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".model"/>
     </part>
-
     <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -27,19 +23,17 @@
         <property name="message" channel="inline" format="path/knowledge" model=".model"/>
         <property name="receiver" channel="inline" format="text/plain" model="test_complex.txt"/>
     </part>
-
     <part name="add_operand" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="operand" channel="inline" format="path/knowledge" model=".model.operand"/>
         <property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
     </part>
-
     <part name="print_addition" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Addition: 2.25 + 10.5 = 12.75, 25.5 + 11.11 = 36.61:"/>
+        <property name="message" channel="inline" format="text/plain" model="Addition: (1.0 + i 2) + (3 + i 4.12345) = 4.0 + 6.12345:"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="print_addition_result" channel="inline" format="communicate/send" model="">
@@ -50,7 +44,6 @@
         <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>
 

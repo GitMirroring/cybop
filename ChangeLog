@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-02-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt number areas and use new mime type constants of Franziska Wehner
+        * Fix cartesian complex de-/serialiser and test with file "add_complex_calculator.c"
+
 2014-02-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cartesian- and polar complex de-/serialiser
