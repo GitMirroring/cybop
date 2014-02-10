@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-02-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement polar complex deserialiser
+
 2014-02-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt number areas and use new mime type constants of Franziska Wehner

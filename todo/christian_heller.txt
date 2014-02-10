@@ -14,8 +14,7 @@
 CONTINUE
 ________
 
-        * Implement polar complex de-/serialiser
-        * Provide de-/serialiser also for vulgar fraction, similar to cartesian complex
+        * Implement polar complex serialiser
 
 RELEASE
 _______
@@ -23,7 +22,6 @@ _______
         * Replace tabs with four spaces in all source code, before next release
         * Change copyright year to 2014 in all source code files
         * Move file "tester.c" back into directory "controller/"
-        * Unify all pre-processor if-defs
 
 GUI
 ___
@@ -198,6 +196,7 @@ Executor
 ________
 
         * Implement part serialiser called from file "cybol_serialiser.c"
+        * Provide de-/serialiser also for vulgar fraction, similar to polar complex
 
 Project
 _______

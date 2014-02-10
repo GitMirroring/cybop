@@ -30,6 +30,7 @@
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../executor/accessor/getter/complex_getter.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -43,26 +44,26 @@ void serialise_cybol_complex_cartesian_element(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex cartesian element.");
 
-    // The complex number.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary complex number.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The real and imaginary value.
     double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-    // Allocate complex number.
+    // Allocate temporary complex number.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+    allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
-    // Get complex number from source complex data at current index.
-    copy_array_forward(c, p1, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    // Get temporary complex number from source complex data at current index.
+    copy_array_forward(t, p1, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Get real and imaginary value.
-    get_complex_element((void*) &r, c, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &i, c, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &r, t, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &i, t, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
-    // Deallocate complex number.
-    deallocate_array((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
+    // Deallocate temporary complex number.
+    deallocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
     // Append real and imaginary value to destination.
     append_item_element(p0, (void*) &r, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

@@ -30,11 +30,13 @@
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/complex/cartesian/cartesian_complex_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/complex/polar/data_polar_complex_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the wide character data into a complex item.
+ * Deserialises the source wide character data given in polar coordinates
+ * into a destination complex item in cartesian coordinates.
  *
  * @param p0 the destination complex item
  * @param p1 the source wide character data
@@ -44,48 +46,30 @@ void deserialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar.");
 
-    //
-    // CAUTION! A complex number consists of
-    // two double numbers. However, the function
-    // "deserialise_cybol_fraction_decimal"
-    // is NOT called directly here, since:
-    //
-    // (1) an uneven number of double values
-    // might be given, which would lead to
-    // wrong results;
-    //
-    // (2) an extension of the destination
-    // complex number always comprises
-    // memory space for TWO double numbers,
-    // so that an extension for just one
-    // double number would lead to errors
-    // like segmentation faults when trying
-    // to access the complex number, if only
-    // allocated for one instead of two doubles
-    //
-    // (3) polar coordinates have to be
-    // transformed into cartesian coordinates
-    //
-
-/*??
-    // The temporary complex.
+    // The temporary complex item in polar coordinates.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary complex item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate temporary double item.
+    // Allocate temporary complex item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
-    // Deserialise source data
-    // (two double numbers representing a complex number).
-    deserialise_cybol_fraction_decimal(t, p1, p2);
+    // Deserialise source data.
+    deserialise_cybol_complex_cartesian(t, p1, p2);
 
-    // Append temporary datetime to destination.
-    append_item(p0, t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Get temporary complex item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Deallocate temporary complex.
+    // Deserialise complex data given in polar coordinates
+    // into complex data in cartesian coordinates.
+    deserialise_cybol_complex_polar_data(p0, td, tc);
+
+    // Deallocate temporary double item.
     deallocate_item((void*) &t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
-*/
 }
 
 /* POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */

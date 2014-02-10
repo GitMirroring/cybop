@@ -393,7 +393,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_fraction_decimal(p0, p1, p2);
+            serialise_cybol_complex_cartesian(p0, p1, p2);
         }
     }
 

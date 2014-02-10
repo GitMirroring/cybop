@@ -33,24 +33,57 @@
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
+#include "../../../../../../executor/accessor/getter/complex_getter.c"
+#include "../../../../../../executor/accessor/setter/complex_setter.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the complex number given in cartesian coordinates
- * into polar coordinates as comma-separated wide character data.
+ * Serialises the source complex number given in cartesian coordinates
+ * into the destination complex number in polar coordinates.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination
+ * @param p1 the source
+ * @param p2 the
  */
 void serialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar.");
 
-    //?? TODO: Transform cartesian coordinates into polar coordinates.
+/*?? TODO
+    // The real and imaginary value.
+    double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The absolute value and argument.
+    double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    double a = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
-//??    serialise_cybol_fraction_decimal(p0, polar_data, polar_count);
+    // Get real and imaginary value.
+    get_complex_element((void*) &r, p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &i, p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+
+    //
+    // Transform cartesian coordinates into polar coordinates.
+    //
+
+    // TODO for students ...
+    // v = ...
+    // a = ...
+
+    // Set absolute value and argument.
+    //
+    // CAUTION! The type structure used here for polar coordinates
+    // is IDENTICAL to that of cartesian coordinates.
+    // Therefore, the following name constants may be used:
+    // - REAL_COMPLEX_STATE_CYBOI_NAME
+    // - IMAGINARY_COMPLEX_STATE_CYBOI_NAME
+    //
+    // The following constants do NOT exist,
+    // in order to avoid redundancy:
+    // - ABSOLUTE_VALUE_COMPLEX_STATE_CYBOI_NAME
+    // - ARGUMENT_COMPLEX_STATE_CYBOI_NAME
+    set_complex_element(p0, (void*) &v, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    set_complex_element(p0, (void*) &a, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+*/
 }
 
 /* POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
