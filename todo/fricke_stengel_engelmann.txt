@@ -51,3 +51,9 @@ _____
 
         * Process test functions when starting cyboi with e.g. "cyboi --test=calculator"
         * Let them produce an "OK" or "ERROR", in the style of JUnit
+
+
+		Stengel-todo: * extend the tests of the calculator:
+					- test all operations
+					- add checks, if the result is correct
+					

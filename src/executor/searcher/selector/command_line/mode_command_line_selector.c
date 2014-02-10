@@ -109,7 +109,7 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
             select_command_line_log_level(p2, p5, p6);
         }
     }
-
+/*
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p7, (void*) TEST_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) TEST_OPTION_CYBOI_NAME_COUNT);
@@ -123,7 +123,7 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
             copy_integer(p0, (void*) TEST_OPERATION_MODE_CYBOI_MODEL);
         }
     }
-
+*/
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p7, (void*) VERSION_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) VERSION_OPTION_CYBOI_NAME_COUNT);

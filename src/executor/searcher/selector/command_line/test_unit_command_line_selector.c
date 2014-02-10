@@ -61,233 +61,449 @@ void select_command_line_test_unit(void* p0, void* p1, void* p2) {
         }
     }
 
+/*Applictaor test units*/
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ACCESSOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ACCESSOR_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) ACCESSOR_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ARITHMETISER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ARITHMETISER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_ACCESS_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_ACCESS_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) ARITHMETISER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_ACCESS_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) ASSEMBLER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ASSEMBLER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_CALCULATE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_CALCULATE_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) ASSEMBLER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_CALCULATE_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CALCULATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CALCULATOR_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_CAST_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_CAST_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) CALCULATOR_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_CAST_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CASTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CASTER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_COMMAND_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_COMMAND_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) CASTER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_COMMAND_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) COMMUNICATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) COMMUNICATOR_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_COMPARE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_COMPARE_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) COMMUNICATOR_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_COMPARE_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) COMPARATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) COMPARATOR_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_FLOW_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_FLOW_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) COMPARATOR_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_FLOW_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) COMPOUND_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) COMPOUND_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_LIVE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_LIVE_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) COMPOUND_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_LIVE_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONSTANT_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONSTANT_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_MAINTAIN_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_MAINTAIN_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) CONSTANT_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_MAINTAIN_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) CONVERTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONVERTER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_MANIPULATE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_MANIPULATE_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) CONVERTER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_MANIPULATE_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) COPIER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) COPIER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_MEMORISE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_MEMORISE_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) COPIER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_MEMORISE_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DISPLAY_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DISPLAY_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_MODIFY_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_MODIFY_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) DISPLAY_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_MODIFY_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) EXAMPLE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXAMPLE_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_REPRESENT_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_REPRESENT_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) EXAMPLE_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_REPRESENT_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FINDER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FINDER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) APPLICATOR_RUN_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) APPLICATOR_RUN_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) FINDER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) APPLICATOR_RUN_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+/* End of applicator test units*/
+
+/*Controller test units*/
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) CONTROLLER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) LOGGER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOGGER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_CHECKER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_CHECKER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) LOGGER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_CHECKER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) MEMORISER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MEMORISER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_DEOPTIONALISER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_DEOPTIONALISER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) MEMORISER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_DEOPTIONALISER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) MODIFIER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) MODIFIER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_GLOBALISER_CHECKER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_GLOBALISER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) MODIFIER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_GLOBALISER_CHECKER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) POINTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POINTER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_HANDLER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_HANDLER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) POINTER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_HANDLER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) PREPROCESSOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PREPROCESSOR_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_MANAGER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_MANAGER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) PREPROCESSOR_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_MANAGER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) REFERENCER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) REFERENCER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_OPTIONALISER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_OPTIONALISER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) REFERENCER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_OPTIONALISER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) REPRESENTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) REPRESENTER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) CONTROLLER_UNGLOBALISER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CONTROLLER_UNGLOBALISER_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) REPRESENTER_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) CONTROLLER_UNGLOBALISER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+/*End of controller test units*/
+
+/*Executer test units*/
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) SERIAL_PORT_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SERIAL_PORT_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_ACCESSOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_ACCESSOR_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) SERIAL_PORT_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) EXECUTER_ACCESSOR_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) VARIABLE_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VARIABLE_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_CALCULATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_CALCULATOR_UNIT_OPTION_CYBOI_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) VARIABLE_UNIT_TEST_CYBOI_MODEL);
+            copy_integer(p0, (void*) EXECUTER_CALCULATOR_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_CASTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_CASTER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_CASTER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_COMMANDER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_COMMANDER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_COMMANDER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_COMMUNICATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_COMMUNICATOR_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_COMMUNICATOR_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_COMPARATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_COMPARATOR_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_COMPARATOR_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_CONVERTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_CONVERTER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_CONVERTER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_LIFEGUARD_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_LIFEGUARD_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_LIFEGUARD_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_LOGIFIER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_LOGIFIER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_LOGIFIER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_MAINTAINER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_MAINTAINER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_MAINTAINER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_MANIPULATOR_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_MANIPULATOR_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_MANIPULATOR_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_MEMORISER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_MEMORISER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_MEMORISER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_MODIFIER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_MODIFIER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_MODIFIER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_REFERENCER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_REFERENCER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_REFERENCER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_REPRESENTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_REPRESENTER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_REPRESENTER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_RUNNER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_RUNNER_UNIT_OPTION_CYBOI_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_RUNNER_TEST_UNIT_OPTION_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) EXECUTER_SEACHER_UNIT_OPTION_CYBOI_MODEL_COUNT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
+        		(void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) EXECUTER_SEARCHER_TEST_UNIT_OPTION_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) EXECUTER_SEACHER_UNIT_OPTION_CYBOI_MODEL_COUNT);
         }
     }
 
