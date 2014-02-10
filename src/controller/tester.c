@@ -34,6 +34,7 @@
 #include "../tester/arithmetiser_tester.c"
 #include "../tester/assembler_tester.c"
 #include "../tester/calculator_tester.c"
+#include "../tester/sleeper_tester.c"
 //#include "../tester/caster_tester.c"
 #include "../tester/communicator_tester.c"
 #include "../tester/comparator_tester.c"
@@ -104,6 +105,7 @@ void test(void* p0) {
             // CAUTION! There is NO specific test function for this case.
             // Instead, ALL OTHER test functions are to be called here.
 
+        	test_sleeper();
             test_accessor();
             test_arithmetiser();
             test_assembler();
