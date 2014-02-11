@@ -28,62 +28,51 @@
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
-#include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/accessor/getter/complex_getter.c"
-#include "../../../../../../executor/accessor/setter/complex_setter.c"
+#include "../../../../../../executor/representer/serialiser/cybol/complex/cartesian/cartesian_complex_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/cybol/complex/polar/data_polar_complex_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the source complex number given in cartesian coordinates
- * into the destination complex number in polar coordinates.
+ * Serialises the source complex data given in cartesian coordinates
+ * into a destination wide character item in polar coordinates.
  *
- * @param p0 the destination
- * @param p1 the source
- * @param p2 the
+ * @param p0 the destination wide character item
+ * @param p1 the source complex data
+ * @param p2 the source complex count
  */
 void serialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar.");
 
-/*?? TODO
-    // The real and imaginary value.
-    double r = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    double i = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    // The absolute value and argument.
-    double v = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    double a = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    // The temporary complex item in polar coordinates.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary complex item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get real and imaginary value.
-    get_complex_element((void*) &r, p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &i, p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    // Allocate temporary complex item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
-    //
-    // Transform cartesian coordinates into polar coordinates.
-    //
+    // Serialise complex data given in cartesian coordinates
+    // into complex data in polar coordinates.
+    serialise_cybol_complex_polar_data(t, p1, p2);
 
-    // TODO for students ...
-    // v = ...
-    // a = ...
+    // Get temporary complex item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Set absolute value and argument.
-    //
-    // CAUTION! The type structure used here for polar coordinates
-    // is IDENTICAL to that of cartesian coordinates.
-    // Therefore, the following name constants may be used:
-    // - REAL_COMPLEX_STATE_CYBOI_NAME
-    // - IMAGINARY_COMPLEX_STATE_CYBOI_NAME
-    //
-    // The following constants do NOT exist,
-    // in order to avoid redundancy:
-    // - ABSOLUTE_VALUE_COMPLEX_STATE_CYBOI_NAME
-    // - ARGUMENT_COMPLEX_STATE_CYBOI_NAME
-    set_complex_element(p0, (void*) &v, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    set_complex_element(p0, (void*) &a, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
-*/
+    // Serialise destination data.
+    // CAUTION! This function for cartesian coordinates
+    // CAN BE USED for polar coordinates as well,
+    // since all it does is converting into double values.
+    serialise_cybol_complex_cartesian(p0, td, tc);
+
+    // Deallocate temporary double item.
+    deallocate_item((void*) &t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */

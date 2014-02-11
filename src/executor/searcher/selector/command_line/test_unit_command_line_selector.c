@@ -219,6 +219,7 @@ void select_command_line_test_unit(void* p0, void* p1, void* p2) {
 /* End of applicator test units*/
 
 /*Controller test units*/
+/*?? TODO for students: Correct names of constants in file "test_unit_option_cyboi_model.c"! Otherwise, this is NOT compilable.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CONTROLLER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
@@ -306,9 +307,11 @@ void select_command_line_test_unit(void* p0, void* p1, void* p2) {
             copy_integer(p0, (void*) CONTROLLER_UNGLOBALISER_TEST_UNIT_OPTION_CYBOI_MODEL);
         }
     }
+*/
 /*End of controller test units*/
 
 /*Executer test units*/
+/*?? TODO for students: Correct names of constants in file "test_unit_option_cyboi_model.c"! Otherwise, this is NOT compilable.
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) EXECUTER_TEST_UNIT_OPTION_CYBOI_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT,
@@ -506,6 +509,7 @@ void select_command_line_test_unit(void* p0, void* p1, void* p2) {
             copy_integer(p0, (void*) EXECUTER_SEACHER_UNIT_OPTION_CYBOI_MODEL_COUNT);
         }
     }
+*/
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

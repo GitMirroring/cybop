@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
-#define COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
+#ifndef COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
+#define COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,21 +33,21 @@
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the polar coordinates into cartesian coordinates.
+ * Serialises the cartesian coordinates into polar coordinates.
  *
- * @param p0 the destination cartesian coordinates real part
- * @param p1 the destination cartesian coordinates imaginary part
- * @param p2 the source polar coordinates absolute value
- * @param p3 the source polar coordinates argument
+ * @param p0 the destination polar coordinates absolute value
+ * @param p1 the destination polar coordinates argument
+ * @param p2 the source cartesian coordinates real part
+ * @param p3 the source cartesian coordinates imaginary part
  */
-void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, void* p3) {
+void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar coordinates.");
 
     // TODO for students ...
 
-    // r = ...
-    // i = ...
+    // v = ...
+    // a = ...
 
     //?? Use calculation functions, e.g.:
     // calculate_double_add(p0, p2);
@@ -57,5 +57,5 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
     copy_double(p1, p3);
 }
 
-/* COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */
+/* COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
 #endif

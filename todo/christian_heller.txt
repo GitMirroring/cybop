@@ -11,11 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-CONTINUE
-________
-
-        * Implement polar complex serialiser
-
 RELEASE
 _______
 

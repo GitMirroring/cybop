@@ -58,6 +58,9 @@ void deserialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
     // Deserialise source data.
+    // CAUTION! This function for cartesian coordinates
+    // CAN BE USED for polar coordinates as well,
+    // since all it does is converting from double values.
     deserialise_cybol_complex_cartesian(t, p1, p2);
 
     // Get temporary complex item data, count.

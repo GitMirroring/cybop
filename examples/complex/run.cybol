@@ -15,18 +15,26 @@
     <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <part name="test_knowledge_tree_pre" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".model"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_complex.txt"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_complex_pre.txt"/>
     </part>
     <part name="add_operand" channel="inline" format="calculate/add" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="operand" channel="inline" format="path/knowledge" model=".model.operand"/>
         <property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+    </part>
+    <part name="test_knowledge_tree_post" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".model"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_complex_post.txt"/>
     </part>
     <part name="print_addition" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

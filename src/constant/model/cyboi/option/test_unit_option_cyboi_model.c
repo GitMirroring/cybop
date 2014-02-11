@@ -54,7 +54,7 @@ static int* APPLICATOR_CALCULATE_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT = NUMBER_3_I
 
 /** The applicator/cast test unit option cyboi model. */
 static wchar_t* APPLICATOR_CAST_TEST_UNIT_OPTION_CYBOI_MODEL = L"applicator_cast";
-static int* APPLICTAOR_CAST_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* APPLICATOR_CAST_TEST_UNIT_OPTION_CYBOI_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The applicator/command test unit option cyboi model. */
 static wchar_t* APPLICATOR_COMMAND_TEST_UNIT_OPTION_CYBOI_MODEL = L"applicator_command";
@@ -73,8 +73,8 @@ static wchar_t* APPLICATOR_LIVE_TEST_UNIT_OPTION_CYBOI_MODEL = L"applicator_live
 static int* APPLICATOR_LIVE_UNIT_OPTION_CYBOI_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The applicator/logify test unit option cyboi model. */
-static wchar_t* APPLICTAOR_LOGIFIER_TEST_UNIT_OPTION_CYBOI_MODEL = L"applicator_logifier";
-static int* APPLICTAOR_LOGIFIER_UNIT_OPTION_CYBOI_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* APPLICATOR_LOGIFIER_TEST_UNIT_OPTION_CYBOI_MODEL = L"applicator_logifier";
+static int* APPLICATOR_LOGIFIER_UNIT_OPTION_CYBOI_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The applicator/maintain test unit option cyboi model. */
 static wchar_t* APPLICATOR_MAINTAIN_TEST_UNIT_OPTION_CYBOI_MODEL = L"applicator_maintain";

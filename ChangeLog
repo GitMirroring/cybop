@@ -20,7 +20,7 @@
 
 2014-02-10  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Implement polar complex deserialiser
+        * Implement polar complex de-/serialiser
 
 2014-02-09  Christian Heller  <christian.heller@tuxtax.de>
 
