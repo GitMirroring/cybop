@@ -237,7 +237,7 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNT
         log_write(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
     }
 
-	getchar();
+    getchar();
     return r;
 }
 

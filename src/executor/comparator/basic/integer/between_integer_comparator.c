@@ -40,25 +40,25 @@
 
 void compare_integer_between(void* p0, void* p1, void* p2, void* p3){
 
-	if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-		int* cv=(int*)p3;
+        int* cv=(int*)p3;
 
-		if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-			int* rv = (int*) p2;
+            int* rv = (int*) p2;
 
-			if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-				int* lv = (int*) p1;
+                int* lv = (int*) p1;
 
-				if ((*lv > *cv) && (*cv < *rv)){
+                if ((*lv > *cv) && (*cv < *rv)){
 
-					copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-				}
-			}
-		}
-	}
+                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                }
+            }
+        }
+    }
 }
 /* BETWEEN_INTEGER_COMPARATOR_SOURCE */
 #endif

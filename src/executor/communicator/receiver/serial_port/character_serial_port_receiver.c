@@ -44,10 +44,9 @@
 #include "../../../../logger/logger.c"
 
 #ifdef _MSC_VER
-#include <io.h>
-#include "../../../../windows/cyboi_win_mapper.c"
+    #include <io.h>
+    #include "../../../../windows/cyboi_win_mapper.c"
 #endif
-
 
 /**
  * Receives a serial port character.
@@ -152,14 +151,24 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
 
                     // Get character from source input stream of serial port.
                     // ssize_t e = read(*f, (void*) c, ts);
+#ifdef __APPLE__
                     ssize_t e = read(*f, (void*) &c, ts);
+#elif WIN32
+                    int e = read(*f, (void*) &c, ts);
+#elif GNU_LINUX_OPERATING_SYSTEM
+                    ssize_t e = read(*f, (void*) &c, ts);
+#else
+                    ssize_t e = read(*f, (void*) &c, ts);
+#endif
 
                     // Unlock serial port mutex.
                     pthread_mutex_unlock(p2);
 
                     // The byte number as temporary "int" variable.
                     //
-                    // The "ssize_t" type is similar to "size_t".
+                    // The "ssize_t" type is signed and a glibc extension.
+                    // The similar "size_t" type, on the other hand, is unsigned.
+                    //
                     // On 64 Bit machines they might have a size of 8 Byte,
                     // whereas the "int" type has the usual size of 4 Byte.
                     // When trying to cast between the two, memory errors

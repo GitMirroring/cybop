@@ -38,7 +38,7 @@
 #ifdef __APPLE__
     #include "../../../constant/name/command_option/unix/change_permission_unix_command_option_name.c"
 #elif WIN32
-	//TODO: if file available remove ifndef WIN32 in related source code statement below
+    //TODO: if file available remove ifndef WIN32 in related source code statement below
     //#include "../../../constant/name/command_option/win32/change_permission_win32_command_option_name.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../../constant/name/command_option/unix/change_permission_unix_command_option_name.c"
@@ -189,7 +189,7 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
         // Append sort by modification date option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifndef WIN32
-		append_item_element(arg, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
     }
   
@@ -204,7 +204,7 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
         // Append sort by modification date option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifndef WIN32
-		append_item_element(arg, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
     }
   

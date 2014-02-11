@@ -90,12 +90,12 @@ void optionalise_log_file(void* p0, void* p1) {
 
             // Set file access rights.
             #ifdef WIN32
-				//?? TODO: When trying to cross-compile cyboi for windows,
-				//?? the two S_IRGRP and S_IWGRP were not recognised by mingw.
-				// ...
+                //?? TODO: When trying to cross-compile cyboi for windows,
+                //?? the two S_IRGRP and S_IWGRP were not recognised by mingw.
+                // ...
             #else
-				int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
-				chmod((char*) td, r);
+                int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
+                chmod((char*) td, r);
             #endif
 
         } else {

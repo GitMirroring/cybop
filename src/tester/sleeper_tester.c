@@ -34,7 +34,7 @@
 
 void test_sleep_duration() {
 
-	fwprintf(stdout, L"TEST - sleep for one second\n");
+    fwprintf(stdout, L"TEST - sleep for one second\n");
 
     void* dur = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     void* type = SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT;
@@ -46,10 +46,10 @@ void test_sleep_duration() {
     int t = (int)difftime(end,start);
 
     if (t < *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
-    	fwprintf(stdout, L"ERROR - expected to be greater than 1 second but was: %d\n", t);
+        fwprintf(stdout, L"ERROR - expected to be greater than 1 second but was: %d\n", t);
     }
     else {
-    	fwprintf(stdout, L"OK - slept for %d seconds\n", t);
+        fwprintf(stdout, L"OK - slept for %d seconds\n", t);
     }
 }
 
@@ -61,7 +61,7 @@ void test_sleep_duration() {
  */
 void test_sleeper() {
 
-	test_sleep_duration();
+    test_sleep_duration();
 }
 
 /* SLEEPER_TESTER */

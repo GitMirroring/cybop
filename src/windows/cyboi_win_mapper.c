@@ -36,8 +36,8 @@
 has nanoseconds instead of microseconds.  */
 struct timespec
 {
-	time_t tv_sec;		/* Seconds.  */
-	long int tv_nsec;		/* Nanoseconds.  */
+    time_t tv_sec;        /* Seconds.  */
+    long int tv_nsec;        /* Nanoseconds.  */
 };
 
 typedef int pid_t; /* Type of process identifications.  */
@@ -45,13 +45,13 @@ typedef int pid_t; /* Type of process identifications.  */
 typedef SSIZE_T ssize_t;
 
 int nanosleep(struct timespec *__requested_time, struct timespec *__remaining){
-	// Replacement for glibc version
-	// based on:
-	// http://www.c-plusplus.de/forum/43364-full
-	// see: http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx
-	// Description of desired behavior:
+    // Replacement for glibc version
+    // based on:
+    // http://www.c-plusplus.de/forum/43364-full
+    // see: http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx
+    // Description of desired behavior:
 
-	/*nanosleep() suspends the execution of the calling thread until either
+    /*nanosleep() suspends the execution of the calling thread until either
        at least the time specified in *req has elapsed, or the delivery of a
        signal that triggers the invocation of a handler in the calling
        thread or that terminates the process.
@@ -67,44 +67,44 @@ int nanosleep(struct timespec *__requested_time, struct timespec *__remaining){
 
            struct timespec {
                time_t tv_sec;        // seconds 
-				long   tv_nsec;      // nanoseconds 
-			};
+                long   tv_nsec;      // nanoseconds 
+            };
 
-		The value of the nanoseconds field must be in the range 0 to
-		999999999.
-		*/
+        The value of the nanoseconds field must be in the range 0 to
+        999999999.
+        */
 
-	//see: http://man7.org/linux/man-pages/man2/nanosleep.2.html
+    //see: http://man7.org/linux/man-pages/man2/nanosleep.2.html
 
-			HANDLE hTimer = NULL;
-			LARGE_INTEGER liDueTime;
+            HANDLE hTimer = NULL;
+            LARGE_INTEGER liDueTime;
 
-			// Wartezeit in 100ns Schritten
-			liDueTime.QuadPart = -(__requested_time->tv_sec * 10000000 + __requested_time->tv_nsec);
-				//-100 000 000; = 10s
-				// negativer Wert= relative Zeit, positiv=absoluter Zeit (siehe SetWaitableTimer) 
+            // Wartezeit in 100ns Schritten
+            liDueTime.QuadPart = -(__requested_time->tv_sec * 10000000 + __requested_time->tv_nsec);
+                //-100 000 000; = 10s
+                // negativer Wert= relative Zeit, positiv=absoluter Zeit (siehe SetWaitableTimer) 
 
-			// Create a waitable timer. 
-			hTimer = CreateWaitableTimer(NULL, TRUE, "WaitableTimer");
-			if (!hTimer)
-			{
-				printf("CreateWaitableTimer failed (%d)\n", GetLastError());
-				return 1;
-			}
+            // Create a waitable timer. 
+            hTimer = CreateWaitableTimer(NULL, TRUE, "WaitableTimer");
+            if (!hTimer)
+            {
+                printf("CreateWaitableTimer failed (%d)\n", GetLastError());
+                return 1;
+            }
 
-			//printf("Waiting for %i seconds...\n", liDueTime.QuadPart / -10000000);
-			// Set a timer to wait for 10 seconds. 
-			if (!SetWaitableTimer(hTimer, &liDueTime, 0, NULL, NULL, 0))
-			{
-				printf("SetWaitableTimer failed (%d)\n", GetLastError());
-				return 2;
-			}
+            //printf("Waiting for %i seconds...\n", liDueTime.QuadPart / -10000000);
+            // Set a timer to wait for 10 seconds. 
+            if (!SetWaitableTimer(hTimer, &liDueTime, 0, NULL, NULL, 0))
+            {
+                printf("SetWaitableTimer failed (%d)\n", GetLastError());
+                return 2;
+            }
 
-			// Wait for the timer. 
-			if (WaitForSingleObject(hTimer, INFINITE) != WAIT_OBJECT_0)
-				printf("WaitForSingleObject failed (%d)\n", GetLastError());
-			//else printf("Timer was signaled.\n");
-			return 0;
+            // Wait for the timer. 
+            if (WaitForSingleObject(hTimer, INFINITE) != WAIT_OBJECT_0)
+                printf("WaitForSingleObject failed (%d)\n", GetLastError());
+            //else printf("Timer was signaled.\n");
+            return 0;
 }
 
  /* CYBOI_WIN_MAPPER */

@@ -52,10 +52,10 @@ void logify_character_nor(void* p0, void* p1) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Logify character nor.");
 
             *v = ~((*v) | (*m));
-	
-	    if(*v < 0){
-		log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
-	    }
+    
+        if(*v < 0){
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Value range exceeded");
+        }
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not logify character nor. The value is null.");

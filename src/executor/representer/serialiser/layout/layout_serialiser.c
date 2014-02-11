@@ -69,6 +69,9 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //?? Layout in a row or column WITHOUT breaking them.
+            //?? If a row break is desired, then use flow layout.
+
 //??            serialise_layout_box(p0, p2, p3);
         }
     }

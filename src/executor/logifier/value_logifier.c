@@ -85,7 +85,7 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p3, (void*) BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE);
-	
+    
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             logify_boolean(p0, p1, p2);
@@ -99,9 +99,9 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
       
         compare_integer_equal((void*) &r, p3, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
-	
+    
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-	  
+      
             logify_character(p0, p1, p2);
         }
     }
@@ -115,7 +115,7 @@ void logify_value(void* p0, void* p1, void* p2, void* p3) {
         compare_integer_equal((void*) &r, p3, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-	    
+        
             logify_integer(p0, p1, p2);
         }
     }

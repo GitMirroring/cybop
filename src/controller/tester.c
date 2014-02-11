@@ -105,7 +105,7 @@ void test(void* p0) {
             // CAUTION! There is NO specific test function for this case.
             // Instead, ALL OTHER test functions are to be called here.
 
-        	test_sleeper();
+            test_sleeper();
             test_accessor();
             test_arithmetiser();
             test_assembler();

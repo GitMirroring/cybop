@@ -68,9 +68,9 @@ void calculate_array_elements(void* p0, void* p1, void* p2, void* p3, void* p4) 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
       
         compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
-	
+    
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-	  
+      
             break;
         }
         
