@@ -49,7 +49,7 @@ void calculate_pointer_subtract(void* p0, void* p1) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer subtract.");
 
-            *d = *d - *s;
+			*d = (void*) ((size_t) *d - *s);
 
         } else {
 

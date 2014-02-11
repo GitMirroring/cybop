@@ -49,7 +49,7 @@ void calculate_pointer_add(void* p0, void* p1) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate pointer add.");
 
-            *sum = *sum + *s;
+            *sum = (void*) ((size_t) *sum + *s);
 
         } else {
 
