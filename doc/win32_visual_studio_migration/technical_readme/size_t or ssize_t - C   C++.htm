@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0054)http://bytes.com/topic/c/answers/457791-size_t-ssize_t -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--<base href="http://bytes.com/">--><base href="."><!--[if IE]></base><![endif]--> <title>size_t or ssize_t - C / C++</title>  <meta name="keywords" content="size_t,ssize_t, size_t or ssize_t, questions, insights, articles, development, programming, business, it, technology, small business"> <meta name="description" content="size_t or ssize_t. C / C++ Forums on Bytes."> <meta itemprop="name" content="size_t or ssize_t"> <meta itemprop="description" content="C / C++ question on Bytes."> <link rel="canonical" href="./size_t or ssize_t - C   C++_files/size_t or ssize_t - C   C++.htm">  <style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.7.6 CSS
+* Style: 'bytes.answers'; Style ID: 18
+*/
+@import url("/clientscript/vbulletin_css/style-a45bc984-00018.css");
+</style> <link rel="stylesheet" type="text/css" href="./size_t or ssize_t - C   C++_files/vbulletin_important.css">  <script type="text/javascript" async="" src="./size_t or ssize_t - C   C++_files/ga.js"></script><script type="text/javascript" src="./size_t or ssize_t - C   C++_files/yahoo-dom-event.js"></script><style type="text/css"></style> <script type="text/javascript" src="./size_t or ssize_t - C   C++_files/connection-min.js"></script> <script type="text/javascript" src="./size_t or ssize_t - C   C++_files/CodeTags.js"></script> <script type="text/javascript"> <!--
+var SESSIONURL = "";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "/images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+
+// --> </script> <script type="text/javascript" src="./size_t or ssize_t - C   C++_files/vbulletin_global.js"></script> <link rel="alternate" type="application/rss+xml" title="Bytes RSS Feed" href="http://bytes.com/external.php?type=RSS2"> <link rel="alternate" type="application/rss+xml" title="Bytes - answers - RSS Feed" href="http://bytes.com/external.php?type=RSS2&forumids=308"> <script type="text/javascript" src="./size_t or ssize_t - C   C++_files/vbulletin_post_loader.js"></script> <style type="text/css" id="vbulletin_showthread_css"> <!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	--> </style> </head> <body> <div class="codeBlur" id="codeBlur">&nbsp;</div> <div class="codeAbs" id="codeAbs">&nbsp;</div> <div style="margin: 0px 0px 0px 0px; padding:5px 0px 5px 0px; background-color:#2D2D2D; width: 100%; z-index: 10; border-bottom: 3px solid #CCC;"> <table class="tempwrapper"> <tbody><tr> <td width="475px;"> <div style="float:left; color: #fff; font-weight:bold;">
+385,802 Members | 5,290 Online
+</div> </td> <td align="right"> <div id="login_box"> <ul> <li> <a href="http://bytes.com/register/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Join&#39;, &#39;Header Join&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" rel="nofollow" class="btn_awesome btn_orange btn_small">Join Now</a> </li> <li> <a href="http://bytes.com/login/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Login&#39;, &#39;Header Login&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" rel="nofollow">login</a> </li> </ul> </div> </td> </tr> </tbody></table> </div> <div style="margin: 5px 0px 5px 0px; padding:0px 0px 0px 0px; width: 100%; z-index: 10;"> <table class="tempwrapper"> <tbody><tr> <td align="left" width="140px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/bytes_logo_a4k80.gif" width="151px" height="44px" border="0" alt="Bytes IT Community" style="padding-top:8px;" title="Bytes IT Community"></a> </td> <td align="left">  <div class="top_header_topmenu"> <div class="newquestion"> <a href="http://bytes.com/submit/g/308/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Ask&#39;, &#39;Header Ask&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" rel="nofollow" class="btn_awesome btn_green btn_medium">
+                                                + Ask Question
+                                            </a> </div> <p class="header_nav"> <span class="header_types"> <a href="http://bytes.com/answers/" class="green_tag" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Navigation&#39;, &#39;Questions&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);">Questions</a> <a href="http://bytes.com/insights/" class="blue_tag" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Navigation&#39;, &#39;Insights&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);">Articles</a> <a href="http://bytes.com/browse/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Navigation&#39;, &#39;Browse Topics&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);">Browse Topics</a> <a href="http://bytes.com/topic/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Navigation&#39;, &#39;Latest&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);">Latest</a> <a href="http://bytes.com/users/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Navigation&#39;, &#39;Top Members&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);">Top Members</a> <a href="http://bytes.com/faq.php" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Navigation&#39;, &#39;FAQ&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);">FAQ</a> </span> </p> </div>  </td> </tr> </tbody></table> </div>  <div style="padding:10px; background-color:#EEE; text-align:center;"> <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8550604525820387" data-ad-slot="5827826707"></ins> <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div> <div class="navtable"> <div class="navbar_box"> <div style="float:right; width:350px; text-align:right;"> <form action="http://bytes.com/search.php" method="post" name="search" style="margin:0px; padding: 0px;"> <input type="hidden" name="do" value="process"> <input type="hidden" name="showposts" value="0"> <input type="hidden" name="quicksearch" value="1"> <input type="hidden" name="forumchoice[]" value=""> <input type="text" name="query" size="20" value="" onfocus="this.value=&#39;&#39;" style="font-size: 12px; vertical-align: middle;margin:0px; padding:0px;"> <input type="submit" value="Search" name="go button" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Search&#39;, &#39;Enter Search&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" style="font-size: 12px; height: 1.85em; vertical-align: middle; margin:0px; padding: 0px;"> </form> </div> <a href="http://bytes.com/" accesskey="1">home</a> &gt; <a href="http://bytes.com/browse/" accesskey="1">topics</a> <span class="navbar">&gt; <a href="http://bytes.com/topic/c/">c / c++</a></span> <span class="navbar">&gt; <a href="http://bytes.com/topic/c/answers/">questions</a></span>
+
+ &gt; 
+
+	 size_t or ssize_t
+
+
+
+			
+		
+		
+		
+		
+	
+	
+
+
+
+<div style="clear:both;"></div> </div> </div> <div class="tempwrapper"> <div style="padding: 15px 0px 15px 20px; margin-top:15px; font-size:1.2em; font-weight: bold; background-color:#ecfdf5; color:#454747"> <div style="width: 180px;display:inline;float:left;"><a href="http://bytes.com/submit/g/308/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Ask&#39;, &#39;CTA Ask&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" rel="nofollow" class="btn_awesome btn_green btn_large">+ Ask a Question</a></div>
+ 
+ Need help? Post your question and get tips &amp; solutions from a community of 385,802 IT Pros &amp; Developers. 
+ It's quick &amp; easy.<br> </div> </div> <table class="maintable"> <tbody><tr> <td valign="top"> <h1 style="font-size: 15pt; padding: 0px 0px 5px 0px; margin-bottom: 10px; border-bottom: 1px solid #ccc;"> <a href="./size_t or ssize_t - C   C++_files/size_t or ssize_t - C   C++.htm">size_t or ssize_t</a> </h1> <table border="0" cellspacing="0" cellpadding="0"> <tbody><tr> <td style="border-right: 1px solid #ccc; padding-right:10px;" height="1000px" valign="top" width="635px">  <a name="poststop" id="poststop"></a>    <div id="posts" style="padding: 0px; margin: 0px;">  <div id="edit1753653" style="padding:0px 0px 0px 0px; margin: 0px;">  <table id="post1753653" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="margin-bottom: 10px; clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 0px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Roka100@gmail.com" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_R.gif" width="50px" height="50px" alt="Roka100@gmail.com" border="0" title="Roka100@gmail.com"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753653">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753653"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Roka100</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753653">
+
+				
+			
+				 Hi,<br>
+I am using size_t and ssize_t . But I am confused about them.<br> <br>
+&lt;ssize_t&gt;<br>
+typedef int __ssize_t;<br>
+typedef __ssize_t ssize_t;<br> <br>
+&lt;size_t &gt;<br>
+typedef unsigned int size_t;<br> <br>
+That is:<br>
+ssize_t = int<br>
+size_t = unsigned int<br> <br>
+I see the range of them are :<br>
+int ( ssize_t ) : -32767~32767<br>
+unsigned int ( size_t ) : 0~65535<br> <br>
+My question is : Is that necessary to use ssize_t ? ( size can be minus<br>
+? )<br> <br>
+Thanks.<br> <br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753653" id="postcount1753653" name="1" title="permalink">1</a> </div>  <div class="actionbuttons"> <div style="float:right;"> <a href="http://bytes.com/register/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Reply&#39;, &#39;Reply Post&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" rel="nofollow">Post Reply</a> </div> </div>  </div></td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div style="margin: 0px 0px 0px 70px; padding: 0px;font-size: 115%; font-weight: bold; color:#666;">
+
+Share this Question
+
+</div> <div style="margin: 5px 0px 15px 70px;"> <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F457791-size_t-ssize_t&t=size_t%20or%20ssize_t" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Share&#39;, &#39;Facebook&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" alt="Share this on facebook"><img src="./size_t or ssize_t - C   C++_files/facebook.png"></a> <a href="http://twitter.com/?status=size_t%20or%20ssize_t%20-%20http://bytes.com/topic/c/answers/457791-size_t-ssize_t" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Share&#39;, &#39;Twitter&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" alt="Share this on twitter"><img src="./size_t or ssize_t - C   C++_files/twitter.png"></a> <a href="http://plus.google.com/share?url=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F457791-size_t-ssize_t" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Share&#39;, &#39;Google Plus&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" alt="Share this on Google+"><img src="./size_t or ssize_t - C   C++_files/gplus-32.png" alt="Share on Google+" title="Share on Google+"></a> <a href="http://www.linkedin.com/cws/share?url=http%3A%2F%2Fbytes.com%2Ftopic%2Fc%2Fanswers%2F457791-size_t-ssize_t" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Share&#39;, &#39;Linkedin&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" alt="Share this on linkedin"><img src="./size_t or ssize_t - C   C++_files/linkedin.png"></a> </div> <div style="clear:both;"></div> <div style="margin: 20px 0px 5px 0px"> <span style="padding: 0px; margin: 0px 25px 0px 65px;font-size:110%; font-weight:bold;">11 Replies </span> <div style="clear:both;"></div> </div> <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 15px 0px; padding:0px;"> <div style="padding: 0px; margin: 0px 25px 15px 65px; text-align:left;">  <ins class="adsbygoogle" style="display:inline-block;width:500px;height:280px;" data-ad-client="ca-pub-8550604525820387" data-ad-slot="1258026301"></ins> <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script> </div>  <div id="edit1753671" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753671" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Keith Thompson" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_K.gif" width="50px" height="50px" alt="Keith Thompson" border="0" title="Keith Thompson"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753671">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753671"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Keith Thompson</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753671">
+
+					
+	
+				 "Roka100@gmail.com" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes">   I am using size_t and ssize_t . But I am confused about them.<br><br> &lt;ssize_t&gt;<br> typedef int __ssize_t;<br> typedef __ssize_t ssize_t;<br><br> &lt;size_t &gt;<br> typedef unsigned int size_t;<br><br> That is:<br> ssize_t = int<br> size_t = unsigned int<br><br> I see the range of them are :<br> int ( ssize_t ) : -32767~32767<br> unsigned int ( size_t ) : 0~65535<br><br> My question is : Is that necessary to use ssize_t ? ( size can be minus<br> ? )</blockquote><br> <br>
+size_t is defined in &lt;stddef.h&gt;; it's an unsigned type, the result of<br>
+the sizeof operator.  It won't necessarily be unsigned int (it could<br>
+be unsigned long, for example), and it will often have a range greater<br>
+than 0..65535.<br> <br>
+ssize_t is not defined in standard C.  It's a POSIX extension, so you<br>
+shouldn't use it if you care about absolute portability.<br> <br>
+&lt;OFF_TOPIC&gt;<br>
+ssize_t, if it's defined, is the signed equivalent of size_t.<br>
+Presumably it should be used only if you need to store negative<br>
+values.  The Open Group Base Specification says it's "Used for a count<br>
+of bytes or an error indication."<br>
+&lt;/OFF_TOPIC&gt;<br> <br>
+--<br>
+Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br>
+San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br>
+We must do something.  This is something.  Therefore, we must do this.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753671" id="postcount1753671" name="2" title="permalink">2</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753673" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753673" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Nils O. Selåsdal" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_N.gif" width="50px" height="50px" alt="Nils O. Selåsdal" border="0" title="Nils O. Selåsdal"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753673">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753673"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Nils O. Selåsdal</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753673"> <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<blockquote class="post_quotes"> Hi,<br>   I am using size_t and ssize_t . But I am confused about them.
+ That is:<br> ssize_t = int<br> size_t = unsigned int
+On your particular machine. Could be something different on<br>
+other machines.<br>
+ I see the range of them are :<br> int ( ssize_t ) : -32767~32767<br> unsigned int ( size_t ) : 0~65535<br><br> My question is : Is that necessary to use ssize_t ? ( size can be minus<br> ? )</blockquote><br>
+necessary in what context ?<br> <br>
+size_t comes from standard C,is an unsigned type used for sizes of objects.<br> <br>
+ssize_t comes from posix, is a signed type used for a count of bytes or<br>
+an error indication.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753673" id="postcount1753673" name="3" title="permalink">3</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753690" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753690" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Roka" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_R.gif" width="50px" height="50px" alt="Roka" border="0" title="Roka"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753690">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753690"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Roka</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753690"> <br>
+Nils O. Selåsdal wrote:<blockquote class="post_quotes"> <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<blockquote class="post_quotes"> Hi,<br>   I am using size_t and ssize_t . But I am confused about them.<blockquote class="post_quotes"> That is:<br> ssize_t = int<br> size_t = unsigned int</blockquote><br> On your particular machine. Could be something different on<br> other machines.</blockquote><br> <br>
+Yes, I see. I'm using a PC with Fedora Core 4.<br>
+Thanks<blockquote class="post_quotes"> I see the range of them are :<br> int ( ssize_t ) : -32767~32767<br> unsigned int ( size_t ) : 0~65535<br><br> My question is : Is that necessary to use ssize_t ? ( size can be minus<br> ? )</blockquote><br> necessary in what context ?<br><br> size_t comes from standard C,is an unsigned type used for sizes of objects.<br><br> ssize_t comes from posix, is a signed type used for a count of bytes or<br> an error indication.</blockquote><br> <br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753690" id="postcount1753690" name="4" title="permalink">4</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753749" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753749" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Keith Thompson" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_K.gif" width="50px" height="50px" alt="Keith Thompson" border="0" title="Keith Thompson"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753749">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753749"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Keith Thompson</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753749">
+
+					
+	
+				 "Roka" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes"> Nils O. Selåsdal wrote:<blockquote class="post_quotes"> <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<blockquote class="post_quotes"> &gt; Hi,<br> &gt;   I am using size_t and ssize_t . But I am confused about them.</blockquote><br><blockquote class="post_quotes"> &gt; That is:<br> &gt; ssize_t = int<br> &gt; size_t = unsigned int</blockquote><br> On your particular machine. Could be something different on<br> other machines.</blockquote><br><br> Yes, I see. I'm using a PC with Fedora Core 4.<br> Thanks<blockquote class="post_quotes"><blockquote class="post_quotes"> &gt; I see the range of them are :<br> &gt; int ( ssize_t ) : -32767~32767<br> &gt; unsigned int ( size_t ) : 0~65535</blockquote></blockquote></blockquote><br> <br>
+Then the maximum value of size_t on your system is almost certainly<br>
+2147483647, not 65535.<br> <br>
+--<br>
+Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br>
+San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br>
+We must do something.  This is something.  Therefore, we must do this.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753749" id="postcount1753749" name="5" title="permalink">5</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753776" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753776" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Roka" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_R.gif" width="50px" height="50px" alt="Roka" border="0" title="Roka"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753776">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753776"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Roka</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753776"> <br>
+Keith Thompson wrote:<blockquote class="post_quotes"> "Roka" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes"> Nils O. Selåsdal wrote:<blockquote class="post_quotes"> <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<br> &gt; Hi,<br> &gt;   I am using size_t and ssize_t . But I am confused about them.<br><br> &gt; That is:<br> &gt; ssize_t = int<br> &gt; size_t = unsigned int<br> On your particular machine. Could be something different on<br> other machines.<br> Yes, I see. I'm using a PC with Fedora Core 4.<br> Thanks<blockquote class="post_quotes"><br> &gt; I see the range of them are :<br> &gt; int ( ssize_t ) : -32767~32767<br> &gt; unsigned int ( size_t ) : 0~65535</blockquote></blockquote><br><br> Then the maximum value of size_t on your system is almost certainly<br> 2147483647, not 65535.</blockquote><br>
+Thanks.<br>
+But I checked /usr/lib/gcc/i386-redhat-linux/4.0.0/include/stddef.h<br>
+size_t is long unsigned int ( 32bit , 0~4294967295 )<br>
+and<br>
+ssize_t is long ( 32bit, -2147483647~2147483647)<br> <br>
+Is that somewhere wrong? ( long unsigned int is NOT euqal to unsigned<br>
+long int ? )<br> <br> --<br> Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br> San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br> We must do something.  This is something.  Therefore, we must do this.</blockquote><br> <br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753776" id="postcount1753776" name="6" title="permalink">6</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753815" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753815" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Keith Thompson" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_K.gif" width="50px" height="50px" alt="Keith Thompson" border="0" title="Keith Thompson"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753815">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753815"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Keith Thompson</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753815">
+
+					
+	
+				 "Roka" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes"> Keith Thompson wrote:<blockquote class="post_quotes"> "Roka" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes"> &gt; Nils O. Selåsdal wrote:<br> &gt;&gt; <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<br> &gt;&gt; &gt; Hi,<br> &gt;&gt; &gt;   I am using size_t and ssize_t . But I am confused about them.<br> &gt;&gt;<br> &gt;&gt; &gt; That is:<br> &gt;&gt; &gt; ssize_t = int<br> &gt;&gt; &gt; size_t = unsigned int<br> &gt;&gt; On your particular machine. Could be something different on<br> &gt;&gt; other machines.<br> &gt;<br> &gt; Yes, I see. I'm using a PC with Fedora Core 4.<br> &gt; Thanks<br> &gt;&gt;<br> &gt;&gt; &gt; I see the range of them are :<br> &gt;&gt; &gt; int ( ssize_t ) : -32767~32767<br> &gt;&gt; &gt; unsigned int ( size_t ) : 0~65535</blockquote><br><br> Then the maximum value of size_t on your system is almost certainly<br> 2147483647, not 65535.</blockquote><br> Thanks.<br> But I checked /usr/lib/gcc/i386-redhat-linux/4.0.0/include/stddef.h<br> size_t is long unsigned int ( 32bit , 0~4294967295 )<br> and<br> ssize_t is long ( 32bit, -2147483647~2147483647)<br><br> Is that somewhere wrong? ( long unsigned int is NOT euqal to unsigned<br> long int ? )</blockquote><br> <br>
+Oops, my mistake.  What I meant to say is that the maximum value of<br>
+size_t is 4294967295, not 65535.<br> <br>
+(BTW, the minimum value of ssize_t on your system is -2147483648, not<br>
+-2147483647.)<br> <br>
+--<br>
+Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br>
+San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br>
+We must do something.  This is something.  Therefore, we must do this.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753815" id="postcount1753815" name="7" title="permalink">7</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753824" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753824" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Roka" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_R.gif" width="50px" height="50px" alt="Roka" border="0" title="Roka"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753824">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753824"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Roka</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753824"> <br>
+Keith Thompson wrote:<blockquote class="post_quotes"> "Roka" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes"> Keith Thompson wrote:<blockquote class="post_quotes"> "Roka" &lt;Roka100@gmail.com&gt; writes:<br> &gt; Nils O. Selåsdal wrote:<br> &gt;&gt; <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<br> &gt;&gt; &gt; Hi,<br> &gt;&gt; &gt;   I am using size_t and ssize_t . But I am confused about them.<br> &gt;&gt;<br> &gt;&gt; &gt; That is:<br> &gt;&gt; &gt; ssize_t = int<br> &gt;&gt; &gt; size_t = unsigned int<br> &gt;&gt; On your particular machine. Could be something different on<br> &gt;&gt; other machines.<br> &gt;<br> &gt; Yes, I see. I'm using a PC with Fedora Core 4.<br> &gt; Thanks<br> &gt;&gt;<br> &gt;&gt; &gt; I see the range of them are :<br> &gt;&gt; &gt; int ( ssize_t ) : -32767~32767<br> &gt;&gt; &gt; unsigned int ( size_t ) : 0~65535<br><br> Then the maximum value of size_t on your system is almost certainly<br> 2147483647, not 65535.</blockquote><br> Thanks.<br> But I checked /usr/lib/gcc/i386-redhat-linux/4.0.0/include/stddef.h<br> size_t is long unsigned int ( 32bit , 0~4294967295 )<br> and<br> ssize_t is long ( 32bit, -2147483647~2147483647)<br><br> Is that somewhere wrong? ( long unsigned int is NOT euqal to unsigned<br> long int ? )</blockquote><br><br> Oops, my mistake.  What I meant to say is that the maximum value of<br> size_t is 4294967295, not 65535.<br><br> (BTW, the minimum value of ssize_t on your system is -2147483648, not<br> -2147483647.)<br><br> --<br> Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br> San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br> We must do something.  This is something.  Therefore, we must do this.</blockquote><br> <br>
+Thank you very much.<br> <br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753824" id="postcount1753824" name="8" title="permalink">8</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1753843" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1753843" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Keith Thompson" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_K.gif" width="50px" height="50px" alt="Keith Thompson" border="0" title="Keith Thompson"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1753843">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1753843"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Keith Thompson</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1753843">
+
+					
+	
+				 "Roka" &lt;Roka100@gmail.com&gt; writes:<blockquote class="post_quotes"> Keith Thompson wrote:
+[...]<blockquote class="post_quotes"><blockquote class="post_quotes"> Oops, my mistake.  What I meant to say is that the maximum value of<br> size_t is 4294967295, not 65535.<br><br> (BTW, the minimum value of ssize_t on your system is -2147483648, not<br> -2147483647.)</blockquote></blockquote><br>
+[...]<br> Thank you very much.</blockquote><br> <br>
+You're welcome.<br> <br>
+When you post a followup, please delete any quoted text that isn't<br>
+relevant; just leave enough so your followup makes sense on its own.<br>
+In particular, don't quote a signature unless you're actually<br>
+commenting on it.<br> <br>
+--<br>
+Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br>
+San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br>
+We must do something.  This is something.  Therefore, we must do this.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1753843" id="postcount1753843" name="9" title="permalink">9</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1754275" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1754275" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Martin Ambuhl" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_M.gif" width="50px" height="50px" alt="Martin Ambuhl" border="0" title="Martin Ambuhl"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1754275">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1754275"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Martin Ambuhl</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1754275"> <a href="mailto:Roka100@gmail.com">Roka100@gmail.com</a> wrote:<br> <blockquote class="post_quotes"> My question is : Is that necessary to use ssize_t ? ( size can be minus<br> ? )</blockquote><br>
+Since ssize_t is not a standard type in C (but size_t is), it would seem<br>
+that ssize_t is not necessary.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 16 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1754275" id="postcount1754275" name="10" title="permalink">10</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1755554" style="padding:0px 0px 0px 0px; margin: 0px;">  <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1755554" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Barry Schwarz" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_B.gif" width="50px" height="50px" alt="Barry Schwarz" border="0" title="Barry Schwarz"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1755554">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1755554"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Barry Schwarz</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1755554">
+
+					
+	
+				 On 15 Feb 2006 22:22:38 -0800, "Roka100@gmail.com" &lt;Roka100@gmail.com&gt;<br>
+wrote:<br> <blockquote class="post_quotes">Hi,<br>  I am using size_t and ssize_t . But I am confused about them.<br><br>&lt;ssize_t&gt;<br>typedef int __ssize_t;
+<br>
+Names beginning with __ are reserved for the implementation.<br>
+typedef __ssize_t ssize_t;
+<br>
+Why the two step?  typedef int ssize_t would work just fine.<br> <br>&lt;size_t &gt;<br>typedef unsigned int size_t;
+<br>
+Why are you redefining something that is already defined in a standard<br>
+header?<br> <br>That is:<br>ssize_t = int<br>size_t = unsigned int<br><br>I see the range of them are :<br>int ( ssize_t ) : -32767~32767<br>unsigned int ( size_t ) : 0~65535
+<br>
+Possibly true for your system but not a portable assumption.<br> <br>My question is : Is that necessary to use ssize_t ? ( size can be minus<br>? )</blockquote><br> <br>
+If there were an object or type whose size is negative, how much<br>
+memory would it occupy?  Can any object or type be smaller than char<br>
+whose size is guaranteed to by +1.<br>
+Remove del for email<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 17 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1755554" id="postcount1755554" name="11" title="permalink">11</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="edit1755573" style="padding:0px 0px 0px 0px; margin: 0px;"> <hr style="color:#ccc; background-color:#ccc; height:1px; border:none; margin:0px 25px 0px 0px; padding:0px;"> <table id="post1755573" cellpadding="0px" cellspacing="0px" border="0" width="100%" align="center" style="clear:both;"> <tbody><tr> <td class="alt2" style="padding:0px">  <div style="margin: 15px 25px 15px 0px; padding-top: 0px;"> <table cellpadding="0" cellspacing="0" border="0" width="100%"> <tbody><tr> <td class="alt2" valign="top" width="55px"> <div title="Keith Thompson" style="float: left; border: 1px solid #ccc; padding 2px; width: 50px; background-color: #EBEBEB; margin: 0px 0px 5px 0px;"> <a href="http://bytes.com/"><img src="./size_t or ssize_t - C   C++_files/default_avatar_K.gif" width="50px" height="50px" alt="Keith Thompson" border="0" title="Keith Thompson"></a> </div> <div class="smallfont" style="text-align:right; margin-right:2px;">
+						P: n/a
+					</div> </td> <td class="alt1" valign="top" id="td_post_1755573">  <div style="margin: 0px 0px 0px 15px; width: 505px;"> <a name="post1755573"></a> <div style="font-weight: bold; margin: 0px 0px 0px 0px;"> <span> <a class="bigusername" href="http://bytes.com/register/" rel="nofollow">Keith Thompson</a> </span> </div>  <div style="font-size: 105%; margin: 15px 0px 0px 0px; line-height: 20px; word-wrap: break-word;" id="post_message_1755573">
+
+					
+	
+				 Barry Schwarz &lt;schwarzb@doezl.net&gt; writes:<blockquote class="post_quotes"> On 15 Feb 2006 22:22:38 -0800, "Roka100@gmail.com" &lt;Roka100@gmail.com&gt;<br> wrote:<blockquote class="post_quotes">  I am using size_t and ssize_t . But I am confused about them.<br><br>&lt;ssize_t&gt;<br>typedef int __ssize_t;</blockquote><br><br> Names beginning with __ are reserved for the implementation.<br><blockquote class="post_quotes">typedef __ssize_t ssize_t;</blockquote><br><br> Why the two step?  typedef int ssize_t would work just fine.<br><blockquote class="post_quotes"><br>&lt;size_t &gt;<br>typedef unsigned int size_t;</blockquote><br><br> Why are you redefining something that is already defined in a standard<br> header?</blockquote><br> <br>
+I think he was quoting from his system's headers.<br> <br>
+--<br>
+Keith Thompson (The_Other_Keith) <a href="mailto:kst-u@mib.org">kst-u@mib.org</a>  &lt;http://www.ghoti.net/~kst&gt;<br>
+San Diego Supercomputer Center             &lt;*&gt;  &lt;http://users.sdsc.edu/~kst&gt;<br>
+We must do something.  This is something.  Therefore, we must do this.<br> </div>   <div style="line-height: 13px; font-size: 8pt; color: #999999; margin: 15px 0px 0px 0px;">
+							
+							
+							
+							
+								Feb 17 '06
+                                                                #<a href="http://bytes.com/topic/c/answers/457791-size_t-ssize_t#post1755573" id="postcount1755573" name="12" title="permalink">12</a> </div>  <div class="actionbuttons"> <div style="float:right;"> </div> </div> </div>  </td> </tr> </tbody></table> </div>  </td> </tr> </tbody></table> </div>  <div id="lastpost"></div> </div>    <div style="clear:both;"></div> <div style="clear:both;"></div> <div style="clear:both;"></div> <div style="margin:25px 25px 25px 0px;"> <h3 style="border-bottom: 1px solid #ccc; margin: 0px; padding: 0px 0px 3px 0px;">This discussion thread is closed</h3> <div style="border:1px solid #fbeed5; background-color:#fcf8e3; color: #c09853; padding:15px; margin:10px 0px 10px 0px; font-size: 120%; font-weight: bold;"> <div style="float:right; padding:0px; margin:10px 0px 10px 0px; width: 200px; text-align: right;"> <a href="http://bytes.com/submit/g/" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Ask&#39;, &#39;Closed - New Discussion&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" class="btn_orange btn_awesome" rel="nofollow">Start new discussion</a> </div> <p>Replies have been disabled for this discussion.</p> </div> </div>  <br> <br> <div style="clear:both"></div> <div style="margin:40px 25px 25px 0px;">  <p style="padding:0px; margin:10px 0px 10px 70px; font-size: 110%; font-weight: bold;"> <a href="http://bytes.com/topic/c/answers/" style="font-weight: bold;">Browse more C / C++ Questions on Bytes</a>  </p></div>    </td> <td width="15px" class="spacer"></td> <td width="300px" height="1000px" valign="top"> <img src="./size_t or ssize_t - C   C++_files/sidecolumn.gif" width="300px" height="1px" border="0" style="margin: 0px; padding: 0px;"> <div class="navbox"> <h3>Question stats</h3> <ul> <li> <span>viewed: 10199</span> </li> <li> <span>replies: 11</span> </li> <li> <span>date asked: Feb 16 '06</span> </li> </ul> <div style="margin:10px 0px 10px 0px; padding: 10px 0px 10px 0px;"> <a href="http://bytes.com/subscription.php?do=addsubscription&t=457791" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;Follow&#39;, &#39;Follow Discussion&#39;, &#39;/topic/c/answers/457791-size_t-ssize_t&#39;, 0 ]);" class="btn_blue btn_awesome" rel="nofollow">Follow this discussion</a> </div> <div style="clear:both"></div> </div> <div class="navbox"> <h3>Similar topics</h3> <ul> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/732863-whats-deal-size_t">What's the deal with size_t?</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/616890-c89-size_t-long">C89, size_t, and long</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/582589-size_t-int-malloc-type-functions">size_t or int for malloc-type functions?</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/506542-using-size_t-clearly-appropriately">Using size_t clearly (appropriately?)</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/493897-when-why-use-size_t">When/why to use size_t</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/458286-plauger-size_t-ptrdiff_t">Plauger, size_t and ptrdiff_t</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/python/answers/456211-pep-353-using-ssize_t-index-type">PEP 353: Using ssize_t as the index type</a> </li> <li class="smallfont" style="margin-bottom:3px; padding: 0px;"><a href="http://bytes.com/topic/c/answers/220048-why-define-size_t-ssize_t">why define size_t ssize_t ?</a> </li> </ul> </div>   </td> </tr> </tbody></table> </td> </tr> </tbody></table> <table class="maintable footer"> <tbody><tr> <td> <div style="width: 650px; float:left;">
+BYTES.COM © 2014
+<br>
+Formerly "TheScripts.com" from 2005-2008
+<br> <a href="http://bytes.com/about_us.html">About Bytes</a> | <a href="http://bytes.com/mediakit.html">Advertise on Bytes</a> | <a href="http://bytes.com/contactus.html">Contact Us</a> <br> <a href="http://bytes.com/sitemap/">Sitemap</a> 
+
+ | <a href="http://bytes.com/sitemap/f-308.html">C / C++ Answers Sitemap</a> | <a href="http://bytes.com/sitemap/f-309.html">C / C++ Insights Sitemap</a> </div> <div style="width: 250px; float:right; text-align:right;"> <a href="https://plus.google.com/+Bytes_com" rel="nofollow"><img src="./size_t or ssize_t - C   C++_files/gplus-32.png" height="32px" width="32px" border="0px" title="Follow us on Google Plus for the Latest Bytes Updates."></a> <a href="http://twitter.com/bytes" rel="nofollow"><img src="./size_t or ssize_t - C   C++_files/twitter.png" height="32px" width="32px" border="0px" title="Follow us on Twitter for the latest Bytes updates."></a> <a href="http://www.facebook.com/bytes" rel="nofollow"><img src="./size_t or ssize_t - C   C++_files/facebook.png" height="32px" width="32px" border="0px" title="Follow us on Facebook for the latest Bytes updates."></a> <br>
+Follow us to get the Latest Bytes Updates
+
+</div> </td> </tr> </tbody></table> <script type="text/javascript"> <!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//--> </script> <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-90111-7']);
+  _gaq.push(['_setDomainName', 'bytes.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>  
+<script type="text/javascript">
+//<![CDATA[
+
+window.orig_onload = window.onload;
+window.onload = function() {
+var cpost=document.location.hash.substring(1);var cpost2='';if(cpost){ var ispost=cpost.substring(0,4)=='post';if(ispost)cpost2='post_'+cpost.substring(4);if((cobj = fetch_object(cpost))||(cobj = fetch_object(cpost2))){cobj.scrollIntoView(true);}else if(ispost){cpostno = cpost.substring(4,cpost.length);if(parseInt(cpostno)>0){location.replace('http://bytes.com/showthread.php?p='+cpostno);};} }
+
+if(typeof window.orig_onload == "function") window.orig_onload();
+}
+
+//]]>
+</script>
+ </body></html>

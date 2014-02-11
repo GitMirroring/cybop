@@ -39,8 +39,10 @@
  #include <errno.h>
  #include <fcntl.h>
  #include <stdio.h>
- #include <unistd.h>
- */
+#ifndef _MSC_VER
+#include <unistd.h>
+#endif
+*/
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -108,8 +110,10 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
  #include <errno.h>
  #include <fcntl.h>
  #include <stdio.h>
- #include <unistd.h>
- */
+#ifndef _MSC_VER
+#include <unistd.h>
+#endif
+*/
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

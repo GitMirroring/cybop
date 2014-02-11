@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="WT.seg_1" content="de-de"><link rel="canonical" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9.aspx">
+        <title>Compilerwarnung (Stufe&nbsp;3) C4013</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/de-de/library/d3ct4kz9(d=default,l=de-de,v=vs.90).aspx">
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/de-de/library/d3ct4kz9(d=default,l=de-de,v=vs.90).aspx">
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/de-de/library/d3ct4kz9(d=default,l=de-de,v=vs.90).aspx">
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/de-de/library/d3ct4kz9(d=default,l=de-de,v=vs.90).aspx">
+
+<meta name="MN" content="EE4293C3-9:03:13 AM">
+
+<meta name="Search.ShortId" content="d3ct4kz9">
+
+<meta name="ms.shortidmsdn" content="d3ct4kz9">
+
+<meta name="Ms.Locale" content="de-de">
+
+
+
+
+
+
+
+        
+    <link rel="stylesheet" type="text/css" href="./Compilerwarnung (Stufe 3) C4013_files/Combined.css"><style type="text/css"></style><script type="text/javascript" async="" src="./Compilerwarnung (Stufe 3) C4013_files/ms2.js"></script><script type="text/javascript" src="./Compilerwarnung (Stufe 3) C4013_files/da.js" async=""></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "http://i.msdn.microsoft.com", 
+	"js": "http://i2.msdn.microsoft.com", 
+	"css": "http://i3.msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected" src="./Compilerwarnung (Stufe 3) C4013_files/jquery-1.8.2.min.js"></script><script class="mtps-injected">try {
+//
+    window.appInsightsId = '7c5b1602-db2e-40fc-a4ae-c43f4c191bc9';
+    //
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/de-de/library/d3ct4kz9(d=default,l=de-de,v=vs.90).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'de-de';
+  var wtsp = 'msdnlib_devtools_lang';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script class="mtps-injected">try {
+/**/
+  var omni_guid = "6890e3ec-85c9-4165-993a-3d52802b7beb";
+/**/
+} finally { MTPS._injectNextScript_4 && MTPS._injectNextScript_4(); }</script><script class="mtps-injected" src="./Compilerwarnung (Stufe 3) C4013_files/Combined.js"></script><script class="mtps-injected" src="./Compilerwarnung (Stufe 3) C4013_files/SearchBox.jss"></script><script class="mtps-injected" src="./Compilerwarnung (Stufe 3) C4013_files/Combined(1).js"></script><script class="mtps-injected" src="./Compilerwarnung (Stufe 3) C4013_files/jquery.tmpl.min.js"></script><script class="mtps-injected" src="./Compilerwarnung (Stufe 3) C4013_files/Combined(2).js"></script><script src="./Compilerwarnung (Stufe 3) C4013_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_10 && MTPS._injectNextScript_10(); }</script><link href="./Compilerwarnung (Stufe 3) C4013_files/PrintView.css" rel="stylesheet" type="text/css" media="print"></head>
+    <body class="library">
+        <div id="page">
+            
+            
+  
+            
+        <input type="hidden" id="isHeaderBleeding" value="true">
+    <div id="ux-header" dir="ltr" class="ltr">
+        
+    
+    <div id="ux-banner" style="display: none;">
+        <div class="banner">
+            <div class="row">
+                <div class="left">Ich stimme zu, dass diese Seite Cookies für Analysen, personalisierten Inhalt und Werbung verwendet</div>
+                <div class="middle"><a tabindex="1" href="http://www.microsoft.com/privacystatement/de-de/core/default.aspx">Erfahren Sie mehr</a></div>
+                <div class="right"><a tabindex="1" title="Schließen"></a></div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+        <header>
+            <div class="row">
+                <div class="top mobile"></div>
+                <div class="left">
+                    <div data-fragmentname="SiteLogo" id="Fragment_SiteLogo" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/de-de" id="27762_1" xmlns="http://www.w3.org/1999/xhtml">Developer Network</a>
+</div>     
+                    <div id="grip"></div>  
+                </div>
+                
+                <div class="right desktop">
+                    <div class="auxNav">
+                        <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/de-de/dn369243" id="27762_5" xmlns="http://www.w3.org/1999/xhtml">MSDN-Abonnements</a>
+</div>   
+                        <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="http://msdn.microsoft.com/de-de/dn369242" id="27762_3" xmlns="http://www.w3.org/1999/xhtml">Tools herunterladen</a>
+</div>   
+                        
+
+    <div class="signIn"><a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1391619793&rver=6.0.5276.0&wp=MCLBI&wlcxt=MSDN%24MSDN%24MSDN&wreply=http%3a%2f%2fmsdn.microsoft.com%2fde-de%2flibrary%2fd3ct4kz9%2528v%3dvs.90%2529.aspx&lc=1031&id=254354&mkt=de-DE" title=" Anmelden  "> Anmelden  </a></div>
+
+                    </div>
+                    <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" action="http://social.msdn.microsoft.com/Search" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this, this.title);">
+      <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(this, this.title, &#39;SearchBoxOnFocus&#39;)" onblur="Epx.Controls.SearchBox.watermarkBlur(this, this.title, &#39;SearchBoxOnFocus&#39;)" autocomplete="off">
+      <input id="RefinementId" name="refinement" type="hidden" value="">
+      <button id="HeaderSearchButton" value="" type="submit" class="header-search-button" title=""></button>
+    <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font-family: &#39;Segoe UI&#39;, Tahoma, Helvetica, sans-serif; font-size: 13px;"><div id="SuggestionContainer"><ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></form>
+    
+  </div>
+</div> 
+                </div>
+            </div>
+       
+            <div class="row" id="droor">
+                <div class="left">
+                            <nav>
+            <ul>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn308572" title="Startseite">Startseite</a>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn271881" title="Möglichkeiten">Möglichkeiten</a>
+                                 <div class="area">
+                                     <div class="arrow"></div>
+                                 </div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://msdn.microsoft.com/dn469160" title="Desktop-Apps">Desktop-Apps</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338451" title="iOS">iOS</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338440" title="Android">Android</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338449" title="Web">Web</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338450" title=".NET">.NET</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338447" title="Design">Design</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn338446" title="Spiele">Spiele</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn271880" title="Plattform">Plattform</a>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn338064" title="Verbinden">Verbinden</a>
+                                 <div class="area">
+                                     <div class="arrow"></div>
+                                 </div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://tech-advisors.msdn.microsoft.com/de-de/" title="Tech Advisors">Tech Advisors</a></li>
+                                                 <li><a href="http://events.msdn.microsoft.com/de-de" title="Veranstaltungen">Veranstaltungen</a></li>
+                                                 <li><a href="http://social.msdn.microsoft.com/forums/" title="Foren">Foren</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://msdn.microsoft.com/dn292944" title="Downloads">Downloads</a>
+                                 <div class="area">
+                                     <div class="arrow"></div>
+                                 </div>
+                                 <div class="subNav">
+                                     <ul>
+                                                 <li><a href="http://msdn.microsoft.com/dn369242" title="Entwicklertools">Entwicklertools</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn369240" title="SDKs">SDKs</a></li>
+                                                 <li><a href="http://msdn.microsoft.com/dn369243" title="MSDN-Abonnements">MSDN-Abonnements</a></li>
+                                     </ul>
+                                 </div>
+
+                     </li>
+                     <li class="active current">
+
+                         <a href="http://msdn.microsoft.com/library" title="Library">Library</a>
+
+                     </li>
+                     <li class="inactive">
+
+                         <a href="http://code.msdn.microsoft.com/" title="Code-Beispiele">Code-Beispiele</a>
+
+                     </li>
+            </ul>
+          
+        </nav>        
+       
+                </div>
+                <div class="right mobile"></div>
+                <div class="right">
+                    <div data-fragmentname="SocialLinks" id="Fragment_SocialLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Folgen Sie uns:</div>
+    <div class="Links">
+      <ul class="LinkColumn horizontal">
+        <li>
+          <a href="http://www.facebook.com/microsoftdeveloper" target="_blank" id="SocialLinks_430_7" class="facebook" xmlns="http://www.w3.org/1999/xhtml">http://www.facebook.com/microsoftdeveloper</a>
+        </li>
+        <li>
+          <a href="https://twitter.com/msdev_de" target="_blank" id="SocialLinks_430_8" class="twitter" xmlns="http://www.w3.org/1999/xhtml">https://twitter.com/msdev_de</a>
+        </li>
+        <li>
+          <a href="http://plus.google.com/111221966647232053570/" target="_blank" id="SocialLinks_430_9" class="googlePlus" xmlns="http://www.w3.org/1999/xhtml">http://plus.google.com/111221966647232053570/</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> 
+                </div>
+                <span id="singleCol"></span>
+                <span id="doubleCol"></span>
+            </div>
+        </header>
+    </div>
+    
+    
+
+        
+    <div class="printExportMenus ltr">
+        <a id="isd_printABook" href="http://msdn.microsoft.com/de-de/library/export/help/?returnUrl=%2fde-de%2flibrary%2fd3ct4kz9(v%3dvs.90).aspx" style="display: inline;">
+            (<span class="count">0</span>) exportieren
+        </a>
+        <a id="isd_print" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(d=printer,v=vs.90).aspx" rel="nofollow">
+            Drucken 
+        </a>
+    </div>
+    
+
+        <div class="printExportMenus ltr">
+        <a id="expandCollapseAll" href="javascript:void(0)" style="display: none;">Alle erweitern</a>
+    </div>
+
+    
+
+        
+            <div id="body">
+                
+
+
+
+
+
+    <div id="leftNav" style="width: 280px; max-width: 480px;">
+
+
+
+<div id="tocnav">
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/ms123401.aspx" id="ms310241_MSDN.10_de-de" mtpsaliasid="" mtpsassetid="5DDC0A78-6B2C-43E3-9C56-55F45C0DFFA5_MSDN.10_de-de" mtpsshortid="ms123401_MSDN.10_de-de" title="MSDN Library">MSDN Library</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/aa187916.aspx" id="aa187916_MSDN.10_de-de" mtpsaliasid="" mtpsassetid="MSDN|devtoolslang|$\devtoolslang.hxt@0,0_MSDN.10_de-de" mtpsshortid="aa187916_MSDN.10_de-de" title="Entwicklungswerkzeuge und - Sprachen">Entwicklungswerkzeuge und - Sprachen</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/aa187935.aspx" id="aa187935_MSDN.10_de-de" mtpsaliasid="" mtpsassetid="MSDN|devtoolslang|$\devtoolslang.hxt@0,0,3_MSDN.10_de-de" mtpsshortid="aa187935_MSDN.10_de-de" title="Visual Studio 2008">Visual Studio 2008</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/52f3sw5c(v=vs.90).aspx" id="bb400865_VS.90_de-de" mtpsaliasid="" mtpsassetid="06ddebea-2c83-4a45-bb48-6264c797ed93_VS.90_de-de" mtpsshortid="52f3sw5c_VS.90_de-de" title="Visual Studio">Visual&nbsp;Studio</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/60k1461a(v=vs.90).aspx" id="ms302012_VS.90_de-de" mtpsaliasid="" mtpsassetid="e8dcc44c-a3e2-4ffe-887c-fd15b18dc458_VS.90_de-de" mtpsshortid="60k1461a_VS.90_de-de" title="Visual C++">Visual&nbsp;C++</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/z7kx322x(v=vs.90).aspx" id="ms302019_VS.90_de-de" mtpsaliasid="" mtpsassetid="fa6ed4ff-334a-4d99-b5e2-a1f83d2b3008_VS.90_de-de" mtpsshortid="z7kx322x_VS.90_de-de" title="Erstellen eines C/C++-Programms">Erstellen eines C/C++-Programms</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/91621w01(v=vs.90).aspx" id="ms300428_VS.90_de-de" mtpsaliasid="" mtpsassetid="100b4ccf-572c-4d1f-970c-fa0bc0cc0d2d_VS.90_de-de" mtpsshortid="91621w01_VS.90_de-de" title="Referenz zur C/C++-Erstellung">Referenz zur C/C++-Erstellung</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/8x5x43k7(v=vs.90).aspx" id="ms300479_VS.90_de-de" mtpsaliasid="" mtpsassetid="2470b496-28fa-47e7-a238-a086d99b06ca_VS.90_de-de" mtpsshortid="8x5x43k7_VS.90_de-de" title="C/C++-Buildfehler">C/C++-Buildfehler</a>            </div>
+            <div class="toclevel1" data-toclevel="1" data-childrenloaded="true" style="padding-left: 17px;">
+<a class="toc_expanded" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/de-de/library/ysb0wexw(v=vs.90).aspx" id="ms300493_VS.90_de-de" mtpsaliasid="" mtpsassetid="426f495a-43af-4906-ad2b-6e5822c09965_VS.90_de-de" mtpsshortid="ysb0wexw_VS.90_de-de" title="Compilerwarnungen C4001 bis C4099">Compilerwarnungen C4001 bis C4099</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/f795hcch(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4001">Compilerwarnung (Stufe&nbsp;4) C4001</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/y37zb304(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4002">Compilerwarnung (Stufe&nbsp;1) C4002</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/zf9t054c(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4003">Compilerwarnung (Stufe&nbsp;1) C4003</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/8d10sc3w(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4005">Compilerwarnung (Stufe&nbsp;1) C4005</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/t79t2s71(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4006">Compilerwarnung (Stufe&nbsp;1) C4006</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/taz18t83(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 2) C4007">Compilerwarnung (Stufe&nbsp;2) C4007</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/410dsw4k(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufen 2 und 3) C4008">Compilerwarnung (Stufen&nbsp;2 und&nbsp;3) C4008</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/56ybs0yk(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4010">Compilerwarnung (Stufe&nbsp;1) C4010</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="./Compilerwarnung (Stufe 3) C4013_files/Compilerwarnung (Stufe 3) C4013.htm" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4013">Compilerwarnung (Stufe&nbsp;3) C4013</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/d32e257e(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4015">Compilerwarnung (Stufe&nbsp;1) C4015</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/y92ktdf2(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4018">Compilerwarnung (Stufe&nbsp;3) C4018</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/k8694301(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4019">Compilerwarnung (Stufe&nbsp;4) C4019</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/a4e1hy1k(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4020">Compilerwarnung (Stufe&nbsp;1) C4020</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/6z9t5w0t(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4022">Compilerwarnung (Stufe&nbsp;1) C4022</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/ay594c87(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4023">Compilerwarnung (Stufe&nbsp;3) C4023</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/f05chc45(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4024">Compilerwarnung (Stufe&nbsp;1) C4024</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/3h05kwzf(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4025">Compilerwarnung (Stufe&nbsp;1) C4025</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/ye8x40z8(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4026">Compilerwarnung (Stufe&nbsp;1) C4026</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/2xs9t7a9(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4027">Compilerwarnung (Stufe&nbsp;1) C4027</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/cw989136(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4028">Compilerwarnung (Stufe&nbsp;1) C4028</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/zteh7th6(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4029">Compilerwarnung (Stufe&nbsp;1) C4029</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/kbd506ct(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4030">Compilerwarnung (Stufe&nbsp;1) C4030</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/82t41b6c(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4031">Compilerwarnung (Stufe&nbsp;1) C4031</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/tzb2a7ya(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4032">Compilerwarnung (Stufe&nbsp;4) C4032</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/z15t0fcy(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4033">Compilerwarnung (Stufe&nbsp;1) C4033</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/tf66xte5(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4034">Compilerwarnung (Stufe&nbsp;1) C4034</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/755fka9h(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4036">Compilerwarnung (Stufe&nbsp;1) C4036</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/eytsfe38(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4038">Compilerwarnung (Stufe&nbsp;1) C4038</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/w8sz7x89(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4041">Compilerwarnung (Stufe&nbsp;1) C4041</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/z9d31kt4(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4042">Compilerwarnung (Stufe&nbsp;1) C4042</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/ta3005h9(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4045">Compilerwarnung (Stufe&nbsp;1) C4045</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/3t92260h(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4047">Compilerwarnung (Stufe&nbsp;1) C4047</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/c3yxfdkx(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4048">Compilerwarnung (Stufe&nbsp;1) C4048</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/8skb5hay(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4049">Compilerwarnung (Stufe&nbsp;1) C4049</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/f5s9dt9s(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 2) C4051">Compilerwarnung (Stufe&nbsp;2) C4051</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/h17yfeaf(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4052">Compilerwarnung (Stufe&nbsp;1) C4052</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/1e8z2ake(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4053">Compilerwarnung (Stufe&nbsp;4) C4053</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/07d15ax5(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4054">Compilerwarnung (Stufe&nbsp;1) C4054</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/twzb0e08(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4055">Compilerwarnung (Stufe&nbsp;1) C4055</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/cwt7tyxx(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 2) C4056">Compilerwarnung (Stufe&nbsp;2) C4056</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/a9kah4sk(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4057">Compilerwarnung (Stufe&nbsp;4) C4057</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/0hba4wkw(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4060">Compilerwarnung (Stufe&nbsp;3) C4060</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/96f5t7fy(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4061">Compilerwarnung (Stufe&nbsp;4) C4061</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/fdt9w8tf(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4062">Compilerwarnung (Stufe&nbsp;3) C4062</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/x5xw3d6w(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4063">Compilerwarnung (Stufe&nbsp;4) C4063</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/kxb5xtcw(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4064">Compilerwarnung (Stufe&nbsp;4) C4064</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/te26h1tz(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4065">Compilerwarnung (Stufe&nbsp;3) C4065</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/hywhzc5s(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4066">Compilerwarnung (Stufe&nbsp;3) C4066</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/fzk5a1hy(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4067">Compilerwarnung (Stufe&nbsp;1) C4067</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/w099eeey(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4068">Compilerwarnung (Stufe&nbsp;1) C4068</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/3xfe814c(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4069">Compilerwarnung (Stufe&nbsp;3) C4069</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/c5c0a6es(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 3) C4073">Compilerwarnung (Stufe&nbsp;3) C4073</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/bsddh1ys(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4074">Compilerwarnung (Stufe&nbsp;1) C4074</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/y4wk007w(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4075">Compilerwarnung (Stufe&nbsp;1) C4075</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/xsx1xezh(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4076">Compilerwarnung (Stufe&nbsp;1) C4076</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/67d49wfh(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4077">Compilerwarnung (Stufe&nbsp;1) C4077</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/sa6y3dd8(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4079">Compilerwarnung (Stufe&nbsp;1) C4079</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/t85079c3(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4080">Compilerwarnung (Stufe&nbsp;1) C4080</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/2z4kf2k1(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4081">Compilerwarnung (Stufe&nbsp;1) C4081</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/h75d190h(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4083">Compilerwarnung (Stufe&nbsp;1) C4083</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/0szexxes(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4085">Compilerwarnung (Stufe&nbsp;1) C4085</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/sy7w6s0t(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4086">Compilerwarnung (Stufe&nbsp;1) C4086</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/haakb87c(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4087">Compilerwarnung (Stufe&nbsp;1) C4087</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/y1wew2t6(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4088">Compilerwarnung (Stufe&nbsp;1) C4088</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/es4e5d80(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4089">Compilerwarnung (Stufe&nbsp;1) C4089</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/k77bkb8d(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4090">Compilerwarnung (Stufe&nbsp;1) C4090</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/eehkcz60(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4091">Compilerwarnung (Stufe&nbsp;1) C4091</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/03hx019t(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 4) C4092">Compilerwarnung (Stufe&nbsp;4) C4092</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/7y0f9tby(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 2) C4094">Compilerwarnung (Stufe&nbsp;2) C4094</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/e5kabat7(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4096">Compilerwarnung (Stufe&nbsp;1) C4096</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/7t2da6f1(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4097">Compilerwarnung (Stufe&nbsp;1) C4097</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/3zeyw5e0(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 1) C4098">Compilerwarnung (Stufe&nbsp;1) C4098</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 34px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/de-de/library/695x5bes(v=vs.90).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="Compilerwarnung (Stufe 2) C4099">Compilerwarnung (Stufe&nbsp;2) C4099</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew" style="min-height: 483px;"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)" style="left: 280px; display: inline-block;">
+    <img class="cl_nav_resize_open" src="./Compilerwarnung (Stufe 3) C4013_files/ImageSprite.png" title="Erweitern" alt="Erweitern" style="">
+    <img class="cl_nav_resize_close" src="./Compilerwarnung (Stufe 3) C4013_files/ImageSprite.png" title="Minimieren" alt="Minimieren" style="display: none;">
+</a>
+
+
+
+    </div>
+<div id="content" class="content noL2" style="margin-left: 280px; width: auto;">
+
+
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">Compilerwarnung (Stufe&nbsp;3) C4013</h1>
+  
+  <div class="lw_vs">
+    <div id="curversion">
+      <strong>
+            Visual Studio 2008
+        </strong>
+    </div>
+    <div id="versionclick">
+      <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+      <div>
+        <div>
+          <a id="vsLink" href="javascript:;">
+                        Andere Versionen
+                    </a>
+        </div>
+        <div class="cl_vs_arrow clip10x10">
+          <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="./Compilerwarnung (Stufe 3) C4013_files/ImageSprite.png">
+        </div>
+      </div>
+      <ul id="vsPanel" style="display: none;">
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.100).aspx" title="">Visual Studio 2010</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.80).aspx" title="">Visual Studio 2005</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.120).aspx" title="">Visual Studio 2013 </a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.110).aspx" title="">Visual Studio 2012</a>
+        </li>
+      </ul>
+    </div>
+  <div id="ratingCounterSeperator" class="cl_lw_vs_seperator" style="display: block;"></div><div id="ratingCounter" style="margin: 0px 0px 0px 13px; display: block;">
+        <span id="rcA" class="ratingText">
+            Dieser Artikel wurde noch nicht bewertet <span id="rateThisPrefix">- </span><a id="rateThisTopic" href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#feedback" title="Dieses Thema bewerten">Dieses Thema bewerten</a>.
+            
+        </span>
+    </div></div>
+  <div style="clear:both;"></div>
+  
+  <div id="mainSection">
+      <div id="mainBody">
+        
+<p>Aktualisiert: November 2007</p><div id="errorTitleSection" class="section"><h4 class="subHeading">Fehlermeldung</h4>'Funktion' undefiniert; Annahme: extern mit Rückgabetyp int<br>'function' undefined; assuming extern returning int
+    <p></p></div><div class="introduction"><p>Im Compiler wurde ein Aufruf für eine nicht definierte Funktion gefunden.</p></div><h3 class="procedureSubHeading">Dieser Fehler kann eine der folgenden Ursachen haben:</h3><div class="subSection"><ol><li><p>Falsche Schreibweise des Funktionsnamens</p></li><li><p>Externe Funktionen verfügen nicht über den Prototyp <span><span class="input">extern</span></span></p></li></ol></div></div>
+      
+    </div>
+</div>
+
+    <p style="padding: 15px 0px; margin: 0px;"></p>
+    
+    
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community-Beiträge</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/de-de/library/community/add/d3ct4kz9(v=vs.90).aspx">
+                    <span class="communityContentAddButton" title="Hinzufügen">
+                        HINZUFÜGEN
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/de-de/library/community/comments/d3ct4kz9(v=vs.90).aspx"></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Anzeigen:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">Geerbt
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">Geschützt
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="Es gibt keine Member, die den aktuellen Filtereinstellungen entsprechen.">
+
+
+ 
+</div>
+
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="St3hVkf673CSFxC6b77Mf2YSOk2TdJjxbm5covKjk5Bu6u1k2DSQL6O2Z4VVSMxpyHYlUMvVqYUQ-Q_3XJeWpr9i3Z8viiTsN6qziTX45nWDgpqsYAvC2WszeO5YTetCVfoKBw2">
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/de-de/library/feedback/add/d3ct4kz9(v=vs.90).aspx">
+<input id="isTopicRated" type="hidden" value="false">
+
+
+
+
+    <div id="ux-footer" class="" style="" dir="ltr">
+    <footer class="top">
+        <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Dev Center</div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/windows" id="27861_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+        </li>
+        <li>
+          <a href="http://dev.windowsphone.com/" id="27861_2" class="windowsPurple" xmlns="http://www.w3.org/1999/xhtml">Windows Phone</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/office" id="27861_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+        </li>
+        <li>
+          <a href="http://www.windowsazure.com/en-us/documentation/" id="27861_4" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows Azure</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/vstudio" id="27861_5" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/aa937802" id="27861_6" xmlns="http://www.w3.org/1999/xhtml">Mehr...</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>    
+        <div id="rightLinks">
+            <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Lernressourcen</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://www.microsoftvirtualacademy.com/" id="27861_14" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+        </li>
+        <li>
+          <a href="http://channel9.msdn.com/" id="27861_16" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+        </li>
+        <li>
+          <a href="http://www.interoperabilitybridges.com/" id="27861_17" xmlns="http://www.w3.org/1999/xhtml">Interoperability Bridges</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/magazine/" id="CenterLinks1_427_33" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Community</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://social.msdn.microsoft.com/forums/de-de/home" id="27861_19" xmlns="http://www.w3.org/1999/xhtml">Foren</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/germany/msdn/blogs/default.aspx" id="27861_20" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+        </li>
+        <li>
+          <a href="http://www.codeplex.com/" id="27861_22" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Support</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://msdn.microsoft.com/de-de/hh361695" id="CenterLinks3_427_34" xmlns="http://www.w3.org/1999/xhtml">Support-Angebote für Entwickler</a>
+        </li>
+        <li>
+          <a href="http://support.microsoft.com/" id="27861_24" xmlns="http://www.w3.org/1999/xhtml">Weitere Support-Optionen</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+            <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml" class="nth-child-4n">
+  
+  <div class="LinkList">
+    <div class="LinkListTitle">Programme</div>
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://www.microsoft.com/germany/msdn/bizspark/default.aspx" id="27861_27" xmlns="http://www.w3.org/1999/xhtml">BizSpark (für Startups)</a>
+        </li>
+        <li>
+          <a href="https://www.dreamspark.com/" id="27861_28" xmlns="http://www.w3.org/1999/xhtml">DreamSpark</a>
+        </li>
+        <li>
+          <a href="https://www.microsoft.com/faculty" id="27861_29" xmlns="http://www.w3.org/1999/xhtml">FacultyConnection</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/germany/msdn/academic/default.aspx" id="CenterLinks4_427_32" xmlns="http://www.w3.org/1999/xhtml">Microsoft Student</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    <div class="feedbackContainer">
+        <div id="feedbackSection1" class="clear">
+            <div class="left">Fanden Sie dies hilfreich?</div>
+            <div class="left">
+                <div class="left">
+                    <input type="radio" name="feedback" id="feedbackYes" value="1" class="feedbackYesClick" data-enhance="false"><label class="feedbackYesClick" for="feedbackYes"> Ja</label>
+                </div>
+                <div class="left">
+                    <input type="radio" name="feedback" id="feedbackNo" value="0" class="feedbackNoClick" data-enhance="false"><label class="feedbackNoClick" for="feedbackNo"> Nein</label>
+                </div>
+            </div>
+            <a class="rateThisAnchor" name="feedback"></a>
+        </div>
+        <div id="feedbackSection2" class="clear">
+        </div>
+        <div id="feedbackSection3" class="clear">
+                    <div>
+                        <input id="checkboxNo201" name="chkbxNo" type="checkbox" value="201" data-enhance="false">
+                        <label for="checkboxNo201">Nicht genau</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo202" name="chkbxNo" type="checkbox" value="202" data-enhance="false">
+                        <label for="checkboxNo202">Keine ausreichende Tiefe</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo203" name="chkbxNo" type="checkbox" value="203" data-enhance="false">
+                        <label for="checkboxNo203">Weitere Codebeispiele erforderlich</label>
+                    </div>
+                    <div>
+                        <input id="checkboxNo204" name="chkbxNo" type="checkbox" value="204" data-enhance="false">
+                        <label for="checkboxNo204">Die Übersetzung sollte verbessert werden.</label>
+                    </div>
+        </div>
+        <div id="feedbackSection4" class="clear">
+            <div>
+                <textarea id="feedbackTextArea" name="feedbackText" class="TellUsMoreTextBoxSearchLoaded" data-enhance="false">Bitte machen Sie weitere Angaben.</textarea>
+            </div>
+            <div class="left"><span class="counter">(<span id="feedbackTextCounter">1500</span> verbleibende Zeichen)</span></div>
+            <div class="right">
+                <button type="button" id="feedbackSubmit" title="Klicken Sie, um Feedback zu senden." data-enhance="false">Absenden</button>
+            </div>
+        </div>
+        <div id="feedbackSection5">Vielen Dank für Ihr Feedback.</div>
+        <input id="feedbackValue" type="hidden" value="">
+        <input id="tellUsMoreText" type="hidden" value="Bitte machen Sie weitere Angaben.">
+        <input id="maxTextBoxCharacters" type="hidden" value="1500">
+        <input type="hidden" id="submitUrl" value="/de-de/msdn/ux/uxservices/feedback/add/footer(v=vs.90)">
+        <input type="hidden" id="feedbackSiteName" name="feedbackSiteName" value="">
+        <input type="hidden" id="feedbackPriority" name="feedbackPriority" value="">
+        <input type="hidden" id="feedbackSourceUrl" name="feedbackSourceUrl" value="">
+        <input type="hidden" id="ClientIP" name="ClientIP" value="">
+        <input type="hidden" id="ClientOS" name="ClientOS" value="">
+        <input type="hidden" id="ClientBrowser" name="ClientBrowser" value="">
+        <input type="hidden" id="ClientTime" name="ClientTime" value="">
+        <input type="hidden" id="ClientDate" name="ClientDate" value="">
+    </div>
+    
+    
+        </div>
+    </footer>
+    
+    <footer class="bottom">
+        <span class="localeContainer">
+                <form class="selectLocale" id="selectLocaleForm" action="http://msdn.microsoft.com/de-de/selectlocale-dmc">
+        <input type="hidden" name="fromPage" value="http%3a%2f%2fmsdn.microsoft.com%2fde-de%2flibrary%2fd3ct4kz9(v%3dvs.90).aspx">
+        <a href="http://msdn.microsoft.com/de-de/library/d3ct4kz9(v=vs.90).aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="Sprache ändern">Deutschland (Deutsch)</a>
+    </form>    
+
+
+        </span>
+        
+        <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="LinkListDescription"></div>
+    <div class="Links">
+      <ul class="LinkColumn horizontal">
+        <li>
+          <a href="http://www.microsoft.com/de-de/corporate/rechtliche-hinweise/impressum.aspx" id="BottomLinks_427_35" xmlns="http://www.w3.org/1999/xhtml">Impressum</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/germany/msdn/flash/default.mspx" id="27861_8" xmlns="http://www.w3.org/1999/xhtml">MSDN Flash Newsletter</a>
+        </li>
+        <li>
+          <a href="http://go.microsoft.com/?linkid=3110638" id="BottomLinks_427_36" xmlns="http://www.w3.org/1999/xhtml">Kontaktieren Sie uns</a>
+        </li>
+        <li>
+          <a href="http://www.microsoft.com/de-de/corporate/rechtliche-hinweise/nutzungsbedingungen.aspx" id="27861_11" xmlns="http://www.w3.org/1999/xhtml">Nutzungsbedingungen</a>
+        </li>
+        <li>
+          <a href="http://go.microsoft.com/?linkid=9664536" id="27861_12" xmlns="http://www.w3.org/1999/xhtml">Markenzeichen</a>
+        </li>
+        <li>
+          <a href="http://msdn.microsoft.com/dn529288" id="27861_10" xmlns="http://www.w3.org/1999/xhtml">Datenschutz und Cookies</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>    
+        <span class="logoLegal">
+            <span class="logo"></span>
+            <span class="copyright">© 2014 Microsoft</span>
+        </span>
+    </footer>
+</div>
+    
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2014 Microsoft. Alle Rechte vorbehalten.</div>
+            </div>
+
+            
+            
+    
+    
+    <input id="tocPaddingPerLevel" type="hidden" value="17">
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript>&lt;div&gt;&lt;img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;&lt;/div&gt;</noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  &lt;a href="http://www.omniture.com" title="Web Analytics"&gt;
+    &lt;img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /&gt;
+  &lt;/a&gt;
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="1yYyNCZhmsVr6jMFQHd055DE8jFs4I7KzyXtnFoMDW_yJ9Z95HEaj7jVOAe4kzAeus2kT3H7wnPqnSGRLB7HrkmuMJmIT4qtnds9mZ8hqALzDDoOVgL3LFjoM2y6sq8iPeMQWQ2">
+</div>
+
+
+        </div>
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n    window.appInsightsId = \u00277c5b1602-db2e-40fc-a4ae-c43f4c191bc9\u0027;\n    //" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/de-de/library/d3ct4kz9(d=default,l=de-de,v=vs.90).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027de-de\u0027;\n  var wtsp = \u0027msdnlib_devtools_lang\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"6890e3ec-85c9-4165-993a-3d52802b7beb\";\n/**/" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,1:Banner,2:Layout,3:Header,1:Feedback,0:AppInsightsPerf,3:Footer,0:Topic,4:webtrendsscript,5:omni_rsid_MSDN,6:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Shared/Content:1,/Areas/Centers/Themes/Base/Content:2,/Areas/Centers/Themes/MsdnBase/Content:3,/Areas/Global/Content/Webtrends/resources:4,/Areas/Global/Content/Omniture/resources/MSDN:5,/Areas/Epx/Themes/Base/Content:6\u0026amp;hashKey=F605557FF7CDFC4847240E5F4D480B72" },
+	{ url: "http://i3.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=de-de\u0026focusOnInit=false\u0026emptyWatermark=true" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:PrintExportButton,1:Toc,1:NavigationResize,2:FeedbackCounter;/Areas/Library/Themes/Base/Content:0,/Areas/Library/Content:1,/Areas/Epx/Shared/Content:2\u0026amp;hashKey=3AE681464049A2B8C143B3C8B5631C43" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=65EEFA29F96E9A74F5DCF143095A7110" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="./Compilerwarnung (Stufe 3) C4013_files/broker-config.js"></script><div id="_WEDCSInsertedData" style="display: none;"><iframe id="_msnFrame" src="./Compilerwarnung (Stufe 3) C4013_files/c.gif" style="z-index:-1;height:1px;width:1px;display:none;visibility:hidden;" onload="javascript:MscomBeacon();"></iframe></div></body></html>

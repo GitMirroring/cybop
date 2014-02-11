@@ -28,7 +28,9 @@
 
 #include <errno.h>
 #include <stdio.h>
+#ifndef _MSC_VER
 #include <unistd.h>
+#endif
 #include <wchar.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"

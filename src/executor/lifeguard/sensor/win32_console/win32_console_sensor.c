@@ -79,7 +79,18 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         // The input buffer.
         // It is an array of INPUT_RECORD structures
         // that receives the input buffer data.
+
+#ifdef _MSC_VER
+		//Changed Benno Schilling 05.02.2014
+		//VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
+		//INPUT_RECORD i[is];
+		//To Workaround simply use dynamic array allocation with malloc
+		//TODO: You have to free the allocated memory (due to the complexity of the program i dont know where and when to free)
+		INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * sizeof(DWORD));
+#else
         INPUT_RECORD i[is];
+#endif
+
         // The input count (number of records read).
         DWORD ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 

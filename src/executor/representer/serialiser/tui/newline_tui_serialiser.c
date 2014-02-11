@@ -33,6 +33,9 @@
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
+#ifdef _MSC_VER
+#include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
+#endif
 /**
  * Appends a newline to the data.
  *

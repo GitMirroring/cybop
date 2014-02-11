@@ -34,12 +34,16 @@
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-    #include <unistd.h>
+#ifndef _MSC_VER
+#include <unistd.h>
+#endif
 #else
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-    #include <unistd.h>
+#ifndef _MSC_VER
+#include <unistd.h>
+#endif
 #endif
 
 #include <sys/types.h>

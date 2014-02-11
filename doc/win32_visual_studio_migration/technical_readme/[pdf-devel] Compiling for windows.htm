@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML//EN">
+<!-- saved from url=(0065)http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00066.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[pdf-devel] Compiling for windows</title>
+
+<style type="text/css"></style></head>
+<body>
+<center>
+<table border="0" cellspacing="2" cellpadding="0" bgcolor="#000000">
+<tbody><tr><td><table border="0" bgcolor="#FFFFCC">
+<tbody><tr><td><big><b>pdf-devel</b></big></td></tr></tbody></table></td></tr></tbody></table>
+<small><nobr>[<a href="http://lists.gnu.org/archive/html/pdf-devel/">Top</a>][<a href="http://lists.gnu.org/archive/html">All Lists</a>]</nobr></small>
+<form method="get" action="http://lists.gnu.org/archive/cgi-bin/namazu.cgi">
+<input type="text" name="query" size="30">
+<input type="submit" name="submit" value="Search">
+<input type="hidden" name="idxname" value="pdf-devel">
+<a href="http://lists.gnu.org/archive/cgi-bin/namazu.cgi?idxname=pdf-devel">Advanced</a>
+</form>
+
+</center>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<hr>
+[<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00065.html">Date Prev</a>][<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00067.html">Date Next</a>][<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00057.html">Thread Prev</a>][<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00067.html">Thread Next</a>][<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/index.html#00066">Date Index</a>][<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/threads.html#00066">Thread Index</a>]
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h2>[pdf-devel] Compiling for windows</h2>
+<hr>
+<table border="0">
+<tbody>
+<tr>
+<td align="right" valign="top">
+<b>From</b>: </td>
+<td align="left">
+Aleksander Morgado</td>
+</tr>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+
+<tr>
+<td align="right" valign="top">
+<b>Subject</b>: </td>
+<td align="left">
+[pdf-devel] Compiling for windows</td>
+</tr>
+
+<tr>
+<td align="right" valign="top">
+<b>Date</b>: </td>
+<td align="left">
+Thu, 17 Apr 2008 21:39:22 +0200 (CEST)</td>
+</tr>
+
+<tr>
+<td align="right" valign="top">
+<b>User-agent</b>: </td>
+<td align="left">
+SquirrelMail/1.4.9a</td>
+</tr>
+
+</tbody>
+</table>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Hi all,
+
+I started the development of FS#15 (Windows host encoding support), and
+found a small problem in the pdf-stm-file.c file: S_IRGRP and S_IROTH are
+not defined in windows (no way to deal with permissions for group or
+others).
+
+After correcting this bug everything compiles correctly with mingw32
+cross-compiling. I will add another task in the Flyspray to implement the
+DLL-compilation of libgnupdf (it's statically linked to the binaries now).
+
+BTW... there is no way to run the unit tests in windows (Check works only
+in POSIX environments)... how can we manage this?
+
+
+
+Here's the patch:
+
+Index: src/base/pdf-stm-file.c
+===================================================================
+RCS file: /cvsroot/pdf/libgnupdf/src/base/pdf-stm-file.c,v
+retrieving revision 1.4
+diff -c -r1.4 pdf-stm-file.c
+*** src/base/pdf-stm-file.c     5 Mar 2008 11:32:04 -0000       1.4
+--- src/base/pdf-stm-file.c     17 Apr 2008 19:09:10 -0000
+***************
+*** 71,86 ****
+        }
+      case PDF_STM_FILE_OPEN_MODE_WRITE:
+        {
+          (*data)-&gt;filedes = open ((*data)-&gt;filename,
+                                   O_WRONLY | O_CREAT | O_TRUNC,
+!                                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+          break;
+        }
+      case PDF_STM_FILE_OPEN_MODE_RW:
+        {
+          (*data)-&gt;filedes = open ((*data)-&gt;filename,
+                                   O_RDWR | O_CREAT,
+!                                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+          break;
+        }
+      default:
+--- 71,100 ----
+        }
+      case PDF_STM_FILE_OPEN_MODE_WRITE:
+        {
++         int mode = S_IRUSR | S_IWUSR;
++ #ifdef S_IRGRP
++         mode |= S_IRGRP;
++ #endif
++ #ifdef S_IROTH
++         mode |= S_IROTH;
++ #endif
+          (*data)-&gt;filedes = open ((*data)-&gt;filename,
+                                   O_WRONLY | O_CREAT | O_TRUNC,
+!                                  mode);
+          break;
+        }
+      case PDF_STM_FILE_OPEN_MODE_RW:
+        {
++         int mode = S_IRUSR | S_IWUSR;
++ #ifdef S_IRGRP
++         mode |= S_IRGRP;
++ #endif
++ #ifdef S_IROTH
++         mode |= S_IROTH;
++ #endif
+          (*data)-&gt;filedes = open ((*data)-&gt;filename,
+                                   O_RDWR | O_CREAT,
+!                                  mode);
+          break;
+        }
+      default:
+
+
+
+
+
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<form method="post" action="http://lists.gnu.org/mp/yyz.py" enctype="multipart/form-data">
+<input type="hidden" name="a" value="aleksander">
+<input type="hidden" name="b" value="[pdf-devel] Compiling for windows">
+<input type="hidden" name="d" value="39270.89.130.44.81.1208461162.squirrel@webmail.es.gnu.org">
+<input type="hidden" name="c" value="es.gnu.org">
+<center>reply via email to<br><input type="submit" value=" Aleksander Morgado "></center>
+</form>
+<hr>
+<table width="100%">
+<tbody><tr><td align="left">[Prev in Thread]</td>
+<td align="center"><b>Current Thread</b></td>
+<td align="right">[<a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00067.html">Next in Thread</a>]</td></tr></tbody></table>
+<ul>
+<li><font color="#666666"><strong>[pdf-devel] Compiling for windows</strong>,
+<em>Aleksander Morgado</em></font>&nbsp;<b>&lt;=</b>
+<ul>
+<li><b><a name="00067" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00067.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>jemarch</i>, <tt>2008/04/17</tt>
+<ul>
+<li><b><a name="00068" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00068.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>jemarch</i>, <tt>2008/04/17</tt>
+<ul>
+<li><b><a name="00073" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00073.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>gerel</i>, <tt>2008/04/17</tt>
+</li><li><b><a name="00082" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00082.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>jemarch</i>, <tt>2008/04/18</tt>
+</li>
+
+</ul>
+</li>
+<li><b><a name="00069" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00069.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>Aleksander Morgado</i>, <tt>2008/04/17</tt>
+<ul>
+<li><b><a name="00078" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00078.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>jemarch</i>, <tt>2008/04/18</tt>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><b><a name="00072" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00072.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>gerel</i>, <tt>2008/04/17</tt>
+<ul>
+<li><b><a name="00075" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00075.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>Aleksander Morgado</i>, <tt>2008/04/18</tt>
+<ul>
+<li><b><a name="00081" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00081.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>jemarch</i>, <tt>2008/04/18</tt>
+</li><li><b><a name="00097" href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00097.html">Re: [pdf-devel] Compiling for windows</a></b>, <i>Aleksander Morgado</i>, <tt>2008/04/20</tt>
+</li>
+
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<hr>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<ul>
+<li>Prev by Date:
+<strong><a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00065.html">Re: [pdf-devel] time module unit test cases</a></strong>
+</li>
+<li>Next by Date:
+<strong><a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00067.html">Re: [pdf-devel] Compiling for windows</a></strong>
+</li>
+<li>Previous by thread:
+<strong><a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00057.html">[pdf-devel] Some suggestions...</a></strong>
+</li>
+<li>Next by thread:
+<strong><a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/msg00067.html">Re: [pdf-devel] Compiling for windows</a></strong>
+</li>
+<li>Index(es):
+<ul>
+<li><a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/index.html#00066"><strong>Date</strong></a></li>
+<li><a href="http://lists.gnu.org/archive/html/pdf-devel/2008-04/threads.html#00066"><strong>Thread</strong></a></li>
+</ul>
+</li>
+</ul>
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+
+
+</body></html>

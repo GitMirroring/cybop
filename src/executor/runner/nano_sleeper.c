@@ -28,14 +28,19 @@
 
 #include <errno.h>
 #include <time.h>
+
+#ifdef _MSC_VER
+#include "../../windows/cyboi_win_mapper.c"
+#else
 #include <unistd.h>
+#ifdef WIN32
+#include <pthread_time.h>
+#endif
+#endif
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
-#ifdef WIN32
-    #include <pthread_time.h>
-#endif
 
 /**
  * Suspends execution of the calling thread for (at least)

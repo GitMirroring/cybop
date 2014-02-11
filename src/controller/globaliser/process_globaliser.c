@@ -27,10 +27,14 @@
 #define PROCESS_GLOBALISER_SOURCE
 
 #include <sys/types.h>
-#include <unistd.h>
-
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/process_type_size.c"
+
+#ifdef _MSC_VER
+#include "../../windows/cyboi_win_mapper.c"
+#else
+#include <unistd.h>
+#endif
 
 /**
  * Initialises process global variables.

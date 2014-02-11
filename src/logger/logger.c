@@ -29,7 +29,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef _MSC_VER
 #include <unistd.h>
+#endif
 #include <wchar.h>
 
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"

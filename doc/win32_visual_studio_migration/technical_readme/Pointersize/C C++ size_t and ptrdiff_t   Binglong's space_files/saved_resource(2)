@@ -1,0 +1,87 @@
+
+/*This css file manages the css rules for dynamic content.*/
+
+#title_box, .corner_tr, .corner_tl, .entry .navigation a:hover, .entry .navigation a:focus, .navigation a:hover, .navigation a:focus, #wp-calendar a:hover, #wp-calendar a:focus {
+	background-color: #9bbc57;
+	color: #fff;
+	}
+
+#page {
+	border-top: 3px solid #9bbc57;
+	}
+
+a:hover, .postmetadata a:hover, .tags a:hover, .entry a:hover, #credits a:hover, .commentbox cite a:hover, .commentmetadata a:hover,
+a:focus, .postmetadata a:focus, .tags a:focus, .entry a:focus, #credits a:focus, .commentbox cite a:focus, .commentmetadata a:focus {
+	color: #9bbc57;
+	}
+
+a:hover img.centered, a:hover img.alignright, a:hover img.alignleft, a:hover img, .gallery a:hover img, .wp-caption a:hover img, #wp-calendar #today,
+a:focus img.centered, a:focus img.alignright, a:focus img.alignleft, a:focus img, .gallery a:focus img, .wp-caption a:focus img, #wp-calendar #today {
+	border: 1px solid #9bbc57;
+	}
+
+.postmetadata a, .tags a, #credits a, .commentmetadata a, .read_more {
+	color: #619500;
+	}
+
+#footer {
+	border-top: 2px solid #9bbc57;
+	border-bottom: 1px solid #9bbc57;
+	}
+
+.sticky {
+	border-top: 2px dotted #9bbc57;
+	border-bottom: 1px dotted #9bbc57;
+	}
+
+
+	/*active when header is replaced with custom image */
+	#header h1, #header h1 a, #header h1 a:visited {
+		padding-top: 10px;
+		font-size: 2.3em;
+		text-align: left;
+	}
+	.description {
+		font-size: 1.5em;
+		padding-left: 10px;
+		font-style: italic;
+		margin: -5px;
+		}
+	#header {
+		height: 85px;
+		padding: 35px 0 40px 20px;
+		width: 1126px;
+		margin: 0 auto;
+	}
+	.post, .search .page {
+		width: 900px;
+		margin: auto;
+		float: none;
+	}
+	#content, .navigation_box {
+		padding-left: 0;
+		width: 940px;
+	}
+#three_column img.alignright, #three_column img.alignleft, #three_column .wp-caption.alignleft img, #three_column .wp-caption.alignleft, #three_column .wp-caption.alignright img, #three_column .wp-caption.alignright {
+	max-width: 600px !important;
+	height: auto;
+	max-height: 600px !important
+}
+
+.singlepage .post, .singlepage .page {
+	width:900px;
+	margin: auto;
+}
+#sidebar {
+	width: 200px;
+}
+#content_container, #footer, #page_list {
+	width: 1140px;
+}
+	#footer .cell {
+		width: 28%;
+	}
+	.cell-4 {
+		width: 0px;
+		visibility: hidden;
+	}

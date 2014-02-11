@@ -28,8 +28,9 @@
 
 #include <errno.h>
 #include <time.h>
+#ifndef _MSC_VER
 #include <unistd.h>
-
+#endif
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/runner/nano_sleeper.c"

@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="canonical" href="./SetWaitableTimer function (Windows)_files/SetWaitableTimer function (Windows).htm">
+        <title>SetWaitableTimer function (Windows)</title>
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/windows/desktop/ms686289(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="ms.normalizedurl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(d=default,l=en-us,v=vs.85).aspx">
+
+<meta name="MN" content="EE4293C0-3:19:29 AM">
+
+<meta name="Search.ShortId" content="ms686289">
+
+<meta name="ms.shortidmsdn" content="ms686289">
+
+<meta name="Ms.Locale" content="en-us">
+
+
+
+
+
+
+
+        
+    <link rel="shortcut icon" href="http://msdn.microsoft.com/Areas/Epx/Themes/Windows/Content/Winlogo_favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="./SetWaitableTimer function (Windows)_files/Combined.css"><script type="text/javascript" async="" src="./SetWaitableTimer function (Windows)_files/ms2.js"></script><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "http://i.msdn.microsoft.com", 
+	"js": "http://i2.msdn.microsoft.com", 
+	"css": "http://i3.msdn.microsoft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected" src="./SetWaitableTimer function (Windows)_files/jquery-1.8.2.min.js"></script><script class="mtps-injected">try {
+//
+  var literalNormalizedUrl = '/en-us/library/windows/desktop/ms686289(d=default,l=en-us,v=vs.85).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+
+
+
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    var wtidJs = document.createElement("script");
+    wtidJs.src = "//" + gDomain + "/" + gDcsId + "/wtid.js";
+    document.getElementsByTagName("head")[0].appendChild(wtidJs);
+  }
+
+
+
+  var detectedLocale = 'en-us';
+  var wtsp = '_msdn_';
+  var gTrackEvents = '0';
+/**/
+} finally { MTPS._injectNextScript_2 && MTPS._injectNextScript_2(); }</script><script class="mtps-injected">try {
+/**/
+  var omni_guid = "5e5bd206-8838-4fbb-81dd-60a9cae6ce73";
+/**/
+} finally { MTPS._injectNextScript_3 && MTPS._injectNextScript_3(); }</script><script class="mtps-injected" src="./SetWaitableTimer function (Windows)_files/Combined.js"></script><style type="text/css"></style><meta name="ms.Center" content="windows desktop"><meta name="ms.Section" content="windows desktop: learn"><meta name="ms.ShortId" content="ms686289"><meta name="ms.TOC" content="windows desktop: learn: ms686289"><script class="mtps-injected" src="./SetWaitableTimer function (Windows)_files/SearchBox.jss"></script><script class="mtps-injected" src="./SetWaitableTimer function (Windows)_files/Combined(1).js"></script><script class="mtps-injected" src="./SetWaitableTimer function (Windows)_files/jquery.tmpl.min.js"></script><script class="mtps-injected" src="./SetWaitableTimer function (Windows)_files/Combined(2).js"></script><script src="./SetWaitableTimer function (Windows)_files/broker.js"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_9 && MTPS._injectNextScript_9(); }</script><link href="./SetWaitableTimer function (Windows)_files/PrintView.css" rel="stylesheet" type="text/css" media="print"></head>
+    <body class="library Chrome">
+        <div id="page">
+            
+            
+  
+            
+    
+    
+
+    <div id="ux-header" class="Chrome ltr">
+        <div id="headerContainer">
+            <div id="logoAndSearchBox">
+                <div id="logo">
+                    <a href="http://msdn.microsoft.com/windows/" title="Windows"><img alt="Windows" src="./SetWaitableTimer function (Windows)_files/Windows_logo.png"></a>       
+                </div>
+              
+        <div id="selectedTab">
+            <a class="dropDownToggle" href="javascript:void(0);">Dev Center - Desktop</a>    
+        </div>
+    <div id="toclevel1_menu" style="display: none; left: 157px; top: 67px;">
+        <ul>
+                <li><a href="http://msdn.microsoft.com/windows/" title="Dev Center Home">Dev Center Home</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/apps/" title="Windows Store apps">Windows Store apps</a></li>
+                <li><a href="http://msdn.microsoft.com/ie/" title="Internet Explorer">Internet Explorer</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/desktop/" title="Desktop">Desktop</a></li>
+                <li><a href="http://msdn.microsoft.com/windows/hardware/" title="Hardware">Hardware</a></li>
+        </ul>
+        <div style="clear: both"></div>
+    </div> 
+
+                
+                  
+
+    
+
+<div class="SearchBox">
+              <form id="HeaderSearchForm" name="HeaderSearchForm" method="get" action="http://social.msdn.microsoft.com/Search" onsubmit="return Epx.Controls.SearchBox.searchBoxOnSubmit(this, this.title);">
+            <input id="HeaderSearchTextBox" name="query" type="text" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(this, this.title, &#39;SearchBoxOnFocus&#39;)" onblur="Epx.Controls.SearchBox.watermarkBlur(this, this.title, &#39;SearchBoxOnFocus&#39;)" autocomplete="off">
+            <input id="RefinementId" name="refinement" type="hidden" value="181">
+            <button id="HeaderSearchButton" value="" type="submit" class="header-search-button" title="Search"></button>
+        <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font-family: &#39;Segoe UI&#39;, &#39;Lucida Grande&#39;, Verdana, Arial, Helvetica, sans-serif; font-size: 12.222222328186035px;"><div id="SuggestionContainer"><ul style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></form>
+        
+    
+</div>
+
+                <div class="Clear"></div>
+            </div>
+            <div class="Clear"></div>
+            <div class="ux-internav">
+    <div class="toclevel2"> 
+            <a class="normal" href="https://sysdev.microsoft.com/en-us/desktop/" title="Dashboard">Dashboard</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/bg161546" title="Get Started">Get Started</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa511258" title="Design">Design</a>
+            <a class="active" href="http://msdn.microsoft.com/windows/desktop/aa904962" title="Develop">Develop</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/dd535817" title="Certify">Certify</a>
+    </div>
+    <div class="clear"></div>
+
+            </div>
+            <div id="signIn"><a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=12&ct=1392117569&rver=6.0.5276.0&wp=MCLBI&wlcxt=MSDN%24MSDN%24MSDN&wreply=http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms686289%2528v%3dvs.85%2529.aspx&lc=1033&id=254354&mkt=en-US" title="Sign in">Sign in</a></div>
+        </div>  
+        <div id="blackBar">
+    <div class="toclevel3"> 
+            <a class="active" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125389.aspx" title="Desktop technologies" style="opacity: 1; left: 0px;">Desktop technologies</a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/bg125390.aspx" title="Server and system " style="opacity: 1; left: 0px;">Server and system </a>
+            <a class="normal" href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh920508(vs.85).aspx" title="API index" style="opacity: 1; left: 0px;">API index</a>
+            <a class="normal" href="http://code.msdn.microsoft.com/windowsdesktop/" title="Samples" style="opacity: 1; left: 0px;">Samples</a>
+            <a class="normal" href="http://msdn.microsoft.com/windows/desktop/aa904945.aspx" title="Community" style="opacity: 1; left: 0px;">Community</a>
+    </div>
+    <div class="clear"></div>
+
+        </div>
+    </div>
+
+
+        
+            <div id="body">
+                
+
+
+
+
+
+
+
+    <div id="leftNav" style="width: 280px; max-width: 480px; height: auto;">
+
+
+
+<div id="tocnav">
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee663297(v=vs.85).aspx" id="bg126545_VS.85_en-us" mtpsaliasid="" mtpsassetid="3a3dc403-8bad-4464-9dda-361daaf8f8d3_VS.85_en-us" mtpsshortid="ee663297_VS.85_en-us" title="System Services">System Services</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686353(v=vs.85).aspx" id="gg513795_VS.85_en-us" mtpsaliasid="" mtpsassetid="3e85e61c-d4df-49dd-aa86-1bbd682e375e_VS.85_en-us" mtpsshortid="ms686353_VS.85_en-us" title="Synchronization">Synchronization</a>            </div>
+            <div class="toclevel0" data-toclevel="0" style="padding-left: 0px;">
+<a class="toc_collapsed" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686679(v=vs.85).aspx" id="gg513800_VS.85_en-us" mtpsaliasid="" mtpsassetid="e0681efb-a270-4d88-baf9-a879066b29ea_VS.85_en-us" mtpsshortid="ms686679_VS.85_en-us" title="Synchronization Reference">Synchronization Reference</a>            </div>
+            <div class="toclevel1" data-toclevel="1" data-childrenloaded="true" style="padding-left: 13px;">
+<a class="toc_expanded" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx#"></a><a data-tochassubtree="true" href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686360(v=vs.85).aspx" id="gg513801_VS.85_en-us" mtpsaliasid="" mtpsassetid="9b6359c2-0113-49b6-83d0-316ad95aba1b_VS.85_en-us" mtpsshortid="ms686360_VS.85_en-us" title="Synchronization Functions">Synchronization Functions</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681930(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AcquireSRWLockExclusive">AcquireSRWLockExclusive</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681934(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AcquireSRWLockShared">AcquireSRWLockShared</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681937(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AddSIDToBoundaryDescriptor">AddSIDToBoundaryDescriptor</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ee175818(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="AddIntegrityLabelToBoundaryDescriptor">AddIntegrityLabelToBoundaryDescriptor</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681947(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="APCProc">APCProc</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681985(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CancelWaitableTimer">CancelWaitableTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682004(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ChangeTimerQueueTimer">ChangeTimerQueueTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682026(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ClosePrivateNamespace">ClosePrivateNamespace</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682121(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateBoundaryDescriptor">CreateBoundaryDescriptor</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682396(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateEvent">CreateEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682400(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateEventEx">CreateEventEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682411(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateMutex">CreateMutex</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682418(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateMutexEx">CreateMutexEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682419(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreatePrivateNamespace">CreatePrivateNamespace</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682438(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateSemaphore">CreateSemaphore</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682446(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateSemaphoreEx">CreateSemaphoreEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682483(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateTimerQueue">CreateTimerQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682485(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateTimerQueueTimer">CreateTimerQueueTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682492(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateWaitableTimer">CreateWaitableTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682494(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="CreateWaitableTimerEx">CreateWaitableTimerEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682549(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DeleteBoundaryDescriptor">DeleteBoundaryDescriptor</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682552(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DeleteCriticalSection">DeleteCriticalSection</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh706887(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DeleteSynchronizationBarrier">DeleteSynchronizationBarrier</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682565(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DeleteTimerQueue">DeleteTimerQueue</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682568(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DeleteTimerQueueEx">DeleteTimerQueueEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682569(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="DeleteTimerQueueTimer">DeleteTimerQueueTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682608(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EnterCriticalSection">EnterCriticalSection</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh706889(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="EnterSynchronizationBarrier">EnterSynchronizationBarrier</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683209(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GetOverlappedResult">GetOverlappedResult</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh448542(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="GetOverlappedResultEx">GetOverlappedResultEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683469(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeConditionVariable">InitializeConditionVariable</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683472(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeCriticalSection">InitializeCriticalSection</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683476(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeCriticalSectionAndSpinCount">InitializeCriticalSectionAndSpinCount</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683477(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeCriticalSectionEx">InitializeCriticalSectionEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683482(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeSListHead">InitializeSListHead</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683483(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeSRWLock">InitializeSRWLock</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh706890(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitializeSynchronizationBarrier">InitializeSynchronizationBarrier</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683487(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitOnceBeginInitialize">InitOnceBeginInitialize</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683490(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitOnceCallback">InitOnceCallback</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683491(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitOnceComplete">InitOnceComplete</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683493(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitOnceExecuteOnce">InitOnceExecuteOnce</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683495(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InitOnceInitialize">InitOnceInitialize</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683504(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAdd">InterlockedAdd</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683507(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAddAcquire">InterlockedAddAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683513(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAddRelease">InterlockedAddRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972629(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAddNoFence">InterlockedAddNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683506(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAdd64">InterlockedAdd64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683510(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAddAcquire64">InterlockedAddAcquire64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683514(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAddRelease64">InterlockedAddRelease64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972630(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAddNoFence64">InterlockedAddNoFence64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683516(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd">InterlockedAnd</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683539(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAndAcquire">InterlockedAndAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683543(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAndRelease">InterlockedAndRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972634(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAndNoFence">InterlockedAndNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683532(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd8">InterlockedAnd8</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683535(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd8Acquire">InterlockedAnd8Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683537(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd8Release">InterlockedAnd8Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972633(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd8NoFence">InterlockedAnd8NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683518(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd16">InterlockedAnd16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683521(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd16Acquire">InterlockedAnd16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683525(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd16Release">InterlockedAnd16Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972631(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd16NoFence">InterlockedAnd16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683527(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd64">InterlockedAnd64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683529(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd64Acquire">InterlockedAnd64Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683530(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd64Release">InterlockedAnd64Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972632(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedAnd64NoFence">InterlockedAnd64NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh802759(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndComplement">InterlockedBitTestAndComplement</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972635(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndComplement64">InterlockedBitTestAndComplement64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683546(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndReset">InterlockedBitTestAndReset</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972636(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndResetAcquire">InterlockedBitTestAndResetAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972637(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndResetRelease">InterlockedBitTestAndResetRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683547(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndReset64">InterlockedBitTestAndReset64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683549(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndSet">InterlockedBitTestAndSet</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972638(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndSetAcquire">InterlockedBitTestAndSetAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972639(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndSetRelease">InterlockedBitTestAndSetRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683551(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedBitTestAndSet64">InterlockedBitTestAndSet64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683553(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompare64Exchange128">InterlockedCompare64Exchange128</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683557(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompare64ExchangeAcquire128">InterlockedCompare64ExchangeAcquire128</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683558(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompare64ExchangeRelease128">InterlockedCompare64ExchangeRelease128</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683560(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange">InterlockedCompareExchange</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683564(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangeAcquire">InterlockedCompareExchangeAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683574(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangeRelease">InterlockedCompareExchangeRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972645(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangeNoFence">InterlockedCompareExchangeNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972641(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange16">InterlockedCompareExchange16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972642(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange16Acquire">InterlockedCompareExchange16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972644(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange16Release">InterlockedCompareExchange16Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972643(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange16NoFence">InterlockedCompareExchange16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683562(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange64">InterlockedCompareExchange64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683566(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangeAcquire64">InterlockedCompareExchangeAcquire64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683576(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangeRelease64">InterlockedCompareExchangeRelease64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972646(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangeNoFence64">InterlockedCompareExchangeNoFence64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972640(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchange128">InterlockedCompareExchange128</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683568(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangePointer">InterlockedCompareExchangePointer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683570(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangePointerAcquire">InterlockedCompareExchangePointerAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683571(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangePointerRelease">InterlockedCompareExchangePointerRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972647(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedCompareExchangePointerNoFence">InterlockedCompareExchangePointerNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683580(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrement">InterlockedDecrement</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683583(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrementAcquire">InterlockedDecrementAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683586(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrementRelease">InterlockedDecrementRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972652(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrementNoFence">InterlockedDecrementNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972648(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrement16">InterlockedDecrement16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972649(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrement16Acquire">InterlockedDecrement16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972651(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrement16Release">InterlockedDecrement16Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972650(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrement16NoFence">InterlockedDecrement16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683581(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrement64">InterlockedDecrement64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683585(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrementAcquire64">InterlockedDecrementAcquire64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683588(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrementRelease64">InterlockedDecrementRelease64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972653(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedDecrementNoFence64">InterlockedDecrementNoFence64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683590(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchange">InterlockedExchange</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683594(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAcquire">InterlockedExchangeAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972659(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeNoFence">InterlockedExchangeNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972656(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchange8">InterlockedExchange8</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh802760(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchange16">InterlockedExchange16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972654(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchange16Acquire">InterlockedExchange16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972655(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchange16NoFence">InterlockedExchange16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683593(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchange64">InterlockedExchange64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683596(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAcquire64">InterlockedExchangeAcquire64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972660(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeNoFence64">InterlockedExchangeNoFence64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683609(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangePointer">InterlockedExchangePointer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683611(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangePointerAcquire">InterlockedExchangePointerAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972661(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangePointerNoFence">InterlockedExchangePointerNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh871477(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeSubtract">InterlockedExchangeSubtract</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683597(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAdd">InterlockedExchangeAdd</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683601(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAddAcquire">InterlockedExchangeAddAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683605(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAddRelease">InterlockedExchangeAddRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972657(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAddNoFence">InterlockedExchangeAddNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683599(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAdd64">InterlockedExchangeAdd64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683604(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAddAcquire64">InterlockedExchangeAddAcquire64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683607(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAddRelease64">InterlockedExchangeAddRelease64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972658(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedExchangeAddNoFence64">InterlockedExchangeAddNoFence64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683614(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrement">InterlockedIncrement</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683618(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrementAcquire">InterlockedIncrementAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683622(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrementRelease">InterlockedIncrementRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972667(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrementNoFence">InterlockedIncrementNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972662(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrement16">InterlockedIncrement16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972663(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrement16Acquire">InterlockedIncrement16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972665(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrement16Release">InterlockedIncrement16Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972664(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrement16NoFence">InterlockedIncrement16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683615(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrement64">InterlockedIncrement64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683620(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrementAcquire64">InterlockedIncrementAcquire64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683624(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrementRelease64">InterlockedIncrementRelease64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972668(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedIncrementNoFence64">InterlockedIncrementNoFence64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683626(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr">InterlockedOr</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683643(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOrAcquire">InterlockedOrAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683646(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOrRelease">InterlockedOrRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972672(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOrNoFence">InterlockedOrNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683637(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr8">InterlockedOr8</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683639(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr8Acquire">InterlockedOr8Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683640(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr8Release">InterlockedOr8Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972671(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr8NoFence">InterlockedOr8NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683627(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr16">InterlockedOr16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683629(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr16Acquire">InterlockedOr16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683631(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr16Release">InterlockedOr16Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972669(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr16NoFence">InterlockedOr16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683633(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr64">InterlockedOr64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683634(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr64Acquire">InterlockedOr64Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683636(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr64Release">InterlockedOr64Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972670(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedOr64NoFence">InterlockedOr64NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683648(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedPopEntrySList">InterlockedPopEntrySList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684020(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedPushEntrySList">InterlockedPushEntrySList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh448545(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedPushListSList">InterlockedPushListSList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972673(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedPushListSListEx">InterlockedPushListSListEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms683612(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedFlushSList">InterlockedFlushSList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684021(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor">InterlockedXor</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684117(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXorAcquire">InterlockedXorAcquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684118(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXorRelease">InterlockedXorRelease</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972677(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXorNoFence">InterlockedXorNoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684110(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor8">InterlockedXor8</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684112(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor8Acquire">InterlockedXor8Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684113(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor8Release">InterlockedXor8Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972676(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor8NoFence">InterlockedXor8NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684024(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor16">InterlockedXor16</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684026(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor16Acquire">InterlockedXor16Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684033(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor16Release">InterlockedXor16Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972674(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor16NoFence">InterlockedXor16NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684104(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor64">InterlockedXor64</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684107(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor64Acquire">InterlockedXor64Acquire</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684108(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor64Release">InterlockedXor64Release</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh972675(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="InterlockedXor64NoFence">InterlockedXor64NoFence</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684169(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="LeaveCriticalSection">LeaveCriticalSection</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684242(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MsgWaitForMultipleObjects">MsgWaitForMultipleObjects</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684245(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="MsgWaitForMultipleObjectsEx">MsgWaitForMultipleObjectsEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684305(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OpenEvent">OpenEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684315(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OpenMutex">OpenMutex</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684318(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OpenPrivateNamespace">OpenPrivateNamespace</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684326(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OpenSemaphore">OpenSemaphore</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684337(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="OpenWaitableTimer">OpenWaitableTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684914(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="PulseEvent">PulseEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684916(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="QueryDepthSList">QueryDepthSList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684954(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="QueueUserAPC">QueueUserAPC</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms685061(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RegisterWaitForSingleObject">RegisterWaitForSingleObject</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms685066(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ReleaseMutex">ReleaseMutex</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms685071(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ReleaseSemaphore">ReleaseSemaphore</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms685076(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ReleaseSRWLockExclusive">ReleaseSRWLockExclusive</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms685080(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ReleaseSRWLockShared">ReleaseSRWLockShared</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms685081(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="ResetEvent">ResetEvent</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa904931(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RtlFirstEntrySList">RtlFirstEntrySList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa904932(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RtlInitializeSListHead">RtlInitializeSListHead</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa904933(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RtlInterlockedFlushSList">RtlInterlockedFlushSList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa904934(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RtlInterlockedPopEntrySList">RtlInterlockedPopEntrySList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa904935(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RtlInterlockedPushEntrySList">RtlInterlockedPushEntrySList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa904936(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="RtlQueryDepthSList">RtlQueryDepthSList</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686197(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SetCriticalSectionSpinCount">SetCriticalSectionSpinCount</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686211(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SetEvent">SetEvent</a>            </div>
+            <div class="toclevel2 current" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="./SetWaitableTimer function (Windows)_files/SetWaitableTimer function (Windows).htm" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SetWaitableTimer">SetWaitableTimer</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd405521(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SetWaitableTimerEx">SetWaitableTimerEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686293(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SignalObjectAndWait">SignalObjectAndWait</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686301(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SleepConditionVariableCS">SleepConditionVariableCS</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686304(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="SleepConditionVariableSRW">SleepConditionVariableSRW</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686786(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TimerAPCProc">TimerAPCProc</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd405523(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TryAcquireSRWLockExclusive">TryAcquireSRWLockExclusive</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/dd405524(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TryAcquireSRWLockShared">TryAcquireSRWLockShared</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686857(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="TryEnterCriticalSection">TryEnterCriticalSection</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686870(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UnregisterWait">UnregisterWait</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686876(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="UnregisterWaitEx">UnregisterWaitEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687025(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WaitForMultipleObjects">WaitForMultipleObjects</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687028(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WaitForMultipleObjectsEx">WaitForMultipleObjectsEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687032(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WaitForSingleObject">WaitForSingleObject</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687036(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WaitForSingleObjectEx">WaitForSingleObjectEx</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh706898(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WaitOnAddress">WaitOnAddress</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687066(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WaitOrTimerCallback">WaitOrTimerCallback</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687076(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WakeAllConditionVariable">WakeAllConditionVariable</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh706899(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WakeByAddressAll">WakeByAddressAll</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/hh706900(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WakeByAddressSingle">WakeByAddressSingle</a>            </div>
+            <div class="toclevel2" data-toclevel="2" style="padding-left: 26px;">
+<span class="toc_empty"></span><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687080(v=vs.85).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="WakeConditionVariable">WakeConditionVariable</a>            </div>
+</div>
+        
+
+        
+
+        
+        
+        <div id="toc-resizable-ew" class="toc-resizable-ew" style="min-height: 2888px;"></div>
+        
+
+<a id="NavigationResize" href="javascript:void(0)" style="left: 279.888888835907px; display: inline-block;">
+    <img class="cl_nav_resize_open" src="./SetWaitableTimer function (Windows)_files/ImageSprite.png" title="Expand" alt="Expand" style="">
+    <img class="cl_nav_resize_close" src="./SetWaitableTimer function (Windows)_files/ImageSprite.png" title="Minimize" alt="Minimize" style="display: none;">
+</a>
+
+
+
+    </div>
+<div id="content" class="content" style="margin-left: 279.888888835907px; width: auto;">
+
+
+
+
+
+
+
+        
+
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">SetWaitableTimer function</h1>
+  
+  <div id="mainSection">
+<div class="clsServerSDKContent">
+
+</div>
+<p>Activates the specified waitable timer. When the due time arrives, the timer is signaled and the thread that set the timer calls the optional completion routine.</p>
+<h2>Syntax</h2>
+
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        <div class="codeSnippetContainerTabSingle" dir="ltr"><a>C++</a></div>
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode('CodeSnippetContainerCode_f946e7c5-e6da-4fd2-99a1-9ba6ccd10d62');">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_f946e7c5-e6da-4fd2-99a1-9ba6ccd10d62" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+BOOL WINAPI SetWaitableTimer(
+  _In_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HANDLE hTimer,
+  _In_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:Blue;">const</span> LARGE_INTEGER *pDueTime,
+  _In_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LONG lPeriod,
+  _In_opt_&nbsp;&nbsp;PTIMERAPCROUTINE pfnCompletionRoutine,
+  _In_opt_&nbsp;&nbsp;LPVOID lpArgToCompletionRoutine,
+  _In_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BOOL fResume
+);
+
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+
+<h2>Parameters</h2>
+<dl>
+<dt><em>hTimer</em> [in]</dt>
+<dd>
+<p>A handle to the timer object. The 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682492(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CreateWaitableTimer</strong></a> or 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684337(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">OpenWaitableTimer</strong></a> function returns this handle. 
+
+
+</p>
+<p>The handle must have the <strong>TIMER_MODIFY_STATE</strong> access right. For more information, see 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686670(v=vs.85).aspx">Synchronization Object Security and Access Rights</a>.</p>
+</dd>
+<dt><em>pDueTime</em> [in]</dt>
+<dd>
+<p>The time after which the state of the timer is to be set to signaled, in 100 nanosecond intervals. Use the format described by the 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724284(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">FILETIME</strong></a> structure. Positive values indicate absolute time. Be sure to use a UTC-based absolute time, as the system uses UTC-based time internally. Negative values indicate relative time. The actual timer accuracy depends on the capability of your hardware. For more information about UTC-based time, see 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms724961(v=vs.85).aspx">System Time</a>.</p>
+</dd>
+<dt><em>lPeriod</em> [in]</dt>
+<dd>
+<p>The period of the timer, in milliseconds. If <em>lPeriod</em> is zero, the timer is signaled once. If <em>lPeriod</em> is greater than zero, the timer is periodic. A periodic timer automatically reactivates each time the period elapses, until the timer is canceled using the 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681985(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CancelWaitableTimer</strong></a> function or reset using 
+<strong>SetWaitableTimer</strong>. If <em>lPeriod</em> is less than zero, the function fails.</p>
+</dd>
+<dt><em>pfnCompletionRoutine</em> [in, optional]</dt>
+<dd>
+<p>A pointer to an optional completion routine. The completion routine is application-defined function of type <strong>PTIMERAPCROUTINE</strong> to be executed when the timer is signaled. For more information on the timer callback function, see 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686786(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">TimerAPCProc</strong></a>. For more information about APCs and thread pool threads, see Remarks.</p>
+</dd>
+<dt><em>lpArgToCompletionRoutine</em> [in, optional]</dt>
+<dd>
+<p>A pointer to a structure that is passed to the completion routine.</p>
+</dd>
+<dt><em>fResume</em> [in]</dt>
+<dd>
+<p>If this parameter is <strong>TRUE</strong>, restores a system in suspended power conservation mode when the timer state is set to signaled. Otherwise, the system is not restored. If the system does not support a restore, the call succeeds, but <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a> returns <strong>ERROR_NOT_SUPPORTED</strong>.</p>
+</dd>
+</dl>
+<h2>Return value</h2>
+<p>If the function succeeds, the return value is nonzero.</p>
+<p>If the function fails, the return value is zero. To get extended error information, call 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">GetLastError</strong></a>.</p>
+<h2>Remarks</h2>
+<p>Timers are initially inactive. To activate a timer, call 
+<strong>SetWaitableTimer</strong>. If the timer is already active when you call 
+<strong>SetWaitableTimer</strong>, the timer is stopped, then it is reactivated. Stopping the timer in this manner does not set the timer state to signaled, so threads blocked in a wait operation on the timer remain blocked. However, it does cancel any pending completion routines.</p>
+<p>When the specified due time arrives, the timer becomes inactive and the optional APC is queued to the thread that set the timer. The state of the timer is set to signaled, the timer is reactivated using the specified period, and the thread that set the timer calls the completion routine when it enters an alertable wait state. If the timer is set before the thread enters an alertable wait state, the APC is canceled. For more information, see 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684954(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">QueueUserAPC</strong></a>. Note that APCs do not work as well as other signaling mechanisms  for thread pool threads because the system controls the lifetime of thread pool threads, so it is possible for a thread to be terminated before the notification is delivered. Instead of using the <em>pfnCompletionRoutine</em> parameter or another APC-based signaling mechanism, use a waitable object such as a timer created with <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682466(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CreateThreadpoolTimer</strong></a>. For I/O, use  an I/O completion object created with <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682464(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CreateThreadpoolIo</strong></a> or an <em>hEvent</em>-based <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684342(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">OVERLAPPED</strong></a> structure where the event can be passed to the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686273(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">SetThreadpoolWait</strong></a> function.</p>
+<p>If the thread that set the timer terminates and there is an associated completion routine, the timer is canceled. However, the state of the timer remains unchanged. If there is no completion routine, then terminating the thread has no effect on the timer.</p>
+<p>When a manual-reset timer is set to the signaled state, it remains in this state until 
+<strong>SetWaitableTimer</strong> is called to reset the timer. As a result, a periodic manual-reset timer is set to the signaled state when the initial due time arrives and remains signaled until it is reset. When a synchronization timer is set to the signaled state, it remains in this state until a thread completes a wait operation on the timer object.</p>
+<p>If the system time is adjusted, the due time of any outstanding absolute timers is adjusted.</p>
+<p>If the thread that called <strong>SetWaitableTimer</strong> exits, the timer is canceled. This stops the timer before it can be set to the signaled state and cancels outstanding APCs; it does not change the signaled state of the timer.</p>
+<p>To compile an application that uses this function, define <strong>_WIN32_WINNT</strong> as 0x0400 or later. For more information, see 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa383745(v=vs.85).aspx">Using the Windows Headers</a>.</p>
+<p>To use a timer to schedule an event for a window, use the <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms644906(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">SetTimer</strong></a> function.</p>
+<h2>Examples</h2>
+<p>For an example that uses 
+<strong>SetWaitableTimer</strong>, see 
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687008(v=vs.85).aspx">Using Waitable Timer Objects</a>.
+
+    </p>
+
+<h2>Requirements</h2>
+<table>
+<tbody><tr><th>
+<p>Minimum supported client</p>
+</th><td>Windows&nbsp;XP [desktop apps only]</td></tr>
+<tr><th>
+<p>Minimum supported server</p>
+</th><td>Windows Server&nbsp;2003 [desktop apps only]</td></tr>
+<tr><th>
+<p>Header</p>
+</th><td>
+<dl>
+<dt>WinBase.h on Windows&nbsp;XP, Windows Server&nbsp;2003, Windows&nbsp;Vista, Windows&nbsp;7, Windows Server&nbsp;2008, and Windows Server&nbsp;2008&nbsp;R2 (include Windows.h); </dt>
+<dt>Synchapi.h on Windows&nbsp;8 and Windows Server&nbsp;2012</dt>
+</dl>
+</td></tr>
+<tr><th>
+<p>Library</p>
+</th><td>
+<dl>
+<dt>Kernel32.lib</dt>
+</dl>
+</td></tr>
+<tr><th>
+<p>DLL</p>
+</th><td>
+<dl>
+<dt>Kernel32.dll</dt>
+</dl>
+</td></tr>
+</tbody></table>
+<h2><a id="see_also"></a>See also</h2>
+<dl>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms681985(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CancelWaitableTimer</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms682492(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">CreateWaitableTimer</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms684337(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">OpenWaitableTimer</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686360(v=vs.85).aspx">Synchronization Functions</a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686786(v=vs.85).aspx"><strong xmlns="http://www.w3.org/1999/xhtml">TimerAPCProc</strong></a>
+</dt>
+<dt>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms687012(v=vs.85).aspx">Waitable Timer Objects</a>
+</dt>
+</dl>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Build date: 11/16/2013</p>
+</div>
+</div>
+
+    
+
+
+
+<script id="CommentTemplate" type="text/x-jquery-tmpl">
+    <div class="communityContentAnnotation">
+        <a name="${Index}"></a>
+        <h3>
+            ${Title}
+        </h3>
+        <div class="communityContentAnnotationBody">
+            {{html Body}}
+        </div>
+        <div class="communityContentAnnotationInfo">
+            <div class="communityContentAnnotationAvatarContainer">
+                <a href="${UserAvatar.Href}" title="${UserAvatar.ToolTip}" class="communityContentAnnotationAvatar"><img src="${UserAvatar.ImageUrl}" alt="${UserAvatar.ImageAltText}" width="34" height="34" /></a>
+            </div>
+            <div class="communityContentAnnotationUserDateContainer">
+                <div class="communityContentAnnotationUserContainer">
+                    <a href="${UserAvatar.Href}">
+                        ${User}
+                    </a>
+                </div>
+                <div class="communityContentAnnotationDateContainer">
+                    <span>${Date}</span>
+                    
+                    {{if EditLink}}
+                        <span>
+                            <a href="${EditLink.Href}" title="${EditLink.ToolTip}" class="communityContentCommentEditLink">${EditLink.Title}</a>
+                        </span>
+                    {{/if}}
+
+                    {{if DeleteLink}}
+                        <span>
+                            <a href="${DeleteLink.Href}" title="${DeleteLink.ToolTip}" class="communityContentDeleteLink">${DeleteLink.Title}</a>
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div class="communityContentContainer">
+    <div id="CommunityContentHeader" class="communityContentHeader">
+        <div class="communityContentHeaderTitleContainer">
+            <h2>Community Additions</h2>
+                <a class="communityContentAddLink" href="http://msdn.microsoft.com/en-us/library/windows/desktop/community/add/ms686289(v=vs.85).aspx">
+                    <span class="communityContentAddButton" title="Add">
+                        ADD
+                    </span>
+                </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div id="CommunityComments" data-url="/en-us/library/windows/desktop/community/comments/ms686289(v=vs.85).aspx"><div class="communityContentAnnotation">         <a name="2"></a>         <h3>             What about power loss?         </h3>         <div class="communityContentAnnotationBody">             <p>Seems that on power loss, the timer is lost and never set to signalled status. Can anyone confirm this?</p><br><p>I've used this to restart a pc from a standby and hibernation status but when i remove the power cord (during pc sleeping), then it never turns on.</p>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="http://social.msdn.microsoft.com/profile/intoinside/" title="" class="communityContentAnnotationAvatar"><img src="./SetWaitableTimer function (Windows)_files/avatar.jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="http://social.msdn.microsoft.com/profile/intoinside/">                         intoinside                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>9/5/2012</span>                                                                                 </div>             </div>         </div>     </div><div class="communityContentAnnotation">         <a name="1"></a>         <h3>             Due Time and .NET         </h3>         <div class="communityContentAnnotationBody">             <p>The most thorough examination of this API from a .NET perspective I've seen can be found at the link below:<br><br>http://www.devsource.com/c/a/Languages/Waitable-Timers-in-NET-CSharp/<br><br>Personally, I couldn't find the source code but it was enough of an introduction to begin getting good results in my own project. My main reason for commenting here though is that the due time works quite correctly as a count-down by simply using the value of the Ticks property of a TimeSpan. <br><br>However, an ordinary DateTime in the future doesn't seem to work in the way shown in Jim's article and that some extra MSDN documentation suggested that the API accepts a FILETIME struct.<br><br>Thus, the following code works in .NET as a pDueTime argument (tested on Vista):<br></p><br><pre>long ticks = localTime.ToFileTimeUtc();</pre>         </div>         <div class="communityContentAnnotationInfo">             <div class="communityContentAnnotationAvatarContainer">                 <a href="http://social.msdn.microsoft.com/profile/lukepuplett/" title="" class="communityContentAnnotationAvatar"><img src="./SetWaitableTimer function (Windows)_files/avatar(1).jpg" alt="" width="34" height="34"></a>             </div>             <div class="communityContentAnnotationUserDateContainer">                 <div class="communityContentAnnotationUserContainer">                     <a href="http://social.msdn.microsoft.com/profile/lukepuplett/">                         LukePuplett                     </a>                 </div>                 <div class="communityContentAnnotationDateContainer">                     <span>8/11/2009</span>                                                                                 </div>             </div>         </div>     </div></div>
+</div>
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings.">
+
+
+ 
+</div>
+
+
+
+
+            </div>
+            <div class="clear"></div>
+        
+            
+    
+<input name="__RequestVerificationToken" type="hidden" value="L9TQl1ad_4xUvI1zpqFmUOBWxXXhiocrEt3tP_LeiB7_aKI88ECW1LUZ0Pv57gwtWljqObm2dABWEfNmy-OQKrukWXsGzwEExYx5Iy4toh42s1QvTjmdCc0zRMOG6IRpA5WxEQ2">
+<input id="ratingSubmitUrl" type="hidden" value="http://msdn.microsoft.com/en-us/library/feedback/add/ms686289(v=vs.85).aspx">
+<input id="isTopicRated" type="hidden" value="false">
+
+
+
+
+    
+
+
+    <div id="ux-footer" class="Chrome ltr">
+        
+            <div id="footerSock">
+                <div id="footerSockInner">
+                    <a name="feedback"></a>
+                    <div data-fragmentname="Survey" id="Fragment_Survey" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="DetailedLink">
+    
+    <div class="Content"></div>
+  </div>
+</div>
+<div class="rating" style="display: block;">
+    <div id="ratingSection1">
+        <div class="title">
+            Was this page helpful?
+        </div>
+        <div class="description">
+            Your feedback about this content is important.<br>Let us know what you think.
+        </div>
+        <div class="buttons">
+            <button id="ratingYes">Yes</button>
+            <button id="ratingNo">No</button>
+        </div>
+        <input id="ratingValue" type="hidden" value="">
+    </div>
+    <div id="ratingSection2">
+        <div class="title">
+            Additional feedback?
+        </div>
+        <textarea id="ratingText" rows="6" cols=""></textarea>
+        <div class="buttons">
+            <button id="ratingSubmit">Submit</button>
+            <button id="ratingSkipThis">Skip this</button>
+        </div>
+    </div>
+    <div id="ratingSection3">
+        <div class="title">
+            Thank you!
+        </div>
+        <div class="description">
+            We appreciate your feedback.
+        </div>
+    </div>
+    
+    
+    <div id="contentFeedbackQAContainer" style="display: none;"></div>
+</div>
+
+
+                    <div data-fragmentname="SockLinks" id="Fragment_SockLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="LinkList">
+    <div class="Links">
+      <ul class="LinkColumn" style="width: 100%">
+        <li>
+          <a href="http://go.microsoft.com/fwlink/p/?LinkId=317809" id="SockLinks_726_11" xmlns="http://www.w3.org/1999/xhtml">Find us on Facebook</a>
+        </li>
+        <li>
+          <a href="http://go.microsoft.com/fwlink/p/?LinkId=317811" id="SockLinks_726_12" xmlns="http://www.w3.org/1999/xhtml">Follow us on Twitter</a>
+        </li>
+        <li>
+          <a href="http://go.microsoft.com/fwlink/p/?linkid=301425" id="SockLinks_726_42" xmlns="http://www.w3.org/1999/xhtml">Get the newsletter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        <div id="footerContainer">
+            <div id="fourColumnFooter">
+                <div data-fragmentname="Column1" id="Fragment_Column1" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Centers</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://msdn.microsoft.com/windows" id="Column1_726_13" xmlns="http://www.w3.org/1999/xhtml">Dev Center Home</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/apps" id="Column1_726_14" xmlns="http://www.w3.org/1999/xhtml">Windows Store apps</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/ie" id="Column1_726_15" xmlns="http://www.w3.org/1999/xhtml">Internet Explorer</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/desktop" id="Column1_726_16" xmlns="http://www.w3.org/1999/xhtml">Desktop</a>
+          </li>
+          <li>
+            <a href="http://msdn.microsoft.com/windows/hardware" id="Column1_726_17" xmlns="http://www.w3.org/1999/xhtml">Hardware</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentname="Column2" id="Fragment_Column2" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Related developer sites</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285622" id="Column2_726_18" xmlns="http://www.w3.org/1999/xhtml">Microsoft Connect</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285623" id="Column2_726_19" xmlns="http://www.w3.org/1999/xhtml">.NET Framework</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282089" id="Column2_726_20" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280293" id="Column2_726_21" xmlns="http://www.w3.org/1999/xhtml">Windows Phone</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=282087" id="Column2_726_22" xmlns="http://www.w3.org/1999/xhtml">Windows Server</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Other Windows sites</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280294" id="Column2_726_23" xmlns="http://www.w3.org/1999/xhtml">Enterprise</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280295" id="Column2_726_24" xmlns="http://www.w3.org/1999/xhtml">Small business</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280296" id="Column2_726_25" xmlns="http://www.w3.org/1999/xhtml">Students</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=280297" id="Column2_726_26" xmlns="http://www.w3.org/1999/xhtml">Home users</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentname="Column3" id="Fragment_Column3" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Downloads</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=267554" id="Column3_726_27" xmlns="http://www.w3.org/1999/xhtml">Windows 8.1</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=328183" id="Column3_726_28" xmlns="http://www.w3.org/1999/xhtml">Windows SDK</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=316619" id="Column3_726_29" xmlns="http://www.w3.org/1999/xhtml">Visual Studio Express 2013</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285626" id="Column3_726_30" xmlns="http://www.w3.org/1999/xhtml">More downloads</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Support</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285632" id="Column3_726_43" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285633" id="Column3_726_44" xmlns="http://www.w3.org/1999/xhtml">More support options</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+                <div data-fragmentname="Column4" id="Fragment_Column4" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="ListOfLinkLists">
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Essentials</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285627" id="Column4_726_35" xmlns="http://www.w3.org/1999/xhtml">Windows APIs</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285628" id="Column4_726_36" xmlns="http://www.w3.org/1999/xhtml">Samples</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285629" id="Column4_726_37" xmlns="http://www.w3.org/1999/xhtml">Compatibility and certification</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285630" id="Column4_726_45" xmlns="http://www.w3.org/1999/xhtml">Desktop dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="LinkList" xmlns="http://www.w3.org/1999/xhtml">
+      <div class="LinkListTitle">Stay connected</div>
+      <div class="LinkListDescription"></div>
+      <div class="Links">
+        <ul class="LinkColumn" style="width: 100%">
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=285954" id="Column4_726_41" xmlns="http://www.w3.org/1999/xhtml">Microsoft events</a>
+          </li>
+          <li>
+            <a href="http://go.microsoft.com/fwlink/p/?linkid=313895" id="Column4_726_39" xmlns="http://www.w3.org/1999/xhtml">Windows App Builder Blog</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>              
+            </div>
+
+            <div id="baseFooterLogos">
+                <span class="microsoftlogo" title="Microsoft"></span>
+                <a href="http://msdn.microsoft.com/en-us" class="msdnlogo" title="MSDN"></a>
+            </div>
+        
+            <div id="baseFooter">
+                <div id="FooterCopyright">© 2014 Microsoft</div>
+                <div data-fragmentname="BaseFooterContent" id="Fragment_BaseFooterContent" xmlns="http://www.w3.org/1999/xhtml">
+  <div xmlns="http://www.w3.org/1999/xhtml">
+    <div xmlns:mtps="http://msdn2.microsoft.com/mtps">
+      <div data-fragmentname="BaseFooter" id="Fragment_BaseFooter">
+        
+        <div class="LinkList">
+          <div class="LinkListDescription"></div>
+          <div class="Links">
+            <ul class="LinkColumn horizontal">
+              <li>
+                <a href="http://msdn.microsoft.com/windows/apps/cc300389" id="BaseFooter_35351_1" xmlns="http://www.w3.org/1999/xhtml">Terms of Use</a>
+              </li>
+              <li>
+                <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx" id="BaseFooter_35351_2" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+              </li>
+              <li>
+                <a href="http://www.microsoft.com/info/privacy.mspx" id="BaseFooter_35351_3" xmlns="http://www.w3.org/1999/xhtml">Privacy and Cookies</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div data-fragmentname="HelloText" id="Fragment_HelloText">Hello from Seattle.
+</div>
+    </div>
+  </div>
+</div>  
+                    <form class="selectLocale" id="selectLocaleForm" action="http://msdn.microsoft.com/en-us/windows/desktop/SelectLocale">
+        <input type="hidden" name="fromPage" value="http%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2fwindows%2fdesktop%2fms686289(v%3dvs.85).aspx">
+        <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms686289(v=vs.85).aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="Change your language">United States (English)</a>
+    </form>    
+
+
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div> 
+
+
+            <div class="footerPrintView">
+                <div class="footerCopyrightPrintView">© 2014 Microsoft. All rights reserved.</div>
+            </div>
+
+            
+            
+    
+
+
+        
+            <input id="MtpsDevice" type="hidden" value="Default">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+        
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+<noscript>&lt;div&gt;&lt;img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;&lt;/div&gt;</noscript>
+
+
+
+
+
+
+
+
+
+<noscript>
+  &lt;a href="http://www.omniture.com" title="Web Analytics"&gt;
+    &lt;img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /&gt;
+  &lt;/a&gt;
+</noscript>
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="x4oyGw61YrUmIrT7ywsxAS5rQKTooLf0xuLGhHeKuhmgY27OrDh-RHjuBcgI0STHPrRc9e8iJg4dyok010537Yo9_MP4BEfVquhuUyVRzqtnGlI0oilcCtwYJ6S24WBEad8DJg2">
+</div>
+
+
+        </div>
+    <script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"http://i.msdn.microsoft.com\", \r\n\t\"js\": \"http://i2.msdn.microsoft.com\", \r\n\t\"css\": \"http://i3.msdn.microsoft.com\"\r\n});\r\n/**/" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js" },
+	{ txt: "//\n  var literalNormalizedUrl = \u0027/en-us/library/windows/desktop/ms686289(d=default,l=en-us,v=vs.85).aspx\u0027;\n  var wt_nvr_ru = \u0027WT_NVR_RU\u0027;\n  var wt_fpcdom = \u0027.microsoft.com\u0027;\n  var wt_domlist = \u0027msdn.microsoft.com\u0027;\n  var wt_pathlist = \u0027\u0027;\n  var wt_paramlist = \u0027DCSext.mtps_devcenter\u0027;\n  var wt_siteid = \u0027MSDN\u0027;\n  var gDomain = \u0027m.webtrends.com\u0027;\n  var gDcsId = \u0027dcsmgru7m99k7mqmgrhudo0k8_8c6m\u0027;\n  var gFpc = \u0027WT_FPC\u0027;\n\n\n\n  if (document.cookie.indexOf(gFpc + \"=\") == -1) {\n    var wtidJs = document.createElement(\"script\");\n    wtidJs.src = \"//\" + gDomain + \"/\" + gDcsId + \"/wtid.js\";\n    document.getElementsByTagName(\"head\")[0].appendChild(wtidJs);\n  }\n\n\n\n  var detectedLocale = \u0027en-us\u0027;\n  var wtsp = \u0027_msdn_\u0027;\n  var gTrackEvents = \u00270\u0027;\n/**/" },
+	{ txt: "/**/\n  var omni_guid = \"5e5bd206-8838-4fbb-81dd-60a9cae6ce73\";\n/**/" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Utilities,0:Topic,1:webtrendsscript,2:omni_rsid_MSDN,3:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Global/Content/Webtrends/resources:1,/Areas/Global/Content/Omniture/resources/MSDN:2,/Areas/Epx/Themes/Base/Content:3\u0026amp;hashKey=9B53C4D2FC34522DCF65A603244675F2" },
+	{ url: "http://i2.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026brand=MSDN\u0026loc=en-us\u0026Refinement=181\u0026focusOnInit=false\u0026iroot=windows%2fdesktop\u0026emptyWatermark=true\u0026searchButtonTooltip=Search" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:Header,1:Toc,1:NavigationResize;/Areas/Epx/Themes/Windows/Content:0,/Areas/Library/Content:1\u0026amp;hashKey=99DDAADE6AC1262DB88AE0B9843E352E" },
+	{ url: "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" },
+	{ url: "http://i2.msdn.microsoft.com/Combined.js?resources=0:CommunityContent,0:LibraryMemberFilter,1:Toc_Fixed,2:Rating,1:CodeSnippet,1:TopicNotInScope,1:CollapsibleArea,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1,/Areas/Epx/Themes/Base/Content:2\u0026amp;hashKey=488C881B21756E98E550B99E49CDD6B3" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+<script src="./SetWaitableTimer function (Windows)_files/broker-config.js"></script><div id="_WEDCSInsertedData" style="display: none;"><iframe id="_msnFrame" src="./SetWaitableTimer function (Windows)_files/saved_resource.htm" style="z-index:-1;height:1px;width:1px;display:none;visibility:hidden;" onload="javascript:MscomBeacon();"></iframe></div></body></html>

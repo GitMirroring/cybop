@@ -48,30 +48,30 @@ static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE
 
 /** The licence identification cyboi model. */
 static wchar_t* LICENCE_IDENTIFICATION_CYBOI_MODEL = L"CYBOI comes with NO WARRANTY,\n" \
-    "to the extent permitted by law.\n" \
-    "You may redistribute copies of CYBOI\n" \
-    "under the terms of the GNU General Public License.\n" \
-    "For more information about these matters,\n" \
-    "see the files named COPYING.";
+    L"to the extent permitted by law.\n" \
+    L"You may redistribute copies of CYBOI\n" \
+    L"under the terms of the GNU General Public License.\n" \
+    L"For more information about these matters,\n" \
+    L"see the files named COPYING.";
 static int* LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_220_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The help identification cyboi model. */
 static wchar_t* HELP_IDENTIFICATION_CYBOI_MODEL = L"Parametres have to be given!\n" \
-    "Usage: cyboi ARG [--knowledge=ARG] [--loglevel=ARG] [--logfile=ARG] [--help] [--version] [--test=ARG]\n" \
-    "\tARG\t\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the standard way to use cyboi.\n" \
-    "\t--knowledge=ARG\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the long form.\n" \
-    "\t--loglevel=ARG\tSets the log level. The ARG may be one of: off, error, warning, information, debug. The default is off.\n" \
-    "\t--logfile=ARG\tLogs messages to the file specified by ARG.\n" \
-    "\t--help\t\tDisplays this help message.\n" \
-    "\t--version\tDisplays the current version.\n" \
-    "\t--test=ARG\tStarts cyboi in test mode and executes the unit specified by ARG.\n" \
-    "Examples:\n" \
-    "\tcyboi resmedicinae/run.cybol\n" \
-    "\tcyboi --knowledge=resmedicinae/run.cybol\n" \
-    "\tcyboi --knowledge=resmedicinae/run.cybol --loglevel=error --logfile=error.log\n" \
-    "\tcyboi --test=all\n" \
-    "\tcyboi --test=calculator\n" \
-    "Report bugs to <cybop-developers@nongnu.org> or <christian.heller@tuxtax.de>.";
+    L"Usage: cyboi ARG [--knowledge=ARG] [--loglevel=ARG] [--logfile=ARG] [--help] [--version] [--test=ARG]\n" \
+	L"\tARG\t\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the standard way to use cyboi.\n" \
+	L"\t--knowledge=ARG\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the long form.\n" \
+	L"\t--loglevel=ARG\tSets the log level. The ARG may be one of: off, error, warning, information, debug. The default is off.\n" \
+	L"\t--logfile=ARG\tLogs messages to the file specified by ARG.\n" \
+	L"\t--help\t\tDisplays this help message.\n" \
+	L"\t--version\tDisplays the current version.\n" \
+	L"\t--test=ARG\tStarts cyboi in test mode and executes the unit specified by ARG.\n" \
+	L"Examples:\n" \
+	L"\tcyboi resmedicinae/run.cybol\n" \
+	L"\tcyboi --knowledge=resmedicinae/run.cybol\n" \
+	L"\tcyboi --knowledge=resmedicinae/run.cybol --loglevel=error --logfile=error.log\n" \
+	L"\tcyboi --test=all\n" \
+	L"\tcyboi --test=calculator\n" \
+	L"Report bugs to <cybop-developers@nongnu.org> or <christian.heller@tuxtax.de>.";
 static int* HELP_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_966_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* IDENTIFICATION_CYBOI_MODEL_CONSTANT_SOURCE */

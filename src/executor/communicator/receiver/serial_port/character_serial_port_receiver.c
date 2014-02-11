@@ -43,6 +43,12 @@
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../logger/logger.c"
 
+#ifdef _MSC_VER
+#include <io.h>
+#include "../../../../windows/cyboi_win_mapper.c"
+#endif
+
+
 /**
  * Receives a serial port character.
  *

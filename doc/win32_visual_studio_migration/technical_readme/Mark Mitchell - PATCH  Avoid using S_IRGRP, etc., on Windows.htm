@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML//EN">
+<!-- saved from url=(0058)http://sourceware.org/ml/gdb-patches/2005-03/msg00152.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mark Mitchell - PATCH: Avoid using S_IRGRP, etc., on Windows</title>
+<style type="text/css"></style></head>
+<body>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--htdig_noindex-->
+<p>This is the mail archive of the 
+<tt>gdb-patches@sources.redhat.com</tt>
+mailing list for the <a href="http://sourceware.org/gdb/">GDB project</a>.
+
+
+<!--/htdig_noindex-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<!--htdig_noindex-->
+</p><hr>
+<table border="0">
+  <tbody><tr><th align="left">Index Nav:</th>
+      <td colspan="2">
+        [<a href="http://sourceware.org/ml/gdb-patches/2005-03/index.html#00152">Date&nbsp;Index</a>] [<a href="http://sourceware.org/ml/gdb-patches/2005-03/subjects.html#00152">Subject&nbsp;Index</a>] [<a href="http://sourceware.org/ml/gdb-patches/2005-03/authors.html#00152">Author&nbsp;Index</a>] [<a href="http://sourceware.org/ml/gdb-patches/2005-03/threads.html#00152">Thread&nbsp;Index</a>]
+      </td>
+  </tr>
+  <tr><th align="left">Message Nav:</th>
+      <td>[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00151.html">Date&nbsp;Prev</a>]&nbsp;[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00153.html">Date&nbsp;Next</a>]</td>
+      <td>[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00151.html">Thread&nbsp;Prev</a>]&nbsp;[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00211.html">Thread&nbsp;Next</a>]</td>
+  </tr>
+  <tr><th align="left">Other format:</th>
+  <td>[<a href="http://sourceware.org/cgi-bin/get-raw-msg?listname=gdb-patches&date=2005-03&msgid=200503091920.j29JKRRM007735%40sethra.codesourcery.com">Raw text</a>]</td>
+  </tr>
+</tbody></table>
+<!--/htdig_noindex-->
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<h1>PATCH: Avoid using S_IRGRP, etc., on Windows</h1>
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<ul>
+<li><em>From</em>: Mark Mitchell &lt;mark at codesourcery dot com&gt;</li>
+<li><em>To</em>: gdb-patches at sources dot redhat dot com</li>
+<li><em>Date</em>: Wed, 9 Mar 2005 11:20:27 -0800</li>
+<li><em>Subject</em>: PATCH: Avoid using S_IRGRP, etc., on Windows</li>
+<li><em>Reply-to</em>: mark at codesourcery dot com</li>
+</ul>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+<hr>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>Windows doesn't define all of the permissions macros (e.g., S_IRGRP)
+because its filesystems don't have that concept.  This patch checks
+that the macros are defined before trying to use them.
+
+OK?
+
+--
+Mark Mitchell
+CodeSourcery, LLC
+mark@codesourcery.com
+
+2005-03-09  Mark Mitchell  &lt;mark@codesourcery.com&gt;
+
+	* remote-fileo.c (remote_fileio_mode_to_host): Accomodate lack of
+	S_IRGRP and related macros.
+	(remote_fileio_mode_to_target): Likewise.
+
+Index: remote-fileio.c
+===================================================================
+RCS file: /cvs/src/src/gdb/remote-fileio.c,v
+retrieving revision 1.12
+diff -c -5 -p -r1.12 remote-fileio.c
+*** remote-fileio.c	14 Feb 2005 18:10:10 -0000	1.12
+--- remote-fileio.c	9 Mar 2005 19:15:32 -0000
+*************** remote_fileio_mode_to_host (long mode, i
+*** 160,181 ****
+--- 160,191 ----
+      hmode |= S_IRUSR;
+    if (mode &amp; FILEIO_S_IWUSR)
+      hmode |= S_IWUSR;
+    if (mode &amp; FILEIO_S_IXUSR)
+      hmode |= S_IXUSR;
++ #ifdef S_IRGRP
+    if (mode &amp; FILEIO_S_IRGRP)
+      hmode |= S_IRGRP;
++ #endif
++ #ifdef S_IWGRP
+    if (mode &amp; FILEIO_S_IWGRP)
+      hmode |= S_IWGRP;
++ #endif
++ #ifdef S_IXGRP
+    if (mode &amp; FILEIO_S_IXGRP)
+      hmode |= S_IXGRP;
++ #endif
+    if (mode &amp; FILEIO_S_IROTH)
+      hmode |= S_IROTH;
++ #ifdef S_IWOTH
+    if (mode &amp; FILEIO_S_IWOTH)
+      hmode |= S_IWOTH;
++ #endif
++ #ifdef S_IXOTH
+    if (mode &amp; FILEIO_S_IXOTH)
+      hmode |= S_IXOTH;
++ #endif
+    return hmode;
+  }
+  
+  static LONGEST
+  remote_fileio_mode_to_target (mode_t mode)
+*************** remote_fileio_mode_to_target (mode_t mod
+*** 192,213 ****
+--- 202,233 ----
+      tmode |= FILEIO_S_IRUSR;
+    if (mode &amp; S_IWUSR)
+      tmode |= FILEIO_S_IWUSR;
+    if (mode &amp; S_IXUSR)
+      tmode |= FILEIO_S_IXUSR;
++ #ifdef S_IRGRP
+    if (mode &amp; S_IRGRP)
+      tmode |= FILEIO_S_IRGRP;
++ #endif
++ #ifdef S_IWRGRP
+    if (mode &amp; S_IWGRP)
+      tmode |= FILEIO_S_IWGRP;
++ #endif
++ #ifdef S_IXGRP
+    if (mode &amp; S_IXGRP)
+      tmode |= FILEIO_S_IXGRP;
++ #endif
+    if (mode &amp; S_IROTH)
+      tmode |= FILEIO_S_IROTH;
++ #ifdef S_IWOTH
+    if (mode &amp; S_IWOTH)
+      tmode |= FILEIO_S_IWOTH;
++ #endif
++ #ifdef S_IXOTH
+    if (mode &amp; S_IXOTH)
+      tmode |= FILEIO_S_IXOTH;
++ #endif
+    return tmode;
+  }
+  
+  static int
+  remote_fileio_errno_to_target (int error)
+
+</pre>
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+<hr>
+<ul><li><strong>Follow-Ups</strong>:
+<ul>
+<li><strong><a name="00211" href="http://sourceware.org/ml/gdb-patches/2005-03/msg00211.html">Re: PATCH: Avoid using S_IRGRP, etc., on Windows</a></strong>
+<ul><li><em>From:</em> Daniel Jacobowitz</li></ul></li>
+</ul></li></ul>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<!--htdig_noindex-->
+<table border="0">
+  <tbody><tr><th align="left">Index Nav:</th>
+      <td colspan="2">
+        [<a href="http://sourceware.org/ml/gdb-patches/2005-03/index.html#00152">Date&nbsp;Index</a>] [<a href="http://sourceware.org/ml/gdb-patches/2005-03/subjects.html#00152">Subject&nbsp;Index</a>] [<a href="http://sourceware.org/ml/gdb-patches/2005-03/authors.html#00152">Author&nbsp;Index</a>] [<a href="http://sourceware.org/ml/gdb-patches/2005-03/threads.html#00152">Thread&nbsp;Index</a>]
+      </td>
+  </tr>
+  <tr><th align="left">Message Nav:</th>
+      <td>[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00151.html">Date&nbsp;Prev</a>]&nbsp;[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00153.html">Date&nbsp;Next</a>]</td>
+      <td>[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00151.html">Thread&nbsp;Prev</a>]&nbsp;[<a href="http://sourceware.org/ml/gdb-patches/2005-03/msg00211.html">Thread&nbsp;Next</a>]</td>
+  </tr>
+</tbody></table>
+<!--/htdig_noindex-->
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+
+
+</body></html>

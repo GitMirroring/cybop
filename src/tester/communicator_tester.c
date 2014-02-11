@@ -46,13 +46,15 @@
 //?? and freeglut.h would not be needed.
 //?? #include <GL/freeglut.h>
 #include <sys/types.h>
-#include <dirent.h>
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef _MSC_VER
+#include <dirent.h>
 #include <unistd.h>
+#endif
 #include <wchar.h>
 
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"

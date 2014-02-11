@@ -35,8 +35,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <termios.h>
+#ifndef _MSC_VER
 #include <unistd.h>
-
+#endif
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/modifier/copier/array_copier.c"
 #include "../executor/modifier/copier/item_copier.c"

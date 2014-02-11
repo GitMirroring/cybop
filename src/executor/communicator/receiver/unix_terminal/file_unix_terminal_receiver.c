@@ -28,7 +28,9 @@
 
 #include <errno.h>
 #include <stdio.h>
+#ifndef _MSC_VER
 #include <unistd.h>
+#endif
 #include <wchar.h>
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

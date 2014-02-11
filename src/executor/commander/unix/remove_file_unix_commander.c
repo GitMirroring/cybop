@@ -25,9 +25,9 @@
 
 #ifndef REMOVE_FILE_UNIX_COMMANDER_SOURCE
 #define REMOVE_FILE_UNIX_COMMANDER_SOURCE
-
+#ifndef _MSC_VER
 #include <unistd.h>
-
+#endif
 #include "../../../executor/runner/executor.c"
 #include "../../../constant/model/command/unix_command_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"

@@ -153,7 +153,16 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                             calculate_integer_multiply((void*) &nma, (void*) &es);
 
                             // The new array elements.
-                            void* na = *a + (ma - nma);
+#ifdef _MSC_VER
+							//Todo: Funktionstest Cast
+							//size_t i = (size_t) *a;
+							//i += (ma - nma);
+							//void* na = (void*) i;
+
+							void* na = (size_t) *a + (ma - nma);
+#else
+							void* na = *a + (ma - nma);
+#endif
 
                             // The temporary size_t variable.
                             //

@@ -136,7 +136,7 @@ void receive_win32_display_process(void* p0, void* p1, void* p2, void* p3, void*
             // Sent when a window is closed.
 
 //??            PostQuitMessage(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            DestroyWindow(w);
+            DestroyWindow((HWND)w);
 
         } else if (t == WM_CREATE) {
 

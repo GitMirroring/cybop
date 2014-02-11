@@ -41,8 +41,9 @@
 #include <pthread.h>
 #include <signal.h>
 #include <stdio.h>
+#ifndef _MSC_VER
 #include <unistd.h>
-
+#endif
 #include "../../../../constant/channel/cybol_channel.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"
@@ -418,8 +419,9 @@ void sense_cyboi_socket(void* p0) {
 #include <pthread.h>
 #include <signal.h>
 #include <stdio.h>
+#ifndef _MSC_VER
 #include <unistd.h>
-
+#endif
 #include "../../../../constant/channel/cybol_channel.c"
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/http_request_cybol_model.c"

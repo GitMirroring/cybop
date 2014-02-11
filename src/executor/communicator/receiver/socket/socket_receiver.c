@@ -35,7 +35,9 @@
 #include <pthread.h>
 #include <signal.h>
 #include <stdio.h>
+#ifndef _MSC_VER
 #include <unistd.h>
+#endif
 */
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"

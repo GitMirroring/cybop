@@ -1,0 +1,1086 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0066)http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="description" content="Just another WordPress.com site">
+		<title>C/C++ size_t and ptrdiff_t | Binglong's space</title>
+		<link rel="pingback" href="http://binglongx.wordpress.com/xmlrpc.php">
+		<link rel="shortcut icon" href="http://s2.wp.com/wp-content/themes/pub/under-the-influence/images/favicon.ico?m=1276191855g">
+		<link rel="apple-touch-icon" href="http://s2.wp.com/wp-content/themes/pub/under-the-influence/images/iphone.png?m=1391152429g">
+		<!--[if IE 8]>
+		<style type="text/css">
+			.entry img.size-full,
+			.entry img.size-large,
+			.entry img.size-medium {
+				width: auto;
+			}
+		</style>
+		<![endif]-->
+		<!--[if lte IE 7]>
+		<style type="text/css">
+			/* these had been applied using CSS hacks in the main stylesheet. I moved them
+			to this conditional comment - kjacobson */
+			.alignleft img, .alignright img {
+				min-width: 150px;
+			}
+			.gallery-item {
+				min-width: 150px;
+			}
+		</style>
+		<![endif]-->
+		<!--[if lte IE 6]>
+		<style type="text/css">
+			/* box-model fix. side bar is floated right and this was falling below it, not beside it, in IE6 */
+			.singlepage .page {
+				width: 768px;
+			}
+			/* IE6 can't handle the transparency in these PNGs (and filter: wasn't effective), so load GIFs instead and suffer
+			slight jaggies */
+			.corner_tr { right: -7px; }
+			.corner_tl, .corner_tr {
+				background-image: url(http://s2.wp.com/wp-content/themes/pub/under-the-influence/images/kreis_voll.gif);
+			}
+			.corner_br { right: -1px; }
+			.corner_br, .corner_bl {
+				background-image: url(http://s2.wp.com/wp-content/themes/pub/under-the-influence/images/kreis.gif);
+				bottom: -2px;
+			}
+			/* trigger hasLayout on decorative lines */
+			#footer .line {
+				height: 1%;
+			}
+		</style>
+		<![endif]-->
+				<link rel="alternate" type="application/rss+xml" title="Binglong&#39;s space » Feed" href="http://binglongx.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Binglong&#39;s space » Comments Feed" href="http://binglongx.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Binglong&#39;s space » C/C++ size_t and ptrdiff_t Comments Feed" href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" id="all-css-0" href="./C C++ size_t and ptrdiff_t   Binglong's space_files/saved_resource" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/saved_resource(1)"></script>
+<link rel="stylesheet" id="all-css-0" href="./C C++ size_t and ptrdiff_t   Binglong's space_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='http://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://binglongx.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://binglongx.wordpress.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Visual Basic 6 calling ActiveX" href="http://binglongx.wordpress.com/2011/02/28/visual-basic-6-calling-activex/">
+<link rel="next" title="Redistribute dependencies in Visual Studio Setup Project" href="http://binglongx.wordpress.com/2011/03/03/redistribute-dependencies-in-visual-studio-setup-project/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="./C C++ size_t and ptrdiff_t   Binglong's space_files/C C++ size_t and ptrdiff_t   Binglong's space.htm">
+<link rel="shortlink" href="http://wp.me/p1avtR-7l">
+<link rel="alternate" type="application/json+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=json&url=http%3A%2F%2Fbinglongx.wordpress.com%2F2011%2F03%2F02%2Fcc-size_t-and-ptrdiff_t%2F&for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="http://public-api.wordpress.com/oembed/1.0/?format=xml&url=http%3A%2F%2Fbinglongx.wordpress.com%2F2011%2F03%2F02%2Fcc-size_t-and-ptrdiff_t%2F&for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="C/C++ size_t and ptrdiff_t">
+<meta property="og:url" content="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/">
+<meta property="og:description" content="size_t is introduced in C, “which is the unsigned integer type of the result of the sizeof operator” [C99 7.17.2]. Similarly, ptrdiff_t is defined in C, “which is the signed integer type of the res...">
+<meta property="article:published_time" content="2011-03-03T03:47:00+00:00">
+<meta property="article:modified_time" content="2011-08-24T16:08:54+00:00">
+<meta property="article:author" content="http://binglongx.wordpress.com/author/binglongx/">
+<meta property="og:site_name" content="Binglong&#39;s space">
+<meta property="og:image" content="http://wordpress.com/i/blank.jpg?m=1383295312g">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:card" content="summary">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311975824g" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1311975824g" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1391188133g">
+<link rel="openid.server" href="http://binglongx.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://binglongx.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://binglongx.wordpress.com/osd.xml" title="Binglong&#39;s space">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+<meta name="application-name" content="Binglong&#39;s space"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Just another WordPress.com site"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://binglongx.wordpress.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><style type="text/css">
+		#header {
+		background: url(http://binglongx.files.wordpress.com/2010/10/cropped-wordpress_headerimage_freshpondsvillage_980x262.jpg) no-repeat center;
+		width: 980px;
+		height: 140px;
+	}
+			#header {
+		height: 105px;
+	}
+	#header h1,#header h1 a,#header h1 a:visited {
+		color: #fff;
+	}
+	#header h1 a:hover {
+		border-bottom: 2px dotted #fff;
+	}
+	#header .description {
+		color: #fff;
+	}
+		</style>
+<script type="text/javascript" src="http://partner.googleadservices.com/gampad/google_service.js">
+</script>
+<script type="text/javascript">
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script><script src="http://partner.googleadservices.com/gampad/google_ads.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="http://c.amazon-adsystem.com/aax2/amzn_ads.js"></script>
+<script type="text/javascript">
+try { amznads.getAds("3033","300x250"); } catch(e) { /* ignore */ }
+</script><script type="text/javascript" src="http://aax.amazon-adsystem.com/e/dtb/bid?src=3033&u=http%3A%2F%2Fbinglongx.wordpress.com%2F2011%2F03%2F02%2Fcc-size_t-and-ptrdiff_t%2F&cb=9146172&sz=300x250"></script>
+<script type="text/javascript">
+var amznKeys = amznads.getKeys();
+if (typeof amznKeys != "undefined" && amznKeys != "") { for (var i =0; i < amznKeys.length; i++) { var key = amznKeys[i]; GA_googleAddAttr("amzn", key);} }
+document.close();
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post_adsafe"); }
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 17280631, pt: 'permalink', wa: 0, as: 1, domain: 'binglongx.wordpress.com', url: 'http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/', gid: '', };
+</script>
+<style id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/ga.js"></script>
+			<link rel="stylesheet" href="./C C++ size_t and ptrdiff_t   Binglong's space_files/saved_resource(2)" type="text/css" media="screen">
+	<link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./C C++ size_t and ptrdiff_t   Binglong's space_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./C C++ size_t and ptrdiff_t   Binglong's space_files/services.css"></head>
+	<body class="single single-post postid-455 single-format-standard mp6 highlander-enabled highlander-light" style="">
+		<div class="ornament"></div>
+		<div id="page">
+			<div id="header">
+								<h1>
+					<a href="http://binglongx.wordpress.com/">
+						Binglong's space					</a>
+				</h1>
+						<p class="description">
+				Just another WordPress.com site			</p>
+					</div><!--#header-->
+
+		<div id="navigation">
+				<ul class="menu">
+		<li class="page_item page-item-2"><a href="http://binglongx.wordpress.com/about/">About</a></li>
+	</ul>
+		</div>
+<div id="content_container">
+	<div id="sidebar">
+	<ul>
+				<li></li>
+	</ul>
+	<ul>
+		<li class="categories"><h2>Categories</h2><ul>	<li class="cat-item cat-item-4885"><a href="http://binglongx.wordpress.com/category/net-c/" title="View all posts filed under .NET / C#">.NET / C#</a> (28)
+</li>
+	<li class="cat-item cat-item-18127"><a href="http://binglongx.wordpress.com/category/algorithm/" title="View all posts filed under Algorithm">Algorithm</a> (4)
+</li>
+	<li class="cat-item cat-item-641922"><a href="http://binglongx.wordpress.com/category/android/" title="View all posts filed under Android">Android</a> (16)
+</li>
+	<li class="cat-item cat-item-91"><a href="http://binglongx.wordpress.com/category/blogging/" title="View all posts filed under Blogging">Blogging</a> (6)
+</li>
+	<li class="cat-item cat-item-2426"><a href="http://binglongx.wordpress.com/category/c/" title="View all posts filed under C++">C++</a> (167)
+</li>
+	<li class="cat-item cat-item-9012"><a href="http://binglongx.wordpress.com/category/car/" title="View all posts filed under Car">Car</a> (14)
+</li>
+	<li class="cat-item cat-item-23902"><a href="http://binglongx.wordpress.com/category/computer-and-internet/" title="View all posts filed under Computer and Internet">Computer and Internet</a> (69)
+</li>
+	<li class="cat-item cat-item-400"><a href="http://binglongx.wordpress.com/category/home/" title="View all posts filed under Home">Home</a> (1)
+</li>
+	<li class="cat-item cat-item-124"><a href="http://binglongx.wordpress.com/category/life/" title="View all posts filed under Life">Life</a> (73)
+</li>
+	<li class="cat-item cat-item-22939"><a href="http://binglongx.wordpress.com/category/opengl/" title="View all posts filed under OpenGL">OpenGL</a> (5)
+</li>
+	<li class="cat-item cat-item-2015216"><a href="http://binglongx.wordpress.com/category/openscenegraph/" title="View all posts filed under OpenSceneGraph">OpenSceneGraph</a> (3)
+</li>
+	<li class="cat-item cat-item-832"><a href="http://binglongx.wordpress.com/category/python/" title="View all posts filed under Python">Python</a> (1)
+</li>
+	<li class="cat-item cat-item-668"><a href="http://binglongx.wordpress.com/category/research/" title="View all posts filed under Research">Research</a> (3)
+</li>
+	<li class="cat-item cat-item-6009"><a href="http://binglongx.wordpress.com/category/smart-phone/" title="View all posts filed under Smart Phone">Smart Phone</a> (9)
+</li>
+	<li class="cat-item cat-item-934893"><a href="http://binglongx.wordpress.com/category/touchpad/" title="View all posts filed under TouchPad">TouchPad</a> (8)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://binglongx.wordpress.com/category/uncategorized/" title="View all posts filed under Uncategorized">Uncategorized</a> (6)
+</li>
+	<li class="cat-item cat-item-811"><a href="http://binglongx.wordpress.com/category/voip/" title="View all posts filed under VoIP">VoIP</a> (6)
+</li>
+</ul></li>	</ul>
+	<ul>
+				<li>
+			<form class="searchform" method="get" action="http://binglongx.wordpress.com/">
+	<input onfocus="if(this.value==this.defaultValue) this.value=&#39;&#39;;" class="search" name="s" type="text" value="Search..." tabindex="1">
+</form><!--END #searchform-->		</li>
+			</ul>
+</div>	<div class="navigation">
+		« <a href="http://binglongx.wordpress.com/2011/02/28/visual-basic-6-calling-activex/" rel="prev">Visual Basic 6 calling&nbsp;ActiveX</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="http://binglongx.wordpress.com/2011/03/03/redistribute-dependencies-in-visual-studio-setup-project/" rel="next">Redistribute dependencies in Visual Studio Setup&nbsp;Project</a> »	</div><!--.navigation-->
+
+	<div id="content" class="singlepage">
+			<div class="post-455 post type-post status-publish format-standard hentry category-c tag-c tag-ilp tag-performance tag-portability tag-ptrdiff_t tag-size_t" id="post-455">
+			<h2>C/C++ size_t and&nbsp;ptrdiff_t</h2>
+						<div class="entry">
+				<p><font face="Courier New">size_t</font> is introduced in C, “<strong><em>which is the unsigned integer type of the result of the </em><font face="Courier New">sizeof</font><em> operator</em></strong>” [C99 7.17.2]. Similarly, <font face="Courier New">ptrdiff_t</font> is defined in C, “<em><strong>which is the signed integer type of the result of subtracting two pointers</strong></em>” [C99 7.17.2]. Both of them are <font face="Courier New">typedef</font> (i.e., not a distinct type) in the C header <font face="Courier New">stddef.h</font>.</p>
+<p>C++ just inherits these C features (like other standard C libraries) [C++03 18.1]. In C++, both <font face="Courier New">size_t</font> and <font face="Courier New">ptrdiff_t</font> are available in both global and std namespaces (as <font face="Courier New">::size_t</font>, <font face="Courier New">std::size_t</font>, and <font face="Courier New">ptrdiff_t</font>, <font face="Courier New">std::ptrdiff_t</font>) [C++03 D.5.2]. </p>
+<p>In C, you may also find in some implementations the special integer types <font face="Courier New">uintptr_t</font> and <font face="Courier New">intptr_t</font>, equivalent to <font face="Courier New">size_t</font> and <font face="Courier New">ptrdiff_t</font>. (In Windows SDK, you can find similar <font face="Courier New">UINT_PTR</font> and <font face="Courier New">INT_PTR</font>.) These types are integer types, but they can safely hold pointers without losing bits. You can perform pointer arithmetic and cast it back to pointer, given that you know what you are doing. C++ does not take these special integer types as its integral parts, and discourages uses of them for good reasons: type safety.</p>
+<p>So why do <font face="Courier New">size_t</font> and <font face="Courier New">ptrdiff_t</font> exist? Can’t I just use my favorite unsigned/signed integer types to represent the object size and perform looping, indexing and address/pointer arithmetic? That was the case of K&amp;R C, the predecessor of standardized C. The problem is two-fold: portability and performance.</p>
+<p>In the C/C++ world, integer types and pointer are very close relatives, but they differ too. Depending on architecture, integer types may have a different width from a pointer. Commonly, the architecture data model is denoted as <em><strong><font color="#ff0000">I<font color="#0000ff">a</font>L<font color="#0000ff">b</font>P</font><font color="#0000ff">c</font></strong></em>, or sometimes <em><strong><font color="#ff0000">I<font color="#0000ff">a</font>L<font color="#0000ff">b<font color="#ff0000">LL</font>d</font>P</font><font color="#0000ff">c</font></strong></em>. Where <font color="#ff0000"><strong><em>I/L/LL/P</em></strong></font> means integer/long/long long/pointer, and <font color="#0000ff"><strong><em>a/b/c/d</em></strong></font> means with width of the type in bits. For example, if you remember your old Visual C++ 1.x days, DOS huge model was I16L32P32, DOS tiny model was I16L32P16. Win32 is I32L32P32 (i.e., ILP32, flat perfect model). Win32_x64 is I32L32P64 (IL32P64). Now let’s try to use different integer types to represent object size, and see how pointer arithmetic works as an example.</p>
+<ul>
+<li><font face="Courier New">unsigned int</font>:
+<ul>
+<li><font color="#008000">DOS_tiny and Win32: Pointer shares the same width with object size, no problem.</font> </li>
+<li><font color="#ff0000">DOS_huge and Win32_x64: Pointer is wider than object size and pointer arithmetic is broken!</font> For example p+obj_size*10 may not point to the place you want due to silent overflow in multiplication. </li>
+</ul>
+</li>
+<li><font face="Courier New">unsigned long</font>:
+<ul>
+<li><font color="#008000">DOS_huge and Win32: no problem</font> </li>
+<li><font color="#ff0000">Win32_x64: Pointer is wider and pointer arithmetic is broken.</font> </li>
+<li><font color="#ff8040">DOS_tiny:</font> object size is wider than pointer, so pointer arithmetic is okay. However, <font color="#ff8040">it comes with performance hit</font>, because, in I16L32P16, representing object size with a long would take an extra and unnecessary 16-bit word, costs more in both storage and calculation. </li>
+</ul>
+</li>
+</ul>
+<p>In summary, an explicit integer type (either <font face="Courier New">unsigned int</font> or <font face="Courier New">unsigned long</font>) is not a good choice to represent object size when your code needs to work on different architectures.</p>
+<p>So <font face="Courier New">size_t</font> comes to rescue. Simply put, <font color="#0000ff"><font face="Courier New"><strong>size_t</strong></font> is an unsigned integer type that is <strong>wide enough for a pointer</strong>, but <strong>not too wide to hurt performance</strong></font>. <font face="Courier New">ptrdiff_t</font> is its signed cousin. In most cases, you don’t need to know what they really are, but you focus on their functionalities: representing object size / address difference. The C/C++ implementation makes sure that they are the right integer types good for their purposes.</p>
+<p>It is elegant if you plan early and use <font face="Courier New">size_t</font> or <font face="Courier New">ptrdiff_t</font> when writing code that involves sizing, looping, indexing and pointer arithmetic. However, chances are that you have existing code that uses explicit integer types (<font face="Courier New">unsigned/signed int/long</font>) and wants to perform sizing, looping, indexing and pointer arithmetic. In general, there is no safe and easy way to perform the conversion, because in theory you would not know which type is wider considering the code could be ported to different platforms (unless you use <a href="http://www.boost.org/"><em><strong>boost</strong></em></a>ic compile-time type inference). Given that most modern platforms have non-narrower pointer than various integer types, <strong><em><font color="#0000ff">the preferred solution is to convert these explicit integer types to <font face="Courier New">size_t</font> or <font face="Courier New">ptrdiff_t</font> when mixed code has to happen</font></em></strong>. Portability in mind, there is no explicit integer type that matches a pointer. If there is, they are <font face="Courier New">size_t</font> and <font face="Courier New">ptrdiff_t</font> anyway.</p>
+<p>There was times that some platforms incorrectly defined <font face="Courier New">size_t</font> as a signed integer type, for example GCC prior to 2.4 on some Unix platforms. But this was not standard conformant and GCC quickly fixed it.</p>
+<p><strong><em>References</em></strong>     <br><a href="http://std.dkuug.dk/JTC1/SC22/WG14/www/docs/n843.htm">C99 Draft (N843)</a>     <br><a href="http://openassist.googlecode.com/files/C%2B%2B%20Standard%20-%20ANSI%20ISO%20IEC%2014882%202003.pdf">C++2003</a>     <br><a href="http://www.eetimes.com/discussion/programming-pointers/4026076/Why-size-t-matters">Why size_t matters</a>     <br><a href="http://www.eetimes.com/discussion/programming-pointers/4026118/Further-insights-into-size-t">Further insights into size_t</a>     <br><a href="http://www.viva64.com/en/a/0050/">About size_t and ptrdiff_t</a>     <br><a href="http://www.cs.utah.edu/dept/old/texinfo/glibc-manual-0.02/library_30.html">Library Maintenance – GNU C</a></p>
+
+<div class="wpa" style="position: relative; width:300px; text-align: center; padding: 0; margin: 10px auto; overflow: hidden; clear: both;">
+<a style="position: absolute; text-align: left; display: block; font: 9px/1 sans-serif; text-decoration: underline;" href="http://en.wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Under the Influence";
+		var wpcom_adclk_slot = "wpcom_below_post_adsafe";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//stats.wordpress.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "extsearch");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "binglongx.wordpress.com");
+GA_googleAddAttr("BlogId", "17280631");
+GA_googleAddAttr("PageURL", "http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/");
+GA_googleAddAttr("AdSafe", "1");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "c");
+GA_googleAddAttr("Tag", "c");
+GA_googleAddAttr("Tag", "ilp");
+GA_googleAddAttr("Tag", "performance");
+GA_googleAddAttr("Tag", "portability");
+GA_googleAddAttr("Tag", "ptrdiff_t");
+GA_googleAddAttr("Tag", "size_t");
+GA_googleAddAttr("Partner", "AOL");
+GA_googleAddAttr("theme_bg", "ffffff");
+GA_googleAddAttr("theme_text", "333333");
+GA_googleAddAttr("theme_link", "619500");
+GA_googleAddAttr("theme_border", "9bbc57");
+GA_googleAddAttr("theme_url", "619500");
+GA_googleAddAdSensePageAttr("google_page_url", "http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/");
+GA_googleFillSlot("wpcom_below_post_adsafe");
+}
+</script>
+</div>
+<style type="text/css">
+div.wpa>div { margin-top: 1em; } #google_ads_div_wpcom_below_post_adsafe_ad_container { display: block !important; }
+</style>
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//stats.wordpress.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled"><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-17280631-455-52f13be2bf9e1" data-src="//widgets.wp.com/likes/#blog_id=17280631&amp;post_id=455&amp;origin=binglongx.wordpress.com&amp;obj_id=17280631-455-52f13be2bf9e1" data-name="like-post-frame-17280631-455-52f13be2bf9e1"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-17280631-455-52f13be2bf9e1" height="55px" width="100%" frameborder="0" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/saved_resource.htm" style="display: inline;"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<p class="jp-relatedposts-post jp-relatedposts-post0" data-post-format="false"><strong class="jp-relatedposts-post-title"><a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/?relatedposts_to=1278&relatedposts_order=0" title="Using C++11’s Smart Pointers
+
+This is a pretty clean tutorial on C++11’s shared_ptr, weak_ptr and unique_ptr by Professor David Kieras: Using C++11’s Smart Pointers In summary, std::shared_ptr and std::weak_ptr: shared_ptr and weak_ptr point to a manager object; manager object points to managed object (target object); manager object has reference counts for shared_ptr and weak_ptr instances respectively (shared count and…" rel="nofollow">Using C++11’s Smart Pointers</a></strong><br><span>In "C++"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-format="false"><strong class="jp-relatedposts-post-title"><a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/?relatedposts_to=994&relatedposts_order=1" title="Port a C++11 project from Visual C++11 to G++ 4.6.3
+
+The C++ project uses C++11 threads and builds fine in Visual Studio 2012 on Windows 7. It only uses standard C++11 features and uses nothing Windows-specific. Below are the lessons learned in porting to GCC 4.6.3 on Ubuntu 12.04. First of all, make sure we have the building environment in Ubuntu and build the project.…" rel="nofollow">Port a C++11 project from Visual C++11 to G++ 4.6.3</a></strong><br><span>In "C++"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-format="false"><strong class="jp-relatedposts-post-title"><a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/?relatedposts_to=1211&relatedposts_order=2" title="Integer Conversion Rules
+
+In C and C++, there are many different integer types, and often times type conversions are needed when two different integer types are involved in the operations. Integer Type Conversion Rules narrow unsigned to wide unsigned/signed: zero-extend, then bit pattern is treated as target type; narrow signed to wide signed/unsigned: sign-extend, then bit pattern is…" rel="nofollow">Integer Conversion Rules</a></strong><br><span>In "C++"</span></p></div></div>				
+				<p class="postmetadata">
+					<small>
+						Posted on March 2, 2011 at 10:47 pm in <a href="http://binglongx.wordpress.com/category/c/" title="View all posts in C++" rel="category tag">C++</a>						&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/feed/">RSS feed</a>
+													|&nbsp;&nbsp;<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#respond">
+								Respond							</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/trackback/" rel="trackback">
+								Trackback URL							</a>
+
+											</small>
+				</p>
+
+				<div class="tags">
+					<small>Tags: <a href="http://binglongx.wordpress.com/tag/c/" rel="tag">C++</a>, <a href="http://binglongx.wordpress.com/tag/ilp/" rel="tag">ILP</a>, <a href="http://binglongx.wordpress.com/tag/performance/" rel="tag">performance</a>, <a href="http://binglongx.wordpress.com/tag/portability/" rel="tag">portability</a>, <a href="http://binglongx.wordpress.com/tag/ptrdiff_t/" rel="tag">ptrdiff_t</a>, <a href="http://binglongx.wordpress.com/tag/size_t/" rel="tag">size_t</a><br></small>
+				</div><!--.tags-->
+			</div><!--.entry-->
+			<!-- You can start editing here. -->
+
+												<div id="respond" class="comment-respond js">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://binglongx.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="495bb71e0c"><input type="hidden" name="_wp_http_referer" value="/2011/03/02/cc-size_t-and-ptrdiff_t/">
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 36px; resize: none; overflow-y: hidden; -webkit-transition: none; transition: none; position: absolute; top: 0px; left: -9999px; width: 878px; line-height: normal; text-decoration: none; letter-spacing: 0px;" tabindex="-1" aria-hidden="true"></textarea><textarea id="comment" name="comment" title="Enter your comment here..." placeholder="Enter your comment here..." style="height: 36px; resize: none; overflow-y: hidden; -webkit-transition: none; transition: none;"></textarea></div>
+</div>
+
+<div id="comment-form-identity" style="display: none;">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/saved_resource(5).htm" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="./C C++ size_t and ptrdiff_t   Binglong's space_files/ad516503a11cd5ca435acc9bb6523536" alt="Gravatar" width="25" class="no-grav">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value=""></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text" value=""></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./C C++ size_t and ptrdiff_t   Binglong's space_files/wplogo.png" alt="WordPress.com Logo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="">
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./C C++ size_t and ptrdiff_t   Binglong's space_files/ad516503a11cd5ca435acc9bb6523536" alt="Twitter picture" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="">
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./C C++ size_t and ptrdiff_t   Binglong's space_files/ad516503a11cd5ca435acc9bb6523536" alt="Facebook photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="">
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="./C C++ size_t and ptrdiff_t   Binglong's space_files/ad516503a11cd5ca435acc9bb6523536" alt="Google+ photo" width="25" class="no-grav">
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="">
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe" style="display: none;">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of follow-up comments via email.</label></p></div>
+
+												<p class="form-submit" style="display: none;">
+							<input name="submit" type="submit" id="comment-submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="455" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						
+<input type="hidden" name="genseq" value="1391541218">
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="046913366d"></p><script type="text/javascript" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/form.js"></script>
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="1391541233444"></p>					</form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>		</div><!--.post-->
+		</div><!--#content-->
+</div><!--#content_container-->
+
+
+<div id="footer">
+	<div class="ornament"></div>
+	<div class="cell cell-1">
+				<div class="widget widget_tag_cloud">
+			<h2>Tags</h2>
+			<div class="line"></div>
+			<div>
+				<div style="overflow:hidden"><a href="http://binglongx.wordpress.com/tag/net/" class="tag-link-2427" title="3 topics" style="font-size: 10pt;">.NET</a>
+<a href="http://binglongx.wordpress.com/tag/4g/" class="tag-link-216558" title="2 topics" style="font-size: 8pt;">4G</a>
+<a href="http://binglongx.wordpress.com/tag/activex/" class="tag-link-53409" title="2 topics" style="font-size: 8pt;">ActiveX</a>
+<a href="http://binglongx.wordpress.com/tag/android/" class="tag-link-641922" title="8 topics" style="font-size: 15.833333333333pt;">Android</a>
+<a href="http://binglongx.wordpress.com/tag/arduino/" class="tag-link-134289" title="4 topics" style="font-size: 11.666666666667pt;">Arduino</a>
+<a href="http://binglongx.wordpress.com/tag/assembly/" class="tag-link-6595" title="2 topics" style="font-size: 8pt;">assembly</a>
+<a href="http://binglongx.wordpress.com/tag/boost/" class="tag-link-214632" title="4 topics" style="font-size: 11.666666666667pt;">boost</a>
+<a href="http://binglongx.wordpress.com/tag/brother/" class="tag-link-605" title="3 topics" style="font-size: 10pt;">Brother</a>
+<a href="http://binglongx.wordpress.com/tag/c/" class="tag-link-2426" title="20 topics" style="font-size: 22pt;">C++</a>
+<a href="http://binglongx.wordpress.com/tag/c0x/" class="tag-link-1068504" title="4 topics" style="font-size: 11.666666666667pt;">C++0x</a>
+<a href="http://binglongx.wordpress.com/tag/c11/" class="tag-link-54971" title="10 topics" style="font-size: 17.333333333333pt;">C++11</a>
+<a href="http://binglongx.wordpress.com/tag/cmake/" class="tag-link-546665" title="6 topics" style="font-size: 14.166666666667pt;">CMake</a>
+<a href="http://binglongx.wordpress.com/tag/colin/" class="tag-link-6062" title="7 topics" style="font-size: 15pt;">Colin</a>
+<a href="http://binglongx.wordpress.com/tag/com/" class="tag-link-11414" title="2 topics" style="font-size: 8pt;">COM</a>
+<a href="http://binglongx.wordpress.com/tag/debug/" class="tag-link-28136" title="2 topics" style="font-size: 8pt;">debug</a>
+<a href="http://binglongx.wordpress.com/tag/driver/" class="tag-link-129841" title="3 topics" style="font-size: 10pt;">driver</a>
+<a href="http://binglongx.wordpress.com/tag/google-voice/" class="tag-link-952293" title="4 topics" style="font-size: 11.666666666667pt;">Google Voice</a>
+<a href="http://binglongx.wordpress.com/tag/hl-2170w/" class="tag-link-7727932" title="3 topics" style="font-size: 10pt;">HL-2170W</a>
+<a href="http://binglongx.wordpress.com/tag/install/" class="tag-link-32684" title="3 topics" style="font-size: 10pt;">install</a>
+<a href="http://binglongx.wordpress.com/tag/installer/" class="tag-link-212876" title="4 topics" style="font-size: 11.666666666667pt;">installer</a>
+<a href="http://binglongx.wordpress.com/tag/macro/" class="tag-link-1625" title="4 topics" style="font-size: 11.666666666667pt;">Macro</a>
+<a href="http://binglongx.wordpress.com/tag/mfc/" class="tag-link-107738" title="4 topics" style="font-size: 11.666666666667pt;">MFC</a>
+<a href="http://binglongx.wordpress.com/tag/mixed/" class="tag-link-18125" title="2 topics" style="font-size: 8pt;">mixed</a>
+<a href="http://binglongx.wordpress.com/tag/ocx/" class="tag-link-1635457" title="2 topics" style="font-size: 8pt;">OCX</a>
+<a href="http://binglongx.wordpress.com/tag/openscenegraph/" class="tag-link-2015216" title="4 topics" style="font-size: 11.666666666667pt;">OpenSceneGraph</a>
+<a href="http://binglongx.wordpress.com/tag/osg/" class="tag-link-742180" title="3 topics" style="font-size: 10pt;">OSG</a>
+<a href="http://binglongx.wordpress.com/tag/printer/" class="tag-link-68962" title="3 topics" style="font-size: 10pt;">printer</a>
+<a href="http://binglongx.wordpress.com/tag/ptrdiff_t/" class="tag-link-52477582" title="2 topics" style="font-size: 8pt;">ptrdiff_t</a>
+<a href="http://binglongx.wordpress.com/tag/root/" class="tag-link-7397" title="3 topics" style="font-size: 10pt;">root</a>
+<a href="http://binglongx.wordpress.com/tag/setup-project/" class="tag-link-4407471" title="2 topics" style="font-size: 8pt;">Setup project</a>
+<a href="http://binglongx.wordpress.com/tag/sipdroid/" class="tag-link-22790951" title="2 topics" style="font-size: 8pt;">Sipdroid</a>
+<a href="http://binglongx.wordpress.com/tag/sxs/" class="tag-link-1132367" title="2 topics" style="font-size: 8pt;">SxS</a>
+<a href="http://binglongx.wordpress.com/tag/touchpad/" class="tag-link-934893" title="7 topics" style="font-size: 15pt;">TouchPad</a>
+<a href="http://binglongx.wordpress.com/tag/ubuntu/" class="tag-link-255" title="5 topics" style="font-size: 13pt;">ubuntu</a>
+<a href="http://binglongx.wordpress.com/tag/virgin-mobile/" class="tag-link-218961" title="3 topics" style="font-size: 10pt;">Virgin Mobile</a>
+<a href="http://binglongx.wordpress.com/tag/virtualbox/" class="tag-link-989685" title="5 topics" style="font-size: 13pt;">VirtualBox</a>
+<a href="http://binglongx.wordpress.com/tag/visual-c/" class="tag-link-87493" title="4 topics" style="font-size: 11.666666666667pt;">Visual C++</a>
+<a href="http://binglongx.wordpress.com/tag/visual-studio/" class="tag-link-6678" title="12 topics" style="font-size: 18.5pt;">Visual Studio</a>
+<a href="http://binglongx.wordpress.com/tag/voip/" class="tag-link-811" title="4 topics" style="font-size: 11.666666666667pt;">VoIP</a>
+<a href="http://binglongx.wordpress.com/tag/wi-fi/" class="tag-link-24876" title="3 topics" style="font-size: 10pt;">Wi-Fi</a>
+<a href="http://binglongx.wordpress.com/tag/windows/" class="tag-link-800" title="7 topics" style="font-size: 15pt;">Windows</a>
+<a href="http://binglongx.wordpress.com/tag/windows-7/" class="tag-link-729864" title="5 topics" style="font-size: 13pt;">windows 7</a>
+<a href="http://binglongx.wordpress.com/tag/windows-xp/" class="tag-link-3146" title="3 topics" style="font-size: 10pt;">Windows XP</a>
+<a href="http://binglongx.wordpress.com/tag/wireless/" class="tag-link-355" title="3 topics" style="font-size: 10pt;">wireless</a>
+<a href="http://binglongx.wordpress.com/tag/wpf/" class="tag-link-46652" title="2 topics" style="font-size: 8pt;">WPF</a></div>			</div>
+		</div>
+			</div>
+	<div class="cell cell-2">
+				<div class="widget">
+			<h2>Calendar</h2>
+			<div class="line"></div>
+			<div>
+				<table id="wp-calendar">
+	<caption>March 2011</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="Monday">M</th>
+		<th scope="col" title="Tuesday">T</th>
+		<th scope="col" title="Wednesday">W</th>
+		<th scope="col" title="Thursday">T</th>
+		<th scope="col" title="Friday">F</th>
+		<th scope="col" title="Saturday">S</th>
+		<th scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="http://binglongx.wordpress.com/2011/02/" title="View posts for February 2011">« Feb</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next"><a href="http://binglongx.wordpress.com/2011/04/" title="View posts for April 2011">Apr »</a></td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="1" class="pad">&nbsp;</td><td>1</td><td><a href="http://binglongx.wordpress.com/2011/03/02/" title="C/C++ size_t and ptrdiff_t">2</a></td><td><a href="http://binglongx.wordpress.com/2011/03/03/" title="Redistribute dependencies in Visual Studio Setup Project">3</a></td><td><a href="http://binglongx.wordpress.com/2011/03/04/" title="Deploying a Windows-based Application">4</a></td><td>5</td><td><a href="http://binglongx.wordpress.com/2011/03/06/" title="Differences between Python 2.x and 3.x">6</a></td>
+	</tr>
+	<tr>
+		<td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+	</tr>
+	<tr>
+		<td><a href="http://binglongx.wordpress.com/2011/03/14/" title="Koenig Lookup in C++">14</a></td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td><a href="http://binglongx.wordpress.com/2011/03/20/" title="PreTranslateMessage overrides in MFC and grab key presses">20</a></td>
+	</tr>
+	<tr>
+		<td><a href="http://binglongx.wordpress.com/2011/03/21/" title="_USE_MATH_DEFINES: M_PI undeclared identifier and math constants in C/C++">21</a></td><td><a href="http://binglongx.wordpress.com/2011/03/22/" title="Find assignments to a variable in Visual Studio using regular expression">22</a></td><td>23</td><td>24</td><td>25</td><td><a href="http://binglongx.wordpress.com/2011/03/26/" title="Self Employment Tax for self-employed business or independent contractor, W2">26</a></td><td>27</td>
+	</tr>
+	<tr>
+		<td><a href="http://binglongx.wordpress.com/2011/03/28/" title="Appearing and Disappearing consts in C++">28</a></td><td>29</td><td>30</td><td>31</td>
+		<td class="pad" colspan="3">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table>			</div>
+		</div>
+			</div>
+	<div class="cell cell-3">
+				<div class="widget">
+			<h2>Archives</h2>
+			<div class="line"></div>
+			<ul>
+					<li><a href="http://binglongx.wordpress.com/2014/01/">January 2014</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/12/">December 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/11/">November 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/10/">October 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/09/">September 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/08/">August 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/07/">July 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/06/">June 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/05/">May 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/04/">April 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/03/">March 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/02/">February 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2013/01/">January 2013</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/11/">November 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/09/">September 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/08/">August 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/07/">July 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/06/">June 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/05/">May 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/03/">March 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/02/">February 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2012/01/">January 2012</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/12/">December 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/11/">November 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/10/">October 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/09/">September 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/08/">August 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/07/">July 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/06/">June 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/05/">May 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/04/">April 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/03/">March 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/02/">February 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2011/01/">January 2011</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/12/">December 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/11/">November 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/10/">October 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/09/">September 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/08/">August 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/07/">July 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/06/">June 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/05/">May 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/04/">April 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/03/">March 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/02/">February 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2010/01/">January 2010</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/12/">December 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/11/">November 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/10/">October 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/09/">September 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/08/">August 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/07/">July 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/06/">June 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/05/">May 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/04/">April 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/03/">March 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/02/">February 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2009/01/">January 2009</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/12/">December 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/11/">November 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/10/">October 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/08/">August 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/07/">July 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/06/">June 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/04/">April 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2008/01/">January 2008</a></li>
+	<li><a href="http://binglongx.wordpress.com/2007/12/">December 2007</a></li>
+	<li><a href="http://binglongx.wordpress.com/2007/11/">November 2007</a></li>
+	<li><a href="http://binglongx.wordpress.com/2007/10/">October 2007</a></li>
+	<li><a href="http://binglongx.wordpress.com/2007/09/">September 2007</a></li>
+			</ul>
+		</div>
+			</div>
+		<div id="externalFooterLinks">
+		<a href="http://wordpress.com/?ref=footer" rel="generator">Blog at WordPress.com</a>. |
+		<a href="http://theme.wordpress.com/themes/under-the-influence/" title="Learn more about this theme">The Under the Influence Theme</a>. 	</div>
+</div><!--#footer-->
+</div><!--#page-->
+<script type="text/javascript" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"http:\/\/binglongx.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"http:\/\/binglongx.wordpress.com\/wp-login.php?action=logout&_wpnonce=42e80cb6d9","homeURL":"http:\/\/binglongx.wordpress.com\/","postID":"455","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/saved_resource(3)"></script>
+
+	<div id="bit" class="loggedout-follow-normal" style="bottom: -233px;">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “Binglong's space”</label></h3>
+
+			<form action="https://subscribe.wordpress.com/" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 30 other followers</p>
+			<p><input type="email" name="email" value="Enter your email address" onfocus="this.value=(this.value==&quot;Enter your email address&quot;) ? &quot;&quot; : this.value;" onblur="this.value=(this.value==&quot;&quot;) ? &quot;Enter email address&quot; : this.value;" id="loggedout-follow-field"></p>
+
+			<input type="hidden" name="action" value="subscribe">
+			<input type="hidden" name="blog_id" value="17280631">
+			<input type="hidden" name="source" value="http://binglongx.wordpress.com/2011/03/02/cc-size_t-and-ptrdiff_t/">
+			<input type="hidden" name="sub-type" value="loggedout-follow">
+
+			<input type="hidden" id="_wpnonce" name="_wpnonce" value="647ddf720c"><input type="hidden" name="_wp_http_referer" value="/2011/03/02/cc-size_t-and-ptrdiff_t/">
+			<p id="bsub-subscribe-button"><input type="submit" value="Sign me up"></p>
+			</form>
+					<div id="bsub-credit"><a href="http://wordpress.com/signup/?ref=lof">Powered by WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "binglongx.wordpress.com";
+	</script>
+	<script type="text/javascript" src="http://s.skimresources.com/js/725X1342.skimlinks.js"></script>		<iframe src="./C C++ size_t and ptrdiff_t   Binglong's space_files/master.htm" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' ),
+								isRtl: ( 'rtl' == jQuery( '#wpadminbar' ).css( 'direction' ) )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'clickReblogFlair' == event.event ) {
+					wpcom_reblog.toggle_reblog_box_flair( event.obj_id );
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/devicepx.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="./C C++ size_t and ptrdiff_t   Binglong's space_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({'blog':'17280631','v':'wpcom','tz':'-8','user_id':'0','post':'455','subd':'binglongx'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRb2JySWZQY1U1P1RIWHMycT1YdkYteWkwJm1GRWtTK2h1aEhCQ1FQNyxUSHNJTC0uLHYyeHJWdi8yTFVvX0c2S0UlZEp8ampFXWI5Vk4yUXgtcjlYeVNPbHgrNTZkcDcxMUhOYSxKZGZmJkxSTkJ1ZFh1OERjdHVifi1ELkFOZndhZ358RFV5cUFjSGtuM1lXVF8lL2E/eHNoaGVLTldMRGM0V19VOVRERE5iXzhLY204QktCV2doWDRmRGxvWnF4Zmk4UDctYVY3LD9aenorNnpCbnkxY3RseFNQTF9WOHdrei0tQUEtQWJYcXBFSVloNH5bUy5zYQ=='});
+addLoadEvent(function(){linktracker_init('17280631',455);});
+	</script><img id="wpstats" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/g.gif" alt=""><img id="wpstats2" src="./C C++ size_t and ptrdiff_t   Binglong's space_files/g(1).gif" alt="" style="display:none">
+<noscript>&lt;img src="http://stats.wordpress.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /&gt;</noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//stats.wordpress.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body></html>

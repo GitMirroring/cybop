@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0037)http://xcb.freedesktop.org/win32port/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>win32port</title>
+
+<link rel="stylesheet" href="./win32port_files/style.css" type="text/css">
+<link rel="stylesheet" href="./win32port_files/xorg.css" type="text/css">
+
+<link rel="stylesheet" href="./win32port_files/local.css" type="text/css">
+
+
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://secure.freedesktop.org/write/xcb/ikiwiki.cgi?page=win32port&do=edit">
+
+
+
+
+
+<style type="text/css"></style></head>
+<body>
+
+<div class="page">
+<div class="pageheader">
+<div class="header">
+<span class="logo"><img src="./win32port_files/logo.png"></span>
+
+
+<form method="get" action="http://www.google.com/search" id="searchform">
+ <div>
+  <input name="sitesearch" value="http://xcb.freedesktop.org/" type="hidden">
+  <input name="q" value="" id="searchbox" size="16" maxlength="255" type="text">
+ </div>
+</form>
+
+
+<span class="headerpath">
+<span class="parentlinks">
+
+<a href="http://xcb.freedesktop.org/">xcb</a>/ 
+
+</span>
+<span class="title">
+win32port
+
+</span>
+</span>
+</div>
+
+
+<span class="actions">
+<ul>
+
+<li><a href="https://secure.freedesktop.org/write/xcb/ikiwiki.cgi?page=win32port&do=edit" rel="nofollow">Edit</a></li>
+
+
+
+<li><a href="https://secure.freedesktop.org/cgit/xcb/log/win32port.mdwn">Page History</a></li>
+
+
+<li><a href="https://secure.freedesktop.org/cgit/xcb/">Repo Info</a></li>
+
+
+
+
+</ul>
+</span>
+
+
+
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1 id="xcboutofwindows">XCB out of Windows</h1>
+
+<p>-jatin golani (aka jeetu aka topcat) <a href="mailto:jeetu.golani@gmail.com">jeetu.golani@gmail.com</a> </p>
+
+<p>XCB has now been ported to the Windows (32 bit) platform. This mess shall soon be unleashed on the world so here is the headsup on it :)</p>
+
+<h2 id="background">Background</h2>
+
+<hr>
+
+<p>The Windows operating system no longer includes the POSIX subsystem out of the box. Using POSIX/Unix applications under Windows therefore requires an additional layer such as Microsoft's Interix Posix/Unix subsystem or the Cygwin libraries. Cygwin consists of a library that implements the POSIX system call API in terms of Win32 system calls. Unfortunately, an additional translation layer causes performance degradation. While there are a few X Servers that have been ported to Windows, there has been no port of the X Client library (Xlib or XCB), thereby preventing writing native Windows based X clients. The Win32 XCB port aims at allowing native Windows X Clients to be developed. These native X applications would provide performance superior to applications using libraries such as Cygwin.</p>
+
+<h2 id="whatschangedbetweenthenixandwindowsports">What's changed between the *nix and Windows ports?</h2>
+
+<hr>
+
+<p>Essentially the following:</p>
+
+<p>-- The following header files used under *nix development environments are absent or redundant in Windows. </p>
+
+<ul>
+<li>sys/socket.h</li>
+<li>netinet/in.h</li>
+<li>sys/un.h</li>
+<li>sys/select.h</li>
+<li>sys/uio.h</li>
+<li>netdb.h</li>
+</ul>
+
+<p>Our code has been changed to skip inclusion of these header files when compiled under WIN32.</p>
+
+<p>-- Source code files effected:</p>
+
+<ul>
+<li><p>xcb_auth.c</p></li>
+<li><p>xcb_conn.c</p>
+
+<ul>
+<li>set_fd_flags() : Win32 doesn't have file descriptors and the fcntl function. Made changes that set the socket in non-blocking mode.</li>
+<li>write_vec() : Win32 version using the send() function instead of writev.</li>
+</ul></li>
+<li><p>xcb_in.c</p>
+
+<ul>
+<li>read_block() : Win32 version using the recv() function instead of read.</li>
+<li>_xcb_in_read() : Win32 version using the recv() function instead of read.</li>
+</ul></li>
+<li><p>xcb_util.c</p>
+
+<ul>
+<li>_xcb_open_unix() : Preprocessor directives prevent this from being compiled while building for Win32.</li>
+<li>_xcb_open() : Does not call <em>xcb</em>open_unix for Win32 build.</li>
+<li>_xcb_open_tcp()</li>
+</ul></li>
+<li><p>xcb.h</p></li>
+<li><p>windefs.h (new header created specifically for the Win32 port)</p></li>
+</ul>
+
+<p>-- Windefs.h</p>
+
+<p>windefs.h defines all headers and other structures,datatypes,etc required for win32. A key point to note within this header file is the following define:</p>
+
+<pre><code>#define WINVER 0x0501 required since getaddrinfo and freeaddrinfo are defined only for WinXP and above. Without this the linker complains of undefined references.
+</code></pre>
+
+<p>Therefore, currently the code may not compile on versions prior to XP (untested)</p>
+
+<h2 id="creatingthexcbdll">Creating the XCB DLL</h2>
+
+<hr>
+
+<p>The following lists the process I used to compile XCB under MinGW on my Debian system :</p>
+
+<p>-- compiled and installed x11proto under standard linux ./autogen &amp;&amp; make &amp;&amp; make install....then copied the headers from /usr/local/include/X11 to /use/i586-mingw32msvc/include physically.</p>
+
+<p>-- Compile the DLL version of libXau (you'll need libtool installed): </p>
+
+<ul>
+<li><p>./autogen.sh --host=i586-mingw32msvc</p></li>
+<li><p>make</p></li>
+<li><p>sudo make install</p></li>
+</ul>
+
+<p>-- Compiled and installed the pthread-win32 library (<a href="http://sourceware.org/pthreads-win32/">http://sourceware.org/pthreads-win32/</a>)</p>
+
+<p></p><ul>
+<li><p>make CC=i586-mingw32msvc-gcc \</p><p></p>
+
+<pre><code> RC=i586-mingw32msvc-windres \
+
+
+ RANLIB=i586-mingw32msvc-ranlib \
+
+
+ DLLTOOL=i586-mingw32msvc-dlltool \
+
+
+ clean GC
+</code></pre>
+
+<p></p></li>
+</ul>
+-- Made the following changes (thanks Vincent) - <p></p>
+
+<ul>
+<li><p>in configure.ac, before AC_PROG_LIBTOOL add:</p>
+
+<p>AC_LIBTOOL_WIN32_DLL</p></li>
+<li><p>add, in src/Makefile.am, the value -no-undefined to *_LDFLAGS:</p>
+
+<p>libxcb_la_LDFLAGS = -no-undefined -version-info 1:0:0</p></li>
+</ul>
+
+<p>-- set the environment variable LIBS to include the ws2_32 and pthreadGC2 library and the CFLAGS to point to appropriate headers:</p>
+
+<ul>
+<li><p>export LIBS="-L/full/path/to/pthreads-w32-libs -lws2_32 -lpthreadGC2"</p></li>
+<li><p>export CFLAGS="-I/full/install/path/pthreads-w32-include-files"</p></li>
+</ul>
+
+<p>-- configure (you'll need package xcb-proto installed):</p>
+
+<ul>
+<li>./autogen.sh --host=i586-mingw32msvc</li>
+</ul>
+
+<p>-- build (you'll need package python-xcbgen installed):</p>
+
+<ul>
+<li>make</li>
+</ul>
+
+<p>If all goes well the DLL is created within the src/.libs directory.</p>
+
+<h2 id="wherecanigetthisfromnow">Where can I get this from now?</h2>
+
+<hr>
+
+<p>Until this port is merged into the main tree, I have set up a git branch of XCB with changes to support a Win32 build. Get it using :</p>
+
+<pre><code> git clone git://github.com/topcat/xcb-win32.git
+</code></pre>
+
+<p>...and stand far far far away :) </p>
+
+<p>This has been updated last in April 2010.</p>
+
+<h2 id="usingxcbwithinwindows">Using XCB within Windows</h2>
+
+<hr>
+
+<p>The XCB DLL has been tested predominantly under Windows XP (32 bit). The development environment has been Linux (Debian) using MinGW. However there is no reason you can't use Visual Studio or other IDEs. There are plenty of online resources that show how to create the required .def and .lib files and that speak of differences in name decoration of functions generated by MinGW as opposed to other compilers.</p>
+
+<p>Apart from the XCB DLL (e.g. libxcb-1.dll) you will also need the DLL for libXau (e.g. libXau-6.dll) and Pthreads (e.g. pthreadGC2.dll) to be in your path or along with your source code.</p>
+
+<p>The simplest way to use the DLL under MinGW is to include it during compiling your code. For e.g. :</p>
+
+<pre><code> i586-mingw32msvc-gcc xcbclient.c libxcb-1.dll -o xcbclient.exe -lws2_32
+</code></pre>
+
+<p>NOTE: Initialization ( using WSAStarup() ) and Cleanup ( WSACleanup() ) of the Windows Socket Library needs to be performed by the calling application prior to using this library.</p>
+
+<h2 id="xservers">X Servers</h2>
+
+<hr>
+
+<p>I have tested the port using the following X Servers within Windows. My source code has been connecting locally to these X Servers. I have also connected remotely to my X.org server on Linux. </p>
+
+<ul>
+<li>XMing (<a href="http://www.straightrunning.com/XmingNotes">http://www.straightrunning.com/XmingNotes</a>)</li>
+<li>WinAxe (<a href="http://www.labf.com/winaxe/index.html">http://www.labf.com/winaxe/index.html</a>)</li>
+</ul>
+
+<h2 id="testcode">Test Code</h2>
+
+<hr>
+
+<p>The following is a test code from the XCB tutorial. Copy all of the XCB headers within your source code directory or somewhere in your path. If all goes well this should work. </p>
+
+<pre><code>#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#include "xcb/xcb.h"
+
+#define WIDTH 300
+#define HEIGHT 150
+
+int initWSA(void);
+
+static xcb_gc_t
+    getFontGC (xcb_connection_t *connection,
+           xcb_screen_t     *screen,
+           xcb_window_t      window,
+           const char       *fontName );
+static void
+    testCookie (xcb_void_cookie_t cookie,
+            xcb_connection_t *connection,
+            char *errMessage )
+    {
+    xcb_generic_error_t *error = xcb_request_check (connection, cookie);
+    if (error) 
+       {
+       fprintf (stderr, "ERROR: %s : %d\n", errMessage , error-&gt;error_code);
+       xcb_disconnect (connection);
+       exit (-1);
+       }
+    }
+
+
+static void
+drawButton (xcb_connection_t *connection,
+            xcb_screen_t     *screen,
+            xcb_window_t      window,
+            int16_t           x1,
+            int16_t           y1,
+            const char       *label )
+{
+    uint8_t length = strlen (label);
+    int16_t inset = 2;
+    int16_t width = 7 * length + 2 * (inset + 1);
+    int16_t height = 13 + 2 * (inset + 1);
+
+    xcb_point_t points[5];
+    points[0].x = x1;
+    points[0].y = y1;
+    points[1].x = x1 + width;
+    points[1].y = y1;
+    points[2].x = x1 + width;
+    points[2].y = y1 - height;
+    points[3].x = x1;
+    points[3].y = y1 - height;
+    points[4].x = x1;
+    points[4].y = y1;
+
+
+    xcb_gcontext_t gc = getFontGC (connection, screen, window, "7x13");
+
+
+    xcb_void_cookie_t lineCookie = xcb_poly_line_checked (connection,
+                                                          XCB_COORD_MODE_ORIGIN,
+                                                          window,
+                                                          gc,
+                                                          5,
+                                                          points );
+    testCookie (lineCookie, connection, "can't draw lines");
+
+
+    xcb_void_cookie_t textCookie = xcb_image_text_8_checked (connection,
+                                                             length,
+                                                             window,
+                                                             gc,
+                                                             x1 + inset + 1,
+                                                             y1 - inset - 1,
+                                                             label );
+    testCookie (textCookie, connection, "can't paste text");
+
+
+    xcb_void_cookie_t gcCookie = xcb_free_gc (connection, gc);
+    testCookie (gcCookie, connection, "can't free gc");
+}
+
+
+
+static void
+drawText (xcb_connection_t *connection,
+          xcb_screen_t     *screen,
+          xcb_window_t      window,
+          int16_t           x1,
+          int16_t           y1,
+          const char       *label )
+{
+
+    xcb_gcontext_t gc = getFontGC (connection, screen, window, "7x13");
+
+
+    xcb_void_cookie_t textCookie = xcb_image_text_8_checked (connection,
+                                                             strlen (label),
+                                                             window,
+                                                             gc,
+                                                             x1,
+                                                             y1,
+                                                             label );
+    testCookie(textCookie, connection, "can't paste text");
+
+
+    xcb_void_cookie_t gcCookie = xcb_free_gc (connection, gc);
+    testCookie (gcCookie, connection, "can't free gc");
+}
+
+
+static xcb_gc_t
+getFontGC (xcb_connection_t *connection,
+           xcb_screen_t     *screen,
+           xcb_window_t      window,
+           const char       *fontName )
+{
+
+    xcb_font_t font = xcb_generate_id (connection);
+    xcb_void_cookie_t fontCookie = xcb_open_font_checked (connection,
+                                                          font,
+                                                          strlen (fontName),
+                                                          fontName );
+    testCookie (fontCookie, connection, "can't open font");
+
+
+    xcb_gcontext_t gc = xcb_generate_id (connection);
+    uint32_t  mask = XCB_GC_FOREGROUND | XCB_GC_BACKGROUND | XCB_GC_FONT;
+    uint32_t value_list[3];
+    value_list[0] = screen-&gt;black_pixel;
+    value_list[1] = screen-&gt;white_pixel;
+    value_list[2] = font;
+
+
+    xcb_void_cookie_t gcCookie = xcb_create_gc_checked (connection,
+                                                        gc,
+                                                        window,
+                                                        mask,
+                                                        value_list );
+    testCookie (gcCookie, connection, "can't create gc");
+
+
+    fontCookie = xcb_close_font_checked (connection, font);
+    testCookie (fontCookie, connection, "can't close font");
+
+    return gc;
+}
+
+
+static void
+setCursor (xcb_connection_t *connection,
+            xcb_screen_t     *screen,
+            xcb_window_t      window,
+            int               cursorId )
+{
+    uint32_t mask;
+xcb_font_t font = xcb_generate_id (connection);
+    xcb_void_cookie_t fontCookie = xcb_open_font_checked (connection,
+                                                          font,
+                                                          strlen ("cursor"),
+                                                          "cursor" );
+    testCookie (fontCookie, connection, "can't open font");
+
+
+    xcb_cursor_t cursor = xcb_generate_id (connection);
+    xcb_create_glyph_cursor (connection,
+                             cursor,
+                             font,
+                             font,
+                             cursorId,
+                             cursorId + 1,
+                             0, 0, 0, 0, 0, 0 );
+
+
+    xcb_gcontext_t gc = xcb_generate_id (connection);
+
+    mask = XCB_GC_FOREGROUND | XCB_GC_BACKGROUND | XCB_GC_FONT;
+    uint32_t values_list[3];
+    values_list[0] = screen-&gt;black_pixel;
+    values_list[1] = screen-&gt;white_pixel;
+    values_list[2] = font;
+
+    xcb_void_cookie_t gcCookie = xcb_create_gc_checked (connection, gc, window, mask, values_list);
+    testCookie (gcCookie, connection, "can't create gc");
+
+
+    mask = XCB_CW_CURSOR;
+    uint32_t value_list = cursor;
+    xcb_change_window_attributes (connection, window, mask, &amp;value_list);
+
+
+    xcb_free_cursor (connection, cursor);
+
+
+
+    fontCookie = xcb_close_font_checked (connection, font);
+    testCookie (fontCookie, connection, "can't close font");
+}
+
+int 
+main ()
+{
+
+
+    int screenNum,i;
+    int rc;
+
+    rc = initWSA();
+    if(rc != 0)
+      {
+      fprintf(stderr,"Unable to load Winsock: %d\n",rc);
+      return -1;
+      }
+
+    xcb_connection_t *connection = xcb_connect ("127.0.0.1:0.0", &amp;screenNum);
+    if (!connection) {
+        fprintf (stderr, "ERROR: can't connect to an X server\n");
+        return -1;
+    }
+
+
+
+
+    xcb_screen_iterator_t iter = xcb_setup_roots_iterator (xcb_get_setup (connection));
+
+
+    for (i = 0; i &lt; screenNum; ++i) {
+        xcb_screen_next (&amp;iter);
+    }
+
+    xcb_screen_t *screen = iter.data;
+
+    if (!screen) {
+        fprintf (stderr, "ERROR: can't get the current screen\n");
+        xcb_disconnect (connection);
+        return -1;
+    }
+
+
+
+
+    xcb_window_t window = xcb_generate_id (connection);
+    uint32_t mask = XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK;
+    uint32_t values[2];
+    values[0] = screen-&gt;white_pixel;
+    values[1] = XCB_EVENT_MASK_KEY_RELEASE |
+                XCB_EVENT_MASK_BUTTON_PRESS |
+                XCB_EVENT_MASK_EXPOSURE |
+                XCB_EVENT_MASK_POINTER_MOTION;
+
+
+    xcb_void_cookie_t windowCookie = xcb_create_window_checked (connection,
+                                              screen-&gt;root_depth,
+                                              window,
+                                              screen-&gt;root,
+                                              20, 200, WIDTH, HEIGHT,
+                                              0,
+                                              XCB_WINDOW_CLASS_INPUT_OUTPUT,
+                                              screen-&gt;root_visual,
+                                              mask, values );
+    testCookie (windowCookie, connection, "can't create window");
+
+
+    xcb_void_cookie_t mapCookie = xcb_map_window_checked (connection, window);
+    testCookie (mapCookie, connection, "can't map window");
+
+
+    setCursor (connection, screen, window, 68);
+
+    xcb_flush(connection);
+
+
+
+
+    uint8_t isHand = 0;
+
+    while (1) {
+        xcb_generic_event_t *event = xcb_poll_for_event (connection);
+        if (event) {
+            switch (event-&gt;response_type &amp; ~0x80) {
+                case XCB_EXPOSE: {
+                    char *text = "click here to change cursor";
+                    drawButton (connection, 
+                                screen,
+                                window,
+                                (WIDTH - 7 * strlen(text)) / 2,
+                                (HEIGHT - 16) / 2,
+                                text );
+
+                    text = "Press ESC key to exit...";
+                    drawText (connection,
+                              screen,
+                              window,
+                              10,
+                              HEIGHT - 10,
+                              text );
+                    break;
+                }
+                case XCB_BUTTON_PRESS: {
+                    xcb_button_press_event_t *press = (xcb_button_press_event_t *)event;
+
+                    int length = strlen ("click here to change cursor");
+                    if ((press-&gt;event_x &gt;= (WIDTH - 7 * length) / 2) &amp;&amp;
+                            (press-&gt;event_x &lt;= ((WIDTH - 7 * length) / 2 + 7 * length + 6)) &amp;&amp;
+                            (press-&gt;event_y &gt;= (HEIGHT - 16) / 2 - 19) &amp;&amp;
+                            (press-&gt;event_y &lt;= ((HEIGHT - 16) / 2))) {
+                        isHand = 1 - isHand;
+
+                    }
+
+                    if (isHand) {
+                        setCursor (connection, screen, window, 58);
+                    }
+                    else {
+                        setCursor (connection, screen, window, 68);
+
+                    }
+
+                }
+                case XCB_KEY_RELEASE: {
+
+                    xcb_key_release_event_t *kr = (xcb_key_release_event_t *)event;
+
+                    switch (kr-&gt;detail) {
+
+                        case 8:
+                            free (event);
+                            xcb_disconnect (connection);
+                            return 0;
+                    }
+                }
+            }
+            free (event);
+        }
+    }
+
+    return 0;
+}
+
+int initWSA(void)
+{
+    WSADATA wsd;
+    int rc;
+
+    rc = WSAStartup(MAKEWORD(2,2),&amp;wsd);
+
+    return rc;
+}       
+</code></pre>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="http://xcb.freedesktop.org/">index</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Mon 18 Apr 2011 12:19:37 AM PDT</span>
+<!-- Created <span class="date">Sat 28 Mar 2009 11:40:16 AM PDT</span> -->
+</div>
+
+</div>
+
+
+<!-- from xcb -->
+</div>
+
+</div>
+
+
+
+</body></html>

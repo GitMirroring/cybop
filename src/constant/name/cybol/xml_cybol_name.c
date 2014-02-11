@@ -101,7 +101,13 @@ static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY
  * | | #-number | wide_character_vector | 01234
  * | #- | wide_character_vector | catalogue
  */
+
+#ifdef _MSC_VER
+static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {'\0'};
+#else
 static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {};
+#endif
+
 static wchar_t* NODE_NAME_XML_CYBOL_NAME = NODE_NAME_XML_CYBOL_NAME_ARRAY;
 static int* NODE_NAME_XML_CYBOL_NAME_COUNT = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
