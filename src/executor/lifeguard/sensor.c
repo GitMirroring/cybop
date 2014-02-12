@@ -139,7 +139,7 @@ void sense(void* p0, void* p1, void* p2) {
             copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Run sensing thread.
-            sense_message(p0, (void*) SERIAL_PORT_THREAD, (void*) &sense_serial_port);
+            sense_message(p0, (void*) SERIAL_PORT_THREAD, &sense_serial_port);
 
             // Set enable flag.
             copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);

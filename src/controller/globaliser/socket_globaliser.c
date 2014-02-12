@@ -27,7 +27,9 @@
 #define SOCKET_GLOBALISER_SOURCE
 
 #ifdef WIN32
+#ifndef _MSC_VER
     #include <winsock2.h>
+#endif
 #else
     #include <arpa/inet.h>
     #include <netinet/in.h>

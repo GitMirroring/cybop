@@ -109,7 +109,7 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
             // since this is the main thread and no other threads
             // are writing to the interrupt request variable.
 
-            if (ic > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (ic > (DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Set console interrupt request to indicate
                 // that a message has been received via console,

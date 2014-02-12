@@ -30,15 +30,16 @@
 #include <windows.h>
 #include <stdio.h> 
 #include <BaseTsd.h>
+#include <pthread.h>
 
 // For the rescue: copied from glibc time.h
 /* POSIX.1b structure for a time value.  This is like a `struct timeval' but
 has nanoseconds instead of microseconds.  */
-struct timespec
-{
-    time_t tv_sec;        /* Seconds.  */
-    long int tv_nsec;        /* Nanoseconds.  */
-};
+//struct timespec
+//{
+//    time_t tv_sec;        /* Seconds.  */
+//    long int tv_nsec;        /* Nanoseconds.  */
+//};
 
 typedef int pid_t; /* Type of process identifications.  */
 

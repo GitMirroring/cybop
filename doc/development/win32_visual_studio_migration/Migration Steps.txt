@@ -223,8 +223,9 @@ DestroyWindow(w);
 ->
 DestroyWindow((HWND)w);
 
-TODO:
-22 Warnungen:
+23.
+beseitigt: 22 Warnungen:
+zusätzliche casts:
 Warnung	3	warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c	112	1	cybop
 Warnung	2	warning C4047: '=': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\add_pointer_calculator.c	52	1	cybop
 Warnung	4	warning C4047: '=': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\pointer\subtract_pointer_calculator.c	52	1	cybop
@@ -244,11 +245,25 @@ Warnung	11	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei '
 Warnung	12	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'void *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	475	1	cybop
 Warnung	19	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'wchar_t *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	578	1	cybop
 Warnung	20	warning C4047: 'Initialisierung': Anzahl der Dereferenzierungen bei 'wchar_t *' und 'size_t' unterschiedlich	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	579	1	cybop
+Konstantendefinition über Hexadezimalcode des Unicodezeichens:
 Warnung	5	warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	116	1	cybop
 Warnung	6	warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	120	1	cybop
+Zuweisung in if Anweisung (!) durch Vergleich ersetzt:
 Warnung	7	warning C4244: '=': Konvertierung von 'wchar_t' in 'char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\tester\comparator_tester.c	49	1	cybop
 
 (Not used:
 Solution for missing socketlen_t
 https://github.com/GerHobbelt/selectable-socketpair/commit/8c64bf354581a66ef7e2b57158546894fa531b07
 )
+
+24.
+Verwendung Kompilerschalter WIN32_LEAN_AND_MEAN vermieden durch
+
+#ifndef _MSC_VER
+    #include <winsock2.h>
+#endif
+
+in:
+src\tester\display_tester.c
+src\controller\globaliser\socket_globaliser.c
+

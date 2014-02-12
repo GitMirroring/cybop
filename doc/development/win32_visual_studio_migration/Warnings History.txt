@@ -1,0 +1,494 @@
+fixed warnings 2014/02/12 (all level 3, win32 build)
+1.
+Warnung	414	warning C4054: 'Typumwandlung': Von Funktionszeiger 'void (__cdecl *)(void *)' zu Datenzeiger 'void *'	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor.c	142	1	cyboi
+sense_message(p0, (void*) SERIAL_PORT_THREAD, (void*) &sense_serial_port);
+->
+sense_message(p0, (void*) SERIAL_PORT_THREAD, &sense_serial_port);
+
+2.
+Warnung	13	warning C4057: 'Funktion': 'LPDWORD' Dereferenzierung in leicht unterschiedliche Basistypen von 'int *'	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c	103	1	cyboi
+int ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+->
+DWORD ic = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+3.
+Warnung	483	warning C4066: Mit Ausnahme des ersten Zeichens werden die Zeichen in einer 'breiten' Zeichenkonstante ignoriert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	117	1	cyboi
+static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'-', L'l', L'e' };
+->
+static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e' };
+
+static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e', 0x0000 };
+->
+static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'-', L'l', L'e', 0x0000 };
+
+4.
+Warnung	1	warning C4018: '>': Konflikt zwischen 'signed' und 'unsigned'	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\win32_console\win32_console_sensor.c	112	1	cyboi
+if (ic > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+->
+if (ic > (DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+remaining level 4 warnings:
+
+Warnung	1	warning C4100: '__remaining': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\windows\cyboi_win_mapper.c	48	1	cyboi
+Warnung	3	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\modifier\copier\part_copier.c	55	1	cyboi
+Warnung	4	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\controller\manager\system_signal_handler_manager.c	55	1	cyboi
+Warnung	9	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\part_calculator.c	47	1	cyboi
+Warnung	12	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\unsigned_long_calculator.c	48	1	cyboi
+Warnung	20	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\authority\port_authority_selector.c	48	1	cyboi
+Warnung	23	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\authority\password_authority_selector.c	48	1	cyboi
+Warnung	26	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\converter\encoder\utf\utf_16_encoder.c	83	1	cyboi
+Warnung	32	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\gregorian\gregorian_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	35	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\julian\julian_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	38	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\posix\posix_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	41	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\tai\tai_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	44	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\ti\ti_datetime_cybol_deserialiser.c	50	1	cyboi
+Warnung	49	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\iso\iso_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	52	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\jd\jd_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	55	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\julian\julian_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	58	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\si\si_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	60	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\xml\declaration_xml_selector.c	47	1	cyboi
+Warnung	61	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xml\definition_xml_deserialiser.c	44	1	cyboi
+Warnung	69	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	89	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	103	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	124	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	138	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	152	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	166	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	169	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\html\html_deserialiser.c	43	1	cyboi
+Warnung	179	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_response\http_response_deserialiser.c	55	1	cyboi
+Warnung	182	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\latex\latex_deserialiser.c	39	1	cyboi
+Warnung	187	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\fragment_http_uri_selector.c	49	1	cyboi
+Warnung	191	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\name_parametre_query_http_uri_selector.c	52	1	cyboi
+Warnung	193	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\absolute_path_http_request_uri_selector.c	99	1	cyboi
+Warnung	195	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\absolute_uri_http_request_uri_selector.c	100	1	cyboi
+Warnung	197	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\authority_form_http_request_uri_selector.c	100	1	cyboi
+Warnung	199	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\no_resource_http_request_uri_selector.c	100	1	cyboi
+Warnung	201	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\scheme_uri_selector.c	49	1	cyboi
+Warnung	204	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\ddmmyyyyddmmyyyy\ddmmyyyyddmmyyyy_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	207	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\hhmmhhmm\hhmmhhmm_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	210	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\yyyy\yyyy_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	219	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\gdt\gdt_xdt_deserialiser.c	46	1	cyboi
+Warnung	223	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\ldt\ldt_xdt_deserialiser.c	46	1	cyboi
+Warnung	227	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\converter\decoder\utf\utf_16_decoder.c	83	1	cyboi
+Warnung	235	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\raw_socket_receiver.c	55	1	cyboi
+Warnung	247	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	262	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\key_process_win32_console_receiver.c	46	1	cyboi
+Warnung	267	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	46	1	cyboi
+Warnung	274	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\window_buffer_size_process_win32_console_receiver.c	46	1	cyboi
+Warnung	283	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	286	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\gregorian\gregorian_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	290	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\julian\julian_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	293	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\posix\posix_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	296	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\tai\tai_datetime_cybol_serialiser.c	46	1	cyboi
+Warnung	299	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\ti\ti_datetime_cybol_serialiser.c	51	1	cyboi
+Warnung	303	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\time_scale\gregorian_calendar\julian_second_gregorian_calendar_time_scale_serialiser.c	41	1	cyboi
+Warnung	307	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\iso\iso_duration_cybol_serialiser.c	46	1	cyboi
+Warnung	310	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\jd\jd_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	313	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\julian\julian_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	316	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\si\si_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	319	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\fraction\vulgar\vulgar_fraction_cybol_serialiser.c	46	1	cyboi
+Warnung	322	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\fraction_cybol_serialiser.c	41	1	cyboi
+Warnung	330	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\gui\initial_gui_serialiser.c	50	1	cyboi
+Warnung	335	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_request\http_request_serialiser.c	74	1	cyboi
+Warnung	341	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\latex\latex_serialiser.c	39	1	cyboi
+Warnung	347	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\tui\clear_tui_serialiser.c	53	1	cyboi
+Warnung	348	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\tui\newline_tui_serialiser.c	47	1	cyboi
+Warnung	351	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\tui\origo_tui_serialiser.c	54	1	cyboi
+Warnung	352	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\tui\row_tui_serialiser.c	73	1	cyboi
+Warnung	365	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\ddmmyyyyddmmyyyy\ddmmyyyyddmmyyyy_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	368	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\hhmmhhmm\hhmmhhmm_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	371	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\yyyy\yyyy_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	376	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\xdt_serialiser.c	104	1	cyboi
+Warnung	379	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xml\xml_serialiser.c	40	1	cyboi
+Warnung	400	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\win32_display\win32_display_shutter.c	44	1	cyboi
+Warnung	406	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\opengl\opengl_shutter.c	45	1	cyboi
+Warnung	408	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\serial_port\attributes_serial_port_shutter.c	56	1	cyboi
+Warnung	413	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\socket\socket_shutter.c	48	1	cyboi
+Warnung	417	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\opengl\opengl_starter.c	65	1	cyboi
+Warnung	418	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\get_status_serial_port_starter.c	58	1	cyboi
+Warnung	421	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\set_attributes_serial_port_starter.c	68	1	cyboi
+Warnung	424	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\get_attributes_serial_port_starter.c	78	1	cyboi
+Warnung	427	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\open_serial_port_starter.c	58	1	cyboi
+Warnung	436	warning C4100: 'p0': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	54	1	cyboi
+Warnung	2	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\modifier\copier\part_copier.c	55	1	cyboi
+Warnung	8	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\part_calculator.c	47	1	cyboi
+Warnung	11	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\unsigned_long_calculator.c	48	1	cyboi
+Warnung	19	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\authority\port_authority_selector.c	48	1	cyboi
+Warnung	22	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\authority\password_authority_selector.c	48	1	cyboi
+Warnung	25	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\converter\encoder\utf\utf_16_encoder.c	83	1	cyboi
+Warnung	31	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\gregorian\gregorian_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	34	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\julian\julian_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	37	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\posix\posix_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	40	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\tai\tai_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	43	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\ti\ti_datetime_cybol_deserialiser.c	50	1	cyboi
+Warnung	46	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\utc\utc_datetime_cybol_deserialiser.c	47	1	cyboi
+Warnung	48	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\iso\iso_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	51	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\jd\jd_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	54	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\julian\julian_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	57	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\si\si_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	68	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	71	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\fraction_cybol_deserialiser.c	51	1	cyboi
+Warnung	88	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	102	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	110	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	123	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	137	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	151	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	165	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	168	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\html\html_deserialiser.c	43	1	cyboi
+Warnung	173	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_request\body_http_request_deserialiser.c	43	1	cyboi
+Warnung	175	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_request\uri_http_request_deserialiser.c	54	1	cyboi
+Warnung	178	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_response\http_response_deserialiser.c	55	1	cyboi
+Warnung	181	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\latex\latex_deserialiser.c	39	1	cyboi
+Warnung	184	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\win32_console\win32_console_deserialiser.c	43	1	cyboi
+Warnung	186	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\fragment_http_uri_selector.c	49	1	cyboi
+Warnung	190	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\name_parametre_query_http_uri_selector.c	52	1	cyboi
+Warnung	192	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\absolute_path_http_request_uri_selector.c	99	1	cyboi
+Warnung	194	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\absolute_uri_http_request_uri_selector.c	100	1	cyboi
+Warnung	196	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\authority_form_http_request_uri_selector.c	100	1	cyboi
+Warnung	198	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\http_request_uri\no_resource_http_request_uri_selector.c	100	1	cyboi
+Warnung	200	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\scheme_uri_selector.c	49	1	cyboi
+Warnung	203	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\ddmmyyyyddmmyyyy\ddmmyyyyddmmyyyy_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	206	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\hhmmhhmm\hhmmhhmm_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	209	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\yyyy\yyyy_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	214	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\bdt\compound_field_bdt_xdt_deserialiser.c	61	1	cyboi
+Warnung	215	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\bdt\record_bdt_xdt_deserialiser.c	49	1	cyboi
+Warnung	218	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\gdt\gdt_xdt_deserialiser.c	46	1	cyboi
+Warnung	222	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\ldt\ldt_xdt_deserialiser.c	46	1	cyboi
+Warnung	226	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\converter\decoder\utf\utf_16_decoder.c	83	1	cyboi
+Warnung	230	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\serial_port_receiver.c	54	1	cyboi
+Warnung	234	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\raw_socket_receiver.c	55	1	cyboi
+Warnung	246	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	261	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\key_process_win32_console_receiver.c	46	1	cyboi
+Warnung	266	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	46	1	cyboi
+Warnung	273	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\window_buffer_size_process_win32_console_receiver.c	46	1	cyboi
+Warnung	282	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	285	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\gregorian\gregorian_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	289	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\julian\julian_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	292	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\posix\posix_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	295	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\tai\tai_datetime_cybol_serialiser.c	46	1	cyboi
+Warnung	298	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\ti\ti_datetime_cybol_serialiser.c	51	1	cyboi
+Warnung	302	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\time_scale\gregorian_calendar\julian_second_gregorian_calendar_time_scale_serialiser.c	41	1	cyboi
+Warnung	306	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\iso\iso_duration_cybol_serialiser.c	46	1	cyboi
+Warnung	309	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\jd\jd_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	312	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\julian\julian_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	315	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\si\si_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	318	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\fraction\vulgar\vulgar_fraction_cybol_serialiser.c	46	1	cyboi
+Warnung	321	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\fraction_cybol_serialiser.c	41	1	cyboi
+Warnung	329	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\gui\initial_gui_serialiser.c	50	1	cyboi
+Warnung	334	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_request\http_request_serialiser.c	74	1	cyboi
+Warnung	340	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\latex\latex_serialiser.c	39	1	cyboi
+Warnung	364	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\ddmmyyyyddmmyyyy\ddmmyyyyddmmyyyy_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	367	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\hhmmhhmm\hhmmhhmm_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	370	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\yyyy\yyyy_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	375	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\xdt_serialiser.c	104	1	cyboi
+Warnung	378	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xml\xml_serialiser.c	40	1	cyboi
+Warnung	402	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\display\display_shutter.c	51	1	cyboi
+Warnung	405	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\opengl\opengl_shutter.c	45	1	cyboi
+Warnung	407	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\serial_port\attributes_serial_port_shutter.c	56	1	cyboi
+Warnung	412	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\socket\socket_shutter.c	48	1	cyboi
+Warnung	420	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\set_attributes_serial_port_starter.c	68	1	cyboi
+Warnung	423	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\get_attributes_serial_port_starter.c	78	1	cyboi
+Warnung	426	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\open_serial_port_starter.c	58	1	cyboi
+Warnung	435	warning C4100: 'p1': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	54	1	cyboi
+Warnung	79	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	93	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	106	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	114	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	128	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	142	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	156	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	238	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	385	warning C4100: 'p10': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	71	1	cyboi
+Warnung	78	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	92	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	105	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	113	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	127	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	141	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	155	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	237	warning C4100: 'p11': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	77	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	91	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	104	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	112	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	126	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	140	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	154	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	236	warning C4100: 'p12': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	76	warning C4100: 'p13': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	90	warning C4100: 'p13': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	111	warning C4100: 'p13': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	125	warning C4100: 'p13': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	139	warning C4100: 'p13': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	153	warning C4100: 'p13': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	5	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\display\display_sensor.c	50	1	cyboi
+Warnung	7	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\part_calculator.c	47	1	cyboi
+Warnung	10	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\unsigned_long_calculator.c	48	1	cyboi
+Warnung	18	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\authority\port_authority_selector.c	48	1	cyboi
+Warnung	21	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\authority\password_authority_selector.c	48	1	cyboi
+Warnung	24	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\converter\encoder\utf\utf_16_encoder.c	83	1	cyboi
+Warnung	30	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\gregorian\gregorian_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	33	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\julian\julian_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	36	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\posix\posix_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	39	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\tai\tai_datetime_cybol_deserialiser.c	43	1	cyboi
+Warnung	42	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\ti\ti_datetime_cybol_deserialiser.c	50	1	cyboi
+Warnung	45	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\datetime\utc\utc_datetime_cybol_deserialiser.c	47	1	cyboi
+Warnung	47	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\iso\iso_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	50	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\jd\jd_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	53	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\julian\julian_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	56	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\duration\si\si_duration_cybol_deserialiser.c	43	1	cyboi
+Warnung	67	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	70	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\fraction_cybol_deserialiser.c	51	1	cyboi
+Warnung	87	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	101	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	109	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	122	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	136	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	150	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	164	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	167	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\html\html_deserialiser.c	43	1	cyboi
+Warnung	174	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_request\uri_http_request_deserialiser.c	54	1	cyboi
+Warnung	177	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_response\http_response_deserialiser.c	55	1	cyboi
+Warnung	180	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\latex\latex_deserialiser.c	39	1	cyboi
+Warnung	183	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\win32_console\win32_console_deserialiser.c	43	1	cyboi
+Warnung	185	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\fragment_http_uri_selector.c	49	1	cyboi
+Warnung	202	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\ddmmyyyyddmmyyyy\ddmmyyyyddmmyyyy_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	205	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\hhmmhhmm\hhmmhhmm_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	208	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\duration\yyyy\yyyy_duration_xdt_deserialiser.c	43	1	cyboi
+Warnung	217	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\gdt\gdt_xdt_deserialiser.c	46	1	cyboi
+Warnung	221	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\ldt\ldt_xdt_deserialiser.c	46	1	cyboi
+Warnung	225	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\converter\decoder\utf\utf_16_decoder.c	83	1	cyboi
+Warnung	233	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\raw_socket_receiver.c	55	1	cyboi
+Warnung	245	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	260	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\key_process_win32_console_receiver.c	46	1	cyboi
+Warnung	265	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	46	1	cyboi
+Warnung	272	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\window_buffer_size_process_win32_console_receiver.c	46	1	cyboi
+Warnung	281	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	284	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\gregorian\gregorian_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	287	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\jd\basic_jd_datetime_cybol_serialiser.c	46	1	cyboi
+Warnung	288	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\julian\julian_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	291	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\posix\posix_datetime_cybol_serialiser.c	44	1	cyboi
+Warnung	294	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\tai\tai_datetime_cybol_serialiser.c	46	1	cyboi
+Warnung	297	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\ti\ti_datetime_cybol_serialiser.c	51	1	cyboi
+Warnung	301	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\time_scale\gregorian_calendar\julian_second_gregorian_calendar_time_scale_serialiser.c	41	1	cyboi
+Warnung	304	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\datetime\utc\utc_datetime_cybol_serialiser.c	43	1	cyboi
+Warnung	305	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\iso\iso_duration_cybol_serialiser.c	46	1	cyboi
+Warnung	308	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\jd\jd_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	311	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\julian\julian_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	314	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\duration\si\si_duration_cybol_serialiser.c	44	1	cyboi
+Warnung	317	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\fraction\vulgar\vulgar_fraction_cybol_serialiser.c	46	1	cyboi
+Warnung	320	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\fraction_cybol_serialiser.c	41	1	cyboi
+Warnung	328	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\gui\initial_gui_serialiser.c	50	1	cyboi
+Warnung	333	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_request\http_request_serialiser.c	74	1	cyboi
+Warnung	338	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_response\http_response_serialiser.c	47	1	cyboi
+Warnung	339	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\latex\latex_serialiser.c	39	1	cyboi
+Warnung	346	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\terminal_mode\terminal_mode_serialiser.c	55	1	cyboi
+Warnung	358	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\datetime\mmyy\mmyy_datetime_xdt_serialiser.c	55	1	cyboi
+Warnung	362	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\datetime\qyyyy\qyyyy_datetime_xdt_serialiser.c	56	1	cyboi
+Warnung	363	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\ddmmyyyyddmmyyyy\ddmmyyyyddmmyyyy_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	366	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\hhmmhhmm\hhmmhhmm_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	369	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\duration\yyyy\yyyy_duration_xdt_serialiser.c	44	1	cyboi
+Warnung	374	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\xdt_serialiser.c	104	1	cyboi
+Warnung	377	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xml\xml_serialiser.c	40	1	cyboi
+Warnung	381	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\sender\unix_terminal\stream_unix_terminal_sender.c	47	1	cyboi
+Warnung	394	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	66	1	cyboi
+Warnung	401	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\display\display_shutter.c	51	1	cyboi
+Warnung	404	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\opengl\opengl_shutter.c	45	1	cyboi
+Warnung	411	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\socket\socket_shutter.c	48	1	cyboi
+Warnung	419	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\set_attributes_serial_port_starter.c	68	1	cyboi
+Warnung	422	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\get_attributes_serial_port_starter.c	78	1	cyboi
+Warnung	425	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\starter\serial_port\open_serial_port_starter.c	58	1	cyboi
+Warnung	434	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	54	1	cyboi
+Warnung	444	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\applicator\modify\insert.c	59	1	cyboi
+Warnung	446	warning C4100: 'p2': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\controller\handler\element_part_handler.c	59	1	cyboi
+Warnung	66	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	86	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	100	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	108	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	121	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	135	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	149	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	163	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	176	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\http_response\http_response_deserialiser.c	55	1	cyboi
+Warnung	216	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\gdt\gdt_xdt_deserialiser.c	46	1	cyboi
+Warnung	220	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\ldt\ldt_xdt_deserialiser.c	46	1	cyboi
+Warnung	232	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\raw_socket_receiver.c	55	1	cyboi
+Warnung	244	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	280	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	300	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\time_scale\gregorian_calendar\julian_second_gregorian_calendar_time_scale_serialiser.c	41	1	cyboi
+Warnung	325	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\cybol_serialiser.c	76	1	cyboi
+Warnung	327	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\gui\initial_gui_serialiser.c	50	1	cyboi
+Warnung	332	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_request\http_request_serialiser.c	74	1	cyboi
+Warnung	337	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_response\http_response_serialiser.c	47	1	cyboi
+Warnung	343	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\model_diagram\model_diagram_serialiser.c	69	1	cyboi
+Warnung	345	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\terminal_mode\terminal_mode_serialiser.c	55	1	cyboi
+Warnung	356	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\attributes_win32_console_serialiser.c	59	1	cyboi
+Warnung	373	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\xdt_serialiser.c	104	1	cyboi
+Warnung	393	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	66	1	cyboi
+Warnung	403	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\opengl\opengl_shutter.c	45	1	cyboi
+Warnung	410	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\socket\socket_shutter.c	48	1	cyboi
+Warnung	445	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\controller\handler\element_part_handler.c	59	1	cyboi
+Warnung	449	warning C4100: 'p3': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\command_line\mode_command_line_selector.c	53	1	cyboi
+Warnung	65	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	85	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	99	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	120	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	134	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	148	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	162	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	211	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\xdt\record\record_xdt_selector.c	54	1	cyboi
+Warnung	231	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\raw_socket_receiver.c	55	1	cyboi
+Warnung	243	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	279	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	324	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\cybol_serialiser.c	76	1	cyboi
+Warnung	326	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\gui\initial_gui_serialiser.c	50	1	cyboi
+Warnung	331	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_request\http_request_serialiser.c	74	1	cyboi
+Warnung	336	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\http_response\http_response_serialiser.c	47	1	cyboi
+Warnung	342	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\model_diagram\model_diagram_serialiser.c	69	1	cyboi
+Warnung	344	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\terminal_mode\terminal_mode_serialiser.c	55	1	cyboi
+Warnung	355	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\attributes_win32_console_serialiser.c	59	1	cyboi
+Warnung	372	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\xdt_serialiser.c	104	1	cyboi
+Warnung	392	warning C4100: 'p4': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	66	1	cyboi
+Warnung	59	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\modifier\filler\item_filler.c	52	1	cyboi
+Warnung	64	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	84	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	98	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	119	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	133	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	147	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	161	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	189	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\name_parametre_query_http_uri_selector.c	52	1	cyboi
+Warnung	224	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser.c	93	1	cyboi
+Warnung	242	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	354	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\attributes_win32_console_serialiser.c	59	1	cyboi
+Warnung	391	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	66	1	cyboi
+Warnung	443	warning C4100: 'p5': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\modifier\remover\array_remover.c	75	1	cyboi
+Warnung	63	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	83	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	97	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	118	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	132	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	146	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	160	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	188	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\searcher\selector\uri\http\name_parametre_query_http_uri_selector.c	52	1	cyboi
+Warnung	278	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	353	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\attributes_win32_console_serialiser.c	59	1	cyboi
+Warnung	386	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\list_contents_commander.c	71	1	cyboi
+Warnung	390	warning C4100: 'p6': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	66	1	cyboi
+Warnung	62	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\tester\data_as_model_diagram_tester.c	51	1	cyboi
+Warnung	82	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	96	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	117	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	131	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	145	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	159	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	241	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	277	warning C4100: 'p7': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\win32_console_receiver.c	53	1	cyboi
+Warnung	81	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	95	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	116	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	130	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	144	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	158	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	213	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\bdt\compound_field_bdt_xdt_deserialiser.c	61	1	cyboi
+Warnung	240	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	384	warning C4100: 'p8': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\sender\terminal\terminal_sender.c	52	1	cyboi
+Warnung	80	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\button_press_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	94	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\enter_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	107	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\expose_gui_deserialiser.c	53	1	cyboi
+Warnung	115	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_press_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	129	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\key_release_keyboard_gui_deserialiser.c	51	1	cyboi
+Warnung	143	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\leave_notify_gui_deserialiser.c	51	1	cyboi
+Warnung	157	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\gui\motion_notify_mouse_gui_deserialiser.c	51	1	cyboi
+Warnung	212	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\xdt\bdt\compound_field_bdt_xdt_deserialiser.c	61	1	cyboi
+Warnung	239	warning C4100: 'p9': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	68	1	cyboi
+Warnung	387	warning C4100: 'vmd': Unreferenzierter formaler Parameter	c:\users\m\documents\cybop.trunc\src\executor\commander\windows\tape_archiver_windows_commander.c	53	1	cyboi
+Warnung	398	warning C4152: Nicht dem Standard entsprechende Erweiterung, Konvertierung von Funktions-/Datenzeiger im Ausdruck	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\message_sensor.c	101	1	cyboi
+Warnung	399	warning C4152: Nicht dem Standard entsprechende Erweiterung, Konvertierung von Funktions-/Datenzeiger im Ausdruck	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor.c	142	1	cyboi
+Warnung	250	warning C4189: 'a': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	169	1	cyboi
+Warnung	451	warning C4189: 'a': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	384	1	cyboi
+Warnung	255	warning C4189: 'ac': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	170	1	cyboi
+Warnung	455	warning C4189: 'ac': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	388	1	cyboi
+Warnung	254	warning C4189: 'as': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	171	1	cyboi
+Warnung	452	warning C4189: 'as': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	386	1	cyboi
+Warnung	16	warning C4189: 'b': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c	86	1	cyboi
+Warnung	269	warning C4189: 'b': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	54	1	cyboi
+Warnung	415	warning C4189: 'b': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\callback_message_win32_display_receiver.c	130	1	cyboi
+Warnung	440	warning C4189: 'b': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	61	1	cyboi
+Warnung	17	warning C4189: 'bk': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c	106	1	cyboi
+Warnung	263	warning C4189: 'bk': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\key_process_win32_console_receiver.c	50	1	cyboi
+Warnung	441	warning C4189: 'bm': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	68	1	cyboi
+Warnung	414	warning C4189: 'br': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\callback_message_win32_display_receiver.c	128	1	cyboi
+Warnung	463	warning C4189: 'cs': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	338	1	cyboi
+Warnung	74	warning C4189: 'd': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\fraction_cybol_deserialiser.c	63	1	cyboi
+Warnung	257	warning C4189: 'd': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	175	1	cyboi
+Warnung	380	warning C4189: 'd': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\sender\serial_port\stream_serial_port_sender.c	65	1	cyboi
+Warnung	409	warning C4189: 'd': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\maintainer\shutter\serial_port\close_serial_port_shutter.c	58	1	cyboi
+Warnung	249	warning C4189: 'dc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	176	1	cyboi
+Warnung	359	warning C4189: 'dc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\datetime\mmyy\mmyy_datetime_xdt_serialiser.c	76	1	cyboi
+Warnung	361	warning C4189: 'dd': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\datetime\mmyy\mmyy_datetime_xdt_serialiser.c	75	1	cyboi
+Warnung	360	warning C4189: 'di': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\xdt\datetime\mmyy\mmyy_datetime_xdt_serialiser.c	69	1	cyboi
+Warnung	253	warning C4189: 'ds': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	177	1	cyboi
+Warnung	388	warning C4189: 'emc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\command\tape_archiver.c	109	1	cyboi
+Warnung	389	warning C4189: 'emd': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\command\tape_archiver.c	108	1	cyboi
+Warnung	382	warning C4189: 'f': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\sender\unix_terminal\stream_unix_terminal_sender.c	51	1	cyboi
+Warnung	397	warning C4189: 'f': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\unix_terminal\message_unix_terminal_sensor.c	54	1	cyboi
+Warnung	454	warning C4189: 'fn': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	392	1	cyboi
+Warnung	453	warning C4189: 'fnc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\communicator_tester.c	394	1	cyboi
+Warnung	447	warning C4189: 'g': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\controller\optionaliser\log_file_optionaliser.c	80	1	cyboi
+Warnung	13	warning C4189: 'h': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c	70	1	cyboi
+Warnung	276	warning C4189: 'h': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\window_buffer_size_process_win32_console_receiver.c	52	1	cyboi
+Warnung	439	warning C4189: 'i': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	63	1	cyboi
+Warnung	437	warning C4189: 'im': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	70	1	cyboi
+Warnung	27	warning C4189: 'loc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\converter\encoder\utf\utf_8_encoder.c	241	1	cyboi
+Warnung	170	warning C4189: 'loc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\converter\decoder\utf\utf_8_decoder.c	237	1	cyboi
+Warnung	259	warning C4189: 'm': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	172	1	cyboi
+Warnung	264	warning C4189: 'm': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\key_process_win32_console_receiver.c	52	1	cyboi
+Warnung	271	warning C4189: 'm': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	56	1	cyboi
+Warnung	258	warning C4189: 'mc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	173	1	cyboi
+Warnung	252	warning C4189: 'ms': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	174	1	cyboi
+Warnung	229	warning C4189: 'n': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c	183	1	cyboi
+Warnung	251	warning C4189: 'n': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	166	1	cyboi
+Warnung	256	warning C4189: 'nc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	167	1	cyboi
+Warnung	248	warning C4189: 'ns': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\socket\socket_receiver.c	168	1	cyboi
+Warnung	448	warning C4189: 'o': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\controller\optionaliser\log_file_optionaliser.c	78	1	cyboi
+Warnung	459	warning C4189: 'os': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	219	1	cyboi
+Warnung	456	warning C4189: 'oss': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	221	1	cyboi
+Warnung	416	warning C4189: 'pe': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\callback_message_win32_display_receiver.c	129	1	cyboi
+Warnung	268	warning C4189: 'px': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	51	1	cyboi
+Warnung	270	warning C4189: 'py': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\mouse_process_win32_console_receiver.c	52	1	cyboi
+Warnung	383	warning C4189: 'r': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\sender\terminal\standard_terminal_sender.c	73	1	cyboi
+Warnung	395	warning C4189: 'r': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\commander\basic\word_count_commander.c	76	1	cyboi
+Warnung	442	warning C4189: 'r': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	59	1	cyboi
+Warnung	458	warning C4189: 'ri': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	228	1	cyboi
+Warnung	438	warning C4189: 'rm': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\applicator\modify\build.c	66	1	cyboi
+Warnung	73	warning C4189: 's': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\fraction_cybol_deserialiser.c	59	1	cyboi
+Warnung	457	warning C4189: 's': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	208	1	cyboi
+Warnung	72	warning C4189: 'sc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\fraction_cybol_deserialiser.c	55	1	cyboi
+Warnung	460	warning C4189: 'ss': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	210	1	cyboi
+Warnung	28	warning C4189: 'tds': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\converter\encoder\utf\utf_8_encoder.c	265	1	cyboi
+Warnung	171	warning C4189: 'tds': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\converter\decoder\utf\utf_8_decoder.c	261	1	cyboi
+Warnung	462	warning C4189: 'test': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	264	1	cyboi
+Warnung	461	warning C4189: 'testc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\pointer_tester.c	265	1	cyboi
+Warnung	29	warning C4189: 'tsc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\converter\encoder\utf\utf_8_encoder.c	266	1	cyboi
+Warnung	172	warning C4189: 'tsc': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\converter\decoder\utf\utf_8_decoder.c	262	1	cyboi
+Warnung	450	warning C4189: 'v': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\tester\accessor_tester.c	79	1	cyboi
+Warnung	275	warning C4189: 'w': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_console\window_buffer_size_process_win32_console_receiver.c	51	1	cyboi
+Warnung	15	warning C4189: 'x': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c	82	1	cyboi
+Warnung	14	warning C4189: 'y': Lokale Variable ist initialisiert aber nicht referenziert	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\win32_display\process_win32_display_receiver.c	78	1	cyboi
+Warnung	75	warning C4210: Nicht dem Standard entsprechende Erweiterung: Funktion gehört zum Gültigkeitsbereich der Datei	c:\users\m\documents\cybop.trunc\src\executor\representer\deserialiser\cybol\cybol_deserialiser.c	148	1	cyboi
+Warnung	323	warning C4210: Nicht dem Standard entsprechende Erweiterung: Funktion gehört zum Gültigkeitsbereich der Datei	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\cybol\cybol_serialiser.c	121	1	cyboi
+Warnung	349	warning C4244: '=': Konvertierung von 'int' in 'SHORT', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\position_win32_console_serialiser.c	75	1	cyboi
+Warnung	350	warning C4244: '=': Konvertierung von 'int' in 'SHORT', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\win32_console\position_win32_console_serialiser.c	76	1	cyboi
+Warnung	6	warning C4244: '=': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\calculator\basic\character\absolute_character_calculator.c	53	1	cyboi
+Warnung	228	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\communicator\receiver\serial_port\character_serial_port_receiver.c	110	1	cyboi
+Warnung	396	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\lifeguard\sensor\serial_port\message_serial_port_sensor.c	91	1	cyboi
+Warnung	428	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\manipulator\character\check_character_manipulator.c	57	1	cyboi
+Warnung	429	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\manipulator\character\clear_character_manipulator.c	54	1	cyboi
+Warnung	430	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\manipulator\character\set_character_manipulator.c	53	1	cyboi
+Warnung	431	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\manipulator\character\rotate_left_character_manipulator.c	66	1	cyboi
+Warnung	432	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\manipulator\character\rotate_right_character_manipulator.c	66	1	cyboi
+Warnung	433	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'unsigned char', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\manipulator\character\toggle_character_manipulator.c	53	1	cyboi
+Warnung	357	warning C4244: 'Initialisierung': Konvertierung von 'int' in 'WORD', möglicher Datenverlust	c:\users\m\documents\cybop.trunc\src\executor\representer\serialiser\tui\initial_tui_serialiser.c	80	1	cyboi

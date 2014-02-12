@@ -46,7 +46,7 @@ void test_comparator_ascii_character() {
 
     char test = 'a';
 
-    if (test = *LATIN_SMALL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL) {
+    if (test == *LATIN_SMALL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL) {
 
         log_write((void*) stdout, L"Characters ARE equal.\n");
 

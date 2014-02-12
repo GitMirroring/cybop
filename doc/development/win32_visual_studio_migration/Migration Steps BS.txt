@@ -1,0 +1,124 @@
+#ifndef CYBOI_WIN
+
+#else
+
+#endif
+
+C:\Users\BS17\Desktop\4_Semester\CPP_CYBOP\CybopBsMF\C99TOC89\test.bat cl.exe $CFLAGS
+
+
+//Dauert, 
+C:\Users\BS17\Desktop\4_Semester\CPP_CYBOP\CybopBsMF\C99TOC89\c99conv.exe cl.exe --extra-cflags
+
+
+C:\Users\BS17\Desktop\4_Semester\CPP_CYBOP\CybopBsMF\C99TOC89\c99conv.exe cl.exe --extra-ldflags
+c99wrap.exe $CC $CFLAGS source
+
+//Meckert, dass source nicht bekannt ist (fragt nach source.obj)
+c99wrap.exe cl.exe --extra-cflags source
+
+
+//entfernt nervige Compilerwarnungen
+_CRT_NONSTDC_NO_DEPRECATE;
+_CRT_SECURE_NO_WARNINGS;
+
+
+
+//Compile-Time 
+Complete Build after clean first time ~20m
+>8000 Errors
+
+Complete Build after clean 7m33s 
+1505 Errors 778 Warnings (04.02.2014 17:00)
+Small Build 37s
+680 Errors 361 Warnings am 04.02.2014 18:04
+
+Complete Build after clean 4m33s 
+Small Build ~20s
+346 Errors 290 Warnings am 04.02.2014 19:38
+
+Complete Build after clean 4m37s 
+Small Build ~10s
+167 Errors 463 Warnings am 05.02.2014 22:47
+
+Complete Build after clean 4m04s 
+Small Build ~10s
+108 Errors 82 Warnings am 05.02.2014 00::51
+
+
+
+
+//excluded
+absolute_complex_calculator --> cmath und complex Problem
+pointer.c					--> alles Scheiße
+*percent_encoding*
+representer_tester.c		--> deserialise (2. Aufruf) Parameter angepasst
+tester.c					--> pointer_tester() auskommentiert
+
+//Preprocessor
+CYBOI_WIN --> used as switch for special windows includes
+WIN32_LEAN_AND_MEAN --> resolves include-errors on winsock2.h redefintions
+see http://stackoverflow.com/questions/5971332/redefinition-errors-in-winsock2-h
+
+#define _CRT_NONSTDC_NO_DEPRECATE	-->
+#define _CRT_SECURE_NO_WARNINGS		-->
+#define _TM_DEFINED					-->
+#define _TIMESPEC_DEFINED			-->
+
+#undef _TIME_
+
+//Errors
+C2036	--> 	void* unknown size																-->		casts
+C2057	-->		VLA's are supported by c99, but not by the microsoft visual studio compiler		-->		allocate memory dynamically with malloc()
+C2059	-->		definitions of empty arrays														-->		initialise with '\0'
+C2065	-->		missing constants due to missing include-files									-->		include needed files
+		-->		undeclared but used variable names
+C2198	-->		too few arguments in function call												-->		muss Dr. Heller selbst korrigieren
+		
+//Warnings
+C4013
+
+//Stuff
+several files with undeclared but used variables:
+	executor\logifier\boolean\not_boolean_logifier.c
+	executor\representer\serialiser\percent_encoding\byte_percent_encoding_serialiser.c
+	executor\representer\serialiser\percent_encoding\character_percent_encoding_serialiser.c
+
+
+//TEST!!!!
+constant\name\cybol\xml_cybol_name.c
+executor\lifeguard\sensor\win32_console\win32_console_sensor.c
+executor\converter\decoder\typecast\character_typecast_decoder.c
+executor\representer\deserialiser\character_reference\entity_character_reference_deserialiser.c
+	call to deserialise_character_reference_entity_html() auskommentiert
+executor\representer\serialiser\user_interface\element_user_interface_serialiser.c
+	serialise_user_interface_coordinates() is not defined
+
+
+Remaining (106x)
+C2036	67x
+C2065	35x	
+	-->	C2198	4x
+
+
+//Feststellungen
+	//Warnungen über redefinitions oder fehlende includes
+	In Datei, welche Warnung auslöst, das include zu der Datei einbauen, welche den Fehler wirft.
+	Normalerweise reicht ein include der fehlenden Dateien bei C2065. Einen Sonderfall stellen zirkuläre includes dar (x.c inkludiert y.c und y.c inkludiert x.c)
+	Diesen Teufelskreis umgeht man mit einer Forward-Declaration der entsprechenden Funktion in der Datei, wo das Include stehen müsste. 
+
+	//Nutzung von C++-Headern anstelle von C-Files
+	z.B. <complex> vor <cmath>
+
+	//.vcxproj
+	Diese Datei enthielt über 90 Verweise auf nicht mehr existierende Dateien
+	see http://stackoverflow.com/questions/6652108/reorganized-source-c1xx-c1083
+
+gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)
+user32.lib;
+kernel32.lib;
+libgw32c.a	
+pthreadVSE2.lib
+pthreadVCE2.lib
+pthreadVC2.lib	
+	

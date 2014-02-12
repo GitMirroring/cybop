@@ -6,7 +6,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=$(ProjectDir)\src\include_win\pthreadsw32\Pre-built.2\dll\x86;%PATH%</LocalDebuggerEnvironment>
-    <LocalDebuggerCommandArguments>$(ProjectDir)\examples\addition\run.cybol</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>C:\Users\M\Documents\Cybop.trunc\examples\presence\run.cybol</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>

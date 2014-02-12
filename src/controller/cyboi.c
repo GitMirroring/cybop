@@ -26,6 +26,14 @@
 #ifndef CYBOI_SOURCE
 #define CYBOI_SOURCE
 
+#ifdef _MSC_VER
+//#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
+//#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h
+//#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
+#define _CRT_NONSTDC_NO_DEPRECATE //avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
+#define _CRT_SECURE_NO_WARNINGS //allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
+#endif
+
 #include <string.h>
 
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -237,7 +245,6 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNT
         log_write(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
     }
 
-    getchar();
     return r;
 }
 

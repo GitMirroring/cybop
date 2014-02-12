@@ -27,7 +27,9 @@
 #define DISPLAY_TESTER
 
 #ifdef WIN32
-    #include <winsock2.h>
+#ifndef _MSC_VER
+#include <winsock2.h>
+#endif
 #endif
 #include <xcb/xcb.h>
 #ifdef WIN32
