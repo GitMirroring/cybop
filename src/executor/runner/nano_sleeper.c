@@ -30,12 +30,12 @@
 #include <time.h>
 
 #ifdef _MSC_VER
-#include "../../windows/cyboi_win_mapper.c"
+	#include "../../windows/cyboi_win_mapper.h"
 #else
-#include <unistd.h>
-#ifdef WIN32
-#include <pthread_time.h>
-#endif
+	#include <unistd.h>
+	#ifdef WIN32
+		#include <pthread_time.h>
+	#endif
 #endif
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"

@@ -23,27 +23,13 @@
 * @author Christian Heller <christian.heller@tuxtax.de>
 */
 
-#ifndef CYBOI_WIN_MAPPER
-#define CYBOI_WIN_MAPPER
-
 #include <time.h>
 #include <windows.h>
 #include <stdio.h> 
 #include <BaseTsd.h>
 #include <pthread.h>
 
-// For the rescue: copied from glibc time.h
-/* POSIX.1b structure for a time value.  This is like a `struct timeval' but
-has nanoseconds instead of microseconds.  */
-//struct timespec
-//{
-//    time_t tv_sec;        /* Seconds.  */
-//    long int tv_nsec;        /* Nanoseconds.  */
-//};
-
-typedef int pid_t; /* Type of process identifications.  */
-
-typedef SSIZE_T ssize_t;
+#include "cyboi_win_mapper.h"
 
 int nanosleep(struct timespec *__requested_time, struct timespec *__remaining){
     // Replacement for glibc version
@@ -107,6 +93,3 @@ int nanosleep(struct timespec *__requested_time, struct timespec *__remaining){
             //else printf("Timer was signaled.\n");
             return 0;
 }
-
- /* CYBOI_WIN_MAPPER */
-#endif

@@ -23,6 +23,11 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">WIN32;_DEBUG;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">WIN32;NDEBUG;_WINDOWS;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="src\windows\cyboi_win_mapper.c" />
+    <ClCompile Include="src\windows\win_gui.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\windows\cyboi_win_mapper.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{53997C30-7508-476D-B7A7-78D5F3C54EEA}</ProjectGuid>
@@ -103,8 +108,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>
-      </SubSystem>
+      <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>pthreadVC2.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>include\visualstudio\pthreadsw32\Pre-built.2\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
       <EntryPointSymbol>

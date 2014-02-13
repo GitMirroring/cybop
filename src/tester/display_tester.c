@@ -28,9 +28,22 @@
 
 #ifdef WIN32
 #ifndef _MSC_VER
+#define INCLUDE_WINSOCK2
+#endif
+#endif
+
+#ifdef WIN32_LEAN_AND_MEAN
+#ifdef _MSC_VER
+#define INCLUDE_WINSOCK2
+#endif
+#endif
+
+#ifdef WIN32
+#ifdef INCLUDE_WINSOCK2
 #include <winsock2.h>
 #endif
 #endif
+
 #include <xcb/xcb.h>
 #ifdef WIN32
     int initWSA(void);

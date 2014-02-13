@@ -31,7 +31,7 @@
 #include "../../variable/type_size/process_type_size.c"
 
 #ifdef _MSC_VER
-#include "../../windows/cyboi_win_mapper.c"
+#include "../../windows/cyboi_win_mapper.h"
 #else
 #include <unistd.h>
 #endif

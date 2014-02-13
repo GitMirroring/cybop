@@ -28,6 +28,18 @@
 
 #ifdef WIN32
 #ifndef _MSC_VER
+#define INCLUDE_WINSOCK2
+#endif
+#endif
+
+#ifdef WIN32_LEAN_AND_MEAN
+#ifdef _MSC_VER
+#define INCLUDE_WINSOCK2
+#endif
+#endif
+
+#ifdef WIN32
+#ifdef INCLUDE_WINSOCK2
     #include <winsock2.h>
 #endif
 #else
@@ -35,6 +47,8 @@
     #include <netinet/in.h>
     #include <sys/un.h>
 #endif
+
+
 #include <sys/stat.h>
 
 #include "../../variable/type_size/integral_type_size.c"

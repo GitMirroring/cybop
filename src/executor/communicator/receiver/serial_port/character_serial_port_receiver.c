@@ -45,7 +45,7 @@
 
 #ifdef _MSC_VER
     #include <io.h>
-    #include "../../../../windows/cyboi_win_mapper.c"
+    #include "../../../../windows/cyboi_win_mapper.h"
 #endif
 
 /**

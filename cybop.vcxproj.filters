@@ -18,5 +18,16 @@
     <ClCompile Include="src\controller\cyboi.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\windows\cyboi_win_mapper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\win_gui.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\windows\cyboi_win_mapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
