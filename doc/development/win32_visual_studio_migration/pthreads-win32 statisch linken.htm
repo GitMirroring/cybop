@@ -1,0 +1,857 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/dtD/xhtml1-strict.dtd">
+<!-- saved from url=(0098)http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-DE"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="./pthreads-win32 statisch linken_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><title>Antworten : pthreads-win32 statisch linken</title>
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.technologische-hilfe.de/favicon.ico?deu">
+	<link rel="icon" type="image/x-icon" href="http://www.technologische-hilfe.de/favicon.ico?deu">
+    <meta name="description" content="pthreads-win32 statisch linken - antworten - Hallo!  Eine DLL-Applikation verwendet pthreads-win32 (http://sources.redhat.com/pthreads-win32/). Nun moechte ich aber ungerne die pthreadVC.dll in den Suchpfad werfen und frage mich, ob man das pthread-Projekt nicht so umbauen kann, das nur eine .lib zwecks statischer Linkage erzeugt wird und nichts weiter.  Alle diesbezueglichen Versuche (Entfernen von PTW32_DLLPORT [=__declspec (dllexport)] ">
+    <meta name="keywords" content="pthreads,win32,statisch,linken,antworten">
+    <meta name="dc.title" content="Antworten : pthreads-win32 statisch linken">
+    <meta name="dc.description" content="pthreads-win32 statisch linken - antworten - Hallo!  Eine DLL-Applikation verwendet pthreads-win32 (http://sources.redhat.com/pthreads-win32/). Nun moechte ich aber ungerne die pthreadVC.dll in den Suchpfad werfen und frage mich, ob man das pthread-Projekt nicht so umbauen kann, das nur eine .lib zwecks statischer Linkage erzeugt wird und nichts weiter.  Alle diesbezueglichen Versuche (Entfernen von PTW32_DLLPORT [=__declspec (dllexport)] ">
+	
+    <meta http-equiv="Content-Language" content="de">
+    <meta name="robots" content="index, follow, noarchive">
+	<meta name="google-site-verification" content="7eKFJ3904eXxbNTeIu9rMa1RJTZRHdmOpZPh-8VYL6M">
+    <meta name="msvalidate.01" content="FFB405EA57E55A88B69AB720BA4B67CD">
+			<link href="./pthreads-win32 statisch linken_files/style_us.css" rel="stylesheet" type="text/css" media="all">
+    	<script type="text/javascript" src="./pthreads-win32 statisch linken_files/jquery.js"></script><style type="text/css"></style>
+                <link rel="alternate" type="application/rss+xml" title="Technologische-hilfe.de - Presse" href="http://www.technologische-hilfe.de/export/rss.xml">
+    <script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-2872928-54']);
+	  _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
+	  (function() {
+		var ga = document.createElement('script');
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		ga.setAttribute('async', 'true');
+		document.documentElement.firstChild.appendChild(ga);
+	  })();
+	</script><script src="./pthreads-win32 statisch linken_files/ga.js" async="true"></script>
+	<script type="text/javascript" src="./pthreads-win32 statisch linken_files/plusone.js" gapi_processed="true">{lang: 'fr'}</script>
+    <script type="text/javascript" src="http://c.ad6media.fr/l.js"></script>
+    <script type="text/javascript">ad6is('ai63cpuvk8');</script>
+</head>
+<body class="body2">
+
+	<div id="bodybox">
+
+    	<div id="container">
+            <div id="new_menu">
+                <ul>
+                	<li id="menu_home"><a href="http://www.technologische-hilfe.de/" class="gnt1F ggnt "><span><strong>Willkommen</strong></span></a></li>
+                    <li><a href="http://www.technologische-hilfe.de/pressemitteilungen.html"><span>Pressemitteilungen</span></a></li>
+                    <li><a href="http://www.technologische-hilfe.de/windows-vista-8571-forum.html"><span>Vista</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/windows-xp-8491-forum.html"><span>XP</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/windows-9x-8401-forum.html"><span>9x</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/windows-server-8441-forum.html"><span>Server</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/microsoft-office-8581-forum.html"><span>Office</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/anwendungen-8722-forum.html"><span>Anwendungen</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/internet-9032-forum.html"><span>Internet</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/spiele-9062-forum.html"><span>Spiele</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/sicherheit-8982-forum.html"><span>Sicherheit</span></a></li>
+					<li><a href="http://www.technologische-hilfe.de/entwicklung-8832-forum.html" class="active"><span>Entwicklung</span></a></li>
+                    <li id="menu_help"><a href="http://www.technologische-hilfe.de/videos.html"><span>Videos</span></a></li>
+
+                    				</ul>
+                <span class="corner corner_l"></span>
+				<span class="corner corner_r"></span>
+            </div>
+
+            <div id="fil">
+                <div id="recherche">
+                    <form action="http://www.technologische-hilfe.de/sucher/" method="post">
+                        <input type="text" name="kw" value="" class="saisie" onfocus="this.value=&#39;&#39;;">
+                        <input type="submit" value="Suchen" class="submit">
+                    </form>
+                </div>
+                <div id="navigation">
+				<img src="./pthreads-win32 statisch linken_files/fleche02.gif" alt=""> <strong><a href="http://www.technologische-hilfe.de/">Technologies</a></strong> &gt; <a href="http://www.technologische-hilfe.de/forum.html">Forum</a> &gt; <a href="http://www.technologische-hilfe.de/programmiersprachen-8832-forum.html">Programmiersprachen</a> &gt; <a href="http://www.technologische-hilfe.de/programmiersprachen-visual-c-8852-forum.html" class="gnt1FC0C14F4CC14A4E4E4643C1C2C0C14A424543491EC446C2C34A481E421E252523211E444FC1C34E1945CB4E48 ggnt">Visual C</a> &gt; <a href="http://www.technologische-hilfe.de/pthreads-win32-statisch-linken-support-230866062.html" class="active">pthreads-win32 statisch linken</a>                </div>
+            </div>
+			<div id="content">
+<div id="colonneCentre4">
+
+	<div class="onRight">
+
+        
+		<div class="innerpub250">
+			
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- GNT_DE_300*250_haut -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-5027204647042069" data-ad-slot="5865609907"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>        </div>
+
+        <div class="bloc_bg margintop10">
+            <span class="mid_title2"><img src="./pthreads-win32 statisch linken_files/connect.png" alt="Tags"> Keywords</span>
+			<ul class="home_listing2"><li><a href="http://www.technologische-hilfe.de/s/pthreads+win32+statisch/" class="item_title">pthreads win32 statisch</a></li><li><a href="http://www.technologische-hilfe.de/s/win32+statisch+linken/" class="item_title">win32 statisch linken</a></li><li><a href="http://www.technologische-hilfe.de/s/pthreads+win32/" class="item_title">pthreads win32</a></li><li><a href="http://www.technologische-hilfe.de/s/statisch+linken/" class="item_title">statisch linken</a></li></ul>			<div class="clear"></div>
+        </div>
+
+        
+        <div class="bloc_bg margintop10">
+            <span class="mid_title2"><img src="./pthreads-win32 statisch linken_files/comments.png" alt="Forums"> Neueste beiträge</span>
+            <ul class="home_listing2">
+            					<li><a href="http://www.technologische-hilfe.de/antworten/problem-mit-loschen-von-colorierten-richedit-2-0-ranges-support-230594502.html" title="Problem mit Löschen von colorierten RichEdit 2.0 Ranges" class="item_title">Problem mit Löschen von colorierten RichEdit 2.0 ...</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/mdi-client-area-groesse-setzen-support-230594522.html" title="MDI Client Area Groesse setzen" class="item_title">MDI Client Area Groesse setzen</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/cwinapp-instanz-net-assembly-zugreifbar-machen-support-230594542.html" title="CWinApp-Instanz in .NET-Assembly zugreifbar machen" class="item_title">CWinApp-Instanz in .NET-Assembly zugreifbar machen</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/exception-handling-zwischen-anwendung-und-dll-clr-und-native-mix-support-230594562.html" title="Exception handling zwischen Anwendung und DLL (CLR und native mix)" class="item_title">Exception handling zwischen Anwendung und DLL ...</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/dll-fur-labview-support-230594582.html" title="DLL für LabView" class="item_title">DLL für LabView</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/lambdas-vc10-beta-2-support-230594602.html" title="Lambdas VC10 Beta 2" class="item_title">Lambdas VC10 Beta 2</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/clr-und-static-mfc-support-230594652.html" title="CLR und Static MFC" class="item_title">CLR und Static MFC</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/c-dialog-wird-nicht-eingeblendet-support-230594752.html" title="C#-Dialog wird nicht eingeblendet" class="item_title">C#-Dialog wird nicht eingeblendet</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/eigene-dll-support-230594802.html" title="Eigene DLL" class="item_title">Eigene DLL</a></li>
+								<li><a href="http://www.technologische-hilfe.de/antworten/dateigro-e-vs-kompilereinstellungen-support-230594832.html" title="Dateigröße vs. Kompilereinstellungen" class="item_title">Dateigröße vs. Kompilereinstellungen</a></li>
+			            </ul>
+			<div class="clear"></div>
+        </div>
+
+		<div class="margintop10 innerpub600">
+			
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- GNT_DE_160*600 -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-5027204647042069" data-ad-slot="8958677100"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>        </div>
+
+    </div>
+
+	<div class="onLeft2 marginleft10">
+        <div class="bloc_bg bloc_bg2">
+		
+    <div class="message_head message_head2">
+        <h1>pthreads-win32 statisch linken <!-- OPTIONS_ADMIN --></h1>
+
+        <div class="message_author">
+            25/08/2004 - 17:59 von <strong>Volker Bartheld (SPAM only)</strong> | <a href="http://www.technologische-hilfe.de/kontact.html?select=abuse&url=pthreads-win32-statisch-linken-support-230866062.html" rel="nofollow">Report spam</a>
+            <!-- OPTIONS_ADMIN2 -->
+        </div>
+
+        <div class="message_asktopic"><a class="message_asktopic" title="Auf der Suche nach etwas Hilfe oder wollen etwas fragen? Erstellen Sie Ihr eigenes Design, indem Sie hier..." href="http://www.technologische-hilfe.de/support-8391-frage.html"><img src="./pthreads-win32 statisch linken_files/help.png" alt="Support"> Stellen Sie Frage</a></div>
+    </div>
+
+    <div id="message_text" class="message_text message_text3">
+        <div id="intelliTXT">
+            Hallo!<br>
+<br>
+Eine DLL-Applikation verwendet pthreads-win32<br>
+(<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fsources.redhat.com%2Fpthreads-win32%2F" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4C24FC3C14243C219C1434B454ACB19424F4E1321B4C0CB45C1434A4BC21ECC464922211321B4 ggnt targetblank">http://sources.redhat.com/pthreads-win32/</a>). Nun moechte ich aber<br>
+ungerne die pthreadVC.dll in den Suchpfad werfen und frage mich, ob man<br>
+das pthread-Projekt nicht so umbauen kann, das nur eine .lib zwecks<br>
+statischer Linkage erzeugt wird und nichts weiter.<br>
+<br>
+Alle diesbezueglichen Versuche (Entfernen von PTW32_DLLPORT [=__declspec (dllexport)] in pthread.h, Aendern des "Configuration Type"<br>
+von "Dynamic Library" auf "Static Library", #ifdef __cplusplus extern<br>
+"C", etc., ...) fuehrten alle auf Fehlermeldungen wie<br>
+<br>
+"... error LNK2019: unresolved external symbol<br>
+__imp__pthread_mutex_destroy ..."<br>
+<br>
+waehrend des Linkvorgangs meiner .obj-Datei.<br>
+<br>
+Hat sich irgendjemand schon daran versucht und wie koennte das ggfs.<br>
+gehen?<br>
+<br>
+Volker,<br>
+ratlos<br>
+<br>
+P.S.: Ich habe auch schon zwei Dummy-Files in einem separaten<br>
+.lib-Projekt erstellt<br>
+<br>
+&lt;pthread_dummy.c&gt;<br>
+#include "pthread_dummy.h"<br>
+<br>
+int pthread_mutex_lock (pthread_mutex_t * mutex)<br>
+{<br>
+return 0;<br>
+}<br>
+<br>
+int pthread_mutex_unlock (pthread_mutex_t * mutex)<br>
+{<br>
+return 0;<br>
+}<br>
+<br>
+int pthread_mutex_init (pthread_mutex_t * mutex, const pthread_mutexattr_t * attr)<br>
+{<br>
+return 0;<br>
+}<br>
+<br>
+int pthread_mutex_destroy (pthread_mutex_t * mutex)<br>
+{<br>
+return 0;<br>
+}<br>
+<br>
+pthread_t pthread_self (void)<br>
+{<br>
+return 0;<br>
+}<br>
+&lt;/pthread_dummy.c&gt;<br>
+<br>
+und<br>
+<br>
+&lt;pthread_dummy.h&gt;<br>
+#include &lt;windows.h&gt;<br>
+<br>
+<br>
+#define pthread_condattr_init pthread_condattr_init_<br>
+#define pthread_setschedparam pthread_setschedparam_<br>
+<br>
+typedef int pthread_t;<br>
+typedef void pthread_mutex_t;<br>
+typedef void pthread_mutexattr_t;<br>
+typedef void pthread_spinlock_t;<br>
+typedef void pthread_barrier_t;<br>
+typedef void pthread_barrierattr_t;<br>
+typedef void pthread_condattr_t;<br>
+typedef void pthread_cond_t;<br>
+typedef void pthread_rwlock_t;<br>
+typedef void pthread_rwlockattr_t;<br>
+<br>
+int pthread_mutex_init (pthread_mutex_t * mutex, const pthread_mutexattr_t * attr);<br>
+<br>
+int pthread_mutex_destroy (pthread_mutex_t * mutex);<br>
+<br>
+int pthread_mutex_lock (pthread_mutex_t * mutex);<br>
+<br>
+pthread_t pthread_self (void);<br>
+<br>
+int pthread_mutex_unlock (pthread_mutex_t * mutex);<br>
+&lt;/pthread_dummy.h&gt;<br>
+<br>
+um einfach mal zu sehen, woran es fehlt, leider dasselbe Lied. Der<br>
+Linker kann irgendwie die Symbole nicht finden...<br>        </div>
+    </div>
+
+    		<div class="googleperso">
+			<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		    <ins class="adsbygoogle" style="display:inline-block;" data-ad-client="ca-pub-6082665093857218" data-ad-slot="8469798309" data-override-format="true">
+		    </ins>
+		    <script>
+		        (adsbygoogle = window.adsbygoogle || []).push({
+		            params: { google_ad_channel: '3464246801+3515859524+6598213740+4239951261' }
+		        });
+		    </script>
+		    
+	    </div>
+
+    <div class="message_infos message_infos2">
+        <div class="message_options message_options2">
+            <a href="http://www.technologische-hilfe.de/pthreads-win32-statisch-linken-support-230866062.html?folgen" title="Starten Sie erhalten E-Mail Alerts für jede Antwort in dieser Diskussion geschrieben" class="gnt1FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482F444F484C4349 ggnt nobg black message_asktopic"><img src="./pthreads-win32 statisch linken_files/email_go.png" alt="email"> Lesen Sie die Debatte</a><a href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#r" class="black_bg"><img src="./pthreads-win32 statisch linken_files/comments.png" alt="Antworten"> 5 antwortens</a><a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E48 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten">Antwort</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+
+		</div>
+
+		<h2 class="h2_comments" id="r">Fragen similare</h2>
+		<div class="bloc_bg margintop10">
+			<ul class="home_listing2 home_listing4" id="similar_links"><li><a href="http://www.technologische-hilfe.de/antworten/qt-programm-statisch-linken-support-235793322.html" title="Qt Programm statisch linken?" class="item_title">Qt Programm statisch linken?</a></li><li><a href="http://www.technologische-hilfe.de/antworten/statisch-linken-support-235797002.html" title="statisch linken" class="item_title">statisch linken</a></li><li><a href="http://www.technologische-hilfe.de/antworten/bibliothek-statisch-linken-support-235759832.html" title="Bibliothek statisch linken" class="item_title">Bibliothek statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/net-anwendungen-statisch-linken-support-242507442.html" title="NET-Anwendungen statisch linken" class="item_title">NET-Anwendungen statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/php-statisch-linken-support-255927622.html" title="PHP Statisch linken" class="item_title">PHP Statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/kde-1-statisch-linken-support-239162962.html" title="KDE-1 statisch linken" class="item_title">KDE-1 statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/applikation-teilweise-statisch-linken-support-235762002.html" title="Applikation teilweise statisch linken" class="item_title">Applikation teilweise statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/statisch-linken-support-235752272.html" title="statisch linken" class="item_title">statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/f-vs-2003-plus-wxwidgets-2-8-3-unicode-oder-normal-dll-oder-statisch-linken-support-230598702.html" title="F: VS 2003 + wxWidgets 2.8.3 Unicode oder normal, DLL oder statisch linken" class="item_title">F: VS 2003 + wxWidgets 2.8.3 Unicode oder normal, DLL oder statisch linken</a></li><li class="hidden"><a href="http://www.technologische-hilfe.de/antworten/boost-und-software-statisch-linken-support-235862682.html" title="Boost - und Software statisch linken" class="item_title">Boost - und Software statisch linken</a></li></ul><div class="clear"></div><a href="javascript:void(0);" id="similar_link_more">Zeigen alle ähnlichen themen</a>			<div class="clear"></div>
+		</div>
+
+        <div id="comments" class="margintop20">
+            <h2 class="h2_comments">Lesen sie die antworten</h2>
+                                    <div class="bloc_bg bloc_bg2 margintop10 marginbottom20">
+                            <div class="message_head comment_head2">
+                                <div class="message_author comment_author">
+                                    <a href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#230866642" class="comment_anchor" name="230866642">#1</a> <strong>Jochen Kalmbach</strong>
+                                    <div>
+									25/08/2004 - 19:39 | <a href="http://www.technologische-hilfe.de/kontact.html?select=abuse&url=/antworten/pthreads-win32-statisch-linken-support-230866062.html__230866642" rel="nofollow">Report spam</a>
+                                										</div>
+                                </div>
+                            </div>
+
+                            <div class="message_text comment_text" id="intelliTXT">
+                                Hallo Volker,<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Alle diesbezueglichen Versuche (Entfernen von PTW32_DLLPORT [=&gt; __declspec (dllexport)] in pthread.h, Aendern des "Configuration Type"<br>
+von "Dynamic Library" auf "Static Library", #ifdef __cplusplus extern<br>
+"C", etc., ...) fuehrten alle auf Fehlermeldungen wie<br>
+<br>
+"... error LNK2019: unresolved external symbol<br>
+__imp__pthread_mutex_destroy ..."<br>
+<br>
+waehrend des Linkvorgangs meiner .obj-Datei.<br>
+<br>
+Hat sich irgendjemand schon daran versucht und wie koennte das ggfs.<br>
+gehen?<br>
+<br>
+<br>
+</blockquote><br>
+Eigentlich ist es ganz einfach:<br>
+<br>
+Wenn du es ganz hart machen willst, dann werfe alle dinge mit<br>
+&lt;code&gt;<br>
+#ifdef PTW32_BUILD<br>
+# define PTW32_DLLPORT __declspec (dllexport)<br>
+#else<br>
+# define PTW32_DLLPORT __declspec (dllimport)<br>
+#endif<br>
+&lt;/code&gt;<br>
+<br>
+einfach raus (betrifft pthread.h, sched.h und semaphore.h)<br>
+<br>
+Dafür musst Du nur ganz am anfang von pthread.h das folgende aufnehmen:<br>
+&lt;code&gt;<br>
+#define PTW32_DLLPORT<br>
+&lt;/code&gt;<br>
+<br>
+<br>
+Jetzt làsst sich einfach der Typ des Projectes von DLL auf LIB<br>
+umstellen.<br>
+<br>
+Wenn Du Die LIB linken möchtest musst Du natürlich darauf achten, dass<br>
+das gleiche Threading-Model verwendet wird (eingestellt ist per default<br>
+bei pthreads "Multithreaded-DLL").<br>
+<br>
+Desweiteren muss Du die Init-Funktion, welche sonst in DllMain<br>
+aufgerufen wird direkt aufrufen:<br>
+&lt;code&gt;<br>
+pthread_win32_process_attach_np();<br>
+&lt;/code&gt;<br>
+<br>
+Dies natürlich bevor Du irgendwas mit pthreads machsts...<br>
+<br>
+Wenn Du ein Beispielprojekt haben willst (aber VS2003), kann ich es Dir<br>
+gerne Mailen...<br>
+<br>
+<br>
+Greetings<br>
+Jochen<br>
+<br>
+Do you need a memory-leak finder ?<br>
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fwww.codeproject.com%2Ftools%2Fleakfinder.asp" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4CCCCCC19424F4B43C0C14F4D4342CB19424F4E1321B4CB4F4F48C21321B448434A474446494B43C1194AC2C0 ggnt targetblank">http://www.codeproject.com/tools/leakfinder.asp</a><br>
+<br>
+Do you need daily reports from your server?<br>
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fsrvreport%2F" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4C24FC3C14243444FC14C43194943CB1321B4C0C14F4D4342CBC21321B4C2C1C4C143C04FC1CB1321B4 ggnt targetblank">http://sourceforge.net/projects/srvreport/</a><br>                            </div>
+
+                            <div class="message_infos message_infos2">
+                                <div class="message_options comment_options">
+                                                                        <a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html?quote=230866642" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482FCAC34FCB432E212220252424242B21 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten"> Antwort</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                                        <div class="bloc_bg bloc_bg2 margintop10 marginbottom20">
+                            <div class="message_head comment_head2">
+                                <div class="message_author comment_author">
+                                    <a href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#230866312" class="comment_anchor" name="230866312">#2</a> <strong>Volker Bartheld (SPAM only)</strong>
+                                    <div>
+									26/08/2004 - 13:10 | <a href="http://www.technologische-hilfe.de/kontact.html?select=abuse&url=/antworten/pthreads-win32-statisch-linken-support-230866062.html__230866312" rel="nofollow">Report spam</a>
+                                										</div>
+                                </div>
+                            </div>
+
+                            <div class="message_text comment_text" id="intelliTXT">
+                                Hi Jochen!<br>
+<br>
+On Wed, 25 Aug 2004 10:39:55 -0700, Jochen Kalmbach<br>
+ wrote :<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+"... error LNK2019: unresolved external symbol<br>
+__imp__pthread_mutex_destroy ..."<br>
+waehrend des Linkvorgangs meiner .obj-Datei.<br>
+<br>
+<br>
+</blockquote><br>
+Wenn du es ganz hart machen willst, dann werfe alle dinge mit<br>
+&lt;code&gt;<br>
+#ifdef PTW32_BUILD<br>
+# define PTW32_DLLPORT __declspec (dllexport)<br>
+#else<br>
+# define PTW32_DLLPORT __declspec (dllimport)<br>
+#endif<br>
+&lt;/code&gt;<br>
+einfach raus (betrifft pthread.h, sched.h und semaphore.h)<br>
+Dafür musst Du nur ganz am anfang von pthread.h das folgende aufnehmen:<br>
+&lt;code&gt;<br>
+#define PTW32_DLLPORT<br>
+&lt;/code&gt;<br>
+<br>
+<br>
+</blockquote><br>
+Das habe ich aber m. E. versucht (allerdings indem ich PTW32_DLLPORT<br>
+versuchsweise ersatzlos entfernt habe - PTW32_BUILD war natuerlich noch<br>
+gesetzt, d.h. der erste Zweig des #ifdef traf zu). Natuerlich schliesse<br>
+ich nicht aus, dass mir da irgendein Bockmist pasiert ist. Allerdings<br>
+kann/darf ich leider nicht pthread.h permanent veraendern. Hoechstens<br>
+ein<br>
+<br>
+#ifdef PTHREAD_STATIC_LINKAGE<br>
+#  define PTW32_DLLPORT<br>
+#endif<br>
+<br>
+waere noch denkbar. Besser/lieber aber per Preprozessordefinition -<br>
+falls das moeglich ist. Wo ist/wird PTW32_DLLPORT eigentlich definiert<br>
+bzw. wer soll das machen?<br>
+<br>
+<a class="blockquotelink displayed" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Ocultar la cita</a><blockquote class="block1" style="display: block;">
+Jetzt làsst sich einfach der Typ des Projectes von DLL auf LIB<br>
+umstellen.<br>
+<br>
+<br>
+</blockquote><br>
+Das klappte bei mir. Ich habe sogar die Funktionssignaturen im<br>
+Hexlisting vom pthreadVC.lib gesehen - allerdings hat sie der Linker<br>
+wohl nicht gefunden. Keine Ahnung ob das ein Problem mit C/C++-Linkage<br>
+war, daher auch meine Experimente mit externC.<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Wenn Du Die LIB linken möchtest musst Du natürlich darauf achten, dass<br>
+das gleiche Threading-Model verwendet wird (eingestellt ist per default<br>
+bei pthreads "Multithreaded-DLL").<br>
+<br>
+<br>
+</blockquote><br>
+Klar. Das war mein naechster Schritt. Ich habe dann alles auf statisches<br>
+Linken mit der VC-Runtime umgestellt (Multithreaded bzw. Multithreaded<br>
+Debug), weil ich die nicht extra mitliefern will. Trotzdem ohne Erfolg.<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Desweiteren muss Du die Init-Funktion, welche sonst in DllMain<br>
+aufgerufen wird direkt aufrufen:<br>
+&lt;code&gt;<br>
+pthread_win32_process_attach_np();<br>
+&lt;/code&gt;<br>
+<br>
+<br>
+</blockquote><br>
+Klar. Aber das sollte sich nicht auf den Linkvorgang auswirken.<br>
+Vermutlich fliegt mir dann eher die .exe um die Ohren, sobald<br>
+pthread-Funktionen benutzt werden.<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Dies natürlich bevor Du irgendwas mit pthreads machsts...<br>
+<br>
+<br>
+</blockquote><br>
+Logisch.<br>
+<br>
+<a class="blockquotelink displayed" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Ocultar la cita</a><blockquote class="block1" style="display: block;">
+Wenn Du ein Beispielprojekt haben willst (aber VS2003), kann ich es Dir<br>
+gerne Mailen...<br>
+<br>
+<br>
+</blockquote><br>
+Gerne! VS2003 ist sogar perfekt - ich muss das eh benutzen, weil in<br>
+unserem Projekt lauter eklige Templates rumhaengen, an denen sich VC98<br>
+gar madigst verschluckt. Am besten mailst Du mir das gute Stueck an<br>
+v<br>
+bartheld<br>
+bei<br>
+gmx<br>
+punkt<br>
+de<br>
+, dann mache ich mal einen 1:1-Vergleich und hoffe herauszufinden, warum<br>
+es bei mir nicht klappt... Nur zur Info: Ich habe hier die Version vom<br>
+2003-09-14 vorliegen, zumindest laut ChangeLog.<br>
+<br>
+Vielen Dank!<br>
+<br>
+<br>
+Volker<br>                            </div>
+
+                            <div class="message_infos message_infos2">
+                                <div class="message_options comment_options">
+                                                                        <a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html?quote=230866312" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482FCAC34FCB432E212220252424222A21 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten"> Antwort</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                                        <div class="bloc_bg bloc_bg2 margintop10 marginbottom20">
+                            <div class="message_head comment_head2">
+                                <div class="message_author comment_author">
+                                    <a href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#230866302" class="comment_anchor" name="230866302">#3</a> <strong>Jochen Kalmbach</strong>
+                                    <div>
+									26/08/2004 - 13:24 | <a href="http://www.technologische-hilfe.de/kontact.html?select=abuse&url=/antworten/pthreads-win32-statisch-linken-support-230866062.html__230866302" rel="nofollow">Report spam</a>
+                                										</div>
+                                </div>
+                            </div>
+
+                            <div class="message_text comment_text" id="intelliTXT">
+                                Hallo Volker,<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Allerdings<br>
+kann/darf ich leider nicht pthread.h permanent veraendern.<br>
+[...]<br>
+Wo ist/wird PTW32_DLLPORT eigentlich definiert<br>
+bzw. wer soll das machen?<br>
+<br>
+<br>
+</blockquote><br>
+Das Problem ist, dass es in drei Dateien gemacht wird:<br>
+pthread.h, semaphore.h und sched.h<br>
+<br>
+Also Du musst schon alle drei àndern!<br>
+<br>
+Du kannst es auch àndern nach (aber eben in allen drei Dateien!)<br>
+<br>
+#ifdef PTHREAD_STATIC_LINKAGE<br>
+#ifdef PTW32_BUILD<br>
+#define PTW32_DLLPORT __declspec (dllexport)<br>
+#else<br>
+#define PTW32_DLLPORT __declspec (dllimport)<br>
+#endif<br>
+#else<br>
+#define PTW32_DLLPORT<br>
+#endif<br>
+<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Klar. Das war mein naechster Schritt. Ich habe dann alles auf statisches<br>
+Linken mit der VC-Runtime umgestellt (Multithreaded bzw. Multithreaded<br>
+Debug), weil ich die nicht extra mitliefern will. Trotzdem ohne Erfolg.<br>
+<br>
+<br>
+</blockquote><br>
+Was heisst denn ohne erfolgt !? Kommt immer noch ein "unaufgelöstes Symbol<br>
+mit "__imp_..." !?<br>
+Dann hast Du vergessen die anderen Dateien anzupassen (semaphore.h und<br>
+sched.h)!<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+Dies natürlich bevor Du irgendwas mit pthreads machsts...<br>
+<br>
+</blockquote><br>
+<br>
+Logisch.<br>
+<br>
+<br>
+</blockquote><br>
+Sorry wenn ich so selbstverstàndlich Dinge aufführe...<br>
+<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+Wenn Du ein Beispielprojekt haben willst (aber VS2003), kann ich es Dir<br>
+gerne Mailen...<br>
+<br>
+</blockquote><br>
+<br>
+Gerne! VS2003 ist sogar perfekt - ich muss das eh benutzen, weil in<br>
+unserem Projekt lauter eklige Templates rumhaengen, an denen sich VC98<br>
+gar madigst verschluckt.<br>
+<br>
+<br>
+</blockquote><br>
+Kannst Du es DIr auch runterladen !?<br>
+<br>
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fsrvreport.kalmbachnet.de%2Fpthreads_04-08-25.rar" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4C2C1C4C143C04FC1CB19474A484E414A42454943CB194B431321B4C0CB45C1434A4BC23F202B1E20251E212319C14AC1 ggnt targetblank">http://srvreport.kalmbachnet.de/pth...-08-25.rar</a><br>
+<br>
+<br>
+Greetings<br>
+Jochen<br>                            </div>
+
+                            <div class="message_infos message_infos2">
+                                <div class="message_options comment_options">
+                                                                        <a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html?quote=230866302" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482FCAC34FCB432E212220252424222021 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten"> Antwort</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                                        <div class="bloc_bg bloc_bg2 margintop10 marginbottom20">
+                            <div class="message_head comment_head2">
+                                <div class="message_author comment_author">
+                                    <a href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#230866132" class="comment_anchor" name="230866132">#4</a> <strong>Volker Bartheld (SPAM only)</strong>
+                                    <div>
+									26/08/2004 - 16:20 | <a href="http://www.technologische-hilfe.de/kontact.html?select=abuse&url=/antworten/pthreads-win32-statisch-linken-support-230866062.html__230866132" rel="nofollow">Report spam</a>
+                                										</div>
+                                </div>
+                            </div>
+
+                            <div class="message_text comment_text" id="intelliTXT">
+                                Hi Jochen!<br>
+<br>
+On Thu, 26 Aug 2004 04:24:05 -0700, Jochen Kalmbach<br>
+ wrote :<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+Wo ist/wird PTW32_DLLPORT eigentlich definiert<br>
+bzw. wer soll das machen?<br>
+<br>
+<br>
+</blockquote><br>
+Das Problem ist, dass es in drei Dateien gemacht wird:<br>
+pthread.h, semaphore.h und sched.h<br>
+Also Du musst schon alle drei àndern!<br>
+<br>
+<br>
+</blockquote><br>
+Ah, OK. Dann muss ich also doch Hand anlegen und eine<br>
+Preprozessordefinition tut es (leider) nicht.<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Du kannst es auch àndern nach (aber eben in allen drei Dateien!)<br>
+#ifdef PTHREAD_STATIC_LINKAGE<br>
+#ifdef PTW32_BUILD<br>
+#define PTW32_DLLPORT __declspec (dllexport)<br>
+#else<br>
+#define PTW32_DLLPORT __declspec (dllimport)<br>
+#endif<br>
+#else<br>
+#define PTW32_DLLPORT<br>
+#endif<br>
+<br>
+<br>
+</blockquote><br>
+Jup. So werde ich das machen.<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+Klar. Das war mein naechster Schritt. Ich habe dann alles auf statisches<br>
+Linken mit der VC-Runtime umgestellt (Multithreaded bzw. Multithreaded<br>
+Debug), weil ich die nicht extra mitliefern will. Trotzdem ohne Erfolg.<br>
+<br>
+</blockquote><br>
+<br>
+Was heisst denn ohne erfolgt !? Kommt immer noch ein "unaufgelöstes Symbol<br>
+mit "__imp_..." !?<br>
+Dann hast Du vergessen die anderen Dateien anzupassen (semaphore.h und<br>
+sched.h)!<br>
+<br>
+<br>
+</blockquote><br>
+Praezise gesagt habe ich mir sogar auch ein Dummy-lib-Projekt mit genau<br>
+den Funktionen gebastelt, die mein Code gerne haben will und die<br>
+natuerlich nur als ... return 0 ... implementiert. Das Projekt baut eine<br>
+statische lib, die statisch mit der VC-Runtime linkt. Irgendwie mault<br>
+der Linker aber trotzdem ueber unresolved externals. Und das _obwohl_<br>
+alle abhaengigen Projekte bzgl. der runtime gleich konfiguriert sind.<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Dies natürlich bevor Du irgendwas mit pthreads machsts...<br>
+<br>
+</blockquote><br>
+Logisch.<br>
+<br>
+</blockquote><br>
+Sorry wenn ich so selbstverstàndlich Dinge aufführe...<br>
+<br>
+<br>
+</blockquote><br>
+Bitte nicht falsch verstehen. War ja kein Vorwurf. Da kann man<br>
+natuerlich boese in die Falle tappen...<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block1" style="display: none;">
+Wenn Du ein Beispielprojekt haben willst (aber VS2003), kann ich es Dir<br>
+gerne Mailen...<br>
+<br>
+</blockquote><br>
+<br>
+</blockquote><br>
+Kannst Du es DIr auch runterladen !?<br>
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fsrvreport.kalmbachnet.de%2Fpthreads_04-08-25.rar" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4C2C1C4C143C04FC1CB19474A484E414A42454943CB194B431321B4C0CB45C1434A4BC23F202B1E20251E212319C14AC1 ggnt targetblank">http://srvreport.kalmbachnet.de/pth...-08-25.rar</a><br>
+<br>
+<br>
+</blockquote><br>
+Ich habe mir das jetzt geholt. Beim ersten Durchsehen faellt auf, dass<br>
+es eine neuere Version von pthreads ist. Ich hoffe, das macht nichts<br>
+aus. Ich schaue mir das jetzt mal en Detail an und melde mich dann<br>
+wieder.<br>
+<br>
+Danke &amp; Gruss,<br>
+Volker<br>                            </div>
+
+                            <div class="message_infos message_infos2">
+                                <div class="message_options comment_options">
+                                                                        <a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html?quote=230866132" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482FCAC34FCB432E2122202524242A2221 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten"> Antwort</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                                        <div class="bloc_bg bloc_bg2 margintop10 marginbottom20">
+                            <div class="message_head comment_head2">
+                                <div class="message_author comment_author">
+                                    <a href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#230866072" class="comment_anchor" name="230866072">#5</a> <strong>Jochen Kalmbach</strong>
+                                    <div>
+									26/08/2004 - 17:37 | <a href="http://www.technologische-hilfe.de/kontact.html?select=abuse&url=/antworten/pthreads-win32-statisch-linken-support-230866062.html__230866072" rel="nofollow">Report spam</a>
+                                										</div>
+                                </div>
+                            </div>
+
+                            <div class="message_text comment_text" id="intelliTXT">
+                                Hallo Volker,<br>
+<br>
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a class="blockquotelink" href="http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a><blockquote class="block0" style="display: none;">
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fsrvreport.kalmbachnet.de%2Fpthreads_04-08-25.rar" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4C2C1C4C143C04FC1CB19474A484E414A42454943CB194B431321B4C0CB45C1434A4BC23F202B1E20251E212319C14AC1 ggnt targetblank">http://srvreport.kalmbachnet.de/pth...-08-25.rar</a><br>
+<br>
+</blockquote><br>
+<br>
+Ich habe mir das jetzt geholt. Beim ersten Durchsehen faellt auf, dass<br>
+es eine neuere Version von pthreads ist. Ich hoffe, das macht nichts<br>
+aus. Ich schaue mir das jetzt mal en Detail an und melde mich dann<br>
+wieder.<br>
+<br>
+<br>
+</blockquote><br>
+Ich habe mir halt die aktuelle Version geholt um es mal zu testen...<br>
+<br>
+<br>
+Greetings<br>
+Jochen<br>
+<br>
+Do you need a memory-leak finder ?<br>
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fwww.codeproject.com%2Ftools%2Fleakfinder.asp" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4CCCCCC19424F4B43C0C14F4D4342CB19424F4E1321B4CB4F4F48C21321B448434A474446494B43C1194AC2C0 ggnt targetblank">http://www.codeproject.com/tools/leakfinder.asp</a><br>
+<br>
+Do you need daily reports from your server?<br>
+<a href="http://www.technologische-hilfe.de/redirection.html?url=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fsrvreport%2F" target="_blank" class="gnt1FC1434B46C14342CB464F491945CB4E482FC3C1482E45CBCBC01322BA1321B41321B4C24FC3C14243444FC14C43194943CB1321B4C0C14F4D4342CBC21321B4C2C1C4C143C04FC1CB1321B4 ggnt targetblank">http://sourceforge.net/projects/srvreport/</a><br>                            </div>
+
+                            <div class="message_infos message_infos2">
+                                <div class="message_options comment_options">
+                                    <a href="http://www.technologische-hilfe.de/pthreads-win32-statisch-linken-support-230866062.html?folgen" title="Starten Sie erhalten E-Mail Alerts für jede Antwort in dieser Diskussion geschrieben" class="gnt1FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482F444F484C4349 ggnt nobg black message_asktopic"><img src="./pthreads-win32 statisch linken_files/email_go.png" alt="email"> Lesen Sie die Debatte</a>                                    <a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html?quote=230866072" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E482FCAC34FCB432E212220252424202C21 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten"> Antwort</a>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                
+					<div class="bloc_bg bloc_bg2 margintop10 marginbottom10">
+						<div class="message_head comment_head2">
+							<div class="message_author comment_author">
+								<strong>Ads by Google</strong>
+							</div>
+						</div>
+
+						<div class="message_text comment_text">
+																<div class="googleperso googleperso2">
+			<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+		    <ins class="adsbygoogle" style="display:inline-block;" data-ad-client="ca-pub-6082665093857218" data-ad-slot="8469798309" data-override-format="true">
+		    </ins>
+		    <script>
+		        (adsbygoogle = window.adsbygoogle || []).push({
+		            params: { google_ad_channel: '3464246801+3515859524+6598213740+1619941229' }
+		        });
+		    </script>
+		    
+	    </div>						</div>
+					</div>
+
+                    <script type="text/javascript">
+                        function initBlockquotes() {
+                            $('#comments blockquote').each(function(i) {
+								$(this).hide();
+								$(this).before('<a class="blockquotelink" href="#" onclick="return toggleBlockquote(this);">Zeigen sie das zitat</a>');
+							});
+                        }
+						function toggleBlockquote(toggler) {
+							if($(toggler).hasClass('displayed')) {
+								$(toggler).removeClass('displayed');
+								$(toggler).text('Mostrar la cita');
+							}
+							else {
+								$(toggler).addClass('displayed');
+								$(toggler).text('Ocultar la cita');
+							}
+							$(toggler).next().toggle();
+							return false;
+						}
+						$(function(){
+							initBlockquotes();
+							$('#similar_link_more').click(function() {
+								$(this).hide();
+								$('#similar_links .hidden').each(function(i) {
+									$(this).removeClass('hidden');
+								});
+							});
+						});
+                    </script>
+
+					
+					<div class="message_infos message_infos2">
+						<div class="message_options message_options2">
+							<a class="message_asktopic" title="Auf der Suche nach etwas Hilfe oder wollen etwas fragen? Erstellen Sie Ihr eigenes Design, indem Sie hier ..." href="http://www.technologische-hilfe.de/support-8391-frage.html"><img src="./pthreads-win32 statisch linken_files/help.png" alt="Help"> eine Frage stellen</a><a href="http://www.technologische-hilfe.de/vorschauen/pthreads-win32-statisch-linken-support-230866062.html" class="gnt1FC44FC1C242454AC343491FC0CB45C1434A4BC21ECC464922211EC2CB4ACB46C242451E4846494743491EC2C3C0C04FC1CB1E2122202524242024211945CB4E48 ggnt"><img src="./pthreads-win32 statisch linken_files/comment_edit.png" alt="Antworten">Antwort</a>						</div>
+						<div class="clear"></div>
+					</div>
+
+                    	</div>
+
+		<div class="bloc_bg margintop10">
+			<span class="mid_title2"><img src="./pthreads-win32 statisch linken_files/zoom.png" alt="Search"> Empfohlene suche</span>
+			<div class="similar_search similar_search2">
+				<form method="get" action="http://www.technologische-hilfe.de/support-sucher/" name="search">
+				<input type="text" size="40" maxlength="255" name="kw" value="pthreads win32 statisch linken" class="text">
+				<input type="submit" value="Suchen" class="bouton">
+				</form>
+			</div>
+		</div>
+
+        <div class="search_pave">
+            
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- GNT_DE_300*250_bas -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-5027204647042069" data-ad-slot="2912143503"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>        </div>
+    </div>
+
+    <div class="clear">&nbsp;</div>
+
+</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+
+<div id="header">
+    <a href="http://www.technologische-hilfe.de/" title="Technologische-hilfe.de" id="logo" class="gnt1F ggnt">Technologische-hilfe.de</a>
+    <div class="pub">
+        
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- GNT_DE_728*90 -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-5027204647042069" data-ad-slot="1435410306"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>    </div>
+    <div id="account">
+    	<span>
+        <img src="./pthreads-win32 statisch linken_files/date.png" alt="Heute"> Donnerstag den 13 Februar - 12:34 &nbsp;
+                    <a href="http://www.technologische-hilfe.de/benutzer/register/" class="gnt1F414349C3CBCD43C11FC1434C46C2CB43C11F ggnt"><img src="./pthreads-win32 statisch linken_files/status_offline.png" alt="Benutzerkonto"> <strong>Registrieren </strong></a> &nbsp;
+            <a href="http://www.technologische-hilfe.de/benutzer/login/" title="Verbinden" class="gnt1F414349C3CBCD43C11F484F4C46491F ggnt"><img src="./pthreads-win32 statisch linken_files/connect.png" alt="Login"> Verbinden</a>
+                </span>
+        <span class="corner corner_l"></span>
+		<span class="corner corner_r"></span>
+    </div>
+    <div class="lang">
+    	<a href="http://www.generation-nt.com/" title="Génération-NT"><img src="./pthreads-win32 statisch linken_files/fr.png" alt="FR"></a>
+        <a href="http://us.generation-nt.com/" title="Generation of New Technology"><img src="./pthreads-win32 statisch linken_files/us.png" alt="US"></a>
+		<a href="http://www.compartir-tecnologias.es/" title="Compartir tecnologias"><img src="./pthreads-win32 statisch linken_files/es.png" alt="ES"></a>
+	</div>
+</div>
+
+<div id="footer">
+    <div class="footer_bloc">
+    <span>Informationen :</span>
+    <ul>
+        <li><a href="http://www.technologische-hilfe.de/uber.html" class="gnt1FC34143C11945CB4E48 ggnt">Über</a></li>
+        <li><a href="http://www.technologische-hilfe.de/nutzungsbedingungen.html" class="gnt1F49C3CBCDC3494CC241434B46494CC3494C43491945CB4E48 ggnt">Nutzungsbedingungen</a></li>
+        <li><a href="http://www.technologische-hilfe.de/kontact.html" class="gnt1F474F49CB4A42CB1945CB4E48 ggnt">Kontakt</a></li>
+    </ul>
+</div>
+
+<p>Copyright © 2001-2014 GNT Media</p></div>
+
+<script type="text/javascript" src="./pthreads-win32 statisch linken_files/gnt.js"></script>
+
+<!-- start Vibrant Media IntelliTXT script section -->
+<script type="text/javascript" src="http://technologische-hilfe.de.intellitxt.com/intellitxt/front.asp?ipid=57468"></script>
+<!-- end Vibrant Media IntelliTXT script section -->
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var ad6_url = 'http://r573su4rbu.s.ad6media.fr/?d=' + ((new Date()).getTime()) + '&r=';try {ad6_url += encodeURIComponent(top.document.referrer);} catch (e) {ad6_url += encodeURIComponent(document.referrer);}document.write('<scr' + 'ipt typ' + 'e="text/javas' + 'cript" src="' + ad6_url + '"></scr' + 'ipt>');/* ]]> */</script><script type="text/javascript" src="http://r573su4rbu.s.ad6media.fr/?d=1392291256823&r=https%3A%2F%2Fwww.google.de%2F"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ad6_url = 'http://8l4l4prceo.s.ad6media.fr/?d=' + ((new Date()).getTime()) + '&r=';try {ad6_url += encodeURIComponent(top.document.referrer);} catch (e) {ad6_url += encodeURIComponent(document.referrer);}document.write('<scr' + 'ipt typ' + 'e="text/javas' + 'cript" src="' + ad6_url + '"></scr' + 'ipt>');/* ]]> */</script><script type="text/javascript" src="http://8l4l4prceo.s.ad6media.fr/?d=1392291257322&r=https%3A%2F%2Fwww.google.de%2F"></script>
+<script type="text/javascript">ad6is('ai63cpuvk8');</script>
+
+<script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"js-agent.newrelic.com/nr-100.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-2.newrelic.com","417535ff60","2462532","ZV1QYEtQCBJSWhENWlwXZ0ZQHgMPR0sEDVFXF1FbVFwDD0dcF0pFWkg=",0,128,new Date().getTime(),"","","","",""]);</script>
+</div></div><script type="text/javascript" src="./pthreads-win32 statisch linken_files/nr-100.js"></script><script type="text/javascript" src="./pthreads-win32 statisch linken_files/417535ff60"></script></body></html>

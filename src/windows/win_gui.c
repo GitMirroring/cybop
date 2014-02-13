@@ -21,7 +21,7 @@ LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	LPSTR szCmdLine, int iCmdShow) {
-	static char szAppName[] = "winhello";
+	static char szAppName[] = "Cyboi";
 	HWND        hwnd;
 	MSG         msg;
 	WNDCLASSEX  wndclass;

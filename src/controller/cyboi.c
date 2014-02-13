@@ -27,6 +27,7 @@
 #define CYBOI_SOURCE
 
 #ifdef _MSC_VER
+#define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
 //#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
 //#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h
 //#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
@@ -73,6 +74,13 @@
  * @return the return value (0 for normal shutdown; 1 for error)
  */
 int main(int p0, char** p1) {
+
+#ifdef _MSC_VER
+#ifdef PTW32_STATIC_LIB
+	pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
+	pthread_win32_thread_attach_np(); // Currently a no-op
+#endif
+#endif
 
     //
     // One note about dynamic memory allocation:
@@ -245,7 +253,18 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNT
         log_write(stdout, L"Error: Could not execute cyboi. The command line argument vector is null.\n");
     }
 
-    return r;
+#ifdef _MSC_VER
+#ifdef PTW32_STATIC_LIB
+	pthread_win32_process_detach_np();
+	pthread_win32_thread_detach_np();
+#endif
+#endif
+
+#ifdef _DEBUG
+	getchar();
+#endif
+
+	return r;
 }
 
 /* CYBOI_SOURCE */

@@ -1,0 +1,725 @@
+*{font-family:tahoma,verdana,arial,sans-serif;margin:0;padding:0;}
+body{color:#000;text-align:center;}
+.body1{background:#000000 url(http://images.technologische-hilfe.de/design/bg1.png) repeat-x fixed;}
+.body2{background:#dadada url(http://images.technologische-hilfe.de/design/bg2.png) repeat-x fixed;}
+.body3{background:#64b754 url(http://images.technologische-hilfe.de/design/bg3.png) repeat-x fixed;}
+.body4{background:#121c47 url(http://images.technologische-hilfe.de/design/bg4.png) repeat-x fixed;}
+.body5{background:#3e1111 url(http://images.technologische-hilfe.de/design/bg5.png) repeat-x fixed;}
+.body6{background:#ffffff url(http://images.technologische-hilfe.de/design/bg6.png) no-repeat center top;}
+
+#bodybox{position:relative;padding-top:135px;width:970px;margin:0 auto;text-align:left;font-size:11px;}
+
+#header{position:absolute;top:0;left:0;height:135px;width:100%;}
+#header #logo{position:absolute;top:0;left:20px;display:block;text-indent:-1000px;/*background:url(http://images.technologische-hilfe.de/design/logo_us.png) no-repeat;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat 0px 0px;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=http://images.technologische-hilfe.de/design/logo_us.png, sizingMethod=image);width:190px;height:118px;overflow:hidden;}
+#header #account{position:absolute;top:0;right:65px;overflow:hidden;padding:2px 8px 0;height:18px;/*background:url(http://images.technologische-hilfe.de/design/bg_account.png) repeat-x;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) repeat-x 0px -150px;text-align:center;color:#666;}
+#header #account a{color:#333;}
+#header #account a:hover{color:#cf6d09;}
+#header #account img{vertical-align:middle;}
+#header #account .corner{position:absolute;top:15px;display:block;width:4px;height:5px;/*background:url(http://images.technologische-hilfe.de/design/bg_account_corners.png) no-repeat;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat;overflow:hidden;}
+#header #account .corner_l{left:0;background-position:/*0 0*/-84px -118px;}
+#header #account .corner_r{right:0;background-position:/*-4px 0*/-88px -118px;}
+#header .pub{position:absolute;top:30px;right:0;}
+#header .lang{position:absolute;top:5px;right:0;}
+
+#container{background:#fff;}
+
+#new_menu{position:relative;height:36px;width:970px;overflow:hidden;/*background:#1b1b1b url(http://images.technologische-hilfe.de/design/bg_menu.png) repeat-x;*/background:#1b1b1b url(http://images.technologische-hilfe.de/sprite.png?wootwoot) repeat-x 0px -170px;}
+#new_menu ul{display:block;width:962px;height:36px;margin:0 4px;padding:0;list-style:none;}
+#new_menu ul li a{display:block;float:left;height:32px;margin:4px 7px 0 0;padding:0 0 0 5px;color:#000;cursor:pointer;}
+#new_menu ul li a span, #new_menu ul li span span{font-family:tahoma,verdana,arial,sans-serif;font-size:13px;font-weight:bold;display:block;float:left;height:26px;padding:6px 6px 0 2px;cursor:pointer;}
+#new_menu ul li a.active,#new_menu ul li a:hover{color:#fff;/*background:url(http://images.technologische-hilfe.de/design/bg_menu_item_l2.png) no-repeat top left;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -92px -118px;}
+#new_menu ul li a.active span,#new_menu ul li a:hover span{/*background:url(http://images.technologische-hilfe.de/design/bg_menu_item_r2.png) no-repeat top right;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat right -206px;}
+#new_menu ul li#menu_home a span{padding:6px 7px 0 2px;}
+#new_menu ul li#menu_home a strong{display:block;width:21px;height:21px;/*background:url(http://images.technologische-hilfe.de/design/menu_home2.png) no-repeat 0 0;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat 0px -118px;overflow:hidden;text-indent:-1000px;}
+#new_menu ul li#menu_home a.active strong,#new_menu ul li#menu_home a:hover strong{background-position:/*0 -21px*/-21px -118px;}
+#new_menu ul li#menu_rssjs a{float:right;margin-right:0;}
+#new_menu ul li#menu_rssjs a span{padding:6px 12px 0 7px;}
+#new_menu ul li#menu_rssjs a strong{display:block;width:21px;height:21px;/*background:url(http://images.technologische-hilfe.de/design/menu_rss2.png) no-repeat 0 0;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -42px -118px;overflow:hidden;text-indent:-1000px;}
+#new_menu ul li#menu_rssjs a.active strong,#new_menu ul li#menu_rssjs a:hover strong{background-position:/*0 -21px*/-63px -118px;}
+
+#new_menu .corner{position:absolute;display:block;width:4px;height:5px;/*background:url(http://images.technologische-hilfe.de/design/bg_menu_corners.png) no-repeat;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat;overflow:hidden;}
+#new_menu .corner_l{top:0;left:0;background-position:/*0 0*/-84px -123px;}
+#new_menu .corner_r{top:0;right:0;background-position:/*-4px 0*/-88px -123px;}
+
+.body6 #bodybox{padding-top:140px;}
+.body6 #header .pub{top:32px;}
+
+#fil{/*background:url(http://images.technologische-hilfe.de/design/bg_fil_us2.png) repeat-x;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) repeat-x 0px -238px;width:962px;height:25px;overflow:hidden;color:#fff;border-left:4px solid #fff;border-right:4px solid #fff;}
+#fil a{color:#fff;}
+#fil a:hover, #fil a.active{text-decoration:none;color:#ccc;}
+#fil #navigation{float:left;margin-left:5px;margin-top:5px;width:740px;height:14px;overflow:hidden}
+#fil #navigation h1{display:inline;font-size:11px;margin:0;padding:0;}
+
+#recherche{float:right;font-weight:bold;margin-right:5px;margin-top:4px}
+#recherche .saisie{border:1px solid #ccc;font-size:12px;padding-left:2px;font-weight:normal;width:150px}
+#recherche .submit{border:1px solid #222;font-size:12px;background-color:#333;color:#fff;font-weight:bold;cursor:pointer}
+
+#footer{position:relative;/*background:#cf6d09 url(http://images.technologische-hilfe.de/design/bg_footer_us.png) repeat-x;*/background:#cf6d09 url(http://images.technologische-hilfe.de/sprite.png?wootwoot) repeat-x 0px -263px;border-bottom:1px solid #5B1818;width:950px;padding:10px;overflow:hidden;color:#fff;font-size:12px;}
+#footer a img{position:absolute;top:10px;left:10px;}
+#footer a{text-decoration:none;color:#ccc}
+#footer a:hover{color:#000}
+#footer .footer_bloc{border-left:4px solid #fff;margin-left:90px;padding:0 0 5px 15px;}
+#footer .footer_bloc ul{margin-left:10px;}
+#footer .footer_bloc ul li{margin-left:15px;font-size:11px;}
+#footer p{clear:both;width:940px;text-align:right;margin:10px 0 5px 0;}
+
+#xiti{display:none;}
+
+/* bases : begin */
+a{color:#000;text-decoration:none;outline:none;}
+a:hover{color:#cf6d09;text-decoration:none;}
+a img{border:0;}
+
+.bouton{border:1px solid #222;font-size:12px;background-color:#333;color:#fff;font-weight:bold;cursor:pointer;padding:3px;}
+.bouton:hover{background:#000;color:#fff;}
+.bouton2{border:1px solid #555;font-size:11px;background-color:#666;color:#fff;font-weight:bold;cursor:pointer;padding:2px;}
+.bouton2:hover{background:#444;color:#fff;}
+.clear{clear:both;height:1px;}
+.floatr{float:right;}
+.floatl{float:left;}
+.asterisk{color:#f00;}
+.red{color:#cf6d09;}
+.underline{text-decoration:underline;}
+.alignc{text-align:center;}
+.valignm{vertical-align:middle;}
+.padding0{padding:0;}
+.padding5{padding:5px;}
+.paddingtop10{padding-top:10px;}
+.paddingbottom10{padding-bottom:10px;}
+.margintop0{margin-top:0;}
+.margin5{margin:5px;}
+.margintop5{margin-top:5px;}
+.margin10{margin:10px;}
+.margintop10{margin-top:10px;}
+.margintop15{margin-top:15px;}
+.margintop20{margin-top:20px;}
+.margintop25{margin-top:25px;}
+.margintop30{margin-top:30px;}
+.marginbottom10{margin-bottom:10px;}
+.marginbottom20{margin-bottom:20px;}
+.marginleft5{margin-left:5px;}
+.marginleft10{margin-left:10px;}
+.marginright5{margin-right:5px;}
+.marginright20{margin-right:20px;}
+.h250{height:250px;}
+.h240{height:240px;}
+.h90{height:90px !important;}
+.nobg{background:none;}
+
+.left_title1{display:block;font-weight:bold;font-size:13px;}
+.left_title1 img{vertical-align:middle;}
+.mid_title2{display:block;font-weight:bold;font-size:13px;color:#cf6d09;padding-bottom:5px;}
+.mid_title2 img{vertical-align:middle;}
+.mid_link{float:right;margin-right:5px;color:#888;}
+
+ul, ol{margin:0;padding:0;list-style-type:none;}
+ul li, ol li{display:inline;list-style-type:none;}
+
+ul.listepuce{margin-left:5px;}
+ul.listepuce li{display:block;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 5px;/*background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -113px;*/padding-left:12px;padding-right:10px;color:#000000;margin-bottom:3px;list-style:none;}
+ul.listepuce li.old{/*background-image:url(http://images.technologische-hilfe.de/design/point11.gif);*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -127px;}
+ul.listepuce li a{color:#000;}
+ul.listepuce li a.active{color:#cf6d09;}
+ul.listepuce li a:hover{color:#5b5b5b;}
+ul.listepuce2 li{background:none;padding-left:0;}
+ul.listepuce2 li a{padding-left:12px;/*background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 6px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -146px;}
+ul.listepuce2 li a:hover, ul.listepuce2 li a.active{color:#cf6d09;/*background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -112px;}
+
+.innerpub250{width:300px;height:250px;text-align:center;}
+.innerpub600{width:160px;height:600px;text-align:center;margin-left:auto;margin-right:auto;}
+.innerpub125{display:none;width:300px;height:125px;text-align:center;}
+.pub_300center{width:300px;height:250px;margin:10px auto;}
+
+#debug{text-align:left;font-size:11px;padding:5px;background:#fff;cursor:pointer;}
+.confirmation{border:1px solid #5ead00;background:#f3ffe4;color:#427802;padding:10px;font-size:12px;margin-bottom:20px;}
+.errors{border:1px solid #bf2020;background:#fad8d8;color:#bf2020;padding:10px;font-size:12px;margin-bottom:20px;}
+.errors ul li{display:block;margin:3px;}
+.information{border:1px solid #9FB8C8;padding:10px;background-color:#EBF0F4;font-size:12px;}
+.smileys a img{border:1px solid #fff;}
+.smileys a:hover img{border:1px solid #cf6d09;}
+
+.googleperso{padding:10px;font-size:12px;}
+.googleperso div.inner{padding:3px 5px 0px 5px;}
+.googleperso a{color:#cf6d09;}
+.googleperso a:hover{color:#000;}
+.googleperso a.visibleurl{color:#666;font-weight:normal;font-size:11px;}
+.googleperso ul{padding-top:5px;}
+.googleperso li.ads{background:none;padding-left:0;display:block;margin-bottom:3px;padding-bottom:3px;}
+.googleperso span.google_intitule{color:#666;}
+.googleperso2{padding:0;}
+.ads_debug{display:block;font-size:10px;color:#ccc;}
+.googleperso .adsbygoogle{width:630px;height:60px;}
+#bloc_adsense_left .googleperso{padding:0;}
+#bloc_adsense_left .googleperso .adsbygoogle{width:300px;height:125px;}
+.onRight .googleperso .adsbygoogle{width:300px;height:125px;}
+#colonneCentre .onLeft .adsbygoogle{width:460px;height:60px;}
+
+.button_asktopic{text-align:center;margin-top:10px;}
+.button_asktopic a{color:#333;font-weight:bold;font-size:12px;padding:5px 10px;background:url(http://images.technologische-hilfe.de/design/bg_fil_us4.png) repeat-x;border:1px solid #999;border-top-color:#bbb;border-right-color:#bbb;}
+.button_asktopic a:hover{color:#000;}
+.button_asktopic a img{vertical-align:top;}
+/* bases : end */
+
+#content{margin:10px 0;}
+#colonneCentre{width:779px;float:left;}
+#colonneCentre2{width:639px;float:left;}
+#colonneCentre3{width:789px;float:left;}
+#colonneCentre4{width:970px;}
+.onLeft{width:469px;float:left;}
+.onLeft2{width:639px;float:left;}
+.onRight{width:300px;float:left;margin-left:10px;}
+#colonneCentre3 .onRight{margin-left:10px;margin-right:0px;}
+#colonneCentre3 .onLeft{margin-left:10px;margin-right:0px;}
+div.width172{width:172px;}
+div.width182{width:182px;}
+div.width320{width:320px;}
+
+/* left : begin */
+#colonneGauche {overflow:hidden;float:left;padding-bottom:20px;}
+#colonneGauche .separateur{background-color:#fff;font-size:0px;overflow:hidden;height:10px;}
+#colonneGauche .pub{height:600px;width:160px;margin-left:10px;overflow:hidden;text-align:center;}
+#colonneGauche .pub2{height:250px;width:300px;margin-left:10px;overflow:hidden;text-align:center;}
+#colonneGauche .pub3{height:600px;width:300px;overflow:hidden;text-align:center;}
+#colonneGauche .pub125{display:none;height:125px;width:125px;margin-left:auto;margin-right:auto;overflow:hidden;text-align:center;}
+#colonneGauche .block01{width:162px;border-top:1px solid #9FB8C8;margin-left:10px;overflow:hidden;margin-bottom:10px;}
+#colonneGauche .block01 .inner{width:136px;margin-left:14px;margin-top:16px;margin-bottom:16px;}
+#colonneGauche .block01 .inner p{font-size:10px;margin-bottom:35px;}
+#colonneGauche .block01 .inner input.btn {color:white;background-color:#f6993a;}
+#colonneGauche .block02{width:162px;border:0;margin-left:10px;overflow:hidden;background-color:white;}
+#colonneGauche .block02 .inner{width:100%;background-color:white;}
+
+#colonneGauche .bloc_bg{margin-left:10px;width:290px;padding:5px;background:url(http://images.technologische-hilfe.de/design/bg_bloc_us2.png) no-repeat top left;}
+#colonneGauche .bloc_nobg{margin-left:10px;width:290px;padding:5px;}
+
+#colonneGauche #bloc_adsense_left{margin:5px;font-size:12px;}
+#colonneGauche #bloc_adsense_left .adsby{color:#777;}
+#colonneGauche #bloc_adsense_left .listeads{display:block;margin-top:5px;}
+#colonneGauche #bloc_adsense_left .listeads a{font-weight:bold;}
+#colonneGauche #bloc_adsense_left .listeads .link{font-weight:normal;color:#555;}
+
+ul.press_cats{margin-top:10px;}
+ul.press_cats li{display:block;margin-bottom:5px;clear:both;height:54px;}
+ul.press_cats li a{display:block;height:54px;font-size:11px;}
+ul.press_cats li a img{border:2px solid #ccc;float:left;margin-right:5px;}
+ul.press_cats li a:hover{background:#fff0f0;}
+ul.press_cats li a:hover img, .press_cats ul li.active a img{border:2px solid #cf6d09;}
+ul.press_cats li a span{display:block;padding:15px 5px 0 0;}
+ul.press_cats li.active a{background:#fff0f0;color:#cf6d09;}
+
+ul.descargar_cats{margin-top:10px;}
+ul.descargar_cats b{line-height: 20px;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;padding-left:8px;}
+ul.descargar_cats li{display:block;margin-bottom:2px;margin-left:8px;clear:both;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;padding-left:8px;}
+ul.descargar_cats li a{display:block;font-size:11px;}
+ul.descargar_cats li a img{border:2px solid #ccc;float:left;margin-right:5px;}
+ul.descargar_cats li a:hover{background:#fff0f0;}
+ul.descargar_cats li a:hover img, .press_cats ul li.active a img{border:2px solid #cf6d09;}
+ul.descargar_cats li a span{display:block;padding:15px 5px 0 0;}
+ul.descargar_cats li.active a{background:#fff0f0;color:#cf6d09;}
+li.descargar_li {padding-top:5px !important;margin-bottom:0 !important;}
+
+.left_review{margin-left:10px;width:290px;padding:5px;background:url(http://images.technologische-hilfe.de/design/bg_bloc_us2.png) no-repeat top left;}
+.left_review div img{display:block;float:left;width:125px;height:125px;margin-right:10px;border:2px solid #ccc;}
+.left_review div .left_platforms{margin-top:10px;}
+.left_review div .left_platform{display:block;float:left;background:#ddd;padding:3px 5px;color:#444;font-weight:bold;margin:0 3px 3px 0;}
+.left_review div .left_platform a{color:#444;font-weight:normal;}
+.left_review div .left_platform a:hover{color:#cf6d09;}
+.left_review div p{font-size:12px;}
+.left_review .left_tags{clear:both;font-size:12px;padding-top:10px;border-top:1px solid #ccc;}
+.left_review .left_tags a{color:#333;}
+.left_review .left_tags a:hover{color:#cf6d09;}
+
+.left_rubriques{margin-left:10px;width:290px;padding:5px;background:url(http://images.technologische-hilfe.de/design/bg_bloc_us2.png) no-repeat top left;}
+.left_rubriques h2{background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 7px;padding-left:10px;}
+.left_rubriques p{margin:5px 5px 10px 5px;font-size:12px;}
+.left_rubriques a.active{color:#cf6d09;}
+
+.left_rubriques .filters {margin:5px 0 10px 10px;font-size:12px;}
+.left_rubriques .filters li{display:block;background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 6px;padding-left:10px;}
+.left_rubriques .filters li.current{color:#cf6d09;}
+
+.left_text1{font-size:12px;}
+.left_text1 p{margin-bottom:5px;}
+.left_text1 label{font-weight:bold;}
+.left_text1 input.text{font-size:13px;border:2px solid #bbb;}
+
+.left_processes{margin-top:5px;}
+.left_processes li{display:block;/*background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -112px;padding-left:10px;}
+/* left : end */
+
+/* center : begin */
+.bloc_bg{padding:5px;}
+.bloc_bg2{padding:0;}
+.onLeft .bloc_bg{background:url(http://images.technologische-hilfe.de/design/bg_bloc_us.png) no-repeat top left;}
+.onLeft .bloc_bg_descargar{background:url(http://images.technologische-hilfe.de/design/bg_bloc_us.png) no-repeat 0 -140px;}
+.onLeft2 .bloc_bg{background:url(http://images.technologische-hilfe.de/design/bg_bloc_us3.png) no-repeat top left;}
+.onRight .bloc_bg{background:url(http://images.technologische-hilfe.de/design/bg_bloc_us2.png) no-repeat top left;}
+.bloc_bg3{width:778px;padding:0;background:url(http://images.technologische-hilfe.de/design/bg_bloc_us5.png) no-repeat top left;}
+.bloc_forum_home{margin-top:10px;width:769px;background:url(http://images.technologische-hilfe.de/design/bg_bloc.png) repeat-x;}
+
+h1{font-size:13px;font-weight:bold;display:block;}
+h1 img{vertical-align:middle;}
+h2{font-size:13px;font-weight:bold;display:block;}
+h2 img{vertical-align:middle;}
+.imagenewsgauche{float:left;border:0;margin:0 10px 10px 0;}
+.imagenewsdroite{float:right;border:0;margin:0 0 10px 10px;}
+#antispam{width:100px;padding:5px;font-size:16px;}
+
+ul.home_listing{margin-top:5px;font-size:11px;}
+ul.home_listing li{display:block;height:110px;margin-bottom:5px;}
+ul.home_listing li a img, ul.home_listing li .ggnt img{float:left;margin:0 10px 0 5px;border:3px solid #ddd;}
+ul.home_listing li a:hover img{border:3px solid #cf6d09;}
+ul.home_listing li a.rognage{display:block;background:#fff;float:left;overflow:hidden;margin-right:10px;width:75px;height:75px;border:3px solid #ddd;}
+ul.home_listing li a.rognage:hover{border:3px solid #cf6d09;}
+ul.home_listing li a.rognage img{float:none;margin:0;border:0;}
+ul.home_listing li a.rognage:hover img{border:0;}
+ul.home_listing li a.item_title{font-weight:bold;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;padding-left:10px;}
+ul.home_listing li span{display:block;margin-top:5px;font-size:11px;}
+ul.home_listing li .resume{font-size:11px;}
+ul.home_listing li .greydate{font-size:11px;color:#888;font-style:normal;}
+ul.home_listing li .greydate2{display:inline;margin:0;font-size:11px;color:#888;font-style:normal;}
+ul.home_listing li.bordered{height:90px;padding-bottom:5px;border-bottom:1px dotted #ccc;}
+ul.home_listing li.alone{margin:0;}
+ul.home_listing li.short{/*background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 5px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -113px;padding-left:10px;height:auto;margin:0 0 0 10px;}
+ul.home_listing li.old{/*background:url(http://images.technologische-hilfe.de/design/point11.gif) no-repeat 0px 5px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -127px;}
+
+ul.home_listing2{margin:5px 0 5px 10px;float:left;width:370px;}
+ul.home_listing2 li{display:block;margin-bottom:3px;}
+ul.home_listing2 li.hidden{display:none;}
+ul.home_listing2 li span{display:block;float:left;width:65px;color:#666;margin-right:5px;}
+ul.home_listing2 li a.item_title{background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;/*background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -112px;*/padding-left:12px;}
+
+ul.home_listing3{margin:10px;}
+ul.home_listing3 li.bordered{height:80px;}
+ul.home_listing4 li{font-size:12px;}
+
+ul.home_listing5{margin:5px 0 5px 10px;width:370px;}
+ul.home_listing5 li{display:block;margin-bottom:3px;}
+ul.home_listing5 li.hidden{display:none;}
+ul.home_listing5 li span{display:block;float:left;width:65px;color:#666;margin-right:5px;}
+ul.home_listing5 li a.item_title{background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;/*background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -112px;*/padding-left:12px;}
+
+
+ul.home_forums{margin:5px 5px;}
+ul.home_forums li a{display:block;float:left;padding:4px 8px;background:#ccc;margin-right:10px;}
+ul.home_forums li a:hover{background:#cf6d09;color:#fff;}
+ul.home_forums li.lib{display:block;float:left;padding:4px 6px;;margin-right:5px;}
+
+.message_head{position:relative;padding:5px;background:#333 url(http://images.technologische-hilfe.de/design/bg_mid_title.png) no-repeat top left;}
+.message_head2{background:#333 url(http://images.technologische-hilfe.de/design/bg_mid_title3.png) no-repeat top left;}
+.message_head3{background:#333 url(http://images.technologische-hilfe.de/design/bg_mid_title5.png) no-repeat top left;}
+.message_head2 h1{width:450px;}
+.message_head h1, .message_head h1 a{color:#fff;}
+.message_head .admin_link{position:absolute;right:6px;top:6px;color:#fff;font-weight:normal;}
+.message_head .admin_link img{vertical-align:middle;}
+.message_head .message_asktopic{position:absolute;right:5px;top:5px;width:145px;}
+.message_head .message_asktopic a{display:block;color:#333;font-weight:bold;font-size:12px;height:16px;padding:3px 10px;background:url(http://images.technologische-hilfe.de/design/bg_fil_us4.png) repeat-x;border-left:1px solid #000;border-bottom:1px solid #000;}
+.message_head .message_asktopic a:hover{color:#000;}
+.message_head .message_asktopic a img{vertical-align:middle;}
+.message_head .message_asktopic2{position:absolute;right:3px;top:3px;width:170px;}
+.message_head .message_asktopic2 a{height:16px;padding:2px 10px;}
+
+.message_author, .message_author a{color:#ccc;}
+.message_author a:hover{color:#fff;}
+.message_pages{margin:10px;padding:5px;background:#ddd;}
+.message_pages ol li{display:block;font-size:12px;}
+.message_pages ol li.active{font-weight:bold;}
+.message_text{background:url(http://images.technologische-hilfe.de/design/fleche04.gif) no-repeat 20px top;font-size:12px;padding:15px 5px 0 5px;}
+.message_text2{background:none;padding-top:5px;}
+.message_text3{font-size:13px;}
+.message_text a{color:#cf6d09;}
+.message_text a:hover{text-decoration:underline;}
+.message_text blockquote{display:none;}
+.message_text2 blockquote{display:block;border:1px solid #ccc;padding:5px;color:#555;background:#f5f5f5;font-style:normal;}
+.displaybq blockquote{display:block;}
+.preview_text blockquote{border-left:2px solid #cf6d09;padding-left:5px;padding-top:5px;font-size:11px;color:#333;background:#fff0f0;}
+.preview_text .blockquotelink{display:block;border-left:2px solid #cf6d09;padding:2px 0 5px 5px;margin-top:5px;color:#cf6d09;}
+.message_text p{margin-bottom:10px;}
+.message_text img{border:2px solid #ccc;}
+.message_text a:hover img{border:2px solid #cf6d09;}
+.message_text li{display:block;padding-left:10px;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;}
+.message_limited{height:100px;overflow:hidden;}
+.message_limited2{height:514px;overflow:hidden;}
+.message_limited3{height:194px;overflow:hidden;}
+.message_resume{font-weight:bold;}
+#message_text{clear:both;}
+#text_delimiter a{margin:10px 0 10px 10px;display:block;height:16px;font-weight:bold;background:url(http://images.technologische-hilfe.de/design/ico/page_white_put.png) no-repeat 0 0;padding-left:20px;}
+#similar_link_more{color:#666;display:block;margin-top:5px;}
+.message_source{margin:5px 0;font-size:12px;font-weight:bold;}
+.message_keywords{margin:5px 0 10px;padding:5px;color:#888;}
+.message_keywords a{color:#888;}
+.message_keywords a:hover{color:#444;}
+.message_infos{margin:10px 0 10px 0;}
+.message_options{border-bottom:1px solid #cf6d09;padding-bottom:3px;height:22px;width:100%;}
+.message_options2{font-size:12px;}
+.message_options a, .message_options .onglet, .message_options .googleplus{display:block;float:right;height:16px;padding:3px 10px;margin-left:4px;background:url(http://images.technologische-hilfe.de/design/bg_fil_us2.png) repeat-x;color:#fff;font-weight:bold;}
+.message_options a:hover{color:#ccc;}
+.message_options .message_pagination{display:block;float:right;height:16px;padding:3px 10px;margin-left:4px;background:url(http://images.technologische-hilfe.de/design/bg_fil_us3.png) repeat-x;color:#fff;font-weight:bold;}
+.message_options .black_bg{background:url(http://images.technologische-hilfe.de/design/bg_fil_us.png) repeat-x;}
+.message_options .black{color:#000;}
+.message_options .black:hover{color:#333;}
+.message_options .nobg{background:none;padding:3px 3px;}
+.message_options .message_asktopic{float:left;margin-left:0;}
+.message_options a img{vertical-align:middle;}
+.message_quote{margin-top:15px;}
+
+.message_notes{clear:both;background:url(http://images.technologische-hilfe.de/design/bg_bloc_us4.png) no-repeat top left;}
+.message_notes li{display:block;clear:both;padding-top:10px;padding-bottom:10px;border-bottom:1px solid #ddd;}
+.message_notes .libelle{float:left;width:90px;margin-right:10px;text-align:right;color:#cf6d09;text-transform:uppercase;padding-left:10px;text-align:left;font-size:13px;font-weight:bold;}
+.message_notes .commentaires{float:left;width:420px;margin-right:20px;font-size:12px;}
+.message_notes .note{float:left;width:70px;color:#999;font-size:14px;font-weight:bold;text-align:right;}
+.message_notes .note span{color:#cf6d09;}
+.message_notes li.total{background-color:#333;color:#fff;}
+.message_notes li.total .libelle{color:#fff;}
+.message_notes li.total .note{color:#ddd;font-size:17px;width:72px;height:29px;overflow:hidden;padding-top:5px;}
+.message_notes li.total .note span{color:#fff;}
+
+.message_plusmoins{clear:both;}
+.message_plusmoins .plus{width:319px;overflow:hidden;float:left;}
+.message_plusmoins .moins{width:319px;overflow:hidden;float:right;}
+.message_plusmoins p{font-size:12px;font-weight:bold;margin:0 10px;padding:5px;}
+.message_plusmoins .plus p{background:#70cc43;}
+.message_plusmoins .moins p{background:#cc4d43;}
+.message_plusmoins ul{margin:0 10px;padding:10px 10px 5px;}
+.message_plusmoins .plus ul{border:1px solid #70cc43;}
+.message_plusmoins .moins ul{border:1px solid #cc4d43;}
+.message_plusmoins ul li{display:block;background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 6px;padding-left:10px;margin-bottom:5px;font-size:12px;}
+
+.message_details{padding:10px;overflow:hidden;}
+.message_details h2{margin-bottom:10px;color:#cf6d09;}
+.message_details .message_headers{margin-bottom:20px;}
+.message_details .message_headers li{display:block;margin-bottom:3px;}
+
+#message_repondre{text-align:center;height:30px;}
+#message_repondre a{margin:0 auto;color:#fff;font-weight:bold;font-size:13px;height:16px;padding:5px 10px;background:url(http://images.technologische-hilfe.de/design/bg_fil_us2.png) repeat-x;}
+#message_repondre a:hover{color:#ccc;}
+#message_repondre a img{vertical-align:middle;}
+
+.similar_search{margin:15px 10px 10px;}
+.similar_search p{margin-bottom:5px;font-size:12px;color:#333;}
+.similar_search2{margin-top:5px;}
+
+.process_details{margin-top:20px;}
+.process_details li{margin-bottom:10px;padding-left:12px;/*background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 6px*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -146px;;}
+.process_details li a{font-weight:bold;}
+.process_details li a.name{color:#000;font-weight:normal;}
+.process_details li a.name:hover{text-decoration:underline;}
+.process_details2{margin-top:10px;font-size:12px;}
+.process_details2 li{display:block;margin-bottom:10px;padding-left:12px;background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 6px;/*background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -146px;*/}
+.process_details2 li strong{font-weight:normal;}
+
+ul.message_listing{padding:0 10px 10px;font-size:12px;}
+ul.message_listing li{display:block;margin-bottom:3px;padding:0 5px;}
+ul.message_listing li.date{margin-top:20px;padding:0 0 0 10px;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;font-weight:bold;}
+ul.message_listing li span{color:#666;}
+ul.message_listing li a.cmt{color:#cf6d09;font-size:11px;}
+ul.message_listing li a:hover.cmt{color:#000;}
+
+.table_navig{background:#333;width:100%;}
+.table_navig th{padding:2px 10px;color:#fff;font-weight:bold;}
+.table_navig td{padding:2px 5px 5px;}
+.table_navig a{color:#ccc;}
+.table_navig a:hover{color:#cf6d09;}
+
+h2.h2_comments{font-size:15px;background:url(http://images.technologische-hilfe.de/design/ico/comments.png) no-repeat 0 1px;padding-left:22px;}
+.comment_head{background:#666 url(http://images.technologische-hilfe.de/design/bg_mid_title2.png) no-repeat top left;}
+.comment_head2{background:#666 url(http://images.technologische-hilfe.de/design/bg_mid_title4.png) no-repeat top left;}
+.comment_author .comment_anchor{font-weight:bold;color:#ddd;margin-right:5px;}
+.comment_author strong{color:#fff;}
+.comment_author img{vertical-align:middle;}
+.comment_author div{float:right;}
+.comment_text{overflow:hidden;background:url(http://images.technologische-hilfe.de/design/fleche05.gif) no-repeat 20px top;padding:15px 5px 10px 5px;}
+.comment_text blockquote{border-left:2px solid #cf6d09;padding-left:5px;padding-top:5px;font-size:11px;color:#333;background:#fff0f0;}
+.comment_text img{border:0;}
+.comment_options{border-bottom:1px solid #7a7879;width:100%;}
+.comment_options a{background:url(http://images.technologische-hilfe.de/design/bg_fil_us2.png) repeat-x;color:#fff;font-weight:bold;}
+.comment_text .blockquotelink{display:block;border-left:2px solid #cf6d09;padding:2px 0 5px 5px;margin-top:5px;color:#cf6d09;}
+.comment_text .googleperso2 ul li{background:none;padding-left:0;}
+
+.pagination{position:relative;padding:40px 5px 10px;background:#333;width:459px;min-height:18px;text-align:center;}
+.pagination2{width:629px;height:auto;}
+.pagination3{padding:10px 5px;min-height:10px;}
+.pagination div{display:inline;}
+.pagination a{top:11px;padding:5px 8px;margin:0 2px;color:#fff;font-weight:bold;font-size:12px;}
+.pagination a:hover, .pagination a.active{background:#555;}
+.pagination a.prev{position:absolute;left:10px;padding:0;margin:0;font-size:11px;}
+.pagination a.next{position:absolute;right:10px;padding:0;margin:0;font-size:11px;}
+.pagination a.prev:hover{background:none;text-decoration:underline;}
+.pagination a.next:hover{background:none;text-decoration:underline;}
+.pagination .multi_suite{display:block;margin-top:10px;line-height:20px;}
+.pagination .multi_suite a{color:#bbb;font-size:9px;padding:4px 5px;}
+
+.textarea_comment{font-size:14px;border:1px solid #808080;margin:10px 0;width:455px;height:200px;}
+.textarea_comment2{width:627px;}
+
+.help_cat_search{margin:10px;font-size:12px;}
+.help_cat_listing{padding:10px 10px 0;}
+.help_cat_listing .help_cat_title{padding-bottom:10px;font-size:12px;font-weight:bold;}
+.help_cat_listing a{display:block;float:left;margin:0 10px 10px 0;padding:5px;background:#888;color:#fff;}
+.help_cat_listing a:hover{background:#666;}
+.help_cat_listing a.active{background:#cf6d09;}
+
+.gallery_links{margin:10px;}
+.gallery_links a, .gallery_links strong{padding:3px 6px;margin:0 2px;}
+.gallery_links a:hover, .gallery_links strong{background:#555;color:#fff;}
+.gallery_imgs{width:100%;margin:5px 0;}
+.gallery_imgs tr td{width:20%;text-align:center;}
+.gallery_imgs tr td a img{border:2px solid #ccc;}
+.gallery_imgs tr td a:hover img, .gallery_imgs tr td a.active img{border:2px solid #cf6d09;}
+.gallery_image{margin:10px 10px;text-align:center;}
+
+.redirect{padding:30px;font-size:12px;}
+.redirect p{margin-bottom:15px;}
+.redirect a{font-weight:bold;}
+
+.cats_listing{margin-top:10px;margin-left:10px;width:305px;float:left;}
+.cats_listing h2{padding-left:10px;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 7px;}
+.cats_listing div{margin-bottom:20px;}
+.cats_listing div p{margin:5px 10px;font-size:12px;}
+.cats_listing ul{margin:5px;}
+.cats_listing ul li a{display:block;float:left;width:135px;font-size:13px;padding-left:10px;background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 7px;}
+.cats_listing ul li a:hover{background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 7px;}
+
+.home_bloc{margin-top:20px;margin-left:10px;width:375px;float:left;}
+.home_bloc h2{padding-left:10px;background:url(http://images.technologische-hilfe.de/design/point10.gif) no-repeat 0px 7px;}
+.home_bloc div{margin-bottom:20px;}
+.home_bloc ul{margin:5px;}
+.home_bloc ul li{display:block;font-size:11px;margin-bottom:3px;}
+.home_bloc ul li img{float:left;margin-right:10px;width:100px;height:60px;}
+.home_bloc ul li span{display:block;float:right;width:65px;color:#999;margin-right:5px;}
+.home_bloc ul li p{margin-top:3px;color:#666;}
+.home_bloc ul li a.item_title{background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 6px;/*background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -97px -112px;*/padding-left:12px;}
+
+.form_question{padding:10px;font-size:12px;}
+.form_question h2{padding:5px 0;font-size:12px;}
+.form_question h2 a{color:#555;}
+.form_question h2 a:hover{color:#000;}
+.form_question ul{margin:15px 0 0 10px;float:left;width:190px;}
+.form_question ul li{display:block;margin-bottom:5px;}
+.form_question ul li a{padding-left:18px;/*background:url(http://images.technologische-hilfe.de/design/puce01.gif) no-repeat 2px 4px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat 2px -472px;}
+.form_question .form_message{margin:30px 0 0 100px;}
+.form_question .form_message strong{display:block;margin-top:10px;}
+.form_question .form_message input, .form_question .form_message textarea{display:block;margin-top:10px;width:400px;font-size:13px;}
+.form_question .form_message textarea{height:200px;}
+.form_question2 h2{margin:10px 10px 0;}
+.form_question2 ul li{display:block;float:left;width:135px;font-size:13px;}
+
+.form_contact{padding:0 10px;font-size:12px;}
+.form_contact h2{margin-top:15px;font-size:13px;}
+.form_contact p{padding:8px 5px;}
+.form_contact p a{font-weight:bold;}
+.form_contact table{margin:10px;}
+.form_contact table tr td{padding:5px 0;}
+.form_contact table tr td img{border:1px solid #333;}
+.form_contact .input{width:550px;padding:3px;}
+.form_contact textarea{font-size:12px;}
+
+.services{padding:0 10px;font-size:12px;}
+.services h2{margin-top:15px;font-size:13px;color:#cf6d09;}
+.services p{padding:8px 5px;}
+.services p a{font-weight:bold;}
+
+.aboutus{padding:0 10px;font-size:12px;}
+.aboutus h2{margin-top:15px;font-size:13px;color:#cf6d09;}
+.aboutus p{padding:8px 5px;text-align:justify;}
+.aboutus ul{padding:8px 15px;}
+.aboutus ul li{display:block;padding-left:10px;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 0px 7px;}
+.aboutus ul li.titre{background:none;font-weight:bold;padding:3px 0;}
+
+.index_processes{padding:10px;font-size:12px;}
+.index_processes form{display:block;margin-top:5px;}
+.index_processes form input.text{width:200px;padding:2px;}
+.index_processes .onglets strong{display:block;padding-bottom:5px;}
+.index_processes .onglets a{padding:2px 4px;background:#555;color:#fff;font-size:11px;font-weight:bold;}
+.index_processes .onglets a:hover{background:#000;}
+.index_processes p{margin-top:15px;}
+
+.list_processes{padding:10px;font-size:12px;}
+.list_processes ul li{display:block;margin-bottom:10px;}
+.list_processes ul li a{font-weight:bold;}
+.list_processes ul li span{display:block;}
+.list_processes textarea{width:350px;height:150px;}
+
+.form_search{padding:10px;font-size:12px;}
+.form_search .input{padding:3px;width:120px;}
+.form_search .input2{width:196px;}
+.form_search .select{width:140px;}
+.form_search .select2{width:130px;}
+.form_search .select3{width:194px;}
+.form_search #kw{width:260px;}
+.form_search td strong{margin-right:5px;}
+#search_informations{position:relative;}
+#show_categories{cursor:pointer;color:#cf6d09;margin:5px 0 5px 10px;padding-left:14px;background:url(http://images.technologische-hilfe.de/design/point09.gif) no-repeat 0px 5px;}
+.search_categories{padding:10px 5px;font-size:11px;}
+.search_categories div{float:left;width:80px;margin:0 3px 5px;padding:3px 0;border:1px solid #ccc;background:#fff;font-size:12px;text-align:center;}
+.search_categories div span{color:#cf6d09;}
+.search_categories div small{display:block;color:#999;font-size:10px;}
+.search_categories p{font-size:12px;}
+.search_categories p a{font-weight:bold;}
+.search_also{margin-top:20px;font-size:12px;color:#cf6d09;font-weight:bold;}
+#search_stats{display:inline;}
+.search_filtres{position:absolute;right:10px;top:0;color:#cf6d09;font-size:11px;padding-left:14px;background:url(http://images.technologische-hilfe.de/design/point09.gif) no-repeat 0px 5px;}
+.search_filtres a{color:#000;}
+.search_filtres a:hover{text-decoration:underline;}
+
+.search_noresult{padding:15px 10px;font-size:12px;}
+.search_noresult a{font-weight:bold;}
+.search_pave{margin:10px auto;width:300px;}
+
+.search_results{margin-top:5px;clear:both;}
+.search_results .search_result{margin-top:10px;padding:5px;font-size:12px;}
+.search_results .search_result2{}
+.search_results .search_result a{font-weight:bold;padding-left:12px;background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 2px 6px;}
+.search_results .search_result .image{background:none;float:left;padding-left:0;margin-right:10px;}
+.search_results .search_result div{padding:3px 0;}
+.search_results .search_result span{display:block;color:#555;}
+.search_results #bloc_adsense .googleperso{padding:0;}
+.search_results #bloc_adsense .adsby{color:#777;}
+.search_results #bloc_adsense a.link{padding:0;background:none;color:#555;font-weight:normal;}
+.search_results #bloc_adsense_r .adsby{color:#777;}
+.search_results #bloc_adsense_r a.link{padding:0;background:none;color:#555;font-weight:normal;}
+.search_results #bloc_adsense .search_result a{padding-left:0;background:none;}
+
+#bloc_adsense{margin:10px;font-size:12px;}
+#bloc_adsense .search_result{margin-top:5px;}
+#bloc_adsense .adsby{display:block;padding:5px 0 0 5px;margin-bottom:3px;color:#777;}
+#bloc_adsense .listeads{float:left;width:280px;margin-right:10px;}
+#bloc_adsense .listeads .link{color:#555;}
+
+.search_helpcats{padding:10px;}
+.search_helpcats .search_catdevelop{font-size:12px;padding-bottom:5px;}
+.search_helpcats .search_catdevelop a{font-size:11px;font-weight:normal;}
+.search_helpcats .search_cathelp{border-bottom:1px solid #E7E6E6;float:left;margin-right:10px;padding:5px 5px 2px;width:185px;}
+.search_helpcats .search_catcurrent{background:#E7E6E6;}
+
+.search_cloud{font-size:12px;line-height:20px;}
+.search_cloud span{display:block;padding-bottom:3px;}
+.search_cloud span strong{color:#cf6d09;}
+.search_cloud a{color:#666;padding-right:10px;}
+.search_cloud a:hover{color:#cf6d09;}
+.search_cloud .search_cloud1{font-size:10px;}
+.search_cloud .search_cloud2{font-size:12px;}
+.search_cloud .search_cloud3{font-size:14px;}
+.search_cloud .search_cloud4{font-size:16px;}
+
+.form_profil{padding:10px;font-size:12px;}
+.form_profil input, .form_profil select{padding:3px;}
+.form_profil .form_delete{font-size:12px;padding:10px;border:1px solid #ccc;margin-bottom:10px;background:#ddd;}
+.form_profil .form_delete p{padding:10px 0;}
+.form_profil ul li{display:block;padding-left:12px;/*background:url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 2px 6px;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat -95px -112px;}
+.form_profil #antispam{width:120px;height:35px;font-size:20px;padding-top:5px;font-size:16px;}
+.form_profil #email_message{display:none;padding:3px;border:1px solid #cf6d09;}
+.form_profil #email_message p{margin:0;padding:0;text-align:right;cursor:pointer;text-decoration:underline;color:#cf6d09;font-style:normal;}
+.form_login{padding:10px;font-size:12px;}
+.form_login input{padding:3px;}
+.form_login a.link{color:#cf6d09;}
+.form_login a.link:hover{color:#000;}
+
+.form_profil .messages{margin:10px 15px 20px;}
+.form_profil .messages tr td{padding:5px 10px;background:#e4e4e4;border-top:1px solid #ddd;}
+.form_profil .messages tr td.title{width:500px;padding-left:20px;background:#e4e4e4 url(http://images.technologische-hilfe.de/design/point08.gif) no-repeat 10px 12px;}
+.form_profil .messages tr td img{vertical-align:middle;}
+/* center : end */
+
+/* downloads */
+.keywords_new a, .small_new a {color:#cf6d09;}
+.keywords_new a:hover, .small_new a:hover {color:#000;}
+#nbDL,#resumeDL {padding:5px;}
+#ficheDL {margin-top:15px; padding: 5px;}
+#ficheDL ul {list-style-type: none;margin: 0;float:left;}
+#ficheDL ul li {background-position: 0 5px;background-repeat: no-repeat;clear: both;list-style-type: none;padding-right: 10px;display:list-item}
+#ficheDL ul li b {color:#cf6d09;font-weight: normal;float: left;}
+#ficheDL ul li a img {float:left;border:1px solid #cf6d09;}
+#ficheDL ul li div {float:left;margin-left: 10px;width: 300px;}
+a.boutonDL_new {line-height: 14px;background: url("http://images.technologische-hilfe.de/design/bg_fil_us2.png") repeat-x scroll 0 0 transparent;color: #FFFFFF;display: block;float: right;font-weight: bold;height: 16px;margin-left: 4px;padding: 4px 10px;}
+a.boutonDL_new img {vertical-align: middle;}
+a.boutonDL_new:hover {color:#ccc}
+.desc_grey,.desc_grey a {color:#666;}
+.desc_grey a:hover {color:#000;}
+.keywords_new {padding: 5px;}
+
+/* Applications homepage*/
+#home_bloc_site_app{border:1px solid #fff;}
+#home_bloc_site_app .titre_bleu{margin-bottom:5px;}
+#home_bloc_site_app a.titre{color:#3E779F;font-size:11px;font-weight:bold;}
+#home_bloc_site_app a.titre:hover{color:#739F13;}
+#home_bloc_site_app .image img{float:left;margin:0 5px 5px 0;border:1px solid #1E5D8B;}
+#home_bloc_site_app span{display:block;}
+#home_bloc_site_app .mid_title2 {text-align: left; padding-left: 16px;margin-top: 4px;}
+
+.desc_appli {position:absolute;top:-105px;height:128px;width: 343px;padding: 5px;z-index: 9999999;display:none;border-top:1px solid #a0b9c9;}
+.desc_appli_2 {position:absolute;top:0;height:128px;width: 343px;padding: 5px;z-index: 9999999;display:none;border-top:1px solid #a0b9c9;}
+#desc_android,#desc_android_2 {left:-54px;background: url('http://images.technologische-hilfe.de/design/bg_android_app.png') repeat-x scroll 0 50% #E1ECC8;}
+#desc_iphone,#desc_iphone_2{left:-153px;background: url('http://images.technologische-hilfe.de/design/bg_iphone_app.png') repeat-x scroll 0 50%  #d0e4f7;}
+#desc_ipad,#desc_ipad_2{left:-253px;background: url('http://images.technologische-hilfe.de/design/bg_ipad_app.png') repeat-x scroll 0 50%  #FFE0E0;}
+.app_item {height:100px;}
+.h1 {background: url("http://images.technologische-hilfe.de/design/bg_small_title.png") no-repeat scroll left top #333333;padding: 5px;position: relative;color: #fff;font-weight: bold}
+
+.mobiles-items{margin:0 auto 20px;width:100%;}
+.mobiles-items li{display:block;margin-bottom:10px;text-align:left;}
+.mobiles-items li img{float:left;width:100px;height:100px;margin-right:10px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;}
+.mobiles-items li strong{display:block;padding:15px 0 5px;font-size:12px;}
+
+/* Membre */
+
+#membre_menu{position:relative;height:36px;overflow:hidden;/*background:#1b1b1b url(http://images.technologische-hilfe.de/design/bg_menu.png) repeat-x;*/background:#1b1b1b url(http://images.technologische-hilfe.de/sprite.png?wootwoot) repeat-x 0px -170px;}
+#membre_menu ul{display:block;width:962px;height:36px;margin:0;padding:0;list-style:none;}
+#membre_menu ul li {text-align: center;}
+#membre_menu ul li a{display:block;float:left;height:36px;margin:0px 1px 0 0;padding:0 0 0 5px;color:#000;cursor:pointer;width: 60px;text-align: center;}
+#membre_menu ul li a span, #membre_menu ul li span span{font-family:tahoma,verdana,arial,sans-serif;font-size:13px;font-weight:bold;display:block;float:left;height:36px;padding:6px 12px 0 7px;cursor:pointer;}
+#membre_menu ul li a.active,#membre_menu ul li a:hover{color:#fff;/*background:url(http://images.technologische-hilfe.de/design/bg_menu_item_l2.png) no-repeat top left;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat right -215px;}
+#membre_menu ul li a.active span,#membre_menu ul li a:hover span{/*background:url(http://images.technologische-hilfe.de/design/bg_menu_item_r2.png) no-repeat top right;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat right -215px ;}
+
+#membre_menu .corner{position:absolute;display:block;width:4px;height:5px;/*background:url(http://images.technologische-hilfe.de/design/bg_menu_corners.png) no-repeat;*/background:url(http://images.technologische-hilfe.de/sprite.png?wootwoot) no-repeat;overflow:hidden;}
+#membre_menu .corner_l{top:0;left:0;background-position:/*0 0*/-84px -123px;}
+#membre_menu .corner_r{top:0;right:0;background-position:/*-4px 0*/-88px -123px;}
+
+.profil_messages{margin:0 10px 10px;width:100%;}
+.profil_messages tr th{padding:5px 10px;text-align:center;color:#555;}
+.profil_messages tr td{padding:5px 10px;background:#F6F4F1;border-top:1px solid #ddd;}
+.profil_messages tr td.date{width:120px;padding-left:20px;background:#F6F4F1 url(http://images.generation-nt.com/design/point02.gif) no-repeat 8px 11px;}
+.profil_messages tr td.title{width:325px;}
+.profil_messages tr td.reponses{width:100px;}
+.profil_messages tr td img{vertical-align:middle;}
+
+.comment_alert{margin:20px 0;}
+.comment_alert a{color:#1F77B3;font-size:12px;}
+.comment_alert a:hover{color:#000;}
+.comment_alert a img{vertical-align:middle;}
+
+/* Divers */
+a.forex_link {background: none;color: #9E0B0B;display: block; margin: 0;padding: 0;}
+a.forex_link:hover {color: #000;background: none;}
+.colorred {color: #9E0B0B;}
+
+
+.videos_cats{padding:0 10px;}
+.videos_cat{margin:15px 0;}
+.videos_cat h2{color:#cf6d09;font-size:14px;}
+.videos_cat h2 a{float:right;margin-top:3px;font-weight:normal;font-size:11px;color:#888;}
+.videos_cat h2 a:hover{color:#cf6d09;}
+.videoslist{clear:both;}
+.videoslist .item{float:left;padding:0 5px;margin:10px 0;width:214px;min-height:125px;text-align:center;font-size:12px;}
+.videoslist .itemimage {text-align:center;}
+.videoslist .itemimage a{display:block;position:relative;}
+.videoslist .itemimage a img{width:220px;height:150px;-webkit-border-radius:5px;-moz-border-radius:5px;}
+.videoslist .itemimage a small img{display:none;position:absolute;left:80px;top:46px;width:50px;height:50px;}
+.videoslist .itemimage a:hover small img{display:block;}
+.videoslist .item .itemtitle{margin-top:5px;height:30px;text-align:center;}
+.videos_home .videoslist .item{width:210px;padding:0 5px 0 10px;}
+.videos_home .videoslist a .videoimage{width:216px;}
+.videos_details .itemimage a{display:block;position:relative;}
+.videos_details .itemimage a small img{display:none;position:absolute;left:190px;top:125px;width:70px;height:70px;}
+.videos_details .itemimage a:hover small img{display:block;}
+.videos_details .itemtitre{margin:15px 10px;color:#cf6d09;font-size:14px;}
+.videos_details .itemresume{color:#333;font-size:13px;text-align:justify;padding:0 10px;}
+
+ul.download_cats{margin-top:10px;}
+ul.download_cats b{line-height: 20px;background:url(http://images2.generation-nt.com/design/point08.gif) no-repeat 0px 6px;padding-left:8px;}
+ul.download_cats li{display:block;margin-bottom:2px;margin-left:8px;clear:both;background:url(http://images2.generation-nt.com/design/point08.gif) no-repeat 0px 6px;padding-left:8px;}
+ul.download_cats li a{display:block;font-size:11px;}
+ul.download_cats li a img{border:2px solid #ccc;float:left;margin-right:5px;}
+ul.download_cats li a:hover{background:#fff0f0;}
+ul.download_cats li a:hover img, .press_cats ul li.active a img{border:2px solid #cf6d09;}
+ul.download_cats li a span{display:block;padding:15px 5px 0 0;}
+ul.download_cats li.active a{background:#fff0f0;color:#cf6d09;}
+li.download_li {padding-top:5px !important;margin-bottom:0 !important;}

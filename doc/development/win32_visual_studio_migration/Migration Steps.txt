@@ -183,8 +183,6 @@ Fehler	3	error C2057: Konstanter Ausdruck erwartet	c:\users\m\documents\cybop.tr
 		//VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
 		//INPUT_RECORD i[is];
 		//To Workaround simply use dynamic array allocation with malloc
-		//TODO: You have to free the allocated memory (due to the complexity of the program i dont know where and when to free)
-		INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * sizeof(DWORD));
 #else
         INPUT_RECORD i[is];
 #endif

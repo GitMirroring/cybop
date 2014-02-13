@@ -1,1 +1,0 @@
-The DLL-files are duplicated from pthread (both in release and dll directories) to enable quick testing.

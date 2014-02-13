@@ -1,0 +1,2382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://forum.emule-project.net/index.php?showtopic=82228 -->
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		
+		<title>Pthreads2.dll As Static? - Official eMule-Board</title>
+		<link rel="shortcut icon" href="http://forum.emule-project.net/favicon.ico">
+		<script type="text/javascript">
+			jsDebug = 0; /* Must come before JS includes */
+			USE_RTE = 0;
+			inACP   = false;
+		</script>
+		
+	
+				
+			<link rel="stylesheet" type="text/css" title="Main" media="screen" href="./Pthreads2.dll As Static  - Official eMule-Board_files/calendar_select.css">
+		
+	
+
+				
+			<link rel="stylesheet" type="text/css" media="print" href="./Pthreads2.dll As Static  - Official eMule-Board_files/ipb_print.css">
+		
+	
+
+				
+			<link rel="stylesheet" type="text/css" title="Main" media="screen" href="./Pthreads2.dll As Static  - Official eMule-Board_files/ipb_styles.css">
+		
+	
+
+				
+			<link rel="stylesheet" type="text/css" title="Main" media="screen" href="./Pthreads2.dll As Static  - Official eMule-Board_files/ipb_editor.css">
+		
+	
+
+				
+			<link rel="stylesheet" type="text/css" href="./Pthreads2.dll As Static  - Official eMule-Board_files/prettify.css">
+		
+	
+	
+
+<!--[if lte IE 7]>
+	<link rel="stylesheet" type="text/css" title='Main' media="screen" href="http://forum.emule-project.net/public/style_css/css_5/ipb_ie.css" />
+<![endif]-->
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=7" />-->
+		
+	
+	<meta name="keywords" content="Pthreads2dll,Static?,did,anyone,tried,compile,pthreads,static,libarary,instead,dll?,separate,now?,except,way,monki,made">
+	
+
+	<meta name="description" content="Pthreads2.dll As Static?: modifing upnplib">
+	
+
+	<meta name="identifier-url" content="http://forum.emule-project.net/index.php?showtopic=82228">
+	
+
+		<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/prototype.js"></script><style type="text/css"></style>
+	
+	<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/ipb.js"></script>
+	
+		<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/scriptaculous-cache.js"></script>
+	
+	<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/ipb.lang.js" charset="iso-8859-1"></script>
+	
+		
+			
+			
+			
+			
+				<link rel="canonical" href="http://forum.emule-project.net/index.php?showtopic=82228&s=45fadd87309bee974218c17a1e93e405">
+			
+		
+
+			
+			
+			
+			
+				<link rel="up" href="http://forum.emule-project.net/index.php?showforum=28&s=45fadd87309bee974218c17a1e93e405">
+			
+		
+
+			
+			
+			
+			
+				<link rel="author" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">
+			
+		
+	
+
+		
+			
+			
+				<link rel="alternate feed" type="application/rss+xml" title="eMule Board - General" href="http://forum.emule-project.net/index.php?app=core&module=global&section=rss&type=forums&id=1">
+			
+			
+			
+		
+
+			
+			
+				<link rel="alternate feed" type="application/rss+xml" title="eMule Board - Development" href="http://forum.emule-project.net/index.php?app=core&module=global&section=rss&type=forums&id=2">
+			
+			
+			
+		
+
+			
+			
+				<link rel="alternate feed" type="application/rss+xml" title="eMule Board - Mods" href="http://forum.emule-project.net/index.php?app=core&module=global&section=rss&type=forums&id=3">
+			
+			
+			
+		
+	
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+
+	
+
+<script type="text/javascript">
+	var isRTL	= false;
+	var rtlIe	= '';
+	var rtlFull	= '';
+</script>
+
+		
+		<script type="text/javascript">
+	//<![CDATA[
+		/* ---- URLs ---- */
+		ipb.vars['base_url'] 			= 'http://forum.emule-project.net/index.php?&s=45fadd87309bee974218c17a1e93e405';
+		ipb.vars['board_url']			= 'http://forum.emule-project.net';
+		ipb.vars['loading_img'] 		= 'http://forum.emule-project.net/public/style_images/classicblue/loading.gif';
+		ipb.vars['active_app']			= 'forums';
+		ipb.vars['upload_url']			= 'http://forum.emule-project.net/uploads';
+		/* ---- Member ---- */
+		ipb.vars['member_id']			= parseInt( 0 ),
+		ipb.vars['is_supmod']			= parseInt( 0 ),
+		ipb.vars['is_admin']			= parseInt( 0 ),
+		ipb.vars['secure_hash'] 		= '880ea6a14ea49e853634fbdc5015a024';
+		ipb.vars['session_id']			= '45fadd87309bee974218c17a1e93e405';
+		ipb.vars['can_befriend']		= true;
+		/* ---- cookies ----- */
+		ipb.vars['cookie_id'] 			= '';
+		ipb.vars['cookie_domain'] 		= 'forum.emule-project.net';
+		ipb.vars['cookie_path']			= '/';
+		/* ---- Rate imgs ---- */
+		ipb.vars['rate_img_on']			= 'http://forum.emule-project.net/public/style_images/classicblue/bullet_star.png';
+		ipb.vars['rate_img_off']		= 'http://forum.emule-project.net/public/style_images/classicblue/bullet_star_off.png';
+		ipb.vars['rate_img_rated']		= 'http://forum.emule-project.net/public/style_images/classicblue/bullet_star_rated.png';
+		/* ---- Uploads ---- */
+		ipb.vars['swfupload_swf']		= 'http://forum.emule-project.net/public/js/3rd_party/swfupload/swfupload.swf';
+		ipb.vars['swfupload_enabled']	= false;
+		ipb.vars['use_swf_upload']		= ( '' == 'flash' ) ? true : false;
+		ipb.vars['swfupload_debug']		= false; /* SKINNOTE: Turn off for production */
+		/* ---- other ---- */
+		ipb.vars['use_live_search'] 	= 0;
+		ipb.vars['live_search_limit'] 	= 4;
+		ipb.vars['highlight_color']		= "#ade57a";
+		ipb.vars['charset']				= "iso-8859-1";
+		ipb.vars['use_rte']				= 1;
+		ipb.vars['image_resize']		= 50;
+		ipb.vars['seo_enabled']			= 0;
+		
+		/* Templates/Language */
+		ipb.templates['ajax_loading'] 	= "<div id='ajax_loading'>" + ipb.lang['loading'] + "</div>";
+		ipb.templates['close_popup']	= "<img src='http://forum.emule-project.net/public/style_images/classicblue/close_popup.png' alt='x' />";
+		ipb.templates['rss_shell']		= new Template("<ul id='rss_menu'>#{items}</ul>");
+		ipb.templates['rss_item']		= new Template("<li><a href='#{url}' title='#{title}'>#{title}</a></li>");
+		ipb.templates['resized_img']	= new Template("<span>Resized to #{percent}% (was #{width} x #{height}) - Click image to enlarge</span>");
+		ipb.templates['m_add_friend']	= new Template("<a href='http://forum.emule-project.net/index.php?app=members&amp;module=profile&amp;section=friends&amp;do=add&amp;member_id=#{id}&s=45fadd87309bee974218c17a1e93e405' title='Add as Friend'><img src='http://forum.emule-project.net/public/style_images/classicblue/user_add.png' alt='Add as Friend' /></a>");
+		ipb.templates['m_rem_friend']	= new Template("<a href='http://forum.emule-project.net/index.php?app=members&amp;module=profile&amp;section=friends&amp;do=remove&amp;member_id=#{id}&s=45fadd87309bee974218c17a1e93e405' title='Remove Friend'><img src='http://forum.emule-project.net/public/style_images/classicblue/user_delete.png' alt='Remove Friend' /></a>");
+		ipb.templates['autocomplete_wrap'] = new Template("<ul id='#{id}' class='ipb_autocomplete' style='width: 250px;'></ul>");
+		ipb.templates['autocomplete_item'] = new Template("<li id='#{id}'><img src='#{img}' alt='' width='#{img_w}' height='#{img_h}' />&nbsp;&nbsp;#{itemvalue}</li>");
+		ipb.templates['page_jump']		= new Template("<div id='#{id}_wrap' class='ipbmenu_content'><h3 class='bar'>Jump to page</h3><input type='text' class='input_text' id='#{id}_input' size='8' /> <input type='submit' value='Go' class='input_submit add_folder' id='#{id}_submit' /></div>");
+	//]]>
+	</script>
+		<script type="text/javascript">
+			Loader.boot();
+		</script><script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/ips.quickpm.js"></script><script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/ips.editor.js"></script><script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/ips.topic.js"></script>
+	</head>
+	<body id="ipboard_body">
+		<h1>Official eMule-Board: Pthreads2.dll As Static? - Official eMule-Board</h1>
+		<p id="content_jump"><a id="top"></a><a href="http://forum.emule-project.net/index.php?showtopic=82228#j_content" title="Jump to content" accesskey="m">Jump to content</a></p>
+					
+						<br><center>
+<a href="http://www.emule-project.net/" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_1.gif"></a><a href="http://www.emule-project.net/home/perl/news.cgi" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_2.gif"></a><a href="http://www.emule-project.net/home/perl/general.cgi?rm=download" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_3.gif"></a><a href="http://www.emule-project.net/home/perl/help.cgi" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_4.gif"></a><a href="http://contentdb.emule-project.net/" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_5.gif"></a><a href="http://www.emule-project.net/home/perl/general.cgi?rm=links" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_6.gif"></a><a href="http://www.emule-project.net/home/perl/general.cgi?rm=team" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_7.gif"></a><a href="http://www.emule-project.net/home/perl/general.cgi?rm=skins" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_10.gif"></a><a href="http://www.emule-project.net/home/perl/general.cgi?rm=shop" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_9.gif"></a><a href="http://www.emule-project.net/home/perl/general.cgi?rm=contact" class="navi"><img border="0" src="./Pthreads2.dll As Static  - Official eMule-Board_files/bar_0.gif"></a></center>
+					
+		<div id="ipbwrapper">
+			<div id="header">
+				<div>
+
+				</div>			
+				<div id="primary_nav">
+					<div id="search">
+						<form action="http://forum.emule-project.net/index.php?app=core&module=search&do=quick_search&search_filter_app[forums]=1&s=45fadd87309bee974218c17a1e93e405" method="post" id="search-box">
+							<fieldset>
+							
+								<label for="main_search" class="hide">Search</label>
+								<input type="text" id="main_search" name="search_term" class="text_input" size="17" tabindex="6">
+								<input type="submit" class="submit_input" value="Search">
+								<a href="http://forum.emule-project.net/index.php?app=core&module=search&s=45fadd87309bee974218c17a1e93e405" title="" accesskey="4" rel="search" id="adv_search">Advanced</a>
+							</fieldset>
+						</form>
+					</div>
+					<ul>
+						
+							<li id="nav_home" class="left"><a href="http://www.emule-project.net/" title="Homepage" rel="home">eMule Project</a></li>
+						
+						<li id="nav_rules" class="left"><a href="http://forum.emule-project.net/index.php?showtopic=6896">Forum Rules</a></li>
+					</ul>
+					<ul id="nav_right_links" class="right">
+																														
+							<li id="nav_discussion" class="left active"><a href="http://forum.emule-project.net/index.php?act=idx&s=45fadd87309bee974218c17a1e93e405" title="Go to Forums">Forums</a></li>
+						
+							<li id="nav_members" class="left "><a href="http://forum.emule-project.net/index.php?app=members&section=view&module=list&s=45fadd87309bee974218c17a1e93e405" title="Go to Member List">Members</a></li>
+						
+						<li id="nav_help" class="left "><a href="http://forum.emule-project.net/index.php?app=core&module=help&s=45fadd87309bee974218c17a1e93e405" title="View help" rel="help" accesskey="6">Help</a></li>
+						<li id="nav_search" class="left "><a href="http://forum.emule-project.net/index.php?app=core&module=search&s=45fadd87309bee974218c17a1e93e405" title="" accesskey="4" rel="search">Search</a></li>
+						
+							
+								
+							
+
+								
+							
+
+								
+							
+						
+					</ul>
+				</div>
+				
+			</div>
+			<div id="subheader" class="clear">
+				
+					<div id="user_navigation" class="not_logged_in">
+						<a href="http://forum.emule-project.net/index.php?app=core&module=global&section=login&s=45fadd87309bee974218c17a1e93e405" title="Sign In"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/key.png" alt=""><font color="#000000"> Sign In</font></a>
+						<a href="http://forum.emule-project.net/index.php?app=core&module=global&section=register&s=45fadd87309bee974218c17a1e93e405" title="Register"><font color="#000000"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/paste_plain.png" alt=""> Register</font></a>
+					</div>
+				
+				
+				<div id="secondary_nav" class="clearfix">
+					<ul id="breadcrumb" class="left">
+												<li class="first"><a href="http://forum.emule-project.net/index.php?act=idx&s=45fadd87309bee974218c17a1e93e405">Official eMule-Board</a></li>
+							
+						
+							<li><span class="nav_sep">&gt;</span> <a href="http://forum.emule-project.net/index.php?showforum=83&s=45fadd87309bee974218c17a1e93e405" title="Return to Development">Development</a></li>
+							
+						
+
+							<li><span class="nav_sep">&gt;</span> <a href="http://forum.emule-project.net/index.php?showforum=15&s=45fadd87309bee974218c17a1e93e405" title="Return to eMule Mods">eMule Mods</a></li>
+							
+						
+
+							<li><span class="nav_sep">&gt;</span> <a href="http://forum.emule-project.net/index.php?showforum=28&s=45fadd87309bee974218c17a1e93e405" title="Return to Morph MOD">Morph MOD</a></li>
+							
+						
+					</ul>
+				</div>
+			</div>
+			<div id="content" class="clear">
+				<a id="j_content"></a>
+				
+
+
+<script type="text/javascript">
+//<![CDATA[
+	ipb.topic.inSection = 'topicview';
+	ipb.topic.topic_id  = 82228;
+	ipb.topic.forum_id  = 28;
+	ipb.topic.start_id  = 0;
+	// Editor JS: Only needs to be done once per page
+	ipb.editor_values.get('templates')['link'] = new Template("<label for='#{id}_url'>URL</label><input type='text' class='input_text' id='#{id}_url' value='http://' tabindex='10' /><label for='#{id}_urltext'>Link text</label><input type='text' class='input_text _select' id='#{id}_urltext' value='My link' tabindex='11' /><input type='submit' class='input_submit' value='Insert Link' tabindex='12' />");
+ipb.editor_values.get('templates')['image'] = new Template("<label for='#{id}_img'>Image URL</label><input type='text' class='input_text' id='#{id}_img' value='http://' tabindex='10' /><input type='submit' class='input_submit' value='Insert Image' tabindex='11' />");
+ipb.editor_values.get('templates')['email'] = new Template("<label for='#{id}_email'>Email Address</label><input type='text' class='input_text' id='#{id}_email' tabindex='10' /><label for='#{id}_emailtext'>Link text</label><input type='text' class='input_text _select' id='#{id}_emailtext' value='Email me' tabindex='11' /><input type='submit' class='input_submit' value='Insert Email' tabindex='12' />");
+ipb.editor_values.get('templates')['media'] = new Template("<label for='#{id}_media'>Media URL</label><input type='text' class='input_text' id='#{id}_media' value='http://' tabindex='10' /><input type='submit' class='input_submit' value='Insert Media' tabindex='11' />");
+ipb.editor_values.get('templates')['generic'] = new Template("<div class='rte_title'>#{title}</div><strong>Example</strong><pre>#{example}</pre><label for='#{id}_option' class='optional'>#{option_text}</label><input type='text' class='input_text optional' id='#{id}_option' tabindex='10' /><label for='#{id}_text'>#{value_text}</label><input type='text' class='input_text _select' id='#{id}_text' tabindex='11' /><input type='submit' class='input_submit' value='Add' tabindex='12' />");
+ipb.editor_values.get('templates')['togglesource'] = new Template("<fieldset id='#{id}_ts_controls' class='submit' style='text-align: left'><input type='button' class='input_submit' value='Update' id='#{id}_ts_update' />&nbsp;&nbsp;&nbsp; <a href='#' id='#{id}_ts_cancel' class='cancel'>Cancel Source Edit</a></fieldset>");
+	
+ipb.editor_values.get('templates')['toolbar'] = new Template("<ul id='#{id}_toolbar_#{toolbarid}' class='toolbar' style='display: none'>#{content}</ul>");
+ipb.editor_values.get('templates')['button'] = new Template("<li><span id='#{id}_cmd_custom_#{cmd}' class='rte_control rte_button specialitem' title='#{title}'><img src='http://forum.emule-project.net/public/style_images/classicblue/rte_icons/#{img}' alt='Icon' /></span></li>");
+ipb.editor_values.get('templates')['menu_item'] = new Template("<li id='#{id}_cmd_custom_#{cmd}' class='specialitem clickable'>#{title}</li>");
+ipb.editor_values.get('templates')['togglesource'] = new Template("<fieldset id='#{id}_ts_controls' class='submit' style='text-align: left'><input type='button' class='input_submit' value='Update' id='#{id}_ts_update' />&nbsp;&nbsp;&nbsp; <a href='#' id='#{id}_ts_cancel' class='cancel'>Cancel Source Edit</a></fieldset>");
+ipb.editor_values.get('templates')['emoticons_showall'] = new Template("<input class='input_submit emoticons' type='button' id='#{id}_all_emoticons' value='Show all emoticons' />");
+ipb.editor_values.get('templates')['emoticon_wrapper'] = new Template("<h4><span>Emoticons</span></h4><div id='#{id}_emoticon_holder' class='emoticon_holder'></div>");
+
+// Add smilies into the mix
+ipb.editor_values.set( 'show_emoticon_link', false );
+
+ipb.editor_values.set( 'bbcodes', $H({"snapback":{"id":"1","title":"Post Snap Back","desc":"This tag displays a little linked image which links back to a post - used when quoting posts from the board. Opens in same window by default.","tag":"snapback","useoption":"0","example":"[snapback]100[/snapback]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"topic":{"id":"5","title":"Topic Link","desc":"This tag provides an easy way to link to a topic","tag":"topic","useoption":"1","example":"[topic=1]Click me![/topic]","switch_option":"0","menu_option_text":"Enter the topic ID","menu_content_text":"Enter the title for this link","single_tag":"0","optional_option":"0","image":""},"post":{"id":"6","title":"Post Link","desc":"This tag provides an easy way to link to a post.","tag":"post","useoption":"1","example":"[post=1]Click me![/post]","switch_option":"0","menu_option_text":"Enter the Post ID","menu_content_text":"Enter the title for this link","single_tag":"0","optional_option":"0","image":""},"spoiler":{"id":"7","title":"Spoiler","desc":"Spoiler tag","tag":"spoiler","useoption":"0","example":"[spoiler]Some hidden text[/spoiler]","switch_option":"0","menu_option_text":"","menu_content_text":"Enter the text to be masked","single_tag":"0","optional_option":"0","image":""},"acronym":{"id":"8","title":"Acronym","desc":"Allows you to make an acronym that will display a description when moused over","tag":"acronym","useoption":"1","example":"[acronym='Laugh Out Loud']lol[/acronym]","switch_option":"0","menu_option_text":"Enter the description for this acronym (EG: Laugh Out Loud)","menu_content_text":"Enter the acronym (EG: lol)","single_tag":"0","optional_option":"0","image":""},"extract":{"id":"9","title":"Extract Blog Entry","desc":"This will allow users to define an extract for an entry. Only this piece of the entry will be displayed on the main blog page and will show up in the RSS feed.","tag":"extract","useoption":"0","example":"[extract]This is an example![/extract]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"blog":{"id":"10","title":"Blog Link","desc":"This tag provides an easy way to link to a blog.","tag":"blog","useoption":"1","example":"[blog=100]Click me![/blog]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"entry":{"id":"11","title":"Blog Entry Link","desc":"This tag provides an easy way to link to a blog entry.","tag":"entry","useoption":"1","example":"[entry=100]Click me![/entry]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"hr":{"id":"15","title":"Horizontal Rule","desc":"Adds a horizontal rule to separate text","tag":"hr","useoption":"0","example":"[hr]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"1","optional_option":"0","image":""},"code":{"id":"16","title":"Code","desc":"Allows you to enter general code","tag":"code","useoption":"0","example":"[code]$text = 'Some long code here';[/code]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"php":{"id":"17","title":"PHP Code","desc":"Allows you to enter PHP code into a formatted/highlighted syntax box","tag":"php","useoption":"0","example":"[php]$variable = true;\n\nprint_r($variable);[/php]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"html":{"id":"18","title":"HTML Code","desc":"Allows you to enter formatted/syntax-highlighted HTML code","tag":"html","useoption":"0","example":"[html]<body>\n <div class='outer'>\n  <p>Hello World</p>\n </div>\n</body>[/html]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"sql":{"id":"19","title":"SQL Code","desc":"Allows you to enter formatted/syntax-highlighted SQL code","tag":"sql","useoption":"0","example":"[sql]SELECT p.*, t.* FROM posts p LEFT JOIN topics t ON t.tid=p.topic_id WHERE t.tid=7[/sql]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"xml":{"id":"20","title":"XML Code","desc":"Allows you to enter formatted/syntax-highlighted XML code","tag":"xml","useoption":"0","example":"[xml]<outer>\n <inner>\n  <tag param='1'>Test</tag>\n </inner>\n</outer>[/xml]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":""},"member":{"id":"34","title":"Member","desc":"Given a member name, a link is automatically generated to the member's profile","tag":"member","useoption":"1","example":"[member=admin] runs this site.","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"1","optional_option":"0","image":""},"twitter":{"id":"36","title":"Twitter","desc":"A tag to link to a user's twitter account","tag":"twitter","useoption":"0","example":"[twitter]userName[/twitter]","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"0","image":"twitter.png"},"optional":{"id":"37","title":"Optional","desc":"","tag":"optional","useoption":"0","example":"","switch_option":"0","menu_option_text":"","menu_content_text":"","single_tag":"0","optional_option":"1","image":""}}) );
+	ipb.vars['emoticon_url'] = "http://forum.emule-project.net/public/style_emoticons/default";
+	//Search Setup
+	ipb.vars['search_type']			= 'forum';
+	ipb.vars['search_type_id']		= 28;
+	ipb.vars['search_type_2']		= 'topic';
+	ipb.vars['search_type_id_2']	= 82228;
+//]]>
+</script>
+
+
+
+<div class="topic_controls">
+		
+	<span class="pagination no_pages left">Page 1 of 1</span>
+
+		<ul class="topic_buttons">
+			
+			
+		</ul>	
+	</div>
+	<br class="clear">
+<div class="topic hfeed">
+	<div class="borderwrap">
+	<h2 class="maintitle noborder smallpad">
+		
+		<span class="main_topic_title">
+			Pthreads2.dll As Static?
+			
+				<span class="desc main_topic_desc">modifing upnplib</span>
+			
+		</span>
+		<!-- SKINNOTE: Need to fill in proper URL for topic rating -->
+		
+	</h2>
+	
+	
+	
+
+<!-- skinnote: Posts by ignored users are not hidden, check _ignored -->
+	
+		<!--Begin Msg Number 580916-->
+		<div class="post_block hentry clear  with_rep" id="post_id_580916">
+			<a id="entry580916"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=580916&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #1">#1</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">leuk_he</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/avatarleukhe2kk.jpg" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">MorphXT team.</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">5,975</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">11-August 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-06-29T20:26:20+00:00">29 June 2005 - 08:26 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->did anyone tried to compile pthreads as an static libarary instead of a dll? why is it separate now? (except that is the way monki made it that way)
+						
+						<br>
+						<p class="edit">
+								This post has been edited by <b>leuk_he</b>: 03 July 2005 - 10:57 AM
+								
+							</p>
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sun, 19 Jan 2014 18:16:06 +0000-->Download the MorphXT emule mod here: <a href="http://emulemorph.sourceforge.net/" target="_blank">eMule Morph mod</a><br><br>Trouble connecting to a server? Use <a href="http://www.oeshare.biz/~skydiver/Images/verbinding.jpg" target="_blank">kad</a> and /or <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">refresh your server list</a><br>Strange search results? <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">Check for fake servers!</a> Or download morph, enable obfuscated server required, and far less fake server seen.<br><br>Looking for morphXT translators. If you want to translate the morph strings please come <a href="http://forum.emule-project.net/index.php?showtopic=40389&view=findpost&p=689732" target="_blank">here</a> (you only need to be able to write, no coding required. ) Covered now: <!--coloro:purple--><span style="color:purple"><!--/coloro-->cn,pt(br),it,es_t,fr.,pl<!--colorc--></span><!--/colorc--> Update needed:<!--coloro:#FF0000--><span style="color:#FF0000"><!--/coloro-->de,nl<!--colorc--></span><!--/colorc--><br>-<a href="http://wiki.emule-web.de/index.php/Morphxtfaq" target="_blank">Morph   FAQ </a><!--coloro:purple--><span style="color:purple"><!--/coloro-->[English wiki]<!--colorc--></span><!--/colorc-->--<a href="http://gathering.tweakers.net/forum/list_messages/1044368/last" target="_blank">Het grote emule topic deel 13</a><!--coloro:purple--><span style="color:purple"><!--/coloro--> [Nederlands]<!--colorc--></span><!--/colorc--><br><a href="http://forum.emule-project.net/index.php?act=post&do=new_post&f=28" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/send_pm_small.png" border="0" class="linked-sig-image"><!--coloro:red--><span style="color:red"><!--/coloro-->if you want to send a message i will tell you to open op a topic in the forum. Other forum lurkers might be helped as well. <!--colorc--></span><!--/colorc--></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_580916">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_580916', { app: 'forums', type: 'pid', typeid: '580916' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=580916&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_580916" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=580916&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_580916').show();
+					
+					if( $('toggle_post_580916') )
+					{
+						$('toggle_post_580916').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 581837-->
+		<div class="post_block hentry clear  with_rep" id="post_id_581837">
+			<a id="entry581837"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=581837&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #2">#2</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=3802&s=45fadd87309bee974218c17a1e93e405">MoNKi</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=3802&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="http://www.monki.es/descargas/iconos/avatar_65.jpg" width="65" height="65" alt=""></a></li>
+		
+		
+			<li class="title">Magnificent Member</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">396</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">17-October 02</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-01T18:24:41+00:00">01 July 2005 - 06:24 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000--><p class="citation">leuk_he, on Jun 29 2005, 10:26 PM, said:</p><div class="blockquote"><div class="quote">did anyone tried to compile pthreads as an static libarary instead of a dll? why is it separate now? (except that is the way monki made it that way)<br>
+<div class="bbc_right"><a href="http://forum.emule-project.net/index.php?s=22f0515fa6727ce63e751f186d48febe&&act=findpost&pid=580916"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/snapback.png" alt="View Post"></a></div></div></div><br>
+In the old version I used (1.x based) it cant be compiled as a static library (from the phtreads docs) and in the new one (2.x) I tried to compile it as a static reading the 2.x docs, with no success when linking with the emule code, maybe I missed something. <br>
+<br>
+SiRoB, have you tried it?
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sat, 05 Oct 2013 03:19:15 +0000-->Sorry for my poor english.<br><br><b><a href="http://www.emulespana.net/" target="_blank">www.monki.es</a></b>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_581837">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_581837', { app: 'forums', type: 'pid', typeid: '581837' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=581837&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_581837" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=581837&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_581837').show();
+					
+					if( $('toggle_post_581837') )
+					{
+						$('toggle_post_581837').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 581859-->
+		<div class="post_block hentry clear  with_rep" id="post_id_581859">
+			<a id="entry581859"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=581859&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #3">#3</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">leuk_he</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/avatarleukhe2kk.jpg" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">MorphXT team.</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">5,975</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">11-August 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-01T19:25:37+00:00">01 July 2005 - 07:25 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->i tried compileing it as static and it links succsfully.<br>
+<br>
+However on  startup of emule .exe it complains the ptreadvc2.dll is missing...(correct, i removed it from the emule dir) ... i thought i linked it statically.  Pthreadvc2 also shows up in the dependancy walker. THis is just me &amp; vc2003 that are not compatible..... i also treid removing version.rc from the library since it declares the file as a FYLETYPE=DLL. <br>
+<br>
+<br>
+the only thing i could find about static linking was this remark in a readme:<br>
+<p class="citation">Quote</p><div class="blockquote"><div class="quote">If you have written any applications and you are linking<br>
+statically with the pthreads-win32 library then you may have<br>
+included a call to _pthread_processInitialize. You will<br>
+now have to change that to ptw32_processInitialize.</div></div><br>
+<br>
+????
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sun, 19 Jan 2014 18:16:06 +0000-->Download the MorphXT emule mod here: <a href="http://emulemorph.sourceforge.net/" target="_blank">eMule Morph mod</a><br><br>Trouble connecting to a server? Use <a href="http://www.oeshare.biz/~skydiver/Images/verbinding.jpg" target="_blank">kad</a> and /or <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">refresh your server list</a><br>Strange search results? <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">Check for fake servers!</a> Or download morph, enable obfuscated server required, and far less fake server seen.<br><br>Looking for morphXT translators. If you want to translate the morph strings please come <a href="http://forum.emule-project.net/index.php?showtopic=40389&view=findpost&p=689732" target="_blank">here</a> (you only need to be able to write, no coding required. ) Covered now: <!--coloro:purple--><span style="color:purple"><!--/coloro-->cn,pt(br),it,es_t,fr.,pl<!--colorc--></span><!--/colorc--> Update needed:<!--coloro:#FF0000--><span style="color:#FF0000"><!--/coloro-->de,nl<!--colorc--></span><!--/colorc--><br>-<a href="http://wiki.emule-web.de/index.php/Morphxtfaq" target="_blank">Morph   FAQ </a><!--coloro:purple--><span style="color:purple"><!--/coloro-->[English wiki]<!--colorc--></span><!--/colorc-->--<a href="http://gathering.tweakers.net/forum/list_messages/1044368/last" target="_blank">Het grote emule topic deel 13</a><!--coloro:purple--><span style="color:purple"><!--/coloro--> [Nederlands]<!--colorc--></span><!--/colorc--><br><a href="http://forum.emule-project.net/index.php?act=post&do=new_post&f=28" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/send_pm_small.png" border="0" class="linked-sig-image"><!--coloro:red--><span style="color:red"><!--/coloro-->if you want to send a message i will tell you to open op a topic in the forum. Other forum lurkers might be helped as well. <!--colorc--></span><!--/colorc--></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_581859">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_581859', { app: 'forums', type: 'pid', typeid: '581859' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=581859&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_581859" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=581859&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_581859').show();
+					
+					if( $('toggle_post_581859') )
+					{
+						$('toggle_post_581859').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 581885-->
+		<div class="post_block hentry clear  with_rep" id="post_id_581885">
+			<a id="entry581885"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=581885&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #4">#4</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=3802&s=45fadd87309bee974218c17a1e93e405">MoNKi</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=3802&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="http://www.monki.es/descargas/iconos/avatar_65.jpg" width="65" height="65" alt=""></a></li>
+		
+		
+			<li class="title">Magnificent Member</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">396</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">17-October 02</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-01T20:25:11+00:00">01 July 2005 - 08:25 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->From the README file:<br>
+<p class="citation">Quote</p><div class="blockquote"><div class="quote">Building under VC++ using C++ EH, Structured EH, or just C<br>
+----------------------------------------------------------<br>
+<br>
+From the source directory run nmake without any arguments to list<br>
+help information. E.g.<br>
+<br>
+$ nmake<br>
+<br>
+Microsoft ® Program Maintenance Utility&nbsp;  Version 6.00.8168.0<br>
+Copyright © Microsoft Corp 1988-1998. All rights reserved.<br>
+<br>
+Run one of the following command lines:<br>
+nmake clean VCE (to build the MSVC dll with C++ exception handling)<br>
+nmake clean VSE (to build the MSVC dll with structured exception handling)<br>
+nmake clean VC (to build the MSVC dll with C cleanup code)<br>
+nmake clean VCE-inlined (to build the MSVC inlined dll with C++ exception handling)<br>
+nmake clean VSE-inlined (to build the MSVC inlined dll with structured exception handling)<br>
+nmake clean VC-inlined (to build the MSVC inlined dll with C cleanup code)<br>
+nmake clean VC-static (to build the MSVC static lib with C cleanup code)<br>
+nmake clean VCE-debug (to build the debug MSVC dll with C++ exception handling)<br>
+nmake clean VSE-debug (to build the debug MSVC dll with structured exception handling)<br>
+nmake clean VC-debug (to build the debug MSVC dll with C cleanup code)<br>
+nmake clean VCE-inlined-debug (to build the debug MSVC inlined dll with C++ exception handling)<br>
+nmake clean VSE-inlined-debug (to build the debug MSVC inlined dll with structured exception handling)<br>
+nmake clean VC-inlined-debug (to build the debug MSVC inlined dll with C cleanup code)<br>
+nmake clean VC-static-debug (to build the debug MSVC static lib with C cleanup code)<br>
+<br>
+<br>
+The pre-built dlls are normally built using the *-inlined targets.<br>
+...<br>
+...<br>
+<br>
+Building the library as a statically linkable library<br>
+-----------------------------------------------------<br>
+<br>
+General: PTW32_STATIC_LIB must be defined for both the library build and the<br>
+application build. The makefiles supplied and used by the following 'make'<br>
+command lines will define this for you.<br>
+<br>
+MSVC (creates pthreadVCn.lib as a static link lib):<br>
+<br>
+nmake clean VC-static<br>
+<br>
+<br>
+MinGW32 (creates libpthreadGCn.a as a static link lib):<br>
+<br>
+make clean GC-static<br>
+<br>
+<br>
+Define PTW32_STATIC_LIB when building your application. Also, your<br>
+application must call a two non-portable routines to initialise the<br>
+some state on startup and cleanup before exit. One other routine needs<br>
+to be called to cleanup after any Win32 threads have called POSIX API<br>
+routines. See README.NONPORTABLE or the html reference manual pages for<br>
+details on these routines:<br>
+<br>
+BOOL pthread_win32_process_attach_np (void);<br>
+BOOL pthread_win32_process_detach_np (void);<br>
+BOOL pthread_win32_thread_attach_np (void); // Currently a no-op<br>
+BOOL pthread_win32_thread_detach_np (void);<br>
+<br>
+<br>
+The tests makefiles have the same targets but only check that the<br>
+static library is statically linkable. They don't run the full<br>
+testsuite. To run the full testsuite, build the dlls and run the<br>
+dll test targets.</div></div><br>
+<br>
+Now I see I missed some steps, I'll try it later.<br>
+<br>
+PD: Maybe is a good idea to mix this thread with the UPnP thread in the Code Snippets section.<br>
+<br>
+<strong class="bbc">EDITED:</strong> I think upnplib isn't ready for the static linking because, if I remember rightly, It don't call this functions:<br>
+<p class="citation">Quote</p><div class="blockquote"><div class="quote">BOOL pthread_win32_process_attach_np (void);<br>
+BOOL pthread_win32_process_detach_np (void);<br>
+BOOL pthread_win32_thread_attach_np (void); // Currently a no-op<br>
+BOOL pthread_win32_thread_detach_np (void);</div></div>
+						
+						<br>
+						<p class="edit">
+								This post has been edited by <b>MoNKi</b>: 01 July 2005 - 08:42 PM
+								
+							</p>
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sat, 05 Oct 2013 03:19:15 +0000-->Sorry for my poor english.<br><br><b><a href="http://www.emulespana.net/" target="_blank">www.monki.es</a></b>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_581885">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_581885', { app: 'forums', type: 'pid', typeid: '581885' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=581885&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_581885" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=581885&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_581885').show();
+					
+					if( $('toggle_post_581885') )
+					{
+						$('toggle_post_581885').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 582264-->
+		<div class="post_block hentry clear  with_rep" id="post_id_582264">
+			<a id="entry582264"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=582264&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #5">#5</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">leuk_he</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/avatarleukhe2kk.jpg" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">MorphXT team.</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">5,975</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">11-August 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-02T19:53:22+00:00">02 July 2005 - 07:53 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->-set the define<br>
+-link it statically (needed many tries.  <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/whistling.gif" class="bbc_emoticon" alt=":-k"> )<br>
+<br>
+added to upnp threadpool.c line 742  (ThreadPoolInit()<br>
+<br>
+<pre class="prettyprint"><span class="pln">&nbsp;<br><br></span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; pthread_win32_process_attach_np</span><span class="pun">();</span><span class="pln"><br></span><span class="com">#endif</span></pre><br>
+<br>
+add at line ~1259  (end of  ThreadPoolShutdown()) <br>
+<pre class="prettyprint"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; pthread_win32_process_detach_np</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#endif</span></pre><br>
+<br>
+<br>
+should add something before calling<br>
+<br>
+ ithread_cond_destroy(<br>
+<br>
+to cleanup a tread, but i have to unserstand treadpool() better to fix that part<br>
+<br>
+<br>
+because it crashes on shutdown of the client somewhere in ithread_cond_destroy on a free() or something related call.  It does add the portmapping and run fine for some minutes (did not test longer).
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sun, 19 Jan 2014 18:16:06 +0000-->Download the MorphXT emule mod here: <a href="http://emulemorph.sourceforge.net/" target="_blank">eMule Morph mod</a><br><br>Trouble connecting to a server? Use <a href="http://www.oeshare.biz/~skydiver/Images/verbinding.jpg" target="_blank">kad</a> and /or <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">refresh your server list</a><br>Strange search results? <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">Check for fake servers!</a> Or download morph, enable obfuscated server required, and far less fake server seen.<br><br>Looking for morphXT translators. If you want to translate the morph strings please come <a href="http://forum.emule-project.net/index.php?showtopic=40389&view=findpost&p=689732" target="_blank">here</a> (you only need to be able to write, no coding required. ) Covered now: <!--coloro:purple--><span style="color:purple"><!--/coloro-->cn,pt(br),it,es_t,fr.,pl<!--colorc--></span><!--/colorc--> Update needed:<!--coloro:#FF0000--><span style="color:#FF0000"><!--/coloro-->de,nl<!--colorc--></span><!--/colorc--><br>-<a href="http://wiki.emule-web.de/index.php/Morphxtfaq" target="_blank">Morph   FAQ </a><!--coloro:purple--><span style="color:purple"><!--/coloro-->[English wiki]<!--colorc--></span><!--/colorc-->--<a href="http://gathering.tweakers.net/forum/list_messages/1044368/last" target="_blank">Het grote emule topic deel 13</a><!--coloro:purple--><span style="color:purple"><!--/coloro--> [Nederlands]<!--colorc--></span><!--/colorc--><br><a href="http://forum.emule-project.net/index.php?act=post&do=new_post&f=28" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/send_pm_small.png" border="0" class="linked-sig-image"><!--coloro:red--><span style="color:red"><!--/coloro-->if you want to send a message i will tell you to open op a topic in the forum. Other forum lurkers might be helped as well. <!--colorc--></span><!--/colorc--></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_582264">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_582264', { app: 'forums', type: 'pid', typeid: '582264' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582264&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_582264" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582264&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_582264').show();
+					
+					if( $('toggle_post_582264') )
+					{
+						$('toggle_post_582264').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 582270-->
+		<div class="post_block hentry clear  with_rep" id="post_id_582270">
+			<a id="entry582270"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=582270&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #6">#6</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=3802&s=45fadd87309bee974218c17a1e93e405">MoNKi</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=3802&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="http://www.monki.es/descargas/iconos/avatar_65.jpg" width="65" height="65" alt=""></a></li>
+		
+		
+			<li class="title">Magnificent Member</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">396</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">17-October 02</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-02T20:11:51+00:00">02 July 2005 - 08:11 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000--><p class="citation">leuk_he, on Jul 2 2005, 09:53 PM, said:</p><div class="blockquote"><div class="quote">-set the define<br>
+-link it statically (needed many tries.&nbsp; <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/whistling.gif" class="bbc_emoticon" alt=":-k"> )<br>
+<br>
+added to upnp threadpool.c line 742&nbsp; (ThreadPoolInit()<br>
+<br>
+<pre class="prettyprint"><span class="pln">&nbsp;<br><br></span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; pthread_win32_process_attach_np</span><span class="pun">();</span><span class="pln"><br></span><span class="com">#endif</span></pre><br>
+<br>
+add at line ~1259&nbsp; (end of&nbsp; ThreadPoolShutdown()) <br>
+<pre class="prettyprint"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; pthread_win32_process_detach_np</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#endif</span></pre><br>
+<br>
+<br>
+should add something before calling<br>
+<br>
+ ithread_cond_destroy(<br>
+<br>
+to cleanup a tread, but i have to unserstand treadpool() better to fix that part<br>
+<br>
+<br>
+because it crashes on shutdown of the client somewhere in ithread_cond_destroy on a free() or something related call.&nbsp; It does add the portmapping and run fine for some minutes (did not test longer).<br>
+<div class="bbc_right"><a href="http://forum.emule-project.net/index.php?s=22f0515fa6727ce63e751f186d48febe&&act=findpost&pid=582264"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/snapback.png" alt="View Post"></a></div></div></div><br>
+<br>
+I didn't set the define the first time, that was my missed step, <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/tongue.gif" class="bbc_emoticon" alt=":P"><br>
+<br>
+For now I can't test it because I formatted my computer and don't have VS installed, but if you can patch the win32 upnplib successfuly I can add it to the download <a href="http://sourceforge.net/project/showfiles.php?group_id=97902&package_id=155707" class="bbc_url" title="External link" rel="nofollow">here</a><br>
+<br>
+PS: I think is better this:<br>
+#ifdef _WIN32<br>
+#ifdef PTW32_STATIC_LIB<br>
+//something<br>
+#endif<br>
+#endif<br>
+<br>
+I know is the same because you only define PTW32_STATIC_LIB on win32 machines, but is faster to search for all the win32 specific code searching by _WIN32
+						
+						<br>
+						<p class="edit">
+								This post has been edited by <b>MoNKi</b>: 02 July 2005 - 08:13 PM
+								
+							</p>
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sat, 05 Oct 2013 03:19:15 +0000-->Sorry for my poor english.<br><br><b><a href="http://www.emulespana.net/" target="_blank">www.monki.es</a></b>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_582270">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_582270', { app: 'forums', type: 'pid', typeid: '582270' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582270&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_582270" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582270&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_582270').show();
+					
+					if( $('toggle_post_582270') )
+					{
+						$('toggle_post_582270').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 582596-->
+		<div class="post_block hentry clear  with_rep" id="post_id_582596">
+			<a id="entry582596"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=582596&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #7">#7</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">leuk_he</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/avatarleukhe2kk.jpg" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">MorphXT team.</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">5,975</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">11-August 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-03T18:50:13+00:00">03 July 2005 - 06:50 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->I added to pthread_win32_thread_detach_np in the workrthread just before the return  NULL, but the same crash happens on exit. The project upnplib orignates from reveals nothing (in a quick scan) about statically linking pthreads......<br>
+<br>
+it is not going to happen today  <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/cry.gif" class="bbc_emoticon" alt=":cry:">
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sun, 19 Jan 2014 18:16:06 +0000-->Download the MorphXT emule mod here: <a href="http://emulemorph.sourceforge.net/" target="_blank">eMule Morph mod</a><br><br>Trouble connecting to a server? Use <a href="http://www.oeshare.biz/~skydiver/Images/verbinding.jpg" target="_blank">kad</a> and /or <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">refresh your server list</a><br>Strange search results? <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">Check for fake servers!</a> Or download morph, enable obfuscated server required, and far less fake server seen.<br><br>Looking for morphXT translators. If you want to translate the morph strings please come <a href="http://forum.emule-project.net/index.php?showtopic=40389&view=findpost&p=689732" target="_blank">here</a> (you only need to be able to write, no coding required. ) Covered now: <!--coloro:purple--><span style="color:purple"><!--/coloro-->cn,pt(br),it,es_t,fr.,pl<!--colorc--></span><!--/colorc--> Update needed:<!--coloro:#FF0000--><span style="color:#FF0000"><!--/coloro-->de,nl<!--colorc--></span><!--/colorc--><br>-<a href="http://wiki.emule-web.de/index.php/Morphxtfaq" target="_blank">Morph   FAQ </a><!--coloro:purple--><span style="color:purple"><!--/coloro-->[English wiki]<!--colorc--></span><!--/colorc-->--<a href="http://gathering.tweakers.net/forum/list_messages/1044368/last" target="_blank">Het grote emule topic deel 13</a><!--coloro:purple--><span style="color:purple"><!--/coloro--> [Nederlands]<!--colorc--></span><!--/colorc--><br><a href="http://forum.emule-project.net/index.php?act=post&do=new_post&f=28" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/send_pm_small.png" border="0" class="linked-sig-image"><!--coloro:red--><span style="color:red"><!--/coloro-->if you want to send a message i will tell you to open op a topic in the forum. Other forum lurkers might be helped as well. <!--colorc--></span><!--/colorc--></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_582596">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_582596', { app: 'forums', type: 'pid', typeid: '582596' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582596&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_582596" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582596&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_582596').show();
+					
+					if( $('toggle_post_582596') )
+					{
+						$('toggle_post_582596').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 582787-->
+		<div class="post_block hentry clear  with_rep" id="post_id_582787">
+			<a id="entry582787"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=582787&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #8">#8</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=118511&s=45fadd87309bee974218c17a1e93e405">SiRoB</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=118511&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/mysigmj8.png" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">Retired Morph Dev</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">1,691</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">28-June 03</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-04T10:09:57+00:00">04 July 2005 - 10:09 AM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->@MoNKi<br>
+Yes i tryed with no success.<br>
+It compiles but there is some trouble maybe arround destructor, as you stated.<br>
+I don't remember well, it's a long time ago.<br>
+<br>
+Any way i turn the upnplib into static one to avoid ugly upnp export function in emule.exe. ;p
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Thu, 30 Jan 2014 09:06:30 +0000--><a href="http://emulemorph.sf.net/" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/emulemorphuserbaranimatov7.gif" border="0" class="linked-sig-image"></a>  eMule 0.47c MorphXT v9.5 ::<a href="http://downloads.sourceforge.net/emulemorph/eMulev0.47c.-MorphXTv9.5-bin.zip" target="_blank"><b>binary</b></a>::<a href="http://downloads.sourceforge.net/emulemorph/eMulev0.47c.-MorphXTv9.5-src.zip" target="_blank"><b>source</b></a>::
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_582787">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_582787', { app: 'forums', type: 'pid', typeid: '582787' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582787&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_582787" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582787&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_582787').show();
+					
+					if( $('toggle_post_582787') )
+					{
+						$('toggle_post_582787').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 582850-->
+		<div class="post_block hentry clear  with_rep" id="post_id_582850">
+			<a id="entry582850"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=582850&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #9">#9</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">leuk_he</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/avatarleukhe2kk.jpg" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">MorphXT team.</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">5,975</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">11-August 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2005-07-04T13:28:58+00:00">04 July 2005 - 01:28 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->I got it working in DEBUG (just had to write it some where!! <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/clap.gif" class="bbc_emoticon" alt=":clap:"> )  <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bounce.gif" class="bbc_emoticon" alt=":bounce:">  <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bounce.gif" class="bbc_emoticon" alt=":bounce:"> <br>
+<br>
+the call to process_detach should not be added to the shutdown in the threadpool, but in upnpapi.c in Upnpfinish arround line 411:<br>
+<br>
+<pre class="prettyprint"><span class="pln"><br>&nbsp; &nbsp; </span><span class="typ">UpnpSdkInit</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="com">//leuk_he</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef _WIN32</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; &nbsp; pthread_win32_process_detach_np</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com">#endif</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="com">#endif</span><span class="pln"><br><br>&nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> UPNP_E_SUCCESS</span><span class="pun">;</span><span class="pln"><br><br></span><span class="pun">}</span><span class="pln"> &nbsp;</span><span class="com">/********************* End of &nbsp;UpnpFinish &nbsp;*************************/</span></pre><br>
+<br>
+<br>
+Yep it works:I also put this patch in code snippets:<br>
+<br>
+<a href="http://forum.emule-project.net/index.php?showtopic=81629" class="bbc_url" title="External link" rel="nofollow">http://forum.emule-p...showtopic=81629</a>
+						
+						<br>
+						<p class="edit">
+								This post has been edited by <b>leuk_he</b>: 07 July 2005 - 02:01 PM
+								
+							</p>
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sun, 19 Jan 2014 18:16:06 +0000-->Download the MorphXT emule mod here: <a href="http://emulemorph.sourceforge.net/" target="_blank">eMule Morph mod</a><br><br>Trouble connecting to a server? Use <a href="http://www.oeshare.biz/~skydiver/Images/verbinding.jpg" target="_blank">kad</a> and /or <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">refresh your server list</a><br>Strange search results? <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">Check for fake servers!</a> Or download morph, enable obfuscated server required, and far less fake server seen.<br><br>Looking for morphXT translators. If you want to translate the morph strings please come <a href="http://forum.emule-project.net/index.php?showtopic=40389&view=findpost&p=689732" target="_blank">here</a> (you only need to be able to write, no coding required. ) Covered now: <!--coloro:purple--><span style="color:purple"><!--/coloro-->cn,pt(br),it,es_t,fr.,pl<!--colorc--></span><!--/colorc--> Update needed:<!--coloro:#FF0000--><span style="color:#FF0000"><!--/coloro-->de,nl<!--colorc--></span><!--/colorc--><br>-<a href="http://wiki.emule-web.de/index.php/Morphxtfaq" target="_blank">Morph   FAQ </a><!--coloro:purple--><span style="color:purple"><!--/coloro-->[English wiki]<!--colorc--></span><!--/colorc-->--<a href="http://gathering.tweakers.net/forum/list_messages/1044368/last" target="_blank">Het grote emule topic deel 13</a><!--coloro:purple--><span style="color:purple"><!--/coloro--> [Nederlands]<!--colorc--></span><!--/colorc--><br><a href="http://forum.emule-project.net/index.php?act=post&do=new_post&f=28" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/send_pm_small.png" border="0" class="linked-sig-image"><!--coloro:red--><span style="color:red"><!--/coloro-->if you want to send a message i will tell you to open op a topic in the forum. Other forum lurkers might be helped as well. <!--colorc--></span><!--/colorc--></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_582850">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_582850', { app: 'forums', type: 'pid', typeid: '582850' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582850&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_582850" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=582850&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_582850').show();
+					
+					if( $('toggle_post_582850') )
+					{
+						$('toggle_post_582850').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 991264-->
+		<div class="post_block hentry clear  with_rep" id="post_id_991264">
+			<a id="entry991264"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=991264&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #10">#10</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=162008&s=45fadd87309bee974218c17a1e93e405">Rapid_Mule</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=162008&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/logobasicep9.png" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">"routing problems on the neural net"</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">256</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">03-May 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2008-10-10T23:40:44+00:00">10 October 2008 - 11:40 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->I noticed that the last part of UpnpFinish() code is different from current one. You use pthread_win32_thread_detach_np() instead of pthread_win32_process_detach_np(). That seems logical since we need to call pthread_win32_process_detach_np() only on exit.<br>
+<br>
+<pre class="prettyprint"><span class="typ">CUPnP_IGDControlPoint</span><span class="pun">::~</span><span class="typ">CUPnP_IGDControlPoint</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span><span class="pln"><br></span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">m_bClearOnClose</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">DeleteAllPortMappings</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//Unregister control point and finish UPnP</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">m_ctrlPoint</span><span class="pun">){</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">UpnpUnRegisterClient</span><span class="pun">(</span><span class="pln">m_ctrlPoint</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">UpnpFinish</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//removed memleak reports in the debugger on morph's exit.</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//need to include "pthreads.h"</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; pthread_win32_process_detach_np</span><span class="pun">();</span><span class="pln"><br><br></span><span class="pun">...</span></pre><br>
+<br>
+PS: I know this thread is old (just like me) <img src="./Pthreads2.dll As Static  - Official eMule-Board_files/tongue.gif" class="bbc_emoticon" alt=":P">
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Tue, 29 Oct 2013 03:16:48 +0000--><a href="http://www.mozilla.com/en-US/?from=sfx&uid=205965&t=441" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/200x32_all_blue.png" border="0" class="linked-sig-image"></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_991264">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_991264', { app: 'forums', type: 'pid', typeid: '991264' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=991264&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_991264" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=991264&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_991264').show();
+					
+					if( $('toggle_post_991264') )
+					{
+						$('toggle_post_991264').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 991273-->
+		<div class="post_block hentry clear  with_rep" id="post_id_991273">
+			<a id="entry991273"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=991273&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #11">#11</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=162008&s=45fadd87309bee974218c17a1e93e405">Rapid_Mule</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=162008&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/logobasicep9.png" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">"routing problems on the neural net"</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">256</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">03-May 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2008-10-11T03:21:31+00:00">11 October 2008 - 03:21 AM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->OK, I changed the code a little to terminate Pthreads properly under win32.<br>
+<br>
+<strong class="bbc">UPnP_IGDControlPoint.cpp</strong><br>
+<pre class="prettyprint"><span class="typ">CUPnP_IGDControlPoint</span><span class="pun">::~</span><span class="typ">CUPnP_IGDControlPoint</span><span class="pun">(</span><span class="kwd">void</span><span class="pun">)</span><span class="pln"><br></span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">m_bClearOnClose</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">DeleteAllPortMappings</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//Unregister control point and finish UPnP</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">m_ctrlPoint</span><span class="pun">){</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">UpnpUnRegisterClient</span><span class="pun">(</span><span class="pln">m_ctrlPoint</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">UpnpFinish</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">UpnpEndPthreads</span><span class="pun">();</span><span class="pln"> </span><span class="com">//RM -&gt; cleanup pthreads-win32 [leuk_he]</span></pre><br>
+<br>
+<strong class="bbc">upnplib\upnp\inc\upnp.h</strong><br>
+<pre class="prettyprint"><span class="pln">&nbsp;</span><span class="pun">*</span><span class="pln"> &nbsp; &nbsp; &nbsp;</span><span class="pun">\</span><span class="kwd">end</span><span class="pun">{</span><span class="pln">itemize</span><span class="pun">}</span><span class="pln"> </span><span class="pun">*</span><span class="str">/<br><br>int UpnpFinish( );<br><br>int UpnpEndPthreads( ); /</span><span class="pun">/</span><span class="pln">RM </span><span class="pun">-&gt;</span><span class="pln"> cleanup pthreads</span><span class="pun">-</span><span class="pln">win32 </span><span class="pun">[</span><span class="pln">leuk_he</span><span class="pun">]</span><span class="pln"><br><br></span><span class="com">/** If '0' is used as the port number in {\bf UpnpInit}, then this</span></pre><br>
+<br>
+<strong class="bbc">upnplib\upnp\src\api\upnpapi.c</strong><br>
+<pre class="prettyprint"><span class="pun">}</span><span class="pln"> &nbsp;</span><span class="com">/********************* End of &nbsp;UpnpFinish &nbsp;*************************/</span><span class="pln"><br><br></span><span class="kwd">int</span><span class="pln"><br></span><span class="typ">UpnpEndPthreads</span><span class="pln"> </span><span class="pun">(</span><span class="pln"> </span><span class="pun">)</span><span class="pln"><br></span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//RM -&gt; &nbsp;cleanup pthreads-win32 [leuk_he]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef _WIN32</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">PthreadsInitialized</span><span class="pln"> </span><span class="pun">==</span><span class="pln"> PTW32_TRUE</span><span class="pun">)</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pthread_win32_process_detach_np </span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#endif</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#endif</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> TRUE</span><span class="pun">;</span><span class="pln"><br></span><span class="pun">}</span></pre><br>
+<br>
+<strong class="bbc">upnplib\threadutil\inc\ThreadPool.h</strong><br>
+<pre class="prettyprint"><span class="kwd">typedef</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> </span><span class="typ">PolicyType</span><span class="pun">;</span><span class="pln"><br></span><span class="com">#define DEFAULT_POLICY SCHED_OTHER</span><span class="pln"><br></span><span class="com">#define DEFAULT_SCHED_PARAM 0 //default priority</span><span class="pln"><br><br></span><span class="kwd">int</span><span class="pln"> </span><span class="typ">PthreadsInitialized</span><span class="pun">;</span><span class="pln"> </span><span class="com">//RM -&gt; &nbsp;cleanup pthreads-win32 [leuk_he]</span></pre><br>
+<br>
+<strong class="bbc">upnplib\threadutil\src\ThreadPool.c</strong><br>
+<pre class="prettyprint"><span class="pln">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">if</span><span class="pun">(</span><span class="pln"> tp </span><span class="pun">==</span><span class="pln"> NULL </span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="kwd">return</span><span class="pln"> EINVAL</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">}</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">PthreadsInitialized</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> PTW32_FALSE</span><span class="pun">;</span><span class="pln"> </span><span class="com">//RM -&gt; &nbsp;cleanup pthreads-win32 [leuk_he]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">//leuk_he</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef _WIN32</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#ifdef PTW32_STATIC_LIB</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="typ">PthreadsInitialized</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> pthread_win32_process_attach_np</span><span class="pun">();</span><span class="pln"> </span><span class="com">//RM -&gt; &nbsp;cleanup pthreads-win32 [leuk_he]</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#endif</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="com">#endif</span><span class="pln"><br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; retCode </span><span class="pun">+=</span><span class="pln"> ithread_mutex_init</span><span class="pun">(</span><span class="pln"> </span><span class="pun">&amp;</span><span class="pln">tp</span><span class="pun">-&gt;</span><span class="pln">mutex</span><span class="pun">,</span><span class="pln"> NULL </span><span class="pun">);</span></pre><br>
+<br>
+Can you please check the changed code and confirm if there are memleaks in the old one.<br>
+<br>
+Regards<br>
+RM
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Tue, 29 Oct 2013 03:16:48 +0000--><a href="http://www.mozilla.com/en-US/?from=sfx&uid=205965&t=441" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/200x32_all_blue.png" border="0" class="linked-sig-image"></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_991273">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_991273', { app: 'forums', type: 'pid', typeid: '991273' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=991273&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_991273" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=991273&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_991273').show();
+					
+					if( $('toggle_post_991273') )
+					{
+						$('toggle_post_991273').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+		<!--Begin Msg Number 991783-->
+		<div class="post_block hentry clear  with_rep" id="post_id_991783">
+			<a id="entry991783"></a>
+			
+			
+			<div class="post_wrap">
+				
+					<h3>
+				
+						<span class="post_id"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=findpost&p=991783&s=45fadd87309bee974218c17a1e93e405" rel="bookmark" title="Link to post #12">#12</a></span>
+						
+								<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/user_off.png" alt="User is offline" title="User is offline">
+							 &nbsp;
+								<span class="author vcard"><a class="url fn" href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405">leuk_he</a>&nbsp;</span>
+						
+					</h3>
+				<div class="author_info">
+					<ul class="user_details">
+		
+			<li class="avatar"><a href="http://forum.emule-project.net/index.php?showuser=177255&s=45fadd87309bee974218c17a1e93e405" title="View Profile"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/avatarleukhe2kk.jpg" width="80" height="80" alt=""></a></li>
+		
+		
+			<li class="title">MorphXT team.</li>
+		
+		<li class="group_icon">
+			
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/bullet_black.png" alt="Pip">
+			
+			</li>
+	</ul>
+	<div style="margin: 0 auto;">
+		<ul class="user_controls clear">
+			
+			
+			
+			
+		</ul>
+	</div>
+	<ul class="user_fields">
+		<li>
+			<span class="ft">Group:</span>
+			<span class="fc">Members</span>
+		</li>
+		
+			<li>
+				<span class="ft">Posts:</span>
+				<span class="fc">5,975</span>
+			</li>
+			<li>
+				<span class="ft">Joined:</span>
+				<span class="fc">11-August 04</span>
+			</li>
+		
+		
+			
+				
+					
+				
+
+					
+				
+
+					
+				
+			
+		
+	</ul>
+	
+				</div>
+				<div class="post_body">
+					<p class="posted_info">
+						
+						
+						Posted <abbr class="published" title="2008-10-13T18:16:36+00:00">13 October 2008 - 06:16 PM</abbr>
+					</p>
+					
+					<div class="post entry-content" id="">
+						<!--cached-Sun, 09 Feb 2014 04:06:27 +0000-->will check but note that UpnpUnRegisterClient  causes an callback in an other htread you would have to wait for? (long time ago that i looked there however)
+						
+						<br>
+						
+					</div>
+					
+						<div class="signature">
+	<!--cached-Sun, 19 Jan 2014 18:16:06 +0000-->Download the MorphXT emule mod here: <a href="http://emulemorph.sourceforge.net/" target="_blank">eMule Morph mod</a><br><br>Trouble connecting to a server? Use <a href="http://www.oeshare.biz/~skydiver/Images/verbinding.jpg" target="_blank">kad</a> and /or <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">refresh your server list</a><br>Strange search results? <a href="http://wiki.emule-web.de/index.php/Recover_list_of_servers" target="_blank">Check for fake servers!</a> Or download morph, enable obfuscated server required, and far less fake server seen.<br><br>Looking for morphXT translators. If you want to translate the morph strings please come <a href="http://forum.emule-project.net/index.php?showtopic=40389&view=findpost&p=689732" target="_blank">here</a> (you only need to be able to write, no coding required. ) Covered now: <!--coloro:purple--><span style="color:purple"><!--/coloro-->cn,pt(br),it,es_t,fr.,pl<!--colorc--></span><!--/colorc--> Update needed:<!--coloro:#FF0000--><span style="color:#FF0000"><!--/coloro-->de,nl<!--colorc--></span><!--/colorc--><br>-<a href="http://wiki.emule-web.de/index.php/Morphxtfaq" target="_blank">Morph   FAQ </a><!--coloro:purple--><span style="color:purple"><!--/coloro-->[English wiki]<!--colorc--></span><!--/colorc-->--<a href="http://gathering.tweakers.net/forum/list_messages/1044368/last" target="_blank">Het grote emule topic deel 13</a><!--coloro:purple--><span style="color:purple"><!--/coloro--> [Nederlands]<!--colorc--></span><!--/colorc--><br><a href="http://forum.emule-project.net/index.php?act=post&do=new_post&f=28" target="_blank"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/send_pm_small.png" border="0" class="linked-sig-image"><!--coloro:red--><span style="color:red"><!--/coloro-->if you want to send a message i will tell you to open op a topic in the forum. Other forum lurkers might be helped as well. <!--colorc--></span><!--/colorc--></a>
+</div>
+					
+				</div>
+			<div class="rep_bar clear right" id="rep_post_991783">
+					
+				
+					<span class="reputation zero rep_show" title="Reputation">
+				
+				
+				
+						0
+					</span>
+					
+				</div>
+				<script type="text/javascript">
+					ipb.global.registerReputation( 'rep_post_991783', { app: 'forums', type: 'pid', typeid: '991783' }, parseInt('0') );
+				</script>
+				<ul class="post_controls">
+					<li class="top">
+						<a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Back to top"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_top.png" alt="Top"> Back to top</a>
+					</li>
+					
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=991783&s=45fadd87309bee974218c17a1e93e405" title="Reply directly to this post"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> Reply</a></li>
+					
+						<li class="multiquote" id="multiq_991783" style="">
+					
+							<a href="http://forum.emule-project.net/index.php?app=forums&module=post&section=post&do=reply_post&f=28&t=82228&qpid=991783&s=45fadd87309bee974218c17a1e93e405" title="Quote this post with Multi-Quote"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/icon_reply.png" alt="Reply Icon"> MultiQuote</a>
+						</li>
+					
+					
+					<!-- Matt: Approve / unapprove post button -->
+					
+				</ul>
+				<script type="text/javascript">
+					// Show multiquote for JS browsers
+					$('multiq_991783').show();
+					
+					if( $('toggle_post_991783') )
+					{
+						$('toggle_post_991783').show();
+					}
+				</script>
+				
+			</div>
+		<!-- </if> -->			
+		</div>
+		
+		<hr>
+		
+	
+
+	</div>
+	<!-- Topic Options Menu -->
+	<ul id="topic_opts_menucontent" class="ipbmenu_content">
+		<li class="subhead altbar" style="text-align:center;font-weight:bold;letter-spacing:1px;">Member Options</li>
+		
+		
+	</ul>
+<!-- MOD LINKS -->
+
+<!-- REPUTATION FILTERS -->
+
+<div class="moderation_bar rounded" id="topic_search_jump">
+	<form method="post" action="http://forum.emule-project.net/index.php?s=45fadd87309bee974218c17a1e93e405&app=core&module=search&do=quick_search&search_filter_app[forums]=1" id="context_search" class="left">
+		<fieldset>
+			<input type="hidden" name="type_2" value="topic">
+			<input type="hidden" name="type_id_2" value="82228">
+			<label for="topic_search">Search Topic</label>
+			<input type="text" id="topic_search" name="search_term" class="input_text" size="20" tabindex="8">
+ 			<input type="submit" class="input_submit alt" value="Go">
+		</fieldset>
+	</form>
+	
+		<form id="forum_jump" action="http://forum.emule-project.net/index.php?&s=45fadd87309bee974218c17a1e93e405" method="post">
+		<fieldset>
+			<select name="showforum" class="input_select">
+				<optgroup label="Forum Jump">
+					<option value="0">Forum Home</option>
+					<option value="82">General</option>
+<option value="2">&nbsp;&nbsp;|-- General Discussions</option>
+<option value="3">&nbsp;&nbsp;|-- Support - Do You Need Help?</option>
+<option value="41">&nbsp;&nbsp;|-- Offtopic &amp; Whiners</option>
+<option value="83">Development</option>
+<option value="5">&nbsp;&nbsp;|-- Bug Reports</option>
+<option value="4">&nbsp;&nbsp;|-- eMule Development</option>
+<option value="6">&nbsp;&nbsp;|-- Feature requests</option>
+<option value="77">&nbsp;&nbsp;|-- Translations</option>
+<option value="99">&nbsp;&nbsp;|-- Skins</option>
+<option value="15">&nbsp;&nbsp;|-- eMule Mods</option>
+<option value="91">Content Page</option>
+<option value="73">&nbsp;&nbsp;|-- General Info</option>
+<option value="84">Deutsch</option>
+<option value="11">&nbsp;&nbsp;|-- German General</option>
+<option value="13">&nbsp;&nbsp;|-- German Support</option>
+<option value="87">Español</option>
+<option value="19">&nbsp;&nbsp;|-- Spanish General</option>
+<option value="20">&nbsp;&nbsp;|-- Spanish Support</option>
+<option value="88">Français</option>
+<option value="21">&nbsp;&nbsp;|-- French General</option>
+<option value="101">Italiano</option>
+<option value="102">&nbsp;&nbsp;|-- Italian General</option>
+<option value="103">&nbsp;&nbsp;|-- Italian Support</option>
+<option value="89">MobileMule</option>
+<option value="51">&nbsp;&nbsp;|-- English</option>
+<option value="52">&nbsp;&nbsp;|-- German</option>
+
+				</optgroup>
+			</select>
+			<input type="hidden" name="s" value="45fadd87309bee974218c17a1e93e405">
+			<input type="submit" value="Go" class="input_submit alt">
+		</fieldset>
+	</form>
+	
+</div>
+<!-- THREADED MODE -->
+
+<ul class="topic_jump right clear">
+	<li class="previous"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=old&s=45fadd87309bee974218c17a1e93e405">&#8592; Previous Topic</a></li>
+	<li><strong><a href="http://forum.emule-project.net/index.php?showforum=28&s=45fadd87309bee974218c17a1e93e405" title="Return to Morph MOD">Morph MOD</a></strong></li>
+	<li class="next"><a href="http://forum.emule-project.net/index.php?showtopic=82228&view=new&s=45fadd87309bee974218c17a1e93e405">Next Topic &#8594;</a></li>
+</ul>
+<!-- BOTTOM BUTTONS -->
+<br class="clear">
+<div class="topic_controls">
+	
+	<span class="pagination no_pages left">Page 1 of 1</span>
+
+	<ul class="topic_buttons">
+		
+		
+	</ul>
+</div>
+<br class="clear">
+
+<!-- ACTIVE USERS -->
+<div id="topic_stats" class="statistics general_box clear clearfix">
+		<div id="topic_active_users" class="active_users">
+			<h2>
+				1 User(s) are reading this topic<br>
+				<span class="desc">0 members, 1 guests, 0 anonymous users</span>
+			</h2>
+			<ol>
+				
+			</ol>
+		</div>
+	</div>
+
+<!-- Close topic -->
+</div>
+
+
+
+	<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/prettify.js"></script>
+	<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/lang-sql.js"></script>
+	<!-- By default we load generic code, php, css, sql and xml/html; load others here if desired -->
+	<script type="text/javascript">
+	//<![CDATA[
+		Event.observe( window, 'load', function(e){ prettyPrint() });
+	//]]>
+	</script>
+				<br class="clear">
+			</div>
+			<div id="footer_utilities" class="clearfix clear">
+                            <div class="left" style="margin-top: 6px;">
+				<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/rss.png" alt="RSS Feed" id="rss_feed" class="clickable left"><ul id="rss_menu" style="position: absolute; display: none; z-index: 9999;"><li style="z-index: 10000;"><a href="http://forum.emule-project.net/index.php?app=core&module=global&section=rss&type=forums&id=1" title="eMule Board - General" style="z-index: 10000;">eMule Board - General</a></li>
+<li style="z-index: 10000;"><a href="http://forum.emule-project.net/index.php?app=core&module=global&section=rss&type=forums&id=2" title="eMule Board - Development" style="z-index: 10000;">eMule Board - Development</a></li>
+<li style="z-index: 10000;"><a href="http://forum.emule-project.net/index.php?app=core&module=global&section=rss&type=forums&id=3" title="eMule Board - Mods" style="z-index: 10000;">eMule Board - Mods</a></li></ul>
+				<h2 class="hide">Skin and Language</h2>
+				
+						<form action="http://forum.emule-project.net/index.php?showtopic=82228&s=45fadd87309bee974218c17a1e93e405" method="post" class="left">
+							<fieldset>
+								<input type="hidden" name="k" value="880ea6a14ea49e853634fbdc5015a024">
+								<label for="newSkin" class="hide">Theme:</label>
+								<select name="settingNewSkin" id="newSkin">
+									
+<option id="skinSetDD_1" value="1">IP.Board</option>
+<option id="skinSetDD_3" value="3">IP.Board Lo-Fi</option>
+<option id="skinSetDD_5" selected="selected" value="5">Classic Blue</option>
+								</select>
+								<input type="submit" value="Go" class="input_submit alt" id="newSkinSubmit" style="display: none;">
+							</fieldset>
+						</form>
+					
+				<form action="http://forum.emule-project.net/index.php?showtopic=82228&s=45fadd87309bee974218c17a1e93e405" method="post" class="left">
+					<fieldset>
+						<input type="hidden" name="k" value="880ea6a14ea49e853634fbdc5015a024">
+						<input type="hidden" name="setlanguage" value="1">
+						<input type="hidden" name="langurlbits" value="showtopic=82228&amp;cal_id=">
+						<label for="newLang" class="hide">Language:</label>
+						<select name="langid" id="newLang">
+								
+<option value="1" selected="selected">English (USA)</option>
+<option value="3">Español (ESP)</option>
+<option value="4">Italiano</option>
+<option value="5">Deutsch</option>
+<option value="6">French</option>
+						</select>
+						<input type="submit" class="input_submit alt" value="Go" id="newLangSubmit" style="display: none;">
+					</fieldset>
+				</form>
+				<h2 class="hide">Execution Stats</h2>
+                                </div>
+				<div class="right">
+					
+					<ul class="right">
+						<li>
+							Time Now: Feb 13 2014 01:14 PM
+							
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- __FOOTER__ -->
+			<!-- /__FOOTER__ -->
+			
+			<div id="board_footer" class="clearfix">
+				<ul id="utility_links" class="left">
+					<li><a href="http://forum.emule-project.net/index.php?showtopic=82228#" id="showCommunitySkinInfo"><b>An IPS Community Skin Project</b></a></li>
+					<li><a href="http://forum.emule-project.net/index.php?showtopic=82228#top" title="Go to top">Back to top</a></li>
+					<li><a href="http://forum.emule-project.net/index.php?&s=45fadd87309bee974218c17a1e93e405" title="Forum Home">Forum Home</a></li>
+					<li><a href="http://forum.emule-project.net/index.php?app=core&module=global&section=login&&do=deleteCookies&k=880ea6a14ea49e853634fbdc5015a024&s=45fadd87309bee974218c17a1e93e405" title="Delete cookies set by this board">Delete My Cookies</a></li>
+					<li><a href="http://forum.emule-project.net/index.php?app=forums&module=forums&section=markasread&marktype=all&k=880ea6a14ea49e853634fbdc5015a024&s=45fadd87309bee974218c17a1e93e405" title="Mark all as read">Mark Board As Read</a></li>
+				</ul>
+				<!-- Copyright Information -->
+        				  <p id="copyright" class="right">
+        				  	Powered By <a href="http://www.invisionboard.com/" title="IP.Board Homepage">IP.Board</a>
+        				  	 © 2014 &nbsp;<a href="http://www.invisionpower.com/" title="IPS Homepage">IPS, <abbr title="Incorporated">Inc</abbr></a>.
+        				  <br>Licensed to: eMule-Project.net</p>
+		<!-- / Copyright -->
+			</div>
+			<div style="height: 20px;"><div><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/index.php" alt="" style="border: 0px;height:1px;width:1px;"></div></div>
+			<script type="text/javascript" src="./Pthreads2.dll As Static  - Official eMule-Board_files/lightbox.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+	// Lightbox Configuration
+	LightboxOptions = Object.extend({
+	    fileLoadingImage:        'http://forum.emule-project.net/public/style_images/classicblue/lightbox/loading.gif',     
+	    fileBottomNavCloseImage: 'http://forum.emule-project.net/public/style_images/classicblue/lightbox/closelabel.gif',
+	    overlayOpacity: 0.8,   // controls transparency of shadow overlay
+	    animate: true,         // toggles resizing animations
+	    resizeSpeed: 7,        // controls the speed of the image resizing animations (1=slowest and 10=fastest)
+	    borderSize: 10,         //if you adjust the padding in the CSS, you will need to update this variable
+		// When grouping images this is used to write: Image # of #.
+		// Change it for non-english localization
+		labelImage: "Image",
+		labelOf: "of"
+	}, window.LightboxOptions || {});
+//]]>
+</script>
+			<div id="communitySkinInfo" style="display:none;">
+				<h3>IPS Community Skin Project</h3>
+				<div class="row1" style="padding:10px;text-align:center;">
+					<img src="./Pthreads2.dll As Static  - Official eMule-Board_files/communityskins.png" alt="" style="margin-bottom:10px;"><br>
+					This skin is part of the IPS Community Skin Project, a set of skins designed by dedicated members of the community who create these skins to benefit the IPS Community.<br><br>For more information please visit the <a href="http://resources.invisionpower.com/index.php/community_projects/index.html" title="">Community Projects</a> pages at <a href="http://resources.invisionpower.com/" title="">IPS Resources</a>.
+				</div>
+			</div>
+			<script type="text/javascript">
+				if( $('showCommunitySkinInfo') )
+				{
+					$('showCommunitySkinInfo').observe( 'click', function(e) {
+						Event.stop(e);
+						popup = new ipb.Popup( 'communitySkinInfoPopup', { type: 'pane', modal: false, w: '500px', h: '500px', initial: $('communitySkinInfo').innerHTML, hideAtStart: false, close: 'a[rel="close"]' } );
+						return false;
+					} );
+				}
+			</script>
+		</div>
+	
+<div id="overlay" style="display: none;"></div><div id="lightbox" style="display: none;"><div id="outerImageContainer" style="width: 250px; height: 250px;"><div id="imageContainer"><img id="lightboxImage"><div id="hoverNav"><a id="prevLink" href="http://forum.emule-project.net/index.php?showtopic=82228#"></a><a id="nextLink" href="http://forum.emule-project.net/index.php?showtopic=82228#"></a></div><div id="loading"><a id="loadingLink" href="http://forum.emule-project.net/index.php?showtopic=82228#"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/loading.gif"></a></div></div></div><div id="imageDataContainer"><div id="imageData"><div id="imageDetails"><span id="caption"></span><span id="numberDisplay"></span></div><div id="bottomNav"><a id="bottomNavClose" href="http://forum.emule-project.net/index.php?showtopic=82228#"><img src="./Pthreads2.dll As Static  - Official eMule-Board_files/closelabel.gif"></a></div></div></div></div></body></html>

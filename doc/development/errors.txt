@@ -1,0 +1,9 @@
+Project:
+examples\datetime\run.cybol
+
+Error:
+p1 == pointer in datetime_getter.c get_datetime_element 
+this results from
+mmd == 0 in
+send.c apply_send 
+at call of:    send_data(rm, mmd, mmc, mpd, mpc, p2, p3, fmd, limd, lmd, emd, (void*) &m, clmd, nlmd, ntmd, cmd);

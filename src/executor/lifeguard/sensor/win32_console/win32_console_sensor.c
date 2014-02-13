@@ -84,8 +84,6 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         //Changed Benno Schilling 05.02.2014
         //VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
         //INPUT_RECORD i[is];
-        //To Workaround simply use dynamic array allocation with malloc
-        //TODO: You have to free the allocated memory (due to the complexity of the program i dont know where and when to free)
         INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * sizeof(DWORD));
 #else
         INPUT_RECORD i[is];
@@ -102,6 +100,7 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         // This call here is just made to detect available input.
         BOOL b = PeekConsoleInputW(h, i, is, &ic);
 
+		free(i);
         // If the return value is zero, then an error occured.
         if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

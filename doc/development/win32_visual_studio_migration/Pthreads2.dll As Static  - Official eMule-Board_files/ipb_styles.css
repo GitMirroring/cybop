@@ -1,0 +1,507 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-spacing:1px}fieldset,img{border:0}address,caption,cite,code,dfn,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0}hr{display:none}address{display:inline}.rep_bar{-moz-border-radius-topleft:5px;-webkit-border-top-left-radius:5px}.reputation,.message,.popupWrapper{-moz-border-radius:5px;-webkit-border-radius:5px}.input_submit{-moz-border-radius:3px;-webkit-border-radius:3px}body{background: #FFF url(http://forum.emule-project.net/public/style_images/classicblue/fond.gif);color:#222;font:normal 12px verdana,tahoma,arial,Sans-Serif;position:relative}#ipbwrapper{margin:20px
+auto 0;width:98%}h3,h4,h5,h6,strong{font-weight:bold}em{font-style:italic}img,.input_check,.input_radio{vertical-align:middle}legend{display:none}table{width:100%}td{padding:3px}h2{font-size:1.2em;font-weight:normal;margin:0
+0 8px 0;clear:both}body
+h3{font-weight:bold;padding:5px
+8px 3px 8px;color:#3a4e80}h3
+img{margin-top: -2px}h3
+a{text-decoration:none}a,a:link,a:visited,a:active{color:#222;text-decoration:underline}a:hover{color:#34498B}.row1, .row1 td, .post_block.row1,
+.row2, .row2 td,.post_block.row2,.message{background-color:#E4EAF2}.row1 .altrow, .row1.altrow,
+.personal_info, .general_box,
+.row2 .altrow,.row2.altrow,ul.topic_moderation{background-color:#DFE6EF}.moderated, body .moderated td,
+.moderated td.altrow, .post_block.moderated,
+body td.moderated, body
+td.moderated{background-color:#f2e4e4}.moderated, .moderated
+a{color:#6f3642}body
+.maintitle{background:#75adf0 url(http://forum.emule-project.net/public/style_images/classicblue/tile_cat.png) repeat-x top;color:#fff;border:1px
+solid #fff;border-bottom:0}body
+.maintitle.collapsed{border-bottom:1px solid #fff}body
+.maintitle.smallpad{padding:8px
+8px 3px !important}body .maintitle
+a{color:#fff;text-decoration:none}ul.post_controls,div.post_controls{background-color:#D1DCEB}.post_wrap
+ul.post_controls{border-top:1px solid #5176B5;border-bottom:1px solid #fff}.bar{background:#C2CFDF url(http://forum.emule-project.net/public/style_images/classicblue/gradient_bg.png) repeat-x 50%}.altbar{background:#BCD0ED;color:#3A4F6C}.header{background:#d7dfeb url(http://forum.emule-project.net/public/style_images/classicblue/tile_sub.png) repeat-x top;color:#3A4F6C}body .ipb_table .header a,
+body .topic_options
+a{color:#3A4F6C}td.bar{font-size:11px;font-weight:bold;color:#3A4F6C;background:#D1DCEB}.catend{background:#8394B2;height:8px}.catend
+td{border-bottom:0;padding:0}.general_box{background-color:#E4EAF2;border:1px
+solid #072A66;padding:10px}.general_box.rules{border:0}.general_box
+h3{background:#75adf0 url(http://forum.emule-project.net/public/style_images/classicblue/tile_cat.png) repeat-x top;border:1px
+solid #fff;border-bottom:0;color:#fff}.post_block{background:#EEF2F7;border-bottom:8px solid #8394B2}.post_block
+h3{background:#E4EAF2;border-bottom:1px solid #fff}div.post_form
+fieldset{background-color:#e4eaf2}.date, .poll_question
+.votes{color:#a9a9a9;font-size:0.8em}.no_messages{background-color:#f6f8fa;color:#222;padding:25px
+30px}.tab_bar{background-color:#e4ebf2;color:#4a6784}.tab_bar
+li{background:url(http://forum.emule-project.net/public/style_images/classicblue/css_pp_tab_off.gif) repeat-x;border:1px
+solid #759BC7;border-right:none}.tab_bar li:last-child{border-right:1px solid #759BC7}.tab_bar
+li.active{background:url(http://forum.emule-project.net/public/style_images/classicblue/css_pp_tab_on.gif) repeat-x;border:1px
+solid #072A66}.tab_bar.no_title.mini{margin-bottom:2px}.recent_activity
+li{border-bottom:none !important}.filter_bar{background-color:#8394B2;color:#FFF}.filter_bar a, .filter_bar
+label{color:#FFF}.moderation_bar{background:#C2CFDF}.comment_wrap .comment.by_author,
+.comment_wrap
+.comment.by_author.row1{background:#ECF2F6;border-top:1px solid #FFF;border-bottom:1px solid #52708f}.comment_wrap
+.comment.row1{border-top:1px solid #FFF;border-bottom:1px solid #FFF}.ipbmenu_content,.ipb_autocomplete{background-color:#dfe6ef;border:1px
+solid #C2CFDF}.ipbmenu_content li, .ipb_autocomplete
+li{border-bottom:1px solid #FFF}.ipb_autocomplete
+li.active{background:#C2CFDF}.input_submit{background:#b8cfea;border-color:#6e92c5 #4c77b6 #4c77b6 #6e92c5;color:#000}.input_submit:hover{background:#96b6e3}.input_submit.alt{background:#dfe6ef;font-weight:normal}.input_submit.alt:hover{background:#eef2f5}body#ipboard_body fieldset.submit,
+body#ipboard_body
+p.submit{background-color:#C2CFDF}h1,#content_jump{text-indent: -9999px;height:0px;width:0px}#header{border:1px
+solid #072A66;position:relative}#branding{background:#5075b4 url(http://forum.emule-project.net/public/style_images/classicblue/branding_bg.png) repeat-x top;border:1px
+solid #fff;min-height:68px}#admin_bar{background:#2e2e2e url(http://forum.emule-project.net/public/style_images/classicblue/gradient_bg.png) repeat-x 50%;color:#d2d2d2;font-size:0.8em;padding:7px;height:14px;display:none}#admin_bar
+li{color:#767676;padding:0
+3px 0 5px}#admin_bar li.active, #admin_bar li.active
+a{color:#e74242}#primary_nav{background:#d7dfeb url(http://forum.emule-project.net/public/style_images/classicblue/tile_sub.png) repeat-x top;border:1px
+solid #fff;border-top:0;height:29px}#primary_nav ul li, #primary_nav ul li
+a{color:#3A4F6C;letter-spacing:0.5px;text-decoration:none}#primary_nav ul
+li{font-size:10px;font-weight:bold;border-right:1px solid #DCE3EE;padding:7px
+0}#primary_nav ul#nav_right_links
+li{border-left:1px solid #DCE3EE;border-right:0}#primary_nav ul li
+a{padding:0
+6px;text-decoration:none}#user_navigation{background:#F0F5FA;border:1px
+solid #C2CFDF;margin:5px
+0;font-size:10px;padding:8px
+7px}#user_navigation.not_logged_in{background:#F4E7EA;border:1px
+solid #986265}#user_info{float:right}#user_navigation
+#new_msg_count{background-color:#52708f;font-weight:bold;font-size:0.9em;padding:3px
+7px;top:0px;left:45px;position:absolute}#search{color:#556b85;font-size:0.85em;margin:5px
+4px auto auto;position:relative;right:0px;float:right;display:none}#search
+.submit_input{background:#52708f;border:1px
+solid #1a2735;padding:2px
+5px}#search
+input#main_search{background:#fff url(http://forum.emule-project.net/public/style_images/classicblue/search_icon.png) no-repeat left;border:1px
+solid #1a2735;padding:3px
+3px 3px 18px;margin-left:5px}#search
+a{color:#556b85;margin:5px
+7px}#search label,
+#search input,
+#search
+#adv_search{float:left}#secondary_nav{color:#999;margin:14px
+0 14px;font-weight:bold;clear:both}#secondary_nav
+li{padding-right:5px;float:left}#secondary_nav #section_links
+li{padding:0
+5px}#secondary_nav
+a{color:#222;text-decoration:none}#secondary_nav a:hover{color:#5176B5}#pm_notification{background:url(http://forum.emule-project.net/public/style_images/classicblue/trans_bg.png);color:#515151;padding:0;margin:0
+20%;width:60%;position:absolute;z-index:2000}#pm_notification
+#pm_wrap{background:#f3f3f3;padding:18px
+0 30px 0;margin:0
+6px 6px 6px}#pm_notification
+.photo{float:left;margin:0
+15px}#pm_notification
+h2{font-size:1.5em;clear:none;margin:0px
+0 0 85px;color:#222}#pm_notification
+p{margin:10px
+auto 0 95px}#pm_notification
+.ok_thanks{text-align:center;padding:6px;clear:both}#board_footer{background:#EEE;font-size:0.85em;margin:0;padding:8px;float:none;clear:both}#board_footer ul#utility_links
+li{float:left;padding-right:8px}#board_footer
+p{text-align:right}#board_footer
+a{color:#606060;text-decoration:none}#footer_utilities{background:#8394B2;color:#fff;font-size:10px;padding:4px;margin:5px
+0}#footer_utilities
+form{margin:2px
+4px}#footer_utilities
+ul{padding:2px
+0;margin:0}#footer_utilities
+li{float:right;padding:0
+4px}#rss_menu{background-color:#ffdfbe;border:1px
+solid #ff7600;padding:1px
+!important;width:250px !important;display:block;z-index:500}#rss_menu
+li{padding:0;display:block;float:none !important}#rss_menu
+a{display:block;padding:5px;text-align:left !important;color:#ff7600 !important}#rss_menu a:hover{background-color:#ff7600;color:#fff !important}#content{clear:both}#ajax_loading{background-color:#526d8f;color:#fff;text-align:center;padding:5px;width:8%;top:0px;left:46%;z-index:10000;position:fixed}#ipboard_body.redirector{width:500px;margin:150px
+auto 0 auto}.topic_options,.generic_bar,.tab_filters{color:#3a4e80;font-size:0.85em;font-weight:bold;height:33px}.generic_bar,.tab_filters{background:#b6c7db}.generic_bar{display:none}.tab_filters{background:#D1DCEB;color:#3A4F6C}.topic_options{background:#dfe6ef}.topic_options
+li{padding:10px;float:right}.topic_options
+a{text-decoration:none}.general_box
+h3{padding:6px;margin: -10px -10px 0}#index_stats
+.general_box{padding-bottom:0;margin-bottom:10px;overflow:hidden}.general_box.alt{padding:0px}.general_box.alt
+h3{margin:0
+0 5px 0}.general_box
+a{text-decoration:none}.general_box
+.block_list{font-size:0.9em;border:1px
+solid #fff;margin:0
+-10px}.general_box .block_list
+li{border-bottom:1px solid #fff;padding:6px}.progress_bar{background-color:#fff;border:1px
+solid #C2CFDF}.progress_bar
+span{background:#ca1d1d url(http://forum.emule-project.net/public/style_images/classicblue/gradient_bg.png) repeat-x left 50%;color:#fff;font-size:0em;font-weight:bold;text-align:center;text-indent: -2000em;height:10px;display:block;overflow:hidden}.progress_bar.limit
+span{background:#b82929 url(http://forum.emule-project.net/public/style_images/classicblue/progressbar_warning.png) repeat-x center}.progress_bar span
+span{display:none}.progress_bar.user_warn{margin:0
+auto;width:80%}.progress_bar.user_warn
+span{height:6px}.progress_bar.topic_poll{border:1px
+solid #C2CFDF;margin-top:2px;width:40%}img.resized{display:block}.resized_img
+img{border-style:solid;border-color:#777;border-width:3px 3px 6px 3px;margin-bottom:5px}.resized_img
+span{background:#777;color:#fff;padding:4px
+8px;font-size:11px}.resized_img{clear:right}li.rating
+a{-moz-outline:0}.rate_img{vertical-align:baseline;margin:2px
+0 -2px}.antispam_img{margin-left:215px;margin-bottom:3px}.tagList{list-style-type:none;margin:0;padding:0}.tagList
+li{display:inline}li.level1{font-size:12px}li.level2{font-size:14px}li.level3{font-size:16px}li.level4{font-size:18px}li.level5{font-size:20px}li.level6{font-size:22px}span.error{color:#ad2930;font-weight:bold;clear:both}.maintitle
+.desc{font-size:0.7em;color:#b6c7db}#admin_bar ul, #admin_bar li, #stat_links li,
+.tab_filters ul, .tab_filters li,
+fieldset.with_subhead span.desc, fieldset.with_subhead label,
+.user_controls
+li{display:inline}.right{float:right}.left{float:left}.hide{display:none}.bullets ul, .bullets ol,ul.bullets,ol.bullets{list-style:disc;margin-left:30px;line-height:150%;list-style-image:none}.short{text-align:center}.desc, p.posted_info, .warn_panel
+strong{font-size:0.8em;color:#606060}.cancel{color:#ad2930;font-size:0.9em;font-weight:bold}body
+.maintitle{font-size:12px;font-weight:bold;padding:8px
+!important;margin:0
+!important;overflow:hidden}.photo{border:1px
+solid #d8d8d8}em.moderated{background:transparent;font-size:0.8em;font-weight:bold;margin-top:8px;display:block;clear:both}.positive{color:#526d8f}.negative{color:#c7172b}.clickable{cursor:pointer}.clear{clear:both}.clearfix,.stats_list{overflow:auto}.block_wrap{border:1px
+solid #072A66;margin:5px
+0 0}.borderwrap{border:1px
+solid #072A66;padding:1px}.borderwrap.nopad{padding:0}#admin_bar a, #user_navigation.not_logged_in, #user_navigation.not_logged_in a,
+#user_navigation #user_link, #user_navigation #new_msg_count,
+#user_navigation ul, #user_navigation ul#user_link_menucontent, #user_navigation ul#user_link_menucontent a:hover,
+#search .submit_input, .message.user_status #update_status,
+table.ipb_table th a, .topic_buttons li a, .topic_buttons li span,
+.message.user_status #update_status, .tab_bar li.active, .tab_bar li.active a,
+.members li.positive a, .members li.negative a, #footer_utilities a,a.input_submit:hover{color:#fff;text-decoration:none}.searchlite{background-color:yellow;color:red;font-size:14px}.activeuserposting{font-style:italic}.col_f_icon,.col_c_icon,.col_m_status,.col_r_icon{width:2%}.col_f_picon{width:1%}.col_m_replies{width:5%}.col_m_to,.col_m_from{width:15%}.col_f_topic,.col_m_subject{width:49%}.col_f_starter,.col_r_total,.col_r_comments{width:10%}.col_f_views,.col_f_replies{width:7%}.col_f_post,.col_m_date,.col_r_updated,.col_r_section{width:22%}.col_c_stats{width:15%}.col_c_topics,.col_c_replies{width:7%}.col_c_post{width:30%}.col_c_forum{width:58%}.col_mod,.col_f_mod,.col_r_mod{width:3%}.col_r_title{width:26%}table.ipb_table{background:#fff;line-height:120%}table.ipb_table caption
+span.desc{font-size:0.8em}table.ipb_table
+h4{font-weight:bold}table.ipb_table tr
+td{padding:5px}table.ipb_table tr
+.stats{text-align:right}table.ipb_table tr
+.forum_icon{text-align:center}body table.ipb_table tr td
+p{font-size:0.8em}table.ipb_table th,
+div#current_calendar ol#week_view
+li.month_bar{border-bottom:1px solid #5176B5;font-size:0.8em;font-weight:bold;letter-spacing:1px;padding:5px}table.ipb_table
+ol.subforums{padding-top:6px;margin-top:5px}table.ipb_table ol.subforums
+li{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/bullet_black.png) no-repeat 3px 4px;color:#3a4e80;font-size:0.85em;padding:0
+4px 0 15px;float:left}table.ipb_table ol.subforums
+li.newposts{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/bullet_green.png) no-repeat 0px 0px;color:#3a4e80;font-size:0.85em;padding:0
+4px 0 16px;float:left}table.ipb_table tr.subhead
+th{font-weight:bold;font-size:11px;padding:5px;letter-spacing:0;border-bottom:0}table.ipb_table ul
+li{font-size:0.95em}.forum_opts_button,.topic_opts_button{cursor:pointer;background:#C2CFDF;border:1px
+solid #3A4F6C;color:#3A4F6C;float:right;font-size:11px;font-weight:bold;padding:4px
+8px;margin: -4px -4px 0 0}#forum_opts_menucontent,#topic_opts_menucontent{width:250px;padding:2px;border:1px
+solid #3A4F6C;margin-right:2px}#forum_opts_menucontent li:first-child, #topic_opts_menucontent li:first-child{padding-top:5px}#forum_opts_menucontent li:last-child, #topic_opts_menucontent li:last-child{padding-bottom:5px;border-bottom:1px solid #C2CFDF}body#ipboard_body fieldset.submit,
+body#ipboard_body
+p.submit{padding:15px
+6px 15px 6px;text-align:center}.input_text,select{background:#fff;border:1px
+solid #4C77B6;color:#000;font-family:verdana,helvetica,sans-serif;font-size:11px;padding:2px}.input_text.error{background-color:#f3dddd}.input_text.accept{background-color:#ECF2F6}.input_text.email,.input_text.password{width:18em}.input_submit{font-weight:bold;font-family:Verdana,Helvetica,Sans-Serif;font-size:11px;text-decoration:none;border-width:1px;border-style:solid;padding:3px
+6px;cursor:pointer}.input_submit.alt{text-decoration:none}p.field{padding:15px}li.field{padding:5px;margin-left:27px}li.field label,
+li.field
+span.desc{display:block}li.field.error{color:#ad2930}li.field.error
+label{font-weight:bold}li.field.checkbox{margin-left:0}li.field.checkbox .input_check,
+li.field.checkbox
+.input_radio{margin-right:10px;vertical-align:middle}li.field.checkbox
+label{width:auto;float:none;display:inline}li.field.checkbox
+span.desc{padding-left:27px;margin-left:auto;display:block}.message{background:#ecf2f6 url(http://forum.emule-project.net/public/style_images/classicblue/information.png) no-repeat 8px 10px;padding:10px
+10px 10px 30px;border:1px
+solid #94b2ce;color:#222;line-height:150%}.message
+h3{padding:0;color:#323232}.message.error{background-color:#f3dddd;background-image:url(http://forum.emule-project.net/public/style_images/classicblue/exclamation.png);border-color:#deb7b7;color:#281b1b;font-size:1.1em}.message.error.usercp{background-image:none;padding:4px;float:right}.message.unspecific{background-color:#f3f3f3;border-color:#d4d4d4;color:#515151;margin:0
+0 10px 0;clear:both}.message.user_status{background:#f9f7e0;color:#6c6141;font-size:1em;border:1px
+solid #eadca0;padding:5px
+5px 5px 15px;margin-bottom:10px}.message.user_status.in_profile{font-size:1.2em;position:relative;padding-left:15px;overflow:auto}.message.user_status
+#update_status{background:#243f5c;font-size:0.8em;font-weight:bold;padding:3px
+8px;margin-left:10px}.message.user_status
+.cancel{font-size:0.75em}.ipbmenu_content,.ipb_autocomplete{font-size:0.9em;min-width:85px;padding:5px;z-index:2000}.ipbmenu_content li, .ipb_autocomplete
+li{padding:5px}.ipbmenu_content li:last-child{border-bottom:0;padding-bottom:0px}.ipbmenu_content li:first-child{padding-top:0px}.ipbmenu_content
+a{text-decoration:none}.popupWrapper{background:url(http://forum.emule-project.net/public/style_images/classicblue/trans_bg.png);color:#fff}.popupInner{background:#fff;color:#000;border:1px
+solid #000;margin:5px;padding:1px;width:500px;overflow:auto}.popupInner
+h3{background:#75adf0 url(http://forum.emule-project.net/public/style_images/classicblue/tile_cat.png) repeat-x top;font-size:12px;border-bottom:1px solid #fff;color:#fff;padding:8px
+6px 8px 26px}.popupClose{position:absolute;left:14px;top:14px}.popup_footer{padding:15px;position:absolute;bottom:0px;right:0px}.popup_body{padding:10px}.stem{width:31px;height:16px;position:absolute}.stem.topleft{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/stems/topleft.png)}.stem.topright{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/stems/topright.png)}.stem.bottomleft{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/stems/bottomleft.png)}.stem.bottomright{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/stems/bottomright.png)}.modal{background-color:#3e3e3e}.userpopup{padding-bottom:25px;overflow:hidden;position:relative}.userpopup
+.info{position:relative}.userpopup
+h3{font-size:1.2em}.userpopup>div{padding:8px}.userpopup{font-size:0.9em}.userpopup
+dl{border-bottom:1px solid #d4d4d4;padding-bottom:10px;margin-bottom:4px}.userpopup
+.photo{top:0px;right:0px;position:absolute}.userpopup
+.user_controls{left:10px;position:absolute}.userpopup
+.reputation{right:4px;position:absolute}.info
+dt{float:left}.info
+dt{font-weight:bold;padding:3px
+6px;clear:both;width:30%}.info
+dd{padding:3px
+6px;width:60%;margin-left:35%}.topic_controls{}.topic_buttons
+li{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/topic_button_left.png) no-repeat top left;padding:0;margin:0px
+4px 4px 0px;float:right}.topic_buttons li a,
+.topic_buttons li
+span{text-transform:uppercase;font-size:10px;text-shadow:0 1px 0 #000;font-weight:bold;display:block;margin:auto 0px auto 6px;padding:5px
+6px 1px 4px;-moz-outline:0}.topic_buttons li
+span{color:#fff}.topic_buttons li
+a{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/topic_button_right.png) no-repeat top right}.topic_buttons li a img,
+.topic_buttons li span
+img{margin: -7px 4px 1px -6px;height:24px}.topic_buttons li a
+img.arrow{margin-right: -3px}.topic_buttons li:hover{background-position:bottom left}.topic_buttons li:hover
+a{background-position:bottom right}.topic_buttons
+li.disabled{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/topic_button_left_disabled.png) no-repeat top left}.topic_buttons li.disabled
+span{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/topic_button_right_disabled.png) no-repeat top right}.topic_buttons
+li.closed{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/topic_button_left_closed.png) no-repeat top left}.topic_buttons li.closed span,
+.topic_buttons li.closed
+a{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/topic_button_right_closed.png) no-repeat top right}ul.post_controls{background:inherit url(http://forum.emule-project.net/public/style_images/classicblue/gradient_bg.png) repeat-x 50%;font-size:0.8em;text-align:right;padding:3px
+4px 24px 4px;clear:both}ul.post_controls
+li{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/post_button_left.png) no-repeat top left;height:21px;text-transform:uppercase;font-weight:bold;text-shadow:0 1px 0 #000;margin:0
+0 0 2px;float:right}ul.post_controls li.report,
+ul.post_controls li.top,
+ul.post_controls.left
+li{float:left}ul.post_controls
+a{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/post_button_right.png) no-repeat top right;color:#fff;text-decoration:none;line-height:21px;padding:0
+6px 0 0;margin-left:7px;display:block}ul.post_controls a
+img{margin-top: -2px}ul.post_controls li:hover{background-position:bottom left}ul.post_controls li:hover
+a{background-position:bottom right}ul.post_controls
+li.selected{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/post_button_left_selected.png) no-repeat top left}ul.post_controls li.selected
+a{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/post_button_right_selected.png) no-repeat top right}body .topic_buttons li a:hover,
+body ul.post_controls a:hover{text-decoration:none}span.pagination.no_pages{color:#acacac;font-size:0.9em;padding:10px;height:15px;display:block}ul.pagination.top{padding:0
+0 5px 0;margin-bottom:15px;height:18px}ul.pagination.bottom{padding:5px
+0 0 0;margin-top:15px;height:18px}ul.pagination a,
+ul.pagination li.active,
+ul.pagination li.pagejump,
+ul.pagination
+li.total{text-decoration:none;padding:1px
+4px;display:block}ul.pagination
+li{background:#fff;font-size:0.9em;border:1px
+solid #cfcfcf;margin:0
+2px 0 2px;float:left}ul.pagination li.total,
+ul.pagination
+li.active{background:none;border:0;margin-left:0px}ul.pagination
+li.active{color:#52708f;font-size:1em;font-weight:bold}ul.mini_pagination{font-size:0.75em;display:inline;margin-left:7px}ul.mini_pagination li
+a{border:1px
+solid #d3d3d3;padding:1px
+3px}ul.mini_pagination
+li{display:inline;margin:0px
+2px}.moderation_bar{text-align:right;padding:6px
+35px 6px 10px;margin:10px
+0 0 0}.moderation_bar.with_action{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/topic_mod_arrow.png);background-repeat:no-repeat;background-position:right center}#topic_mod_2{padding-top:10px;margin-top: -10px}#topic_mod
+p{padding:7px;font-size:0.9em}#topic_mod
+#forum_mod_options_menucontent{text-align:left}.filter_bar{font-size:0.8em;text-align:center;margin:6px
+0 0 0;padding:6px}.filter_bar
+select{margin-right:10px}.filter_bar
+span.clickable{display:block}.tab_bar{font-size:0.9em;padding:7px
+15px 25px 15px}.tab_bar.no_title{padding:7px
+15px 35px 15px}.tab_bar.no_title.mini{background:transparent;padding:7px
+15px 21px 15px}.tab_bar
+li{float:left;padding:6px
+10px;font-size:0.9em;margin-top: -2px}.tab_bar li
+a{color:#4a6784;text-decoration:none}.tab_bar
+li.active{font-size:1.1em;padding:7px
+10px;font-weight:bold;margin-top: -6px;margin-right:1px}.tab_filters{padding:0
+10px;margin-bottom:5px}.tab_filters
+ul{padding-top:10px}.tab_filters
+a{color:#3A4F6C;text-decoration:none;font-weight:normal}.tab_filters
+li{color:#cfd9e4;padding:0
+4px}.tab_filters li.active,
+.tab_filters li.active
+a{font-weight:bold;color:#3A4F6C}.author_info{text-align:left;font-size:0.8em;border-right:1px solid #fff;padding:10px
+5px;width:190px;float:left}.author_info.no_rep{margin-bottom:15px}.author_info li.avatar, .author_info li.group_icon, .author_info
+li.title{text-align:center}.author_info ul.user_fields
+li{clear:both;color:#222;padding-bottom:2px;overflow:hidden}.author_info
+ul.user_fields{clear:both}.author_info ul.user_fields li
+span.ft{}.author_info ul.user_fields li
+span.fc{padding:0
+0 0 6px}.author_info ul.user_fields li span.ft,
+.author_info ul.user_fields li
+span.fc{float:left}.author_info
+.title{margin:4px
+0}.user_controls{text-align:center;margin:6px
+0}.user_controls
+li{margin:0
+2px;display:inline}.user_controls li
+a{display:inline-block;background-color:#dfe6ef;padding:3px;-moz-border-radius:5px;-webkit-border-radius:5px;color:#3a4e80}.warn_panel{text-align:left;padding:6px
+0;margin:0
+10px;background:#E4EAF2;border:1px
+solid #D1DCEB;-moz-border-radius:8px;-webkit-border-radius:8px}.warn_panel
+.warn_link{padding-left:10%;text-decoration:none}.warn_panel
+.warn_edit{float:right}.warn_panel
+.warn_edit.up{margin-right:10%}.rating_mode.user_warn{margin:0
+auto;width:80%;font-size:0.9em}.rating_mode
+.warn_edit.down{float:none;margin-right:3px}.rating_mode
+.warn_edit.up{float:none;margin-left:2px}a.toggle{background:url(http://forum.emule-project.net/public/style_images/classicblue/cat_minimize.png) no-repeat;text-indent: -3000em;width:10px;height:10px;display:block;-moz-outline:0}#latest_news{background:#F0F5FA;border:1px
+solid #C2CFDF;margin:5px
+0;font-size:10px;padding:8px
+7px;color:#3a4e80}#latest_news
+a{text-decoration:none}div#categories{width:77%}div#categories.no_sidebar{width:100%;float:none}#index_stats{margin-bottom:10px;margin-top:5px;width:22%}.sidebar_toggle{text-align:right;margin:10px
+10px 0 0;padding:0px
+3px;height:20px;right:12px;position:absolute;-moz-border-radius:3px;-webkit-border-radius:3px;background:#b8cfea;border:1px
+solid #6e92c5}.category_block h3.collapsed
+a.toggle{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/cat_maximize.png)}#linkbox{margin:15px
+0 0;padding:0;text-align:right}#linkbox
+span{background:#F0F5FA;border:1px
+solid #C2CFDF;border-bottom:0;font-size:10px;font-weight:bold;margin:0
+10px 0 0;padding:5px}.statistics{margin:0;font-size:11px}body table.ipb_table.statistics tr td
+p{font-size:11px}body
+#topic_stats.statistics{min-height:50px;margin-top:10px}body
+.stats_list{border-top:1px solid #e4ebf2;margin-bottom:10px;padding:10px
+5px 0 0;float:left;width:60%;line-height:140%;overflow:hidden}.stats_list li,
+.active_users
+li{float:left;font-size:0.9em;padding:0
+5px 0 0;margin-top:4px}.stats_list ul, .stats_list
+p{margin-left:15px}.stats_list
+span.desc{font-weight:normal}.active_users
+span.name{font-size:11px;padding:0
+3px 0 0;margin-top:4px}.active_users
+p{border-top:1px solid #fff;border-bottom:1px solid #fff;line-height:150%;margin:2px
+0;padding:6px
+0}#stats
+ul{width:80%;margin:0
+0 5px 20px;border-bottom:1px solid #FFF}#stats
+li{float:left;padding:5px;min-width:30%}#stats
+.extra{color:#8394b2;font-size:0.9em}#stat_links{color:#3A4F6C;font-size:10px;letter-spacing:1px;text-align:right !important;margin-bottom:5px}#stat_links
+li{padding:2px
+0}#stat_links li
+a{padding:0
+2px;text-decoration:none;font-weight:bold}.friend_list ul li,
+#top_posters
+li{text-align:center;padding:8px
+0 0 0;margin:5px
+0 0 0;min-width:80px;height:70px;float:left}.friend_list ul li span.name,
+#top_posters li
+span.name{font-size:0.8em}#hook_watched_items ul
+li{padding:8px}body#ipboard_body #hook_watched_items
+fieldset.submit{padding:8px}ul.topic_moderation{margin-top: -2px;z-index:300}ul.topic_moderation
+li{float:left}ul.topic_moderation li
+a{padding:0
+3px;display:block;float:left}span.mini_rate{margin-right:12px;display:inline-block}img.mini_rate{margin-right: -5px}.topic_prefix{font-weight:bold}#forum_legend{width:39%}#forum_legend
+dl{font-size:0.9em;margin-top:15px}#forum_legend dt,
+#forum_legend
+dd{font-size:0.9em;border-top:1px solid #FFF;padding:6px
+2px;height:20px;float:left}#forum_legend
+dt{text-align:center;width:9%}#forum_legend
+dd{width:38%;max-width:200px}.message.forum_rules{margin-bottom:20px}.rules{line-height:150%}#forum_table .maintitle
+.main_forum_title{float:left}#forum_table .maintitle
+.desc{float:right}#forum_table .maintitle .desc
+a{color:#C2CFDF}#filter_form
+input.input_submit{margin-left:4px}ul.topic_jump{font-size:0.8em;padding-top:4px;margin:0px
+auto 15px auto}ul.topic_jump
+li{padding:1px
+7px;float:left}ul.topic_jump li
+a{text-decoration:none}ul.topic_jump
+li.previous{border-right:1px solid #8f8f8f}ul.topic_jump
+li.next{border-left:1px solid #8f8f8f}.poll
+h3{background:#B5C0CF url(http://forum.emule-project.net/public/style_images/classicblue/gradient_bg.png) repeat-x 50%}body
+.ip{color:#475769;font-style:italic;font-weight:normal;font-size:11px;padding-top:4px;margin-right:10px;margin-left:15px}span.post_id{font-size:11px;font-weight:normal;padding-top:4px;display:block;float:right}input.post_mod{float:right;margin:0px
+6px 0 15px}.signature{color:#339;font-size:11px;border-top:1px solid #FFF;padding:8px;margin:10px
+10px 0 6px}.post_block{margin:0
+0 1px 0;position:relative}.post_block.no_sidebar{background-image:none}.post_block
+h3{padding:8px}.post_block
+address{font-weight:bold}.post_wrap{top:0px}.post_block.topic_summary
+h3{padding:4px}.post_block.topic_summary
+.posted_info{margin-left:10px}.post_block.topic_summary .post_body
+.post{padding:3px
+10px 15px;margin-top: -15px}.post_block.with_rep
+.post_body{padding-bottom:28px}.post_body{border-left:1px solid #fff;margin-left:200px;padding-left:10px;line-height:100%}.post_block.no_sidebar
+.post_body{margin-left:0px}.post_body
+.post{margin-top:3px;padding:10px;line-height:150%}.post_ignore{background:#dfe6ef;color:#777;font-size:0.9em;padding:15px}.post_ignore
+.reputation{text-align:center;padding:2px
+6px;float:none;display:inline}.rep_bar{background:#D1DCEB;border:1px
+solid #5176B5;border-right:0;border-bottom:0;font-size:0.8em;padding:0
+10px;right:0;bottom:28px;position:absolute}.rep_bar
+ul{margin-top:8px;float:left}.rep_bar ul
+li{float:left}p.rep_highlight{float:right;display:inline-block;margin:5px
+10px 10px 10px;background:#dfe6ef;color:#3a4e80;padding:5px;font-size:0.8em;font-weight:bold;text-align:center}p.rep_highlight
+img{margin-bottom:4px}p.posted_info{padding:10px
+5px 7px 7px;margin-left: -3px;margin-bottom: -10px}p.posted_info
+strong.event{color:#222;font-size:1.2em}p.edit{background-color:#f3f3f3;color:#515151;font-size:0.9em;line-height:120%;padding:10px;margin-top:10px}div.threaded_view ul
+ul{margin-left: -25px}div.threaded_view ul
+li{padding:0px
+0 0px 25px}div.threaded_view{line-height:140%;padding:5px
+0 15px 0}div.threaded_view
+.post_title{font-style:italic}.topic_share{font-size:0.9em;padding:3px;margin-top:4px}.topic_share
+li{float:left;margin:0
+5px}.poll{border-bottom:7px solid #3a4e80;margin-bottom:5px}.poll
+fieldset{padding:9px}.poll_question{padding:10px;margin:10px
+10px 10px 20px}.poll_question
+h4{background-color:#e4ebf2;margin:0
+-7px;padding:5px}.poll_question
+ol{padding:8px;background-color:#dfe6ef}.poll_question
+li{font-size:0.9em;margin:6px
+0}.poll_question
+.votes{margin-left:5px}.snapback{margin-right:5px;padding:1px
+0 1px 1px}.topic
+.main_topic_title{float:left}.maintitle
+.rating{font-size:11px;float:right}.maintitle .rating
+img{margin-top: -2px}div.post_form
+label{text-align:right;padding-right:15px;width:275px;float:left;clear:both}div.post_form span.desc,
+fieldset#poll_wrap
+span.desc{margin-left:290px;display:block;clear:both}div.post_form .checkbox input.input_check,
+#mod_form .checkbox
+input.input_check{margin-left:315px}div.post_form
+.antispam_img{margin-left:290px}div.post_form .captcha
+.input_text{float:left}div.post_form
+fieldset{padding-bottom:15px}div.post_form
+h3{margin-bottom:10px}fieldset.with_subhead{margin-bottom:0;padding-bottom:0}fieldset.with_subhead
+h4{text-align:right;margin-top:6px;width:300px;float:left}fieldset.with_subhead
+ul{border-bottom:1px solid #C2CFDF;padding-bottom:6px;margin:0
+15px 6px 320px}fieldset.with_subhead span.desc,
+fieldset.with_subhead
+label{margin:0;width:auto}fieldset.with_subhead
+#post_icons{border:0;margin-left:326px}fieldset.with_subhead #post_icons
+li{margin-right:15px;margin-bottom:6px;float:left}fieldset.with_subhead .checkbox
+input.input_check{margin-left:0px}#toggle_post_options{background:transparent url(http://forum.emule-project.net/public/style_images/classicblue/add.png) no-repeat;font-size:0.9em;padding:2px
+0 2px 22px;margin:15px;display:block}.post_form #poll_wrap
+.question{margin-bottom:10px}.post_form #poll_wrap .question
+.wrap{background-color:#e4ebf2;padding:10px;margin-left:290px;margin-right:12px}.post_form #poll_wrap .question .wrap
+ol{margin-left:25px;margin-top:16px;list-style:decimal}.post_form #poll_wrap .question .wrap ol
+li{margin:5px}.post_form #poll_wrap .question .wrap input.input_check,
+.post_form #poll_wrap .question .wrap label,
+.post_form #poll_wrap .question .wrap
+span.desc{text-align:left;margin-left:0;display:inline;width:auto;clear:none;float:none}.post_form #poll_wrap .question
+ul.post_controls{text-align:left}.post_form
+.question_title{font-weight:bold}.post_form #poll_form
+.topic_buttons{margin-left:315px}.post_form #poll_form .topic_buttons li,
+.post_form #poll_form .post_controls
+li{float:left}.post_form #poll_form
+#poll_stats.desc{margin-left:320px;margin-bottom:8px}.swfupload{position:absolute;z-index:1}#attachments{margin:15px}#attachments
+li{background-color:#e4ebf2;border:1px
+solid #C2CFDF;padding:6px
+20px 6px 42px;margin-bottom:10px;position:relative}#attachments li
+p.info{color:#69727b;font-size:0.8em;width:300px}#attachments li .links, #attachments li.error .links, #attachments.traditional
+.progress_bar{display:none}#attachments li.complete
+.links{font-size:0.9em;margin-right:15px;right:0px;top:12px;display:block;position:absolute}#attachments li
+.progress_bar{margin-right:15px;width:200px;right:0px;top:15px;position:absolute}#attachments li.complete, #attachments li.in_progress, #attachments
+li.error{background-repeat:no-repeat;background-position:12px 12px}#attachments
+li.in_progress{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/loading.gif)}#attachments
+li.error{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/exclamation.png);background-color:#e8caca;border:1px
+solid #ddafaf}#attachments li.error
+.info{color:#8f2d2d}#attachments
+li.complete{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/accept.png)}#attachments li
+.thumb_img{left:6px;top:6px;width:30px;height:30px;overflow:hidden;position:absolute}fieldset.attachments .input_submit, fieldset.attachments .swfupload, fieldset.attachments
+.input_upload{margin-left:15px}div.post_form fieldset.attachments
+span.desc{margin:0
+0 0 15px;display:inline;clear:none}#attach_wrap{background:#dfe6ef;padding:6px;margin-top:8px}#attach_wrap
+h4{font-size:1em;font-weight:bold}#attach_wrap
+li{margin:5px
+6px;float:left}#attach_wrap
+.desc.info{margin-left:24px}#comment_innerwrap .no-form{margin-top:4px}.comment_wrap
+.comment{line-height:150%;padding:5px}.comment_wrap .comment
+.photo{float:left;margin:0
+10px 10px 0}.comment_wrap .comment h4,
+.comment_wrap .posted_date,
+.comment_wrap .comment
+.comment_content{margin-left:65px}.comment_wrap
+.posted_date{display:block}.comment_wrap .comment
+h4{font-size:1.1em;margin-bottom: -3px;clear:none !important}.comment_wrap .comment h4
+a{text-decoration:none}.comment_wrap .comment
+.comment_content{padding:10px
+5px}.comment_options{float:right}.comment_options
+li{font-size:0.8em;font-weight:bold;margin:0
+5px;float:left}.reputation{font-weight:bold;padding:3px
+8px;margin:6px;display:block;float:right}.reputation.positive, .members
+li.positive{background:#526d8f;color:#fff}.reputation.negative, .members
+li.negative{background:#b82929;color:#fff}.reputation.zero{background:#EEF2F7;color:#6e6e6e}#lightbox{position:absolute;left:0;width:100%;z-index:16000 !important;text-align:center;line-height:0}#lightbox
+img{width:auto;height:auto}#lightbox a
+img{border:none}#outerImageContainer{position:relative;background-color:#fff;width:250px;height:250px;margin:0
+auto}#imageContainer{padding:10px}#loading{position:absolute;top:40%;left:0%;height:25%;width:100%;text-align:center;line-height:0}#hoverNav{position:absolute;top:0;left:0;height:100%;width:100%;z-index:10}#imageContainer>#hoverNav{left:0}#hoverNav
+a{outline:none}#prevLink,#nextLink{width:49%;height:100%;background-image:url(data:image/gif;base64,AAAA);display:block}#prevLink{left:0;float:left}#nextLink{right:0;float:right}#prevLink:hover,#prevLink:visited:hover{background:url(http://forum.emule-project.net/public/style_images/classicblue/lightbox/prevlabel.gif) left 15% no-repeat}#nextLink:hover,#nextLink:visited:hover{background:url(http://forum.emule-project.net/public/style_images/classicblue/lightbox/nextlabel.gif) right 15% no-repeat}#imageDataContainer{font:10px Verdana, Helvetica, sans-serif;background-color:#fff;margin:0
+auto;line-height:1.4em;overflow:auto;width:100%}#imageData{padding:0
+10px;color:#666}#imageData
+#imageDetails{width:70%;float:left;text-align:left}#imageData
+#caption{font-weight:bold}#imageData
+#numberDisplay{display:block;clear:left;padding-bottom:1.0em}#imageData
+#bottomNavClose{width:66px;float:right;padding-bottom:0.7em;outline:none}#overlay{position:absolute;top:0;left:0;z-index:15000 !important;width:100%;height:500px;background-color:#000}strong.bbc{font-weight:bold !important}em.bbc{font-style:italic !important}span.bbc_underline{text-decoration:underline !important}div.bbc_center{text-align:center}div.bbc_left{text-align:left}div.bbc_right{text-align:right}div.bbc_indent{margin-left:50px}del.bbc{text-decoration:line-through !important}ul.bbc{list-style:disc outside;margin-left:30px}ul.bbc
+ul.bbc{list-style-type:circle}ul.bbc ul.bbc
+ul.bbc{list-style-type:square}ul.bbcol.decimal{margin-left:30px;list-style-type:decimal}ul.bbcol.lower-alpha{margin-left:30px;list-style-type:lower-alpha}ul.bbcol.upper-alpha{margin-left:30px;list-style-type:upper-alpha}ul.bbcol.lower-roman{margin-left:30px;list-style-type:lower-roman}ul.bbcol.upper-roman{margin-left:30px;list-style-type:upper-roman}hr.bbc{display:block;border-top:2px solid #777}div.bbc_spoiler{}div.bbc_spoiler
+span{font-weight:bold}div.bbc_spoiler_wrapper{border:1px
+inset #777;padding:4px}div.bbc_spoiler_content{}input.bbc_spoiler_show{width:45px;font-size: .7em;margin:0px;padding:0px}pre.prettyprint{padding:5px;background:#f8f8f8;border:1px
+solid #c9c9c9;overflow:auto;margin-left:10px;font-size:11px;line-height:140%}p.citation{background:#d3dbe9 url(http://forum.emule-project.net/public/style_images/classicblue/citation_bg.png) no-repeat right;color:#2b3137;font-size:0.9em;font-weight:bold;border-width:1px 1px 0 3px;border-style:solid;border-color:#6f90a9;padding:5px
+8px}div.blockquote{background:#f3f6f9;font-size:0.9em;border-width:1px 1px 1px 3px;border-style:solid;border-color:#6f90a9;margin:0px;margin-top:0px}div.blockquote
+p.citation{background-color:#e5d2e9;color:#413544;border-color:#ae7eb9}div.blockquote
+div.blockquote{background:#f9f5fa;font-size:1em;border-color:#ae7eb9;margin: -0px 15px 0px 15px}div.blockquote div.blockquote
+p.citation{background-color:#e9e7d1;color:#474534;border-color:#b2ab72}div.blockquote div.blockquote
+div.blockquote{background:#f9f8f3;border-color:#b2ab72}div.blockquote
+p.citation{margin:6px
+15px 0 15px;font-size:1em}div.quote{padding:12px}div.quote
+p.blockquote{margin-left: -12px}cite{display:block;font-weight:bold}blockquote
+cite{font-size:1em}#help_topics{border:1px
+solid #fff}#help_topics
+li{background-image:url(http://forum.emule-project.net/public/style_images/classicblue/help.png);background-repeat:no-repeat;background-position:9px 12px;padding:10px
+32px;margin-bottom:2px}#help_topics li
+h3{padding:2px
+0 0 0}.help_doc{padding:10px;border:1px
+solid #C2CFDF;background:#FFF}#help_topics .help_doc ul,
+#help_topics .help_doc
+ol{padding:8px
+0}#help_topics .help_doc
+li{background:none;padding:2px}#index_stats.portal{margin-top:0px}#portal_articles{width:76%;margin-right:2%}#portal_active_users ul,
+#portal_active_users
+li{float:left;padding:3px}#portal_active_users
+ul{margin-bottom:15px}.noborder{border:0
+!important}#new_msg_count{display:none !important}
