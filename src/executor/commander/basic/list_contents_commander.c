@@ -28,8 +28,6 @@
 #ifndef _MSC_VER
 #include <unistd.h>
 #endif
-#include "../../../constant/model/command/unix_command_model.c"
-#include "../../../constant/model/command/win32_command_model.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -37,12 +35,16 @@
 
 #ifdef __APPLE__
     #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+    #include "../../../constant/model/command/unix_command_model.c"
 #elif WIN32
     #include "../../../constant/name/command_option/win32/list_directory_contents_win32_command_option_name.c"
+    #include "../../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+    #include "../../../constant/model/command/unix_command_model.c"
 #else
     #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+    #include "../../../constant/model/command/unix_command_model.c"
 #endif
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
@@ -308,9 +310,9 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         pec = p12;
 #endif
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);    
-    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);    
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, ped, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #ifdef WIN32
         // Deallocate path item.

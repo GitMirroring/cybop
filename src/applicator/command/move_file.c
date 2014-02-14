@@ -28,6 +28,7 @@
 #ifndef _MSC_VER
 #include <unistd.h>
 #endif
+#include "../../executor/commander/basic/move_file_commander.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,20 +37,6 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
-
-#ifdef __APPLE__
-    #include "../../executor/commander/unix/move_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
-    #include "../../executor/commander/windows/move_file_windows_commander.c"
-    #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix/move_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#else
-    #include "../../executor/commander/unix/move_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#endif
 
 /**
  * Moving files and directories from a path to another.
@@ -143,16 +130,8 @@ void apply_move_file(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+    move_file_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
 
-#ifdef __APPLE__
-    move_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
-#elif WIN32
-    move_file_windows_commander(smd, smc, dmd, dmc, fmd, imd);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    move_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
-#else
-    move_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
-#endif
 }
 
 /* MOVE_FILE_SOURCE */
