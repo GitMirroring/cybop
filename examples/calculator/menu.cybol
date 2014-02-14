@@ -5,8 +5,9 @@
         <property name="size" channel="inline" format="number/integer" model="4,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter: <Number><1. Space><Operation><2. Space><Number><Enter>">
+    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter: <Number><1.Space><Operation><2.Space><Number><Enter>">
         <property name="position" channel="inline" format="number/integer" model="2,3"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
@@ -24,7 +25,13 @@
         <property name="background" channel="inline" format="colour/terminal" model="red"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-	<part name="exit" channel="inline" format="text/plain" model="3. Esc - Exit Calculator">
+		<part name="exit" channel="inline" format="text/plain" model="3. C - delete content of active line (clear operation)">
+        <property name="position" channel="inline" format="number/integer" model="2,7"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+    </part>
+	<part name="exit" channel="inline" format="text/plain" model="4. Esc - Exit Calculator">
         <property name="position" channel="inline" format="number/integer" model="2,7"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="red"/>

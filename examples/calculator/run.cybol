@@ -83,7 +83,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".tui"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 	<!-- Set Cursor -->
