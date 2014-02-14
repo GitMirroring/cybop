@@ -43,13 +43,26 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    </part>	
 	<part name="result" channel="inline" format="text/plain" model="Result = ">
         <property name="position" channel="inline" format="number/integer" model="2,11"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+	
+	<part name="print_active_operation" channel="inline" format="path/knowledge" model=".safetmp.active_operation">
+        <property name="position" channel="inline" format="number/integer" model="20,10"/>
+        <property name="size" channel="inline" format="number/integer" model="72,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+    </part>
+	<part name="print_result" channel="inline" format="path/knowledge" model=".safetmp.first_number_result">
+        <property name="position" channel="inline" format="number/integer" model="11,11"/>
+        <property name="size" channel="inline" format="number/integer" model="81,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 	
 	<part name="cursor" channel="inline" format="text/plain" model="">

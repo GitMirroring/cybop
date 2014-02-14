@@ -1,9 +1,15 @@
 <model>
+	<!-- Safes for Input -->
+
     <part name="command" channel="inline" format="text/plain" model=""/>
     <part name="path" channel="inline" format="path/knowledge" model=""/>
 	
-    <part name="first_number_result" channel="inline" format="text/plain" model=""/>
-    <part name="second_number" channel="inline" format="text/plain" model=""/>
-    <part name="operation" channel="inline" format="text/plain" model=""/>
+	<!-- Safes for Calculation -->
+	
+    <part name="first_number_result" channel="inline" format="number/integer" model=""/>
+    <part name="second_number" channel="inline" format="number/integer" model=""/>
+    <part name="operation" channel="inline" format="number/integer" model=""/>
+	
+    <part name="active_operation" channel="inline" format="text/plain" model=""/>
     <part name="temp_line" channel="inline" format="text/plain" model=""/>
 </model>
