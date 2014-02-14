@@ -62,7 +62,10 @@ void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, voi
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
 
                     *dv = sqrt((( *sr  *  *sr) + (  *si  *  *si )));
-                    *da = atan(( *si / *sr ));
+                    
+                    *da = atan2(*sr, *si);
+                    
+                    //*da = atan(( (*si * M_PI / 180.0f )  /  (*sr * M_PI / 180.0f)));
 
                 } else {
 

@@ -61,11 +61,14 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
             
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
 
-                    *dr = (*sv) * (cos(*sa));
-                    *di = (*sv) * (sin(*sa));
+                    // fwprintf(stdout, L"sv integer: %f\n", *sv);
+                    // fwprintf(stdout, L"sa integer: %f\n", *sa);
                     
-                    fwprintf(stdout, L"dr integer: %f\n", *dr);
-                    fwprintf(stdout, L"di integer: %f\n", *di);
+                    *dr = (*sv) * (cos( *sa * M_PI / 180.0f));
+                    *di = (*sv) * (sin(*sa * M_PI / 180.0f));
+                    
+                    //fwprintf(stdout, L"dr integer: %f\n", *dr);
+                    //fwprintf(stdout, L"di integer: %f\n", *di);
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number");

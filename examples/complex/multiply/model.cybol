@@ -6,7 +6,7 @@
 -->
 
     <!-- Polar coordinates. -->
-    <part name="result" channel="inline" format="number/complex-polar" model="3.60,56.30"/>
+    <part name="result" channel="inline" format="number/complex-polar" model="3.6,56.3"/>
     <part name="operand" channel="inline" format="number/complex-polar" model="6.40,51.34"/>
 
 </model>
