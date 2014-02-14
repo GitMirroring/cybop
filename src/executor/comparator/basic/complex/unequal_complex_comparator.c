@@ -37,10 +37,11 @@
 /**
  * Compares the left- with the right complex for unequality.
  *
- * @param p0 the destination complex number
- * @param p1 the source complex number
+ * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p1 the left value
+ * @param p2 the right value
  */
-void compare_complex_unequal(void* p0, void* p1) {
+void compare_complex_unequal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare Complex number unequal");
 
@@ -52,15 +53,15 @@ void compare_complex_unequal(void* p0, void* p1) {
     double si = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Get destination real and imaginary.
-    get_complex_element((void*) &dr, (void*) p0, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &di, (void*) p0, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &dr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &di, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     // Get source real and imaginary.
-    get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &sr, (void*) p2, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
-	if (!((dr == sr) && (di == si))) {
-		copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-	}
+    if (!((dr == sr) && (di == si))) {
+	    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
 }
 
 /* UNEQUAL_COMPLEX_COMPARATOR_SOURCE */
