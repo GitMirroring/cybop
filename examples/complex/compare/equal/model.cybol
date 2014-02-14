@@ -1,11 +1,11 @@
 <model>
     <part name="left" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
-    <part name="operand2" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
+    <part name="right" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
     <part name="result" channel="inline" format="logicvalue/boolean" model="false"/>
 
 </model>
 
-<!--
+<!-- 
     Copyright (C) 1999-2013. Christian Heller.
 
     This knowledge model uses the Cybernetics Oriented Language (CYBOL).

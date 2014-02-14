@@ -15,7 +15,7 @@
     <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-
+<!--
     <part name="compare_equal" channel="inline" format="compare/equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
 	<property name="left" channel="inline" format="path/knowledge" model=".model.left"/>
@@ -40,7 +40,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-
+-->
     <part name="compare_unequal" channel="inline" format="compare/unequal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
 	<property name="left" channel="inline" format="path/knowledge" model=".model.left"/>
