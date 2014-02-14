@@ -55,12 +55,14 @@ void get_datetime_element(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	// Here goes something wrong, sometimes p1 == null
-	if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-		fprintf_s(stdout, "Null pointer in datetime_getter.c get_datetime_element\n");
-		log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Null pointer in datetime_getter.c get_datetime_element\n");
-		return;
-	}
+#ifdef _MSC_VER
+    // Here goes something wrong, sometimes p1 == null
+    if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        fprintf_s(stdout, "Null pointer in datetime_getter.c get_datetime_element\n");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Null pointer in datetime_getter.c get_datetime_element\n");
+        return;
+    }
+#endif
 
     // Initialise element pointer.
     copy_pointer((void*) &e, (void*) &p1);
