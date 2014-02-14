@@ -38,17 +38,18 @@
 /**
  * Serialises part layout properties into graphical user interface (gui) coordinates.
  *
- * @param p0 the connexion
- * @param p1 the screen
- * @param p2 the window
- * @param p3 the graphic context
+ * @param p0 the destination element position x
+ * @param p1 the destination element position y
  * @param p4 the source model data
  * @param p5 the source model count
  * @param p6 the source properties data
  * @param p7 the source properties count
  * @param p8 the knowledge memory part
+ * @param p8 the layout formula
  */
 void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+
+    int (*funktionsname)(void*, void*, void*) f = (int (*funktionsname)(void*, void*, void*)) p??;
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part.");
 
@@ -78,6 +79,14 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             break;
         }
 
+        // Calculate part position.
+        //
+        // CAUTION! The formula that was handed over
+        // as function pointer parametre gets called here
+        // by dereferencing the function pointer.
+        (*f)((void*) &x, (void*) &y, (void*) &j);
+
+        // Serialise layout part element.
         serialise_layout_part_element(p0, p1, p2, p3, p4, (void*) &j, p6, p7, p8);
 
         // Increment loop variable.

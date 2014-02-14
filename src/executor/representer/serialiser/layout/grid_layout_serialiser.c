@@ -130,11 +130,22 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     calculate_integer_divide((void*) &w, (void*) &cc);
     calculate_integer_divide((void*) &h, (void*) &rc);
 
-    //?? TODO: Hand over function pointer to manipulate position and size?
-    // The advantage is, that "serialise_layout_part" and other looping
-    // functions would not have to be copied into redundant source code.
-    // This is a form of "callback".
-    serialise_layout_part(p0, p1, p2, p3, p4, (void*) &x, (void*) &y, (void*) &w, (void*) &h, &FUNCTION_POINTER);
+    // Serialise layout part and all of its children.
+    //
+    // CAUTION! A layout-dependent formula has to be applied inside,
+    // for calculating the position (x, y) of child elements.
+    // This formula is handed over as FUNCTION POINTER parametre.
+    // The reason is avoidance of redundant source code.
+    //
+    // If this was not done, then all recursively called functions
+    // would have to be copied for each and every layout.
+
+    //?? TODO: Check if function pointer really needs the
+    //?? address operator & before OR if it suffices to just
+    //?? hand over the function as name!!
+    //?? If the latter is the case, then also ADAPT
+    //?? all sensing thread function pointers!!
+    serialise_layout_part(p0, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &serialise_layout_grid_formula);
 }
 
 /* GRID_LAYOUT_SERIALISER_SOURCE */

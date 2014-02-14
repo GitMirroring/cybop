@@ -71,7 +71,7 @@ void serialise_layout_part_element_content(void* p0, void* p1, void* p2, void* p
     void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Append properties.
-    serialise_layout_properties((void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &l, (void*) &lp, p0, p1, p2, p3, p6, p7, p8, p9, p10);
+    serialise_layout_properties((void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &l, (void*) &lp);
 
     // Serialise embedded model.
     // CAUTION! The parametres layout and

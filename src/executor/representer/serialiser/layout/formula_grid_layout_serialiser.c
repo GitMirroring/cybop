@@ -34,21 +34,29 @@
 /**
  * Serialises grid layout coordinates using formula.
  *
- * @param p4 the source model data
- * @param p5 the source model count
- * @param p6 the source properties data
- * @param p7 the source properties count
- * @param p8 the knowledge memory part
- * @param p9 the whole position x
- * @param p10 the whole position y
- * @param p11 the whole width
- * @param p12 the whole height
- * @param p12 the whole layout properties
+ * @param p0 the destination element position x
+ * @param p1 the destination element position y
+ * @param p2 the source whole position x
+ * @param p3 the source whole position y
+ * @param p4 the source element width
+ * @param p5 the source element height
+ * @param p6 the element index
  */
-void serialise_layout_grid_formula(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_grid_formula(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid formula.");
 
+    // Initialise destination position.
+    copy_integer(p0, p4);
+    copy_integer(p1, p5);
+
+    // Multiply with element index.
+    calculate_integer_multiply(p0, p6);
+    calculate_integer_multiply(p1, p6);
+
+    // Add whole position.
+    calculate_integer_add(p0, p2);
+    calculate_integer_add(p0, p3);
 }
 
 /* FORMULA_GRID_LAYOUT_SERIALISER_SOURCE */
