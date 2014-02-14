@@ -18,13 +18,13 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-	<part name="info_numbers" channel="inline" format="text/plain" model="2. Number-Datatypes are Integer">
+	<part name="info_numbers" channel="inline" format="text/plain" model="2. Numbers only Integer">
         <property name="position" channel="inline" format="number/integer" model="2,6"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="clear" channel="inline" format="text/plain" model="3. C - delete content of active line (clear operation)">
+    <part name="clear" channel="inline" format="text/plain" model="3. C - Clear Active Operation">
         <property name="position" channel="inline" format="number/integer" model="2,7"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -53,6 +53,6 @@
     </part>
 	
 	<part name="cursor" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="2,12"/>
+        <property name="position" channel="inline" format="number/integer" model="2,15"/>
     </part>
 </model>

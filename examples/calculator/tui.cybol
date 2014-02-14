@@ -7,12 +7,4 @@
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
-	
-	<!-- im test
-    <part name="info_count_operation" channel="inline" format="path/knowledge" model=".safetmp.first_number_result">
-        <property name="position" channel="inline" format="number/integer" model="4,14"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
-    </part>
-	-->
 </model>
