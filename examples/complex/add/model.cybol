@@ -1,12 +1,13 @@
 <model>
     <!-- Cartesian coordinates. -->
-<!--
+
     <part name="result" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
     <part name="operand" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
--->
+<!--
     <!-- Polar coordinates. -->
     <part name="result" channel="inline" format="number/complex-polar" model="1,20"/>
     <part name="operand" channel="inline" format="number/complex-polar" model="2,25"/>
+-->
 </model>
 
 <!--

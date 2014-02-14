@@ -41,7 +41,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Addition: (1.0 + i 2) + (3 + i 4.12345) = 4.0 + 6.12345:"/>
+        <property name="message" channel="inline" format="text/plain" model="Addition: (1.0 + i 2) + (3 + i 4.12345) = 4.0 + i 6.12345:"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="print_addition_result" channel="inline" format="communicate/send" model="">
