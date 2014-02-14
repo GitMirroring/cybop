@@ -25,10 +25,9 @@
 
 #ifndef COPY_FILE_SOURCE
 #define COPY_FILE_SOURCE
-#ifndef _MSC_VER
+
 #include <unistd.h>
-#endif
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -37,18 +36,14 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-#ifdef __APPLE__
-    #include "../../executor/commander/unix/copy_file_unix_commander.c"
+#ifdef GNU_LINUX_OPERATING_SYSTEM
+    #include "../../executor/commander/unix_commander/copy_file_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
-    #include "../../executor/commander/windows/copy_file_windows_commander.c"
+#endif
+
+#ifdef WIN32
+    #include "../../executor/commander/windows_commander/copy_file_windows_commander.c"
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix/copy_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#else
-    #include "../../executor/commander/unix/copy_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
 #endif
 
 /**
@@ -193,15 +188,12 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    
-#ifdef __APPLE__
+#ifdef GNU_LINUX_OPERATING_SYSTEM
     copy_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
-#elif WIN32
+#endif
+
+#ifdef WIN32
     copy_file_windows_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    copy_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
-#else
-    copy_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
 #endif
 }
 /* COPY_FILE_SOURCE */
