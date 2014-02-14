@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ADD_COMPLEX_CALCULATOR_SOURCE
-#define ADD_COMPLEX_CALCULATOR_SOURCE
+#ifndef EQUAL_COMPLEX_COMPARATOR_SOURCE
+#define EQUAL_COMPLEX_COMPARATOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,18 +32,17 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/accessor/getter/complex_getter.c"
 #include "../../../../executor/accessor/setter/complex_setter.c"
-#include "../../../../executor/calculator/basic/double/add_double_calculator.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Adds the source complex number to the destination complex number.
+ * Compares the left- with the right complex for equality.
  *
  * @param p0 the destination complex number
  * @param p1 the source complex number
  */
-void calculate_complex_add(void* p0, void* p1) {
+void compare_complex_equal(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate complex add.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare Complex number equal");
 
     // The destination real and imaginary.
     double dr = *NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL;
@@ -59,25 +58,40 @@ void calculate_complex_add(void* p0, void* p1) {
     get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"pre dr: %f\n", dr);
-fwprintf(stdout, L"pre di: %f\n", di);
-fwprintf(stdout, L"pre sr: %f\n", sr);
-fwprintf(stdout, L"pre si: %f\n", si);
+	if (dr != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Add real value.
-    calculate_double_add((void*) &dr, (void*) &sr);
+        if (di != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Add imaginary value.
-    calculate_double_add((void*) &di, (void*) &si);
+            if (sr != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"post dr: %f\n", dr);
-fwprintf(stdout, L"post di: %f\n", di);
+                if (si != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Set destination real and imaginary
-    // (just copies the values inside).
-    set_complex_element((void*) p0, (void*) &dr, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    set_complex_element((void*) p0, (void*) &di, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+                    if (!(dr == sr && di == si)) {
+
+                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left numerator is null.");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left denominator is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right numerator is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right denominator is null.");
+    }
+
 }
 
-/* ADD_COMPLEX_CALCULATOR_SOURCE */
+/* EQUAL_COMPLEX_COMPARATOR_SOURCE */
 #endif
