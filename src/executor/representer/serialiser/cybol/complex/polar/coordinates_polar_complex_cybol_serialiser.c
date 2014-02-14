@@ -63,9 +63,7 @@ void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, voi
 
                     *dv = sqrt((( *sr  *  *sr) + (  *si  *  *si )));
                     
-                    *da = atan2(*sr, *si);
-                    
-                    //*da = atan(( (*si * M_PI / 180.0f )  /  (*sr * M_PI / 180.0f)));
+                    *da =  (180 * (M_PI - atan(  *si / abs(*sr) ))) / M_PI;
 
                 } else {
 
