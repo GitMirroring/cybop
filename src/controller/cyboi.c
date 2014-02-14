@@ -33,6 +33,7 @@
 //#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
 #define _CRT_NONSTDC_NO_DEPRECATE //avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
 #define _CRT_SECURE_NO_WARNINGS //allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
+#define _USE_MATH_DEFINES
 #endif
 
 #include <string.h>

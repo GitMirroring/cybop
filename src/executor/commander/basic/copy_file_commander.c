@@ -37,6 +37,7 @@
 #elif WIN32
     #include "../../../constant/model/command/win32_command_model.c"
     #include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
+	#include "../../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../../constant/model/command/unix_command_model.c"
     #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
@@ -83,7 +84,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 #ifdef __APPLE__
 	  append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #elif WIN32
-	append_item_element(arg, (void*) XCOPY_FILE_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XCOPY_FILE_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+		append_item_element(arg, (void*) XCOPY_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XCOPY_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #elif GNU_LINUX_OPERATING_SYSTEM
 	append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
