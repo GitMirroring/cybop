@@ -37,20 +37,6 @@
 #include "../../logger/logger.c"
 #include "../../executor/commander/basic/copy_file_commander.c"
 
-#ifdef __APPLE__
-    #include "../../../constant/model/command/unix_command_model.c"
-    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
-#elif WIN32
-    #include "../../../constant/model/command/win32_command_model.c"
-    #include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/model/command/unix_command_model.c"
-    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
-#else
-    #include "../../../constant/model/command/unix_command_model.c"
-    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
-#endif
-
 /**
  * Copies the file resource to a destination.
  *
