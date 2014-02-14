@@ -1,4 +1,4 @@
-#
+﻿#
 # Copyright (C) 2014-2014. Kevin Wettermann.
 #
 # This file lists so-called "TODO" items, in other words open tasks
@@ -20,7 +20,10 @@ _____
         * Add calculator functions for type complex in directory "executor/calculator/basic/"
         * See "fraction" as example
 
-        * Add comparator functions for type complex in directory "executor/comparator/basic/"
+        * Add comparator functions for type complex in directory "executor/comparator/basic/" 
+	* complex numbers can just be tested if they´re equal or not
+	* http://www.informatik.uni-leipzig.de/~meiler/Schuelerseiten.dir/DPlotzki/html/complex.htm
+	* http://answers.yahoo.com/question/index?qid=20081223173853AAAbUug
 
         * Extend boolean and bitwise logic operations in directory "executor/logifier/"
 
