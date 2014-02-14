@@ -1,0 +1,65 @@
+<model>
+    <part name="create_model" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="model"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_model" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="complex/divide/model.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".model"/>
+    </part>
+    <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+    <part name="add_operand" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".model.operand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+    </part>
+    <part name="print_addition" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Division: (1.0 + i 2) / (3 + i 4.12345) = 0.43252 + i 0.0721:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_addition_result" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/complex-cartesian"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+</model>
+
+<!--
+    Copyright (C) 1999-2013. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.15.0 2013-09-22
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
