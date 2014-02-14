@@ -26,6 +26,7 @@
 #ifndef TESTER_EXECUTOR_SOURCE
 #define TESTER_EXECUTOR_SOURCE
 #include "memoriser/accessor_tester.c"
+#include "manipulator/manipulator_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -69,7 +70,7 @@ void test_executor(void* p0) {
 
 				// all tests
 				test_memoriser();
-				fwprintf(stdout,L"est");
+				test_manipulator();
 			}
 		}
 
@@ -180,6 +181,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// manipulator tests
+				test_manipulator();
 			}
 		}
 
