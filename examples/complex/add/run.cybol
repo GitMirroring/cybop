@@ -9,7 +9,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="complex/model.cybol"/>
+        <property name="message" channel="inline" format="text/plain" model="complex/add/model.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".model"/>
     </part>
     <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
