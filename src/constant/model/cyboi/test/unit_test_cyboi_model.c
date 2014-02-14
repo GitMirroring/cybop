@@ -28,77 +28,149 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The all unit test cyboi model. */
+
+/** The "all" test unit option cyboi model. */
 static int* ALL_UNIT_TEST_CYBOI_MODEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The accessor unit test cyboi model. */
-static int* ACCESSOR_UNIT_TEST_CYBOI_MODEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The arithmetiser unit test cyboi model. */
-static int* ARITHMETISER_UNIT_TEST_CYBOI_MODEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The applicator module test units.
+ * Test IDs range from 1 to 99.
+ */
 
-/** The assembler unit test cyboi model. */
-static int* ASSEMBLER_UNIT_TEST_CYBOI_MODEL = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The overall applicator test unit option model.*/
+static int* APPLICATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The calculator unit test cyboi model. */
-static int* CALCULATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The access test unit option cyboi model. */
+static int* APPLICATOR_ACCESS_UNIT_TEST_CYBOI_MODEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The caster unit test cyboi model. */
-static int* CASTER_UNIT_TEST_CYBOI_MODEL = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/calculate test unit option cyboi model. */
+static int* APPLICATOR_CALCULATE_UNIT_TEST_CYBOI_MODEL = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The communicator unit test cyboi model. */
-static int* COMMUNICATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/cast test unit option cyboi model. */
+static int* APPLICATOR_CAST_UNIT_TEST_CYBOI_MODEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The comparator unit test cyboi model. */
-static int* COMPARATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/command test unit option cyboi model. */
+static int* APPLICATOR_COMMAND_UNIT_TEST_CYBOI_MODEL = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The compound unit test cyboi model. */
-static int* COMPOUND_UNIT_TEST_CYBOI_MODEL = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/compare test unit option cyboi model. */
+static int* APPLICATOR_COMPARE_UNIT_TEST_CYBOI_MODEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The constant unit test cyboi model. */
-static int* CONSTANT_UNIT_TEST_CYBOI_MODEL = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/flow test unit option cyboi model. */
+static int* APPLICATOR_FLOW_UNIT_TEST_CYBOI_MODEL = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The converter unit test cyboi model. */
-static int* CONVERTER_UNIT_TEST_CYBOI_MODEL = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/live test unit option cyboi model. */
+static int* APPLICATOR_LIVE_UNIT_TEST_CYBOI_MODEL = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The copier unit test cyboi model. */
-static int* COPIER_UNIT_TEST_CYBOI_MODEL = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/logify test unit option cyboi model. */
+static int* APPLICATOR_LOGIFIER_UNIT_TEST_CYBOI_MODEL = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The display unit test cyboi model. */
-static int* DISPLAY_UNIT_TEST_CYBOI_MODEL = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/maintain test unit option cyboi model. */
+static int* APPLICATOR_MAINTAIN_UNIT_TEST_CYBOI_MODEL = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The example unit test cyboi model. */
-static int* EXAMPLE_UNIT_TEST_CYBOI_MODEL = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/manipulate test unit option cyboi model. */
+static int* APPLICATOR_MANIPULATE_UNIT_TEST_CYBOI_MODEL = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The finder unit test cyboi model. */
-static int* FINDER_UNIT_TEST_CYBOI_MODEL = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/memorise test unit option cyboi model. */
+static int* APPLICATOR_MEMORISE_UNIT_TEST_CYBOI_MODEL = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The logger unit test cyboi model. */
-static int* LOGGER_UNIT_TEST_CYBOI_MODEL = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/modify test unit option cyboi model. */
+static int* APPLICATOR_MODIFY_UNIT_TEST_CYBOI_MODEL = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The memoriser unit test cyboi model. */
-static int* MEMORISER_UNIT_TEST_CYBOI_MODEL = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/represent test unit option cyboi model. */
+static int* APPLICATOR_REPRESENT_UNIT_TEST_CYBOI_MODEL = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The modifier unit test cyboi model. */
-static int* MODIFIER_UNIT_TEST_CYBOI_MODEL = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The applicator/run test unit option cyboi model. */
+static int* APPLICATOR_RUN_UNIT_TEST_CYBOI_MODEL = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The pointer unit test cyboi model. */
-static int* POINTER_UNIT_TEST_CYBOI_MODEL = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The preprocessor unit test cyboi model. */
-static int* PREPROCESSOR_UNIT_TEST_CYBOI_MODEL = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The controller modul test units
+ * The test IDs range from 100 to 199.
+ */
 
-/** The referencer unit test cyboi model. */
-static int* REFERENCER_UNIT_TEST_CYBOI_MODEL = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The overall controller test unit option cyboi model. */
+static int* CONTROLLER_UNIT_TEST_CYBOI_MODEL = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The representer unit test cyboi model. */
-static int* REPRESENTER_UNIT_TEST_CYBOI_MODEL = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The controller/checker test unit option cyboi model. */
+static int* CONTROLLER_CHECKER_UNIT_TEST_CYBOI_MODEL = NUMBER_101_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The serial_port unit test cyboi model. */
-static int* SERIAL_PORT_UNIT_TEST_CYBOI_MODEL = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The controller/deoptionaliser test unit option cyboi model. */
+static int* CONTROLLER_DETESTALISER_UNIT_OPTION_CYBOI_MODEL = NUMBER_102_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The variable unit test cyboi model. */
-static int* VARIABLE_UNIT_TEST_CYBOI_MODEL = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The controller/globaliser test unit option cyboi model. */
+static int* CONTROLLER_GLOBALISER_UNIT_TEST_CYBOI_MODEL = NUMBER_103_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The overall controller/handler test unit option cyboi model. */
+static int* CONTROLLER_HANDLER_UNIT_TEST_CYBOI_MODEL = NUMBER_104_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The overall controller/manager test unit option cyboi model. */
+static int* CONTROLLER_MANAGER_UNIT_TEST_CYBOI_MODEL = NUMBER_105_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The overall controller/optionaliser test unit option cyboi model. */
+static int* CONTROLLER_TESTALISER_UNIT_OPTION_CYBOI_MODEL = NUMBER_106_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The overall controller/unglobaliser test unit option cyboi model. */
+static int* CONTROLLER_UNGLOBALISER_UNIT_TEST_CYBOI_MODEL = NUMBER_107_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+
+/**
+ * The executer modul test units.
+ * The Test IDs range from 200 to 299.
+ */
+
+/** The overall executer test unit option cyboi model. */
+static int* EXECUTER_UNIT_TEST_CYBOI_MODEL = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/accessor test unit option cyboi model. */
+static int* EXECUTER_ACCESSOR_UNIT_TEST_CYBOI_MODEL = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/calculator test unit option cyboi model. */
+static int* EXECUTER_CALCULATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/caster test unit option cyboi model. */
+static int* EXECUTER_CASTER_UNIT_TEST_CYBOI_MODEL = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/commander test unit option cyboi model. */
+static int* EXECUTER_COMMANDER_UNIT_TEST_CYBOI_MODEL = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/communicator test unit option cyboi model. */
+static int* EXECUTER_COMMUNICATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/comparator test unit option cyboi model. */
+static int* EXECUTER_COMPARATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/converter test unit option cyboi model. */
+static int* EXECUTER_CONVERTER_UNIT_TEST_CYBOI_MODEL = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/lifeguard test unit option cyboi model. */
+static int* EXECUTER_LIFEGUARD_UNIT_TEST_CYBOI_MODEL = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/logifier test unit option cyboi model. */
+static int* EXECUTER_LOGIFIER_UNIT_TEST_CYBOI_MODEL = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/maintainer test unit option cyboi model. */
+static int* EXECUTER_MAINTAINER_UNIT_TEST_CYBOI_MODEL = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/manipulator test unit option cyboi model. */
+static int* EXECUTER_MANIPULATOR_UNIT_TEST_CYBOI_MODEL = NUMBER_211_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/memoriser test unit option cyboi model. */
+static int* EXECUTER_MEMORISER_UNIT_TEST_CYBOI_MODEL = NUMBER_212_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/modifier test unit option cyboi model. */
+static int* EXECUTER_MODIFIER_UNIT_TEST_CYBOI_MODEL = NUMBER_213_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/referencer test unit option cyboi model. */
+static int* EXECUTER_REFERENCER_UNIT_TEST_CYBOI_MODEL = NUMBER_214_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/representer test unit option cyboi model. */
+static int* EXECUTER_REPRESENTER_UNIT_TEST_CYBOI_MODEL = NUMBER_215_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/runner test unit option cyboi model. */
+static int* EXECUTER_RUNNER_UNIT_TEST_CYBOI_MODEL = NUMBER_216_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The executer/searcher test unit option cyboi model. */
+static int* EXECUTER_SEACHER_UNIT_TEST_CYBOI_MODEL = NUMBER_217_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 /* UNIT_TEST_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif
