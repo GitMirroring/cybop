@@ -77,7 +77,7 @@ void calculate_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
  * @param p3 the operand type
  */
 void calculate_value(void* p0, void* p1, void* p2, void* p3) {
-    fwprintf(stdout, L"testausgabe3\n");
+  
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate value.");
 

@@ -26,9 +26,13 @@
 #ifndef SUBTRACT_COMPLEX_CALCULATOR_SOURCE
 #define SUBTRACT_COMPLEX_CALCULATOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/accessor/getter/complex_getter.c"
+#include "../../../../executor/accessor/setter/complex_setter.c"
+#include "../../../../executor/calculator/basic/double/subtract_double_calculator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -38,42 +42,42 @@
  * @param p1 the source fraction
  */
 void calculate_complex_subtract(void* p0, void* p1) {
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction add.");
+  
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate complex subtract.");
 
     // The destination real and imaginary.
-    void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    double dr = *NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL;
+    double di = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The source real and imaginary.
-    void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The temporary source numerator value.
-    // CAUTION! The original *sn should NOT be altered, since a
-    // source should always be left untouched (read-only).
-    int tsn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    double sr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
+    double si = *NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL;
 
     // Get destination real and imaginary.
-    copy_array_forward((void*) &dn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &dr, (void*) p0, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &di, (void*) p0, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     // Get source real and imaginary.
-    copy_array_forward((void*) &sn, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
-    // Copy temporary source numerator value.
-    copy_integer((void*) &tsn, sn);
-
-    fwprintf(stdout, L"pre i: %d\n", *((double*) dn));
-    fwprintf(stdout, L"pre o: %d\n", *((double*) dd));
-    //fwprintf(stdout, L"pre t: %i\n", *((int*) tmd));
+    get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     
     
-    // Expand numerators by multiplying them with denominators cross-wise.
-//    calculate_integer_multiply(dn, sd);
-//    calculate_integer_multiply((void*) &tsn, dd);
+    // fwprintf(stdout, L"pre dr: %f\n", dr);
+    // fwprintf(stdout, L"pre di: %f\n", di);
+    // fwprintf(stdout, L"pre sr: %f\n", sr);
+    // fwprintf(stdout, L"pre si: %f\n", si);
 
-    // Add numerators and multiply denominators.
-//    calculate_integer_add(dn, (void*) &tsn);
-//    calculate_integer_multiply(dd, sd);
+    // Add real value.
+    calculate_double_subtract((void*) &dr, (void*) &sr);
 
-//    calculate_fraction_reduce(p0);
+    // Add imaginary value.
+    calculate_double_subtract((void*) &di, (void*) &si);
+
+    // fwprintf(stdout, L"post dr: %f\n", dr);
+    // fwprintf(stdout, L"post di: %f\n", di);
+
+    // Set destination real and imaginary
+    // (just copies the values inside).
+    set_complex_element((void*) p0, (void*) &dr, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    set_complex_element((void*) p0, (void*) &di, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 }
 
 /* SUBTRACT_COMPLEX_CALCULATOR_SOURCE */
