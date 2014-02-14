@@ -60,6 +60,11 @@ void test_controller(void* p0) {
 
 		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_UNIT_TEST_CYBOI_MODEL);
 
+		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+		{
+			compare_integer_equal((void*)&r, p0, (void*)ALL_UNIT_TEST_CYBOI_MODEL );
+		}
+
 		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 			// all tests
@@ -77,10 +82,10 @@ void test_controller(void* p0) {
 
 	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_DETESTALISER_UNIT_OPTION_CYBOI_MODEL);
+		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_DEOPTIONALISER_UNIT_OPTION_CYBOI_MODEL);
 
 		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// detestaliser tests
+			// deoptionaliser tests
 		}
 	}
 
@@ -122,10 +127,10 @@ void test_controller(void* p0) {
 
 	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_TESTALISER_UNIT_OPTION_CYBOI_MODEL);
+		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_OPTIONALISER_UNIT_OPTION_CYBOI_MODEL);
 
 		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// testaliser tests
+			// optionaliser tests
 		}
 	}
 	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {

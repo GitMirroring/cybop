@@ -25,7 +25,7 @@
 
 #ifndef TESTER_EXECUTOR_SOURCE
 #define TESTER_EXECUTOR_SOURCE
-
+#include "memoriser/accessor_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -60,9 +60,16 @@ void test_executor(void* p0) {
 
 			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_UNIT_TEST_CYBOI_MODEL);
 
+			if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+			{
+				compare_integer_equal((void*)&r, p0, (void*)ALL_UNIT_TEST_CYBOI_MODEL );
+			}
+
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// all tests
+				test_memoriser();
+				fwprintf(stdout,L"est");
 			}
 		}
 
@@ -183,6 +190,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// memoriser tests
+				test_memoriser();
 			}
 		}
 
@@ -228,7 +236,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_SEACHER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_SEARCHER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

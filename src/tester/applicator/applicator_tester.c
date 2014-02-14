@@ -60,6 +60,11 @@ void test_applicator(void* p0) {
 
 			compare_integer_equal((void*) &r, p0, (void*) APPLICATOR_UNIT_TEST_CYBOI_MODEL);
 
+			if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+			{
+				compare_integer_equal((void*)&r, p0, (void*)ALL_UNIT_TEST_CYBOI_MODEL );
+			}
+
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// all tests

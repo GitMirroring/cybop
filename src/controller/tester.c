@@ -30,8 +30,8 @@
 #include "../constant/model/cyboi/test/unit_test_cyboi_model.c"
 #include "../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../executor/modifier/copier/integer_copier.c"
-#include "../tester/accessor_tester.c"
-#include "../tester/arithmetiser_tester.c"
+//#include "../tester/accessor_tester.c"
+//#include "../tester/arithmetiser_tester.c"
 #include "../tester/assembler_tester.c"
 #include "../tester/calculator_tester.c"
 #include "../tester/sleeper_tester.c"
@@ -53,7 +53,7 @@
 #include "../tester/referencer_tester.c"
 //#include "../tester/representer_tester.c"
 //#include "../tester/serial_port_tester.c"
-#include "../tester/variable_tester.c"
+//#include "../tester/variable_tester.c"
 
 //
 // Examples for source code testing via log messages.
@@ -92,9 +92,15 @@ void test(void* p0) {
 
         //if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+<<<<<<< .mine
+            test_memoriser();
+        }
+    }
+=======
             //test_accessor();
         //}
     //}
+>>>>>>> .r2633
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -105,9 +111,14 @@ void test(void* p0) {
             // CAUTION! There is NO specific test function for this case.
             // Instead, ALL OTHER test functions are to be called here.
 
+<<<<<<< .mine
+            test_memoriser();
+            //test_arithmetiser();
+=======
             test_sleeper();
             test_accessor();
             test_arithmetiser();
+>>>>>>> .r2630
             test_assembler();
             test_calculator();
 //              test_caster();
@@ -128,7 +139,7 @@ void test(void* p0) {
 //              test_referencer();
 //              test_representer();
 //              test_serial_port();
-            test_variable();
+//            test_variable();
         }
     }
 
@@ -138,9 +149,15 @@ void test(void* p0) {
 
         //if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+<<<<<<< .mine
+            //test_arithmetiser();
+        }
+    }
+=======
             //test_arithmetiser();
         //}
     //}
+>>>>>>> .r2633
 
     //if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -348,9 +365,15 @@ void test(void* p0) {
 
         //if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+<<<<<<< .mine
+            //test_variable();
+        }
+    }
+=======
             //test_variable();
         //}
     //}
+>>>>>>> .r2633
 
     //if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

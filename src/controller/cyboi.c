@@ -49,7 +49,7 @@
 #include "../controller/manager.c"
 #include "../controller/optionaliser.c"
 #include "../controller/orienter.c"
-#include "../controller/tester.c"
+#include "../tester/tester.c"
 #include "../controller/unglobaliser.c"
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"

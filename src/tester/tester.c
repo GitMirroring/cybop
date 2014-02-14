@@ -68,6 +68,7 @@ void test(void* p0) {
 				//test_calculator();
 				test_controller(p0);
 				test_applicator(p0);
+				test_executor(p0);
 			}
 	    }
 	    // Next level of the folder applicator
