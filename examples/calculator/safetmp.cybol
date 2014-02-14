@@ -5,4 +5,5 @@
     <part name="first_number_result" channel="inline" format="text/plain" model=""/>
     <part name="second_number" channel="inline" format="text/plain" model=""/>
     <part name="operation" channel="inline" format="text/plain" model=""/>
+    <part name="temp_line" channel="inline" format="text/plain" model=""/>
 </model>

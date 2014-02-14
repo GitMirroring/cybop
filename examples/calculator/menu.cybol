@@ -2,38 +2,57 @@
     <part name="title" channel="inline" format="text/plain" model="Menu">
         <property name="position" channel="inline" format="number/integer" model="2,1"/>
         <property name="size" channel="inline" format="number/integer" model="4,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter: <Number><Enter><Operation><Enter><Number><Enter>">
+    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter: <Number><Space><Operation><Space><Number><Enter>">
         <property name="position" channel="inline" format="number/integer" model="2,3"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
     <part name="info_count_operation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation (+, -, *, /)">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 	<part name="info_numbers" channel="inline" format="text/plain" model="2. Number-Datatypes are Integer">
         <property name="position" channel="inline" format="number/integer" model="2,6"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-		<part name="exit" channel="inline" format="text/plain" model="3. C - delete content of active line (clear operation)">
+    <part name="clear" channel="inline" format="text/plain" model="3. C - delete content of active line (clear operation)">
         <property name="position" channel="inline" format="number/integer" model="2,7"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 	<part name="exit" channel="inline" format="text/plain" model="4. Esc - Exit Calculator">
         <property name="position" channel="inline" format="number/integer" model="2,8"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+    </part>
+	
+	<part name="active_line" channel="inline" format="text/plain" model="Active Operation: ">
+        <property name="position" channel="inline" format="number/integer" model="2,10"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+	<part name="result" channel="inline" format="text/plain" model="Result = ">
+        <property name="position" channel="inline" format="number/integer" model="2,11"/>
+        <property name="size" channel="inline" format="number/integer" model="90,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+	
+	<part name="cursor" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="2,12"/>
     </part>
 </model>

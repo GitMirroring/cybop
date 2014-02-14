@@ -7,6 +7,21 @@
         <property name="message" channel="inline" format="text/plain" model="'ergebnis'"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-
+	<part name="space_check_operation" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+	<part name="clear_line_and_result" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
     <part name="exit" channel="inline" format="live/exit" model=""/>
 </model>
