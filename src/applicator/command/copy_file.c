@@ -35,15 +35,20 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
+#include "../../executor/commander/basic/copy_file_commander.c"
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix_commander/copy_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
-    #include "../../executor/commander/windows_commander/copy_file_windows_commander.c"
-    #include "../../constant/model/command/win32_command_model.c"
+#ifdef __APPLE__
+    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+#elif WIN32
+    #include "../../../constant/model/command/win32_command_model.c"
+    #include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+#else
+    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
 #endif
 
 /**
@@ -188,13 +193,8 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-#ifdef GNU_LINUX_OPERATING_SYSTEM
     copy_file_unix_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
-#endif
 
-#ifdef WIN32
-    copy_file_windows_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
-#endif
 }
 /* COPY_FILE_SOURCE */
 #endif

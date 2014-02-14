@@ -33,19 +33,10 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/remove_file_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/commander/basic/remove_file_commander.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix_commander/remove_file_unix_commander.c"
-    #include "../../constant/model/command/unix_command_model.c"
-#endif
-
-#ifdef WIN32
-    #include "../../executor/commander/windows_commander/remove_file_windows_commander.c"
-    #include "../../constant/model/command/win32_command_model.c"
-#endif
 
 /**
  * Removing files and directories from a path.
@@ -137,14 +128,7 @@ void apply_remove_file(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-
-#ifdef GNU_LINUX_OPERATING_SYSTEM
-    remove_file_unix_commander(pmd, pmc, fmd, imd, rmd, vmd);
-#endif
-
-#ifdef WIN32
-    remove_file_windows_commander(pmd, pmc, fmd, imd, rmd);
-#endif
+    remove_file_commander(pmd, pmc, fmd, imd, rmd, vmd);
 }
 
 /* REMOVE_FILE_SOURCE */
