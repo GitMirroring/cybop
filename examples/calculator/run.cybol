@@ -77,13 +77,22 @@
 	<part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-	<!-- Send Window on Terminal -->
+	<!-- Send Menu on Terminal -->
     <part name="set_menu_window" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+	<!-- Send Input on Terminal -->
+	<part name="set_input_window" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".tui.input_window"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 	<!-- Set Cursor -->
@@ -92,7 +101,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".tui.input_window.input.cursor"/>
     </part>
 	<!-- Set Handler for Terminal -->
     <part name="set_handler_commands_reading" channel="inline" format="live/sense" model="">
@@ -100,8 +109,3 @@
         <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
     </part>	
 </model>
-
-
-
-
-<!-- C:\Users\Cedric\Documents\cybop\trunk\src\constant\format\cybol\state  Pfad zu den Konstanten -->

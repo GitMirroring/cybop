@@ -1,8 +1,8 @@
 <model>
-    <part name="menu" channel="file" format="element/part" model="calculator/menu.cybol">
+    <part name="input" channel="file" format="element/part" model="calculator/input.cybol">
         <property name="position" channel="inline" format="number/integer" model="2,2"/>
-        <property name="size" channel="inline" format="number/integer" model="95,10"/>
-        <property name="background" channel="inline" format="colour/terminal" model="red"/>
+        <property name="size" channel="inline" format="number/integer" model="95,5"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
