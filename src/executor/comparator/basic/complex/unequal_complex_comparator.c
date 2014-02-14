@@ -60,7 +60,7 @@ void compare_complex_unequal(void* p0, void* p1, void* p2) {
     get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
     if (!((dr == sr) && (di == si))) {
-	    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+      copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

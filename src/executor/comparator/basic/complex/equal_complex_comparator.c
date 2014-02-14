@@ -58,8 +58,6 @@ void compare_complex_equal(void* p0, void* p1, void* p2) {
     get_complex_element((void*) &sr, (void*) p2, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     
-    fwprintf(stdout, L"test_equal_comp\n");
-
     if ((dr == sr) && (di == si)) {
 	copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
