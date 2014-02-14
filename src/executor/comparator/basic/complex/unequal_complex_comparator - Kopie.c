@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
-#define GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE
+#ifndef EQUAL_INTEGER_COMPARATOR_SOURCE
+#define EQUAL_INTEGER_COMPARATOR_SOURCE
 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 
 /**
- * Compares the left- with the right integer for greaterness and equality.
+ * Compares the left- with the right integer for equality.
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  */
-void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
+void compare_integer_equal(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -50,7 +50,7 @@ void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
             // CAUTION! Do NOT call the logger here.
             // It might use functions that cause circular references.
 
-            if (*lv >= *rv) {
+            if (*lv == *rv) {
 
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
@@ -68,5 +68,5 @@ void compare_integer_greater_or_equal(void* p0, void* p1, void* p2) {
     }
 }
 
-/* GREATER_OR_EQUAL_INTEGER_COMPARATOR_SOURCE */
+/* EQUAL_INTEGER_COMPARATOR_SOURCE */
 #endif
