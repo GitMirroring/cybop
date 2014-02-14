@@ -58,7 +58,7 @@ void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, voi
     copy_double(p1, p3);
 
 	p0 = sqrt(((p2*p2)+(p3*p3)));
-	p1 = arctan((p3/p2));
+	p1 = atan((p3/p2));
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
