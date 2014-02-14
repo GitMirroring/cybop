@@ -1,5 +1,0 @@
-[selected_node] | element/part | 
-+-result | number/complex-cartesian | 1.000000,2.000000
-+-operand | number/complex-cartesian | 3.000000,4.123450
-+-result | number/complex-polar | 1.000000,20.000000
-+-operand | number/complex-polar | 2.000000,25.000000
