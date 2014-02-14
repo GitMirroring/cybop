@@ -26,6 +26,7 @@
 #ifndef COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
 #define COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
 
+#include <math.h>
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -44,22 +45,9 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
 
-    // TODO for students ...
+	p0 = p2*cos(p3);
+	p1 = p2*sin(p3);
 
-    // r = ...
-    // i = ...
-
-    //?? Use calculation functions, e.g.:
-    // calculate_double_add(p0, p2);
-
-    //?? DELETE THE FOLLOWING LATER! This is just for TESTING:
-    copy_double(p0, p2);
-    copy_double(p1, p3);
-    
-    // aus p2 und p3 mache p0 und p1!
-    
-    // Nach Möglichkeit Dereferenzierung vermeiden und mit vorhandenen Funktionen arbeiten
-    // sinngemäß umgekehrt für /export/home/it2011/it11tk2/Cybop/trunk/src/executor/representer/serialiser/cybol/complex/polar
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */
