@@ -26,21 +26,27 @@
     </part>
 	
 	<!-- Overwrite TUI/Cursor -->
-	<!--
-		<part name="set_tui" channel="inline" format="communicate/send" model="">
-			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-			<property name="language" channel="inline" format="meta/language" model="message/tui"/>
-			<property name="format" channel="inline" format="meta/format" model="element/part"/>
-			<property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
-			<property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-		</part>
-	-->	
+	<part name="set_tui_menu" channel="inline" format="communicate/send" model="">
+		<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+		<property name="language" channel="inline" format="meta/language" model="message/tui"/>
+		<property name="format" channel="inline" format="meta/format" model="element/part"/>
+		<property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
+		<property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+	</part>
+	<part name="set_tui_input" channel="inline" format="communicate/send" model="">
+		<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+		<property name="language" channel="inline" format="meta/language" model="message/tui"/>
+		<property name="format" channel="inline" format="meta/format" model="element/part"/>
+		<property name="message" channel="inline" format="path/knowledge" model=".tui.input_window"/>
+		<property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+	</part>
 	<part name="set_cursor" channel="inline" format="communicate/send" model="">
 		<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
 		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
 		<property name="language" channel="inline" format="meta/language" model="message/tui"/>
 		<property name="format" channel="inline" format="meta/format" model="text/plain"/>
-		<property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
+		<property name="message" channel="inline" format="path/knowledge" model=".tui.input_window.imput.cursor"/>
 	</part>
 </model>
