@@ -26,6 +26,7 @@
 #ifndef COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
 #define COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
 
+#include <math.h>
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -55,6 +56,9 @@ void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, voi
     //?? DELETE THE FOLLOWING LATER! This is just for TESTING:
     copy_double(p0, p2);
     copy_double(p1, p3);
+
+	p0 = sqrt(((p2*p2)+(p3*p3)));
+	p1 = arctan((p3/p2));
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
