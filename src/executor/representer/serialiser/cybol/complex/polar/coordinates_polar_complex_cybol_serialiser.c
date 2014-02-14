@@ -42,23 +42,50 @@
  * @param p3 the source cartesian coordinates imaginary part
  */
 void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, void* p3) {
+    
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar coordinates.");
+        double* si = (double*) p3;
 
-    // TODO for students ...
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // v = ...
-    // a = ...
+            double* sr = (double*) p2;
 
-    //?? Use calculation functions, e.g.:
-    // calculate_double_add(p0, p2);
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //?? DELETE THE FOLLOWING LATER! This is just for TESTING:
-    copy_double(p0, p2);
-    copy_double(p1, p3);
+                double* da = (double*) p1;
 
-	p0 = sqrt(((p2*p2)+(p3*p3)));
-	p1 = atan((p3/p2));
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    double* dv = (double*) p0;
+
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
+
+                    *dv = sqrt((( *sr  *  *sr) + (  *si  *  *si )));
+                    *da = atan(( *si / *sr ));
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+
+            }
+            
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+    }
+    
+
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */

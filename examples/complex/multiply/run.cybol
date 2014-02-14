@@ -18,7 +18,7 @@
     <part name="add_operand" channel="inline" format="calculate/multiply" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="operand" channel="inline" format="path/knowledge" model=".model.operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+        <property name="type" channel="inline" format="meta/type" model="number/complex-polar"/>
     </part>
     <part name="print_addition" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -32,7 +32,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/complex-cartesian"/>
+        <property name="format" channel="inline" format="meta/format" model="number/complex-polar"/>
         <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>

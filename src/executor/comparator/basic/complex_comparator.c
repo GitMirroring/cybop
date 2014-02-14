@@ -46,7 +46,7 @@
  * @param p3 the operation type
  */
 void compare_complex(void* p0, void* p1, void* p2, void* p3) {
-      fwprintf(stdout, L"compare_complex\n");
+  
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* a = (int*) p3;

@@ -43,11 +43,50 @@
  */
 void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-	p0 = p2*cos(p3);
-	p1 = p2*sin(p3);
+        double* sa = (double*) p3;
 
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            double* sv = (double*) p2;
+
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                double* di = (double*) p1;
+
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    double* dr = (double*) p0;
+            
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
+
+                    *dr = (*sv) * (cos(*sa));
+                    *di = (*sv) * (sin(*sa));
+                    
+                    fwprintf(stdout, L"dr integer: %f\n", *dr);
+                    fwprintf(stdout, L"di integer: %f\n", *di);
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+
+            }
+            
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+    }
+    
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */

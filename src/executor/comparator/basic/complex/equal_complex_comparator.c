@@ -60,6 +60,8 @@ void compare_complex_equal(void* p0, void* p1, void* p2) {
     
     if ((dr == sr) && (di == si)) {
 	copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    } else {
+	copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
