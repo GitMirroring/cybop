@@ -61,7 +61,7 @@ void count_array_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     // Get part at index from investigated pointer array.
     copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-
+    
     // Compare part name item with given filter string.
     compare_element((void*) &r, p, p3, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p4, (void*) NAME_PART_STATE_CYBOI_NAME, p5, p6);
 

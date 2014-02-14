@@ -9,49 +9,62 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="complex/add/model.cybol"/>
+        <property name="message" channel="inline" format="text/plain" model="complex/compare/model.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".model"/>
     </part>
     <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-    <part name="test_knowledge_tree_pre" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".model"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_complex_pre.txt"/>
-    </part>
-    <part name="add_operand" channel="inline" format="calculate/add" model="">
+
+    <part name="compare_equal" channel="inline" format="compare/equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".model.operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+	<property name="left" channel="inline" format="path/knowledge" model=".model.left"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".model.right"/>
+	<property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+	<property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
-    <part name="test_knowledge_tree_post" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".model"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_complex_post.txt"/>
-    </part>
-    <part name="print_addition" channel="inline" format="communicate/send" model="">
+
+    <part name="print_equal" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Addition: (1.0 + i 2) + (3 + i 4.12345) = 4.0 + i 6.12345:"/>
+        <property name="message" channel="inline" format="text/plain" model="Compare (equal): (1.0 + i 2) == (3 + i 4.12345) = false:"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="print_addition_result" channel="inline" format="communicate/send" model="">
+    <part name="print_equal_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/complex-cartesian"/>
+        <property name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
         <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+
+    <part name="compare_unequal" channel="inline" format="compare/unequal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
+	<property name="left" channel="inline" format="path/knowledge" model=".model.left"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".model.right"/>
+	<property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+	<property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+    <part name="print_unequal" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Compare (unequal): (1.0 + i 2) != (3 + i 4.12345) = true:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_unequal_result" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>
 

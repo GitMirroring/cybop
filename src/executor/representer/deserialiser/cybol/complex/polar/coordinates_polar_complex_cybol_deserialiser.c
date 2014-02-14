@@ -55,6 +55,11 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
     //?? DELETE THE FOLLOWING LATER! This is just for TESTING:
     copy_double(p0, p2);
     copy_double(p1, p3);
+    
+    // aus p2 und p3 mache p0 und p1!
+    
+    // Nach Möglichkeit Dereferenzierung vermeiden und mit vorhandenen Funktionen arbeiten
+    // sinngemäß umgekehrt für /export/home/it2011/it11tk2/Cybop/trunk/src/executor/representer/serialiser/cybol/complex/polar
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */

@@ -36,61 +36,33 @@
 
 /**
  * Compares the left- with the right complex for equality.
- *
- * @param p0 the destination complex number
- * @param p1 the source complex number
+ * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p1 the left value
+ * @param p2 the right value
  */
-void compare_complex_equal(void* p0, void* p1) {
+void compare_complex_equal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare Complex number equal");
 
     // The destination real and imaginary.
-    double dr = *NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL;
+    double dr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     double di = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The source real and imaginary.
     double sr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    double si = *NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL;
+    double si = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Get destination real and imaginary.
-    get_complex_element((void*) &dr, (void*) p0, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &di, (void*) p0, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &dr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &di, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
     // Get source real and imaginary.
-    get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
-    get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &sr, (void*) p2, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
+    get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
+    
+    fwprintf(stdout, L"test_equal_comp\n");
 
-	if (dr != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        if (di != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            if (sr != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                if (si != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    if (dr == sr && di == si) {
-
-                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left numerator is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left denominator is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right numerator is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right denominator is null.");
+    if ((dr == sr) && (di == si)) {
+	copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
-
 }
 
 /* EQUAL_COMPLEX_COMPARATOR_SOURCE */

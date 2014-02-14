@@ -35,6 +35,7 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/comparator/basic/character_comparator.c"
+#include "../../../executor/comparator/basic/complex_comparator.c"
 #include "../../../executor/comparator/basic/double_comparator.c"
 #include "../../../executor/comparator/basic/fraction_comparator.c"
 #include "../../../executor/comparator/basic/integer_comparator.c"
@@ -87,7 +88,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        //
+	//
         // element
         //
 
@@ -104,7 +105,6 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         //
         // number
         //
-
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *BYTE_NUMBER_STATE_CYBOI_TYPE) {
@@ -114,7 +114,17 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 compare_character(p0, p1, p2, p3);
             }
         }
+        
+	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            if (*a == *COMPLEX_NUMBER_STATE_CYBOI_TYPE) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                compare_complex(p0, p1, p2, p3);
+            }
+        }
+        
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {

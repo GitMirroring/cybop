@@ -61,7 +61,7 @@
  * @param p3 the operation type
  */
 void apply_compare(void* p0, void* p1, void* p2, void* p3) {
-
+    
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare.");
 
     // The result part.
@@ -89,7 +89,7 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3) {
     // The selection part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
+    
     // Get result part.
     get_part_knowledge((void*) &r, p0, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get left part.
@@ -116,7 +116,7 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
+/*
 fwprintf(stdout, L"TEST apply compare r: %i\n", r);
 fwprintf(stdout, L"TEST apply compare lo: %i\n", lo);
 fwprintf(stdout, L"TEST apply compare ro: %i\n", ro);

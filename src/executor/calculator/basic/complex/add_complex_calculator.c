@@ -70,9 +70,6 @@ void calculate_complex_add(void* p0, void* p1) {
     // Add imaginary value.
     calculate_double_add((void*) &di, (void*) &si);
 
-    // fwprintf(stdout, L"post dr: %f\n", dr);
-    // fwprintf(stdout, L"post di: %f\n", di);
-
     // Set destination real and imaginary
     // (just copies the values inside).
     set_complex_element((void*) p0, (void*) &dr, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
