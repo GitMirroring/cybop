@@ -74,6 +74,33 @@ ________
         * Implement a "timer" based on unix system time; see java.util.Timer
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
 
+Null Pointer
+____________
+
+Null Pointer in File "datetime_getter.c"
+reported by: Mike Feustel <Mike.Feustel@it2011.ba-leipzig.de>
+
+Leider macht der besagte NULL-POINTER in der mit Visual Studio (VS)
+erzeugten cyboi.exe doch Probleme (siehe Anhang).
+
+Die mit VS kompilierte Version verhält sich augenscheinlich anders als 
+die mit MinGW kompilierte Version. Sie fördert bei der Ausführung von 
+examples\datetime\run.cybol einen ungültigen Pointer zutage, der in 
+anderen Konfigurationen nicht auftritt (wahrscheinlich ein Fehler der 
+mit VS kompilierten Version). Dabei stürzt das Programm ab ohne den
+Fehler abzufangen. Die Ursache des unterschiedlichen Verhaltens ist
+noch zu evaluieren.
+
+Soweit ich den Programmablauf (rückwärts) verfolgt habe, wird:
+src\applicator\communicate\send.c, in der Prozedur apply_send,
+im Aufruf von send_data der Parameter /mmd/ mit 0 belegt
+(bzw. auf 0 belassen), was den Fehler auslöst.
+
+Die copy_double Funktion in:
+src\executor\modifier\copier\double_copier.c hat keine Chance, diesen
+Fehler zu bemerken, da der vorher existierende NULL-Pointer (p1)
+um 4 oder 8 (Pointersize) erhöht wurde und somit auf 4 bzw. 8 steht.
+
 xDT
 ___
 
