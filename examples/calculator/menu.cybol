@@ -1,4 +1,5 @@
 <model>
+	<!-- Set Menu_Content -->
     <part name="title" channel="inline" format="text/plain" model="Menu">
         <property name="position" channel="inline" format="number/integer" model="2,1"/>
         <property name="size" channel="inline" format="number/integer" model="4,1"/>
@@ -51,6 +52,7 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 	
+	<!-- Set Cursor_Position -->
 	<part name="cursor" channel="inline" format="text/plain" model="">
         <property name="position" channel="inline" format="number/integer" model="2,16"/>
     </part>

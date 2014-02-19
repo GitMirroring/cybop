@@ -1,32 +1,44 @@
 <model>
+	<!-- Reset Command -->
     <part name="reset_command" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".safetmp.command"/>
     </part>
+	
+	<!-- Get New Command -->
     <part name="receive_command" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.command"/>
     </part>
+	
+	<!-- Set Path to Next Action -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.path"/>
         <property name="source" channel="inline" format="text/plain" model=".actions."/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+	
+	<!-- Set New Command -->
     <part name="append_command" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.path"/>
         <property name="source" channel="inline" format="path/knowledge" model=".safetmp.command"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+	
+	<!-- Send New Command -->
     <part name="send_command" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.path"/>
     </part>
+	
+	<!-- Sleeping Time -->
     <part name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
         <property name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
     </part>
 	
 	<!-- Overwrite TUI/Cursor -->
 	
+	<!-- Set Menu -->
 	<part name="set_tui_menu" channel="inline" format="communicate/send" model="">
 		<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
 		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -35,6 +47,8 @@
 		<property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
 		<property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
 	</part>
+	
+	<!-- Print Result in Window -->
 	<part name="print_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -48,6 +62,8 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
+	
+	<!-- Print Active Operation in Window -->
 	<part name="print_active_operation" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -62,6 +78,7 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 	
+	<!-- Reset Cursor -->
 	<part name="set_cursor" channel="inline" format="communicate/send" model="">
 		<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
 		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
