@@ -1,144 +1,75 @@
 <model>
-	<!-- Functions -->
-    <part name="enter_start_calculation" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Enter"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="space_set_parameters" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Space"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="clear_line_and_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="C"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+	<!-- Enter -->
+	<part name="enter" channel="inline" format="element/part" model="(
+		<part name="output_enter" channel="inline" format="communicate/send" model="">
+			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+			<property name="language" channel="inline" format="meta/language" model="message/cli"/>
+			<property name="format" channel="inline" format="meta/format" model="text/plain"/>
+			<property name="message" channel="inline" format="text/plain" model="Enter"/>
+			<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+		</part>
+		<part name="start_operation" channel="inline" format="element/part" model=".logic_calculation.last_number">
+	)"/>
+	
+	<!-- Space -->
+	<part name="space" channel="inline" format="element/part" model="(
+		<part name="ouptut_space" channel="inline" format="communicate/send" model="">
+			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+			<property name="language" channel="inline" format="meta/language" model="message/cli"/>
+			<property name="format" channel="inline" format="meta/format" model="text/plain"/>
+			<property name="message" channel="inline" format="text/plain" model="Space"/>
+			<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+		</part>
+		<part name="comparison" channel="inline" format="compare/equal" model="">
+			<property name="operand_1" channel="inline" format="path/knowledge" model=".safetmp.temp_position_counter"/>
+			<property name="operand_2" channel="inline" format="number/integer" model="1"/>
+			<property name="result" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+		</part>
+		<part name="if_is_operation" channel="inline" format="flow/branch" model="">
+			<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+			<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.is_operation"/>
+			<property name="false" channel="inline" format="path/knowledge" model=".logic_calculation.is_number"/>
+		</part>
+	)"/>
+	
+	<!-- C -->
+	<part name="clear_calculation" channel="inline" format="element/part" model="(
+		<part name="output_c" channel="inline" format="communicate/send" model="">
+			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+			<property name="language" channel="inline" format="meta/language" model="message/cli"/>
+			<property name="format" channel="inline" format="meta/format" model="text/plain"/>
+			<property name="message" channel="inline" format="text/plain" model="C"/>
+			<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+		</part>
+		<part name="clear_active_operation" channel="inline" format="modify/empty" model="">
+			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
+		</part>
+		<part name="clear_result" channel="inline" format="modify/empty" model="">
+			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
+		</part>
+		<part name="clear_temp_line" channel="inline" format="modify/empty" model="">
+			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
+		</part>
+		<part name="clear_temp_position_counter" channel="inline" format="modify/empty" model="">
+			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.temp_position_counter"/>
+		</part>
+	)"/>
+	
+	<!-- Esc -->
     <part name="exit" channel="inline" format="live/exit" model=""/>
 	
-	<!-- Numbers -->
-	<part name="zero" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="0"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+	<!-- Fill Lines -->
+	<part name="append_active_operation" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-	<part name="one" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="1"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="two" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="three" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="3"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="four" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="4"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="five" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="5"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="six" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="6"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="seven" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="7"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="eight" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="8"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="nine" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="9"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	
-	<!-- Operations -->
-	<part name="add" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="+"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="sub" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="-"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="mul" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="*"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	<part name="div" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="/"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+	<part name="append_temp_line" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 </model>

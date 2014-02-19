@@ -12,7 +12,7 @@
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.command"/>
     </part>
 	
-	<!-- Set Path to Next Action -->
+	<!-- Set Path -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.path"/>
         <property name="source" channel="inline" format="text/plain" model=".actions."/>
@@ -36,6 +36,9 @@
         <property name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
     </part>
 	
+	<!-- Fill Lines if NOT: C/Enter/Space/Esc -->
+	<part></part>
+	
 	<!-- Overwrite TUI/Cursor -->
 	
 	<!-- Set Menu -->
@@ -54,9 +57,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-		
+        <property name="message" channel="inline" format="path/knowledge" model=".safetmp.result_to_show"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>	
 		<property name="position" channel="inline" format="number/integer" model="11,11"/>
         <property name="size" channel="inline" format="number/integer" model="81,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -71,7 +73,6 @@
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <property name="message" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-		
 		<property name="position" channel="inline" format="number/integer" model="20,10"/>
         <property name="size" channel="inline" format="number/integer" model="72,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>

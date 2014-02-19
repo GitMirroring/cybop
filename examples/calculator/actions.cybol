@@ -1,25 +1,6 @@
 <model>
-	<!-- Functions -->
     <part name="enter" channel="inline" format="path/knowledge" model=".logic.enter_start_calculation"/>
     <part name="space" channel="inline" format="path/knowledge" model=".logic.space_set_parameters"/>
 	<part name="c" channel="inline" format="path/knowledge" model=".logic.clear_line_and_result"/>
     <part name="escape" channel="inline" format="path/knowledge" model=".logic.exit"/>
-	
-    <!-- Numbers -->
-	<part name="0" channel="inline" format="path/knowledge" model=".logic.zero"/>
-	<part name="1" channel="inline" format="path/knowledge" model=".logic.one"/>
-	<part name="2" channel="inline" format="path/knowledge" model=".logic.two"/>
-	<part name="3" channel="inline" format="path/knowledge" model=".logic.three"/>
-	<part name="4" channel="inline" format="path/knowledge" model=".logic.four"/>
-	<part name="5" channel="inline" format="path/knowledge" model=".logic.five"/>
-	<part name="6" channel="inline" format="path/knowledge" model=".logic.six"/>
-	<part name="7" channel="inline" format="path/knowledge" model=".logic.seven"/>
-	<part name="8" channel="inline" format="path/knowledge" model=".logic.eight"/>
-	<part name="9" channel="inline" format="path/knowledge" model=".logic.nine"/>
-	
-	<!-- Operations -->
-	<part name="+" channel="inline" format="path/knowledge" model=".logic.add"/>
-	<part name="-" channel="inline" format="path/knowledge" model=".logic.sub"/>
-	<part name="*" channel="inline" format="path/knowledge" model=".logic.mul"/>
-	<part name="/" channel="inline" format="path/knowledge" model=".logic.div"/>
 </model>
