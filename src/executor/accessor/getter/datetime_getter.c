@@ -55,7 +55,7 @@ void get_datetime_element(void* p0, void* p1, void* p2) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-#ifdef _MSC_VER
+#ifndef _MSC_VER
     // Here goes something wrong, sometimes p1 == null
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
         fprintf_s(stdout, "Null pointer in datetime_getter.c get_datetime_element\n");

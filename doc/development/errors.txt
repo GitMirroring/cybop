@@ -2,7 +2,7 @@ Project:
 examples\datetime\run.cybol
 
 Error:
-p1 == pointer in datetime_getter.c get_datetime_element 
+p1 == *NULL_POINTER_STATE_CYBOI_MODEL in datetime_getter.c get_datetime_element 
 this results from
 mmd == 0 in
 send.c apply_send 

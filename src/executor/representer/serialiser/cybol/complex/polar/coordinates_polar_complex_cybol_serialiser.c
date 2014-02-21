@@ -63,9 +63,14 @@ void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, voi
 
                     *dv = sqrt((( *sr  *  *sr) + (  *si  *  *si )));
                     
-                    *da =  (180 * (M_PI - atan(  *si / abs(*sr) ))) / M_PI;
+					//\src\executor\representer\serialiser\cybol\complex\polar\coordinates_polar_complex_cybol_serialiser.c(66) :
+					// warning C4244 : 'Funktion' : Konvertierung von 'double' in 'int', möglicher Datenverlust
+					//*da = (180 * (M_PI - atan(*si / abs(*sr)))) / M_PI;
+					// changed to:
 
-                } else {
+						*da = (180 * (M_PI - atan(*si / fabs(*sr)))) / M_PI;
+				}
+				else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number");
                 }

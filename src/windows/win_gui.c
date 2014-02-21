@@ -1,6 +1,9 @@
 /*
-Example main entry point for windows gui app.
-based on
+Example main entry point for windows gui app. 
+The WinMain program entry point is automatical set by VC compiler if systemtype will be set to Windows (/SUBSYSTEM:WINDOWS)
+M. F.
+
+File based on:
 WINHELLO.C
 ==========
 (c) Paul Griffiths 1999
