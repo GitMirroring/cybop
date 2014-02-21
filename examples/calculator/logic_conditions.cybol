@@ -1,0 +1,41 @@
+<model>	
+	<part name="comparison" channel="inline" format="compare/equal" model="">
+		<property name="operand_1" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+		<property name="operand_2" channel="inline" format="number/integer" model="enter"/>
+		<property name="result" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+	</part>
+	<part name="if_is_operation" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.set_condition_flag"/>
+	</part>
+	
+	<!-- <part name="comparison" channel="inline" format="compare/equal" model="">
+		<property name="operand_1" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+		<property name="operand_2" channel="inline" format="number/integer" model="space"/>
+		<property name="result" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+	</part>
+	<part name="if_is_operation" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.set_condition_flag"/>
+	</part> -->
+	
+	<part name="comparison" channel="inline" format="compare/equal" model="">
+		<property name="operand_1" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+		<property name="operand_2" channel="inline" format="number/integer" model="c"/>
+		<property name="result" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+	</part>
+	<part name="if_is_operation" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.set_condition_flag"/>
+	</part>
+	
+	<part name="comparison" channel="inline" format="compare/equal" model="">
+		<property name="operand_1" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+		<property name="operand_2" channel="inline" format="number/integer" model="esc"/>
+		<property name="result" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+	</part>
+	<part name="if_is_operation" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.set_condition_flag"/>
+	</part>
+</model>
