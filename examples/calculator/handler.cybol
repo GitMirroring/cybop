@@ -10,10 +10,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.command"/>
-    </part>
-	
-	<!-- Condition Check -->
-    <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
+    </part> 
 	
 	<!-- Set Path -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
@@ -35,6 +32,7 @@
     </part>
 	
 	<!-- Fill Lines (if Conditions) -->
+	<part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
 	<part name="if_condition_flag" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.condition_flag"/>
 		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.append_active_operation"/>
