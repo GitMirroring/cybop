@@ -18,24 +18,6 @@ _______
         * Change copyright year to 2014 in all source code files
         * Move file "tester.c" back into directory "controller/"
 
-Null Pointer
-____________
-
-        * Check access to compound types (complex, datetime, duration, fraction) wherever they are used
-        * Example: file "datetime_getter.c"
-        * CAUTION! Testing the compound structure for NULL is necessary BEFORE accessing its single fields
-        * Reported by Mike Feustel <Mike.Feustel@it2011.ba-leipzig.de>
-
-        * Soweit ich den Programmablauf (rückwärts) verfolgt habe, wird:
-            src/applicator/communicate/send.c, in der Prozedur apply_send,
-            im Aufruf von send_data der Parameter /mmd/ mit 0 belegt
-            (bzw. auf 0 belassen), was den Fehler auslöst.
-
-        * Die copy_double Funktion in:
-            src/executor/modifier/copier/double_copier.c hat keine Chance, diesen
-            Fehler zu bemerken, da der vorher existierende NULL-Pointer (p1)
-            um 4 oder 8 (Pointersize) erhöht wurde und somit auf 4 bzw. 8 steht.
-
 Shell Commands
 ______________
 

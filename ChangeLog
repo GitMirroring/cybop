@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-02-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Check for null pointer when accessing compound types (complex, datetime, duration, fraction) in "executor/accessor/getter/" and "executor/accessor/setter/"
+
 2014-02-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add visual studio c adaptations of Mike Feustel and Benno Schilling
