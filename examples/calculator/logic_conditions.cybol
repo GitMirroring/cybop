@@ -1,7 +1,7 @@
 <model>	
 	<part name="comparison_enter" channel="inline" format="compare/equal" model="">
 		<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
-		<property name="operand_2" channel="inline" format="number/integer" model="enter"/>
+		<property name="operand_2" channel="inline" format="text/plain" model="enter"/>
 		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
 	</part>
 	<part name="if_is_enter" channel="inline" format="flow/branch" model="">
@@ -11,7 +11,7 @@
 	
 	<!-- <part name="comparison_space" channel="inline" format="compare/equal" model="">
 		<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
-		<property name="operand_2" channel="inline" format="number/integer" model="space"/>
+		<property name="operand_2" channel="inline" format="text/plain" model="space"/>
 		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
 	</part>
 	<part name="if_is_space" channel="inline" format="flow/branch" model="">
@@ -21,7 +21,7 @@
 	
 	<part name="comparison_c" channel="inline" format="compare/equal" model="">
 		<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
-		<property name="operand_2" channel="inline" format="number/integer" model="c"/>
+		<property name="operand_2" channel="inline" format="text/plain" model="c"/>
 		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
 	</part>
 	<part name="if_is_c" channel="inline" format="flow/branch" model="">
@@ -31,7 +31,7 @@
 	
 	<part name="comparison_esc" channel="inline" format="compare/equal" model="">
 		<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
-		<property name="operand_2" channel="inline" format="number/integer" model="esc"/>
+		<property name="operand_2" channel="inline" format="text/plain" model="esc"/>
 		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
 	</part>
 	<part name="if_is_esc" channel="inline" format="flow/branch" model="">
