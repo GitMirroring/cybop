@@ -29,6 +29,9 @@
 #include <errno.h>
 #include <locale.h>
 #include <wchar.h>
+#ifdef WIN32
+    #include <windows.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -166,7 +169,7 @@
 //
 
 /**
- * Encodes an UTF-32 wide character vector into an UTF-8 multibyte character stream.
+ * Encodes an UTF-32 (TODO: 16 Bit) wide character vector into an UTF-8 multibyte character stream.
  *
  * @param p0 the destination item
  * @param p1 the source data
@@ -291,8 +294,8 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                     #ifdef __APPLE__
                         n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
                     #elif WIN32
-                        int len = WideCharToMultiByte (65001, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, 0, NULL, NULL);
-                        n =  WideCharToMultiByte (65001, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
+                        int len = WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, NULL, 0, NULL, NULL);
+                        n =  WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
                     #elif GNU_LINUX_OPERATING_SYSTEM
                         n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
                     #endif
