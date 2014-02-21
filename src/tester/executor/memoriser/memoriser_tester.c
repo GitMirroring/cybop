@@ -32,8 +32,8 @@
 void test_memoriser() {
 
     fwprintf(stdout, L"TEST Modul Executor/Memoriser.\n");
-
     test_size_determiner();
+
 }
 
 /* MEMORISER_TESTER */

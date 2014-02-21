@@ -36,7 +36,7 @@
  * Tests the accessor size determiner.
  */
 void test_accessor_size_determiner() {
-
+	fwprintf(stdout, L"TEST accessor size determiner.\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor size determiner.");
 
     // The character type (type) size.
@@ -72,7 +72,7 @@ void test_accessor_size_determiner() {
  * Tests the accessor assigner.
  */
 void test_accessor_assigner() {
-
+	fwprintf(stdout, L"TEST accessor assigner.\n");
     // The double number.
     double d = 2.0;
     // The value to be assigned.
@@ -87,7 +87,7 @@ void test_accessor_assigner() {
  * Tests the accessor array setter.
  */
 void test_array_setter() {
-
+	fwprintf(stdout, L"TEST array setter.\n");
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int ds = *NUMBER_100_INTEGER_STATE_CYBOI_MODEL;
@@ -122,14 +122,12 @@ void test_array_setter() {
     // Deallocate destination array.
     deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
-
 /**
- * Tests the accessor.
+ * Tests the size_determiner.
  */
 void test_size_determiner() {
 
-    fwprintf(stdout, L"TEST accessor.\n");
-
+    fwprintf(stdout, L"TEST start: size_derminer.\n");
     test_accessor_size_determiner();
     test_accessor_assigner();
     test_array_setter();
