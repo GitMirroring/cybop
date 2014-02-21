@@ -1,0 +1,13 @@
+<model>
+	<!-- Space -->
+	<part name="comparison_number_or_operation" channel="inline" format="compare/equal" model="">
+		<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.temp_position_counter"/>
+		<property name="operand_2" channel="inline" format="number/integer" model="1"/>
+		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
+	</part>
+	<part name="if_is_operation" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".app.logic.is_operation"/>
+		<property name="false" channel="inline" format="path/knowledge" model=".app.logic.is_number"/>
+	</part>
+</model>

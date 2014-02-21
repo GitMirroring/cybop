@@ -6,7 +6,7 @@
 	</part>
 	<part name="if_is_enter" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.set_condition_flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".app.logic.set_condition_flag"/>
 	</part>
 	
 	<!-- <part name="comparison_space" channel="inline" format="compare/equal" model="">
@@ -16,7 +16,7 @@
 	</part>
 	<part name="if_is_space" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.set_condition_flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".app.logic.set_condition_flag"/>
 	</part> -->
 	
 	<part name="comparison_c" channel="inline" format="compare/equal" model="">
@@ -26,7 +26,7 @@
 	</part>
 	<part name="if_is_c" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.set_condition_flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".app.logic.set_condition_flag"/>
 	</part>
 	
 	<part name="comparison_esc" channel="inline" format="compare/equal" model="">
@@ -36,6 +36,6 @@
 	</part>
 	<part name="if_is_esc" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.set_condition_flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".app.logic.set_condition_flag"/>
 	</part>
 </model>

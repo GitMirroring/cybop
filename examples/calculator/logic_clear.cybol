@@ -1,0 +1,15 @@
+<model>
+	<!-- C -->
+	<part name="clear_active_operation" channel="inline" format="modify/empty" model="">
+		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
+	</part>
+	<part name="clear_result" channel="inline" format="modify/empty" model="">
+		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
+	</part>
+	<part name="clear_temp_line" channel="inline" format="modify/empty" model="">
+		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
+	</part>
+	<part name="clear_temp_position_counter" channel="inline" format="modify/empty" model="">
+		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_position_counter"/>
+	</part>
+</model>

@@ -1,87 +1,29 @@
 <model>
-	<!-- Enter -->
-	<part name="enter" channel="inline" format="element/part" model="(
-		<part name="preperation_calculation" channel="inline" format="element/part" model=".app.logic_calculation.last_number">
-		
-		<!-- Start Calculation -->
-		<part name="compare_add" channel="inline" format="compare/equal" model="">
-			<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.operation"/>
-			<property name="operand_2" channel="inline" format="text/plain" model="+"/>
-			<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		</part>
-		<part name="addition" channel="inline" format="flow/branch" model="">
-			<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-			<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.add_second_number"/>
-		</part>
-
-		<part name="compare_sub" channel="inline" format="compare/equal" model="">
-			<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.operation"/>
-			<property name="operand_2" channel="inline" format="text/plain" model="-"/>
-			<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		</part>		
-		<part name="subtraction" channel="inline" format="flow/branch" model="">
-			<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-			<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.subtract_second_number"/>
-		</part>
-
-		<part name="compare_mul" channel="inline" format="compare/equal" model="">
-			<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.operation"/>
-			<property name="operand_2" channel="inline" format="text/plain" model="*"/>
-			<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		</part>		
-		<part name="multiplication" channel="inline" format="flow/branch" model="">
-			<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-			<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.multiply_second_number"/>
-		</part>
-
-		<part name="compare_div" channel="inline" format="compare/equal" model="">
-			<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.operation"/>
-			<property name="operand_2" channel="inline" format="text/plain" model="/"/>
-			<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		</part>		
-		<part name="division" channel="inline" format="flow/branch" model="">
-			<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-			<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.divide_second_number"/>
-		</part>
-		
-		<!-- Output Result -->
-		<part name="give_result" channel="inline" format="modify/overwrite" model="">
-			<property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.result_to_show"/>
-			<property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
-			<property name="type" channel="inline" format="meta/type" model="number/integer"/>
-		</part>		
-	)"/>
-	
-	<!-- Space -->
-	<part name="space" channel="inline" format="element/part" model="(
-		<part name="comparison_number_or_operation" channel="inline" format="compare/equal" model="">
-			<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.temp_position_counter"/>
-			<property name="operand_2" channel="inline" format="number/integer" model="1"/>
-			<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		</part>
-		<part name="if_is_operation" channel="inline" format="flow/branch" model="">
-			<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-			<property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.is_operation"/>
-			<property name="false" channel="inline" format="path/knowledge" model=".app.logic_calculation.is_number"/>
-		</part>
-	)"/>
-	
-	<!-- C -->
-	<part name="clear_calculation" channel="inline" format="element/part" model="(
-		<part name="clear_active_operation" channel="inline" format="modify/empty" model="">
-			<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
-		</part>
-		<part name="clear_result" channel="inline" format="modify/empty" model="">
-			<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
-		</part>
-		<part name="clear_temp_line" channel="inline" format="modify/empty" model="">
-			<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
-		</part>
-		<part name="clear_temp_position_counter" channel="inline" format="modify/empty" model="">
-			<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_position_counter"/>
-		</part>
-	)"/>
-	
-	<!-- Esc -->
+    <part name="enter" channel="file" format="element/part" model="calculator/logic_enter.cybol"/>
+    <part name="space" channel="file" format="element/part" model="calculator/logic_space.cybol"/>
+    <part name="clear_calculation" channel="file" format="element/part" model="calculator/logic_clear.cybol"/>
     <part name="exit" channel="inline" format="live/exit" model=""/>
+	
+	<part name="is_operation" channel="file" format="element/part" model="calculator/logic_operation.cybol"/>	
+	<part name="is_number" channel="file" format="element/part" model="calculator/logic_first_number.cybol"/>
+	<part name="last_number" channel="file" format="element/part" model="calculator/logic_second_number.cybol"/>
+	
+	<!-- Set Condition_Flag -->
+	<part name="set_condition_flag" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
+        <property name="source" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+	
+	<!-- Fill Lines -->
+	<part name="append_active_operation" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="append_temp_line" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
 </model>

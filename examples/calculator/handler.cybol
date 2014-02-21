@@ -35,11 +35,11 @@
     <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
     <part name="if_condition_flag" channel="inline" format="flow/branch" model="">
             <property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
-            <property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.append_active_operation"/>
+            <property name="true" channel="inline" format="path/knowledge" model=".app.logic.append_active_operation"/>
     </part>
     <part name="if_condition_is_true" channel="inline" format="flow/branch" model="">
             <property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
-            <property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.append_temp_line"/>
+            <property name="true" channel="inline" format="path/knowledge" model=".app.logic.append_temp_line"/>
     </part>
     <part name="reset_condition_flag" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.condition_flag"/>
@@ -52,7 +52,7 @@
     <!-- Print Active Operation in Menu -->
     <part name="overwrite_active_operation" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.menu_window.menu.active_operation_value"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.safetmp.active_operation"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
