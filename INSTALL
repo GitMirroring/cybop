@@ -98,7 +98,8 @@ OSX packages for CYBOL application execution:
 
 OSX packages for compilation:
     Xcode
-    Autotools (https://gist.github.com/jellybeansoup/4192307)
+    Xcode Command Line Tools
+    Autotools (see doc/development/osx/cltools.sh)
 
 
 CYBOI Compilation POSIX

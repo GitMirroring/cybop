@@ -1,0 +1,31 @@
+Command Line
+____________
+
+- Hello World example works
+- ANSI Escape sequences works
+- Some command line examples like counter doesn't work
+	- The program doesn't crash
+	- Function is called: fwprintf(stdout, L"TEST logger %s .\n ", (char *) p1); will create a output, but first part of the text is not visible
+		- https://devforums.apple.com/thread/220123?tstart=0
+- The user input doesn't work
+	- It's not possible for the user to enter text
+
+GUI
+___
+
+- Apple doesn't support the X11 library anymore
+	- An open source project existis to support X11 for mac (http://support.apple.com/kb/ht5293)
+	- In my opinion it should be better to use the native carbon or cocoa environment (https://developer.apple.com/library/mac/documentation/porting/conceptual/portingunix/environments/environments.html#//apple_ref/doc/uid/TP40002852-BBCIFCFH)
+	- Carbon doesn't support X64, deprecated since Oktober 2012
+- The following ways for a GUI are possible:
+		- use X11 library --> is needed to install on mac
+		- use Carbon --> deprecated
+		- use Cocoa -->
+			- its needed to wrap to C application with objective c code --> complex
+
+
+Contact
+_______
+	
+Mail: markus@mhinkelmann.de	
+	
