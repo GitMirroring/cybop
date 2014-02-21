@@ -13,5 +13,6 @@
     <part name="active_operation" channel="inline" format="text/plain" model=""/>
     <part name="temp_line" channel="inline" format="text/plain" model=""/>
     <part name="temp_position_counter" channel="inline" format="number/integer" model="0"/>
-    <part name="flag" channel="inline" format="number/integer" model=""/>
+    <part name="flag" channel="inline" format="number/integer" model="0"/>
+    <part name="condition_flag" channel="inline" format="number/integer" model="0"/>
 </model>

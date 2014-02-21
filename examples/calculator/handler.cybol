@@ -31,13 +31,16 @@
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.path"/>
     </part>
 	
-	<!-- Sleeping Time -->
-    <part name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
-    </part>
-	
-	<!-- Fill Lines if NOT: C/Enter/Space/Esc -->
-	<part></part>
+	<!-- Fill Lines if (Conditions) -->
+    <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
+	<part name="if_condition_flag" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.condition_flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.append_active_operation"/>
+	</part>
+	<part name="if_condition_flag_2" channel="inline" format="flow/branch" model="">
+		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.condition_flag"/>
+		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.append_temp_line"/>
+	</part>
 	
 	<!-- Overwrite TUI/Cursor -->
 	
@@ -52,20 +55,24 @@
 	</part>
 	
 	<!-- Print Result in Window -->
+	<part name="cursor" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="13,13"/>
+    </part>
 	<part name="print_result" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <property name="message" channel="inline" format="path/knowledge" model=".safetmp.result_to_show"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>	
-		<property name="position" channel="inline" format="number/integer" model="11,11"/>
-        <property name="size" channel="inline" format="number/integer" model="81,1"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 	
 	<!-- Print Active Operation in Window -->
+	<part name="cursor" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="22,14"/>
+    </part>
 	<part name="print_active_operation" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -73,8 +80,6 @@
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <property name="message" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-		<property name="position" channel="inline" format="number/integer" model="20,10"/>
-        <property name="size" channel="inline" format="number/integer" model="72,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
@@ -85,6 +90,6 @@
 		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
 		<property name="language" channel="inline" format="meta/language" model="message/tui"/>
 		<property name="format" channel="inline" format="meta/format" model="text/plain"/>
-		<property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window.menu.cursor"/>
+		<property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
 	</part>
 </model>

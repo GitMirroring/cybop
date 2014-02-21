@@ -1,14 +1,6 @@
 <model>
 	<!-- Enter -->
 	<part name="enter" channel="inline" format="element/part" model="(
-		<part name="output_enter" channel="inline" format="communicate/send" model="">
-			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-			<property name="language" channel="inline" format="meta/language" model="message/cli"/>
-			<property name="format" channel="inline" format="meta/format" model="text/plain"/>
-			<property name="message" channel="inline" format="text/plain" model="Enter"/>
-			<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-		</part>
 		<part name="preperation_calculation" channel="inline" format="element/part" model=".logic_calculation.last_number">
 		
 		<!-- Start Calculation -->
@@ -37,7 +29,7 @@
 			<property name="operand_2" channel="inline" format="text/plain" model="*"/>
 			<property name="result" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
 		</part>		
-		<part name="mulitplication" channel="inline" format="flow/branch" model="">
+		<part name="multiplication" channel="inline" format="flow/branch" model="">
 			<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.flag"/>
 			<property name="true" channel="inline" format="path/knowledge" model=".calculation.multiply_second_number"/>
 		</part>
@@ -62,14 +54,6 @@
 	
 	<!-- Space -->
 	<part name="space" channel="inline" format="element/part" model="(
-		<part name="ouptut_space" channel="inline" format="communicate/send" model="">
-			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-			<property name="language" channel="inline" format="meta/language" model="message/cli"/>
-			<property name="format" channel="inline" format="meta/format" model="text/plain"/>
-			<property name="message" channel="inline" format="text/plain" model="Space"/>
-			<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-		</part>
 		<part name="comparison" channel="inline" format="compare/equal" model="">
 			<property name="operand_1" channel="inline" format="path/knowledge" model=".safetmp.temp_position_counter"/>
 			<property name="operand_2" channel="inline" format="number/integer" model="1"/>
@@ -84,14 +68,6 @@
 	
 	<!-- C -->
 	<part name="clear_calculation" channel="inline" format="element/part" model="(
-		<part name="output_c" channel="inline" format="communicate/send" model="">
-			<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-			<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-			<property name="language" channel="inline" format="meta/language" model="message/cli"/>
-			<property name="format" channel="inline" format="meta/format" model="text/plain"/>
-			<property name="message" channel="inline" format="text/plain" model="C"/>
-			<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-		</part>
 		<part name="clear_active_operation" channel="inline" format="modify/empty" model="">
 			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
 		</part>
@@ -108,16 +84,4 @@
 	
 	<!-- Esc -->
     <part name="exit" channel="inline" format="live/exit" model=""/>
-	
-	<!-- Fill Lines -->
-	<part name="append_active_operation" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".safetmp.command"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-	<part name="append_temp_line" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".safetmp.command"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
 </model>

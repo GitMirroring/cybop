@@ -7,7 +7,7 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter: <Number><Space><Operation><Space><Number><Enter>">
+    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter (Example): 15<Space>+<Space>17<Enter>">
         <property name="position" channel="inline" format="number/integer" model="2,3"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -50,10 +50,5 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-	
-	<!-- Set Cursor_Position -->
-	<part name="cursor" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="2,16"/>
     </part>
 </model>
