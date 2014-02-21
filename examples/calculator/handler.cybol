@@ -12,6 +12,9 @@
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.command"/>
     </part>
 	
+	<!-- Condition Check -->
+    <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
+	
 	<!-- Set Path -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.path"/>
@@ -31,8 +34,7 @@
         <property name="model" channel="inline" format="path/knowledge" model=".safetmp.path"/>
     </part>
 	
-	<!-- Fill Lines if (Conditions) -->
-    <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
+	<!-- Fill Lines (if Conditions) -->
 	<part name="if_condition_flag" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.condition_flag"/>
 		<property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.append_active_operation"/>
