@@ -18,6 +18,30 @@ _______
         * Change copyright year to 2014 in all source code files
         * Move file "tester.c" back into directory "controller/"
 
+Null Pointer
+____________
+
+        * Check access to compound types (complex, datetime, duration, fraction) wherever they are used
+        * Example: file "datetime_getter.c"
+        * CAUTION! Testing the compound structure for NULL is necessary BEFORE accessing its single fields
+        * Reported by Mike Feustel <Mike.Feustel@it2011.ba-leipzig.de>
+
+        * Soweit ich den Programmablauf (rückwärts) verfolgt habe, wird:
+            src/applicator/communicate/send.c, in der Prozedur apply_send,
+            im Aufruf von send_data der Parameter /mmd/ mit 0 belegt
+            (bzw. auf 0 belassen), was den Fehler auslöst.
+
+        * Die copy_double Funktion in:
+            src/executor/modifier/copier/double_copier.c hat keine Chance, diesen
+            Fehler zu bemerken, da der vorher existierende NULL-Pointer (p1)
+            um 4 oder 8 (Pointersize) erhöht wurde und somit auf 4 bzw. 8 steht.
+
+Shell Commands
+______________
+
+        * Simplify shell commands by using identical constants for all platforms
+        * See simplification (just one block) example in file "todo/christian_heller_copy_file_commander.c"
+
 GUI
 ___
 
@@ -74,33 +98,6 @@ ________
         * Implement a "timer" based on unix system time; see java.util.Timer
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
 
-Null Pointer
-____________
-
-Null Pointer in File "datetime_getter.c"
-reported by: Mike Feustel <Mike.Feustel@it2011.ba-leipzig.de>
-
-Leider macht der besagte NULL-POINTER in der mit Visual Studio (VS)
-erzeugten cyboi.exe doch Probleme (siehe Anhang).
-
-Die mit VS kompilierte Version verhält sich augenscheinlich anders als 
-die mit MinGW kompilierte Version. Sie fördert bei der Ausführung von 
-examples\datetime\run.cybol einen ungültigen Pointer zutage, der in 
-anderen Konfigurationen nicht auftritt (wahrscheinlich ein Fehler der 
-mit VS kompilierten Version). Dabei stürzt das Programm ab ohne den
-Fehler abzufangen. Die Ursache des unterschiedlichen Verhaltens ist
-noch zu evaluieren.
-
-Soweit ich den Programmablauf (rückwärts) verfolgt habe, wird:
-src\applicator\communicate\send.c, in der Prozedur apply_send,
-im Aufruf von send_data der Parameter /mmd/ mit 0 belegt
-(bzw. auf 0 belassen), was den Fehler auslöst.
-
-Die copy_double Funktion in:
-src\executor\modifier\copier\double_copier.c hat keine Chance, diesen
-Fehler zu bemerken, da der vorher existierende NULL-Pointer (p1)
-um 4 oder 8 (Pointersize) erhöht wurde und somit auf 4 bzw. 8 steht.
-
 xDT
 ___
 
@@ -126,6 +123,7 @@ _____
 TUI
 ___
 
+        * CAUTION! Win32 console input might not work due to disabled signal interrupts (with pre-processor if-def) in file "system_signal_handler_manager.c"
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
             http://cboard.cprogramming.com/windows-programming/93468-not-getting-window_buffer_size_event.html
@@ -270,6 +268,13 @@ _______
             static int* ID_0_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
+
+CYBOL
+_____
+
+        * Simplify relative paths in cybol applications not expecting "examples/" as parent directory
+            but using that of the application as working directory
+        * See example desktop link created for Windows OS in "examples/counter/"
 
 Super
 _____
