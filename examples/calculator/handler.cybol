@@ -53,21 +53,7 @@
 		<property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
 		<property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
 	</part>
-	
-	<!-- Print Result in Window -->
-	<part name="cursor" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="13,13"/>
-    </part>
-	<part name="print_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".safetmp.result_to_show"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
-    </part>
-	
+
 	<!-- Print Active Operation in Window -->
 	<part name="cursor" channel="inline" format="text/plain" model="">
         <property name="position" channel="inline" format="number/integer" model="22,14"/>
@@ -83,6 +69,20 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 	
+	<!-- Print Result in Window -->
+	<part name="cursor" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="13,13"/>
+    </part>
+	<part name="print_result" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".safetmp.result_to_show"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
+    </part>
+		
 	<!-- Reset Cursor -->
 	<part name="set_cursor" channel="inline" format="communicate/send" model="">
 		<property name="channel" channel="inline" format="meta/channel" model="terminal"/>
