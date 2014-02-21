@@ -23,12 +23,14 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 #include "integer/manipulator_integer_tester.c"
+#include "character/manipulator_character_tester.c"
 
 #ifndef TESTER_EXECUTOR_MANIPULATOR_SOURCE
 #define TESTER_EXECUTOR_MANIPULATOR_SOURCE
 
 void test_manipulator(){
 	test_manipulator_integer();
+	test_manipulator_character();
 }
 /* TESTER_EXECUTOR_MANIPULATOR_SOURCE */
 #endif

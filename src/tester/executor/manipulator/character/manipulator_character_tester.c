@@ -24,26 +24,26 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MANIPULATOR_INTEGER_TESTER
-#define MANIPULATOR_INTEGER_TESTER
+#ifndef MANIPULATOR_CHARACTER_TESTER
+#define MANIPULATOR_CHARACTER_TESTER
 
-#include "../../../../executor/manipulator/integer/shift_left_integer_manipulator.c"
-#include "../../../../executor/manipulator/integer/shift_right_integer_manipulator.c"
-#include "../../../../executor/manipulator/integer/rotate_left_integer_manipulator.c"
-#include "../../../../executor/manipulator/integer/rotate_right_integer_manipulator.c"
+#include "../../../../executor/manipulator/character/shift_left_character_manipulator.c"
+#include "../../../../executor/manipulator/character/shift_right_character_manipulator.c"
+#include "../../../../executor/manipulator/character/rotate_left_character_manipulator.c"
+#include "../../../../executor/manipulator/character/rotate_right_character_manipulator.c"
 
-void test_shift_left_integer() {
+void test_shift_left_character() {
 
-    fwprintf(stdout, L"TEST - shift 1 left by 2 (expect 4)\n");
+    fwprintf(stdout, L"TEST - shift 2 left by 1 (expect 4)\n");
 
-    int v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-    void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    unsigned char v = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    void* s = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-    manipulate_integer_shift_left((void*) &v, s);
+    manipulate_character_shift_left((void*) &v, s);
 
-    int expected = 4;
+    char expected = 4;
 
-    if (expected == (int)v) {
+    if (expected == (char)v) {
 
     	fwprintf(stdout, L"OK - shift result: %d\n", v);
     }
@@ -52,38 +52,39 @@ void test_shift_left_integer() {
     }
 }
 
-void test_shift_right_integer() {
 
-	    fwprintf(stdout, L"TEST - shift 40 right by 2 (expect 10)\n");
+void test_shift_right_character() {
 
-	    int v = *NUMBER_40_INTEGER_STATE_CYBOI_MODEL;
-	    void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+	    fwprintf(stdout, L"TEST - shift 1 right by 1 (expect 2)\n");
 
-	    manipulate_integer_shift_right((void*) &v, s);
+	    unsigned char v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+		void* s = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-	    int expected = 10;
+		manipulate_character_shift_left((void*) &v, s);
 
-	    if (expected == (int)v) {
+		char expected = 2;
 
-	    	fwprintf(stdout, L"OK - shift result: %d\n", v);
-	    }
-	    else {
-	    	fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
-	    }
+		if (expected == (char)v) {
+
+			fwprintf(stdout, L"OK - shift result: %d\n", v);
+		}
+		else {
+			fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
+		}
 }
 
-void test_rotate_right_integer() {
+void test_rotate_right_character() {
 
 	fwprintf(stdout, L"TEST - rotate 25 right by 2 (expect 6)\n");
 
-	int v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
+	char v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
 	void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
-	manipulate_integer_rotate_right((void*) &v, s);
+	manipulate_character_rotate_right((void*) &v, s);
 
-	int expected = 6;
+	char expected = 6;
 
-	if (expected == (int)v) {
+	if (expected == (char)v) {
 
 		fwprintf(stdout, L"OK - rotate result: %d\n", v);
 	}
@@ -92,18 +93,18 @@ void test_rotate_right_integer() {
 	}
 }
 
-void test_rotate_left_integer() {
+void test_rotate_left_character() {
 
 	fwprintf(stdout, L"TEST - rotate 25 left by 2 (expect 100)\n");
 
 	unsigned char v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
 	void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
-	manipulate_integer_rotate_left((void*) &v, s);
+	manipulate_character_rotate_left((void*) &v, s);
 
-	int expected = 100;
+	char expected = 100;
 
-	if (expected == (int)v) {
+	if (expected == (char)v) {
 
 		fwprintf(stdout, L"OK - rotate result: %d\n", v);
 	}
@@ -113,19 +114,19 @@ void test_rotate_left_integer() {
 }
 
 /**
- * Tests the integer manipulators.
+ * Tests the character manipulators.
  *
  * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
-void test_manipulator_integer() {
+void test_manipulator_character() {
 
-	fwprintf(stdout, L"TEST modul executor/manipulator/integer:\n");
-    test_shift_left_integer();
-    test_shift_right_integer();
-    test_rotate_left_integer();
-    test_rotate_right_integer();
+	fwprintf(stdout, L"TEST modul executor/manipulator/character:\n");
+    test_shift_left_character();
+    test_shift_right_character();
+    test_rotate_left_character();
+    test_rotate_right_character();
 }
 
-/* MANIPULATOR_INTEGER_TESTER */
+/* MANIPULATOR_CHARACTER_TESTER */
 #endif
