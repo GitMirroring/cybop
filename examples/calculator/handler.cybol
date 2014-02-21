@@ -62,9 +62,9 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
-        <!-- <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/> -->
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
@@ -77,8 +77,9 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".safetmp.result_to_show"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
