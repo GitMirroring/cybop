@@ -1,29 +1,29 @@
-<model>
+ï»¿<model>
 	<part name="is_operation" channel="inline" format="element/part" model="(	
-		<part name="set_operation" channel="inline" format="modify/overwrite" model="">
+		<part name="set_new_operation" channel="inline" format="modify/overwrite" model="">
 			<property name="destination" channel="inline" format="path/knowledge" model=".safetmp.operation"/>
 			<property name="source" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
 			<property name="type" channel="inline" format="meta/type" model="text/plain"/>
 		</part>
-		<part name="clear_temp_line" channel="inline" format="modify/empty" model="">
+		<part name="clear_temp_line_2" channel="inline" format="modify/empty" model="">
 			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
 		</part>
-		<part name="temp_pos_counter_erhöhen" channel="inline" format="calculate/add" model="">
+		<part name="temp_pos_counter_erhoehen" channel="inline" format="calculate/add" model="">
 			<property name="result" channel="inline" format="path/knowledge" model=".safetmp.temp_position_counter"/>
 			<property name="operand" channel="inline" format="number/integer" model="1"/>
 			<property name="type" channel="inline" format="meta/type" model="number/integer"/>
 		</part>
 	)"/>
 	<part name="is_number" channel="inline" format="element/part" model="(
-		<part name="set_number" channel="inline" format="modify/overwrite" model="">
+		<part name="set_new_number" channel="inline" format="modify/overwrite" model="">
 			<property name="destination" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
 			<property name="source" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
 			<property name="type" channel="inline" format="meta/type" model="number/integer"/>
 		</part>
-		<part name="clear_temp_line_2" channel="inline" format="modify/empty" model="">
+		<part name="clear_temp_line_3" channel="inline" format="modify/empty" model="">
 			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
 		</part>
-		<part name="temp_pos_counter_erhöhen" channel="inline" format="calculate/add" model="">
+		<part name="temp_pos_counter_erhoehen_2" channel="inline" format="calculate/add" model="">
 			<property name="result" channel="inline" format="path/knowledge" model=".safetmp.temp_position_counter"/>
 			<property name="operand" channel="inline" format="number/integer" model="1"/>
 			<property name="type" channel="inline" format="meta/type" model="number/integer"/>
@@ -37,7 +37,7 @@
 			<property name="source" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
 			<property name="type" channel="inline" format="meta/type" model="number/integer"/>
 		</part>
-		<part name="clear_temp_line_3" channel="inline" format="modify/empty" model="">
+		<part name="clear_temp_line_4" channel="inline" format="modify/empty" model="">
 			<property name="part" channel="inline" format="path/knowledge" model=".safetmp.temp_line"/>
 		</part>
 		<part name="clear_active_operation" channel="inline" format="modify/empty" model="">
