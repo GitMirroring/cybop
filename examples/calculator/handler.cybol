@@ -1,7 +1,7 @@
 <model>
 	<!-- Reset Command -->
     <part name="reset_command" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
     </part>
 	
 	<!-- Get New Command -->
@@ -9,26 +9,26 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
     </part> 
 	
 	<!-- Set Path -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.path"/>
-        <property name="source" channel="inline" format="text/plain" model=".actions."/>
+        <property name="source" channel="inline" format="text/plain" model=".app.actions."/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 	
 	<!-- Set New Command -->
     <part name="append_command" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".safetmp.path"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".safetmp.command"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 	
 	<!-- Send New Command -->
     <part name="send_command" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".safetmp.path"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
     </part>
 	
     <part name="TEST_0" channel="inline" format="communicate/send" model="">
@@ -43,12 +43,12 @@
     <!-- Fill Lines (if Conditions) -->
     <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
     <part name="if_condition_flag" channel="inline" format="flow/branch" model="">
-            <property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.condition_flag"/>
-            <property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.append_active_operation"/>
+            <property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
+            <property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.append_active_operation"/>
     </part>
     <part name="if_condition_flag_2" channel="inline" format="flow/branch" model="">
             <property name="criterion" channel="inline" format="path/knowledge" model=".safetmp.condition_flag"/>
-            <property name="true" channel="inline" format="path/knowledge" model=".logic_calculation.append_temp_line"/>
+            <property name="true" channel="inline" format="path/knowledge" model=".app.logic_calculation.append_temp_line"/>
     </part>
 
     <!-- Overwrite TUI/Cursor -->
@@ -59,7 +59,7 @@
             <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
             <property name="language" channel="inline" format="meta/language" model="message/tui"/>
             <property name="format" channel="inline" format="meta/format" model="element/part"/>
-            <property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
+            <property name="message" channel="inline" format="path/knowledge" model=".app.tui.menu_window"/>
             <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
@@ -72,7 +72,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".safetmp.active_operation"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
@@ -87,7 +87,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".safetmp.result_to_show"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.safetmp.result_to_show"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
@@ -99,6 +99,6 @@
 		<property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
 		<property name="language" channel="inline" format="meta/language" model="message/tui"/>
 		<property name="format" channel="inline" format="meta/format" model="text/plain"/>
-		<property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
+		<property name="message" channel="inline" format="path/knowledge" model=".app.tui.cursor"/>
 	</part>
 </model>

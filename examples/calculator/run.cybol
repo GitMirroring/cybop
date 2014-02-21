@@ -1,11 +1,11 @@
 <model>
     <!-- Create and Initialise Components -->
-    <part name="create_safetmp" channel="inline" format="memorise/create" model="">
+    <part name="create_app" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="app"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
-    <part name="init_safetmp" channel="inline" format="communicate/receive" model="">
+    <part name="init_app" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -37,7 +37,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.menu_window"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.menu_window"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     
@@ -47,12 +47,12 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.cursor"/>
     </part>
     
     <!-- Set Handler for Terminal -->
     <part name="set_handler_commands_reading" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
+        <property name="handler" channel="inline" format="path/knowledge" model=".app.handler"/>
     </part>    
 </model>

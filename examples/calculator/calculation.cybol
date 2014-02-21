@@ -1,29 +1,29 @@
 <model>
 	<!-- Addition -->
     <part name="add_second_number" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".safetmp.second_number"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.safetmp.second_number"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
 	
 	<!-- Subtraction -->
     <part name="subtract_second_number" channel="inline" format="calculate/subtract" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".safetmp.second_number"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.safetmp.second_number"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
 	
 	<!-- Multiplication -->
     <part name="multiply_second_number" channel="inline" format="calculate/multiply" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".safetmp.second_number"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.safetmp.second_number"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
 	
 	<!-- Division -->
     <part name="divide_second_number" channel="inline" format="calculate/divide" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".safetmp.first_number_result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".safetmp.second_number"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.safetmp.second_number"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
 </model>

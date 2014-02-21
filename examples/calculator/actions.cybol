@@ -1,6 +1,6 @@
 <model>
-    <part name="enter" channel="inline" format="path/knowledge" model=".logic.enter"/>
-    <part name="space" channel="inline" format="path/knowledge" model=".logic.space"/>
-	<part name="c" channel="inline" format="path/knowledge" model=".logic.clear_calculation"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".logic.exit"/>
+    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.enter"/>
+    <part name="space" channel="inline" format="path/knowledge" model=".app.logic.space"/>
+    <part name="c" channel="inline" format="path/knowledge" model=".app.logic.clear_calculation"/>
+    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.exit"/>
 </model>
