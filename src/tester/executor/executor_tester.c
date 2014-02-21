@@ -29,6 +29,7 @@
 #include "manipulator/manipulator_tester.c"
 #include "calculator/calculator_tester.c"
 #include "caster/caster_tester.c"
+#include "comparator/comparator_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -136,6 +137,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// comparator tests
+				test_comparator();
 			}
 		}
 
