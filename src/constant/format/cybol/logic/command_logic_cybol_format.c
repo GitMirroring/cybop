@@ -154,5 +154,16 @@ static wchar_t WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm'
 static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/create-folder logic cybol format.
+ *
+ * Creates a folder
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'r', L'e', L'a', L't', L'e', L'-', L'f', L'o', L'l', L'd', L'e', L'r'};
+static wchar_t* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT = CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

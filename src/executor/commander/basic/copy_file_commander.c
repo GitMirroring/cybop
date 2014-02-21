@@ -35,9 +35,8 @@
     #include "../../../constant/model/command/unix_command_model.c"
     #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
 #elif WIN32
-    #include "../../../constant/model/command/win32_command_model.c"
     #include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
-	#include "../../../constant/model/command/win32_command_model.c"
+    #include "../../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../../constant/model/command/unix_command_model.c"
     #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
@@ -268,7 +267,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         // Get arguments item data, count.
         copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
+	
         // Execute command line in shell.
         execute(argd, argc);
 

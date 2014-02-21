@@ -194,6 +194,9 @@ static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1607_INTEGER_S
 /** The word count command logic cyboi format. */
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1608_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The create folder command logic cyboi format. */
+static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1609_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //

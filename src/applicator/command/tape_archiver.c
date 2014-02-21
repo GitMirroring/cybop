@@ -37,17 +37,15 @@
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
+#include "../../executor/commander/basic/tape_archiver_commander.c"
+
 #ifdef __APPLE__
-    #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
-    #include "../../executor/commander/windows/tape_archiver_windows_commander.c"
+#elif WIN32    
     #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../executor/commander/unix/tape_archiver_unix_commander.c"
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 
@@ -70,7 +68,7 @@
  */
 void apply_tape_archiver(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply copy file.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply tape archiver file.");
 
     // The source part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -158,16 +156,9 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-#ifdef __APPLE__
-    tape_archiver_unix_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-#elif WIN32
-    tape_archiver_windows_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    tape_archiver_unix_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-#else
-    tape_archiver_unix_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-#endif
+    
+    tape_archiver_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
+    
 }
 /* TAPE_ARCHIVER_SOURCE */
 #endif
