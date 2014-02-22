@@ -27,6 +27,7 @@
 #define COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
 
 #include <math.h>
+
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -42,7 +43,7 @@
  * @param p3 the source cartesian coordinates imaginary part
  */
 void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, void* p3) {
-    
+
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         double* si = (double*) p3;
@@ -61,37 +62,34 @@ void serialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, voi
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
 
-                    *dv = sqrt((( *sr  *  *sr) + (  *si  *  *si )));
-                    
-					//\src\executor\representer\serialiser\cybol\complex\polar\coordinates_polar_complex_cybol_serialiser.c(66) :
-					// warning C4244 : 'Funktion' : Konvertierung von 'double' in 'int', möglicher Datenverlust
-					//*da = (180 * (M_PI - atan(*si / abs(*sr)))) / M_PI;
-					// changed to:
+                    *dv = sqrt(((*sr * *sr) + (*si * *si)));
 
-						*da = (180 * (M_PI - atan(*si / fabs(*sr)))) / M_PI;
-				}
-				else {
+                    // \src\executor\representer\serialiser\cybol\complex\polar\coordinates_polar_complex_cybol_serialiser.c(66):
+                    // warning C4244: 'Funktion': Konvertierung von 'double' in 'int', mÃ¶glicher Datenverlust
+                    // *da = (180 * (M_PI - atan(*si / abs(*sr)))) / M_PI;
+                    // changed to:
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number");
+                    *da = (180 * (M_PI - atan(*si / fabs(*sr)))) / M_PI;
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number. The destination polar coordinates absolute value is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
-
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number. The destination polar coordinates argument is null.");
             }
-            
+
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number. The source cartesian coordinates real part is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number. The source cartesian coordinates imaginary part is null.");
     }
-    
-
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */

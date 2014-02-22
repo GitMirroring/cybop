@@ -18,6 +18,11 @@ _______
         * Change copyright year to 2014 in all source code files
         * Move file "tester.c" back into directory "controller/"
 
+        * Add (in the past weeks) decoder and encoder extensions of Andre Heinicke
+        * Add (in the past weeks) cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
+
+        * Fix segmentation fault in vulgar fraction de-/serialiser using "fraction" cybol example application
+
 Shell Commands
 ______________
 
@@ -198,7 +203,6 @@ Executor
 ________
 
         * Implement part serialiser called from file "cybol_serialiser.c"
-        * Provide de-/serialiser also for vulgar fraction, similar to polar complex
 
 Project
 _______

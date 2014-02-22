@@ -45,26 +45,6 @@ void deserialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex cartesian.");
 
-    //
-    // CAUTION! A complex number consists of
-    // two double numbers. However, the function
-    // "deserialise_cybol_fraction_decimal"
-    // is NOT called directly here, since:
-    //
-    // (1) an uneven number of double values
-    // might be given, which would lead to
-    // wrong results;
-    //
-    // (2) an extension of the destination
-    // complex number always comprises
-    // memory space for TWO double numbers,
-    // so that an extension for just one
-    // double number would lead to errors
-    // like segmentation faults when trying
-    // to access the complex number, if only
-    // allocated for one instead of two doubles
-    //
-
     // The temporary double item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The temporary double item data, count.

@@ -58,12 +58,12 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
                 if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                     double* dr = (double*) p0;
-            
+
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar coordinates.");
 
-                    *dr = (*sv) * (cos( *sa * M_PI / 180.0f));
+                    *dr = (*sv) * (cos(*sa * M_PI / 180.0f));
                     *di = (*sv) * (sin(*sa * M_PI / 180.0f));
-                    
+
                 } else {
 
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number");
@@ -74,7 +74,7 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
 
             }
-            
+
         } else {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
@@ -84,7 +84,7 @@ void deserialise_cybol_complex_polar_coordinates(void* p0, void* p1, void* p2, v
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise complex number.");
     }
-    
+
 }
 
 /* COORDINATES_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */

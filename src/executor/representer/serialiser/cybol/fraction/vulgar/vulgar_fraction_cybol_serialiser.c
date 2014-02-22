@@ -34,20 +34,47 @@
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../../executor/representer/serialiser/cybol/fraction/vulgar/vector_vulgar_fraction_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the vulgar fraction into comma-separated wide character data.
+ * Serialises the fraction number given in vulgar notation
+ * into comma-separated wide character data.
  *
  * @param p0 the destination wide character item
- * @param p1 the source vulgar fraction data
- * @param p2 the source vulgar fraction count
+ * @param p1 the source fraction number data
+ * @param p2 the source fraction number count
  */
 void serialise_cybol_fraction_vulgar(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol fraction vulgar.");
 
-    //?? TODO
+    // The temporary integer item.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary integer item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate temporary integer item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+    // Serialise fraction data.
+    serialise_cybol_fraction_vulgar_vector(t, p1, p2);
+
+    // Get temporary integer item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Serialise source data.
+    // (One or more fraction numbers represent
+    // two or more integer numbers, respectively).
+    serialise_cybol_fraction_decimal(p0, td, tc);
+
+    // Deallocate temporary integer item.
+    deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* VULGAR_FRACTION_CYBOL_SERIALISER_SOURCE */

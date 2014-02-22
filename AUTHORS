@@ -10,6 +10,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+In chronological order ...
+
 Cybernetics Oriented Programming (CYBOP)
         * Christian Heller <christian.heller@tuxtax.de> (software development theory)
 
@@ -22,6 +24,8 @@ Cybernetics Oriented Language (CYBOL)
         * Enrico Gallus <enrico.gallus@googlemail.com> (cybol specification generator written in cybol)
         * Falco Prescher <falco.prescher@it2010.ba-leipzig.de> (shell commands for scripting in unix and win32)
         * Johannes David <johannes.david@it2010.ba-leipzig.de> (cybol api specification update with state and logic)
+        * Cedric Thomas <cedric.thomas@it2011.ba-leipzig.de> (calculator application with tui)
+        * Marius Klotke <marius.klotke@it2011.ba-leipzig.de> (opengl 3d world test model; reflexions on integration into cyboi)
 
 Cybernetics Oriented Interpreter (CYBOI)
         * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
@@ -39,6 +43,18 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Marcel Wesberg <marcel.wesberg@it2010.ba-leipzig.de> (calculator and comparator functions for double, pointer, fraction, complex)
         * Birgit Heller <birgit.h@arcor.de> (xdt constants and translation)
         * Florian Pachel <florian.pachel@gmx.de> (xdt constants)
+        * Franziska Wehner <franziska.wehner@it2011.ba-leipzig.de> (mime type and iso character set constants)
+        * Melanie Fricke <melanie.fricke@it2011.ba-leipzig.de> (restructuring of test functions)
+        * Philipp Engelmann <pengelmann92@googlemail.com> (restructuring of test functions)
+        * Paul Stengel <paul.stengel@it2011.ba-leipzig.de> (restructuring of test functions)
+        * Tony Kreißl <tony.kreissl@it2011.ba-leipzig.de> (calculator and comparator for complex number; boolean and bitwise logic operations)
+        * Sascha Kühnel <gory_sk@gmx.de> (calculator and comparator for complex number; boolean and bitwise logic operations)
+        * Kevin Wettermann <kevin.wettermann@it2011.ba-leipzig.de> (calculator and comparator for complex number; boolean and bitwise logic operations)
+        * Alexander Müller <alexander.mueller@it2011.ba-leipzig.de> (platform-independent shell commands)
+        * Kevin Glück <kevin.glueck@it2011.ba-leipzig.de> (platform-independent shell commands)
+        * Mike Feustel <mike.feustel@it2011.ba-leipzig.de> (compilation in win32 using visual studio)
+        * Benno Schilling <benno.schilling@it2011.ba-leipzig.de> (compilation in win32 using visual studio)
+        * Markus Hinkelmann <markus@mhinkelmann.de> (compilation in apple mac osx)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
@@ -63,7 +79,7 @@ Tools
         * Sebastian Brückner <sebastian.brueckner@live.com> (cybol editor based on mono)
         * Alexander Papenfuß <alexander.papenfuss@it2010.ba-leipzig.de> (cybol editor in C# running with mono)
         * Axel Petzka <axel.petzka@it2010.ba-leipzig.de> (cybol editor with web user interface)
-        * Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de> (Eclipse extension offering CYBOL syntax highlighting and sensitive keyword list)
+        * Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de> (Eclipse extension offering cybol syntax highlighting and sensitive keyword list)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
@@ -76,26 +92,4 @@ External References (GNU GPL Projects)
         * Dieter Egger <dieter.egger@bv.tum.de> (calendar/date/time conversion Java project http://www.astro-toolbox.com/)
 
 --
-Mike Feustel <mike.feustel@it2011.ba-leipzig.de>
-Benno Schilling <benno.schilling@it2011.ba-leipzig.de>
-
-Markus Hinkelmann <markus@mhinkelmann.de>
-
-Marius Klotke <marius.klotke@it2011.ba-leipzig.de>
-
-Tony Kreißl <tony.kreissl@it2011.ba-leipzig.de>
-Sascha Kühnel <gory_sk@gmx.de>
-Kevin Wettermann <kevin.wettermann@it2011.ba-leipzig.de>
-
-Melanie Fricke <melanie.fricke@it2011.ba-leipzig.de>
-Philipp Engelmann <pengelmann92@googlemail.com>
-Paul Stengel <paul.stengel@it2011.ba-leipzig.de>
-
-Franziska Wehner <franziska.wehner@it2011.ba-leipzig.de>
-
-Cedric Thomas <cedric.thomas@it2011.ba-leipzig.de>
-
-Andre Heinicke <andre.heinicke@it2011.ba-leipzig.de>
-
-Alexander Müller <alexander.mueller@it2011.ba-leipzig.de>
-Kevin Glück <kevin.glueck@it2011.ba-leipzig.de>
+        * Andre Heinicke <andre.heinicke@it2011.ba-leipzig.de> (decoder and encoder extension)

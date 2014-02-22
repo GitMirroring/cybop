@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-02-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement vulgar fraction de-/serialiser
+        * Add (in the past weeks) iso character set constants of Franziska Wehner
+        * Add (in the past weeks) changes to test functions of Melanie Fricke, Philipp Engelmann, Paul Stengel
+        * Add (in the past weeks) boolean and bitwise logic operations as well as calculator and comparator for complex number of Tony Kreißl, Sascha Kühnel, Kevin Wettermann
+        * Add (in the past weeks) platform-independent shell commands of Alexander Müller, Kevin Glück
+        * Add (in the past weeks) compilation changes for Apple Mac OSX of Markus Hinkelmann
+        * Add (in the past weeks) cybol calculator application with tui of Cedric Thomas
+
 2014-02-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Check for null pointer when accessing compound types (complex, datetime, duration, fraction) in "executor/accessor/getter/" and "executor/accessor/setter/"
@@ -51,11 +61,8 @@
 
 2014-01-31  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Rename "ui_control" cybol example application into "tui_control"
-
-2014-01-30  Christian Heller  <christian.heller@tuxtax.de>
-
         * Extend "ui" cybol example application with wui and tui
+        * Rename "ui_control" cybol example application into "tui_control"
 
 2014-01-29  Christian Heller  <christian.heller@tuxtax.de>
 

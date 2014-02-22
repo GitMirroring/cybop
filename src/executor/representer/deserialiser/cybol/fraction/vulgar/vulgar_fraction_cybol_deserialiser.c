@@ -30,57 +30,46 @@
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/fraction/vulgar/vector_vulgar_fraction_cybol_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/integer/integer_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
  * Deserialises the wide character data into a vulgar fraction.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination fraction item
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
  */
 void deserialise_cybol_fraction_vulgar(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol fraction vulgar.");
 
-    //
-    // CAUTION! A fraction number consists of
-    // two integer numbers. However, the function
-    // "deserialise_cybol_fraction_decimal"
-    // is NOT called directly here, since:
-    //
-    // (1) an uneven number of integer values
-    // might be given, which would lead to
-    // wrong results;
-    //
-    // (2) an extension of the destination
-    // fraction number always comprises
-    // memory space for TWO integer numbers,
-    // so that an extension for just one
-    // integer number would lead to errors
-    // like segmentation faults when trying
-    // to access the fraction number, if only
-    // allocated for one instead of two integers
-    //
-
-    // The temporary fraction.
+    // The temporary integer item.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary integer item data, count.
+    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate temporary fraction item.
+    // Allocate temporary integer item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Deserialise source data
-    // (two integer numbers representing a fraction).
+    // (Two or more integer numbers represent
+    // one or more fraction numbers, respectively).
     deserialise_cybol_integer(t, p1, p2);
 
-    // Append temporary fraction to destination.
-    append_item(p0, t, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Get temporary integer item data, count.
+    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Deallocate temporary fraction.
-    deallocate_item((void*) &t, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    // Deserialise integer vector.
+    deserialise_cybol_fraction_vulgar_vector(p0, td, tc);
+
+    // Deallocate temporary integer item.
+    deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* VULGAR_FRACTION_CYBOL_DESERIALISER_SOURCE */
