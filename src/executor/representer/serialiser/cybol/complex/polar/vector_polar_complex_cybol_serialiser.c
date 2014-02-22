@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATA_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
-#define DATA_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE
+#ifndef VECTOR_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
+#define VECTOR_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,20 +32,20 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/complex/polar/element_polar_complex_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/serialiser/cybol/complex/polar/element_polar_complex_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Deserialises the complex data in polar coordinates
- * into a complex item in cartesian coordinates.
+ * Serialises the complex data in cartesian coordinates
+ * into a complex item in polar coordinates.
  *
  * @param p0 the destination complex item
  * @param p1 the source complex data
  * @param p2 the source complex count
  */
-void deserialise_cybol_complex_polar_data(void* p0, void* p1, void* p2) {
+void serialise_cybol_complex_polar_vector(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex polar data.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar vector.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -76,12 +76,12 @@ void deserialise_cybol_complex_polar_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        deserialise_cybol_complex_polar_element(p0, p1, (void*) &j);
+        serialise_cybol_complex_polar_element(p0, p1, (void*) &j);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* DATA_POLAR_COMPLEX_CYBOL_DESERIALISER_SOURCE */
+/* VECTOR_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
 #endif

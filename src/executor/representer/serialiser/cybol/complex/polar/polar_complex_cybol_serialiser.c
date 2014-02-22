@@ -31,7 +31,7 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../executor/representer/serialiser/cybol/complex/cartesian/cartesian_complex_cybol_serialiser.c"
-#include "../../../../../../executor/representer/serialiser/cybol/complex/polar/data_polar_complex_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/cybol/complex/polar/vector_polar_complex_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -59,7 +59,7 @@ void serialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
 
     // Serialise complex data given in cartesian coordinates
     // into complex data in polar coordinates.
-    serialise_cybol_complex_polar_data(t, p1, p2);
+    serialise_cybol_complex_polar_vector(t, p1, p2);
 
     // Get temporary complex item data, count.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

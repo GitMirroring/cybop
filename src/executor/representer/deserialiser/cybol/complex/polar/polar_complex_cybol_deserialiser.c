@@ -31,7 +31,7 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/complex/cartesian/cartesian_complex_cybol_deserialiser.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/complex/polar/data_polar_complex_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/complex/polar/vector_polar_complex_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -69,7 +69,7 @@ void deserialise_cybol_complex_polar(void* p0, void* p1, void* p2) {
 
     // Deserialise complex data given in polar coordinates
     // into complex data in cartesian coordinates.
-    deserialise_cybol_complex_polar_data(p0, td, tc);
+    deserialise_cybol_complex_polar_vector(p0, td, tc);
 
     // Deallocate temporary double item.
     deallocate_item((void*) &t, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);

@@ -30,7 +30,7 @@
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../../executor/representer/deserialiser/cybol/complex/cartesian/data_cartesian_complex_cybol_deserialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/complex/cartesian/vector_cartesian_complex_cybol_deserialiser.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
@@ -85,8 +85,8 @@ void deserialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Deserialise double data.
-    deserialise_cybol_complex_cartesian_data(p0, td, tc);
+    // Deserialise double vector.
+    deserialise_cybol_complex_cartesian_vector(p0, td, tc);
 
     // Deallocate temporary double item.
     deallocate_item((void*) &t, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);

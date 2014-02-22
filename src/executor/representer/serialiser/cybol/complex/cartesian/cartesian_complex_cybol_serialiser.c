@@ -33,7 +33,7 @@
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/complex/cartesian/data_cartesian_complex_cybol_serialiser.c"
+#include "../../../../../../executor/representer/serialiser/cybol/complex/cartesian/vector_cartesian_complex_cybol_serialiser.c"
 #include "../../../../../../executor/representer/serialiser/cybol/fraction/decimal/decimal_fraction_cybol_serialiser.c"
 #include "../../../../../../logger/logger.c"
 
@@ -61,7 +61,7 @@ void serialise_cybol_complex_cartesian(void* p0, void* p1, void* p2) {
     allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
 
     // Serialise complex data.
-    serialise_cybol_complex_cartesian_data(t, p1, p2);
+    serialise_cybol_complex_cartesian_vector(t, p1, p2);
 
     // Get temporary double item data, count.
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATA_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
-#define DATA_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE
+#ifndef VECTOR_CARTESIAN_COMPLEX_CYBOL_DESERIALISER_SOURCE
+#define VECTOR_CARTESIAN_COMPLEX_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,23 +32,27 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../../executor/representer/serialiser/cybol/complex/polar/element_polar_complex_cybol_serialiser.c"
+#include "../../../../../../executor/representer/deserialiser/cybol/complex/cartesian/element_cartesian_complex_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 
 /**
- * Serialises the complex data in cartesian coordinates
- * into a complex item in polar coordinates.
+ * Deserialises the double data into a complex item.
  *
  * @param p0 the destination complex item
- * @param p1 the source complex data
- * @param p2 the source complex count
+ * @param p1 the source double data
+ * @param p2 the source double count
  */
-void serialise_cybol_complex_polar_data(void* p0, void* p1, void* p2) {
+void deserialise_cybol_complex_cartesian_vector(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex polar data.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol complex cartesian vector.");
 
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The loop variables.
+    // CAUTION! They serve as index for
+    // accessing the complex number data:
+    // i - real part
+    // j - imaginary part (with initial value of ONE)
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int j = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -76,12 +80,13 @@ void serialise_cybol_complex_polar_data(void* p0, void* p1, void* p2) {
             break;
         }
 
-        serialise_cybol_complex_polar_element(p0, p1, (void*) &j);
+        deserialise_cybol_complex_cartesian_element(p0, p1, (void*) &i, (void*) &j);
 
         // Increment loop variable.
-        j++;
+        calculate_integer_add((void*) &i, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
+        calculate_integer_add((void*) &j, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
     }
 }
 
-/* DATA_POLAR_COMPLEX_CYBOL_SERIALISER_SOURCE */
+/* VECTOR_CARTESIAN_COMPLEX_CYBOL_DESERIALISER_SOURCE */
 #endif

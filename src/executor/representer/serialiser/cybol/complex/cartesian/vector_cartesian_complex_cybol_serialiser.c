@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DATA_CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE
-#define DATA_CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE
+#ifndef VECTOR_CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE
+#define VECTOR_CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -42,9 +42,9 @@
  * @param p1 the source complex data
  * @param p2 the source complex count
  */
-void serialise_cybol_complex_cartesian_data(void* p0, void* p1, void* p2) {
+void serialise_cybol_complex_cartesian_vector(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex cartesian data.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol complex cartesian vector.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -82,5 +82,5 @@ void serialise_cybol_complex_cartesian_data(void* p0, void* p1, void* p2) {
     }
 }
 
-/* DATA_CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE */
+/* VECTOR_CARTESIAN_COMPLEX_CYBOL_SERIALISER_SOURCE */
 #endif
