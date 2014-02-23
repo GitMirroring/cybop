@@ -133,7 +133,6 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     }
 
 #ifndef WIN32
-    append_item_element(arg, (void*) BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     // optional byte count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
