@@ -55,7 +55,7 @@ void deserialise_cybol_fraction_vulgar_element(void* p0, void* p1, void* p2, voi
     copy_array_forward((void*) &n, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
     copy_array_forward((void*) &d, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
-    // Allocate temporary complex.
+    // Allocate temporary fraction.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
@@ -64,10 +64,10 @@ void deserialise_cybol_fraction_vulgar_element(void* p0, void* p1, void* p2, voi
     set_fraction_element(t, (void*) &n, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
     set_fraction_element(t, (void*) &d, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
-    // Append temporary complex to destination.
+    // Append temporary fraction to destination.
     append_item_element(p0, t, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    // Deallocate temporary complex.
+    // Deallocate temporary fraction.
     deallocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 }
 

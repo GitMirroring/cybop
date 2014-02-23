@@ -71,7 +71,7 @@ void serialise_cybol_fraction_vulgar(void* p0, void* p1, void* p2) {
     // Serialise source data.
     // (One or more fraction numbers represent
     // two or more integer numbers, respectively).
-    serialise_cybol_fraction_decimal(p0, td, tc);
+    serialise_cybol_integer(p0, td, tc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 
     // Deallocate temporary integer item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

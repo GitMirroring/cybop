@@ -36,13 +36,14 @@
 
 /**
  * Compares the left- with the right complex for equality.
+ *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
  * @param p2 the right value
  */
 void compare_complex_equal(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare Complex number equal");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare complex equal.");
 
     // The destination real and imaginary.
     double dr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
@@ -57,11 +58,14 @@ void compare_complex_equal(void* p0, void* p1, void* p2) {
     // Get source real and imaginary.
     get_complex_element((void*) &sr, (void*) p2, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
-    
+
     if ((dr == sr) && (di == si)) {
-	copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
     } else {
-	copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // CAUTION! Leave result UNCHANGED.
     }
 }
 

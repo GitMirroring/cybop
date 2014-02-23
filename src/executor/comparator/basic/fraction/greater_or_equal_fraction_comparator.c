@@ -43,64 +43,32 @@
 void compare_fraction_greater_or_equal(void* p0, void* p1, void* p2) {
 
     // The left numerator, denominator.
-    void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int ln = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int ld = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The right numerator, denominator.
-    void* rn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int rn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int rd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get destination numerator.
-    copy_array_forward((void*) &ln, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    // Get destination denominator.
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
-    // Get source numerator.
-    copy_array_forward((void*) &rn, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    // Get source denominator.
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    // Get left numerator, denominator.
+    get_fraction_element((void*) &ln, (void*) p1, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &ld, (void*) p1, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    // Get right numerator, denominator.
+    get_fraction_element((void*) &rn, (void*) p2, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &rd, (void*) p2, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
-    if (rd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The expanded left numerator, right numerator.
+    // CAUTION! Initialise with ln and rn, respectively,
+    // since they are multiplied with their denominators below.
+    int eln = ln;
+    int ern = rn;
 
-        if (rn != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Calculate expanded left numerator, right numerator.
+    // CAUTION! Multiplicate CROSS-WISE.
+    calculate_integer_multiply((void*) &eln, (void*) &rd);
+    calculate_integer_multiply((void*) &ern, (void*) &ld);
 
-            if (ld != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                if (ln != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    // The expanded left numerator, right numerator.
-                    // CAUTION! Initialise with ln and rn, respectively,
-                    // since they are multiplied with their denominators below.
-                    int eln = *((int*) ln);
-                    int ern = *((int*) rn);
-
-                    // Calculate expanded left numerator, right numerator.
-                    // CAUTION! Multiplicate cross-wise.
-                    calculate_integer_multiply((void*) &eln, (void*) &rd);
-                    calculate_integer_multiply((void*) &ern, (void*) &ld);
-
-                    if (eln >= ern) {
-
-                        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left numerator is null.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The left denominator is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right numerator is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare fraction. The right denominator is null.");
-    }
+    // Compare expanded numerators.
+    compare_integer_greater_or_equal(p0, (void*) &eln, (void*) &ern);
 }
 
 /* GREATER_OR_EQUAL_FRACTION_COMPARATOR_SOURCE */

@@ -26,6 +26,7 @@
 #ifndef DIVIDE_FRACTION_CALCULATOR_SOURCE
 #define DIVIDE_FRACTION_CALCULATOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -43,23 +44,29 @@ void calculate_fraction_divide(void* p0, void* p1) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate fraction divide.");
 
     // The destination numerator and denominator.
-    void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int dn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int dd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The source numerator and denominator.
-    void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int sn = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int sd = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get destination numerator and denominator.
-    copy_array_forward((void*) &dn, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &dn, (void*) p0, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &dd, (void*) p0, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
     // Get source numerator and denominator.
-    copy_array_forward((void*) &sn, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &sn, (void*) p1, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    get_fraction_element((void*) &sd, (void*) p1, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
 
     // Multiply destination- and source numerators and denominators CROSS-WISE.
-    calculate_integer_multiply(dn, sd);
-    calculate_integer_multiply(dd, sn);
+    calculate_integer_multiply((void*) &dn, (void*) &sd);
+    calculate_integer_multiply((void*) &dd, (void*) &sn);
 
+    // Set destination numerator and denominator
+    // (just copies the values inside).
+    set_fraction_element((void*) p0, (void*) &dn, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);
+    set_fraction_element((void*) p0, (void*) &dd, (void*) DENOMINATOR_FRACTION_STATE_CYBOI_NAME);
+
+    // Reduce fraction.
     calculate_fraction_reduce(p0);
 }
 

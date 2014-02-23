@@ -21,8 +21,6 @@ _______
         * Add (in the past weeks) decoder and encoder extensions of Andre Heinicke
         * Add (in the past weeks) cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
 
-        * Fix segmentation fault in vulgar fraction de-/serialiser using "fraction" cybol example application
-
 Shell Commands
 ______________
 

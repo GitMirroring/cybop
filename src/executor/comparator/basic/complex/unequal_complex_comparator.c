@@ -43,7 +43,7 @@
  */
 void compare_complex_unequal(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare Complex number unequal");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare complex unequal.");
 
     // The destination real and imaginary.
     double dr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
@@ -60,9 +60,12 @@ void compare_complex_unequal(void* p0, void* p1, void* p2) {
     get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
     if (!((dr == sr) && (di == si))) {
-	copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
     } else {
-	copy_integer(p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // CAUTION! Leave result UNCHANGED.
     }
 }
 

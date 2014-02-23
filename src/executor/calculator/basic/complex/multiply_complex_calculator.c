@@ -48,11 +48,11 @@ void calculate_complex_multiply(void* p0, void* p1) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate complex multiply.");
 
     // The destination real and imaginary.
-    double dr = *NUMBER_0_7_DOUBLE_STATE_CYBOI_MODEL;
+    double dr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     double di = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
     // The source real and imaginary.
     double sr = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
-    double si = *NUMBER_0_8_DOUBLE_STATE_CYBOI_MODEL;
+    double si = *NUMBER_0_0_DOUBLE_STATE_CYBOI_MODEL;
 
     // Get destination real and imaginary.
     get_complex_element((void*) &dr, (void*) p0, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
@@ -61,14 +61,14 @@ void calculate_complex_multiply(void* p0, void* p1) {
     get_complex_element((void*) &sr, (void*) p1, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &si, (void*) p1, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
-    
-    double tmpdr = dr;
-    // calculate real value.
-    dr = tmpdr*sr - di*si;
-    
-    // calculate imaginary value.
-    di = tmpdr*si + di*sr;
-    
+    // The temporary destination real value.
+    double tdr = dr;
+
+    // Calculate real value.
+    dr = tdr * sr - di * si;
+    // Calculate imaginary value.
+    di = tdr * si + di * sr;
+
     // Set destination real and imaginary
     // (just copies the values inside).
     set_complex_element((void*) p0, (void*) &dr, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);

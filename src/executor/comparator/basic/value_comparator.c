@@ -88,7 +88,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // May be one day, this is useful when using assembler or implementing cyboi as hardware chip.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	//
+        //
         // element
         //
 
@@ -114,8 +114,8 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 compare_character(p0, p1, p2, p3);
             }
         }
-        
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *COMPLEX_NUMBER_STATE_CYBOI_TYPE) {
 
@@ -124,7 +124,7 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 compare_complex(p0, p1, p2, p3);
             }
         }
-        
+
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             if (*a == *DOUBLE_NUMBER_STATE_CYBOI_TYPE) {
