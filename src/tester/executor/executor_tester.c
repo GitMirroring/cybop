@@ -30,6 +30,7 @@
 #include "calculator/calculator_tester.c"
 #include "caster/caster_tester.c"
 #include "comparator/comparator_tester.c"
+#include "runner/sleeper_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -75,6 +76,7 @@ void test_executor(void* p0) {
 				test_memoriser();
 				test_manipulator();
 				test_calculator();
+				test_sleeper();
 			}
 		}
 
@@ -240,6 +242,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// runner tests
+				test_sleeper();
 			}
 		}
 
