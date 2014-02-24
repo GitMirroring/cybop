@@ -30,31 +30,20 @@
     <part name="send_command" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
     </part>
-
-    <!-- Fill Lines (if Conditions) -->
-    <part name="conditions" channel="file" format="element/part" model="calculator/logic_conditions.cybol"/>
-    <part name="if_condition_is_true_1" channel="inline" format="flow/branch" model="">
-            <property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
-            <property name="true" channel="inline" format="path/knowledge" model=".app.logic.append_active_operation"/>
+	
+	<part name="reset_temp_letter" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_letter"/>
     </part>
-    <part name="if_condition_is_true_2" channel="inline" format="flow/branch" model="">
-            <property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
-            <property name="true" channel="inline" format="path/knowledge" model=".app.logic.append_temp_line"/>
+	<part name="set_act_operation" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.temp_letter"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="reset_condition_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.condition_flag"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+	<part name="set_temp_line" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.temp_letter"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-
-    <part name="TEST_0" channel="inline" format="communicate/send" model="">
-            <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-            <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-            <property name="format" channel="inline" format="meta/format" model="element/part"/>
-            <property name="message" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
-            <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>	
 	
     <!-- Print Window -->
 

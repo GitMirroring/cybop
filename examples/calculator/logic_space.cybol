@@ -7,7 +7,7 @@
 	</part>
 	<part name="if_is_operation" channel="inline" format="flow/branch" model="">
 		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.logic.is_operation"/>
-		<property name="false" channel="inline" format="path/knowledge" model=".app.logic.is_number"/>
+		<property name="true" channel="inline" format="model/part" model="calculator/logic_operation.cybol"/>
+		<property name="false" channel="inline" format="element/part" model="calculator/logic_first_number.cybol"/>
 	</part>
 </model>

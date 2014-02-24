@@ -3,27 +3,78 @@
     <part name="space" channel="file" format="element/part" model="calculator/logic_space.cybol"/>
     <part name="clear_calculation" channel="file" format="element/part" model="calculator/logic_clear.cybol"/>
     <part name="exit" channel="inline" format="live/exit" model=""/>
-	
-	<part name="is_operation" channel="file" format="element/part" model="calculator/logic_operation.cybol"/>	
-	<part name="is_number" channel="file" format="element/part" model="calculator/logic_first_number.cybol"/>
-	<part name="last_number" channel="file" format="element/part" model="calculator/logic_second_number.cybol"/>
-	
-	<!-- Set Condition_Flag -->
-	<part name="set_condition_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.condition_flag"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
-	
-	<!-- Fill Lines -->
-	<part name="append_active_operation" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
+
+	<!-- Numbers -->
+	<part name="zero" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="0"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-	<part name="append_temp_line" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
+	<part name="one" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="two" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="three" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="3"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="four" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="4"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="five" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="5"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="six" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="6"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="seven" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="7"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="eight" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="8"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="nine" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="9"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	
+	<!-- Operations -->
+	<part name="add" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="+"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="sub" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="-"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="mul" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model="*"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+	<part name="div" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model="app.safetmp.temp_letter"/>
+        <property name="source" channel="inline" format="text/plain" model=":"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 </model>

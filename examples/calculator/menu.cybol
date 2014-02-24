@@ -7,13 +7,13 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter (Example): 15<Space>+<Space>17<Enter>">
+    <part name="info_enter_oparetion" channel="inline" format="text/plain" model="Enter (Example): 32<Space>*<Space>8<Enter>">
         <property name="position" channel="inline" format="number/integer" model="2,3"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="info_count_operation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation (+, -, *, /)">
+    <part name="info_count_operation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation (+, -, *, :)">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>

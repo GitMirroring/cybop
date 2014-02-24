@@ -1,8 +1,8 @@
 ﻿<model>	
-    <part name="set_new_number" channel="inline" format="represent/deserialise" model="">
+    <part name="set_first_number" channel="inline" format="represent/deserialise" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="format" channel="inline" format="meta/format" model="number/double"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </part>
 	<part name="clear_temp_line_3" channel="inline" format="modify/empty" model="">
