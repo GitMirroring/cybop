@@ -60,7 +60,7 @@ void test_sleep_duration() {
  * by simply commenting/ uncommenting the corresponding lines.
  */
 void test_sleeper() {
-
+	fwprintf(stdout, L"TEST sleep test.\n");
     test_sleep_duration();
 }
 
