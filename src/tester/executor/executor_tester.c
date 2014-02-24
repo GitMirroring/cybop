@@ -32,6 +32,7 @@
 #include "comparator/comparator_tester.c"
 #include "runner/sleeper_tester.c"
 #include "searcher/searcher_tester.c"
+#include "representer/representer_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -233,6 +234,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// representer tests
+				test_representer();
 			}
 		}
 
