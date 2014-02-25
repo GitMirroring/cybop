@@ -24,11 +24,15 @@
  */
 #ifndef CASTER_TESTER
 #define CASTER_TESTER
-#include "basic/double/integer_double_caster_tester.c"
+#include "basic/integer/integer_double_caster_tester.c"
+#include "basic/double/double_integer_caster_tester.c"
  void test_caster()
  {
 	 fwprintf(stdout, L"TEST modul executor/caster/double.\n");
 	 test_double_caster();
+	 fwprintf(stdout, L"TEST modul executor/caster/integer.\n");
+	 test_integer_caster();
+
  }
  /* DOUBLE_CASTER_TESTER */
  #endif

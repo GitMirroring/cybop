@@ -23,23 +23,23 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CASTER_TESTER
-#define CASTER_TESTER
+#ifndef DOUBLE_CASTER_TESTER
+#define DOUBLE_CASTER_TESTER
 
-#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../executor/caster/basic/double/integer_double_caster.c"
-#include "../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../../executor/caster/basic/double/integer_double_caster.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Tests type caster double integer.
+ * Tests type caster double to integer.
  */
 void test_caster_double_integer() {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double integer.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double to integer.");
 
     int i = 5;
     double d = 0.0;
@@ -52,19 +52,36 @@ void test_caster_double_integer() {
     fwprintf(stdout, L"TEST post i: %i\n", i);
     fwprintf(stdout, L"TEST post d: %f\n", d);
 }
+/**
+ * Tests type caster double to integer with type.
+ */
+void test_caster_double_integer_type() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double to integer.");
+
+    int i = 5;
+    double d = 0.0;
+
+    fwprintf(stdout, L"TEST pre i: %i\n", i);
+    fwprintf(stdout, L"TEST pre d: %f\n", d);
+
+    cast_integer((void*) &d, (void*) &i, (void*)DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+
+    fwprintf(stdout, L"TEST post i: %i\n", i);
+    fwprintf(stdout, L"TEST post d: %f\n", d);
+}
 
 /**
  * Tests type caster.
  */
-void test_caster() {
-
-    fwprintf(stdout, L"TEST caster.\n");
-
+void test_double_caster() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-    test_caster_double_integer();
+	test_caster_double_integer();
+	test_caster_double_integer_type();
 }
 
-/* CASTER_TESTER */
+/* DOUBLE_CASTER_TESTER */
 #endif
+
