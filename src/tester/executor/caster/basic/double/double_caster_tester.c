@@ -32,50 +32,71 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/caster/basic/double_caster.c"
-#include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
+#include "../../../../../executor/caster/basic/double/integer_double_caster.c"
 #include "../../../../../logger/logger.c"
 
 /**
  * Tests type caster integer to double.
  */
-void test_caster_integer_double(){
-	log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster integer to double.");
-
-	int i = 5;
-	double d = 0.0;
-
-	fwprintf(stdout, L"TEST pre i: %i\n", i);
-	fwprintf(stdout, L"TEST pre d: %f\n", d);
-
-	cast_integer_double((void*) &i, (void*) &d);
-
-	fwprintf(stdout, L"TEST post i: %i\n", i);
-	fwprintf(stdout, L"TEST post d: %f\n", d);
-
-}
-/**
- * Tests type caster integer to double with type.
- */
-void test_caster_integer_double_type() {
+void test_caster_integer_double() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster integer to double.");
 
-    int i = 5;
+    int i = 2;
     double d = 0.0;
 
     fwprintf(stdout, L"TEST pre i: %i\n", i);
     fwprintf(stdout, L"TEST pre d: %f\n", d);
 
-    //cast_double_integer((void*) &d, (void*) &i);
-    cast_double((void*) &i, (void*)&d, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    cast_double_integer((void*) &d, (void*) &i);
 
     fwprintf(stdout, L"TEST post i: %i\n", i);
     fwprintf(stdout, L"TEST post d: %f\n", d);
+
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    compare_integer_equal((void*) &r, (void*) NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL, (void*) &d);
+
+    if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+    	fwprintf(stdout, L"TEST successfull.\n");
+    else
+    	fwprintf(stdout, L"TEST failed.\n");
+
 }
+
+/**
+ * Tests type caster double to integer with type.
+ */
+void test_caster_integer_double_type() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster integer to double.");
+
+    int i = 2;
+    double d = 0.0;
+
+    fwprintf(stdout, L"TEST pre i: %i\n", i);
+    fwprintf(stdout, L"TEST pre d: %f\n", d);
+
+    cast_double((void*) &d, (void*) &i, (void*)INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+    fwprintf(stdout, L"TEST post i: %i\n", i);
+    fwprintf(stdout, L"TEST post d: %f\n", d);
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_equal((void*) &r, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
+
+    if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+    	fwprintf(stdout, L"TEST successfull.\n");
+    else
+    	fwprintf(stdout, L"TEST failed.\n");
+
+}
+
 /**
  * Tests type caster.
  */
-void test_integer_caster() {
+void test_double_caster() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
