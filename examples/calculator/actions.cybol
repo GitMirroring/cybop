@@ -15,8 +15,8 @@
 	<part name="8" channel="inline" format="path/knowledge" model=".app.logic.eight"/>
 	<part name="9" channel="inline" format="path/knowledge" model=".app.logic.nine"/>
 	
-	<part name="+" channel="inline" format="path/knowledge" model=".app.logic.add"/>
-	<part name="-" channel="inline" format="path/knowledge" model=".app.logic.sub"/>
-	<part name="*" channel="inline" format="path/knowledge" model=".app.logic.mul"/>
-	<part name=":" channel="inline" format="path/knowledge" model=".app.logic.div"/>
+	<part name="+" channel="file" format="element/part" model="calculator/logic_addition.cybol"/>
+	<part name="-" channel="file" format="element/part" model="calculator/logic_subtraction.cybol"/>
+	<part name="*" channel="file" format="element/part" model="calculator/logic_multiplication.cybol"/>
+	<part name=":" channel="file" format="element/part" model="calculator/logic_division.cybol"/>
 </model>
