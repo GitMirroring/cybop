@@ -4,15 +4,15 @@
     <part name="path" channel="inline" format="path/knowledge" model=""/>
 	
 	<!-- Safes for Calculation -->	
-    <part name="first_number_result" channel="inline" format="number/double" model=""/>
-    <part name="second_number" channel="inline" format="number/double" model=""/>
-    <part name="result_to_show" channel="inline" format="number/double" model=""/>
+    <part name="first_number_result" channel="inline" format="number/fraction-decimal" model=""/>
+    <part name="second_number" channel="inline" format="number/fraction-decimal" model=""/>
+    <part name="result_to_show" channel="inline" format="number/fraction-decimal" model=""/>
     <part name="operation" channel="inline" format="text/plain" model=""/>
 	
 	<!-- Safe Lines -->
     <part name="active_operation" channel="inline" format="text/plain" model=""/>
     <part name="temp_line" channel="inline" format="text/plain" model=""/>
     <part name="temp_letter" channel="inline" format="text/plain" model=""/>
-    <part name="temp_position_counter" channel="inline" format="number/integer" model="0"/>
     <part name="flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="position_flag" channel="inline" format="logicvalue/boolean" model="false"/>
 </model>
