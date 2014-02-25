@@ -33,6 +33,8 @@
 #include "runner/sleeper_tester.c"
 #include "searcher/searcher_tester.c"
 #include "representer/representer_tester.c"
+#include "communicator/communicator_tester.c"
+#include "accessor/accessor_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -80,9 +82,11 @@ void test_executor(void* p0) {
 				test_calculator();
 				test_caster();
 				test_comparator();
+				test_communicator();
 				test_representer();
 				test_sleeper();
 				test_searcher();
+				test_accessor();
 
 
 			}
@@ -95,6 +99,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// accessor tests
+				test_accessor();
 			}
 		}
 
@@ -137,6 +142,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// communicator tests
+				test_communicator();
 			}
 		}
 

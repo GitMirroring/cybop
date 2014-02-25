@@ -64,7 +64,7 @@ void test_caster_integer_double() {
 }
 
 /**
- * Tests type caster double to integer with type.
+ * Tests type caster integer to double with type.
  */
 void test_caster_integer_double_type() {
 
@@ -96,7 +96,7 @@ void test_caster_integer_double_type() {
 /**
  * Tests type caster.
  */
-void test_double_caster() {
+void test_caster_double() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
