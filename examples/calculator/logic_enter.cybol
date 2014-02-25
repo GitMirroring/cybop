@@ -15,8 +15,7 @@
 		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
 	</part>
 	
-	<!-- Start Calculation -->
-	
+	<!-- Start Calculation -->	
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
         <property name="source" channel="inline" format="text/plain" model=".app.calculation."/>
@@ -29,68 +28,6 @@
     </part>
     <part name="send_command" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
-    </part>
-	
-	<!--
-	<part name="comp_add" channel="inline" format="compare/equal" model="">
-		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="left" channel="inline" format="path/knowledge" model=".app.safetmp.operation_type"/>
-		<property name="right" channel="inline" format="number/integer" model="0"/>
-		<property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-	</part>
-	<part name="start_addition" channel="inline" format="flow/branch" model="">
-		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.add_second_number"/>
-		<property name="false" channel="inline" format="path/knowledge" model=""/>
-	</part>
-
-	<part name="comp_sub" channel="inline" format="compare/equal" model="">
-		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="left" channel="inline" format="path/knowledge" model=".app.safetmp.operation_type"/>
-		<property name="right" channel="inline" format="number/integer" model="1"/>
-		<property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-	</part>		
-	<part name="start_subtraction" channel="inline" format="flow/branch" model="">
-		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.subtract_second_number"/>
-		<property name="false" channel="inline" format="path/knowledge" model=""/>
-	</part>
-	
-	<part name="comp_mul" channel="inline" format="compare/equal" model=""/>
-		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="left" channel="inline" format="path/knowledge" model=".app.safetmp.operation_type"/>
-		<property name="right" channel="inline" format="number/integer" model="2"/>
-		<property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-	</part>		
-	<part name="start_multiplication" channel="inline" format="flow/branch" model="">
-		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.multiply_second_number"/>
-		<property name="false" channel="inline" format="path/knowledge" model=""/>
-	</part>
-
-	<part name="comp_div" channel="inline" format="compare/equal" model="">
-		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="left" channel="inline" format="path/knowledge" model=".app.safetmp.operation_type"/>
-		<property name="right" channel="inline" format="number/integer" model="3"/>
-		<property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-	</part>		
-	<part name="start_division" channel="inline" format="flow/branch" model="">
-		<property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
-		<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.divide_second_number"/>
-		<property name="false" channel="inline" format="path/knowledge" model=""/>
-	</part>
-	-->	
-	<part name="TEST_SAFETMP_4" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.safetmp"/>
-        <property name="receiver" channel="inline" format="text/plain" model="Knowledge_Tree_Calculator_Safetmp_4.txt"/>
     </part>
 	
 	<!-- Give Result to Output -->
