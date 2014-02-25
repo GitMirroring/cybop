@@ -22,7 +22,7 @@
 		<property name="true" channel="inline" format="path/knowledge" model=".app.calculation.subtract_second_number"/>
 	</part>
 
-	<part name="compare_mul" channel="inline" format="compare/equal" model="">
+	<part name="compare_mul" channel="inline" format="compare/equal" model=""/>
 		<property name="operand_1" channel="inline" format="path/knowledge" model=".app.safetmp.operation"/>
 		<property name="operand_2" channel="inline" format="text/plain" model="*"/>
 		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.flag"/>
