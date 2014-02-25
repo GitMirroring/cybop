@@ -35,6 +35,7 @@
 #include "representer/representer_tester.c"
 #include "communicator/communicator_tester.c"
 #include "accessor/accessor_tester.c"
+#include "communicator/serial_port_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -67,7 +68,8 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_UNIT_TEST_CYBOI_MODEL);
+			 fwprintf(stdout, L"TEST mfr.\n");
 
 			if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
 			{
@@ -87,13 +89,14 @@ void test_executor(void* p0) {
 				test_representer();
 				test_sleeper();
 				test_searcher();
+				test_serial_port();
 
 			}
 		}
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_ACCESSOR_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_ACCESSOR_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +107,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_CALCULATOR_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_CALCULATOR_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -115,7 +118,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_CASTER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_CASTER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -126,7 +129,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_COMMANDER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_COMMANDER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -136,18 +139,19 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_COMMUNICATOR_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_COMMUNICATOR_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// communicator tests
 				test_communicator();
+				test_serial_port();
 			}
 		}
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_COMPARATOR_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_COMPARATOR_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -158,7 +162,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_CONVERTER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_CONVERTER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -168,7 +172,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_LIFEGUARD_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_LIFEGUARD_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -178,7 +182,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_LOGIFIER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_LOGIFIER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -188,7 +192,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_MAINTAINER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_MAINTAINER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -198,7 +202,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_MANIPULATOR_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_MANIPULATOR_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -209,7 +213,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_MEMORISER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_MEMORISER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -220,7 +224,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_MODIFIER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_MODIFIER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -230,7 +234,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_REFERENCER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_REFERENCER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -240,7 +244,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_REPRESENTER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_REPRESENTER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -251,7 +255,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_RUNNER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_RUNNER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -262,7 +266,7 @@ void test_executor(void* p0) {
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			compare_integer_equal((void*) &r, p0, (void*) EXECUTER_SEARCHER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_SEARCHER_UNIT_TEST_CYBOI_MODEL);
 
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

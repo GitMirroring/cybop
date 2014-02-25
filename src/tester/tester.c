@@ -103,16 +103,16 @@ void test(void* p0) {
 
 	    // Next level of the folder executor
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			compare_integer_equal((void*)&r, p0, EXECUTER_UNIT_TEST_CYBOI_MODEL);
+			compare_integer_equal((void*)&r, p0, EXECUTOR_UNIT_TEST_CYBOI_MODEL);
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-				test_controller(p0);
+				test_executor(p0);
 			}
 		}
 
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			compare_integer_between((void*)&r, EXECUTER_UNIT_TEST_CYBOI_MODEL, NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY, p0);
+			compare_integer_between((void*)&r, EXECUTOR_UNIT_TEST_CYBOI_MODEL, NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY, p0);
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-				test_controller(p0);
+				test_executor(p0);
 			}
 		}
 }
