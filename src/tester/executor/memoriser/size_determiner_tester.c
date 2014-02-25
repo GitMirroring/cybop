@@ -60,12 +60,12 @@ void test_accessor_size_determiner() {
     determine_size((void*) &uls, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
     determine_size((void*) &wcs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    fwprintf(stdout, L"Type size character: %i\n", cs);
-    fwprintf(stdout, L"Type size double: %i\n", ds);
-    fwprintf(stdout, L"Type size integer: %i\n", is);
-    fwprintf(stdout, L"Type size pointer: %i\n", ps);
-    fwprintf(stdout, L"Type size unsigned long: %i\n", uls);
-    fwprintf(stdout, L"Type size wide character: %i\n", wcs);
+    fwprintf(stdout, L"TEST - Type size character: %i\n", cs);
+    fwprintf(stdout, L"TEST - Type size double: %i\n", ds);
+    fwprintf(stdout, L"TEST - Type size integer: %i\n", is);
+    fwprintf(stdout, L"TEST - Type size pointer: %i\n", ps);
+    fwprintf(stdout, L"TEST - Type size unsigned long: %i\n", uls);
+    fwprintf(stdout, L"TEST - Type size wide character: %i\n", wcs);
 }
 
 /**

@@ -45,14 +45,26 @@ void test_arithmetiser_integer_adder() {
     // The summand integer number.
     int s = *NUMBER_3_INTEGER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"Pointer original: %i\n", p);
-
+    fwprintf(stdout, L"TEST - Add 3 to 4 (expect 7):\n");
+    
     // Add integer to integer.
     calculate_integer_add((void*) &i, (void*) &s);
+
+    if (i == 7) {
+        
+        fwprintf(stdout, L"OK - integer addition result: %i\n", i);
+    }    
+    else {
+
+        fwprintf(stdout, L"ERROR - expected 7 but was %i\n", i);
+    }
+
+    fwprintf(stdout, L"TEST - Add 3 to pointer");
+    fwprintf(stdout, L"Pointer original: %i\n", p);
+    
     // Add integer to pointer.
     calculate_integer_add((void*) &p, (void*) &s);
-
-    fwprintf(stdout, L"Integer addition result: %i\n", i);
+    
     fwprintf(stdout, L"Pointer addition result: %i\n", p);
 }
 

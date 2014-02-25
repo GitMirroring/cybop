@@ -45,14 +45,11 @@ void test_calculate_integer_absolute(){
 	calculate_integer_absolute((void*)result, (void*) &operand);
 
 	if (*result != *expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", *expected, *result);
-		return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
 	}
-
-	fwprintf(stdout, L"post result: %d\n", *result);
-	fwprintf(stdout, L"post operand: %d\n", operand);
-
-	fwprintf(stdout, L"OK integer/calculator/absolute\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, operand);
+        }
 
 }
 
@@ -72,14 +69,11 @@ void test_calculate_integer_add(){
 	calculate_integer_add((void*) result, (void*) operand);
 
 	if (*result != *expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", *expected, *result);
-		return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
 	}
-
-	fwprintf(stdout, L"post operand: %d\n", *operand);
-	fwprintf(stdout, L"post result: %d\n", *result);
-
-	fwprintf(stdout, L"OK integer/calculator/add\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
+        }
 
 }
 
@@ -99,14 +93,11 @@ void test_calculate_integer_divide(){
 	calculate_integer_divide((void*) result, (void*) operand);
 
 	if (*result != *expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", *expected, *result);
-		return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
 	}
-
-	fwprintf(stdout, L"post operand: %d\n", *operand);
-	fwprintf(stdout, L"post result: %d\n", *result);
-
-	fwprintf(stdout, L"OK integer/calculator/divide\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
+        }
 }
 
 void test_calculate_integer_modulo(){
@@ -125,14 +116,11 @@ void test_calculate_integer_modulo(){
 	calculate_integer_modulo((void*) result, (void*) operand);
 
 	if (*result != *expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", *expected, *result);
-		return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
 	}
-
-	fwprintf(stdout, L"post operand: %d\n", *operand);
-	fwprintf(stdout, L"post result: %d\n", *result);
-
-	fwprintf(stdout, L"OK integer/calculator/modulo\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
+        }
 }
 
 void test_calculate_integer_multiply(){
@@ -154,14 +142,11 @@ void test_calculate_integer_multiply(){
 	calculate_integer_multiply((void *) result, (void*) operand);
 
 	if (*result != expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", expected, *result);
-		return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, *result);
 	}
-
-	fwprintf(stdout, L"post operand: %d\n", *operand);
-	fwprintf(stdout, L"post result: %d\n", *result);
-
-	fwprintf(stdout, L"OK integer/calculator/multiply\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
+        }
 }
 
 void test_calculate_integer_negate(){
@@ -180,14 +165,11 @@ void test_calculate_integer_negate(){
 	calculate_integer_negate((void*) result, (void*) operand);
 
 	if (*result != expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", expected, *result);
-	return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, *result);
 	}
-
-	fwprintf(stdout, L"post operand: %d\n", *operand);
-	fwprintf(stdout, L"post result: %d\n", *result);
-
-	fwprintf(stdout, L"OK integer/calculator/negate\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
+        }
 }
 
 void test_calculate_integer_subtract(){
@@ -206,13 +188,11 @@ void test_calculate_integer_subtract(){
 	calculate_integer_subtract((void*) &result, (void*) &operand);
 
 	if (result != expected){
-		fwprintf(stdout, L"ERROR: expected = %d and result = %d\n", expected, result);
-		return;
+		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, result);
 	}
-
-	fwprintf(stdout, L"post result: %d\n", result);
-	fwprintf(stdout, L"post operand: %d\n", operand);
-	fwprintf(stdout, L"OK integer/calculator/negate\n");
+        else {
+                fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", result, operand);
+        }
 }
 
 void test_integer_calculator(){
