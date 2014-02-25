@@ -8,7 +8,7 @@
     <part name="second_number" channel="inline" format="number/fraction-decimal" model=""/>
     <part name="result_to_show" channel="inline" format="number/fraction-decimal" model=""/>
     <part name="operation channel="inline" format="text/plain" model=""/>
-    <part name="operation_type" channel="inline" format="number/integer" model=""/>
+    <part name="operation_type" channel="inline" format="text/plain" model=""/>
 	
 	<!-- Safe Lines -->
     <part name="active_operation" channel="inline" format="text/plain" model=""/>
