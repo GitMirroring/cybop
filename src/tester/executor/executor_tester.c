@@ -78,7 +78,13 @@ void test_executor(void* p0) {
 				test_memoriser();
 				test_manipulator();
 				test_calculator();
+				test_caster();
+				test_comparator();
+				test_representer();
 				test_sleeper();
+				test_searcher();
+
+
 			}
 		}
 
