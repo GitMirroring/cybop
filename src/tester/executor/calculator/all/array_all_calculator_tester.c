@@ -22,19 +22,21 @@
  * @version CYBOP 0.15.0 2013-09-22
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
-#ifndef CALCULATOR_SOURCE
-#define CALCULATOR_SOURCE
-#include "basic/integer/arithmetiser_tester.c"
-#include "basic/pointer/pointer_calculator_tester.c"
-#include "basic/integer/integer_calculator_tester.c"
-void test_calculator()
-{
-	fwprintf(stdout, L"TEST Modul executor/calculator/integer.\n");
-	test_arithmetiser();
-	test_integer_calculator();
-	fwprintf(stdout, L"TEST Modul executor/calculator/pointer.\n");
-	test_pointer();
+
+#include "../../../../executor/calculator/all/array_all_calculator.c"
+
+#ifndef ARRAY_ALL_CALCULATOR_TESTER_SOURCE
+#define ARRAY_ALL_CALCULATOR_TESTER_SOURCE
+void test_calculate_all_array(){
+	int left[5];
+	int right[5];
+
+
+	calculate_all_array(left, right, operation, operandtype, resultcount, operandcount);
 
 }
-/* CALCULATOR_SOURCE */
+void test_array_all_calculator(){
+	test_calculator_all_array();
+}
+
 #endif
