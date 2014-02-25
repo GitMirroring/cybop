@@ -53,12 +53,18 @@ void send_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send terminal.");
 
-#ifdef WIN32
+#ifdef __APPLE__
+    // Process all other cases in the standard way.
+    send_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+#elif WIN32
     // Serialise tui DIRECTLY using win32 console function calls.
     // Therefore, encoding and sending are superfluous.
     // A destination item does NOT need to be handed over,
     // which is why the first parametre is NULL.
     serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
+#elif GNU_LINUX_OPERATING_SYTEM
+    // Process all other cases in the standard way.
+    send_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 #else
     // Process all other cases in the standard way.
     send_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
