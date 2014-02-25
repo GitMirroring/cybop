@@ -77,6 +77,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// all tests
+				test_accessor();
 				test_memoriser();
 				test_manipulator();
 				test_calculator();
@@ -86,8 +87,6 @@ void test_executor(void* p0) {
 				test_representer();
 				test_sleeper();
 				test_searcher();
-				test_accessor();
-
 
 			}
 		}

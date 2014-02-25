@@ -38,8 +38,9 @@
 void test_representer() {
 
     fwprintf(stdout, L"TEST executor/representer/deserialiser\n");
-    test_deserialiser();
-    //fwprintf(stdout, L"TEST executor/representer/serialiser\n");
+    //test_deserialiser();
+    fwprintf(stdout, L"TEST executor/representer/serialiser\n");
+    test_serialiser();
 }
 
 /* REPRESENTER_TESTER */

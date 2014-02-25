@@ -27,7 +27,9 @@
 //?? #include "../../../../executor/representer/serialiser.c"
 void test_serialiser()
 {
-	//@todo write some test for serialiser component
+	//@todo Write some test for serialiser component
+	fwprintf(stdout, L"TODO: Write test.\n");
+
 }
 /*SERIALISER_TESTER*/
 #endif
