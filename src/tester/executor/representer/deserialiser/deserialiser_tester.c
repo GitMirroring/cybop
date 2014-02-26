@@ -95,9 +95,9 @@ void test_representer_number_byte() {
     fwprintf(stdout, L"TEST representer number byte d1d as int: %i\n", *((char*) d1d));
 
     fwprintf(stdout, L"TEST representer number byte d2c: %i\n", *((int*) d2c));
-    fwprintf(stdout, L"TEST representer number byte d2d element 1 as int: %i\n", *((char*) (d2d + 0)));
-    fwprintf(stdout, L"TEST representer number byte d2d element 2 as int: %i\n", *((char*) (d2d + 1)));
-    fwprintf(stdout, L"TEST representer number byte d2d element 3 as int: %i\n", *((char*) (d2d + 2)));
+    fwprintf(stdout, L"TEST representer number byte d2d element 1 as int: %i\n", *((char*) ((size_t) d2d + 0)));
+	fwprintf(stdout, L"TEST representer number byte d2d element 2 as int: %i\n", *((char*) ((size_t) d2d + 1)));
+	fwprintf(stdout, L"TEST representer number byte d2d element 3 as int: %i\n", *((char*) ((size_t) d2d + 2)));
 
     // Deallocate single destination item.
     deallocate_item((void*) &d1, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);

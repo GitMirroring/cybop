@@ -26,7 +26,6 @@
 #ifndef SERIAL_PORT_TESTER
 #define SERIAL_PORT_TESTER
 
-#include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <fcntl.h>
@@ -34,10 +33,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <termios.h>
+
 #ifndef _MSC_VER
 #include <unistd.h>
+#include <sys/ioctl.h>
+#include <termios.h>
 #endif
+
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/modifier/copier/array_copier.c"
 #include "../executor/modifier/copier/item_copier.c"
