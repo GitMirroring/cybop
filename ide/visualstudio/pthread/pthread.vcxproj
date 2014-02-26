@@ -107,7 +107,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>PTW32_STATIC_LIB;PTHREAD_STATIC_LINKAGE;PTW32_STATIC_LIB;PTHREAD_STATIC_LINKAGE;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2;C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2\;include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include\visualstudio\pthreadsw32\pthreads.2;C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2\;include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -123,7 +123,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>PTW32_STATIC_LIB;PTHREAD_STATIC_LINKAGE;PTHREAD_STATIC_LINKAGE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2;C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2\;include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include\visualstudio\pthreadsw32\pthreads.2;C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2\;include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -141,7 +141,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>PTW32_STATIC_LIB;PTHREAD_STATIC_LINKAGE;PTHREAD_STATIC_LINKAGE;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2;C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2\;include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include\visualstudio\pthreadsw32\pthreads.2;C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2\;include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
