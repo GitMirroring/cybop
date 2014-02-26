@@ -39,7 +39,7 @@
 // TODO: Reinclude serial_port_tester.c / Enable Serial Communication in Win32
 // (Don't forget to enable related statements below.)
 #ifndef _MSC_VER
-#include "communicator/serial_port_tester.c"
+//?? #include "communicator/serial_port_tester.c"
 #endif
 
 #include "converter/converter_tester.c"
@@ -100,7 +100,7 @@ void test_executor(void* p0) {
 				test_searcher();
 
 #ifndef _MSC_VER
-				test_serial_port();
+//??				test_serial_port();
 #endif
 
 				//special test case, which couldn't match any folder
@@ -161,7 +161,7 @@ void test_executor(void* p0) {
 				// communicator tests
 				test_communicator();
 #ifndef _MSC_VER
-				test_serial_port();
+//??				test_serial_port();
 #endif
 			}
 		}
