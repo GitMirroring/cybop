@@ -26,7 +26,12 @@
 #ifndef CYBOI_SOURCE
 #define CYBOI_SOURCE
 
-#ifdef _MSC_VER
+#ifdef _MSC_VER		  // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
+
+#if (_MSC_VER < 1800) // Check Visual Studio version, C99 is not supported in versions below VS2013
+#error Visual Studio 2013 or higher is required for successful build of this application
+#endif
+
 #define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
 //#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
 //#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h

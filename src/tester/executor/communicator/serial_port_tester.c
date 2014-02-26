@@ -34,7 +34,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+// TODO: Implement constants / functions for use in WINDOWS
+// Maybe this helps: http://cboard.cprogramming.com/c-programming/147281-rs232-programming-visual-cplusplus-2010-a.html
 #ifndef _MSC_VER
+#include <windows.h>
+#include <WinDef.h>
+#include <io.h>
+#else
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <termios.h>

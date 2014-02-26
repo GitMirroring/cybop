@@ -36,7 +36,8 @@
 #include "communicator/communicator_tester.c"
 #include "accessor/accessor_tester.c"
 
-// TODO: serial_port_tester.c / Enable Serial Communication in Win32
+// TODO: Reinclude serial_port_tester.c / Enable Serial Communication in Win32
+// (Don't forget to enable related statements below.)
 #ifndef _MSC_VER
 #include "communicator/serial_port_tester.c"
 #endif
