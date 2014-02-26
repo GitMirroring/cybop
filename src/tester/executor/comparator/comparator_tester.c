@@ -26,23 +26,14 @@
 #ifndef COMPARATOR_TESTER
 #define COMPARATOR_TESTER
 
-#include "../constant/format/cyboi/logic_cyboi_format.c"
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../executor/comparator/all/array_all_comparator.c"
-#include "../executor/comparator/all/part_all_comparator.c"
-#include "../executor/comparator/prefix/array_prefix_comparator.c"
-#include "../executor/comparator/subsequence/array_subsequence_comparator.c"
-#include "../executor/comparator/suffix/array_suffix_comparator.c"
-#include "../executor/modifier/inserter/part_inserter.c"
-#include "../executor/modifier/overwriter/part_overwriter.c"
-#include "../logger/logger.c"
-
+#include "basic/integer/between_integer_comparator_tester.c"
 /**
  * Tests the ascii character - wide character equality.
  */
 void test_comparator_ascii_character() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator ascii character.");
+    fwprintf(stdout, L"TEST comparator ascii character.\n");
 
     char test = 'a';
 
@@ -62,6 +53,7 @@ void test_comparator_ascii_character() {
 void test_comparator_array() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator array.");
+    fwprintf(stdout, L"TEST comparator array.\n");
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -131,6 +123,7 @@ void test_comparator_array() {
 void test_comparator_part() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator part.");
+    fwprintf(stdout, L"TEST comparator part.\n");
 
     // Declare parts.
     void* w1 = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -284,6 +277,7 @@ void test_comparator_part() {
 void test_comparator_pointer() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator pointer.");
+    fwprintf(stdout, L"TEST comparator pointer.\n");
 
     int i = 1;
     int n = 2;
@@ -325,6 +319,7 @@ void test_comparator_pointer() {
 void test_comparator_double() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test comparator double.");
+    fwprintf(stdout, L"TEST comparator double.\n");
 
     double l = 1.2;
     double r = 1.3;
@@ -368,13 +363,13 @@ void test_comparator_double() {
  */
 void test_comparator() {
 
-    fwprintf(stdout, L"TEST comparator.\n");
-
-    test_comparator_ascii_character();
-    test_comparator_array();
-    test_comparator_part();
-    test_comparator_pointer();
-    test_comparator_double();
+    fwprintf(stdout, L"TEST executor/comparator.\n");
+    //test_comparator_ascii_character();
+    //test_comparator_array();
+    //test_comparator_part();
+    //test_comparator_pointer();
+    //test_comparator_double();
+    test_between_integer_comparator();
 }
 
 /* COMPARATOR_TESTER */
