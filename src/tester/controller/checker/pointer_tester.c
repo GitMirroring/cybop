@@ -26,12 +26,6 @@
 #ifndef POINTER_TESTER
 #define POINTER_TESTER
 
-#include <stdio.h>
-#include <wchar.h>
-
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../logger/logger.c"
 
 /**
  * Tests the pointer null value as subroutine.
@@ -631,7 +625,7 @@ void test_pointer_addition() {
  * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
-void test_pointer() {
+void test_check_pointer() {
 
     fwprintf(stdout, L"TEST pointer.\n");
 

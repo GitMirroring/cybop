@@ -25,7 +25,7 @@
 
 #ifndef TESTER_CONTROLLER_SOURCE
 #define TESTER_CONTROLLER_SOURCE
-
+#include "checker/checker_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -68,6 +68,7 @@ void test_controller(void* p0) {
 		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 			// all tests
+			test_checker();
 		}
 	}
 
@@ -77,6 +78,7 @@ void test_controller(void* p0) {
 
 		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 			// checker tests
+			test_checker();
 		}
 	}
 

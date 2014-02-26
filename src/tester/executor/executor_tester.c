@@ -37,6 +37,7 @@
 #include "accessor/accessor_tester.c"
 #include "communicator/serial_port_tester.c"
 #include "converter/converter_tester.c"
+#include "modifier/modifier_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -230,6 +231,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// modifier tests
+				test_modifier();
 			}
 		}
 
