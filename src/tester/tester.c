@@ -30,6 +30,7 @@
 #include "controller/controller_tester.c"
 #include "applicator/applicator_tester.c"
 #include "executor/executor_tester.c"
+#include "unknown/unknown_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -53,8 +54,10 @@
  *
  * @param p0 the test unit
  */
+#include "logger_tester.c"
 void test(void* p0) {
 	log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test.");
+	fwprintf(stdout, L"TEST logger.\n");
 	// The comparison result.
 	    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -69,6 +72,7 @@ void test(void* p0) {
 				test_controller(p0);
 				test_applicator(p0);
 				test_executor(p0);
+				test_unknown();
 			}
 	    }
 	    // Next level of the folder applicator

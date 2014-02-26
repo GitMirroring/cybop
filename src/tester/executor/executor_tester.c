@@ -38,6 +38,7 @@
 #include "communicator/serial_port_tester.c"
 #include "converter/converter_tester.c"
 #include "modifier/modifier_tester.c"
+#include "commander/commander_tester.c"
 //
 // Examples for source code testing via log messages.
 //
@@ -86,11 +87,14 @@ void test_executor(void* p0) {
 				test_calculator();
 				test_caster();
 				test_comparator();
+				test_commander();
 				test_communicator();
 				test_representer();
 				test_sleeper();
 				test_searcher();
 				test_serial_port();
+
+				//special test case, which couldn't match any folder
 
 			}
 		}
@@ -135,6 +139,7 @@ void test_executor(void* p0) {
 			if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 				// commandander tests
+				test_commander();
 			}
 		}
 
