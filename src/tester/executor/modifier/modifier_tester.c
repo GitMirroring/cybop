@@ -25,6 +25,7 @@
 
 #ifndef MODIFIER_TESTER
 #define MODIFIER_TESTER
+#include "copier/copier_tester.c"
 /**
  * Tests part modification on compound part.
  */
@@ -306,11 +307,13 @@ void test_modifier_array() {
  */
 void test_modifier() {
 
-    fwprintf(stdout, L"TEST modifier.\n");
-
+    fwprintf(stdout, L"TEST executor/modifier.\n");
     test_modifier_part_compound();
     test_modifier_part_wide_character_insert();
     test_modifier_array();
+    fwprintf(stdout, L"TEST executor/modifier/copier.\n");
+    test_copier();
+    //
 }
 
 /* MODIFIER_TESTER */
