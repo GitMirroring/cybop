@@ -107,7 +107,7 @@ void test_representer_number_byte() {
 void test_deserialiser()
 {
 	//@todo:Find segmentation fault.
-	fwprintf(stdout, L"TODO: Find segmentation fault.");
+	fwprintf(stdout, L"TODO: Find segmentation fault.\n");
 	//test_representer_number_byte();
 }
 /*DESERIALISER_TESTER*/
