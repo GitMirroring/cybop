@@ -70,7 +70,6 @@ void test_executor(void* p0) {
 		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 			compare_integer_equal((void*) &r, p0, (void*) EXECUTOR_UNIT_TEST_CYBOI_MODEL);
-			 fwprintf(stdout, L"TEST mfr.\n");
 
 			if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
 			{
