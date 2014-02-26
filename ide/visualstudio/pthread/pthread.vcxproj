@@ -92,7 +92,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>PTW32_STATIC_LIB;PTHREAD_STATIC_LINKAGE;PTW32_STATIC_LIB;PTW32_INCLUDE_WINDOWS_H;PTHREAD_STATIC_LINKAGE;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\M\Documents\Cybop.trunc\include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include\visualstudio\pthreadsw32\pthreads.2</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
