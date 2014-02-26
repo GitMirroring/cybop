@@ -13,7 +13,7 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="info_count_operation" channel="inline" format="text/plain" model="1. only 1 Operation each Calculation (+, -, *, :)">
+    <part name="info_count_operation" channel="inline" format="text/plain" model="1. only 1 Operation (+, -, *, :)">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
         <property name="size" channel="inline" format="number/integer" model="90,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>

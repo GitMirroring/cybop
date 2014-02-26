@@ -10,11 +10,6 @@
         <property name="source" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
-	<part name="temp_pos_counter_erhoehen" channel="inline" format="calculate/add" model="">
-		<property name="result" channel="inline" format="path/knowledge" model=".app.safetmp.temp_position_counter"/>
-		<property name="operand" channel="inline" format="number/integer" model="1"/>
-		<property name="type" channel="inline" format="meta/type" model="number/integer"/>
-	</part>
 	<part name="clear_temp_line_2" channel="inline" format="modify/empty" model="">
 		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
 	</part>
