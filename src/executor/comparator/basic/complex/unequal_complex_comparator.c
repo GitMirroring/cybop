@@ -36,6 +36,15 @@
 
 /**
  * Compares the left- with the right complex for unequality.
+ * 
+ * CAUTION! Complex numbers can ONLY be compared for identity!
+ * 
+ * Due to their two-dimensional field nature, they cannot
+ * be represented on a number line (German: Zahlenstrahl).
+ * Thus, a comparison (greater, smaller) is NOT possible.
+ * 
+ * http://www.informatik.uni-leipzig.de/~meiler/Schuelerseiten.dir/DPlotzki/html/complex.htm
+ * http://answers.yahoo.com/question/index?qid=20081223173853AAAbUug
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value
@@ -59,6 +68,7 @@ void compare_complex_unequal(void* p0, void* p1, void* p2) {
     get_complex_element((void*) &sr, (void*) p2, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);
     get_complex_element((void*) &si, (void*) p2, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
+    // CAUTION! Mind the NOT operator at the beginning!
     if (!((dr == sr) && (di == si))) {
 
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

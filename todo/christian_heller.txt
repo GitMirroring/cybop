@@ -18,12 +18,13 @@ _______
         * Change copyright year to 2014 in all source code files
         * Move file "tester.c" back into directory "controller/"
 
-        * Add (in the past weeks) decoder and encoder extensions of Andre Heinicke
         * Add (in the past weeks) cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
 
 Shell Commands
 ______________
 
+        * Test cybol replacement of shell script "clean_result_directory.sh"
+        * Move files one directory up from "executor/commander/basic/"
         * Simplify shell commands by using identical constants for all platforms
         * See simplification (just one block) example in file "todo/christian_heller_copy_file_commander.c"
 
@@ -201,6 +202,12 @@ Executor
 ________
 
         * Implement part serialiser called from file "cybol_serialiser.c"
+
+Logifier
+________
+
+        * Add error messages for logic operations with overflow (nand, nor, xnor, not, neg)
+        * Fix error occuring while printing byte values in terminal applications
 
 Project
 _______

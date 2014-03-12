@@ -36,6 +36,15 @@
 
 /**
  * Compares the left- with the right complex for equality.
+ * 
+ * CAUTION! Complex numbers can ONLY be compared for identity!
+ * 
+ * Due to their two-dimensional field nature, they cannot
+ * be represented on a number line (German: Zahlenstrahl).
+ * Thus, a comparison (greater, smaller) is NOT possible.
+ * 
+ * http://www.informatik.uni-leipzig.de/~meiler/Schuelerseiten.dir/DPlotzki/html/complex.htm
+ * http://answers.yahoo.com/question/index?qid=20081223173853AAAbUug
  *
  * @param p0 the result (number 1 if true; unchanged otherwise)
  * @param p1 the left value

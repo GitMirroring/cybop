@@ -48,7 +48,8 @@ _______
 CYBOL
 _____
 
-        * Create complex tui application, e.g. a calculator
+        * Create complex tui application, e.g. continue "calculator"
+        * See example applications "helloworld", "tui", "ui_control"
 
         * Write cybol application communicating with microcontroller device,
         * Make it usable also from Windows via serial API(Win32::SerialPort)
@@ -61,8 +62,19 @@ _____
 CYBOI
 _____
 
-        * Make cyboi cross-compilable for various architectures, e.g. ARM processor (Raspberry Pi)
-        * Make cyboi usable on mobile devices
+        * Compile cyboi for win32 using native visual studio, since mingw troubles with some functionality
+        * See directory "doc/development/win32_visual_studio_migration/"
+
+        * Compile cyboi on Mac OSX Darwin
+        * See directory "doc/development/osx/"
+        * Add gui functionality using "cocoa" environment (possibly requires objective c code to wrap the C application)
+            https://developer.apple.com/library/mac/documentation/porting/conceptual/portingunix/environments/environments.html#//apple_ref/doc/uid/TP40002852-BBCIFCFH
+            Carbon framework doesn't support X64 and is deprecated since Oktober 2012;
+            X11 library is needed to install on mac but not supported by Apple anymore
+
+        * Compile cyboi on ARM processor (Raspberry Pi)
+
+        * Make cyboi usable on mobile devices, e.g. Android, iOS
 
         * Factor out parts of cyboi (e.g. x-window-system) into libraries, to improve portability
         * Adapt automake script accordingly
@@ -70,6 +82,43 @@ _____
 
         * Add calculator functions for types datetime, duration
         * Add comparator functions for types datetime, duration
+
+        * Provide more shell commands in a platform-independent way, usable on posix and win32
+        * See list of commands:
+            http://de.wikipedia.org/wiki/Unix-Kommandos#Kommandos_.28Auswahl.29
+            http://de.wikipedia.org/wiki/Windows_PowerShell#Cmdlets
+        * Create useful and uniform names for commands using pattern "verb-noun"
+        * Procedure:
+            * Add commands to directory "constant/model/command/"
+            * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
+            * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
+            * Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
+            * Add new file with options for each command to directory "constant/name/command_option/"
+            * Add new file for differing options to sub directory "unix/" or "windows/"
+            * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+            * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+            * Add new file for each new command to directory "executor/commander/basic/" (see example file "list_contents_commander.c")
+            * Consider platform (unix or windows) using preprocessor defines
+            * Add new file for each command (cybol operation) to directory "applicator/command/"
+            * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
+
+        * Continue decoder and encoder in directory "executor/converter/"
+        * Implement additional character encodings "IBM-Code" and "7-Bit-Code" (see LDT standard, version 2012-06-18, page 22)
+        * Add constants to new files in directory "constant/model/character_code/windows/"
+        * Add constants to new files in directory "constant/model/character_code/dos/"
+        * Factor out unicode characters into separate files oriented on code blocks
+        * Add constants to new files in directory "constant/model/character_code/unicode/"
+        * Write short cybol application for testing
+        * Test conversion using differently encoded text files
+
+        * Create test functions in files of directory "tester/"
+        * Adapt the following files only if new test files are introduced
+            "constant/model/cyboi/option/test_unit_option_cyboi_model.c"
+            "constant/model/cyboi/test/unit_test_cyboi_model.c"
+            "executor/searcher/selector/command_line/test_unit_command_line_selector.c"
+            "controller/tester.c"
+        * Process test functions with e.g. "cyboi --test=calculator"
+        * Let them produce an "OK" or "ERROR", in the style of JUnit
 
         * Create different layout manager algorithms for positioning of graphical components (arithmetics, similar to Swing and Qt)
         * Provide graphical standard components (geometry, similar to Swing), e.g. "button", chosen via "component" property in cybol
