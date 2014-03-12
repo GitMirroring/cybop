@@ -156,7 +156,50 @@ _______________________________
 CYBOI Compilation Windows (MSVC)
 ________________________________
 
+- For windows compilation using Microsoft Visual Studio you will need version 2013 or higher. 
+  Up to now XCB features are not supported. Other limitations you will find in the TODO list.
 
+- Checkout cybop trunk from savannah.gnu.org using Putty and TortoiseSVN:
+
+	Check if TortoiseSVN-Client is installed on your System. If not, download and install (Admin privileges required) from: 
+		http://tortoisesvn.net/downloads.html
+		
+	Download and unzip Putty from: 
+		http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+		
+	Putty must not be installed so no Admin privileges are required.
+	
+	Generate SSH-Key using PUTTYGEN.EXE. Save private key to secure location, copy public key to savannah registration web form.
+	Make sure your GNU-Savannah username contains only lowercase letters to avoid login errors!
+	
+	Create new SSH-Session configuration using PUTTY.EXE. Adjust the following settings:
+	- Set hostname to svn.savannah.nongnu.org
+	- In the "Connection" section set "Auto-login username" to your GNU-Savannah username. 
+	- In the "Connection" section subset "SSH/Auth" set "Private key file for authentication" to your previously saved private keyfile.	
+	- Set session name to svn.savannah.gnu.org and save session.
+	- Open the created session. If everything works fine, the session is connecting and closing without any further error notice.
+
+	(Technical background: The putty session is saved into registry, so TortoiseSVN is able to find this session via its session name.)
+	
+	Change into some directory (documents for example).
+	Right click and chose "SVN checkout" in context menu.
+	In the SVN-Checkout dialog set the "URL of repository" to:
+		svn+ssh://username@putty_session_name/cybop/trunk
+	where
+		username is your GNU-Savannah username 
+		putty_session_name is the name of the putty-session created in the step above: svn.savannah.nongnu.org
+	
+	The "Checkout directory" will be automaticaly completed to ...\cybop
+	
+	All other options should be left to defaults.
+	
+	By clicking OK, the checkout procedure begins.
+	
+- Open the file cyboi.sln in Visual Studio, adjust your platform and compile.
+
+- If your VS version is above 2013 you may need to change platform-toolset version in the project settings to your current version. Otherwise you may get curious compiler errors.
+
+	
 CYBOI Compilation OSX (gcc)
 ___________________________
 
