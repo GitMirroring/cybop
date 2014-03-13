@@ -34,21 +34,41 @@
  * The begin index separator knowledge cyboi name.
  *
  * Example:
- * .wui.index.body.table.row.[2].data
+ * .app.wui.index.body.table.row.[2].data
  */
 static wchar_t BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'['};
 static wchar_t* BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME = BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
 static int* BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The begin path separator knowledge cyboi name.
+ *
+ * Example:
+ * .app.wui.(.app.var.page_name).body.table.row
+ */
+static wchar_t BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'('};
+static wchar_t* BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
+static int* BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The end index separator knowledge cyboi name.
  *
  * Example:
- * .wui.index.body.table.row.[2].data
+ * .app.wui.index.body.table.row.[2].data
  */
 static wchar_t END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L']'};
 static wchar_t* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME = END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
 static int* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The end path separator knowledge cyboi name.
+ *
+ * Example:
+ * .app.wui.(.app.var.page_name).body.table.row
+ */
+static wchar_t END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L')'};
+static wchar_t* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
+static int* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The list separator knowledge cyboi name.
@@ -60,15 +80,17 @@ static int* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_ST
  * patient_$1
  * patient_$...
  */
+/*??
 static wchar_t LIST_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'_', L'$'};
 static wchar_t* LIST_SEPARATOR_KNOWLEDGE_CYBOI_NAME = LIST_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
 static int* LIST_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+*/
 
 /**
  * The model separator knowledge cyboi name.
  *
  * Example:
- * .gui.menubar.file.exit
+ * .app.gui.menubar.file.exit
  */
 static wchar_t MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'.'};
 static wchar_t* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME = MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
@@ -78,7 +100,7 @@ static int* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_
  * The property separator knowledge cyboi name.
  *
  * Example:
- * .gui.menubar#colour
+ * .app.gui.menubar#colour
  */
 static wchar_t PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY[] = {L'#'};
 static wchar_t* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_ARRAY;
