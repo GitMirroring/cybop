@@ -20,6 +20,13 @@ _______
 
         * Add (in the past weeks) cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
 
+Knowledge Path
+______________
+
+        * Provide possibility to access node name within knowledge path, e.g. using parentheses () or braces {} or a prefix like "$" (see XPath notation)
+            .app.domain.(.app.var.item_name).description
+            this would help simplifying cybol applications immensly
+
 Shell Commands
 ______________
 
