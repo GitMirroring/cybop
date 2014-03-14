@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BEGIN_PATH_KNOWLEDGE_SELECTOR_SOURCE
-#define BEGIN_PATH_KNOWLEDGE_SELECTOR_SOURCE
+#ifndef BEGIN_EXPRESSION_KNOWLEDGE_SELECTOR_SOURCE
+#define BEGIN_EXPRESSION_KNOWLEDGE_SELECTOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,8 +33,9 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/deserialiser/knowledge/path_part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/index_part_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/name_part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/path_part_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -63,7 +64,7 @@
 //
 
 /**
- * Selects the knowledge path begin.
+ * Selects the knowledge expression begin.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
@@ -72,13 +73,24 @@
  * @param p4 the source whole part element index (one of:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
+ * @param p5 the knowledge memory part
  */
-void select_knowledge_path_begin(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_knowledge_expression_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge path begin.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge expression begin.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect_array((void*) &r, p2, p3, (void*) BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            deserialise_knowledge_part_index(p0, p1, p2, p3, p4, p5);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -86,18 +98,18 @@ void select_knowledge_path_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part_path(p0, p1, p2, p3, p4);
+            deserialise_knowledge_part_path(p0, p1, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // An "(" indicating that a new sub part's path begin was NOT found.
+        // A special character indicating a knowledge expression was NOT found.
         // Therefore, the following characters are supposed to represent a part name.
 
-        deserialise_knowledge_part_name(p0, p1, p2, p3, p4);
+        deserialise_knowledge_part_name(p0, p1, p2, p3, p4, p5);
     }
 }
 
-/* BEGIN_PATH_KNOWLEDGE_SELECTOR_SOURCE */
+/* BEGIN_EXPRESSION_KNOWLEDGE_SELECTOR_SOURCE */
 #endif

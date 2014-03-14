@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Gets a knowledge part by name.
@@ -54,8 +54,9 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
  * @param p4 the source whole part element index (one of:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
+ * @param p5 the knowledge memory part
  */
-void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
 
@@ -156,7 +157,7 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
             // to p above, so that p now becomes the source.
             // If it has a child part, then that will be assigned to the
             // destination. Otherwise, the destination remains UNTOUCHED.
-            deserialise_knowledge(p0, p, p2, p3);
+            deserialise_knowledge(p0, p, p2, p3, p5);
 
             // CAUTION! This break statement is IMPORTANT.
             // Without it, memory access errors will occur.

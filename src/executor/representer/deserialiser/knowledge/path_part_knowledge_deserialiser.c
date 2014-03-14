@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/accessor/getter/part_getter.c"
+#include "../../../../executor/accessor/name_getter/part_name_getter.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
@@ -44,10 +45,10 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
- * Gets a knowledge part by index.
+ * Deserialises a knowledge part by path.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
@@ -56,15 +57,14 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
  * @param p4 the source whole part element index (one of:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
+ * @param p5 the knowledge memory part
  */
-void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part path.");
 
-/*??
-fwprintf(stdout, L"TEST deserialise path path data: %ls\n", (wchar_t*) *((void**) p2));
-fwprintf(stdout, L"TEST deserialise path path data: %i\n", *((int*) p3));
-*/
+fwprintf(stdout, L"TEST deserialise path count remaining: %i\n", *((int*) p3));
+fwprintf(stdout, L"TEST deserialise path data: %ls\n", (wchar_t*) *((void**) p2));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -75,10 +75,13 @@ fwprintf(stdout, L"TEST deserialise path path data: %i\n", *((int*) p3));
     // Also, the count has to be incremented below.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The path item.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The path item data.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The name part.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The name part model item.
+    void* nm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The name part model item data, count.
+    void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
@@ -114,24 +117,13 @@ fwprintf(stdout, L"TEST deserialise path path data: %i\n", *((int*) p3));
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Allocate temporary path item.
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            // CAUTION! Initialise integer items with a size of ONE,
-            // in order to avoid later reallocation when overwriting
-            // the element and to thus increase efficiency.
-            allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+fwprintf(stdout, L"TEST deserialise path sc: %i\n", sc);
+fwprintf(stdout, L"TEST deserialise path sd: %ls\n", (wchar_t*) sd);
 
-            // Deserialise path.
-            deserialise_cybol_integer_value(i, sd, (void*) &sc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+            // The closing parenthesis ")" indicating the end of
+            // the path string data WAS found.
 
-            // Get temporary path item data.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // Get part with path from source whole part model OR properties,
+            // Get name part with path from source whole part model OR properties,
             // depending on the source whole part element index p4.
             //
             // CAUTION! Hand over p (as pointer reference) instead of p0 here,
@@ -141,20 +133,32 @@ fwprintf(stdout, L"TEST deserialise path path data: %i\n", *((int*) p3));
             // might wrongly get returned as result,
             // e.g. if the last name does not exist.
             // In order to avoid this, the p0 result parametre
+            // gets only assigned the final part elsewhere.
+            deserialise_knowledge((void*) &n, p5, (void*) &sd, (void*) &sc, p5);
+            // Get name part model item.
+            copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            // Get name part model item data, count.
+            copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST deserialise path nmc: %i\n", *((int*) nmc));
+fwprintf(stdout, L"TEST deserialise path nmd: %ls\n", (wchar_t*) nmd);
+
+            // Get part with name from source whole part model OR properties,
+            // depending on the source whole part element index p4.
+            //
+            // CAUTION! Hand over p (as pointer reference) instead of p0 here,
+            // since this might NOT be the final name element yet.
+            // Otherwise, some part in between the hierarchy,
+            // which is a parent of the searched part,
+            // might wrongly get returned as result,
+            // e.g. if the last name does not exist.
+            // In order to avoid this, the p0 result parametre
             // gets only assigned the final part in the
             // block with break condition further above.
-            //
-            // CAUTION! Do NOT use the "copy_array_forward" function,
-            // since it is low-level and does not check array boundaries!
-            get_part_element((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, id, p4);
+            get_name_part_element((void*) &p, p1, nmd, nmc, p4);
 
-/*??
-fwprintf(stdout, L"TEST deserialise path id: %i\n", *((int*) id));
 fwprintf(stdout, L"TEST deserialise path p: %i\n", p);
-*/
-
-            // Deallocate temporary path item.
-            deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // If a "." or "#" delimiter is found, then the flag is set to "true".
             // CAUTION! This is done here in a "peek ahead" manner.
@@ -171,7 +175,7 @@ fwprintf(stdout, L"TEST deserialise path p: %i\n", p);
                 // to p above, so that p now becomes the source.
                 // If it has a child part, then that will be assigned to the
                 // destination. Otherwise, the destination remains UNTOUCHED.
-                deserialise_knowledge(p0, p, p2, p3);
+                deserialise_knowledge(p0, p, p2, p3, p5);
 
             } else {
 
@@ -196,8 +200,8 @@ fwprintf(stdout, L"TEST deserialise path p: %i\n", p);
 
         } else {
 
-            // The closing bracket ")" indicating the end of
-            // the path string data was not found.
+            // The closing parenthesis ")" indicating the end of
+            // the path string data was NOT found.
 
             // Increment path string count.
             sc++;

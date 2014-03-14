@@ -138,7 +138,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge((void*) &ref, p5, (void*) &pathd, (void*) &pathc);
+            deserialise_knowledge((void*) &ref, p5, (void*) &pathd, (void*) &pathc, p5);
 
             // Get reference part model item.
             copy_array_forward((void*) &refm, ref, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -158,7 +158,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge(p0, p5, (void*) &pathd, (void*) &pathc);
+            deserialise_knowledge(p0, p5, (void*) &pathd, (void*) &pathc, p5);
         }
     }
 
@@ -192,7 +192,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge(p0, p5, (void*) &pathd, (void*) &pathc);
+            deserialise_knowledge(p0, p5, (void*) &pathd, (void*) &pathc, p5);
         }
     }
 

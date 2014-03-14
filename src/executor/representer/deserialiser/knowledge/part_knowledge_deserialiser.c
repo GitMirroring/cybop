@@ -33,11 +33,11 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/begin_index_knowledge_selector.c"
+#include "../../../../executor/searcher/selector/knowledge/begin_expression_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Gets a knowledge part either by name or index.
+ * Deserialises a knowledge part.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
@@ -46,8 +46,9 @@
  * @param p4 the source whole part element index (one of:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
+ * @param p5 the knowledge memory part
  */
-void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
 
@@ -75,7 +76,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
             break;
         }
 
-        select_knowledge_index_begin(p0, p1, p2, p3, p4);
+        select_knowledge_expression_begin(p0, p1, p2, p3, p4, p5);
     }
 }
 

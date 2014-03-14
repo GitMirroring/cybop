@@ -44,10 +44,10 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
- * Gets a knowledge part by index.
+ * Deserialises a knowledge part by index.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
@@ -56,8 +56,9 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3);
  * @param p4 the source whole part element index (one of:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
+ * @param p5 the knowledge memory part
  */
-void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part index.");
 
@@ -114,6 +115,9 @@ fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // The closing bracket "]" indicating the end of
+            // the index string data WAS found.
+
             // Allocate temporary index item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
@@ -141,8 +145,7 @@ fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
             // might wrongly get returned as result,
             // e.g. if the last name does not exist.
             // In order to avoid this, the p0 result parametre
-            // gets only assigned the final part in the
-            // block with break condition further above.
+            // gets only assigned the final part elsewhere.
             //
             // CAUTION! Do NOT use the "copy_array_forward" function,
             // since it is low-level and does not check array boundaries!
@@ -171,7 +174,7 @@ fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
                 // to p above, so that p now becomes the source.
                 // If it has a child part, then that will be assigned to the
                 // destination. Otherwise, the destination remains UNTOUCHED.
-                deserialise_knowledge(p0, p, p2, p3);
+                deserialise_knowledge(p0, p, p2, p3, p5);
 
             } else {
 
@@ -197,7 +200,7 @@ fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
         } else {
 
             // The closing bracket "]" indicating the end of
-            // the index string data was not found.
+            // the index string data was NOT found.
 
             // Increment index string count.
             sc++;

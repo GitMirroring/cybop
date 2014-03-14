@@ -65,11 +65,12 @@
  * Selects the knowledge part begin.
  *
  * @param p0 the destination name or part (pointer reference)
- * @param p1 the source part
+ * @param p1 the source whole part
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
+ * @param p4 the knowledge memory part
  */
-void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3) {
+void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part begin.");
 
@@ -86,7 +87,7 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME);
+            deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME, p4);
         }
     }
 
@@ -96,7 +97,7 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+            deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME, p4);
         }
     }
 
