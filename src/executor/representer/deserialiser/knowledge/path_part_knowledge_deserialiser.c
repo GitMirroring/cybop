@@ -63,8 +63,10 @@ void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part path.");
 
+/*??
 fwprintf(stdout, L"TEST deserialise path count remaining: %i\n", *((int*) p3));
 fwprintf(stdout, L"TEST deserialise path data: %ls\n", (wchar_t*) *((void**) p2));
+*/
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -117,8 +119,10 @@ fwprintf(stdout, L"TEST deserialise path data: %ls\n", (wchar_t*) *((void**) p2)
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+/*??
 fwprintf(stdout, L"TEST deserialise path sc: %i\n", sc);
 fwprintf(stdout, L"TEST deserialise path sd: %ls\n", (wchar_t*) sd);
+*/
 
             // The closing parenthesis ")" indicating the end of
             // the path string data WAS found.
@@ -141,8 +145,10 @@ fwprintf(stdout, L"TEST deserialise path sd: %ls\n", (wchar_t*) sd);
             copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+/*??
 fwprintf(stdout, L"TEST deserialise path nmc: %i\n", *((int*) nmc));
 fwprintf(stdout, L"TEST deserialise path nmd: %ls\n", (wchar_t*) nmd);
+*/
 
             // Get part with name from source whole part model OR properties,
             // depending on the source whole part element index p4.
@@ -158,7 +164,9 @@ fwprintf(stdout, L"TEST deserialise path nmd: %ls\n", (wchar_t*) nmd);
             // block with break condition further above.
             get_name_part_element((void*) &p, p1, nmd, nmc, p4);
 
+/*??
 fwprintf(stdout, L"TEST deserialise path p: %i\n", p);
+*/
 
             // If a "." or "#" delimiter is found, then the flag is set to "true".
             // CAUTION! This is done here in a "peek ahead" manner.
