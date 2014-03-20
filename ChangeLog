@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-03-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Check in extended xdt selectors of Florian Pachel, following BDT and GDT standard documents
+
 2014-03-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add knowledge path extension for accessing node name using parentheses, e.g. .app.wui.(.app.var.page_name).body.table
