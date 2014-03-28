@@ -14,7 +14,9 @@
 RELEASE
 _______
 
-        * Adapt shell script "dist/prepare_release.sh" to use ? wildcards for OLD year
+        * Adapt shell script "dist/prepare_release.sh"
+            to use ? wildcards for OLD year
+            and also adapt cybop version and date
         * Move file "tester.c" back into directory "controller/"
 
 Shell Commands
