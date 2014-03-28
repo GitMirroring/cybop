@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -153,7 +153,7 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                             calculate_integer_multiply((void*) &nma, (void*) &es);
 
                             // The new array elements.
-							void* na = (void*) ((size_t) *a + (ma - nma));
+                            void* na = (void*) ((size_t) *a + (ma - nma));
 
                             // The temporary size_t variable.
                             //

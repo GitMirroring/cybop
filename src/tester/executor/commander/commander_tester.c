@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -27,7 +27,7 @@
 #define COMMANDER_TESTER
 #include "preprocessor_tester.c"
 void test_commander(){
-	test_preprocessor();
+    test_preprocessor();
  }
 /* COMMANDER_TESTER */
 #endif

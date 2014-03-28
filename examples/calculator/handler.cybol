@@ -1,38 +1,38 @@
 <model>
-	<!-- Resets -->
+    <!-- Resets -->
     <part name="reset_command" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
     </part>
-	<part name="reset_temp_letter" channel="inline" format="modify/empty" model="">
+    <part name="reset_temp_letter" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_letter"/>
     </part>
     <part name="reset_result_to_show" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.result_to_show"/>
     </part>
     
-	<!-- Get New Command -->
+    <!-- Get New Command -->
     <part name="receive_command" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
     </part> 
-	
-	<!-- Set Path -->
+    
+    <!-- Set Path -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
         <property name="source" channel="inline" format="text/plain" model=".app.actions."/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-	
-	<!-- Set New Command -->
+    
+    <!-- Set New Command -->
     <part name="append_command" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.command"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-	
-	<!-- Send New Command -->
+    
+    <!-- Send New Command -->
     <part name="send_command" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.safetmp.path"/>
     </part>
@@ -45,13 +45,13 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app"/>
         <property name="receiver" channel="inline" format="text/plain" model="Knowledge_Tree_Calculator_2.txt"/>
     </part>
-	
-	<part name="set_act_operation" channel="inline" format="modify/append" model="">
+    
+    <part name="set_act_operation" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.temp_letter"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-	<part name="set_temp_line" channel="inline" format="modify/append" model="">
+    <part name="set_temp_line" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.safetmp.temp_letter"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
@@ -83,7 +83,7 @@
             <property name="message" channel="inline" format="path/knowledge" model=".app.tui.menu_window"/>
             <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-		
+        
     <!-- Reset Cursor -->
     <part name="set_cursor_back" channel="inline" format="communicate/send" model="">
             <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

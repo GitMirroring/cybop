@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -32,16 +32,16 @@
 #include "getter/getter_tester.c"
 
 void test_accessor(){
-	fwprintf(stdout, L"Test executer/accessor/getter/datetime.\n");
-	test_datetime_getter();
-	fwprintf(stdout, L"Test executer/accessor/getter/complex.\n");
-	test_complex_getter();
-	fwprintf(stdout, L"Test executer/accessor/getter/duration.\n");
-	test_duration_getter();
-	fwprintf(stdout, L"Test executer/accessor/getter/duration.\n");
-	test_fraction_getter();
-	fwprintf(stdout, L"Test executer/accessor/getter/get.\n");
-	test_getter();
+    fwprintf(stdout, L"Test executer/accessor/getter/datetime.\n");
+    test_datetime_getter();
+    fwprintf(stdout, L"Test executer/accessor/getter/complex.\n");
+    test_complex_getter();
+    fwprintf(stdout, L"Test executer/accessor/getter/duration.\n");
+    test_duration_getter();
+    fwprintf(stdout, L"Test executer/accessor/getter/duration.\n");
+    test_fraction_getter();
+    fwprintf(stdout, L"Test executer/accessor/getter/get.\n");
+    test_getter();
 }
 
 /* ACCESSOR_TESTER */

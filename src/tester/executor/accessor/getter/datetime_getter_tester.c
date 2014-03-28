@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -111,7 +111,7 @@ void test_compound_datetime() {
     deallocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 void test_datetime_getter(){
-	test_compound_datetime();
+    test_compound_datetime();
 }
 /** DATETIME_GETTER_TESTER*/
 #endif

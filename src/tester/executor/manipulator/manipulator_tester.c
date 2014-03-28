@@ -1,5 +1,5 @@
  /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -29,8 +29,8 @@
 #define TESTER_EXECUTOR_MANIPULATOR_SOURCE
 
 void test_manipulator(){
-	test_manipulator_integer();
-	test_manipulator_character();
+    test_manipulator_integer();
+    test_manipulator_character();
 }
 /* TESTER_EXECUTOR_MANIPULATOR_SOURCE */
 #endif

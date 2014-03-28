@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -114,19 +114,19 @@ void test_wide_character_wprintf() {
 
 //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e'};
 
-	static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e'};
-	// Compiler warning in VS: L'─' doesn't work correctly
-	//static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e' };
-	
+    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e'};
+    // Compiler warning in VS: L'─' doesn't work correctly
+    //static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e' };
+    
     static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_L = TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY;
 
 //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e', 0x0000};
-	
-	static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e', 0x0000 };
-	// Compiler warning in VS: L'─' doesn't work correctly
-	//static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e', 0x0000 };
     
-	static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY;
+    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e', 0x0000 };
+    // Compiler warning in VS: L'─' doesn't work correctly
+    //static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e', 0x0000 };
+    
+    static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY;
 
 //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0xE7, 0x82, 0xBA, 0x006C, 0x0065, 0x0000};
     static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0xE2, 0x94, 0x80, 0x006C, 0x0065, 0x0000};

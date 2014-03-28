@@ -1,5 +1,5 @@
-﻿<model>	
-	<part name="reset_first_number" channel="inline" format="modify/empty" model="">
+<model>    
+    <part name="reset_first_number" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
     </part>
     <part name="set_first_number" channel="inline" format="represent/deserialise" model="">

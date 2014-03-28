@@ -4,19 +4,19 @@
     <part name="c" channel="inline" format="path/knowledge" model=".app.logic.clear_calculation"/>
     <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.exit"/>
 
-	<part name="0" channel="inline" format="path/knowledge" model=".app.logic.zero"/>
-	<part name="1" channel="inline" format="path/knowledge" model=".app.logic.one"/>
-	<part name="2" channel="inline" format="path/knowledge" model=".app.logic.two"/>
-	<part name="3" channel="inline" format="path/knowledge" model=".app.logic.three"/>
-	<part name="4" channel="inline" format="path/knowledge" model=".app.logic.four"/>
-	<part name="5" channel="inline" format="path/knowledge" model=".app.logic.five"/>
-	<part name="6" channel="inline" format="path/knowledge" model=".app.logic.six"/>
-	<part name="7" channel="inline" format="path/knowledge" model=".app.logic.seven"/>
-	<part name="8" channel="inline" format="path/knowledge" model=".app.logic.eight"/>
-	<part name="9" channel="inline" format="path/knowledge" model=".app.logic.nine"/>
-	
-	<part name="+" channel="file" format="element/part" model="calculator/logic_addition.cybol"/>
-	<part name="-" channel="file" format="element/part" model="calculator/logic_subtraction.cybol"/>
-	<part name="*" channel="file" format="element/part" model="calculator/logic_multiplication.cybol"/>
-	<part name=":" channel="file" format="element/part" model="calculator/logic_division.cybol"/>
+    <part name="0" channel="inline" format="path/knowledge" model=".app.logic.zero"/>
+    <part name="1" channel="inline" format="path/knowledge" model=".app.logic.one"/>
+    <part name="2" channel="inline" format="path/knowledge" model=".app.logic.two"/>
+    <part name="3" channel="inline" format="path/knowledge" model=".app.logic.three"/>
+    <part name="4" channel="inline" format="path/knowledge" model=".app.logic.four"/>
+    <part name="5" channel="inline" format="path/knowledge" model=".app.logic.five"/>
+    <part name="6" channel="inline" format="path/knowledge" model=".app.logic.six"/>
+    <part name="7" channel="inline" format="path/knowledge" model=".app.logic.seven"/>
+    <part name="8" channel="inline" format="path/knowledge" model=".app.logic.eight"/>
+    <part name="9" channel="inline" format="path/knowledge" model=".app.logic.nine"/>
+    
+    <part name="+" channel="file" format="element/part" model="calculator/logic_addition.cybol"/>
+    <part name="-" channel="file" format="element/part" model="calculator/logic_subtraction.cybol"/>
+    <part name="*" channel="file" format="element/part" model="calculator/logic_multiplication.cybol"/>
+    <part name=":" channel="file" format="element/part" model="calculator/logic_division.cybol"/>
 </model>

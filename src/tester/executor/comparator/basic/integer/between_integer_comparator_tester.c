@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -27,20 +27,20 @@
 //#include "../../../../../executor/comparator/basic/integer/between_integer_comparator.c"
 void test_between_integer_comparator()
 {
-	fwprintf(stdout, L"TEST between integer comparator\n");
-	int* lv = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-	int* cv = NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
-	int* rv = NUMBER_100_INTEGER_STATE_CYBOI_MODEL;
-	int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    fwprintf(stdout, L"TEST between integer comparator\n");
+    int* lv = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    int* cv = NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
+    int* rv = NUMBER_100_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-		compare_integer_between((void*)&r, lv, rv, cv);
-	}
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-		fwprintf(stdout, L"TEST between faild.\n");
-	}
-	else
-		fwprintf(stdout, L"TEST between successfull.\n");
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        compare_integer_between((void*)&r, lv, rv, cv);
+    }
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        fwprintf(stdout, L"TEST between faild.\n");
+    }
+    else
+        fwprintf(stdout, L"TEST between successfull.\n");
 }
 /* BETWEEN_INTEGER_COMPARATOR_TESTER */
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -31,22 +31,22 @@
 
 void test_calculate_integer_absolute(){
 
-	int* result;
-	int operand;
-	int* expected;
+    int* result;
+    int operand;
+    int* expected;
 
-	result = NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-	operand = -5;
-	expected = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
+    result = NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    operand = -5;
+    expected = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
 
-	fwprintf(stdout, L"pre operand: %d\n", operand);
-	fwprintf(stdout, L"pre result: %d\n", *result);
+    fwprintf(stdout, L"pre operand: %d\n", operand);
+    fwprintf(stdout, L"pre result: %d\n", *result);
 
-	calculate_integer_absolute((void*)result, (void*) &operand);
+    calculate_integer_absolute((void*)result, (void*) &operand);
 
-	if (*result != *expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
-	}
+    if (*result != *expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, operand);
         }
@@ -55,22 +55,22 @@ void test_calculate_integer_absolute(){
 
 void test_calculate_integer_add(){
 
-	int* result;
-	int* operand;
-	int* expected;
+    int* result;
+    int* operand;
+    int* expected;
 
-	result = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
-	operand = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
-	expected = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
+    result = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
+    operand = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
+    expected = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
 
-	fwprintf(stdout, L"pre operand: %d\n", *operand);
-	fwprintf(stdout, L"pre result: %d\n", *result);
+    fwprintf(stdout, L"pre operand: %d\n", *operand);
+    fwprintf(stdout, L"pre result: %d\n", *result);
 
-	calculate_integer_add((void*) result, (void*) operand);
+    calculate_integer_add((void*) result, (void*) operand);
 
-	if (*result != *expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
-	}
+    if (*result != *expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
         }
@@ -79,22 +79,22 @@ void test_calculate_integer_add(){
 
 void test_calculate_integer_divide(){
 
-	int* result;
-	int* operand;
-	int* expected;
+    int* result;
+    int* operand;
+    int* expected;
 
-	result = NUMBER_5000_INTEGER_STATE_CYBOI_MODEL;
-	operand = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
-	expected = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
+    result = NUMBER_5000_INTEGER_STATE_CYBOI_MODEL;
+    operand = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
+    expected = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
 
-	fwprintf(stdout, L"pre operand: %d\n", *operand);
-	fwprintf(stdout, L"pre result: %d\n", *result);
+    fwprintf(stdout, L"pre operand: %d\n", *operand);
+    fwprintf(stdout, L"pre result: %d\n", *result);
 
-	calculate_integer_divide((void*) result, (void*) operand);
+    calculate_integer_divide((void*) result, (void*) operand);
 
-	if (*result != *expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
-	}
+    if (*result != *expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
         }
@@ -102,22 +102,22 @@ void test_calculate_integer_divide(){
 
 void test_calculate_integer_modulo(){
 
-	int* result;
-	int* operand;
-	int* expected;
+    int* result;
+    int* operand;
+    int* expected;
 
-	result = NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
-	operand = NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
-	expected = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    result = NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
+    operand = NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
+    expected = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-	fwprintf(stdout, L"pre operand: %d\n", *operand);
-	fwprintf(stdout, L"pre result: %d\n", *result);
+    fwprintf(stdout, L"pre operand: %d\n", *operand);
+    fwprintf(stdout, L"pre result: %d\n", *result);
 
-	calculate_integer_modulo((void*) result, (void*) operand);
+    calculate_integer_modulo((void*) result, (void*) operand);
 
-	if (*result != *expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
-	}
+    if (*result != *expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", *expected, *result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
         }
@@ -125,25 +125,25 @@ void test_calculate_integer_modulo(){
 
 void test_calculate_integer_multiply(){
 
-	int* result;
-	int* operand;
-	//	int* expected;
-	int expected;
+    int* result;
+    int* operand;
+    //    int* expected;
+    int expected;
 
-	result = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
-	operand = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
-	// Doesn't work with constant
-	//expected = NUMBER_5000_INTEGER_STATE_CYBOI_MODEL;
-	expected = 5000;
+    result = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
+    operand = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
+    // Doesn't work with constant
+    //expected = NUMBER_5000_INTEGER_STATE_CYBOI_MODEL;
+    expected = 5000;
 
-	fwprintf(stdout, L"pre operand: %d\n", *operand);
-	fwprintf(stdout, L"pre result: %d\n", *result);
+    fwprintf(stdout, L"pre operand: %d\n", *operand);
+    fwprintf(stdout, L"pre result: %d\n", *result);
 
-	calculate_integer_multiply((void *) result, (void*) operand);
+    calculate_integer_multiply((void *) result, (void*) operand);
 
-	if (*result != expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, *result);
-	}
+    if (*result != expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, *result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
         }
@@ -151,22 +151,22 @@ void test_calculate_integer_multiply(){
 
 void test_calculate_integer_negate(){
 
-	int* result;
-	int* operand;
-	int expected;
+    int* result;
+    int* operand;
+    int expected;
 
-	result = NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-	operand = NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
-	expected = -10;
+    result = NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    operand = NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
+    expected = -10;
 
-	fwprintf(stdout, L"pre operand: %d\n", *operand);
-	fwprintf(stdout, L"pre result: %d\n", *result);
+    fwprintf(stdout, L"pre operand: %d\n", *operand);
+    fwprintf(stdout, L"pre result: %d\n", *result);
 
-	calculate_integer_negate((void*) result, (void*) operand);
+    calculate_integer_negate((void*) result, (void*) operand);
 
-	if (*result != expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, *result);
-	}
+    if (*result != expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, *result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", *result, *operand);
         }
@@ -174,42 +174,42 @@ void test_calculate_integer_negate(){
 
 void test_calculate_integer_subtract(){
 
-	int result;
-	int operand;
-	int expected;
+    int result;
+    int operand;
+    int expected;
 
-//	result = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
-//	operand = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
-//	expected = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
+//    result = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
+//    operand = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
+//    expected = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
 
-	result = 1000;
-	operand= 500;
-	expected = 500;
-	calculate_integer_subtract((void*) &result, (void*) &operand);
+    result = 1000;
+    operand= 500;
+    expected = 500;
+    calculate_integer_subtract((void*) &result, (void*) &operand);
 
-	if (result != expected){
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, result);
-	}
+    if (result != expected){
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, result);
+    }
         else {
                 fwprintf(stdout, L"OK - post result: %d, post operand: %d\n", result, operand);
         }
 }
 
 void test_integer_calculator(){
-	fwprintf(stdout, L"TEST integer/calculator\n");
-	fwprintf(stdout, L"TEST integer/calculator/absolute\n");
-	test_calculate_integer_absolute();
-	fwprintf(stdout, L"TEST integer/calculator/add\n");
-	test_calculate_integer_add();
-	fwprintf(stdout, L"TEST integer/calculator/divide\n");
-	test_calculate_integer_divide();
-	fwprintf(stdout, L"TEST integer/calculator/modulo\n");
-	test_calculate_integer_modulo();
-	fwprintf(stdout, L"TEST integer/calculator/multiply\n");
-	test_calculate_integer_multiply();
-	fwprintf(stdout, L"TEST integer/calculator/negate\n");
-	test_calculate_integer_negate();
-	fwprintf(stdout, L"TEST integer/calculator/substract\n");
-	test_calculate_integer_subtract();
+    fwprintf(stdout, L"TEST integer/calculator\n");
+    fwprintf(stdout, L"TEST integer/calculator/absolute\n");
+    test_calculate_integer_absolute();
+    fwprintf(stdout, L"TEST integer/calculator/add\n");
+    test_calculate_integer_add();
+    fwprintf(stdout, L"TEST integer/calculator/divide\n");
+    test_calculate_integer_divide();
+    fwprintf(stdout, L"TEST integer/calculator/modulo\n");
+    test_calculate_integer_modulo();
+    fwprintf(stdout, L"TEST integer/calculator/multiply\n");
+    test_calculate_integer_multiply();
+    fwprintf(stdout, L"TEST integer/calculator/negate\n");
+    test_calculate_integer_negate();
+    fwprintf(stdout, L"TEST integer/calculator/substract\n");
+    test_calculate_integer_subtract();
 }
 #endif

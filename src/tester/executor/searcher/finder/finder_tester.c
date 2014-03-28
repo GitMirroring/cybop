@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -419,8 +419,8 @@ void test_finder_array() {
  */
 void test_finder() {
 
-	//@todo:Find segmentation fault.
-	fwprintf(stdout, L"TODO: Find segmentation fault.");
+    //@todo:Find segmentation fault.
+    fwprintf(stdout, L"TODO: Find segmentation fault.");
     //test_finder_part_hierarchical();
     //test_finder_part_by_name();
     //test_finder_array();

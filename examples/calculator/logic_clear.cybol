@@ -1,15 +1,15 @@
 <model>
-	<!-- C -->
-	<part name="clear_active_operation" channel="inline" format="modify/empty" model="">
-		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
-	</part>
-	<part name="clear_result" channel="inline" format="modify/empty" model="">
-		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
-	</part>
-	<part name="clear_result_to_show" channel="inline" format="modify/empty" model="">
-		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.result_to_show"/>
-	</part>
-	<part name="clear_temp_line" channel="inline" format="modify/empty" model="">
-		<property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
-	</part>
+    <!-- C -->
+    <part name="clear_active_operation" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.active_operation"/>
+    </part>
+    <part name="clear_result" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.first_number_result"/>
+    </part>
+    <part name="clear_result_to_show" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.result_to_show"/>
+    </part>
+    <part name="clear_temp_line" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.safetmp.temp_line"/>
+    </part>
 </model>

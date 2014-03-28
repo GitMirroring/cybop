@@ -45,7 +45,7 @@ _____
 
         * Adapt "startup" in directory "executor/maintain/" and shutdown
         * Create and adapt directory "executor/communicator/sender/" (not receiver)
-	* Create and adapt "executor/representer/serialiser/opengl/" (not deserialiser)
+        * Create and adapt "executor/representer/serialiser/opengl/" (not deserialiser)
 
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

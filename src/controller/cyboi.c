@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -26,7 +26,7 @@
 #ifndef CYBOI_SOURCE
 #define CYBOI_SOURCE
 
-#ifdef _MSC_VER		  // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
+#ifdef _MSC_VER          // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
 
 #if (_MSC_VER < 1800) // Check Visual Studio version, C99 is not supported in versions below VS2013
 #error Visual Studio 2013 or higher is required for successful build of this application
@@ -83,8 +83,8 @@ int main(int p0, char** p1) {
 
 #ifdef _MSC_VER
 #ifdef PTW32_STATIC_LIB
-	pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
-	pthread_win32_thread_attach_np(); // Currently a no-op
+    pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
+    pthread_win32_thread_attach_np(); // Currently a no-op
 #endif
 #endif
 
@@ -261,16 +261,16 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNT
 
 #ifdef _MSC_VER
 #ifdef PTW32_STATIC_LIB
-	pthread_win32_process_detach_np();
-	pthread_win32_thread_detach_np();
+    pthread_win32_process_detach_np();
+    pthread_win32_thread_detach_np();
 #endif
 #endif
 
 #ifdef _DEBUG
-	getchar();
+    getchar();
 #endif
 
-	return r;
+    return r;
 }
 
 /* CYBOI_SOURCE */

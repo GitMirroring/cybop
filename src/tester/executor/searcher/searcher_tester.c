@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -29,7 +29,7 @@
 void test_searcher()
 {
     fwprintf(stdout, L"TEST modul: executor/searcher/finder.\n");
-	test_finder();
+    test_finder();
 }
 /* SEARCHER_TESTER */
 #endif

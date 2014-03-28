@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -28,15 +28,15 @@
 #ifndef ARRAY_ALL_CALCULATOR_TESTER_SOURCE
 #define ARRAY_ALL_CALCULATOR_TESTER_SOURCE
 void test_calculate_all_array(){
-	int left[5];
-	int right[5];
+    int left[5];
+    int right[5];
 
 
-	calculate_all_array(left, right, operation, operandtype, resultcount, operandcount);
+    calculate_all_array(left, right, operation, operandtype, resultcount, operandcount);
 
 }
 void test_array_all_calculator(){
-	test_calculator_all_array();
+    test_calculator_all_array();
 }
 
 #endif

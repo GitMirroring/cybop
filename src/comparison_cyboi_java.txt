@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 1999-2014. Christian Heller.
 #
 # This is a temporary helper file with information on
 # how to structure the new container framework of CYBOI.

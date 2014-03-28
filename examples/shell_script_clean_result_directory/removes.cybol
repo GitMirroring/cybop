@@ -7,23 +7,23 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.adobe"/>
-	<property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.adobe"/>
+    <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.beagle"/>
-	<property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.beagle"/>
+    <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.cache"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.cache"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -31,7 +31,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.config"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.config"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -39,7 +39,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.dbus"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.dbus"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -47,7 +47,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.eclipse/.metadata"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.eclipse/.metadata"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -55,7 +55,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.eclipse/org.eclipse*"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.eclipse/org.eclipse*"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -63,7 +63,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.emacs.d"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.emacs.d"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -71,7 +71,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.fontconfig"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.fontconfig"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -79,7 +79,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.fonts"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.fonts"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -87,7 +87,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gconf"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gconf"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -95,7 +95,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gconfd"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gconfd"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -103,7 +103,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gimp-2.6"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gimp-2.6"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -111,7 +111,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gnome2"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gnome2"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -119,7 +119,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gnome2_private"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gnome2_private"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -127,7 +127,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gstreamer-0.10"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gstreamer-0.10"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -135,7 +135,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gvfs"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gvfs"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -143,7 +143,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.hplip"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.hplip"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -151,7 +151,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.icedteaplugin"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.icedteaplugin"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -159,7 +159,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.kde"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.kde"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -167,7 +167,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.kde4"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.kde4"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -175,7 +175,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.local"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.local"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -183,7 +183,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.macromedia"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.macromedia"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -191,7 +191,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -199,7 +199,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mcop"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mcop"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -207,7 +207,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.metadata"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.metadata"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -215,7 +215,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mozilla"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mozilla"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -223,7 +223,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mysql"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mysql"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -231,7 +231,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mysqlgui"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mysqlgui"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -239,7 +239,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.netbeans"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.netbeans"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -247,7 +247,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.netbeans-registration"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.netbeans-registration"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -255,7 +255,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.netx"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.netx"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -263,7 +263,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ooo-2.0"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ooo-2.0"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -271,7 +271,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ooo3"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ooo3"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -279,7 +279,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.pulse"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.pulse"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -287,7 +287,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.qt"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.qt"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -295,7 +295,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.rcc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.rcc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -303,7 +303,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.skel"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.skel"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -311,7 +311,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ssh"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ssh"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -319,7 +319,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.subversion"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.subversion"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -327,7 +327,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.svnqt"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.svnqt"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -335,7 +335,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.thumbnails"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.thumbnails"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -343,7 +343,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.wapi"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.wapi"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -351,7 +351,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.wine"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.wine"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -359,7 +359,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xemacs"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xemacs"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -367,16 +367,16 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xine"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xine"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     
-	
-	
-	
+    
+    
+    
     <part name="echo_message" channel="inline" format="command/echo" model="">
         <property name="message" channel="inline" format="text/plain" model=" "/>
     </part>
@@ -385,7 +385,7 @@
     </part>
 
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Bilder"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Bilder"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -393,7 +393,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/bin"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/bin"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -401,7 +401,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Desktop"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Desktop"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -409,7 +409,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Downloads"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Downloads"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -417,7 +417,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Eclipse3_Workspace/.metadata"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Eclipse3_Workspace/.metadata"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -425,7 +425,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Eclipse3_Workspace/org.eclipse*"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Eclipse3_Workspace/org.eclipse*"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -433,7 +433,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Musik"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Musik"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -441,7 +441,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Öffentlich"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Öffentlich"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -449,7 +449,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/public_html"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/public_html"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -457,7 +457,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Videos"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Videos"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -465,7 +465,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Vorlagen"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/Vorlagen"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -473,7 +473,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/workspace/.metadata"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/workspace/.metadata"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -481,8 +481,8 @@
     </part>
     
 
-	-----------------------------------------------------------------
-	
+    -----------------------------------------------------------------
+    
     <part name="echo_message" channel="inline" format="command/echo" model="">
         <property name="message" channel="inline" format="text/plain" model=" "/>
     </part>
@@ -491,7 +491,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.DCOPserver*"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.DCOPserver*"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -499,7 +499,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ICEauthority"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.ICEauthority"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -507,7 +507,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.Xauthority"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.Xauthority"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -515,7 +515,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.bash_history"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.bash_history"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -523,7 +523,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.bashrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.bashrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -531,7 +531,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.bouml"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.bouml"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -539,7 +539,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.boumlrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.boumlrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -547,7 +547,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.directory"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.directory"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -555,7 +555,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.dmrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.dmrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -563,7 +563,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.dvipsrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.dvipsrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -571,7 +571,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.emacs"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.emacs"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -579,7 +579,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.esd_auth"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.esd_auth"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -587,7 +587,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.exrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.exrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -595,7 +595,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gtkrc-2.0-kde4"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.gtkrc-2.0-kde4"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -603,7 +603,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.inputrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.inputrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -611,7 +611,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.kermrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.kermrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -619,7 +619,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.muttrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.muttrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -627,7 +627,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mysql_history"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.mysql_history"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -635,7 +635,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.profile"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.profile"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -643,7 +643,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.pulse-cookie"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.pulse-cookie"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -651,7 +651,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.recently-used"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.recently-used"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -659,7 +659,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.recently-used.xbel"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.recently-used.xbel"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -667,7 +667,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.urlview"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.urlview"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -675,7 +675,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.viminfo"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.viminfo"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -683,7 +683,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.vimrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.vimrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -691,7 +691,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xcoralrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xcoralrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -699,7 +699,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xim.template"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xim.template"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -707,7 +707,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xinitrc.template"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xinitrc.template"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -715,7 +715,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xsession-errors"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xsession-errors"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -723,7 +723,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xtalkrc"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/.xtalkrc"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -743,7 +743,7 @@
     
 
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*~"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*~"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -751,7 +751,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.class"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.class"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -759,7 +759,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.pdf"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.pdf"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -767,7 +767,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.sql"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.sql"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -775,7 +775,7 @@
     </part>
     
     <part name="remove_file" channel="inline" format="command/remove" model="">
-	<property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.sql~"/>
+    <property name="path" channel="inline" format="text/plain" model="./shell_script_clean_result_directory/home/klaus*/*.sql~"/>
         <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -787,7 +787,7 @@
 
 
 <!--
-    Copyright (C) 1999-2013. Christian Heller.
+    Copyright (C) 1999-2014. Christian Heller.
 
     This knowledge model uses the Cybernetics Oriented Language (CYBOL).
 

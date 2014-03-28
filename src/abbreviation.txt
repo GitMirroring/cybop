@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 1999-2014. Christian Heller.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>

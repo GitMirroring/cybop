@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -29,11 +29,11 @@
 #include "basic/integer/integer_calculator_tester.c"
 void test_calculator()
 {
-	fwprintf(stdout, L"TEST Modul executor/calculator/integer.\n");
-	test_arithmetiser();
-	test_integer_calculator();
-	fwprintf(stdout, L"TEST Modul executor/calculator/pointer.\n");
-	test_pointer();
+    fwprintf(stdout, L"TEST Modul executor/calculator/integer.\n");
+    test_arithmetiser();
+    test_integer_calculator();
+    fwprintf(stdout, L"TEST Modul executor/calculator/pointer.\n");
+    test_pointer();
 
 }
 /* CALCULATOR_SOURCE */

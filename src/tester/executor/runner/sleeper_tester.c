@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
 
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
@@ -60,7 +60,7 @@ void test_sleep_duration() {
  * by simply commenting/ uncommenting the corresponding lines.
  */
 void test_sleeper() {
-	fwprintf(stdout, L"TEST sleep test.\n");
+    fwprintf(stdout, L"TEST sleep test.\n");
     test_sleep_duration();
 }
 

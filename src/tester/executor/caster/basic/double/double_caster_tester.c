@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -57,9 +57,9 @@ void test_caster_integer_double() {
     compare_integer_equal((void*) &r, (void*) NUMBER_2_0_DOUBLE_STATE_CYBOI_MODEL, (void*) &d);
 
     if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-    	fwprintf(stdout, L"TEST successfull.\n");
+        fwprintf(stdout, L"TEST successfull.\n");
     else
-    	fwprintf(stdout, L"TEST failed.\n");
+        fwprintf(stdout, L"TEST failed.\n");
 
 }
 
@@ -87,9 +87,9 @@ void test_caster_integer_double_type() {
     compare_integer_equal((void*) &r, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
 
     if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-    	fwprintf(stdout, L"TEST successfull.\n");
+        fwprintf(stdout, L"TEST successfull.\n");
     else
-    	fwprintf(stdout, L"TEST failed.\n");
+        fwprintf(stdout, L"TEST failed.\n");
 
 }
 
@@ -100,8 +100,8 @@ void test_caster_double() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-	test_caster_integer_double();
-	test_caster_integer_double_type();
+    test_caster_integer_double();
+    test_caster_integer_double_type();
 }
 
 /* INTEGERS_CASTER_TESTER */

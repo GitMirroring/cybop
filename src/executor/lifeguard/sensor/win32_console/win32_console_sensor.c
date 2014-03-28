@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -100,7 +100,7 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         // This call here is just made to detect available input.
         BOOL b = PeekConsoleInputW(h, i, is, &ic);
 
-		free(i);
+        free(i);
         // If the return value is zero, then an error occured.
         if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

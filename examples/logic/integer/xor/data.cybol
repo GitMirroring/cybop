@@ -4,6 +4,6 @@
     <part name="operation" channel="inline" format="logify/xor" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
         <property name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
-	<property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
 </model>

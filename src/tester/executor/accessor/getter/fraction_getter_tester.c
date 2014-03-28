@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -103,8 +103,8 @@ void test_compound_fraction() {
     deallocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 }
 void test_fraction_getter(){
-	//@todo: Write tests.
-	 fwprintf(stdout, L"TODO: Write tests.\n");
+    //@todo: Write tests.
+     fwprintf(stdout, L"TODO: Write tests.\n");
 }
 /** FRACTION_GETTER_TESTER*/
 #endif

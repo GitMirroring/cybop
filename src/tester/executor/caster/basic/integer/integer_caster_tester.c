@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -37,27 +37,27 @@
  * Tests type caster double to integer.
  */
 void test_caster_double_integer(){
-	log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double to integer.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double to integer.");
 
-	int i = 0;
-	double d = 5.0;
+    int i = 0;
+    double d = 5.0;
 
-	fwprintf(stdout, L"TEST pre i: %i\n", i);
-	fwprintf(stdout, L"TEST pre d: %f\n", d);
+    fwprintf(stdout, L"TEST pre i: %i\n", i);
+    fwprintf(stdout, L"TEST pre d: %f\n", d);
 
-	cast_integer_double((void*) &i, (void*) &d);
+    cast_integer_double((void*) &i, (void*) &d);
 
-	fwprintf(stdout, L"TEST post i: %i\n", i);
-	fwprintf(stdout, L"TEST post d: %f\n", d);
-	// The comparison result.
-	int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    fwprintf(stdout, L"TEST post i: %i\n", i);
+    fwprintf(stdout, L"TEST post d: %f\n", d);
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	compare_integer_equal((void*) &r, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
+    compare_integer_equal((void*) &r, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
 
-	if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-		fwprintf(stdout, L"TEST successfull.\n");
-	else
-		fwprintf(stdout, L"TEST failed.\n");
+    if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+        fwprintf(stdout, L"TEST successfull.\n");
+    else
+        fwprintf(stdout, L"TEST failed.\n");
 
 }
 
@@ -80,14 +80,14 @@ void test_caster_char_integer_type() {
     fwprintf(stdout, L"TEST post c: %c\n", c);
 
     // The comparison result.
-	int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	compare_integer_equal((void*) &r, (void*) NUMBER_53_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
+    compare_integer_equal((void*) &r, (void*) NUMBER_53_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
 
-	if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-		fwprintf(stdout, L"TEST successfull.\n");
-	else
-		fwprintf(stdout, L"TEST failed.\n");
+    if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+        fwprintf(stdout, L"TEST successfull.\n");
+    else
+        fwprintf(stdout, L"TEST failed.\n");
 }
 /**
  * Tests type caster.
@@ -96,8 +96,8 @@ void test_caster_integer() {
     // Uncomment below functions as needed,
     // in order for them to be executed.
 
-	test_caster_double_integer();
-	test_caster_char_integer_type();
+    test_caster_double_integer();
+    test_caster_char_integer_type();
 }
 
 /* DOUBLE_CASTER_TESTER */

@@ -1,5 +1,5 @@
  /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -52,97 +52,97 @@
  */
 void test_controller(void* p0) {
 
-	log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test.");
 
-	int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-		{
-			compare_integer_equal((void*)&r, p0, (void*)ALL_UNIT_TEST_CYBOI_MODEL );
-		}
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+        {
+            compare_integer_equal((void*)&r, p0, (void*)ALL_UNIT_TEST_CYBOI_MODEL );
+        }
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-			// all tests
-			test_checker();
-		}
-	}
+            // all tests
+            test_checker();
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_CHECKER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_CHECKER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// checker tests
-			test_checker();
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // checker tests
+            test_checker();
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_DEOPTIONALISER_UNIT_OPTION_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_DEOPTIONALISER_UNIT_OPTION_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// deoptionaliser tests
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // deoptionaliser tests
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_GLOBALISER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_GLOBALISER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// globaliser tests
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // globaliser tests
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_CHECKER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_CHECKER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// checker tests
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // checker tests
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_HANDLER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_HANDLER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// handler tests
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // handler tests
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_MANAGER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_MANAGER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// manager tests
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // manager tests
+        }
+    }
 
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_OPTIONALISER_UNIT_OPTION_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_OPTIONALISER_UNIT_OPTION_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// optionaliser tests
-		}
-	}
-	if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // optionaliser tests
+        }
+    }
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_UNGLOBALISER_UNIT_TEST_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p0, (void*) CONTROLLER_UNGLOBALISER_UNIT_TEST_CYBOI_MODEL);
 
-		if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-			// unglobaliser tests
-		}
-	}
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            // unglobaliser tests
+        }
+    }
 }
 /* TESTER_CONTROLLER_SOURCE */
 #endif

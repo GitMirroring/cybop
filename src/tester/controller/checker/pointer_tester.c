@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -461,12 +461,12 @@ void test_pointer_addition() {
 #ifdef _MSC_VER
     // No support for void pointer arithmetic in VS!
     void* v0 = v; // unchanged
-	void* v1 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	void* v2 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	void* v3 = (void*) (((size_t) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v1 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v2 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v3 = (void*) (((size_t) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
     void* v4 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	void* v5 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	void* v6 = (void*) (((size_t) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v5 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v6 = (void*) (((size_t) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
     void* v7 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
     void* v0 = v; // unchanged
@@ -496,8 +496,8 @@ void test_pointer_addition() {
     int* i4 = (int*) (i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 #ifdef _MSC_VER
     // No support for void pointer arithmetic in VS!
-	int* i5 = (void*) ((size_t) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	int* i6 = (void*) (((size_t) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    int* i5 = (void*) ((size_t) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    int* i6 = (void*) (((size_t) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
     int* i5 = (void*) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     int* i6 = ((void*) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
@@ -521,8 +521,8 @@ void test_pointer_addition() {
     double* d4 = (double*) (d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 8
 #ifdef _MSC_VER
     // No support for void pointer arithmetic in VS!
-	double* d5 = (void*) ((size_t) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	double* d6 = (void*) (((size_t) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    double* d5 = (void*) ((size_t) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    double* d6 = (void*) (((size_t) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
     double* d5 = (void*) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     double* d6 = ((void*) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
@@ -545,8 +545,8 @@ void test_pointer_addition() {
     char* c3 = ((char*) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     char* c4 = (char*) (c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #ifdef _MSC_VER
-	char* c5 = (void*) ((size_t) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	char* c6 = (void*) (((size_t) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    char* c5 = (void*) ((size_t) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    char* c6 = (void*) (((size_t) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
     char* c5 = (void*) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     char* c6 = ((void*) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
@@ -569,8 +569,8 @@ void test_pointer_addition() {
     wchar_t* wc3 = ((wchar_t*) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
     wchar_t* wc4 = (wchar_t*) (wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 #ifdef _MSC_VER
-	wchar_t* wc5 = (void*) ((size_t) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	wchar_t* wc6 = (void*) (((size_t) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    wchar_t* wc5 = (void*) ((size_t) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    wchar_t* wc6 = (void*) (((size_t) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
     wchar_t* wc5 = (void*) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     wchar_t* wc6 = ((void*) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
@@ -593,8 +593,8 @@ void test_pointer_addition() {
     unsigned long* ul3 = ((unsigned long*) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
     unsigned long* ul4 = (unsigned long*) (ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 #ifdef _MSC_VER
-	unsigned long* ul5 = (void*) ((size_t) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-	unsigned long* ul6 = (void*) (((size_t) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    unsigned long* ul5 = (void*) ((size_t) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    unsigned long* ul6 = (void*) (((size_t) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
     unsigned long* ul5 = (void*) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     unsigned long* ul6 = ((void*) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1

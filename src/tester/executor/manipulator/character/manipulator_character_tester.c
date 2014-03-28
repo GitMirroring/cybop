@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
 
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
@@ -45,72 +45,72 @@ void test_shift_left_character() {
 
     if (expected == (char)v) {
 
-    	fwprintf(stdout, L"OK - shift result: %d\n", v);
+        fwprintf(stdout, L"OK - shift result: %d\n", v);
     }
     else {
-    	fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
     }
 }
 
 
 void test_shift_right_character() {
 
-	    fwprintf(stdout, L"TEST - shift 1 right by 1 (expect 2)\n");
+        fwprintf(stdout, L"TEST - shift 1 right by 1 (expect 2)\n");
 
-	    unsigned char v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-		void* s = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        unsigned char v = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        void* s = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-		manipulate_character_shift_left((void*) &v, s);
+        manipulate_character_shift_left((void*) &v, s);
 
-		char expected = 2;
+        char expected = 2;
 
-		if (expected == (char)v) {
+        if (expected == (char)v) {
 
-			fwprintf(stdout, L"OK - shift result: %d\n", v);
-		}
-		else {
-			fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
-		}
+            fwprintf(stdout, L"OK - shift result: %d\n", v);
+        }
+        else {
+            fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
+        }
 }
 
 void test_rotate_right_character() {
 
-	fwprintf(stdout, L"TEST - rotate 25 right by 2 (expect 6)\n");
+    fwprintf(stdout, L"TEST - rotate 25 right by 2 (expect 6)\n");
 
-	char v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
-	void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    char v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
+    void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
-	manipulate_character_rotate_right((void*) &v, s);
+    manipulate_character_rotate_right((void*) &v, s);
 
-	char expected = 6;
+    char expected = 6;
 
-	if (expected == (char)v) {
+    if (expected == (char)v) {
 
-		fwprintf(stdout, L"OK - rotate result: %d\n", v);
-	}
-	else {
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
-	}
+        fwprintf(stdout, L"OK - rotate result: %d\n", v);
+    }
+    else {
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
+    }
 }
 
 void test_rotate_left_character() {
 
-	fwprintf(stdout, L"TEST - rotate 25 left by 2 (expect 100)\n");
+    fwprintf(stdout, L"TEST - rotate 25 left by 2 (expect 100)\n");
 
-	unsigned char v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
-	void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+    unsigned char v = *NUMBER_25_INTEGER_STATE_CYBOI_MODEL;
+    void* s = NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
 
-	manipulate_character_rotate_left((void*) &v, s);
+    manipulate_character_rotate_left((void*) &v, s);
 
-	char expected = 100;
+    char expected = 100;
 
-	if (expected == (char)v) {
+    if (expected == (char)v) {
 
-		fwprintf(stdout, L"OK - rotate result: %d\n", v);
-	}
-	else {
-		fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
-	}
+        fwprintf(stdout, L"OK - rotate result: %d\n", v);
+    }
+    else {
+        fwprintf(stdout, L"ERROR - expected: %d but was: %d\n", expected, v);
+    }
 }
 
 /**
@@ -121,7 +121,7 @@ void test_rotate_left_character() {
  */
 void test_manipulator_character() {
 
-	fwprintf(stdout, L"TEST modul executor/manipulator/character:\n");
+    fwprintf(stdout, L"TEST modul executor/manipulator/character:\n");
     test_shift_left_character();
     test_shift_right_character();
     test_rotate_left_character();

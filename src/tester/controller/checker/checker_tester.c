@@ -1,5 +1,5 @@
  /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -27,7 +27,7 @@
 #define TESTER_CHECKER_SOURCE
 #include "pointer_tester.c"
 void test_checker(){
-	test_check_pointer();
+    test_check_pointer();
 }
 /* TESTER_CHECKER_SOURCE */
 #endif

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2013. Christian Heller.
+ * Copyright (C) 1999-2014. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -36,7 +36,7 @@
  * Tests the accessor size determiner.
  */
 void test_accessor_size_determiner() {
-	fwprintf(stdout, L"TEST accessor size determiner.\n");
+    fwprintf(stdout, L"TEST accessor size determiner.\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test accessor size determiner.");
 
     // The character type (type) size.
@@ -72,7 +72,7 @@ void test_accessor_size_determiner() {
  * Tests the accessor assigner.
  */
 void test_accessor_assigner() {
-	fwprintf(stdout, L"TEST accessor assigner.\n");
+    fwprintf(stdout, L"TEST accessor assigner.\n");
     // The double number.
     double d = 2.0;
     // The value to be assigned.
@@ -87,7 +87,7 @@ void test_accessor_assigner() {
  * Tests the accessor array setter.
  */
 void test_array_setter() {
-	fwprintf(stdout, L"TEST array setter.\n");
+    fwprintf(stdout, L"TEST array setter.\n");
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
     int dc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int ds = *NUMBER_100_INTEGER_STATE_CYBOI_MODEL;

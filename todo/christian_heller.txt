@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 1999-2014. Christian Heller.
 #
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.
@@ -14,11 +14,8 @@
 RELEASE
 _______
 
-        * Replace tabs with four spaces in all source code, before next release
-        * Change copyright year to 2014 in all source code files
+        * Adapt shell script "dist/prepare_release.sh" to use ? wildcards for OLD year
         * Move file "tester.c" back into directory "controller/"
-
-        * Add (in the past weeks) cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
 
 Shell Commands
 ______________
@@ -87,7 +84,10 @@ ________
 xDT
 ___
 
-        * Delete all if-else clauses with "text/plain" format, in order to increase xdt deserialiser efficiency
+        * Think about implementation of "src/executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
+            which possibly requires stack-like variables to be processed hierarchically
+            see file cybop/tmp/cybop_stack.pdf
+        * Delete all if-else clauses with "text/plain" format, since it is the default, in order to increase xdt deserialiser efficiency
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented
         * Uncomment tests for -1 in file "part_field_xdt_deserialiser.c", in order to report errors, as soon as all field constants have been implemented
@@ -168,18 +168,7 @@ ___________
 OpenGL
 ______
 
-        * Add OpenGL functionality
-            Ich hab' das Problem nun gelöst!
-            Zu tun hatte das alles mit dem sogenannten OpenGL - Context, der,
-            wie ich das verstanden habe, an ein Fenster gebunden ist.
-            Das heißt also, ohne Fenster für OpenGL, kein OpenGL - Context
-            (Speicher für Objekte, Texturen, Flags etc.) und damit kein Bild...
-            Das Vorhandene Fenster war dafür nicht zu nutzen, da es bereits von Qt
-            "bemalt" wird.
-            Deshalb ist jetzt ein zweites Fenster auf dem Screenshot zu sehen.
-            Das kann man allerdings mit einem simplen befehl verstecken lassen,
-            ich habe es allerdings noch zu Debug-Zwecken aktiviert gelassen.
-            Christian Thiele <post@thiele-christian.de>
+        * Add cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
 
 Container
 _________
@@ -254,9 +243,6 @@ _______
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
-        * Check possible simplification of string constants using double quotes; see file "field_description_xdt_model.c":
-            static wchar_t* ID_0_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
-            static int* ID_0_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
 

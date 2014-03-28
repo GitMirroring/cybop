@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 1999-2014. Christian Heller.
 #
 # This file lists arguments for certain design decisions.
 # Its content may later be moved into the cyboi book
