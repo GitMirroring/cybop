@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 1999-2014. Christian Heller.
 #
 # This file specifies configuration settings.
 # It has to be processed with autoconf to produce a configure script.
@@ -7,7 +7,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.15.0 2013-09-22
+# @version CYBOP 0.16.0 2014-03-31
 # @author Didier Link <didier@famille-link.fr>
 # @author Christian Heller <christian.heller@tuxtax.de>
 # @author Tobias Köhler <tk@snake-universe.tk>
@@ -28,16 +28,16 @@ AC_MSG_RESULT([$host_cpu])
 AC_MSG_CHECKING([For operating system])
 case $host_os in
     linux*)
-	cybop_os_linux=yes
-	AC_MSG_RESULT([Linux])
+    cybop_os_linux=yes
+    AC_MSG_RESULT([Linux])
     ;;
     mingw*)
-	cybop_os_win32=yes
-	AC_MSG_RESULT([Win32])
+    cybop_os_win32=yes
+    AC_MSG_RESULT([Win32])
     ;;
     darwin*)
-	cybop_os_darwin=yes
-	AC_MSG_RESULT([Darwin])
+    cybop_os_darwin=yes
+    AC_MSG_RESULT([Darwin])
     ;;
 esac
 
@@ -86,6 +86,6 @@ AC_FUNC_STRTOD
 AC_CHECK_FUNCS([memset setlocale socket strtol])
 
 AC_CONFIG_FILES([Makefile
-		 src/Makefile
-		 src/controller/Makefile])
+         src/Makefile
+         src/controller/Makefile])
 AC_OUTPUT

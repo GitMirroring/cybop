@@ -1,9 +1,24 @@
+#
+# Copyright (C) 1999-2014. Christian Heller.
+#
+# This file describes the release procedure.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.16.0 2014-03-31
+# @author Christian Heller <christian.heller@tuxtax.de>
+#
 
-Release
-=======
+Source Code
+___________
 
 Compile cyboi (make clean; ./autogen.sh; ./configure; make)
 Test cybol applications
+
+
+Administrative Data
+___________________
 
 Execute file "dist/prepare_release.sh"
 Adapt version in configure.ac
@@ -15,6 +30,10 @@ Tag SVN
 Pack (make dist)
 Upload tarball file to sftp://USERNAME@download.savannah.gnu.org/releases/cybop
 
+
+Website
+_______
+
 Create new file for release in www/cybop/plan/
 Copy content from NEWS to www/cybop/plan/cybop-x.x.x.html
 Update www/cybop/plan/index.html
@@ -22,11 +41,15 @@ Update www/cybop/news.html
 Update www/cybop/index.html
 Commit CVS (website gets updated automatically)
 
+
+Announcement
+____________
+
 Announce release in mailing list
 
-==========
 
-Problem when executing "make dist":
+TODO: Problem when executing "make dist"
+________________________________________
 
 ...
 make[2]: Entering directory `/home/project/cybop/src/controller'

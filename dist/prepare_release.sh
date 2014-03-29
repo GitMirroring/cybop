@@ -1,60 +1,56 @@
 #!/bin/bash
 #
-# Copyright (C) 1999-2013. Christian Heller.
+# Copyright (C) 1999-2014. Christian Heller.
 #
 # This file adjusts the source code as follows:
-# - Replace tabulator characters with four spaces each
-# - Adapt copyright statement to given year
+# - replace tabulator characters with four spaces each
+# - adapt year in copyright statement
+# - adapt number and date in version
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.15.0 2013-09-22
+# @version CYBOP 0.16.0 2014-03-31
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
 # The cybop root directory.
 cybop=".."
 # The input directories and files.
-input="$cybop/examples $cybop/src $cybop/todo $cybop/AUTHORS $cybop/ChangeLog $cybop/COPYING $cybop/INSTALL $cybop/NEWS $cybop/README"
+# CAUTION! Do NOT replace this file "dist/prepare_release.sh"
+# itself since otherwise, the tabulation character below
+# will get replaced by spaces.
+input="$cybop/dist/release.txt $cybop/examples $cybop/src $cybop/todo $cybop/AUTHORS $cybop/autogen.sh $cybop/ChangeLog $cybop/configure.ac $cybop/COPYING $cybop/INSTALL $cybop/Makefile.am $cybop/NEWS $cybop/README"
 # The filter using wild cards which get
 # replaced, what is called "globbing".
 # It is NOT using strict regular expressions.
+ac_filter="*.ac"
+am_filter="*.am"
 c_filter="*.c"
 cybol_filter="*.cybol"
+sh_filter="*.sh"
 txt_filter="*.txt"
-# The tabulator replaced string.
-tabulator_replaced="	"
-# The tabulator replacement string.
-tabulator_replacement="    "
-# The year replaced string.
-year_replaced="Copyright (C) 1999-????. Christian Heller."
-# The year replacement string.
-prefix_year_replacement="Copyright (C) 1999-"
-number_year_replacement=""
-postfix_year_replacement=". Christian Heller."
-
-# Test command line argument.
-if [ -n "$1" ]; then
-    # Set year.
-    number_year_replacement=$1;
-else
-    echo "Error: A year has to be given as command line argument!";
-    echo "Example: ./prepare_release.sh 2014";
-    exit 1;
-fi
-
-# Determine year replacement.
-# CAUTION! Do this only AFTER having read
-# the command line argument above.
-year_replacement=$prefix_year_replacement$number_year_replacement$postfix_year_replacement
-
-# TEST
-echo $year_replaced
-echo $year_replacement
+authors_filter=AUTHORS
+changelog_filter=ChangeLog
+copying_filter=COPYING
+install_filter=INSTALL
+news_filter=NEWS
+readme_filter=README
+# The old and new tabulator string.
+old_tabulator="	"
+new_tabulator="    "
+# The old and new copyright.
+old_copyright="Copyright (C) 1999-2013. Christian Heller."
+new_copyright="Copyright (C) 1999-2014. Christian Heller."
+# The old and new version.
+old_version="CYBOP 0.15.0 2013-09-22"
+new_version="CYBOP 0.16.0 2014-03-31"
 
 # Determine files.
-files=$(find $input -type f -name "$c_filter" -or -name "$cybol_filter" -or -name "$txt_filter")
+# CAUTION! The files without suffix HAVE TO BE
+# mentioned here since otherwise, they will not
+# be processed.
+files=$(find $input -type f -name "$ac_filter" -or -name "$am_filter" -or -name "$c_filter" -or -name "$cybol_filter" -or -name "$sh_filter" -or -name "$txt_filter" -or -name "$authors_filter" -or -name "$changelog_filter" -or -name "$copying_filter" -or -name "$install_filter" -or -name "$news_filter" -or -name "$readme_filter")
 
 # Loop through files.
 for file in $files
@@ -77,11 +73,14 @@ do
     #   inspected instead of stopping at the first occurence
     #
 
-    # Replace tabulator characters with four spaces each.
-    sed -i "s/$tabulator_replaced/$tabulator_replacement/g" $file
+    # Replace tabulator string.
+    sed -i "s/$old_tabulator/$new_tabulator/g" $file
 
-    # Adapt copyright year.
-    sed -i "s/$year_replaced/$year_replacement/g" "$file"
+    # Replace copyright.
+    sed -i "s/$old_copyright/$new_copyright/g" "$file"
+
+    # Replace version.
+    sed -i "s/$old_version/$new_version/g" "$file"
 done
 
 # Exit normally.
