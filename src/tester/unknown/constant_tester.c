@@ -28,8 +28,8 @@
 
 #include <stdio.h>
 
-#include "../constant/model/cyboi/state/mathematics_state_cyboi_model.c"
-#include "../logger/logger.c"
+#include "../../constant/model/cyboi/state/mathematics_state_cyboi_model.c"
+#include "../../logger/logger.c"
 
 /**
  * Tests the float constants.

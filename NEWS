@@ -13,6 +13,38 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+CYBOP 0.16.0, 2014-03-31, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Add new mime type constants (Franziska Wehner)
+            - Add iso character set constants (Franziska Wehner)
+            - Provide values for command line argument "--test", in order to call one test unit at a time
+            - Restructure test units (Melanie Fricke, Philipp Engelmann, Paul Stengel)
+            - Redesign compound copiers/setters/getters for complex/datetime/duration/fraction
+            - Complete decimal- and vulgar fraction calculator and comparator
+            - Add cartesian- and polar complex calculator and comparator (Tony Kreißl, Sascha Kühnel, Kevin Wettermann)
+            - Add boolean and bitwise logic operations (Tony Kreißl, Sascha Kühnel, Kevin Wettermann)
+            - Add directory "executor/container/" with operation comparing if a bounded area contains a given value
+            - Add platform-independent shell commands (Alexander Müller, Kevin Glück)
+            - Continue gui serialiser
+            - Add layout serialiser
+            - Add datetime compound structure based on julian day (int) and julian second (double)
+            - Add time scale gregorian_date/julian_date/jd/mjd/tjd/tai calendar de-/serialiser
+            - Add new entries to xdt de-/serialiser (Birgit Heller)
+            - Extend xdt selectors following BDT/KVDT/GDT standard documents (Florian Pachel)
+            - Add knowledge path extension for accessing node name using parentheses, e.g. .app.wui.(.app.var.page_name).body.table
+            - Add visual studio c adaptations (Mike Feustel, Benno Schilling)
+            - Add compilation changes for Apple Mac OSX (Markus Hinkelmann)
+        * CYBOL:
+            - Add "datetime" cybol example application for testing various date formats
+            - Add "ui" cybol example application with tui, gui, wui
+            - Add "calculator" application with tui (Cedric Thomas)
+            - Create tool "tools/field_description_xdt_model_generator/"
+            - Create tool "tools/xdt_field_description_serialiser_generator/"
+        * Project:
+            - Add slides for short lightning talk on cybop to directory "doc/lightning_talk/"
+            - Add brochure to directory "doc/presentations/prospectus/"
+            - Add shell script "dist/prepare_release.sh"
+
 CYBOP 0.15.0, 2013-09-22, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
             - Improve channel interrupt detection outside threads in main loop
@@ -139,22 +171,226 @@ CYBOP 0.9.0, 2009-02-07, Christian Heller  <christian.heller@tuxtax.de>
             - Switch from 32 Bit- to 64 Bit architecture by adapting autoconf/ make files
 
 CYBOP 0.8.0, 2007-05-28, Christian Heller  <christian.heller@tuxtax.de>
-        * Internal improvements and bugfixes
-        * A first version of web user interfaces (wui) using tcp socket (not usable yet)
-        * A parser converting the German X Datentraeger (xDT) medical exchange format into cybop knowledge models (structure complete, but more keywords need to be added)
-        * A serialiser converting cybop knowledge models into xhtml
-        * A serialiser converting cybop knowledge models into structured text output (good for debugging cybop knowledge models)
-        * Shell output
-        * File output
+        * CYBOI:
+            - Restructure CYBOI command line argument handling to allow for dynamic log file, log level etc.
+            - Recognise command line options: version, help, test
+            - Implement file output of text, now available in CYBOL
+            - Implement shell input, output, error output, now available in CYBOL
+            - Complete serialiser converting cybop knowledge models into structured text called "model diagram" (good for debugging cybop knowledge models)
+            - Generate formatted xhtml code, with tags and attributes, from CYBOL
+            - Provide first version of web user interfaces (wui) using tcp socket (not usable yet)
+            - Complete parser converting the German X Datentraeger (xDT) medical exchange format into CYBOI knowledge models
+            - Add opengl startup and shutdown
+            - Add new test procedures
+            - Internal improvements and bugfixes
+        * CYBOL:
+            - Update cybol example applications
+        * Project:
+            - Add opengl/ mesa libraries to makefile
 
 CYBOP 0.7.0, 2006-09-09, Christian Heller  <christian.heller@tuxtax.de>
-        * X window system gui event handling
-        * Wide character handling in textual user interface (tui)
-        * Windowing technique for textual user interface (tui)
-        * Selective repaint in textual user interface (tui)
-        * Better handling of cpu idle times
-        * Threads using mutexes (atomic flags) for reception of signals via x window system and gnu_linux console (terminal)
-        * Access to meta hierarchy elements via the # separator character (and to the whole-part hierarchy via the . character, as before)
-        * Unified get_universal_compound_element_by_name function for compound element retrieval
-        * Use of the system function to run external commands/ programs in an own child process
-        * Unix shell command processing to be able to use CYBOL for scripting
+        * CYBOI:
+            - Update and add more things for wide character handling
+            - Prepare access to meta elements of a compound double hierarchy; two knowledge tree separators are now possible: the part separator . and the meta separator #
+            - Restructure compound handling, so that functions now get handed over the compound model and corresponding compound details (meta information)
+            - Provide universal "get" function, so that CYBOL knowledge templates can be written much more flexibly, since models can be given as
+                1 hard-coded inline value
+                2 hierarchical name to a model (= encapsulated model)
+                3 hierarchical name pointing to another hierarchical name containing a model (= double-encapsulated model)
+            - Implement threads using mutexes (atomic flags) for reception of signals via x window system and linux console (terminal)
+            - Interrupt (exit) and free resources of all receive service threads automatically at system shutdown, which is necessary in case a CYBOL application developer forgot to do that
+            - Rework textual user interface (tui) handling; introduce windowing technique
+            - Implement selective repaint; small areas instead of the whole textual user interface (tui) can be repainted now
+            - Implement x window system gui event handling
+            - Add unix shell command processing from within CYBOL
+        * CYBOL:
+            - Add a number of new model constants (boolean operations, bit manipulation operations etc.)
+            - Remove CYBOL_ABSTRACTION everywhere and replace with COMPOUND_ABSTRACTION, which existed in parallel
+        * Project:
+            - Add libpthread library to Makefile, for linking
+            - Add minor things to Makefile, for Linux-Windows platform compilations, so that conditional preprocessor directives like: #ifdef LINUX_OPERATING_SYSTEM can be used in the source code
+            - Provide source code tar balls (tar.gz), as pre-condition
+            - Update Debian packages
+            - Sponsor Debian packages and upload to testing distribution
+
+CYBOP 0.6.0, 2005-08-29, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Adapt Makefile to restructured source code directories
+        * CYBOI:
+            - Prepare terminal handling of Textual User Interfaces (TUI); (see Zemljanka and TurboVision)
+            - Debug many errors caused by NULL_POINTER checks which tested the variables instead of their dereferenced values
+                wrong: if (a != NULL_POINTER)
+                right: if (*a != NULL_POINTER)
+                this caused knowledge models not to be created/ added to the knowledge root/ whole model
+            - Replace NULL_POINTER with &NULL_POINTER, where a local void** variable is initialised
+            - Remove all const keywords before static variables and before parameters in headers of procedures, for less code, improved readability and because the const keyword is considered useless now:
+                (1) pointers that were handed over do mostly not get manipulated directly anyway, only pointers within the array pointed to
+                (2) arrays defined with = {} are constant anyway
+            - Delete all character counts and replace them with just one count constant
+            - Change and unify all comparisons, so that their if expressions now compare for equality with 0 instead of 1
+            - Replace constant count variables with the already existing integer counts, to save redundant code and also some memory, e.g.:
+                static const int COMMA_CHARACTER_COUNT_ARRAY[] = {1};
+                static const int* COMMA_CHARACTER_COUNT = COMMA_CHARACTER_COUNT_ARRAY;
+                replaced with:
+                static const int* COMMA_CHARACTER_COUNT = NUMBER_1_INTEGER_ARRAY;
+            - Delete superfluous source files for primitives; only vectors are used now everywhere
+            - Rename string to character vector
+            - Simplify source code by replacing POINTER_NULL_POINTER, INTEGER_NULL_POINTER, FILE_NULL_POINTER etc. in all source files with just NULL_POINTER
+            - Replace allocate_integer and others with more general procedure allocate
+            - Prepare send_terminal procedure for tui output
+            - Rename low-level receive/ send into read/ write, to better distinguish them from the high-level receive/ send CYBOL operations
+            - Rename low-level create/ destroy into allocate/ deallocate, to better distinguish them from the high-level create/ destroy CYBOL operations
+            - Rename file set.c to copy.c
+            - Add knowledge memory and signal memory to internal memory; this HAS TO BE DONE, because when using threads, ONLY ONE parameter (the internal memory) can be handed over to these
+            - Hand over internal memory, knowledge memory and signal memory as parameters, instead of reading them every time from internal_memory
+            - Rename internals_memory to internal_memory
+            - Adapt some include paths and procedure names after restructuring
+            - Delete memory managers and put code into general manager.c
+            - Write log messages to a file instead of to console
+            - Replace all American English (e.g. lize suffixes) with British (Commonwealth) English (e.g. lise) which is now consistently used throughout all source code
+            - Move directories communicator, converter and translator from parent directory controller to parent directory memoriser
+            - Rename directory computer to applicator
+            - Restructure source code directories in relation to von Neumann computer architecture, i.e. consisting of the parts:
+                memoriser (Memory, containing states)
+                controller (Control Unit, coordinating flow)
+                applicator (Arithmetic Logic Unit = ALU, containing logic)
+                globals (additional, global constants and variables)
+                tester (additional, for testing)
+        * CYBOL:
+            - Add some abstraction- and structure constants
+
+CYBOP 0.5.0, 2005-06-28, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Create Debian Packages cybop, cybop-papers, cybop-presentations, cyboi-dev
+            - Move additional application packages like resadmin etc. to Res Medicinae project
+        * CYBOI:
+            - Complete implementation of the loop operation
+            - Correct bug in get_new_signal_id of signal_memory_accessor.c
+            - Implement Web User Interface (WUI) handling by generating (translating) HTML from CYBOL (comparable to XUL/ UIML)
+            - Extend sources for handing over string parameters in URL, using escape code sequences
+            - Add url_refresh operation
+            - Implement post operation for web communication
+            - Add new abstraction knowledge for runtime access to knowledge model
+            - Enable dynamically created logic models
+            - Generalise handling of services using startup/ shutdown operations
+            - Run tcp service in an own thread
+            - Synchronise signal memory using Mutex
+            - Use send operation for placing runtime signals read from a CYBOL source into the signal memory
+            - Restructure source directories, following von Neumann architecture (controller, memory, computer, globals)
+            - Remove /web directory (tcp procedures are now in receive_tcp_socket.c; client socket and signal numbers are in internals_memory_accessor.c)
+            - Remove input_output_activator.c (now done by startup/ shutdown and receive/ interrupt/ send service calls in CYBOL)
+            - Remove input_output_handler.c (activation/ blocking flags etc. are now created/ destroyed in corresponding startup/ shutdown procedure)
+        * CYBOL:
+            - Get Res Admin application with web frontend running
+            - Remove all examples prefixes from model directory names in Res Admin application
+            - Replace helloworld_with_shutdown through helloworld_dynamic_logic
+            - Rename configuration.cybol to run.cybol in all CYBOL applications
+
+CYBOP 0.4.0, 2005-03-01, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Debian Packages cyboi-doc and cybol-examples
+        * CYBOI:
+            - Move global variables and constants into special files
+            - Use encapsulated primitives so that pointers can be handed through the system, instead of copies of char, int, double etc.; encapsulation is also necessary to preserve a primitive's value in memory -- otherwise, their value gets lost as soon as a parser procedure is left
+            - Complete system lifecycle and waiting loop
+            - Simplify configuration file which now consists of solely key-value pairs, on just one level, NOT hierarchically
+            - Store configuration values internally in a simple pointer array instead of an extra data structure; it is not necessary to store additional type information in a second column of the internals memory, because internals are ALWAYS simple pointers to some date structure that was created outside the internals memory
+            - Adapt whole system to new configuration handling
+            - Factor out code from cyboi main function into separate files and procedures, for better overview
+            - Change all get procedures in arrays, so that only references, but NOT copies are delivered back; change system accordingly
+            - Change complete CYBOI system from unnecessary triple-referenced pointers to simple ones
+            - Only hand over those variables as double reference which:
+                (1) will carry a result to be delivered back
+                (2) have to be treated as array
+            - Remove signal from signal_memory only AFTER the signal has been handled
+            - Correct A LOT OF bugs causing segmentation faults at runtime
+            - Get Hello, World! application running
+        * CYBOL:
+            - Create first example applications exit and helloworld
+            - Prepare resadmin application with web frontend
+
+CYBOP 0.3.1.1, 2004-12-06, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Mark /etc/cyboi/config.cybol as configuration file
+            - Add CYBOI manpage cyboi.1.gz
+
+CYBOP 0.3.1, 2004-11-23, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Debian Package for CYBOI interpreter
+        * CYBOI:
+            - Prepare TCP/IP sockets
+            - Change handling of internals
+
+CYBOP 0.3.0, 2004-09-13, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Compile CYBOI under Windows OS, using GNU C compiler and CYGWIN
+        * CYBOI:
+            - Communication over Sockets
+            - Reimplement compound model, according to new CYBOL structure
+            - Continue XML parser, using libxml2 as temporary solution
+        * CYBOL Core:
+            - Rethink CYBOL structure
+            - Create simple CYBOL example file just exiting the application
+
+CYBOP 0.2.2, 2004-06-23, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Fix several bugs in model handling
+            - Create transient copies of all persistent sources, instead of pointing to persistent sources which get freed after some time which resulted in null pointers
+            - Extend number of command line parameters, providing more options for running CYBOI
+            - Enable reading of sources from inline and file location
+
+CYBOP 0.2.1, 2004-06-11, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Correct determination of highest priority index in signal memory
+            - Restructure project directories: /constants --> /constant; /model --> /array; /model --> /state; /statics --> /state; /dynamics --> /logic
+            - Move operation (being state knowledge) to /state
+            - Bundle all constants in just one place
+            - Use more constants, instead of hard-coded values
+            - Introduce constants for log messages
+            - Improve logger; removed all dependencies from other project parts (like array)
+            - Hand over size and count as parameters; do not keep them in one array with pointers
+            - Prepare processing of compound signals
+            - Factor out two procedures handle_create_model_signal and handle_send_signal from handle_operation_signal
+            - Adapt create_model procedure to read cybol sources from several locations like inline|file|ftp
+            - Add test procedures in an own testing module
+            - Prepare processing of compound signals
+
+CYBOP 0.2.0, 2004-04-29, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Write make files for building CYBOI interpreter from C sources
+        * CYBOI:
+            - Rewrite CYBOI in C programming language
+            - Start writing or using an existing XML parser (like libxml)
+            - Insert first graphics drawing routines (xlibs)
+        * CYBOL Core:
+            - Eliminate java object tags
+
+CYBOP 0.1.0, 2003-09-11, Christian Heller  <christian.heller@tuxtax.de>
+        * Project:
+            - Split java sources into CYBOL and CYBOI
+        * CYBOI:
+            - CYBOI is an interpreter that can read CYBOL files and create systems
+            - Write CYBOI in Java
+            - Catch events from Java AWT event queue
+            - Use the Apache Xerces XML parser
+            - Create static structures of instances in memory
+            - Run dynamic loop catching signals from internal signal memory (queue)
+            - Create GUI using Java Swing (as temporary workaround)
+        * CYBOL Core:
+            - CYBOL is based on XML syntax
+            - One file represents an abstract item/ category/ class/ hierarchy
+            - Other files can be linked as complex data types
+            - Primitive data types are treated as final abstraction
+            - Include inheritance
+
+CYBOP 0.0.7, 2003-06-23, Christian Heller  <christian.heller@tuxtax.de>
+        * (no history)
+
+CYBOP 0.0.6, 2003-04-28, Christian Heller  <christian.heller@tuxtax.de>
+        * (no history)
+
+CYBOP 0.0.5, 2003-03-15, Christian Heller  <christian.heller@tuxtax.de>
+        * (no history)
+
+CYBOP 0.0.1-0.0.4, 1999-2003, Christian Heller  <christian.heller@tuxtax.de>
+        * See http://www.resmedicinae.org/

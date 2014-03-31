@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 1999-2014. Christian Heller.
  *
@@ -29,10 +28,12 @@
 
 #include <stdio.h>
 
-#include "../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
+
 #ifdef WIN32
     #define swprintf _snwprintf
 #endif
+
 /**
  * Tests the encode integer vector function.
  */
@@ -115,4 +116,3 @@ void test_converter_encoder() {
 
 /* CONVERTER_ENCODER_TESTER */
 #endif
-

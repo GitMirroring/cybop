@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 1999-2014. Christian Heller.
  *
@@ -28,10 +27,13 @@
 #define CONVERTER_DECODER_TESTER
 
 #include <stdio.h>
-#include "../executor/converter/decoder/utf/utf_8_decoder.c"
+
+#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
+
 #ifdef WIN32
     #define swprintf _snwprintf
 #endif
+
 /**
  * Tests the utf-8 decoding.
  */
@@ -129,6 +131,7 @@ void test_converter_deserialise_cybol_integer_vector() {
     // Deallocate integer vector.
     deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
+
 /*
  * Start the test
  */

@@ -28,18 +28,18 @@
 
 #include <wchar.h>
 
-#include "../constant/type/cyboi/state_cyboi_type.c"
-#include "../executor/communicator/sender/file/stream_file_sender.c"
-#include "../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../executor/modifier/copier/array_copier.c"
-#include "../executor/modifier/copier/part_copier.c"
-#include "../executor/memoriser/allocator/part_allocator.c"
-#include "../executor/memoriser/deallocator/part_deallocator.c"
-#include "../executor/modifier/inserter/array_inserter.c"
-#include "../executor/modifier/overwriter/part_overwriter.c"
-#include "../executor/modifier/remover/array_remover.c"
-#include "../logger/logger.c"
-#include "../tester/part_as_model_diagram_tester.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/communicator/sender/file/stream_file_sender.c"
+#include "../../executor/converter/encoder/utf/utf_8_encoder.c"
+#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/copier/part_copier.c"
+#include "../../executor/memoriser/allocator/part_allocator.c"
+#include "../../executor/memoriser/deallocator/part_deallocator.c"
+#include "../../executor/modifier/inserter/array_inserter.c"
+#include "../../executor/modifier/overwriter/part_overwriter.c"
+#include "../../executor/modifier/remover/array_remover.c"
+#include "../../logger/logger.c"
+#include "../../tester/part_as_model_diagram_tester.c"
 
 /**
  * Tests referencer with a part.

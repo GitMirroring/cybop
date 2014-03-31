@@ -49,7 +49,7 @@
     int initWSA(void);
 #endif
 
-#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 
 /**
  * Tests the display drawing.
@@ -83,7 +83,7 @@ void test_display_drawing() {
     xcb_arc_t arcs[] = {
         { 10, 100, 60, 40, 0, 90 << 6 },
         { 90, 100, 55, 40, 0, 270 << 6 }};
-    
+
 #ifdef __APPLE__
     //?? TODO: Add support for Cocoa
 #elif WIN32

@@ -21,6 +21,7 @@
 2014-03-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add directory "executor/container/" with operation comparing if bounded area contains a given value
+        * Release CYBOP 0.16.0
 
 2014-03-28  Christian Heller  <christian.heller@tuxtax.de>
 
