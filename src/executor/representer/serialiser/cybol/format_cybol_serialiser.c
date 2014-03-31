@@ -31,6 +31,7 @@
 #include "../../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/communicate_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/compare_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/contain_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/convert_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/command_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/flow_logic_cybol_format.c"
@@ -854,6 +855,50 @@ void serialise_cybol_format(void* p0, void* p1) {
     }
 
     //
+    // contain
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) BOTH_CONTAIN_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) BOTH_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BOTH_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) LEFT_CONTAIN_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) LEFT_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) NONE_CONTAIN_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) NONE_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NONE_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) RIGHT_CONTAIN_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
     // convert
     //
 
@@ -950,7 +995,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
      if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -960,7 +1005,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -970,7 +1015,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -979,7 +1024,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
             append_item_element(p0, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
-    }    
+    }
 
     //
     // flow

@@ -26,21 +26,6 @@
 #ifndef CYBOI_SOURCE
 #define CYBOI_SOURCE
 
-#ifdef _MSC_VER          // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
-
-#if (_MSC_VER < 1800) // Check Visual Studio version, C99 is not supported in versions below VS2013
-#error Visual Studio 2013 or higher is required for successful build of this application
-#endif
-
-#define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
-//#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
-//#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h
-//#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
-#define _CRT_NONSTDC_NO_DEPRECATE //avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
-#define _CRT_SECURE_NO_WARNINGS //allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
-#define _USE_MATH_DEFINES
-#endif
-
 #include <string.h>
 
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -55,11 +40,26 @@
 #include "../controller/manager.c"
 #include "../controller/optionaliser.c"
 #include "../controller/orienter.c"
-#include "../tester/tester.c"
+#include "../controller/tester.c"
 #include "../controller/unglobaliser.c"
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"
 #include "../variable/reference_counter.c"
+
+#ifdef _MSC_VER          // see: http://msdn.microsoft.com/de-de/library/b0084kay.aspx
+
+    #if (_MSC_VER < 1800) // Check Visual Studio version, C99 is not supported in versions below VS2013
+        #error Visual Studio 2013 or higher is required for successful build of this application
+    #endif
+
+    #define PTW32_STATIC_LIB //use pthread.lib built with static linking see http://www.technologische-hilfe.de/antworten/pthreads-win32-statisch-linken-support-230866062.html
+    //#define WIN32_LEAN_AND_MEAN // avoids compiler errors in VS related to duplicate definitions from includes in windows.h and winsock2.h, see http://www.gamedev.net/topic/127476-define-win32_lean_and_mean/
+    //#define _TM_DEFINED // avoids redeclaration of time_t in glibc time.h
+    //#define _TIMESPEC_DEFINED; // avoids redeclaration of timespec in pthread.h
+    #define _CRT_NONSTDC_NO_DEPRECATE //avoids errors related to deprecated CRT functions see http://msdn.microsoft.com/de-de/library/ms235384(v=vs.90).aspx
+    #define _CRT_SECURE_NO_WARNINGS //allows use of unsecure functions see http://msdn.microsoft.com/de-de/library/8ef0s5kh.aspx
+    #define _USE_MATH_DEFINES
+#endif
 
 /**
  * The main entry function.
@@ -82,10 +82,10 @@
 int main(int p0, char** p1) {
 
 #ifdef _MSC_VER
-#ifdef PTW32_STATIC_LIB
-    pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
-    pthread_win32_thread_attach_np(); // Currently a no-op
-#endif
+    #ifdef PTW32_STATIC_LIB
+        pthread_win32_process_attach_np(); // see README.NONPORTABLE in pthread source directory
+        pthread_win32_thread_attach_np(); // Currently a no-op
+    #endif
 #endif
 
     //
@@ -260,10 +260,10 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER END: %i\n", *PART_REFERENCE_COUNT
     }
 
 #ifdef _MSC_VER
-#ifdef PTW32_STATIC_LIB
-    pthread_win32_process_detach_np();
-    pthread_win32_thread_detach_np();
-#endif
+    #ifdef PTW32_STATIC_LIB
+        pthread_win32_process_detach_np();
+        pthread_win32_thread_detach_np();
+    #endif
 #endif
 
 #ifdef _DEBUG

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-03-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add directory "executor/container/" with operation comparing if bounded area contains a given value
+
 2014-03-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add shell script "dist/prepare_release.sh"

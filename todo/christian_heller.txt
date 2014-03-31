@@ -11,10 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2014-03-31  Christian Heller  <christian.heller@tuxtax.de>
-
         * Release CYBOP 0.16.0
-        * Move file "tester.c" back into directory "controller/"
 
 Shell Commands
 ______________

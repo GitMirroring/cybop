@@ -26,7 +26,6 @@
 #ifndef COMPARATOR_TESTER
 #define COMPARATOR_TESTER
 
-#include "basic/integer/between_integer_comparator_tester.c"
 /**
  * Tests the ascii character - wide character equality.
  */
@@ -370,7 +369,6 @@ void test_comparator() {
     fwprintf(stdout, L"TEST segmentation fault for test_comparator_part.\n");
     test_comparator_pointer();
     test_comparator_double();
-    test_between_integer_comparator();
 }
 
 /* COMPARATOR_TESTER */

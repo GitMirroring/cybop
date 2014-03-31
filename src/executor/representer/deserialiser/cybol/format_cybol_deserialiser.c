@@ -31,6 +31,7 @@
 #include "../../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/communicate_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/compare_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/contain_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/convert_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/command_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/flow_logic_cybol_format.c"
@@ -856,6 +857,50 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
     }
 
     //
+    // contain
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) BOTH_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) BOTH_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) BOTH_CONTAIN_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) LEFT_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LEFT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) LEFT_CONTAIN_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) NONE_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NONE_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) NONE_CONTAIN_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RIGHT_CONTAIN_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) RIGHT_CONTAIN_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    //
     // convert
     //
 
@@ -952,7 +997,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
             overwrite_item_element(p0, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT);
@@ -962,7 +1007,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
             overwrite_item_element(p0, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT);
@@ -972,7 +1017,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
             overwrite_item_element(p0, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_all_array((void*) &r, p1, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT);
@@ -981,7 +1026,7 @@ void deserialise_cybol_format(void* p0, void* p1, void* p2) {
 
             overwrite_item_element(p0, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
-    }    
+    }
 
     //
     // flow

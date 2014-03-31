@@ -1,0 +1,112 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef INTEGER_CONTAINER_SOURCE
+#define INTEGER_CONTAINER_SOURCE
+
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../executor/container/basic/integer/both_integer_container.c"
+#include "../../../executor/container/basic/integer/left_integer_container.c"
+#include "../../../executor/container/basic/integer/none_integer_container.c"
+#include "../../../executor/container/basic/integer/right_integer_container.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Compares if the bounded area contains the value.
+ *
+ * @param p0 the result (number 1 if true; unchanged otherwise)
+ * @param p1 value
+ * @param p2 left bound
+ * @param p3 right bound
+ * @param p4 the operation type
+ */
+void contain_integer(void* p0, void* p1, void* p2, void* p3, void* p4) {
+
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* o = (int*) p4;
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Contain integer.");
+
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*o == *BOTH_CONTAIN_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                contain_integer_both(p0, p1, p2, p3);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*o == *LEFT_CONTAIN_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                contain_integer_left(p0, p1, p2, p3);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*o == *NONE_CONTAIN_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                contain_integer_none(p0, p1, p2, p3);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (*o == *RIGHT_CONTAIN_LOGIC_CYBOI_FORMAT) {
+
+                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+
+                contain_integer_right(p0, p1, p2, p3);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not contain integer. The operation type is unknown.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not contain integer. The operation type is null.");
+    }
+}
+
+/* INTEGER_CONTAINER_SOURCE */
+#endif
