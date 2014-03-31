@@ -39,6 +39,7 @@ Copy content from NEWS to www/cybop/plan/cybop-x.x.x.html
 Update www/cybop/plan/index.html
 Update www/cybop/news.html
 Update www/cybop/index.html
+Update www/cybop/footer.inc
 Commit CVS (website gets updated automatically)
 
 
