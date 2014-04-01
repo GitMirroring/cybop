@@ -1,12 +1,167 @@
 <model>
-    <part name="startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <property name="message" channel="file" format="element/part" model="shell_script_clean_result_directory/startup.cybol"/>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Starte Anwendung zum Bereinigen des Archivs."/>
     </part>
+    <part name="create_app" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="app"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="shell_script_clean_result_directory/app.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Datei ohne interaktive Rückfrage gelesen und später gelöscht werden kann."/>
+    </part>
+    <part name="set_archive_rights" channel="inline" format="command/change-permission" model="">
+        <property name="path" channel="inline" format="path/knowledge" model=".app.archive"/>
+        <property name="user" channel="inline" format="text/plain" model="rw-"/>
+        <property name="group" channel="inline" format="text/plain" model="rw-"/>
+        <property name="other" channel="inline" format="text/plain" model="rw-"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Entpacke Inhalt des komprimierten Ergebnisverzeichnisses."/>
+    </part>
+    <part name="extract_archive" channel="inline" format="command/tape-archiver" model="">
+        <property name="source" channel="inline" format="path/knowledge" model=".app.archive"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.extraction_path"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="gzip" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Unterverzeichnisse und Dateien ohne interaktive Rückfrage bearbeitet werden können."/>
+    </part>
+    <part name="set_content_rights" channel="inline" format="command/change-permission" model="">
+        <property name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
+        <property name="user" channel="inline" format="text/plain" model="rwx"/>
+        <property name="group" channel="inline" format="text/plain" model="rwx"/>
+        <property name="other" channel="inline" format="text/plain" model="rwx"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+
+<!--
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Entferne störendes und unnötiges Ausführbarkeitsrecht für alle Dateien."/>
+    </part>
+    # The search is recursive by default.
+    # Parameters: -type d means "directory"; -type f means "file".
+    # CAUTION! Put "export" in quotation marks, because it would
+    # otherwise be interpreted as keyword, by the shell!
+    find "export" -type f -exec chmod a-x {} \;
+-->
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Verschiebe Unterverzeichnis auf die aktuelle Ebene und benenne es um in 'home'."/>
+    </part>
+    <part name="move_sub_directory" channel="inline" format="command/move" model="">
+        <property name="source" channel="inline" format="path/knowledge" model=".app.klausur_path"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.home_path"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche verbliebenen, nicht benötigten Inhalt rekursiv."/>
+    </part>
+    <part name="remove_remaining_directory" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Klausur user login Dateien."/>
+    </part>
+    <part name="remove_unneeded_files" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="path/knowledge" model=".app.klausuruser_files"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Verzeichnisse rekursiv."/>
+    </part>
+    <part name="remove_hidden_directories" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_directories"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse rekursiv."/>
+    </part>
+    <part name="remove_directories" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_directories"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Dateien."/>
+    </part>
+    <part name="remove_hidden_files" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_files"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Dateien (backup files)."/>
+    </part>
+    <part name="remove_files" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_files"/>
+    </part>
+
+    <part name="show_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse."/>
+    </part>
+    <part name="remove_empty_home_directories" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directories"/>
+    </part>
+
+<!--
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test.txt"/>
+    </part>
+-->
+
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </model>
 
 <!--
-    This example is a shell script to clean the result directory.
+    This application cleans the result directory of an examination
+    at the University of Cooperative Education Leipzig
+    http://www.ba-leipzig.de/
+
+    Shell Script zum Löschen nicht benötigter Verzeichnisse
+    und Dateien aus dem Ergebnisverzeichnis einer Klausur,
+    welches in Form eines komprimierten Archives vorliegt.
+
+    ACHTUNG! Damit das Script funktioniert, muss die komprimierte Archivdatei:
+    (1) ins übergeordnete Verzeichnis kopiert und
+    (2) "archiv.tar.gz" umbenannt werden.
 -->
 
 <!--
@@ -31,5 +186,7 @@
     CYBOP Developers <cybop-developers@nongnu.org>
 
     @version CYBOP 0.16.0 2014-03-31
+    @author Alexander Müller <alexander.mueller@it2011.ba-leipzig.de>
+    @author Kevin Glück <kevin.glueck@it2011.ba-leipzig.de>
     @author Christian Heller <christian.heller@tuxtax.de>
 -->

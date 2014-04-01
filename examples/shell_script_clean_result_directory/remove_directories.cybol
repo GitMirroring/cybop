@@ -1,0 +1,99 @@
+<model>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Bilder"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/bin"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Desktop"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Downloads"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Eclipse3_Workspace/.metadata"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Eclipse3_Workspace/org.eclipse*"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Musik"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Öffentlich"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/public_html"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Videos"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/Vorlagen"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="remove" channel="inline" format="command/remove" model="">
+        <property name="path" channel="inline" format="text/plain" model="./home/klaus*/workspace/.metadata"/>
+        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+</model>

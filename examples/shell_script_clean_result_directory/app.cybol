@@ -1,0 +1,38 @@
+<model>
+
+    <!-- The directory and file names. -->
+    <part name="archive" channel="inline" format="text/plain" model="./archiv.tar.gz"/>
+    <part name="extraction_path" channel="inline" format="text/plain" model="."/>
+    <part name="export_path" channel="inline" format="text/plain" model="./export"/>
+    <part name="klausur_path" channel="inline" format="text/plain" model="./export/home/klausur"/>
+    <part name="home_path" channel="inline" format="text/plain" model="./home"/>
+    <part name="klausuruser_files" channel="inline" format="text/plain" model="./home/klausuruser-login*"/>
+    <part name="klaus_path" channel="inline" format="text/plain" model=""/>
+
+    <!-- The loop parametres. There are 50 sub directories for users klaus1 to klaus50. -->
+    <part name="count" channel="inline" format="number/integer" model="50"/>
+    <part name="index" channel="inline" format="number/integer" model="1"/>
+    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!--
+        The variable is compared with number 2 because listing all files using
+        "ls -a" also lists the current directory "." and parent directory "..".
+        Therefore, otherwise empty directories still have these two entries.
+    -->
+    <part name="standard_files" channel="inline" format="number/integer" model="2"/>
+    <!-- The number of directories and files contained within the given sub directory. -->
+    <part name="counted_files" channel="inline" format="number/integer" model="0"/>
+    <!-- The branch parametres. -->
+    <part name="criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!-- The remove logic. -->
+    <part name="remove_hidden_directories" channel="file" format="element/part" model="shell_script_clean_result_directory/remove_hidden_directories.cybol"/>
+    <part name="remove_directories" channel="file" format="element/part" model="shell_script_clean_result_directory/remove_directories.cybol"/>
+    <part name="remove_hidden_files" channel="file" format="element/part" model="shell_script_clean_result_directory/remove_hidden_files.cybol"/>
+    <part name="remove_files" channel="file" format="element/part" model="shell_script_clean_result_directory/remove_files.cybol"/>
+    <part name="remove_empty_home_directories" channel="file" format="element/part" model="shell_script_clean_result_directory/remove_empty_home_directories.cybol"/>
+    <part name="determine_klaus_path" channel="file" format="element/part" model="shell_script_clean_result_directory/determine_klaus_path.cybol"/>
+    <part name="check_empty_home_directory" channel="file" format="element/part" model="shell_script_clean_result_directory/check_empty_home_directory.cybol"/>
+    <part name="remove_empty_home_directory" channel="file" format="element/part" model="shell_script_clean_result_directory/remove_empty_home_directory.cybol"/>
+
+</model>

@@ -11,12 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Release CYBOP 0.16.0
-
 Shell Commands
 ______________
 
-        * Test cybol replacement of shell script "clean_result_directory.sh"
+        * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol")
         * Move files one directory up from "executor/commander/basic/"
         * Simplify shell commands by using identical constants for all platforms
         * See simplification (just one block) example in file "todo/christian_heller_copy_file_commander.c"

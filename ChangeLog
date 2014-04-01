@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-04-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Refactor cybol application "shell_script_clean_result_directory"
+
 2014-03-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add directory "executor/container/" with operation comparing if bounded area contains a given value
