@@ -25,28 +25,31 @@
 
 #ifndef COPY_FILE_COMMANDER_SOURCE
 #define COPY_FILE_COMMANDER_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/memoriser/allocator/item_allocator.c"
+
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../variable/reallocation_factor.c"
+
 #ifdef __APPLE__
-    #include "../../../constant/model/command/unix_command_model.c"
-    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
 #elif WIN32
-    #include "../../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
-    #include "../../../constant/model/command/win32_command_model.c"
+    #include "../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
+    #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/model/command/unix_command_model.c"
-    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
 #else
-    #include "../../../constant/model/command/unix_command_model.c"
-    #include "../../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
 #endif
-#include "../../../executor/runner/executor.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../variable/reallocation_factor.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Copies the file resource to a destination.
@@ -89,7 +92,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 #else
     append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
-    
+
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -99,7 +102,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
                 // Append force option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) FORCE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -120,7 +123,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
                 // Append interactive option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -129,7 +132,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
     append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
     append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif        
+#endif
             }
         }
 
@@ -141,7 +144,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
                 // Append preserver all attributes option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -150,7 +153,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
     append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
     append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif    
+#endif
             }
         }
 
@@ -162,7 +165,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
                 // Append preserve links option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -171,10 +174,10 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
     append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
     append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif    
+#endif
             }
         }
-        
+
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -183,7 +186,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
                 // Append recursive option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -192,7 +195,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
     append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
     append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif    
+#endif
             }
         }
 
@@ -204,7 +207,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
                 // Append update option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -213,7 +216,7 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
     append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
     append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif            
+#endif
             }
         }
 
@@ -221,11 +224,12 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_integer_unequal((void*) &r, vmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Append verbal option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        
+
 #ifdef __APPLE__
     append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
@@ -234,14 +238,14 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
     append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
     append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif    
+#endif
 #ifdef WIN32
-} else {
+            } else {
       // Append non verbal option
     append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(arg, (void*) NON_VERBAL_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NON_VERBAL_COPY_FILE_WIN32_COMMANDER_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
-        }
+            }
         }
 
         // Append source and destination path.
@@ -262,12 +266,12 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#endif       
+#endif
 
         // Get arguments item data, count.
         copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    
+
         // Execute command line in shell.
         execute(argd, argc);
 
@@ -278,4 +282,3 @@ void copy_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
 /* COPY_FILE_COMMANDER_SOURCE */
 #endif
-        

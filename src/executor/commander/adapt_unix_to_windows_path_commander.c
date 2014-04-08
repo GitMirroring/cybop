@@ -26,17 +26,17 @@
 #ifndef ADAPT_UNIX_TO_WINDOWS_PATH_COMMANDER_SOURCE
 #define ADAPT_UNIX_TO_WINDOWS_PATH_COMMANDER_SOURCE
 
-#include "../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/modifier/appender/item_appender.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/modifier/appender/item_appender.c"
+#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../logger/logger.c"
 
 /**
  * Adapts unix- into windows path.

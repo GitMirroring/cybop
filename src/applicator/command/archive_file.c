@@ -25,9 +25,7 @@
 
 #ifndef ARCHIVE_FILE_SOURCE
 #define ARCHIVE_FILE_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+
 #include "../../constant/model/command/unix_command_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -40,6 +38,10 @@
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Archives the given data into a file.

@@ -25,10 +25,7 @@
 
 #ifndef MOVE_FILE_SOURCE
 #define MOVE_FILE_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#include "../../executor/commander/basic/move_file_commander.c"
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,7 +33,12 @@
 #include "../../constant/name/cybol/logic/commander/move_file_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/commander/move_file_commander.c"
 #include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Moving files and directories from a path to another.
@@ -131,7 +133,6 @@ void apply_move_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     move_file_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
-
 }
 
 /* MOVE_FILE_SOURCE */

@@ -25,33 +25,34 @@
 
 #ifndef LIST_CONTENTS_COMMANDER_SOURCE
 #define LIST_CONTENTS_COMMANDER_SOURCE
+
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/commander/adapt_unix_to_windows_path_commander.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
+#include "../../logger/logger.c"
+
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
 #ifdef __APPLE__
-    #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #elif WIN32
-    #include "../../../constant/name/command_option/win32/list_directory_contents_win32_command_option_name.c"
-    #include "../../../constant/model/command/win32_command_model.c"
+    #include "../../constant/name/command_option/win32/list_directory_contents_win32_command_option_name.c"
+    #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #endif
-
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
-#include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../executor/runner/executor.c"
-#include "../../../logger/logger.c"
 
 /**
  * Lists the directory contents.
@@ -69,7 +70,7 @@
  * @param p10 the almost-all model data
  * @param p11 the export model data
  * @param p12 the export model count
- * 
+ *
  */
 void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
@@ -115,14 +116,14 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        
+
         // Convert slash to backslash.
         command_adapt_unix_to_windows_path(p, p0, p1);
-        
+
         // Get path item data, count.
         copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        
+
 #elif GNU_LINUX_OPERATING_SYSTEM
         pd = p0;
         pc = p1;
@@ -149,7 +150,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifdef __APPLE__
         append_item_element(arg, (void*) ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32        
+#elif WIN32
         append_item_element(arg, (void*) ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif GNU_LINUX_OPERATING_SYSTEM
         append_item_element(arg, (void*) ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -169,7 +170,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifdef __APPLE__
         append_item_element(arg, (void*) LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32        
+#elif WIN32
         append_item_element(arg, (void*) LONG_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LONG_LIST_DIRECTORY_CONTENTS_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif GNU_LINUX_OPERATING_SYSTEM
         append_item_element(arg, (void*) LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LONG_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -285,7 +286,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         append_item_element(arg, (void*) SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_BY_FILE_EXTENSION_LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
     }
-    
+
 #ifndef WIN32
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -304,7 +305,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     }
 #endif
 
-    
+
       // Append path option.
     if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -322,14 +323,14 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &pe, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        
+
         // Convert slash to backslash.
         command_adapt_unix_to_windows_path(pe, p11, p12);
-        
+
         // Get path item data, count.
         copy_array_forward((void*) &ped, pe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pec, pe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        
+
 #elif GNU_LINUX_OPERATING_SYSTEM
         ped = p11;
         pec = p12;
@@ -339,7 +340,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #endif
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);    
+        append_item_element(arg, (void*) GREATER_THAN_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, ped, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pec, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #ifdef WIN32
@@ -347,7 +348,6 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         deallocate_item((void*) &pe, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 #endif
     }
-  
 
     // Get arguments item data, count.
     copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

@@ -25,31 +25,33 @@
 
 #ifndef ECHO_MESSAGE_COMMANDER_SOURCE
 #define ECHO_MESSAGE_COMMANDER_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#ifdef __APPLE__
-    #include "../../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
-#elif WIN32
-    #include "../../../constant/name/command_option/win32/echo_message_win32_command_option_name.c"
-    #include "../../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
-#else
-    #include "../../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
-#endif
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../executor/runner/executor.c"
-#include "../../../logger/logger.c"
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
+#include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
+
+#ifdef __APPLE__
+    #include "../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#elif WIN32
+    #include "../../constant/name/command_option/win32/echo_message_win32_command_option_name.c"
+    #include "../../constant/model/command/win32_command_model.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#else
+    #include "../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#endif
 
 /**
  * Echo message.
@@ -58,20 +60,20 @@
  * @param mmc the message model count
  */
 void echo_message_commander(void* mmd, void* mmc) {
-  
+
   log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command echo message.");
-  
+
    // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The arguments item data, count.
     void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    
+
     // Allocate arguments item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    
+
     // Append command.
 #ifdef __APPLE__
     append_item_element(arg, (void*) ECHO_MESSAGE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ECHO_MESSAGE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -89,7 +91,7 @@ void echo_message_commander(void* mmd, void* mmc) {
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, mmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, mmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
-    
+
     // Get arguments item data, count.
     copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -98,8 +100,7 @@ void echo_message_commander(void* mmd, void* mmc) {
     execute(argd, argc);
 
     // Deallocate arguments item.
-    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);   
-    
+    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* ECHO_MESSAGE_COMMANDER_SOURCE */

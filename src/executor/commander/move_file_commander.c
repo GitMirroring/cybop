@@ -25,34 +25,35 @@
 
 #ifndef MOVE_FILE_COMMANDER_SOURCE
 #define MOVE_FILE_COMMANDER_SOURCE
+
+#include "../../constant/model/command/win32_command_model.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/commander/adapt_unix_to_windows_path_commander.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
+#include "../../logger/logger.c"
+
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
-#include "../../../constant/model/command/win32_command_model.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 
 #ifdef __APPLE__
-    #include "../../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #elif WIN32
-    #include "../../../constant/name/command_option/win32/move_file_win32_command_option_name.c"
-    #include "../../../constant/model/command/win32_command_model.c"
+    #include "../../constant/name/command_option/win32/move_file_win32_command_option_name.c"
+    #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
-    #include "../../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
 #endif
-
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
-#include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../executor/runner/executor.c"
-#include "../../../logger/logger.c"
 
 /**
  * Moving files and directories from a source path to a destination path.
@@ -66,12 +67,12 @@
  * @param vmd the verbal model data (only unix)
  */
 void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, void* imd, void* vmd) {
-  
+
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command move files.");
-    
+
     // The source and destination path argument must be set or the move file command will not be executed
     if (smc != *NULL_POINTER_STATE_CYBOI_MODEL && dmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
-    
+
         // The arguments item.
         void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The arguments item data, count.
@@ -112,10 +113,10 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-            append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);        
+            append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
         }
-        
+
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -135,7 +136,7 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
             append_item_element(arg, (void*) INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
         }
-        
+
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -143,18 +144,18 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Append verbal option.            
+            // Append verbal option.
 #ifdef __APPLE__
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
-            
+
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);          
+            append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);            
+            append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
         }
 
@@ -173,14 +174,14 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        
+
         // Convert slash to backslash.
         command_adapt_unix_to_windows_path(p, smd, smc);
-        
+
         // Get path item data, count.
         copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        
+
 #elif GNU_LINUX_OPERATING_SYSTEM
         pd = smd;
         pc = smc;
@@ -194,8 +195,8 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         // Deallocate path item.
         deallocate_item((void*) &p, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 #endif
-        
-        
+
+
         // Append destination path.
         // The path item.
         void* p1 = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -211,14 +212,14 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &p1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-        
+
         // Convert slash to backslash.
         command_adapt_unix_to_windows_path(p1, dmd, dmc);
-        
+
         // Get path item data, count.
         copy_array_forward((void*) &p1d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &p1c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        
+
 #elif GNU_LINUX_OPERATING_SYSTEM
         p1d = dmd;
         p1c = dmc;
@@ -232,7 +233,7 @@ void move_file_commander(void* smd, void* smc, void* dmd, void* dmc, void* fmd, 
         // Deallocate path item.
         deallocate_item((void*) &p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 #endif
-        
+
         // Get arguments item data, count.
         copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);

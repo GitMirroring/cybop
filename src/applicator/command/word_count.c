@@ -1,4 +1,3 @@
- 
 /*
  * Copyright (C) 1999-2014. Christian Heller.
  *
@@ -26,9 +25,7 @@
 
 #ifndef WORD_COUNT_SOURCE
 #define WORD_COUNT_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -36,8 +33,12 @@
 #include "../../constant/name/cybol/logic/commander/word_count_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
-#include "../../executor/commander/basic/word_count_commander.c"
+#include "../../executor/commander/word_count_commander.c"
 #include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Print byte, word, and line counts, count the number of bytes, whitespace-separated words, and newlines in each given FILE

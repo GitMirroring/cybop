@@ -25,9 +25,7 @@
 
 #ifndef TAPE_ARCHIVER_SOURCE
 #define TAPE_ARCHIVER_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,9 +33,12 @@
 #include "../../constant/name/cybol/logic/commander/tape_archiver_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/commander/tape_archiver_commander.c"
 #include "../../logger/logger.c"
 
-#include "../../executor/commander/basic/tape_archiver_commander.c"
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 #ifdef __APPLE__
     #include "../../constant/model/command/unix_command_model.c"

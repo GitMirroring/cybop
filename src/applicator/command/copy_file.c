@@ -26,18 +26,18 @@
 #ifndef COPY_FILE_SOURCE
 #define COPY_FILE_SOURCE
 
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/copy_file_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/commander/copy_file_commander.c"
 #include "../../logger/logger.c"
-#include "../../executor/commander/basic/copy_file_commander.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Copies the file resource to a destination.
@@ -182,7 +182,6 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     copy_file_commander(smd, smc, dmd, dmc, fmd, imd, paamd, plmd, rmd, umd, vmd);
-
 }
 /* COPY_FILE_SOURCE */
 #endif

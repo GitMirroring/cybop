@@ -25,9 +25,7 @@
 
 #ifndef CHANGE_PERMISSION_SOURCE
 #define CHANGE_PERMISSION_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,8 +33,12 @@
 #include "../../constant/name/cybol/logic/commander/change_permission_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
-#include "../../executor/commander/basic/change_permission_commander.c"
+#include "../../executor/commander/change_permission_commander.c"
 #include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Changes the permission of a file or directory.
@@ -65,7 +67,7 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     // The user part.
     void* u = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The group part.
-    void* g = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    void* g = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The other part.
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The recursive part.
@@ -80,9 +82,9 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     // The user part model item.
     void* um = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The group part model item.
-    void* gm = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    void* gm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The other part model item.
-    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The recursive part model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The silent part model item.
@@ -98,10 +100,10 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* umc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The group part model item data and count.
-    void* gmd = *NULL_POINTER_STATE_CYBOI_MODEL;  
+    void* gmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* gmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The other part model item data and count.
-    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;     
+    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The recursive part model item data.
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -118,14 +120,14 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     // Get group part.
     get_part_knowledge((void*) &g, p0, (void*) GROUP_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) GROUP_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get other part.
-    get_part_knowledge((void*) &o, p0, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);    
+    get_part_knowledge((void*) &o, p0, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get recursive part.
     get_part_knowledge((void*) &r, p0, (void*) RECURSIVE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get silent part.
     get_part_knowledge((void*) &s, p0, (void*) SILENT_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SILENT_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get verbose part.
     get_part_knowledge((void*) &v, p0, (void*) VERBOSE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBOSE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-   
+
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get user part model item.
@@ -133,14 +135,14 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     // Get group part model item.
     copy_array_forward((void*) &gm, g, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get other part model item.
-    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);    
+    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get recursive part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get silent model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get verbose part model item.
     copy_array_forward((void*) &vm, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-   
+
     // Get path part model item data and count.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);

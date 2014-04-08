@@ -14,10 +14,11 @@
 Shell Commands
 ______________
 
-        * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol")
-        * Move files one directory up from "executor/commander/basic/"
         * Simplify shell commands by using identical constants for all platforms
         * See simplification (just one block) example in file "todo/christian_heller_copy_file_commander.c"
+        * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
+            How to use pipes in cyboi?
+            Can one store output in knowledge tree to hand over as input to next command?)
 
 GUI
 ___

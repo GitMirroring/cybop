@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-04-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move files one directory up from "executor/commander/basic/"
+
 2014-04-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Refactor cybol application "shell_script_clean_result_directory"

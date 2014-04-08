@@ -25,9 +25,7 @@
 
 #ifndef CREATE_FOLDER_SOURCE
 #define CREATE_FOLDER_SOURCE
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,8 +33,12 @@
 #include "../../constant/name/cybol/logic/commander/create_folder_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
-#include "../../executor/commander/basic/create_folder_commander.c"
+#include "../../executor/commander/create_folder_commander.c"
 #include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 /**
  * Creates a folder
@@ -66,14 +68,14 @@ void apply_create_folder(void* p0, void* p1, void* p2) {
 
     // Get path part.
     get_part_knowledge((void*) &p, p0, (void*) PATH_CREATE_FOLDER_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_CREATE_FOLDER_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    
+
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    
+
     // Get path part model item data and count.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    
+
     command_create_folder(pmd, pmc);
 }
 

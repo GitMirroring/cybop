@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 1999-2014. Christian Heller.
  *
@@ -27,25 +26,25 @@
 #ifndef WORD_COUNT_COMMANDER_SOURCE
 #define WORD_COUNT_COMMANDER_SOURCE
 
-#include "../../../constant/model/command/unix_command_model.c"
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/commander/basic/adapt_unix_to_windows_path_commander.c"
-#include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../executor/runner/executor.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/command/unix_command_model.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/commander/adapt_unix_to_windows_path_commander.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
+#include "../../logger/logger.c"
 
 #ifdef __APPLE__
-    #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
+    #include "../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
 #elif WIN32
-    //#include "../../../constant/name/command_option/win32/word_count_win32_command_option_name.c"
+    //#include "../../constant/name/command_option/win32/word_count_win32_command_option_name.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
+    #include "../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
 #else
-    #include "../../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
+    #include "../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
 #endif
 
 #ifndef _MSC_VER
