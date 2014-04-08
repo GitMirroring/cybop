@@ -1,8 +1,11 @@
 <model>
-    <part name="startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <property name="message" channel="file" format="element/part" model="shell_command_echo_message/startup.cybol"/>
+
+    <part name="echo_message" channel="inline" format="command/echo" model="">
+        <property name="message" channel="inline" format="text/plain" model="hello, this is an echo over standard output"/>
     </part>
+
+    <part name="exit" channel="inline" format="live/exit" model=""/>
+
 </model>
 
 <!--

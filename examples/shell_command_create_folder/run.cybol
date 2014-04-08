@@ -1,8 +1,11 @@
 <model>
-    <part name="startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <property name="message" channel="file" format="element/part" model="shell_command_create_folder/startup.cybol"/>
+
+    <part name="create_folder" channel="inline" format="command/create-folder" model="">
+        <property name="path" channel="inline" format="text/plain" model="./shell_command_create_folder/i_am_a_created_folder"/>
     </part>
+
+    <part name="exit" channel="inline" format="live/exit" model=""/>
+
 </model>
 
 <!--
