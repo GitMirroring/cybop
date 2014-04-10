@@ -37,10 +37,17 @@
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
-
+//
+// CAUTION! The options of many commands are SIMILAR on various platforms.
+// Therefore, it might suffice to distinguish included files here
+// and use IDENTICAL CONSTANTS whose values are determined
+// by the include they stem from.
+//
+// However, there ARE commands on some platforms that do NOT
+// exist on another. The same is true for command options.
+// Therefore, it makes sense to distinguish between platforms
+// at EVERY option, even if that produces some redundant code.
+//
 #ifdef __APPLE__
     #include "../../constant/name/command_option/unix/change_permission_unix_command_option_name.c"
 #elif WIN32
@@ -50,6 +57,10 @@
     #include "../../constant/name/command_option/unix/change_permission_unix_command_option_name.c"
 #else
     #include "../../constant/name/command_option/unix/change_permission_unix_command_option_name.c"
+#endif
+
+#ifndef _MSC_VER
+    #include <unistd.h>
 #endif
 
 /**
@@ -127,8 +138,8 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
         pc = p1;
 #endif
 
-//append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-//append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+//??        append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
 #ifdef WIN32
         // Deallocate path item.
@@ -136,7 +147,10 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
 #endif
     }
 
-    // example: u=rwx,g=,o=rw
+    //
+    // Example: u=rwx,g=,o=rw
+    //
+
     append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(arg, (void*) LATIN_SMALL_LETTER_U_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(arg, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -152,8 +166,6 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
     append_item_element(arg, (void*) EQUALS_SIGN_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(arg, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-
-    // optional recursive parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -168,7 +180,6 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
 #endif
     }
 
-    // optional silent parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -176,14 +187,13 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append sort by modification date option.
+        // Append silent option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifndef WIN32
         append_item_element(arg, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SILENT_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
     }
 
-    // optional verbose parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -191,14 +201,13 @@ void command_change_permission(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Append sort by modification date option.
+        // Append verbose option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifndef WIN32
         append_item_element(arg, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBOSE_CHANGE_PERMISSION_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
     }
 
-    // required parameter
     // Append source
     append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(arg, p0, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);

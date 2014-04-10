@@ -31,18 +31,15 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The create archive unix command option name. */
-static wchar_t CREATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'c', L'r', L'e', L'a', L't', L'e'};
-static wchar_t* CREATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME = CREATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+static wchar_t* CREATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME = L"create";
 static int* CREATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The update archive unix command option name. */
-static wchar_t UPDATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'u', L'p', L'd', L'a', L't', L'e'};
-static wchar_t* UPDATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME = UPDATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+static wchar_t* UPDATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME = L"update";
 static int* UPDATE_ARCHIVE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The bzip2 archive unix command option name. */
-static wchar_t BZIP2_ARCHIVE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'b', L'z', L'i', L'p', L'2'};
-static wchar_t* BZIP2_ARCHIVE_UNIX_COMMAND_OPTION_NAME = BZIP2_ARCHIVE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+static wchar_t* BZIP2_ARCHIVE_UNIX_COMMAND_OPTION_NAME = L"bzip2";
 static int* BZIP2_ARCHIVE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ARCHIVE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

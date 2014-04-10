@@ -30,19 +30,16 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The force move unix command option name. */
-static wchar_t FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'f'};
-static wchar_t* FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME = FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The force move file unix command option name. */
+static wchar_t* FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-f";
 static int* FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interactvie move unix command option name. */
-static wchar_t INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'i'};
-static wchar_t* INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME = INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The interactvie move file unix command option name. */
+static wchar_t* INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-i";
 static int* INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The verbal move unix command option name. */
-static wchar_t VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'v'};
-static wchar_t* VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME = VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The verbal move file unix command option name. */
+static wchar_t* VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-v";
 static int* VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MOVE_FILE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

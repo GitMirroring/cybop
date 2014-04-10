@@ -1,4 +1,3 @@
- 
 /*
  * Copyright (C) 1999-2014. Christian Heller.
  *

@@ -132,7 +132,7 @@ void apply_move_file(void* p0, void* p1, void* p2) {
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    move_file_commander(smd, smc, dmd, dmc, fmd, imd, vmd);
+    command_move_file(smd, smc, dmd, dmc, fmd, imd, vmd);
 }
 
 /* MOVE_FILE_SOURCE */

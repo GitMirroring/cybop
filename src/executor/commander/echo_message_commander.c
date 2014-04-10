@@ -35,10 +35,17 @@
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
-
+//
+// CAUTION! The options of many commands are SIMILAR on various platforms.
+// Therefore, it might suffice to distinguish included files here
+// and use IDENTICAL CONSTANTS whose values are determined
+// by the include they stem from.
+//
+// However, there ARE commands on some platforms that do NOT
+// exist on another. The same is true for command options.
+// Therefore, it makes sense to distinguish between platforms
+// at EVERY option, even if that produces some redundant code.
+//
 #ifdef __APPLE__
     #include "../../constant/name/command_option/unix/echo_message_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
@@ -53,17 +60,21 @@
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
+
 /**
  * Echo message.
  *
  * @param mmd the message model data
  * @param mmc the message model count
  */
-void echo_message_commander(void* mmd, void* mmc) {
+void command_echo_message(void* mmd, void* mmc) {
 
-  log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command echo message.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command echo message.");
 
-   // The arguments item.
+    // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The arguments item data, count.
     void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;

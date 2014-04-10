@@ -30,19 +30,16 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The force remove windows command option name. */
-static wchar_t FORCE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'/', L'F'};
-static wchar_t* FORCE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME = FORCE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The force remove file win32 command option name. */
+static wchar_t* FORCE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME = L"/F";
 static int* FORCE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interactvie remove windows command option name. */
-static wchar_t INTERACTIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'/', L'S'};
-static wchar_t* INTERACTIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME = INTERACTIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The interactvie remove file win32 command option name. */
+static wchar_t* INTERACTIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME = L"/S";
 static int* INTERACTIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The recursvie remove windows command option name. */
-static wchar_t RECURSIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'/', L'P'};
-static wchar_t* RECURSIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME = RECURSIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The recursvie remove file win32 command option name. */
+static wchar_t* RECURSIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME = L"/P";
 static int* RECURSIVE_REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* REMOVE_FILE_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

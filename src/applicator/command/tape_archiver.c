@@ -36,18 +36,18 @@
 #include "../../executor/commander/tape_archiver_commander.c"
 #include "../../logger/logger.c"
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
-
 #ifdef __APPLE__
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32    
+#elif WIN32
     #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../constant/model/command/unix_command_model.c"
 #else
     #include "../../constant/model/command/unix_command_model.c"
+#endif
+
+#ifndef _MSC_VER
+    #include <unistd.h>
 #endif
 
 /**
@@ -128,7 +128,6 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     // Get verbal part.
     get_part_knowledge((void*) &v, p0, (void*) VERBAL_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
-
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get destination part model item.
@@ -141,7 +140,6 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &um, u, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get verbal part model item.
     copy_array_forward((void*) &vm, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
 
     // Get source part model item data and count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -157,9 +155,9 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get verbal part model item data.
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    
-    tape_archiver_commander(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-    
+
+    command_tape_archiver(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
+
 }
 /* TAPE_ARCHIVER_SOURCE */
 #endif

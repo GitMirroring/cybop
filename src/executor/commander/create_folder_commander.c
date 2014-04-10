@@ -37,10 +37,17 @@
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
-
+//
+// CAUTION! The options of many commands are SIMILAR on various platforms.
+// Therefore, it might suffice to distinguish included files here
+// and use IDENTICAL CONSTANTS whose values are determined
+// by the include they stem from.
+//
+// However, there ARE commands on some platforms that do NOT
+// exist on another. The same is true for command options.
+// Therefore, it makes sense to distinguish between platforms
+// at EVERY option, even if that produces some redundant code.
+//
 #ifdef __APPLE__
     #include "../../constant/name/command_option/unix/create_folder_unix_command_option_name.c"
 #elif WIN32
@@ -50,6 +57,10 @@
     #include "../../constant/name/command_option/unix/create_folder_unix_command_option_name.c"
 #else
     #include "../../constant/name/command_option/unix/create_folder_unix_command_option_name.c"
+#endif
+
+#ifndef _MSC_VER
+    #include <unistd.h>
 #endif
 
 /**
@@ -86,7 +97,7 @@ void command_create_folder(void* p0, void* p1) {
     append_item_element(arg, (void*) CREATE_FOLDER_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CREATE_FOLDER_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 
-      // Append path option.
+    // Append path option.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // The path item.

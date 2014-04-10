@@ -14,8 +14,7 @@
 Shell Commands
 ______________
 
-        * Simplify shell commands by using identical constants for all platforms
-        * See simplification (just one block) example in file "todo/christian_heller_copy_file_commander.c"
+        * Delete file "applicator/command/archive_file.c"
         * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
             How to use pipes in cyboi?
             Can one store output in knowledge tree to hand over as input to next command?)
@@ -23,12 +22,9 @@ ______________
 GUI
 ___
 
-        * Move functionality from file "element_gui_serialiser.c" into "absolute_layout_serialiser.c"
-        * Continue in:
-            - file "content_element_part_layout_serialiser.c" which is called from file "content_element_part_gui_serialiser.c"
-            - file "layout_serialiser.c" which is called from file "element_gui_serialiser.c"
+        * Continue in file "content_element_part_layout_serialiser.c" which is called from file "element_gui_serialiser.c"
             hand over whole "layout" property;
-            evaluate all elements' "cell" property;
+            evaluate all elements' "cell" property (DEEP or not?);
             adjust position and size of each element
             (cybol properties position and size always have to be given and may be overwritten;
             if layout is "absolute" then they are not overwritten OR: they are overwritten

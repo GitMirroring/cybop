@@ -30,5 +30,5 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
- /* ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/* ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

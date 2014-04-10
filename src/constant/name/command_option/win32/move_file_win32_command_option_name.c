@@ -30,14 +30,12 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The force move windows command option name. */
-static wchar_t FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'/', L'Y'};
-static wchar_t* FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME = FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The force move file win32 command option name. */
+static wchar_t* FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME = L"/Y";
 static int* FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interactvie move windows command option name. */
-static wchar_t INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'/', L'-', L'Y'};
-static wchar_t* INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME = INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The interactvie move file win32 command option name. */
+static wchar_t* INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME = L"/-Y";
 static int* INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MOVE_FILE_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

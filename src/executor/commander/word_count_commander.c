@@ -37,6 +37,17 @@
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
+//
+// CAUTION! The options of many commands are SIMILAR on various platforms.
+// Therefore, it might suffice to distinguish included files here
+// and use IDENTICAL CONSTANTS whose values are determined
+// by the include they stem from.
+//
+// However, there ARE commands on some platforms that do NOT
+// exist on another. The same is true for command options.
+// Therefore, it makes sense to distinguish between platforms
+// at EVERY option, even if that produces some redundant code.
+//
 #ifdef __APPLE__
     #include "../../constant/name/command_option/unix/word_count_unix_command_option_name.c"
 #elif WIN32
@@ -122,8 +133,8 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         pc = p1;
 #endif
 
-//append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-//append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+//??        append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
 #ifdef WIN32
         // Deallocate path item.
@@ -132,7 +143,6 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     }
 
 #ifndef WIN32
-    // optional byte count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -145,7 +155,6 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         append_item_element(arg, (void*) BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BYTE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 
-    // optional char count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -159,7 +168,6 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
     }
 
 
-    // optional line count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -172,7 +180,6 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         append_item_element(arg, (void*) LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LINE_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 
-    // optional max-line-length count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -185,7 +192,6 @@ void command_word_count(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         append_item_element(arg, (void*) MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MAX_LINE_LENGTH_WORD_COUNT_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     }
 
-    // optional word count parameter
     // Reset comparison result.
     r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 

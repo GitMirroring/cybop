@@ -30,34 +30,28 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The add to archive tape archiver command option name. */
-static wchar_t ADD_TO_ARCHIVE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'a'};
-static wchar_t* ADD_TO_ARCHIVE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = ADD_TO_ARCHIVE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The add to archive tape archiver win32 command option name. */
+static wchar_t* ADD_TO_ARCHIVE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = L"a";
 static int* ADD_TO_ARCHIVE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The destination tape archiver command option name. */
-static wchar_t DESTINATION_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'o'};
-static wchar_t* DESTINATION_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = DESTINATION_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The destination tape archiver win32 command option name. */
+static wchar_t* DESTINATION_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = L"-o";
 static int* DESTINATION_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The force archiver command option name. */
-static wchar_t FORCE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'y'};
-static wchar_t* FORCE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = FORCE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The force archiver win32 command option name. */
+static wchar_t* FORCE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = L"-y";
 static int* FORCE_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The gzip format tape archiver command option name. */
-static wchar_t GZIP_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L't', L'g', L'z', L'i', L'p'};
-static wchar_t* GZIP_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = GZIP_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The gzip format tape archiver win32 command option name. */
+static wchar_t* GZIP_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = L"-tgzip";
 static int* GZIP_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The tar format tape archiver command option name. */
-static wchar_t TAR_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L't', L't', L'a', L'r'};
-static wchar_t* TAR_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = TAR_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The tar format tape archiver win32 command option name. */
+static wchar_t* TAR_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = L"-ttar";
 static int* TAR_FORMAT_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The unpack tape archiver command option name. */
-static wchar_t UNPACK_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY[] = {L'x'};
-static wchar_t* UNPACK_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = UNPACK_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_ARRAY;
+/** The unpack tape archiver win32 command option name. */
+static wchar_t* UNPACK_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME = L"x";
 static int* UNPACK_TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TAPE_ARCHIVER_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

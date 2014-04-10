@@ -20,7 +20,9 @@
 
 2014-04-10  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Update commander files in directory "executor/commander/basic/"
         * Introduce "direction" and "stretch" cybol property models for layout
+        * Move some functionality from gui serialiser into layout serialiser
 
 2014-04-08  Christian Heller  <christian.heller@tuxtax.de>
 

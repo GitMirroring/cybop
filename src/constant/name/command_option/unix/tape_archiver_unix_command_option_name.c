@@ -30,39 +30,32 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The create new archive tape archiver command option name. */
-static wchar_t CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'c'};
-static wchar_t* CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The create new archive tape archiver unix command option name. */
+static wchar_t* CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"-c";
 static int* CREATE_NEW_ARCHIVE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The destination tape archiver command option name. */
-static wchar_t DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'C'};
-static wchar_t* DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The destination tape archiver unix command option name. */
+static wchar_t* DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"-C";
 static int* DESTINATION_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The force archiver command option name. */
-static wchar_t FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'-', L'o', L'v', L'e', L'r', L'w', L'r', L'i', L't', L'e'};
-static wchar_t* FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The force archiver unix command option name. */
+static wchar_t* FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"--overwrite";
 static int* FORCE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The gzip tape archiver command option name. */
-static wchar_t GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'z'};
-static wchar_t* GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The gzip tape archiver unix command option name. */
+static wchar_t* GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"-z";
 static int* GZIP_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The unpack tape archiver command option name. */
-static wchar_t UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'x'};
-static wchar_t* UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The unpack tape archiver unix command option name. */
+static wchar_t* UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"-x";
 static int* UNPACK_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The use file tape archiver command option name. */
-static wchar_t USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'f'};
-static wchar_t* USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The use file tape archiver unix command option name. */
+static wchar_t* USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"-f";
 static int* USE_FILE_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The verbal tape archiver command option name. */
-static wchar_t VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'v'};
-static wchar_t* VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The verbal tape archiver unix command option name. */
+static wchar_t* VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME = L"-v";
 static int* VERBAL_TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TAPE_ARCHIVER_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

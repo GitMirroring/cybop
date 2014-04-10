@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_CONTENTS_COMMANDER_SOURCE
-#define LIST_CONTENTS_COMMANDER_SOURCE
+#ifndef LIST_DIRECTORY_CONTENTS_COMMANDER_SOURCE
+#define LIST_DIRECTORY_CONTENTS_COMMANDER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,10 +36,17 @@
 #include "../../executor/runner/executor.c"
 #include "../../logger/logger.c"
 
-#ifndef _MSC_VER
-    #include <unistd.h>
-#endif
-
+//
+// CAUTION! The options of many commands are SIMILAR on various platforms.
+// Therefore, it might suffice to distinguish included files here
+// and use IDENTICAL CONSTANTS whose values are determined
+// by the include they stem from.
+//
+// However, there ARE commands on some platforms that do NOT
+// exist on another. The same is true for command options.
+// Therefore, it makes sense to distinguish between platforms
+// at EVERY option, even if that produces some redundant code.
+//
 #ifdef __APPLE__
     #include "../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
@@ -52,6 +59,10 @@
 #else
     #include "../../constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
+#endif
+
+#ifndef _MSC_VER
+    #include <unistd.h>
 #endif
 
 /**
@@ -72,9 +83,9 @@
  * @param p12 the export model count
  *
  */
-void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void command_list_directory_contents(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command list contents.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command list directory contents.");
 
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -99,6 +110,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #else
     append_item_element(arg, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
+
     // Append path option.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -305,8 +317,7 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     }
 #endif
 
-
-      // Append path option.
+    // Append path option.
     if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // The path item.
@@ -360,5 +371,5 @@ void command_list_contents(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* LIST_CONTENTS_COMMANDER_SOURCE */
+/* LIST_DIRECTORY_CONTENTS_COMMANDER_SOURCE */
 #endif

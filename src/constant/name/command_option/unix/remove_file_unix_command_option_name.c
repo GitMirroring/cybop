@@ -30,24 +30,20 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The force remove unix command option name. */
-static wchar_t FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'f'};
-static wchar_t* FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The force remove file unix command option name. */
+static wchar_t* FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-f";
 static int* FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interactvie remove unix command option name. */
-static wchar_t INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'i'};
-static wchar_t* INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The interactvie remove file unix command option name. */
+static wchar_t* INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-i";
 static int* INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The recursvie remove unix command option name. */
-static wchar_t RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'r'};
-static wchar_t* RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The recursvie remove file unix command option name. */
+static wchar_t* RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-r";
 static int* RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The verbal remove unix command option name. */
-static wchar_t VERBAL_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'v'};
-static wchar_t* VERBAL_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = VERBAL_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_ARRAY;
+/** The verbal remove file unix command option name. */
+static wchar_t* VERBAL_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-v";
 static int* VERBAL_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

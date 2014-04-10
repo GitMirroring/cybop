@@ -31,8 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The character shell unix command option name. */
-static wchar_t CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_ARRAY[] = {L'-', L'c'};
-static wchar_t* CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME = CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_ARRAY;
+static wchar_t* CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME = L"-c";
 static int* CHARACTER_SHELL_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SHELL_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
