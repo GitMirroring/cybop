@@ -65,6 +65,16 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p??, (void*) BORDER_LAYOUT_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_layout_border(p0, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p??, (void*) BOX_LAYOUT_STATE_CYBOI_LANGUAGE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -73,16 +83,6 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             //?? If a row break is desired, then use flow layout.
 
 //??            serialise_layout_box(p0, p2, p3);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p??, (void*) COMPASS_LAYOUT_STATE_CYBOI_LANGUAGE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            serialise_layout_compass(p0, p2, p3);
         }
     }
 

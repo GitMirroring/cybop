@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-04-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Introduce "direction" and "stretch" cybol property models for layout
+
 2014-04-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move files one directory up from "executor/commander/basic/"

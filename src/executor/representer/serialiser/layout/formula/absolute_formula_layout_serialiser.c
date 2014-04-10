@@ -23,41 +23,29 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FORMULA_GRID_LAYOUT_SERIALISER_SOURCE
-#define FORMULA_GRID_LAYOUT_SERIALISER_SOURCE
+#ifndef ABSOLUTE_FORMULA_LAYOUT_SERIALISER_SOURCE
+#define ABSOLUTE_FORMULA_LAYOUT_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises grid layout coordinates using formula.
+ * Serialises absolute layout coordinates using formula.
  *
  * @param p0 the destination element position x
  * @param p1 the destination element position y
  * @param p2 the source whole position x
  * @param p3 the source whole position y
- * @param p4 the source element width
- * @param p5 the source element height
- * @param p6 the element index
  */
-void serialise_layout_grid_formula(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_layout_formula_absolute(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid formula.");
-
-    // Initialise destination position.
-    copy_integer(p0, p4);
-    copy_integer(p1, p5);
-
-    // Multiply with element index.
-    calculate_integer_multiply(p0, p6);
-    calculate_integer_multiply(p1, p6);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout formula absolute.");
 
     // Add whole position.
     calculate_integer_add(p0, p2);
-    calculate_integer_add(p0, p3);
+    calculate_integer_add(p1, p3);
 }
 
-/* FORMULA_GRID_LAYOUT_SERIALISER_SOURCE */
+/* ABSOLUTE_FORMULA_LAYOUT_SERIALISER_SOURCE */
 #endif

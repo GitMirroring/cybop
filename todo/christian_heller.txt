@@ -23,19 +23,22 @@ ______________
 GUI
 ___
 
-        * Introduce "stretch" property for border layout with possible values "horizontal" and "vertical",
-            to determine if north-south or east-west element are maximised;
-            do NOT assign "north" etc. to elements;
-            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
-            if "stretch" is "vertical", then use order: west, east, north, south, centre
         * Move functionality from file "element_gui_serialiser.c" into "absolute_layout_serialiser.c"
-        * Continue layout serialiser to be called from file "initial_gui_serialiser.c"
+        * Continue in:
+            - file "content_element_part_layout_serialiser.c" which is called from file "content_element_part_gui_serialiser.c"
+            - file "layout_serialiser.c" which is called from file "element_gui_serialiser.c"
             hand over whole "layout" property;
             evaluate all elements' "cell" property;
             adjust position and size of each element
             (cybol properties position and size always have to be given and may be overwritten;
             if layout is "absolute" then they are not overwritten OR: they are overwritten
             but just whole's position is added since element's position is relative to whole's origo)
+        * Move the following hints on layout usage into source code:
+            "stretch" property for border layout with possible values "horizontal" and "vertical",
+            to determine if north-south or east-west element are maximised;
+            do NOT assign "north" etc. to elements;
+            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
+            if "stretch" is "vertical", then use order: west, east, north, south, centre
 
         * Continue drawing for x window system in gui serialiser
         * Extend gui serialiser for win32 display

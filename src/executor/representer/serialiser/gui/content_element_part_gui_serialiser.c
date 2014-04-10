@@ -78,9 +78,6 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
         // would overpaint them again.
 
         // Serialise properties.
-        serialise_layout_part_element_content(c, s, w, gc, p0, p1, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p6);
-
-        // Append properties.
         serialise_gui_properties(p0, p1, p2, p3, p6, p7, p8, p9, p10);
 
         // Serialise embedded model.

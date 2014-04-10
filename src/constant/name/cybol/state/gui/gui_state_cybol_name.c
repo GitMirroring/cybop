@@ -38,6 +38,10 @@ static int* BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBO
 static wchar_t* CELL_GUI_STATE_CYBOL_NAME = L"cell";
 static int* CELL_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The direction gui state cybol name. */
+static wchar_t* DIRECTION_GUI_STATE_CYBOL_NAME = L"direction";
+static int* DIRECTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The foreground gui state cybol name. */
 static wchar_t* FOREGROUND_GUI_STATE_CYBOL_NAME = L"foreground";
 static int* FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -65,6 +69,10 @@ static int* SHAPE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODE
 /** The size gui state cybol name. */
 static wchar_t* SIZE_GUI_STATE_CYBOL_NAME = L"size";
 static int* SIZE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The stretch gui state cybol name. */
+static wchar_t* STRETCH_GUI_STATE_CYBOL_NAME = L"stretch";
+static int* STRETCH_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The title gui state cybol name. */
 static wchar_t* TITLE_GUI_STATE_CYBOL_NAME = L"title";
