@@ -38,10 +38,6 @@
 /**
  * Serialises part element layout properties into graphical user interface (gui) coordinates.
  *
- * @param p0 the connexion
- * @param p1 the screen
- * @param p2 the window
- * @param p3 the graphic context
  * @param p4 the source model data
  * @param p5 the source model index
  * @param p6 the source properties data

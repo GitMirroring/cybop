@@ -33,8 +33,8 @@
 /**
  * Serialises absolute layout coordinates using formula.
  *
- * @param p0 the destination element position x
- * @param p1 the destination element position y
+ * @param p0 the destination element position x, which is the source BEFORE the operation
+ * @param p1 the destination element position y, which is the source BEFORE the operation
  * @param p2 the source whole position x
  * @param p3 the source whole position y
  */

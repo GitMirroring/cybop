@@ -31,26 +31,6 @@
 #include "../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
-//
-// Forward declarations.
-//
-// The following functions HAVE TO BE declared here since
-// otherwise, the compiler will report errors like:
-//
-// error: 'sense_terminal' undeclared
-//
-// The reason is (probably) that the functions are forwarded
-// as reference (function pointer), for example:
-//
-// &sense_terminal
-//
-// The compiler does not seem to be able to recognise them
-// as functions that way. Therefore, the following explicit
-// declarations of the functions are necessary.
-//
-
-void serialise_layout_formula_absolute(void* p0);
-
 /**
  * Serialises absolute layout coordinates.
  *
@@ -71,14 +51,12 @@ void serialise_layout_absolute(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     // Serialise layout part and all of its children.
     //
+    // CAUTION! Grand children are NOT considered.
+    //
     // CAUTION! A layout-dependent formula has to be applied inside,
     // for calculating the position (x, y) of child elements.
-    // This formula is handed over as FUNCTION POINTER parametre.
-    //
-    // The reason is avoidance of redundant source code.
-    // Otherwise, all recursively called functions would
-    // have to be copied for each and every layout.
-    serialise_layout_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) &serialise_layout_formula_absolute);
+    // The formula gets selected depending on the last parametre.
+    serialise_layout_part(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) ABSOLUTE_LAYOUT_STATE_CYBOI_LANGUAGE);
 }
 
 /* ABSOLUTE_LAYOUT_SERIALISER_SOURCE */

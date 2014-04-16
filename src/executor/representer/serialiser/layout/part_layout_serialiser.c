@@ -33,6 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/layout/element_part_layout_serialiser.c"
+#include "../../../../executor/representer/serialiser/layout/formula_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -40,16 +41,22 @@
  *
  * @param p0 the destination element position x
  * @param p1 the destination element position y
+ * @param p2 the source whole position x
+ * @param p3 the source whole position y
+ * @param p4 the source element width
+ * @param p5 the source element height
+ * @param p6 the element index
+ * @param p7 the layout
+--
+ * @param p0 the destination element position x
+ * @param p1 the destination element position y
  * @param p4 the source model data
  * @param p5 the source model count
  * @param p6 the source properties data
  * @param p7 the source properties count
  * @param p8 the knowledge memory part
- * @param p8 the layout formula
  */
 void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
-
-    int (*funktionsname)(void*, void*, void*) f = (int (*funktionsname)(void*, void*, void*)) p??;
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part.");
 
@@ -79,12 +86,20 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             break;
         }
 
-        // Calculate part position.
+        // Calculate part position using layout-specific formula.
         //
-        // CAUTION! The formula that was handed over
-        // as function pointer parametre gets called here
-        // by dereferencing the function pointer.
-        (*f)((void*) &x, (void*) &y, (void*) &j);
+        // CAUTION! Using a function pointer for calling
+        // the corresponding formula is NOT useful here,
+        // since the number of parametres differs.
+ * @param p0 the destination element position x
+ * @param p1 the destination element position y
+ * @param p2 the source whole position x
+ * @param p3 the source whole position y
+ * @param p4 the source element width
+ * @param p5 the source element height
+ * @param p6 the element index
+ * @param p7 the layout
+        serialise_layout_formula((void*) &x, (void*) &y, (void*) &j);
 
         // Serialise layout part element.
         serialise_layout_part_element(p0, p1, p2, p3, p4, (void*) &j, p6, p7, p8);

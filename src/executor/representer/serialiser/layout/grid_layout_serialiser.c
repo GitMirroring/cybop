@@ -31,41 +31,20 @@
 #include "../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
-//
-// Forward declarations.
-//
-// The following functions HAVE TO BE declared here since
-// otherwise, the compiler will report errors like:
-//
-// error: 'sense_terminal' undeclared
-//
-// The reason is (probably) that the functions are forwarded
-// as reference (function pointer), for example:
-//
-// &sense_terminal
-//
-// The compiler does not seem to be able to recognise them
-// as functions that way. Therefore, the following explicit
-// declarations of the functions are necessary.
-//
-
-void serialise_layout_formula_grid(void* p0);
-
 /**
  * Serialises grid layout coordinates.
  *
- * @param p4 the source model data
- * @param p5 the source model count
- * @param p6 the source properties data
- * @param p7 the source properties count
+ * @param p0 the source model data
+ * @param p1 the source model count
+ * @param p2 the source layout properties data
+ * @param p3 the source layout properties count
+ * @param p4 the source whole position x
+ * @param p5 the source whole position y
+ * @param p6 the source whole width
+ * @param p7 the source whole height
  * @param p8 the knowledge memory part
- * @param p9 the whole position x
- * @param p10 the whole position y
- * @param p11 the whole width
- * @param p12 the whole height
- * @param p12 the whole layout properties
  */
-void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid.");
 
@@ -91,8 +70,8 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_knowledge((void*) &r, p4, (void*) ROWS_GUI_STATE_CYBOL_NAME, (void*) ROWS_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
-    get_part_knowledge((void*) &c, p4, (void*) COLUMNS_GUI_STATE_CYBOL_NAME, (void*) COLUMNS_GUI_STATE_CYBOL_NAME_COUNT, p5, p8);
+    get_part_knowledge((void*) &r, p2, (void*) ROWS_GUI_STATE_CYBOL_NAME, (void*) ROWS_GUI_STATE_CYBOL_NAME_COUNT, p3, p8);
+    get_part_knowledge((void*) &c, p2, (void*) COLUMNS_GUI_STATE_CYBOL_NAME, (void*) COLUMNS_GUI_STATE_CYBOL_NAME_COUNT, p3, p8);
 
     // Get part model items.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -122,7 +101,7 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     } else {
 
-        // Calculate column count.
+        // Calculate row count.
         // rc = (source_model_count + *cmd - 1) / *cmd;
         copy_integer((void*) &rc, source_model_count);
         calculate_integer_add((void*) &rc, cmd);
@@ -142,24 +121,22 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Initialise current position.
-    copy_integer((void*) &x, whole_x);
-    copy_integer((void*) &y, whole_y);
+    copy_integer((void*) &x, p4);
+    copy_integer((void*) &y, p5);
     // Initialise current size.
-    copy_integer((void*) &w, whole_width);
-    copy_integer((void*) &h, whole_height);
+    copy_integer((void*) &w, p6);
+    copy_integer((void*) &h, p7);
     calculate_integer_divide((void*) &w, (void*) &cc);
     calculate_integer_divide((void*) &h, (void*) &rc);
 
     // Serialise layout part and all of its children.
     //
+    // CAUTION! Grand children are NOT considered.
+    //
     // CAUTION! A layout-dependent formula has to be applied inside,
     // for calculating the position (x, y) of child elements.
-    // This formula is handed over as FUNCTION POINTER parametre.
-    //
-    // The reason is avoidance of redundant source code.
-    // Otherwise, all recursively called functions would
-    // have to be copied for each and every layout.
-    serialise_layout_part(p0, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &serialise_layout_formula_grid);
+    // The formula gets selected depending on the last parametre.
+    serialise_layout_part(p0, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) GRID_LAYOUT_STATE_CYBOI_LANGUAGE);
 }
 
 /* GRID_LAYOUT_SERIALISER_SOURCE */

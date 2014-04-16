@@ -22,13 +22,17 @@ ______________
 GUI
 ___
 
-        * Continue in file "content_element_part_layout_serialiser.c" which is called from file "element_gui_serialiser.c"
-            hand over whole "layout" property;
-            evaluate all elements' "cell" property (DEEP or not?);
-            adjust position and size of each element
-            (cybol properties position and size always have to be given and may be overwritten;
-            if layout is "absolute" then they are not overwritten OR: they are overwritten
-            but just whole's position is added since element's position is relative to whole's origo)
+        * Continue layout files in the following order:
+            grid_layout_serialiser.c
+            absolute_layout_serialiser.c
+            layout_serialiser.c
+            content_element_part_layout_serialiser.c (call of "serialise_layout_properties" is READY; only adapt parametres of call of "serialise_layout")
+            element_part_layout_serialiser.c
+            part_layout_serialiser.c
+            ==> layout finished, now continue gui:
+            element_gui_serialiser.c
+            etc.
+
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
             to determine if north-south or east-west element are maximised;

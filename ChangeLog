@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-04-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue layout serialiser
+
 2014-04-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update commander files in directory "executor/commander/basic/"
