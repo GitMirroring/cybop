@@ -34,18 +34,17 @@
 /**
  * Serialises absolute layout coordinates.
  *
- * @param p4 the source model data
- * @param p5 the source model count
- * @param p6 the source properties data
- * @param p7 the source properties count
+ * @param p0 the source model data
+ * @param p1 the source model count
+ * @param p2 the source layout properties data
+ * @param p3 the source layout properties count
+ * @param p4 the source whole position x
+ * @param p5 the source whole position y
+ * @param p6 the source whole width
+ * @param p7 the source whole height
  * @param p8 the knowledge memory part
- * @param p9 the whole position x
- * @param p10 the whole position y
- * @param p11 the whole width
- * @param p12 the whole height
- * @param p12 the whole layout properties
  */
-void serialise_layout_absolute(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_absolute(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout absolute.");
 

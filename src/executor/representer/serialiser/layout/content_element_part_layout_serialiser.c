@@ -44,8 +44,8 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
  *
  * @param p0 the source model data
  * @param p1 the source model count
- * @param p2 the source layout properties data
- * @param p3 the source layout properties count
+ * @param p2 the source properties data
+ * @param p3 the source properties count
  * @param p4 the source whole position x
  * @param p5 the source whole position y
  * @param p6 the source whole width

@@ -99,8 +99,8 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     copy_array_forward((void*) &shmd, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Serialise layout.
-//??    serialise_layout(p0, p1, p2, p3, p4, p5, p6, p9);
-    serialise_layout_part_element_content(p0, p1, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p6);
+//??    serialise_layout(p5, p6, p9);
+    serialise_layout_part_element_content(*NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p6);
 
     // Serialise context.
     serialise_gui_context(p0, p1, p2, p3, p4, p5, p6, p9);
