@@ -33,13 +33,13 @@
 /**
  * Serialises grid layout coordinates using formula.
  *
- * @param p0 the destination element position x
- * @param p1 the destination element position y
- * @param p2 the source whole position x
- * @param p3 the source whole position y
- * @param p4 the source element width
- * @param p5 the source element height
- * @param p6 the element index
+ * @param p0 the destination element (child) position x
+ * @param p1 the destination element (child) position y
+ * @param p2 the source element (child) width
+ * @param p3 the source element (child) height
+ * @param p4 the source position x
+ * @param p5 the source position y
+ * @param p6 the element (child) index
  */
 void serialise_layout_formula_grid(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
@@ -48,16 +48,16 @@ void serialise_layout_formula_grid(void* p0, void* p1, void* p2, void* p3, void*
     // Initialise destination position.
     // CAUTION! This is necessary for
     // the multiplication below.
-    copy_integer(p0, p4);
-    copy_integer(p1, p5);
+    copy_integer(p0, p2);
+    copy_integer(p1, p3);
 
-    // Multiply with element index.
+    // Multiply with element (child) index.
     calculate_integer_multiply(p0, p6);
     calculate_integer_multiply(p1, p6);
 
-    // Add whole position.
-    calculate_integer_add(p0, p2);
-    calculate_integer_add(p1, p3);
+    // Add parent position.
+    calculate_integer_add(p0, p4);
+    calculate_integer_add(p1, p5);
 }
 
 /* GRID_FORMULA_LAYOUT_SERIALISER_SOURCE */

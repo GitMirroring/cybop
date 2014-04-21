@@ -35,13 +35,13 @@
 /**
  * Serialises layout using a formula.
  *
- * @param p0 the destination element position x
- * @param p1 the destination element position y
- * @param p2 the source whole position x
- * @param p3 the source whole position y
- * @param p4 the source element width
- * @param p5 the source element height
- * @param p6 the element index
+ * @param p0 the destination element (child) position x
+ * @param p1 the destination element (child) position y
+ * @param p2 the source element (child) width
+ * @param p3 the source element (child) height
+ * @param p4 the source position x
+ * @param p5 the source position y
+ * @param p6 the element (child) index
  * @param p7 the layout
  */
 void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {

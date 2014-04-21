@@ -42,27 +42,16 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 /**
  * Serialises part element content layout properties into graphical user interface (gui) coordinates.
  *
- * @param p0 the source model data
- * @param p1 the source model count
- * @param p2 the source properties data
- * @param p3 the source properties count
- * @param p4 the source whole position x
- * @param p5 the source whole position y
- * @param p6 the source whole width
- * @param p7 the source whole height
- * @param p8 the knowledge memory part
- * @param p9 the whole layout
+ * @param p0 the model data
+ * @param p1 the model count
+ * @param p2 the properties data
+ * @param p3 the properties count
+ * @param p4 the knowledge memory part
  */
-void serialise_layout_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_layout_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part element content.");
 
-    // The whole position x, y.
-    int wx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int wy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The whole size width, height.
-    int ww = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int wh = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The position x, y.
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -76,12 +65,7 @@ void serialise_layout_part_element_content(void* p0, void* p1, void* p2, void* p
     void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Append properties.
- * @param p11 the source properties data
- * @param p12 the source properties count
- * @param p13 the source whole properties data
- * @param p14 the source whole properties count
- * @param p15 the knowledge memory part
-    serialise_layout_properties((void*) &wx, (void*) &wy, (void*) &ww, (void*) &wh, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &l, (void*) &lpd, (void*) &lpc, spd, spc, swpd, swpc, k);
+    serialise_layout_properties((void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &l, (void*) &lpd, (void*) &lpc, p2, p3, p4);
 
     // Serialise embedded model.
     // CAUTION! The parametres layout and
@@ -89,7 +73,7 @@ void serialise_layout_part_element_content(void* p0, void* p1, void* p2, void* p
     // so that after comparison for layout,
     // the layout parametre may be omitted inside,
     // without having to change the order of other parametres.
-    serialise_layout(p0, p1, p2, p3, p4, p5, p6, p7, p10, p11, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &lp, (void*) &l);
+    serialise_layout(p0, p1, (void*) &x, (void*) &y, (void*) &w, (void*) &h, (void*) &lpd, (void*) &lpc, p4, (void*) &l);
 }
 
 /* CONTENT_ELEMENT_PART_LAYOUT_SERIALISER_SOURCE */

@@ -39,24 +39,18 @@
 /**
  * Serialises part layout properties into graphical user interface (gui) coordinates.
  *
- * @param p0 the destination element position x
- * @param p1 the destination element position y
- * @param p2 the source whole position x
- * @param p3 the source whole position y
- * @param p4 the source element width
- * @param p5 the source element height
- * @param p6 the element index
- * @param p7 the layout
---
- * @param p0 the destination element position x
- * @param p1 the destination element position y
- * @param p4 the source model data
- * @param p5 the source model count
- * @param p6 the source properties data
- * @param p7 the source properties count
+ * @param p0 the model data
+ * @param p1 the model count
+ * @param p2 the position x
+ * @param p3 the position y
+ * @param p4 the size width
+ * @param p5 the size height
+ * @param p6 the layout properties data
+ * @param p7 the layout properties count
  * @param p8 the knowledge memory part
+ * @param p9 the layout
  */
-void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part.");
 
@@ -65,7 +59,7 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -79,30 +73,15 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p1);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        // Calculate part position using layout-specific formula.
-        //
-        // CAUTION! Using a function pointer for calling
-        // the corresponding formula is NOT useful here,
-        // since the number of parametres differs.
- * @param p0 the destination element position x
- * @param p1 the destination element position y
- * @param p2 the source whole position x
- * @param p3 the source whole position y
- * @param p4 the source element width
- * @param p5 the source element height
- * @param p6 the element index
- * @param p7 the layout
-        serialise_layout_formula((void*) &x, (void*) &y, (void*) &j);
-
         // Serialise layout part element.
-        serialise_layout_part_element(p0, p1, p2, p3, p4, (void*) &j, p6, p7, p8);
+        serialise_layout_part_element(p0, (void*) &j, p2, p3, p4, (void*) &j, p6, p7, p8);
 
         // Increment loop variable.
         j++;

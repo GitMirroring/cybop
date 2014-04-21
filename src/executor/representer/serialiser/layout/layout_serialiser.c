@@ -34,16 +34,16 @@
 /**
  * Serialises layout properties into graphical user interface (gui) coordinates.
  *
- * @param p0 the source model data
- * @param p1 the source model count
- * @param p2 the source layout properties data
- * @param p3 the source layout properties count
- * @param p4 the source whole position x
- * @param p5 the source whole position y
- * @param p6 the source whole width
- * @param p7 the source whole height
+ * @param p0 the model data
+ * @param p1 the model count
+ * @param p2 the position x
+ * @param p3 the position y
+ * @param p4 the size width
+ * @param p5 the size height
+ * @param p6 the layout properties data
+ * @param p7 the layout properties count
  * @param p8 the knowledge memory part
- * @param p9 the whole layout
+ * @param p9 the layout
  */
 void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
@@ -101,7 +101,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_grid(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+            serialise_layout_grid(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 }
