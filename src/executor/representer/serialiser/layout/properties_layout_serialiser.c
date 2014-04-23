@@ -34,6 +34,8 @@
 #include "../../../../constant/name/cybol/state/layout/layout_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -23,16 +23,26 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GRID_LAYOUT_SERIALISER_SOURCE
-#define GRID_LAYOUT_SERIALISER_SOURCE
+#ifndef SIZE_GRID_LAYOUT_SERIALISER_SOURCE
+#define SIZE_GRID_LAYOUT_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/cybol/state/layout/grid_layout_state_cybol_name.c"
+#include "../../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../../executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/representer/serialiser/layout/part_layout_serialiser.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Serialises grid layout coordinates.
+ * Serialises grid layout size.
  *
  * @param p0 the model data
  * @param p1 the model count
@@ -45,9 +55,9 @@
  * @param p8 the knowledge memory part
  * @param p9 the layout
  */
-void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid size.");
 
     //
     // CAUTION! Using a "super" property does NOT make sense here,
@@ -71,8 +81,8 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_knowledge((void*) &r, p6, (void*) ROWS_GUI_STATE_CYBOL_NAME, (void*) ROWS_GUI_STATE_CYBOL_NAME_COUNT, p7, p8);
-    get_part_knowledge((void*) &c, p6, (void*) COLUMNS_GUI_STATE_CYBOL_NAME, (void*) COLUMNS_GUI_STATE_CYBOL_NAME_COUNT, p7, p8);
+    get_part_knowledge((void*) &r, p6, (void*) ROWS_GRID_LAYOUT_STATE_CYBOL_NAME, (void*) ROWS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT, p7, p8);
+    get_part_knowledge((void*) &c, p6, (void*) COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME, (void*) COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT, p7, p8);
 
     // Get part model items.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -89,44 +99,64 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The comparison result.
     int cr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_greater((void*) &cr, rmd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    if (cr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    if (cr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // CAUTION! The value has to be greater than zero since
+        // otherwise, a negative number might be the result below,
+        // if all operands were zero, because one gets subtracted.
+        compare_integer_greater((void*) &cr, rmd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        // Calculate column count.
-        // cc = (source_model_count + *rmd - 1) / *rmd;
-        copy_integer((void*) &cc, source_model_count);
-        calculate_integer_add((void*) &cc, rmd);
-        calculate_integer_subtract((void*) &cc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        calculate_integer_divide((void*) &cc, rmd);
+        if (cr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    } else {
-
-        // Calculate row count.
-        // rc = (source_model_count + *cmd - 1) / *cmd;
-        copy_integer((void*) &rc, source_model_count);
-        calculate_integer_add((void*) &rc, cmd);
-        calculate_integer_subtract((void*) &rc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-        calculate_integer_divide((void*) &rc, cmd);
+            // Calculate column count.
+            // cc = (source_model_count + *rmd - 1) / *rmd;
+            copy_integer((void*) &cc, p1);
+            calculate_integer_add((void*) &cc, rmd);
+            calculate_integer_subtract((void*) &cc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_divide((void*) &cc, rmd);
+        }
     }
 
-    // The current position x, y.
+    if (cr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // CAUTION! The value has to be greater than zero since
+        // otherwise, a negative number might be the result below,
+        // if all operands were zero, because one gets subtracted.
+        compare_integer_greater((void*) &cr, cmd, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (cr != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Calculate row count.
+            // rc = (source_model_count + *cmd - 1) / *cmd;
+            copy_integer((void*) &rc, p1);
+            calculate_integer_add((void*) &rc, cmd);
+            calculate_integer_subtract((void*) &rc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+            calculate_integer_divide((void*) &rc, cmd);
+        }
+    }
+
+/*??
+    // The element (child) position x, y.
     // CAUTION! They are TEMPORARY and get
     // MANIPULATED inside the called function.
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The current size width, height.
+*/
+    // The element (child) size width, height.
     // CAUTION! They are TEMPORARY and get
     // MANIPULATED inside the called function.
     int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Initialise current position.
+/*??
+    // Initialise element (child) position.
     copy_integer((void*) &x, p4);
     copy_integer((void*) &y, p5);
-    // Initialise current size.
-    copy_integer((void*) &w, p6);
-    copy_integer((void*) &h, p7);
+*/
+
+    // Initialise element (child) size.
+    copy_integer((void*) &w, p4);
+    copy_integer((void*) &h, p5);
     calculate_integer_divide((void*) &w, (void*) &cc);
     calculate_integer_divide((void*) &h, (void*) &rc);
 
@@ -137,8 +167,8 @@ void serialise_layout_grid(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // CAUTION! A layout-dependent formula has to be applied inside,
     // for calculating the position (x, y) of child elements.
     // The formula gets selected depending on the last parametre.
-    serialise_layout_part(p0, p1, p2, p3, p4, p5, (void*) &x, (void*) &y, (void*) &w, (void*) &h, p9);
+    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, p8, p9);
 }
 
-/* GRID_LAYOUT_SERIALISER_SOURCE */
+/* SIZE_GRID_LAYOUT_SERIALISER_SOURCE */
 #endif

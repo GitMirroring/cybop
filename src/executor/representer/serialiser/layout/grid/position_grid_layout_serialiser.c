@@ -23,15 +23,18 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GRID_FORMULA_LAYOUT_SERIALISER_SOURCE
-#define GRID_FORMULA_LAYOUT_SERIALISER_SOURCE
+#ifndef POSITION_GRID_LAYOUT_SERIALISER_SOURCE
+#define POSITION_GRID_LAYOUT_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Serialises grid layout coordinates using formula.
+ * Serialises grid layout position.
  *
  * @param p0 the destination element (child) position x
  * @param p1 the destination element (child) position y
@@ -41,9 +44,9 @@
  * @param p5 the source position y
  * @param p6 the element (child) index
  */
-void serialise_layout_formula_grid(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_layout_grid_position(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout formula grid.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid position.");
 
     // Initialise destination position.
     // CAUTION! This is necessary for
@@ -60,5 +63,5 @@ void serialise_layout_formula_grid(void* p0, void* p1, void* p2, void* p3, void*
     calculate_integer_add(p1, p5);
 }
 
-/* GRID_FORMULA_LAYOUT_SERIALISER_SOURCE */
+/* POSITION_GRID_LAYOUT_SERIALISER_SOURCE */
 #endif

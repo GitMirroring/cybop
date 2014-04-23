@@ -28,11 +28,12 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/representer/serialiser/layout/content_element_part_layout_serialiser.c"
+#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/representer/serialiser/layout/position_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -40,12 +41,14 @@
  *
  * @param p0 the model data
  * @param p1 the model index
- * @param p2 the position x
- * @param p3 the position y
- * @param p4 the knowledge memory part
- * @param p5 the layout
+ * @param p2 the source element (child) width
+ * @param p3 the source element (child) height
+ * @param p4 the position x
+ * @param p5 the position y
+ * @param p6 the knowledge memory part
+ * @param p7 the layout
  */
-void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part element.");
 
@@ -80,13 +83,15 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     // The element (child) position x, y.
     int x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+/*??
     // The element (child) size width, height.
     int w = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+*/
 
     // Get parts.
-    get_part_knowledge((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p4);
-    get_part_knowledge((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p4);
+    get_part_knowledge((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
+    get_part_knowledge((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
     // Get part model, properties items.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -97,19 +102,23 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
     // Get position coordinates.
     copy_array_forward((void*) &x, pmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
     copy_array_forward((void*) &y, pmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
+/*??
     // Get size coordinates.
     copy_array_forward((void*) &w, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
     copy_array_forward((void*) &h, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
+*/
 
     // Calculate part position using layout-specific formula.
-    serialise_layout_formula((void*) &x, (void*) &y, (void*) &w, (void*) &h, p2, p3, p1, p5);
+    serialise_layout_position((void*) &x, (void*) &y, p2, p3, p4, p5, p1, p7);
 
     // Set position x, y.
     copy_array_forward(pmd, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     copy_array_forward(pmd, (void*) &y, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+/*??
     // Set size width, height.
     copy_array_forward(smd, (void*) &w, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     copy_array_forward(smd, (void*) &h, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+*/
 }
 
 /* ELEMENT_PART_LAYOUT_SERIALISER_SOURCE */

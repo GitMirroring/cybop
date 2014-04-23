@@ -23,29 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ABSOLUTE_FORMULA_LAYOUT_SERIALISER_SOURCE
-#define ABSOLUTE_FORMULA_LAYOUT_SERIALISER_SOURCE
+#ifndef GRID_LAYOUT_STATE_CYBOL_NAME_CONSTANT_SOURCE
+#define GRID_LAYOUT_STATE_CYBOL_NAME_CONSTANT_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include <stddef.h>
 
-/**
- * Serialises absolute layout coordinates using formula.
- *
- * @param p0 the destination element position x, which is the source BEFORE the operation
- * @param p1 the destination element position y, which is the source BEFORE the operation
- * @param p2 the source whole position x
- * @param p3 the source whole position y
- */
-void serialise_layout_formula_absolute(void* p0, void* p1, void* p2, void* p3) {
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout formula absolute.");
+/** The columns grid layout state cybol name. */
+static wchar_t* COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME = L"columns";
+static int* COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-    // Add whole position.
-    calculate_integer_add(p0, p2);
-    calculate_integer_add(p1, p3);
-}
+/** The rows grid layout state cybol name. */
+static wchar_t* ROWS_GRID_LAYOUT_STATE_CYBOL_NAME = L"rows";
+static int* ROWS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* ABSOLUTE_FORMULA_LAYOUT_SERIALISER_SOURCE */
+/* GRID_LAYOUT_STATE_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

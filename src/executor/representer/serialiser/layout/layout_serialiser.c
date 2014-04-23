@@ -26,9 +26,18 @@
 #ifndef LAYOUT_SERIALISER_SOURCE
 #define LAYOUT_SERIALISER_SOURCE
 
+#include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/representer/serialiser/layout/absolute_layout_serialiser.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/serialiser/layout/absolute/size_absolute_layout_serialiser.c"
+/*??
+#include "../../../../executor/representer/serialiser/layout/border/size_border_layout_serialiser.c"
+#include "../../../../executor/representer/serialiser/layout/box/size_box_layout_serialiser.c"
+#include "../../../../executor/representer/serialiser/layout/flow/size_flow_layout_serialiser.c"
+*/
+#include "../../../../executor/representer/serialiser/layout/grid/size_grid_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -58,7 +67,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_absolute(p0, p1, p2, p3);
+            serialise_layout_absolute_size(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
@@ -68,7 +77,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_border(p0, p2, p3);
+//??            serialise_layout_border_size(p0, p2, p3);
         }
     }
 
@@ -81,7 +90,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             //?? Layout in a row or column WITHOUT breaking them.
             //?? If a row break is desired, then use flow layout.
 
-//??            serialise_layout_box(p0, p2, p3);
+//??            serialise_layout_box_size(p0, p2, p3);
         }
     }
 
@@ -91,7 +100,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_flow(p0, p2, p3);
+//??            serialise_layout_flow_size(p0, p2, p3);
         }
     }
 
@@ -101,7 +110,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_grid(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_layout_grid_size(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 }

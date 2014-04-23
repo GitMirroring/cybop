@@ -23,17 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FORMULA_LAYOUT_SERIALISER_SOURCE
-#define FORMULA_LAYOUT_SERIALISER_SOURCE
+#ifndef POSITION_LAYOUT_SERIALISER_SOURCE
+#define POSITION_LAYOUT_SERIALISER_SOURCE
 
+#include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/representer/serialiser/layout/formula/absolute_formula_layout_serialiser.c"
-#include "../../../../executor/representer/serialiser/layout/formula/grid_formula_layout_serialiser.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/representer/serialiser/layout/absolute/position_absolute_layout_serialiser.c"
+#include "../../../../executor/representer/serialiser/layout/grid/position_grid_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises layout using a formula.
+ * Serialises layout position.
  *
  * @param p0 the destination element (child) position x
  * @param p1 the destination element (child) position y
@@ -44,9 +47,9 @@
  * @param p6 the element (child) index
  * @param p7 the layout
  */
-void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout formula.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout position.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -57,7 +60,7 @@ void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_formula_absolute(p0, p1, p2, p3);
+            serialise_layout_absolute_position(p0, p1, p4, p5);
         }
     }
 
@@ -67,7 +70,7 @@ void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_formula_border(p0, p2, p3);
+//??            serialise_layout_border_position(p0, p2, p3);
         }
     }
 
@@ -80,7 +83,7 @@ void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, 
             //?? Layout in a row or column WITHOUT breaking them.
             //?? If a row break is desired, then use flow layout.
 
-//??            serialise_layout_formula_box(p0, p2, p3);
+//??            serialise_layout_box_position(p0, p2, p3);
         }
     }
 
@@ -90,7 +93,7 @@ void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_layout_formula_flow(p0, p2, p3);
+//??            serialise_layout_flow_position(p0, p2, p3);
         }
     }
 
@@ -100,10 +103,10 @@ void serialise_layout_formula(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_formula_grid(p0, p1, p2, p3, p4, p5, p6);
+            serialise_layout_grid_position(p0, p1, p2, p3, p4, p5, p6);
         }
     }
 }
 
-/* FORMULA_LAYOUT_SERIALISER_SOURCE */
+/* POSITION_LAYOUT_SERIALISER_SOURCE */
 #endif

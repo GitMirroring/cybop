@@ -31,9 +31,8 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/representer/serialiser/layout/element_part_layout_serialiser.c"
-#include "../../../../executor/representer/serialiser/layout/formula_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -41,16 +40,14 @@
  *
  * @param p0 the model data
  * @param p1 the model count
- * @param p2 the position x
- * @param p3 the position y
- * @param p4 the size width
- * @param p5 the size height
- * @param p6 the layout properties data
- * @param p7 the layout properties count
- * @param p8 the knowledge memory part
- * @param p9 the layout
+ * @param p2 the source element (child) width
+ * @param p3 the source element (child) height
+ * @param p4 the position x
+ * @param p5 the position y
+ * @param p6 the knowledge memory part
+ * @param p7 the layout
  */
-void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part.");
 
@@ -81,7 +78,7 @@ void serialise_layout_part(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         }
 
         // Serialise layout part element.
-        serialise_layout_part_element(p0, (void*) &j, p2, p3, p4, (void*) &j, p6, p7, p8);
+        serialise_layout_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7);
 
         // Increment loop variable.
         j++;
