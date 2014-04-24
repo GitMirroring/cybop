@@ -38,18 +38,70 @@
 /**
  * Serialises the window into win32 display.
  *
- * @param p0 the connexion
- * @param p2 the window
- * @param p3 the graphic context
- * @param p4 the source properties data
- * @param p5 the source properties count
- * @param p6 the source whole properties data
- * @param p7 the source whole properties count
- * @param p8 the knowledge memory part
+ * @param p0 the win32 device context
+ * @param p1 the source position x
+ * @param p2 the source position y
+ * @param p3 the source size width
+ * @param p4 the source size height
  */
-void serialise_win32_display_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_win32_display_window(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 display window.");
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* h = (int*) p4;
+
+        if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* w = (int*) p3;
+
+            if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                int* y = (int*) p2;
+
+                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    int* x = (int*) p1;
+
+                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // The handle to the device context.
+                        //
+                        // CAUTION! The device context type is defined as:
+                        // typedef HANDLE HDC;
+                        // typedef PVOID HANDLE;
+                        // typedef void* PVOID;
+                        //
+                        // The HDC type is: void*
+                        // Therefore, cast parametre value AS IS
+                        // to handle (WITHOUT dereferencing).
+                        HDC h = (HDC) p0;
+
+                        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 display window.");
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display window. The device context is null.");
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display window. The source position x is null.");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display window. The source position y is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display window. The source size width is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise win32 display window. The source size height is null.");
+    }
 }
 
 /* WINDOW_WIN32_DISPLAY_SERIALISER_SOURCE */

@@ -28,9 +28,6 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #ifdef __APPLE__
@@ -53,8 +50,8 @@
  * @param p4 the win32 device context
  * @param p5 the position x
  * @param p6 the position y
- * @param p7 the width
- * @param p8 the height
+ * @param p7 the size width
+ * @param p8 the size height
  */
 void serialise_gui_shape_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 

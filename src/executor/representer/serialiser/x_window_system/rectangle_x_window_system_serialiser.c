@@ -30,7 +30,6 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -44,8 +43,8 @@
  * @param p3 the graphic context
  * @param p4 the position x
  * @param p5 the position y
- * @param p6 the width
- * @param p7 the height
+ * @param p6 the size width
+ * @param p7 the size height
  */
 void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
@@ -90,6 +89,8 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
                                 xcb_rectangle_t rd;
 
                                 // Initialise rectangle.
+                                //?? TODO: Is a reference possible? Example:
+                                //?? copy_integer((void*) &(rd.x), p4);
                                 rd.x = *x;
                                 rd.y = *y;
                                 rd.width = *w;

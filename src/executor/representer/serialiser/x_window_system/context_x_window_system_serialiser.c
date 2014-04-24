@@ -30,7 +30,6 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -85,7 +84,6 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // Get screen's default colour map.
                     xcb_colormap_t cm = (*s).default_colormap;
                     // The foreground colour cookie.
-//??                                xcb_alloc_color_cookie_t fgcc = xcb_alloc_color(c, cm, 65535, 0, 0);
                     xcb_alloc_color_cookie_t fgcc = xcb_alloc_color(c, cm, 65535, 0, 0);
                     // The background colour cookie.
                     xcb_alloc_color_cookie_t bgcc = xcb_alloc_color(c, cm, 0, 65535, 0);

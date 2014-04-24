@@ -61,6 +61,8 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p6));
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The graphic context.
     void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The win32 device context.
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get x window system items.
     // CAUTION! Do NOT use "overwrite_array" function here,
@@ -70,8 +72,9 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p6));
     copy_array_forward((void*) &s, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &w, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &gc, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dc, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-//??    serialise_gui_part_element_content(c, s, w, gc, p0, p1, p2, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p6);
+//??    serialise_gui_part_element_content(c, s, w, gc, dc, p0, p1, p2, p3, p4, p6);
 }
 
 /* INITIAL_GUI_SERIALISER_SOURCE */

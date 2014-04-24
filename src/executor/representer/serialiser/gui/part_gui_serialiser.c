@@ -42,17 +42,18 @@
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the source model data
- * @param p5 the source model count
- * @param p6 the source properties data
- * @param p7 the source properties count
- * @param p8 the knowledge memory part
+ * @param p4 the win32 device context
+ * @param p5 the source model data
+ * @param p6 the source model count
+ * @param p7 the source properties data
+ * @param p8 the source properties count
+ * @param p9 the knowledge memory part
  */
-void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part.");
 
-fwprintf(stdout, L"TEST serialise gui part: %i\n", p8);
+fwprintf(stdout, L"TEST serialise gui part: %i\n", p6);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -80,7 +81,7 @@ fwprintf(stdout, L"TEST serialise gui part: %i\n", p8);
             break;
         }
 
-        serialise_gui_part_element(p0, p1, p2, p3, p4, (void*) &j, p6, p7, p8);
+        serialise_gui_part_element(p0, p1, p2, p3, p4, p5, (void*) &j, p7, p8, p9);
 
         // Increment loop variable.
         j++;

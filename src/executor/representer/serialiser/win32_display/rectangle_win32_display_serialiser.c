@@ -31,7 +31,6 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
@@ -41,8 +40,8 @@
  * @param p0 the win32 device context
  * @param p1 the position x
  * @param p2 the position y
- * @param p3 the width
- * @param p4 the height
+ * @param p3 the size width
+ * @param p4 the size height
  */
 void serialise_win32_display_rectangle(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
