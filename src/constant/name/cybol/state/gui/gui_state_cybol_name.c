@@ -34,6 +34,10 @@
 static wchar_t* BACKGROUND_GUI_STATE_CYBOL_NAME = L"background";
 static int* BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The cap-style gui state cybol name. */
+static wchar_t* CAP_STYLE_GUI_STATE_CYBOL_NAME = L"cap-style";
+static int* CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The cell gui state cybol name. */
 static wchar_t* CELL_GUI_STATE_CYBOL_NAME = L"cell";
 static int* CELL_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -41,6 +45,18 @@ static int* CELL_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL
 /** The direction gui state cybol name. */
 static wchar_t* DIRECTION_GUI_STATE_CYBOL_NAME = L"direction";
 static int* DIRECTION_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The fill-style gui state cybol name. */
+static wchar_t* FILL_STYLE_GUI_STATE_CYBOL_NAME = L"fill-style";
+static int* FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The fill-rule gui state cybol name. */
+static wchar_t* FILL_RULE_GUI_STATE_CYBOL_NAME = L"fill-rule";
+static int* FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The font gui state cybol name. */
+static wchar_t* FONT_GUI_STATE_CYBOL_NAME = L"font";
+static int* FONT_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The foreground gui state cybol name. */
 static wchar_t* FOREGROUND_GUI_STATE_CYBOL_NAME = L"foreground";
@@ -54,9 +70,21 @@ static int* ICON_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL
 static wchar_t* ICON_TITLE_GUI_STATE_CYBOL_NAME = L"icon_title";
 static int* ICON_TITLE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The join-style gui state cybol name. */
+static wchar_t* JOIN_STYLE_GUI_STATE_CYBOL_NAME = L"join-style";
+static int* JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The layout gui state cybol name. */
 static wchar_t* LAYOUT_GUI_STATE_CYBOL_NAME = L"layout";
 static int* LAYOUT_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The line-width gui state cybol name. */
+static wchar_t* LINE_WIDTH_GUI_STATE_CYBOL_NAME = L"line-width";
+static int* LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The line-style gui state cybol name. */
+static wchar_t* LINE_STYLE_GUI_STATE_CYBOL_NAME = L"line-style";
+static int* LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The position gui state cybol name. */
 static wchar_t* POSITION_GUI_STATE_CYBOL_NAME = L"position";

@@ -28,12 +28,15 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 // CAUTION! Do NOT include the "content_element_part_gui_serialiser.c" module.
 // It is true, the "serialise_gui_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down
 // by module granularity and NOT by call hierarchy.
 // Therefore, the "gui_serialiser.c" module is included here.
-//?? #include "../../../../executor/representer/serialiser/gui/gui_serialiser.c"
+#include "../../../../executor/representer/serialiser/gui/gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -74,7 +77,7 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p6));
     copy_array_forward((void*) &gc, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-//??    serialise_gui_part_element_content(c, s, w, gc, dc, p0, p1, p2, p3, p4, p6);
+    serialise_gui_part_element_content(c, s, w, gc, dc, p0, p1, p2, p3, p4, p6);
 }
 
 /* INITIAL_GUI_SERIALISER_SOURCE */

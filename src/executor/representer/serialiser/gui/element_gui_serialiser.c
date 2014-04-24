@@ -28,13 +28,14 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/context_gui_serialiser.c"
+#include "../../../../executor/representer/serialiser/gui/shape_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -68,8 +69,9 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The super part model item data, count.
     void* supermd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* supermc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The shape part model item data.
+    // The shape part model item data, count.
     void* shmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* shmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
     get_part_knowledge((void*) &super, p9, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p10, p11);
@@ -93,19 +95,20 @@ void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     // Get part model items.
     copy_array_forward((void*) &shm, sh, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get part model item data.
+    // Get part model item data, count.
     copy_array_forward((void*) &shmd, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &shmc, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise context.
     serialise_gui_context(p0, p1, p2, p3, p4, p9, p10, p11);
     // Serialise shape.
-    serialise_gui_shape(p0, p1, p2, p3, p4, p5, p6, p7, p8, shmd);
+    serialise_gui_shape(p0, p1, p2, p3, p4, p5, p6, p7, p8, shmd, shmc);
 
     // Draw text.
     // CAUTION! This has to be done for ALL shapes.
     // A text is NOT treated as shape itself,
     // but may instead be drawn into the shape.
-    xcb_image_text_8(c, strlen("TEST"), *d, *gc, *x + 20, *y + 20, "TEST");
+//??    xcb_image_text_8(c, strlen("TEST"), *d, *gc, *x + 20, *y + 20, "TEST");
 
     //?? TODO: Where to move the following to?
     // Close font.

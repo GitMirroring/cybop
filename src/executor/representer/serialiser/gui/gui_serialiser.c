@@ -26,8 +26,19 @@
 #ifndef GUI_SERIALISER_SOURCE
 #define GUI_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/cybol/boolean/boolean_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/colour/terminal_colour_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/complex/cartesian/cartesian_complex_cybol_serialiser.c"
@@ -331,7 +342,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // But in order to be able to uniformly process all data,
             // this loss in efficiency is taken.
 
-            decode(p5, p6, p7, (void*) UTF_8_CYBOI_ENCODING);
+            decode_utf_8(p5, p6, p7);
         }
     }
 

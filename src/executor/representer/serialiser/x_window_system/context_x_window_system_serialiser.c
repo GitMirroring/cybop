@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/representer/serialiser/x_window_system/properties_context_x_window_system_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -92,9 +93,9 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // The background colour reply.
                     xcb_alloc_color_reply_t* bgcr = xcb_alloc_color_reply(c, bgcc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
                     // The foreground colour.
-                    uint32_t* fg = (*fgcr).pixel;
+                    uint32_t fg = (*fgcr).pixel;
                     // The background colour.
-                    uint32_t* bg = (*bgcr).pixel;
+                    uint32_t bg = (*bgcr).pixel;
                     // The line width measured in pixels.
                     int lw = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
                     // The line style defining which sections of a line are drawn.
@@ -161,6 +162,9 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // The font defining the font to use for
                     // the ImageText8 and ImageText16 requests.
                     //
+                    // It is of type integer. See xcb sources:
+                    // typedef uint32_t xcb_font_t;
+                    //
                     // CAUTION! This function asks the x server
                     // to attribute an id to the font.
                     xcb_font_t f = xcb_generate_id(c);
@@ -170,7 +174,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // to know which are the fonts available.
                     xcb_open_font(c, f, strlen("7x13"), "7x13");
 
-                    serialise_x_window_system_context_properties(fg, bg, lw, ls, cs, js, fs, fr, f, p4, p5, p6);
+                    serialise_x_window_system_context_properties((void*) &fg, (void*) &bg, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, (void*) &f, p4, p5, p6);
 
                     //
                     // Initialise graphic context values.
@@ -179,7 +183,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // Otherwise, drawings will not be displayed.
                     //
 
-                    if (crf != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    if (fgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         v[0] = fg;
 
@@ -188,7 +192,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The foreground colour reply is null.");
                     }
 
-                    if (crb != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    if (bgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         v[1] = bg;
 

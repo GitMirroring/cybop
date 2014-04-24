@@ -28,14 +28,19 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/element_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/window_gui_serialiser.c"
+#include "../../../../executor/representer/serialiser/layout/layout_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -88,6 +93,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The layout part model, properties item data, count.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lpd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lpc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The window flag part model item data.
@@ -150,6 +156,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lmc, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lpd, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lpc, lp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &wmd, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -164,7 +171,7 @@ void serialise_gui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     // Serialise layout.
     // CAUTION! A layout is useful for both,
     // element AND window below.
-    serialise_layout(p5, p6, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, (void*) &lpd, (void*) &lpc, p9, (void*) &lmd);
+    serialise_layout(p5, p6, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, lpd, lpc, p9, lmd, lmc);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

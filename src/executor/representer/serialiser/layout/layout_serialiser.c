@@ -26,11 +26,11 @@
 #ifndef LAYOUT_SERIALISER_SOURCE
 #define LAYOUT_SERIALISER_SOURCE
 
-#include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../constant/model/cybol/layout/layout_cybol_model.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/representer/serialiser/layout/absolute/size_absolute_layout_serialiser.c"
 /*??
 #include "../../../../executor/representer/serialiser/layout/border/size_border_layout_serialiser.c"
@@ -52,9 +52,10 @@
  * @param p6 the layout properties data
  * @param p7 the layout properties count
  * @param p8 the knowledge memory part
- * @param p9 the layout
+ * @param p9 the layout data
+ * @param p10 the layout count
  */
-void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout.");
 
@@ -63,17 +64,17 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) ABSOLUTE_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p9, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p10, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_absolute_size(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_layout_absolute_size(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) BORDER_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p9, (void*) BORDER_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p10, (void*) BORDER_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -83,7 +84,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) BOX_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p9, (void*) BOX_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p10, (void*) BOX_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -96,7 +97,7 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) FLOW_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p9, (void*) FLOW_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p10, (void*) FLOW_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -106,11 +107,11 @@ void serialise_layout(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p9, (void*) GRID_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p9, (void*) GRID_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p10, (void*) GRID_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_layout_grid_size(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+            serialise_layout_grid_size(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 }

@@ -22,16 +22,8 @@ ______________
 GUI
 ___
 
-        * Continue layout files in the following order:
-            grid_layout_serialiser.c
-            absolute_layout_serialiser.c
-            layout_serialiser.c
-            content_element_part_layout_serialiser.c (call of "serialise_layout_properties" is READY; only adapt parametres of call of "serialise_layout")
-            element_part_layout_serialiser.c
-            part_layout_serialiser.c
-            ==> layout finished, now continue gui:
-            element_gui_serialiser.c
-            etc.
+        * Debug compilation errors
+        * Continue drawing for x window system in gui serialiser
 
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
@@ -40,7 +32,6 @@ ___
             if "stretch" is "horizontal", then use order: north, south, west, east, centre;
             if "stretch" is "vertical", then use order: west, east, north, south, centre
 
-        * Continue drawing for x window system in gui serialiser
         * Extend gui serialiser for win32 display
             HDC hdc;
             PAINTSTRUCT PaintStruct;

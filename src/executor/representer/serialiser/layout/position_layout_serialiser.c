@@ -26,11 +26,11 @@
 #ifndef POSITION_LAYOUT_SERIALISER_SOURCE
 #define POSITION_LAYOUT_SERIALISER_SOURCE
 
-#include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../constant/model/cybol/layout/layout_cybol_model.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/representer/serialiser/layout/absolute/position_absolute_layout_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/grid/position_grid_layout_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -45,9 +45,10 @@
  * @param p4 the source position x
  * @param p5 the source position y
  * @param p6 the element (child) index
- * @param p7 the layout
+ * @param p7 the layout data
+ * @param p8 the layout count
  */
-void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout position.");
 
@@ -56,7 +57,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) ABSOLUTE_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p7, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) ABSOLUTE_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -66,7 +67,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) BORDER_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p7, (void*) BORDER_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) BORDER_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -76,7 +77,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) BOX_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p7, (void*) BOX_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) BOX_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,7 +90,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) FLOW_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p7, (void*) FLOW_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) FLOW_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -99,7 +100,7 @@ void serialise_layout_position(void* p0, void* p1, void* p2, void* p3, void* p4,
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) GRID_LAYOUT_STATE_CYBOI_LANGUAGE);
+        compare_all_array((void*) &r, p7, (void*) GRID_LAYOUT_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) GRID_LAYOUT_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

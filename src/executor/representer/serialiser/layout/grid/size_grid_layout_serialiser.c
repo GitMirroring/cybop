@@ -53,9 +53,10 @@
  * @param p6 the layout properties data
  * @param p7 the layout properties count
  * @param p8 the knowledge memory part
- * @param p9 the layout
+ * @param p9 the layout data
+ * @param p10 the layout count
  */
-void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid size.");
 
@@ -167,7 +168,7 @@ void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4
     // CAUTION! A layout-dependent formula has to be applied inside,
     // for calculating the position (x, y) of child elements.
     // The formula gets selected depending on the last parametre.
-    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, p8, p9);
+    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, p8, p9, p10);
 }
 
 /* SIZE_GRID_LAYOUT_SERIALISER_SOURCE */

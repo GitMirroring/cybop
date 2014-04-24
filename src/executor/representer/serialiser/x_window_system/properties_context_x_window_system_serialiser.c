@@ -33,6 +33,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"

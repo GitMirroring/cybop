@@ -30,10 +30,13 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
+//?? #include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 #ifdef __APPLE__

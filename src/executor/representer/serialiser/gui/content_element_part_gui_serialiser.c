@@ -26,11 +26,16 @@
 #ifndef CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE
 #define CONTENT_ELEMENT_PART_GUI_SERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/representer/serialiser/gui/properties_gui_serialiser.c"
 #include "../../../../logger/logger.c"
 
@@ -38,7 +43,7 @@
 // Forward declarations.
 //
 
-void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9);
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
 
 /**
  * Serialises the part element content into gui.

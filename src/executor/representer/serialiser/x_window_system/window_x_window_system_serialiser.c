@@ -108,9 +108,9 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             allocate_item((void*) &itmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                             // Encode title model data terminated wide character- into multibyte character data.
-                            encode_utf_8(tmdt, tmd, tmc);
+//??                            encode_utf_8(tmdt, tmd, tmc);
                             // Encode icon title model data terminated wide character- into multibyte character data.
-                            encode_utf_8(itmdt, itmd, itmc);
+//??                            encode_utf_8(itmdt, itmd, itmc);
 
                             // Initialise values.
                             // CAUTION! Initialise values BEFORE using them
