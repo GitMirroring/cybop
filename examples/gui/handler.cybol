@@ -1,24 +1,26 @@
 <model>
-    <!-- If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
+    <!-- CAUTION! If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
     <part name="reset_action" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".gui.action"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.gui.action"/>
     </part>
     <part name="receive_action" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".gui.action"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".gui.window"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.gui.window"/>
     </part>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
         not find all resources anymore, if they meanwhile have been manipulated by the other signal.
         The "flow/sequence" operation ensures that the given model is executed directly.
+
+        CAUTION! Use path/reference format here, since the action is just
+        a string pointing to the actual model to be executed.
     -->
-    <!-- CAUTION! Use path/reference format here, since the action is just a string pointing to the actual model to be executed. -->
     <part name="execute_action" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/reference" model=".gui.action"/>
+        <property name="model" channel="inline" format="path/reference" model=".app.gui.action"/>
     </part>
 </model>
 

@@ -108,13 +108,13 @@ void startup_x_window_system(void* p0) {
 //??        v = malloc(*XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
 */
 
-fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
-
         // Allocate and open connexion.
         // CAUTION! Do NOT allocate the connexion manually here.
         // The xcb_connection_t is a structure containing
         // all data needed to communicate with an x server.
         c = (void*) xcb_connect(NULL, NULL);
+
+fwprintf(stdout, L"TEST startup x window system c: %i\n", c);
 
         if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

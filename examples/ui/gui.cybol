@@ -4,7 +4,9 @@
         <property name="window" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
         <property name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
+<!--
         <property name="icon" channel="file" format="png" model="ui/gui/icon.png"/>
+-->
         <property name="position" channel="inline" format="number/integer" model="30,30"/>
         <property name="size" channel="inline" format="number/integer" model="600,400"/>
         <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>

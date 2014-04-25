@@ -4,39 +4,16 @@
         <property name="window" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
         <property name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
+<!--
         <property name="icon" channel="file" format="png" model="gui/icon.png"/>
+-->
         <property name="position" channel="inline" format="number/integer" model="30,30"/>
         <property name="size" channel="inline" format="number/integer" model="600,400"/>
         <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
         <property name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
         <property name="layout" channel="inline" format="text/plain" model="absolute"/>
-        <property name="expose" channel="inline" format="text/plain" model=".app.logic.send_gui"/>
+        <property name="expose" channel="inline" format="text/plain" model=".app.logic.refresh_display"/>
     </part>
     <!-- CAUTION! The action is used in file "logic/handler/gui.cybol". -->
     <part name="action" channel="inline" format="text/plain" model=""/>
 </model>
-
-<!--
-    Copyright (C) 1999-2014. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.16.0 2014-03-31
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

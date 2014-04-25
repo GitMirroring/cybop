@@ -1,0 +1,4 @@
+<model>
+    <part name="gui" channel="file" format="element/part" model="gui/gui.cybol"/>
+    <part name="logic" channel="file" format="element/part" model="gui/logic.cybol"/>
+</model>

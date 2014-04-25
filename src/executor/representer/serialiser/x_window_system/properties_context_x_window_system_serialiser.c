@@ -149,47 +149,47 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
 
     if (fg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (bg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (lw == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &lw, supermd, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &lw, supermd, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (ls == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &ls, supermd, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &ls, supermd, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (cs == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &cs, supermd, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &cs, supermd, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (js == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &js, supermd, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &js, supermd, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (fs == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &fs, supermd, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &fs, supermd, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (fr == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &fr, supermd, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &fr, supermd, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     if (f == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &f, supermd, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p8);
+        get_part_knowledge((void*) &f, supermd, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
     }
 
     // Get part model items.

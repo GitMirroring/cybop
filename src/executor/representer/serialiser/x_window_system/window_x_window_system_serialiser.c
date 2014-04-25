@@ -49,8 +49,12 @@
  * @param p3 the source position y
  * @param p4 the source size width
  * @param p5 the source size height
+ * @param p6 the title data
+ * @param p7 the title count
+ * @param p8 the icon title data
+ * @param p9 the icon title count
  */
-void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -108,9 +112,9 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             allocate_item((void*) &itmdt, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                             // Encode title model data terminated wide character- into multibyte character data.
-//??                            encode_utf_8(tmdt, tmd, tmc);
+                            encode_utf_8(tmdt, p6, p7);
                             // Encode icon title model data terminated wide character- into multibyte character data.
-//??                            encode_utf_8(itmdt, itmd, itmc);
+                            encode_utf_8(itmdt, p8, p9);
 
                             // Initialise values.
                             // CAUTION! Initialise values BEFORE using them

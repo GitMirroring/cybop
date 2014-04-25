@@ -88,6 +88,11 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
                                 // The rectangle data.
                                 xcb_rectangle_t rd;
 
+fwprintf(stdout, L"TEST serialise x window system rectangle x: %i\n", *x);
+fwprintf(stdout, L"TEST serialise x window system rectangle y: %i\n", *y);
+fwprintf(stdout, L"TEST serialise x window system rectangle w: %i\n", *w);
+fwprintf(stdout, L"TEST serialise x window system rectangle h: %i\n", *h);
+
                                 // Initialise rectangle.
                                 //?? TODO: Is a reference possible? Example:
                                 //?? copy_integer((void*) &(rd.x), p4);
@@ -97,7 +102,8 @@ void serialise_x_window_system_rectangle(void* p0, void* p1, void* p2, void* p3,
                                 rd.height = *h;
 
                                 // Draw rectangle.
-                                xcb_poly_rectangle(c, *d, *gc, rc, &rd);
+//??                                xcb_poly_rectangle(c, *d, *gc, rc, &rd);
+                                xcb_poly_fill_rectangle(c, *d, *gc, rc, &rd);
 
                             } else {
 

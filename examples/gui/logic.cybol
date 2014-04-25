@@ -3,7 +3,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="language" channel="inline" format="meta/language" model="message/gui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".gui"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.gui.window"/>
     </part>
     <part name="print_message" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

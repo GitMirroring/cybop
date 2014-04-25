@@ -11,19 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Shell Commands
-______________
-
-        * Delete file "applicator/command/archive_file.c"
-        * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
-            How to use pipes in cyboi?
-            Can one store output in knowledge tree to hand over as input to next command?)
-
 GUI
 ___
 
-        * Debug compilation errors
-        * Continue drawing for x window system in gui serialiser
+        * Check why rectangles are not drawn --> Are colours correct? Copy example from xcb tutorial! (the window, size and title are fine)
+        * Continue x window system serialiser
 
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
@@ -52,6 +44,14 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
         * Windows Data Types:
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
+Shell Commands
+______________
+
+        * Delete file "applicator/command/archive_file.c"
+        * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
+            How to use pipes in cyboi?
+            Can one store output in knowledge tree to hand over as input to next command?)
 
 Datetime
 ________

@@ -183,6 +183,9 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // Otherwise, drawings will not be displayed.
                     //
 
+fwprintf(stdout, L"TEST serialise x window system context fg: %i\n", fg);
+fwprintf(stdout, L"TEST serialise x window system context bg: %i\n", bg);
+
                     if (fgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                         v[0] = fg;

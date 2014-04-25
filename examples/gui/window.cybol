@@ -5,15 +5,19 @@
         <property name="size" channel="inline" format="number/integer" model="200,50"/>
         <property name="foreground" channel="inline" format="colour/rgb" model="0,0,65535"/>
         <property name="background" channel="inline" format="colour/rgb" model="65535,65535,65535"/>
-        <property name="button-release" channel="inline" format="text/plain" model=".logic.print_message"/>
-        <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+        <property name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
+        <!-- CAUTION! The following line may possibly be deleted, since the refresh is done by .app.gui already -->
+        <property name="expose" channel="inline" format="text/plain" model=".app.logic.refresh_display"/>
     </part>
     <part name="rectangle_1" channel="inline" format="text/plain" model="CYBOP Demo">
         <property name="position" channel="inline" format="number/integer" model="150,150"/>
         <property name="size" channel="inline" format="number/integer" model="200,100"/>
         <property name="foreground" channel="inline" format="colour/rgb" model="65535,65535,65535"/>
         <property name="background" channel="inline" format="colour/rgb" model="0,0,65535"/>
-        <property name="expose" channel="inline" format="text/plain" model=".logic.refresh_display"/>
+        <property name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <!-- CAUTION! The following line may possibly be deleted, since the refresh is done by .app.gui already -->
+        <property name="expose" channel="inline" format="text/plain" model=".app.logic.refresh_display"/>
     </part>
 </model>
 

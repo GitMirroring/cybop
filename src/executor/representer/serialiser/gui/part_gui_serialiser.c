@@ -61,7 +61,7 @@ fwprintf(stdout, L"TEST serialise gui part: %i\n", p6);
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p5 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -75,7 +75,7 @@ fwprintf(stdout, L"TEST serialise gui part: %i\n", p6);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p5);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p6);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
