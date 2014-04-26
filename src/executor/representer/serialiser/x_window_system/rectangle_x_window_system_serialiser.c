@@ -102,8 +102,7 @@ fwprintf(stdout, L"TEST serialise x window system rectangle h: %i\n", *h);
                                 rd.height = *h;
 
                                 // Draw rectangle.
-//??                                xcb_poly_rectangle(c, *d, *gc, rc, &rd);
-                                xcb_poly_fill_rectangle(c, *d, *gc, rc, &rd);
+                                xcb_poly_rectangle(c, *d, *gc, rc, &rd);
 
                             } else {
 

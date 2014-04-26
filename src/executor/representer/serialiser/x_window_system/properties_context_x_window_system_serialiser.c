@@ -42,20 +42,24 @@
 /**
  * Serialises the x window system context properties.
  *
- * @param p0 the foreground colour
- * @param p1 the background colour
- * @param p2 the line width
- * @param p3 the line style
- * @param p4 the cap style
- * @param p5 the join style
- * @param p6 the fill style
- * @param p7 the fill rule
- * @param p8 the font
- * @param p9 the source properties data
- * @param p10 the source properties count
- * @param p11 the knowledge memory part
+ * @param p0 the foreground colour red
+ * @param p1 the foreground colour green
+ * @param p2 the foreground colour blue
+ * @param p3 the background colour red
+ * @param p4 the background colour green
+ * @param p5 the background colour blue
+ * @param p6 the line width
+ * @param p7 the line style
+ * @param p8 the cap style
+ * @param p9 the join style
+ * @param p10 the fill style
+ * @param p11 the fill rule
+ * @param p12 the font
+ * @param p13 the source properties data
+ * @param p14 the source properties count
+ * @param p15 the knowledge memory part
  */
-void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context properties.");
 
@@ -120,24 +124,24 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     void* fsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The fill rule part model item data.
     void* frmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The font part model item data.
+    // The font part model item data, count.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_knowledge((void*) &super, p9, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &fg, p9, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &bg, p9, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &lw, p9, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &ls, p9, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &cs, p9, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &js, p9, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &fs, p9, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &fr, p9, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
-    get_part_knowledge((void*) &f, p9, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, p10, p11);
+    get_part_knowledge((void*) &super, p13, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &fg, p13, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &bg, p13, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &lw, p13, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &ls, p13, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &cs, p13, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &js, p13, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &fs, p13, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &fr, p13, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_knowledge((void*) &f, p13, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
     // Get super part model item data, count.
     copy_array_forward((void*) &supermd, superm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &supermc, superm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
@@ -149,47 +153,47 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
 
     if (fg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (bg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (lw == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &lw, supermd, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &lw, supermd, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (ls == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &ls, supermd, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &ls, supermd, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (cs == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &cs, supermd, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &cs, supermd, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (js == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &js, supermd, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &js, supermd, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (fs == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &fs, supermd, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &fs, supermd, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (fr == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &fr, supermd, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &fr, supermd, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (f == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &f, supermd, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p11);
+        get_part_knowledge((void*) &f, supermd, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     // Get part model items.
@@ -203,7 +207,7 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     copy_array_forward((void*) &frm, fr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fm, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get part model item data.
+    // Get part model item data, count.
     copy_array_forward((void*) &fgmd, fgm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bgmd, bgm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lwmd, lwm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -213,17 +217,25 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     copy_array_forward((void*) &fsmd, fsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &frmd, frm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Set destination values.
-    copy_integer(p0, fgmd);
-    copy_integer(p1, bgmd);
-    copy_integer(p2, lwmd);
-    copy_integer(p3, lsmd);
-    copy_integer(p4, csmd);
-    copy_integer(p5, jsmd);
-    copy_integer(p6, fsmd);
-    copy_integer(p7, frmd);
-    copy_integer(p8, fmd);
+    // Set foreground red, green, blue.
+    copy_array_forward(p0, fgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
+    copy_array_forward(p1, fgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
+    copy_array_forward(p2, fgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME);
+    // Set background red, green, blue.
+    copy_array_forward(p3, bgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME);
+    copy_array_forward(p4, bgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_1_VECTOR_STATE_CYBOI_NAME);
+    copy_array_forward(p5, bgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME);
+    // Set further destination values.
+    copy_integer(p6, lwmd);
+    copy_integer(p7, lsmd);
+    copy_integer(p8, csmd);
+    copy_integer(p9, jsmd);
+    copy_integer(p10, fsmd);
+    copy_integer(p11, frmd);
+    // Encode font name wide character- into multibyte character data.
+    encode_utf_8(p12, fmd, fmc);
 }
 
 /* PROPERTIES_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */

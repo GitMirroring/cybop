@@ -31,13 +31,11 @@
     <part name="send_display" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.refresh_display"/>
     </part>
-<!--
     <part name="sense_display" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
         <property name="root" channel="inline" format="path/knowledge" model=".app.gui.window"/>
     </part>
--->
 </model>
 
 <!--

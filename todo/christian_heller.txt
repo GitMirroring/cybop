@@ -14,8 +14,7 @@
 GUI
 ___
 
-        * Check why rectangles are not drawn --> Are colours correct? Copy example from xcb tutorial! (the window, size and title are fine)
-        * Continue x window system serialiser
+        * Continue x window system serialiser font drawing
 
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
@@ -23,6 +22,11 @@ ___
             do NOT assign "north" etc. to elements;
             if "stretch" is "horizontal", then use order: north, south, west, east, centre;
             if "stretch" is "vertical", then use order: west, east, north, south, centre
+
+        * Where and how to free colours?
+            see file "context_x_window_system_serialiser.c"
+            The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
+            "As xcb_alloc_color_reply() allocates memory, you have to free it."
 
         * Extend gui serialiser for win32 display
             HDC hdc;
