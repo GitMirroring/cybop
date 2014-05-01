@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-05-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add xcb style constant serialisers to x window system serialiser
+
 2014-04-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue x window system serialiser

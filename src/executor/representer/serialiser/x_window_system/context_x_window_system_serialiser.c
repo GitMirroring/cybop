@@ -101,65 +101,15 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     // The line width measured in pixels.
                     int lw = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
                     // The line style defining which sections of a line are drawn.
-                    //
-                    // Possible values:
-                    //
-                    // XCB_LINE_STYLE_SOLID: FULL PATH of the line is drawn
-                    // XCB_LINE_STYLE_DOUBLE_DASH: full path of the line is drawn,
-                    //     but EVEN DASHES are filled DIFFERENTLY
-                    //     than odd dashes (see fill-style), with
-                    //     Butt cap-style used where even and odd dashes meet
-                    // XCB_LINE_STYLE_ON_OFF_DASH: ONLY EVEN DASHES are drawn, and
-                    //     cap-style applies to all internal ends of
-                    //     individual dashes (except NotLast is treated as Butt)
-                    int ls = XCB_LINE_STYLE_DOUBLE_DASH; //?? XCB_LINE_STYLE_SOLID;
+                    int ls = XCB_LINE_STYLE_SOLID;
                     // The cap style defining how the endpoints of a path are drawn.
-                    //
-                    // Possible values:
-                    //
-                    // XCB_CAP_STYLE_NOT_LAST: result is EQUIVALENT TO Butt,
-                    //     except that for a line-width of zero
-                    //     the final endpoint is not drawn
-                    // XCB_CAP_STYLE_BUTT: result is SQUARE at the endpoint
-                    //     (perpendicular to the slope of the line)
-                    //     with no projection beyond
-                    // XCB_CAP_STYLE_ROUND: result is a CIRCULAR ARC with its
-                    //     diameter equal to the line-width,
-                    //     centered on the endpoint;
-                    //     equivalent to Butt for line-width zero
-                    // XCB_CAP_STYLE_PROJECTING: result is SQUARE at the end,
-                    //     but the path continues BEYOND the endpoint
-                    //     for a distance equal to half the line-width;
-                    //     equivalent to Butt for line-width zero
                     int cs = XCB_CAP_STYLE_NOT_LAST;
                     // The join style defining how corners are drawn for wide lines.
-                    //
-                    // Possible values:
-                    //
-                    // XCB_JOIN_STYLE_MITER: OUTER EDGES of the two lines extend to MEET at an angle;
-                    //     however, if the angle is less than 11 degrees,
-                    //     a Bevel join-style is used instead
-                    // XCB_JOIN_STYLE_ROUND: result is a CIRCULAR ARC with a diameter
-                    //     equal to the line-width, centered on the joinpoint
-                    // XCB_JOIN_STYLE_BEVEL: result is Butt endpoint styles,
-                    //     and then the TRIANGULAR NOTCH IS FILLED
                     int js = XCB_JOIN_STYLE_MITER;
                     // The fill style defining the contents of the
                     // source for line, text, and fill requests.
-                    //
-                    // Possible values:
-                    //
-                    // XCB_FILL_STYLE_SOLID
-                    // XCB_FILL_STYLE_TILED
-                    // XCB_FILL_STYLE_STIPPLED
-                    // XCB_FILL_STYLE_OPAQUE_STIPPLED
                     int fs = XCB_FILL_STYLE_SOLID;
                     // The fill rule.
-                    //
-                    // Possible values:
-                    //
-                    // XCB_FILL_RULE_EVEN_ODD
-                    // XCB_FILL_RULE_WINDING
                     int fr = XCB_FILL_RULE_EVEN_ODD;
                     // The font name item.
                     void* fn = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -1,0 +1,123 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef FILL_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#define FILL_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+
+#include <xcb/xcb.h>
+
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/xcb/fill_style_xcb_cybol_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Serialises the source data into the destination xcb integer constant.
+ *
+ * @param p0 the destination integer data
+ * @param p1 the source wide character data
+ * @param p2 the source wide character count
+ */
+void serialise_x_window_system_fill_style(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system fill style.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //
+    // The value.
+    //
+    // CAUTION! The xcb sources store many constants
+    // in an enumeration, so that handing over one
+    // of its values as parametre fails.
+    //
+    // Example:
+    // copy_integer(p0, (void*) &XCB_LINE_STYLE_SOLID);
+    //
+    // leads to the error:
+    // lvalue required as unary ‘&’ operand
+    //
+    // Therefore, this temporary variable
+    // had to be introduced.
+    //
+    int v = XCB_FILL_STYLE_SOLID;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SOLID_FILL_STYLE_XCB_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            v = XCB_FILL_STYLE_SOLID;
+            copy_integer(p0, (void*) &v);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TILED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            v = XCB_FILL_STYLE_TILED;
+            copy_integer(p0, (void*) &v);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            v = XCB_FILL_STYLE_STIPPLED;
+            copy_integer(p0, (void*) &v);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) OPAQUE_STIPPLED_FILL_STYLE_XCB_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            v = XCB_FILL_STYLE_OPAQUE_STIPPLED;
+            copy_integer(p0, (void*) &v);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system fill style. The fill style is unknown.");
+    }
+}
+
+/* FILL_STYLE_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
+#endif

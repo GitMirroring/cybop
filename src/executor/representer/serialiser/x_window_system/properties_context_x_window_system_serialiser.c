@@ -37,6 +37,11 @@
 #include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/representer/serialiser/x_window_system/cap_style_x_window_system_serialiser.c"
+#include "../../../../executor/representer/serialiser/x_window_system/fill_rule_x_window_system_serialiser.c"
+#include "../../../../executor/representer/serialiser/x_window_system/fill_style_x_window_system_serialiser.c"
+#include "../../../../executor/representer/serialiser/x_window_system/join_style_x_window_system_serialiser.c"
+#include "../../../../executor/representer/serialiser/x_window_system/line_style_x_window_system_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -114,16 +119,21 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     void* bgmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The line width part model item data.
     void* lwmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The line style part model item data.
+    // The line style part model item data, count.
     void* lsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The cap style part model item data.
+    void* lsmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The cap style part model item data, count.
     void* csmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The join style part model item data.
+    void* csmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The join style part model item data, count.
     void* jsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The fill style part model item data.
+    void* jsmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The fill style part model item data, count.
     void* fsmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The fill rule part model item data.
+    void* fsmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The fill rule part model item data, count.
     void* frmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* frmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The font part model item data, count.
     void* fmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -212,10 +222,15 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     copy_array_forward((void*) &bgmd, bgm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lwmd, lwm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lsmd, lsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lsmc, lsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &csmd, csm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &csmc, csm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &jsmd, jsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &jsmc, jsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fsmd, fsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &fsmc, fsm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &frmd, frm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &frmc, frm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fmd, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &fmc, fm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
@@ -229,11 +244,11 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     copy_array_forward(p5, bgmd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DIMENSION_2_VECTOR_STATE_CYBOI_NAME);
     // Set further destination values.
     copy_integer(p6, lwmd);
-    copy_integer(p7, lsmd);
-    copy_integer(p8, csmd);
-    copy_integer(p9, jsmd);
-    copy_integer(p10, fsmd);
-    copy_integer(p11, frmd);
+    serialise_x_window_system_line_style(p7, lsmd, lsmc);
+    serialise_x_window_system_cap_style(p8, csmd, csmc);
+    serialise_x_window_system_join_style(p9, jsmd, jsmc);
+    serialise_x_window_system_fill_style(p10, fsmd, fsmc);
+    serialise_x_window_system_fill_rule(p11, frmd, frmc);
     // Encode font name wide character- into multibyte character data.
     encode_utf_8(p12, fmd, fmc);
 }
