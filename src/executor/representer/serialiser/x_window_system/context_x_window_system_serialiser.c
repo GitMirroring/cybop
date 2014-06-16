@@ -52,203 +52,194 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
 
         xcb_gcontext_t* gc = (xcb_gcontext_t*) p3;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            xcb_drawable_t* d = (xcb_drawable_t*) p2;
+            xcb_screen_t* s = (xcb_screen_t*) p1;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                xcb_screen_t* s = (xcb_screen_t*) p1;
+                xcb_connection_t* c = (xcb_connection_t*) p0;
 
-                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context.");
 
-                    xcb_connection_t* c = (xcb_connection_t*) p0;
+                // The graphic context value mask.
+                // CAUTION! It is possible to set several attributes
+                // at the same time by OR'ing these values in valuemask.
+                uint32_t m = XCB_GC_FOREGROUND
+                    | XCB_GC_BACKGROUND
+                    | XCB_GC_LINE_WIDTH
+                    | XCB_GC_LINE_STYLE
+                    | XCB_GC_CAP_STYLE
+                    | XCB_GC_JOIN_STYLE
+                    | XCB_GC_FILL_STYLE
+                    | XCB_GC_FILL_RULE
+                    | XCB_GC_FONT;
+                // The graphic context values.
+                // CAUTION! They have to be IN THE SAME ORDER
+                // as given in the value mask above.
+                uint32_t v[9];
+                // Get screen's default colour map.
+                xcb_colormap_t cm = (*s).default_colormap;
+                // The foreground colour red, green, blue.
+                // Default value: 0,0,0 == "black"
+                int fgr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int fgg = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                int fgb = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                // The background colour red, green, blue.
+                // Default value: 255,255,255 == "white"
+                int bgr = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
+                int bgg = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
+                int bgb = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
+                // The foreground colour.
+                uint32_t fg = (*s).black_pixel;
+                // The background colour.
+                uint32_t bg = (*s).white_pixel;
+                // The line width measured in pixels.
+                int lw = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
+                // The line style defining which sections of a line are drawn.
+                int ls = XCB_LINE_STYLE_SOLID;
+                // The cap style defining how the endpoints of a path are drawn.
+                int cs = XCB_CAP_STYLE_NOT_LAST;
+                // The join style defining how corners are drawn for wide lines.
+                int js = XCB_JOIN_STYLE_MITER;
+                // The fill style defining the contents of the
+                // source for line, text, and fill requests.
+                int fs = XCB_FILL_STYLE_SOLID;
+                // The fill rule.
+                int fr = XCB_FILL_RULE_EVEN_ODD;
+                // The font name item.
+                void* fn = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The font name item data, count.
+                void* fnd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* fnc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The font defining the font to use for
+                // the ImageText8 and ImageText16 requests.
+                //
+                // It is of type integer. See xcb sources:
+                // typedef uint32_t xcb_font_t;
+                //
+                // CAUTION! This function asks the x server
+                // to attribute an id to the font.
+                xcb_font_t f = xcb_generate_id(c);
 
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context.");
+                // Allocate font name item.
+                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                // be negative or zero, but have at least a value of ONE.
+                allocate_item((void*) &fn, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-                    // The graphic context value mask.
-                    // CAUTION! It is possible to set several attributes
-                    // at the same time by OR'ing these values in valuemask.
-                    uint32_t m = XCB_GC_FOREGROUND
-                        | XCB_GC_BACKGROUND
-                        | XCB_GC_LINE_WIDTH
-                        | XCB_GC_LINE_STYLE
-                        | XCB_GC_CAP_STYLE
-                        | XCB_GC_JOIN_STYLE
-                        | XCB_GC_FILL_STYLE
-                        | XCB_GC_FILL_RULE
-                        | XCB_GC_FONT;
-                    // The graphic context values.
-                    // CAUTION! They have to be IN THE SAME ORDER
-                    // as given in the value mask above.
-                    uint32_t v[9];
-                    // Get screen's default colour map.
-                    xcb_colormap_t cm = (*s).default_colormap;
-                    // The foreground colour red, green, blue.
-                    // Default value: 0,0,0 == "black"
-                    int fgr = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    int fgg = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    int fgb = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    // The background colour red, green, blue.
-                    // Default value: 255,255,255 == "white"
-                    int bgr = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
-                    int bgg = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
-                    int bgb = *NUMBER_255_INTEGER_STATE_CYBOI_MODEL;
-                    // The foreground colour.
-                    uint32_t fg = (*s).black_pixel;
-                    // The background colour.
-                    uint32_t bg = (*s).white_pixel;
-                    // The line width measured in pixels.
-                    int lw = *NUMBER_2_INTEGER_STATE_CYBOI_MODEL;
-                    // The line style defining which sections of a line are drawn.
-                    int ls = XCB_LINE_STYLE_SOLID;
-                    // The cap style defining how the endpoints of a path are drawn.
-                    int cs = XCB_CAP_STYLE_NOT_LAST;
-                    // The join style defining how corners are drawn for wide lines.
-                    int js = XCB_JOIN_STYLE_MITER;
-                    // The fill style defining the contents of the
-                    // source for line, text, and fill requests.
-                    int fs = XCB_FILL_STYLE_SOLID;
-                    // The fill rule.
-                    int fr = XCB_FILL_RULE_EVEN_ODD;
-                    // The font name item.
-                    void* fn = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    // The font name item data, count.
-                    void* fnd = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    void* fnc = *NULL_POINTER_STATE_CYBOI_MODEL;
-                    // The font defining the font to use for
-                    // the ImageText8 and ImageText16 requests.
+                // Get properties.
+                serialise_x_window_system_context_properties((void*) &fgr, (void*) &fgg, (void*) &fgb, (void*) &bgr, (void*) &bgg, (void*) &bgb, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, fn, p4, p5, p6);
+
+                //
+                // Set colour values.
+                //
+                // Transform colour values with maximum 255
+                // to values with a maximum of 65535,
+                // as expected by xcb for the x window system.
+                //
+                // Equation:
+                // dest / 65535 == src / 255
+                // dest = src * 65535 / 255
+                // dest = src * 257
+                //
+                // CAUTION! In order to OPTIMISE performance,
+                // the formula's division 65535 / 255
+                // is REPLACED by the result value 257.
+                //
+
+                // The foreground red, green, blue transformed.
+                uint16_t fgrt = (uint16_t) (fgr * 257);
+                uint16_t fggt = (uint16_t) (fgg * 257);
+                uint16_t fgbt = (uint16_t) (fgb * 257);
+                // The foreground red, green, blue transformed.
+                uint16_t bgrt = (uint16_t) (bgr * 257);
+                uint16_t bggt = (uint16_t) (bgg * 257);
+                uint16_t bgbt = (uint16_t) (bgb * 257);
+
+                // The foreground colour cookie.
+                xcb_alloc_color_cookie_t fgcc = xcb_alloc_color(c, cm, fgrt, fggt, fgbt);
+                // The background colour cookie.
+                xcb_alloc_color_cookie_t bgcc = xcb_alloc_color(c, cm, bgrt, bggt, bgbt);
+                // The foreground colour reply.
+                xcb_alloc_color_reply_t* fgcr = xcb_alloc_color_reply(c, fgcc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+                // The background colour reply.
+                xcb_alloc_color_reply_t* bgcr = xcb_alloc_color_reply(c, bgcc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
+                // The foreground colour.
+                fg = (*fgcr).pixel;
+                // The background colour.
+                bg = (*bgcr).pixel;
+
+                // Get font name item data, count.
+                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                // Inside the structure, arrays may have been reallocated,
+                // with elements pointing to different memory areas now.
+                copy_array_forward((void*) &fnd, fn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                copy_array_forward((void*) &fnc, fn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+                if (fnc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    // The font name item count as integer value.
+                    int* fnci = (int*) fnc;
+
+                    // Open font.
                     //
-                    // It is of type integer. See xcb sources:
-                    // typedef uint32_t xcb_font_t;
-                    //
-                    // CAUTION! This function asks the x server
-                    // to attribute an id to the font.
-                    xcb_font_t f = xcb_generate_id(c);
-
-                    // Allocate font name item.
-                    // CAUTION! Due to memory allocation handling, the size MUST NOT
-                    // be negative or zero, but have at least a value of ONE.
-                    allocate_item((void*) &fn, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-                    // Get properties.
-                    serialise_x_window_system_context_properties((void*) &fgr, (void*) &fgg, (void*) &fgb, (void*) &bgr, (void*) &bgg, (void*) &bgb, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, fn, p4, p5, p6);
-
-                    //
-                    // Set colour values.
-                    //
-                    // Transform colour values with maximum 255
-                    // to values with a maximum of 65535,
-                    // as expected by xcb for the x window system.
-                    //
-                    // Equation:
-                    // dest / 65535 == src / 255
-                    // dest = src * 65535 / 255
-                    // dest = src * 257
-                    //
-                    // CAUTION! In order to OPTIMISE performance,
-                    // the formula's division 65535 / 255
-                    // is REPLACED by the result value 257.
-                    //
-
-                    // The foreground red, green, blue transformed.
-                    uint16_t fgrt = (uint16_t) (fgr * 257);
-                    uint16_t fggt = (uint16_t) (fgg * 257);
-                    uint16_t fgbt = (uint16_t) (fgb * 257);
-                    // The foreground red, green, blue transformed.
-                    uint16_t bgrt = (uint16_t) (bgr * 257);
-                    uint16_t bggt = (uint16_t) (bgg * 257);
-                    uint16_t bgbt = (uint16_t) (bgb * 257);
-
-                    // The foreground colour cookie.
-                    xcb_alloc_color_cookie_t fgcc = xcb_alloc_color(c, cm, fgrt, fggt, fgbt);
-                    // The background colour cookie.
-                    xcb_alloc_color_cookie_t bgcc = xcb_alloc_color(c, cm, bgrt, bggt, bgbt);
-                    // The foreground colour reply.
-                    xcb_alloc_color_reply_t* fgcr = xcb_alloc_color_reply(c, fgcc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
-                    // The background colour reply.
-                    xcb_alloc_color_reply_t* bgcr = xcb_alloc_color_reply(c, bgcc, (xcb_generic_error_t**) NULL_POINTER_STATE_CYBOI_MODEL);
-                    // The foreground colour.
-                    fg = (*fgcr).pixel;
-                    // The background colour.
-                    bg = (*bgcr).pixel;
-
-                    // Get font name item data, count.
-                    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-                    // Inside the structure, arrays may have been reallocated,
-                    // with elements pointing to different memory areas now.
-                    copy_array_forward((void*) &fnd, fn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-                    copy_array_forward((void*) &fnc, fn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-                    if (fnc != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        // The font name item count as integer value.
-                        int* fnci = (int*) fnc;
-
-                        // Open font.
-                        //
-                        // CAUTION! Use command "xlsfonts" in terminal
-                        // to know which are the fonts available.
-                        // A possible default value is: "7x13".
-                        xcb_open_font(c, f, *fnci, (char*) fnd);
-
-                    } else {
-
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is null.");
-                    }
-
-                    // Deallocate font name item.
-                    deallocate_item((void*) &fn, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-                    //
-                    // Initialise graphic context values.
-                    // CAUTION! Initialise values BEFORE using them
-                    // in function calls further below.
-                    // Otherwise, drawings will not be displayed.
-                    //
-
-                    if (fgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        v[0] = fg;
-
-                    } else {
-
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The foreground colour reply is null.");
-                    }
-
-                    if (bgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        v[1] = bg;
-
-                    } else {
-
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The background colour reply is null.");
-                    }
-
-                    v[2] = lw;
-                    v[3] = ls;
-                    v[4] = cs;
-                    v[5] = js;
-                    v[6] = fs;
-                    v[7] = fr;
-                    v[8] = f;
-
-                    // Change graphic context.
-                    xcb_change_gc(c, *gc, m, v);
+                    // CAUTION! Use command "xlsfonts" in terminal
+                    // to know which are the fonts available.
+                    // A possible default value is: "7x13".
+                    xcb_open_font(c, f, *fnci, (char*) fnd);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The connexion is null.");
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The font name count is null.");
                 }
+
+                // Deallocate font name item.
+                deallocate_item((void*) &fn, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+                //
+                // Initialise graphic context values.
+                // CAUTION! Initialise values BEFORE using them
+                // in function calls further below.
+                // Otherwise, drawings will not be displayed.
+                //
+
+                if (fgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    v[0] = fg;
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The foreground colour reply is null.");
+                }
+
+                if (bgcr != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    v[1] = bg;
+
+                } else {
+
+                    log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The background colour reply is null.");
+                }
+
+                v[2] = lw;
+                v[3] = ls;
+                v[4] = cs;
+                v[5] = js;
+                v[6] = fs;
+                v[7] = fr;
+                v[8] = f;
+
+                // Change graphic context.
+                xcb_change_gc(c, *gc, m, v);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The screen is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The connexion is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The window is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context. The screen is null.");
         }
 
     } else {

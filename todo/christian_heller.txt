@@ -14,7 +14,9 @@
 GUI
 ___
 
-        * Continue x window system serialiser font drawing
+        * Correct wrong utf8 conversion in "element_gui_serialiser.c" and related files
+        * Think about where to call "xcb_close_font" (necessary for font drawing) --> in x window system shutdown?
+        * See file "element_gui_serialiser.c"
 
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",

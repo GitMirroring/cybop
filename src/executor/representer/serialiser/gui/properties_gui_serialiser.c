@@ -188,7 +188,7 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
 
         // This is a gui child element and NOT the root window.
 
-        serialise_gui_element(p0, p1, p2, p3, p4, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p7, p8, p9);
+        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p7, p8, p9);
 
     } else {
 
