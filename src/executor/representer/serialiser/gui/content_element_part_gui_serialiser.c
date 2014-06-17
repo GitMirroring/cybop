@@ -43,7 +43,7 @@
 // Forward declarations.
 //
 
-void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
 
 /**
  * Serialises the part element content into gui.
@@ -52,25 +52,26 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the win32 device context
- * @param p5 the source model data
- * @param p6 the source model count
- * @param p7 the source properties data
- * @param p8 the source properties count
- * @param p9 the knowledge memory part
- * @param p10 the format
+ * @param p4 the font
+ * @param p5 the win32 device context
+ * @param p6 the source model data
+ * @param p7 the source model count
+ * @param p8 the source properties data
+ * @param p9 the source properties count
+ * @param p10 the knowledge memory part
+ * @param p11 the format
  */
-void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part element content.");
 
-fwprintf(stdout, L"TEST serialise gui part element content model count: %i\n", *((int*) p6));
-fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\n", *((int*) p8));
+fwprintf(stdout, L"TEST serialise gui part element content model count: %i\n", *((int*) p7));
+fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\n", *((int*) p9));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p10, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+    compare_integer_equal((void*) &r, p11, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -82,10 +83,10 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
         // would overpaint them again.
 
         // Serialise properties.
-        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
         // Serialise embedded model.
-        serialise_gui(p0, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, p10);
+        serialise_gui(p0, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8, p9, p10, p11);
 
     } else {
 
@@ -109,10 +110,10 @@ fwprintf(stdout, L"TEST serialise gui part element content properties count: %i\
         allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Serialise embedded model into text item.
-        serialise_gui(p0, p1, p2, p3, p4, t, p5, p6, p7, p8, p9, p10);
+        serialise_gui(p0, p1, p2, p3, p4, p5, t, p6, p7, p8, p9, p10, p11);
 
         // Draw text using properties.
-        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
+        serialise_gui_properties(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 
         // Deallocate text item.
         deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

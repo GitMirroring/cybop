@@ -23,50 +23,51 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CONTEXT_GUI_SERIALISER_SOURCE
-#define CONTEXT_GUI_SERIALISER_SOURCE
+#ifndef CLEANUP_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+#define CLEANUP_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE
+
+#include <xcb/xcb.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
-    //?? Add support for Cocoa
-#elif WIN32
-    #include "../../../../executor/representer/serialiser/win32_display/context_win32_display_serialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
-#else
-    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
-#endif
-
 /**
- * Serialises the gui context.
+ * Cleans up the x window system context.
  *
  * @param p0 the connexion
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
  * @param p4 the font
- * @param p5 the win32 device context
- * @param p6 the source properties data
- * @param p7 the source properties count
- * @param p8 the knowledge memory part
  */
-void serialise_gui_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_x_window_system_context_cleanup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui context.");
+    if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-#ifdef __APPLE__
-    //?? Add support for Cocoa
-#elif WIN32
-    serialise_win32_display_context(p5, p6, p7, p8);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8);
-#else
-    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8);
-#endif
+        xcb_font_t* f = (xcb_font_t*) p4;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            xcb_connection_t* c = (xcb_connection_t*) p0;
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context cleanup.");
+
+            // Close font.
+            xcb_close_font(c, *f);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context cleanup. The connexion is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system context cleanup. The font is null.");
+    }
 }
 
-/* CONTEXT_GUI_SERIALISER_SOURCE */
+/* CLEANUP_CONTEXT_X_WINDOW_SYSTEM_SERIALISER_SOURCE */
 #endif

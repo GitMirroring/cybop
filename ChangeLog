@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-06-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add missing utf8 conversion of gui text in x window system serialiser
+        * Cleanup x window system context by closing font
+        * Handle font id at x window system startup and shutdown
+
 2014-06-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue gui text drawing using xcb font functions in x window system serialiser

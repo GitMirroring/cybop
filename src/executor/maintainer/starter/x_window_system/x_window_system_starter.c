@@ -73,41 +73,6 @@ void startup_x_window_system(void* p0) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup x window system.");
 
-/*??
-        // The default colourmap id.
-        // For allocation on the specified screen.
-        // Most routine allocations of colour should be made out of this colormap.
-        void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The background pixel values.
-        void* bg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The foreground pixel values.
-        void* fg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The font name.
-        void* fn = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The font.
-        void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The font id.
-//??        int fid = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The size hint.
-        XSizeHints sh;
-        // The colours.
-        XColor gray;
-        XColor light_gray;
-        XColor vlight_gray;
-        XColor dark_gray;
-*/
-
-        // Allocate x window system internals.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-/*??
-        allocate_array((void*) &cm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &bg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &fg, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-        allocate_array((void*) &vm, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-//??        v = malloc(*XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE);
-*/
-
         // Allocate and open connexion.
         // CAUTION! Do NOT allocate the connexion manually here.
         // The xcb_connection_t is a structure containing
@@ -139,11 +104,21 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
                     // The graphic context.
                     void* gc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    // The font.
+                    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // Allocate window.
+                    // CAUTION! The xcb_window_t type is defined as follows:
+                    // typedef uint32_t xcb_window_t;
                     allocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
                     // Allocate graphic context.
+                    // CAUTION! The xcb_gcontext_t type is defined as follows:
+                    // typedef uint32_t xcb_gcontext_t;
                     allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+                    // Allocate font.
+                    // CAUTION! The xcb_font_t type is defined as follows:
+                    // typedef uint32_t xcb_font_t;
+                    allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
                     // The window value mask.
                     //
@@ -269,6 +244,8 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     *((int*) w) = (int) xcb_generate_id((xcb_connection_t*) c);
                     // Allocate xid for graphic context.
                     *((int*) gc) = (int) xcb_generate_id((xcb_connection_t*) c);
+                    // Allocate xid for font.
+                    *((int*) f) = (int) xcb_generate_id((xcb_connection_t*) c);
 
                     // Create window.
                     xcb_create_window((xcb_connection_t*) c, // connexion
@@ -297,67 +274,15 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     // and it already IS one, since it is an array.
                     xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) *((int*) gc), (xcb_drawable_t) *((int*) w), gcm, gcv);
 
-            /*??
-                    *((int*) cm) = XDefaultColormap((struct _XDisplay*) d, *((int*) sn));
-                    *((unsigned long*) bg) = XWhitePixel((struct _XDisplay*) d, *((int*) sn));
-                    *((unsigned long*) fg) = XBlackPixel((struct _XDisplay*) d, *((int*) sn));
-            /*??
-                    fn = (void*) "*-helvetica-*-12-*";
-                    f = (void*) XLoadQueryFont((struct _XDisplay*) d, (char*) fn);
-
-                    if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                        fid = (*((XFontStruct*) f)).fid;
-                    }
-            */
-
-            /*??
-                    sh.x = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    sh.y = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                    sh.width = *NUMBER_800_INTEGER_STATE_CYBOI_MODEL;
-                    sh.height = *NUMBER_600_INTEGER_STATE_CYBOI_MODEL;
-                    sh.flags = PPosition | PSize;
-                    *((int*) w) = XCreateSimpleWindow(d, *((int*) r), sh.x, sh.y, sh.width, sh.height, *NUMBER_5_INTEGER_STATE_CYBOI_MODEL, *((unsigned long*) fg), *((unsigned long*) bg));
-                    *((unsigned long*) vm) = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            //??        *((unsigned long*) vm) = GCCapStyle | GCJoinStyle;
-            //??        *((XGCValues*) v) = CapButt | JoinBevel;
-
-                    gray.red = 49125;
-                    gray.green = 49125;
-                    gray.blue = 49125;
-                    light_gray.red = 56000;
-                    light_gray.green = 58000;
-                    light_gray.blue = 60000;
-                    vlight_gray.red = 60000;
-                    vlight_gray.green = 61000;
-                    vlight_gray.blue = 62000;
-                    dark_gray.red = 32768;
-                    dark_gray.green = 32768;
-                    dark_gray.blue = 32768;
-
-/*??
-                    // Assign x window system internals.
-                    XSetStandardProperties((struct _XDisplay*) d, *((int*) w), "Application", "Icon", None, *NULL_POINTER_STATE_CYBOI_MODEL, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) &sh);
-                    XAllocColor((struct _XDisplay*) d, *((int*) cm), &gray);
-                    XAllocColor((struct _XDisplay*) d, *((int*) cm), &light_gray);
-                    XAllocColor((struct _XDisplay*) d, *((int*) cm), &vlight_gray);
-                    XAllocColor((struct _XDisplay*) d, *((int*) cm), &dark_gray);
-            //??        XSetFont((struct _XDisplay*) d, (struct _XGC*) gc, fi);
-*/
-
                     // Store x window system items in internal memory.
                     // CAUTION! Do NOT use "overwrite_array" function here,
                     // since it adapts the array count and size.
                     // But the internal array's count and size are CONSTANT.
                     copy_array_forward(p0, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
                     copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SCREEN_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    // CAUTION! The xcb_window_t type is defined as follows:
-                    // typedef uint32_t xcb_window_t;
                     copy_array_forward(p0, (void*) &w, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    // CAUTION! The xcb_gcontext_t type is defined as follows:
-                    // typedef uint32_t xcb_gcontext_t;
                     copy_array_forward(p0, (void*) &gc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) GRAPHIC_CONTEXT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-//??                        copy_array_forward(p0, (void*) &cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) COLOUR_MAP_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                    copy_array_forward(p0, (void*) &f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FONT_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 } else {
 

@@ -43,25 +43,26 @@
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the win32 device context
- * @param p5 the source model data
- * @param p6 the source model count
- * @param p7 the source properties data
- * @param p8 the source properties count
- * @param p9 the knowledge memory part
+ * @param p4 the font
+ * @param p5 the win32 device context
+ * @param p6 the source model data
+ * @param p7 the source model count
+ * @param p8 the source properties data
+ * @param p9 the source properties count
+ * @param p10 the knowledge memory part
  */
-void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part.");
 
-fwprintf(stdout, L"TEST serialise gui part: %i\n", p6);
+fwprintf(stdout, L"TEST serialise gui part: %i\n", p7);
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p7 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -75,14 +76,14 @@ fwprintf(stdout, L"TEST serialise gui part: %i\n", p6);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p6);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p7);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        serialise_gui_part_element(p0, p1, p2, p3, p4, p5, (void*) &j, p7, p8, p9);
+        serialise_gui_part_element(p0, p1, p2, p3, p4, p5, p6, (void*) &j, p8, p9, p10);
 
         // Increment loop variable.
         j++;

@@ -43,8 +43,10 @@
  * @param p2 the source model count
  * @param p3 the position x
  * @param p4 the position y
+ * @param p5 the size width
+ * @param p6 the size height
  */
-void serialise_win32_display_text(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_win32_display_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

@@ -34,6 +34,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/representer/serialiser/gui/cleanup_context_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/context_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/shape_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/text_gui_serialiser.c"
@@ -46,18 +47,19 @@
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the win32 device context
- * @param p5 the source model data of type "char"
- * @param p6 the source model count
- * @param p7 the position x
- * @param p8 the position y
- * @param p9 the size width
- * @param p10 the size height
- * @param p11 the source properties data
- * @param p12 the source properties count
- * @param p13 the knowledge memory part
+ * @param p4 the font
+ * @param p5 the win32 device context
+ * @param p6 the source model data
+ * @param p7 the source model count
+ * @param p8 the position x
+ * @param p9 the position y
+ * @param p10 the size width
+ * @param p11 the size height
+ * @param p12 the source properties data
+ * @param p13 the source properties count
+ * @param p14 the knowledge memory part
  */
-void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui element.");
 
@@ -79,8 +81,8 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
     void* shmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_knowledge((void*) &super, p11, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p12, p13);
-    get_part_knowledge((void*) &sh, p11, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p12, p13);
+    get_part_knowledge((void*) &super, p12, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p13, p14);
+    get_part_knowledge((void*) &sh, p12, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p13, p14);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -95,7 +97,7 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
 
     if (sh == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p13);
+        get_part_knowledge((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p14);
     }
 
     // Get part model items.
@@ -105,18 +107,16 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
     copy_array_forward((void*) &shmc, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise context.
-    serialise_gui_context(p0, p1, p2, p3, p4, p11, p12, p13);
+    serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14);
     // Serialise shape.
-    serialise_gui_shape(p0, p1, p2, p3, p4, p7, p8, p9, p10, shmd, shmc);
+    serialise_gui_shape(p0, p1, p2, p3, p5, p8, p9, p10, p11, shmd, shmc);
     // Serialise text.
     // CAUTION! This has to be done for ALL shapes.
     // A text is NOT treated as shape itself,
     // but may instead be drawn into the shape.
-    serialise_gui_text(p0, p1, p2, p3, p4, p5, p6, p7, p8);
-
-    //?? TODO: Where to move the following to?
-    // Close font.
-//??    xcb_close_font(c, f);
+    serialise_gui_text(p0, p1, p2, p3, p5, p6, p7, p8, p9, p10, p11);
+    // Cleanup context.
+    serialise_gui_context_cleanup(p0, p1, p2, p3, p4, p5);
 }
 
 /* ELEMENT_GUI_SERIALISER_SOURCE */

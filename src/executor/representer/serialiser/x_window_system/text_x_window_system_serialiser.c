@@ -41,26 +41,30 @@
  * @param p1 the screen
  * @param p2 the window
  * @param p3 the graphic context
- * @param p4 the source model data of type "char"
+ * @param p4 the source model data
  * @param p5 the source model count
  * @param p6 the position x
  * @param p7 the position y
+ * @param p8 the size width
+ * @param p9 the size height
  */
-void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
-    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p9 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* y = (int*) p7;
+        int* h = (int*) p9;
 
-        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* x = (int*) p6;
+            int* w = (int*) p8;
 
-            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* mc = (int*) p5;
+                int* y = (int*) p7;
 
-                if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    int* x = (int*) p6;
 
                     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -74,9 +78,48 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
 
                                 xcb_connection_t* c = (xcb_connection_t*) p0;
 
-                                // Draw text.
-//??                                xcb_image_text_8(c, strlen("TEST"), *d, *gc, *x, *y, "TEST");
-                                xcb_image_text_8(c, *mc, *d, *gc, *x, *y, p4);
+                                // The text item.
+                                void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+                                // The text item data, count.
+                                void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+                                void* tc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+                                // Allocate text item.
+                                // CAUTION! Due to memory allocation handling, the size MUST NOT
+                                // be negative or zero, but have at least a value of ONE.
+                                allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+                                // Encode model wide character data into multibyte character item.
+                                encode_utf_8(t, p4, p5);
+
+                                // Get text item data, count.
+                                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                                // Inside the structure, arrays may have been reallocated,
+                                // with elements pointing to different memory areas now.
+                                copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                                copy_array_forward((void*) &tc, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+                                if (tc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                                    // The text item count as integer.
+                                    int* tci = (int*) tc;
+                                    // The centred x, y.
+                                    // TODO: This is only a rough estimation of the centre.
+                                    // In the future, the text width and font height
+                                    // will have to be considered as well.
+                                    int cx = *x + (*w / 2);
+                                    int cy = *y + (*h / 2);
+
+                                    // Draw text.
+                                    xcb_image_text_8(c, *tci, *d, *gc, cx, cy, td);
+
+                                } else {
+
+                                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The text item count is null.");
+                                }
+
+                                // Deallocate text item.
+                                deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                             } else {
 
@@ -95,22 +138,22 @@ void serialise_x_window_system_text(void* p0, void* p1, void* p2, void* p3, void
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The model data is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The position x is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The model count is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The position y is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The position x is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The size width is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The position y is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise x window system text. The size height is null.");
     }
 }
 
