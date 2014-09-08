@@ -71,6 +71,7 @@ ________
             --> http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
         * Implement a "timer" based on unix system time; see java.util.Timer
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
+        * Check out http://www.joda.org/joda-time/
 
 xDT
 ___
