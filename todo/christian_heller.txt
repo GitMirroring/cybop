@@ -14,6 +14,8 @@
 GUI
 ___
 
+        * Use css box model with relative positioning also for tui, gui etc.?
+
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
             to determine if north-south or west-east element are maximised;
