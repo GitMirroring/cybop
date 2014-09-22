@@ -1,6 +1,6 @@
 <model>
     <part name="heading" channel="inline" format="text/plain" model="CYBOL User Interface (UI) Example">
-        <property name="position" channel="inline" format="number/integer" model="5,2"/>
+        <property name="position" channel="inline" format="number/integer" model="5,1"/>
         <property name="size" channel="inline" format="number/integer" model="60,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="green"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
@@ -10,7 +10,7 @@
         <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="box1" channel="inline" format="text/plain" model="empty">
-        <property name="position" channel="inline" format="number/integer" model="10,5"/>
+        <property name="position" channel="inline" format="number/integer" model="10,3"/>
         <property name="size" channel="inline" format="number/integer" model="40,5"/>
         <property name="background" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
@@ -20,7 +20,7 @@
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
     <part name="box2" channel="inline" format="text/plain" model="empty">
-        <property name="position" channel="inline" format="number/integer" model="20,15"/>
+        <property name="position" channel="inline" format="number/integer" model="20,9"/>
         <property name="size" channel="inline" format="number/integer" model="40,5"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
@@ -29,8 +29,8 @@
         <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
     </part>
     <part name="control" channel="file" format="element/part" model="ui/tui/control.cybol">
-        <property name="position" channel="inline" format="number/integer" model="10,20"/>
-        <property name="size" channel="inline" format="number/integer" model="60,5"/>
+        <property name="position" channel="inline" format="number/integer" model="10,15"/>
+        <property name="size" channel="inline" format="number/integer" model="60,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="gray"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>

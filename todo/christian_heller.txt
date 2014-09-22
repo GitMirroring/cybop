@@ -16,7 +16,7 @@ ___
 
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
-            to determine if north-south or east-west element are maximised;
+            to determine if north-south or west-east element are maximised;
             do NOT assign "north" etc. to elements;
             if "stretch" is "horizontal", then use order: north, south, west, east, centre;
             if "stretch" is "vertical", then use order: west, east, north, south, centre
@@ -50,7 +50,7 @@ ___
 Shell Commands
 ______________
 
-        * Delete file "applicator/command/archive_file.c"
+        * Delete file "applicator/command/archive_file.c" (already realised by "tape_archiver.c"?)
         * Complete cybol application "shell_script_clean_result_directory" (only file "check_empty_home_directory.cybol"
             How to use pipes in cyboi?
             Can one store output in knowledge tree to hand over as input to next command?)

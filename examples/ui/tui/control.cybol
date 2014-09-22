@@ -1,7 +1,7 @@
 <model>
     <part name="world" channel="inline" format="text/plain" model="Greet World">
-        <property name="position" channel="inline" format="number/integer" model="2,2"/>
-        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="position" channel="inline" format="number/integer" model="2,0"/>
+        <property name="size" channel="inline" format="number/integer" model="20,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="black"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -10,8 +10,8 @@
         <property name="border" channel="inline" format="text/plain" model="ascii"/>
     </part>
     <part name="cybop" channel="inline" format="text/plain" model="Greet CYBOP">
-        <property name="position" channel="inline" format="number/integer" model="25,2"/>
-        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="position" channel="inline" format="number/integer" model="25,0"/>
+        <property name="size" channel="inline" format="number/integer" model="20,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="black"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
