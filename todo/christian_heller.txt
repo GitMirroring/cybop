@@ -243,7 +243,7 @@ _____
 
         * Simplify relative paths in cybol applications not expecting "examples/" as parent directory
             but using that of the application as working directory
-        * See example desktop link created for Windows OS in "examples/counter/"
+        * See desktop links of any OS as example
 
 Super
 _____

@@ -51,7 +51,7 @@ _____
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 
-        * Add new file for each transform cybol operation to directory "applicator/tranform/"
+        * Add new file for each transform cybol operation to directory "applicator/transform/"
 
         * Add commands to section with comment "transform" in file "controller/handler/operation_handler.c"
     //
