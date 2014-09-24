@@ -67,6 +67,8 @@ _____
 
         * Make cyboi usable on mobile devices, e.g. Android (Java), iOS (Objective-C)
 
+        * Provide all possible attributes of serial interface RS-232 and console/terminal as cybol property
+
         * Factor out parts of cyboi (e.g. x-window-system) into dynamic libraries, to improve portability
         * Adapt automake script accordingly
         * Minimise cyboi size for usage in embedded systems
