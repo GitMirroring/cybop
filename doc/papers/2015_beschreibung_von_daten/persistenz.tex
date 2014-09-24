@@ -1,0 +1,32 @@
+
+Persistenz
+
+Damit sind alle wesentlichen Informationen bekannt, die man benötigt,
+um mit Daten sinnvoll arbeiten zu können.
+
+Bisher wurden jedoch nur flüchtige (transiente) Daten zur Laufzeit
+(runtime) betrachtet. Will man sie dauerhaft (persistent) speichern,
+z. B. vom Arbeitsspeicher (RAM) in eine Datei auf Festplatte,
+oder in umgekehrter Richtung einlesen, so sind einige zusätzliche
+Informationen nötig:
+
+channel
+encoding
+language (file format)
+format (value format)
+
+Die Tab. xx fasst alle neun in diesem Artikel besprochenen Merkmale
+zur Beschreibung von Daten zusammen.
+
+TABELLE
+
+Bezeichnung         Beschreibung/Synonyme                           Beispiel
+name                Name, Bezeichner (variable), Schlüssel (key)
+channel             Kommunikationskanal                             inline, file
+encoding            Kodierung                                       utf-8
+language            Sprache, Dateiformat                            text/plain, text/cybol
+format              Wertformat, MIME type                           text/plain, number/integer
+type                Typ, Art der Abstraktion                        (nur intern verwendet)
+model               Attribut, Eigenschaft, Member, Field, Wert (value)
+properties          "
+reference           Garbage Collection

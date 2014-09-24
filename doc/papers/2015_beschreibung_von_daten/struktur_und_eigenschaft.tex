@@ -1,0 +1,35 @@
+
+Struktur und Eigenschaft
+
+etwas Philosophie bzw. Psychologie lässt sich nicht vermeiden
+
+klassisch werden alle Arten von Werten zusammengewürfelt
+
+BEISPIEL
+
+An dieser Stelle ist die Erkenntnis wichtig, dass Strukturinformationen
+und Eigenschaften unterschiedlich zu verarbeiten sind!
+Warum ist diese Behauptung so wichtig und richtig?
+Ein Beispiel soll helfen, es zu verdeutlichen.
+
+BEISPIEL: GUI
+- stellt DAG dar
+- leicht per Schleifen zu verarbeiten, von Wurzel aus "in die Tiefe tauchen"
+- Voraussetzung: alle Elemente haben Eigenschaften, die uniform
+  verarbeitet werden können, z. B. x, y, width, height, foreground, background
+- außerdem gibt es Verweise auf enthaltene Kindelemente (Strukturinformation)
+
+Um beide nicht zu vermischen, sollten sie getrennt gehalten werden:
+
+- name
+- type
+- model
+- properties
+- reference
+
+Eigenschaften wie Position, Größe, Farbe bieten Meta-Informationen
+über enthaltene Elemente. Sie stellen aber selbst keine Elemente
+im Sinne einer hierarchischen Struktur (Mikro-/Makrokosmos) dar.
+
+Auf die gleiche Weise könnte eine Eigenschaft "position" existieren,
+die für die Sortierung der Elemente eines Behälters sorgt.

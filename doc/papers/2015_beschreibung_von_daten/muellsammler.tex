@@ -1,0 +1,32 @@
+
+Müllsammler
+
+Virtuelle Maschinen (VM) wie die Java VM (JVM)
+bieten Garbage Collection (GC), um nicht mehr
+benötigte (nicht mehr referenzierte) Daten
+automatisch aus dem Arbeitsspeicher (RAM) zu entfernen.
+
+Dadurch kann zum Einen blockierter Speicher schnell wieder
+freigegeben und zum Anderen ein Programmabsturz durch
+die vergessene Freigabe von Speicher vermieden werden.
+
+Zur Umsetzung einer GC gibt es viele Möglichkeiten
+(z. B. SmartPointer, Counter Muster QUELLEN).
+
+Eine einfache Möglichkeit ist es, für jeden Variablenwert
+einen eigenen Referenzzähler vorzuhalten, also:
+
+- name
+- type
+- model
+- reference
+
+Sobald der Referenzzähler auf Null sänke, würde der
+zugehörige Datenwert zerstört und Speicher freigegeben werden.
+
+Natürlich muss sichergestellt sein, dass alle den Wert
+manipulierenden Funktionen (z. B. "insert", "remove")
+stets den Referenzzähler hoch- bzw. runterzählen.
+
+Die Thematik GC soll in diesem Artikel jedoch nicht
+weiter vertieft werden.

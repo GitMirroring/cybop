@@ -1,0 +1,49 @@
+
+Stand der Technik
+
+Am Anfang steht die Frage nach den Gemeinsamkeiten aller verwendeten Daten.
+Dazu ein Beispiel in der Syntax der Programmiersprache Java:
+
+int i = 0;
+
+Um einen Wert, der im Arbeitsspeicher liegt, nutzen zu können,
+muss man ihn referenzieren können.
+Dies geschieht durch die Variable mit dem "Namen" i.
+
+Außerdem wird (bei typisierten Sprachen) die Größe
+des im Arbeitsspeicher zu reservierenden Bereiches
+durch einen "Typ" vorgegeben.
+
+Schließlich folgt der eigentliche, initial als Literal
+zugewiesene "Wert" 0.
+
+TODO: Recherche dynamische Typisierung z. B. in JavaScript?
+a = 3;
+Wie intern gespeichert? Als String?
+
+Man hat also ein Schlüssel-Wert-Paar:
+- der Variablenname i steht für den Schlüssel;
+- die Zahl 0 im Beispiel für den Wert.
+
+In typisierten Sprachen wird dieses Paar ergänzt durch einen Typ.
+
+Damit lässt sich vorerst zusammenfassen, dass Daten beschrieben
+werden durch:
+- Name
+- Typ
+- Wert
+
+Neben primitiven Werten können auch komplexe verwendet werden, z. B.:
+
+Address a = new Address();
+
+Da es sich bei "Address" um eine zusammengesetzte Datenstruktur
+und keinen primitiven Wert handelt, bietet es sich an, den
+neutraleren Begriff "Modell" statt "Wert" zu verwenden:
+
+TABELLE:
+
+Bezeichnung     Beschreibung/Synonyme
+Name (name)     Schlüssel (key), Bezeichner (variable)
+Typ (type)      Typ, Art der Abstraktion
+Modell (model)  Wert (value)

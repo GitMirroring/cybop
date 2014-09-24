@@ -1,0 +1,78 @@
+
+Behälter
+
+Außer primitiven und zusammengesetzten Daten gibt es
+noch Behälter (container).
+
+Unerheblich ist zunächst, um welche Datenstruktur es sich
+konkret handelt (Vektor, Menge, Liste, Tabelle, Baum).
+
+Ein einfaches Feld (array) könnte wie folgt notiert werden:
+
+Address[] a = new Address[5];
+
+Das Besondere hierbei ist, dass zwei Typen angegeben werden:
+- die eckigen Klammern machen den Wert zum Feld (array);
+- der Typ "Address" definiert die darin enthaltenen Elemente.
+
+Doch: Werden hier nicht zwei Ebenen miteinander vermischt?
+
+Betrachtet sei dazu ein Objekt "Person", das mehrere Adressen
+enthalten kann:
+
+class Person {
+    Address[] a;
+}
+
+Bei Verwendung "generischer" Behälter (container) könnte das Beispiel
+wie folgt aussehen:
+
+class Person {
+    ArrayList<Address> a;
+}
+
+Hier hat sich nur die Art des Behälters von "Array" auf "ArrayList"
+geändert, doch die enthaltenen Daten sind nach wie vor vom Typ "Address".
+
+Die Klasse "Person" kennt den Typ "ArrayList" ihres Attributes "a",
+was einer Meta-Information (Daten über andere Daten) entspricht.
+Doch muss sie auch den Typ der in der "ArrayList" enthaltenen
+Elemente (also zwei Ebenen tiefer) kennen?
+
+Ist dies nicht eher Aufgabe der "ArrayList"?
+
+... zur besseren Erklärung evtl. doch GUI-Panel mit Array von Knöpfen verwenden?
+... dann könnten Position, Farbe etc. als Zusatz-Meta-Information erwähnt werden
+
+Das Problem heutzutage verwendeter Behälter-Datentypen scheint zu sein,
+dass sie durch ihre Universalität nicht dazu in der Lage sind,
+neben dem Typ noch weitere Meta-Informationen über ihre enthaltenen
+Elemente zu speichern.
+
+Betrachtet man das Beispiel in UML-Notation (Abb. xx),
+so fällt auf, dass der Behälter-Datentyp einfach ignoriert wird
+und beim Attribut nicht auftaucht. Lediglich die Multiplizität
+(Kardinalität) * deutet auf die Vielfachheit hin.
+
+ABBILDUNG:
+
+UML-CD mit Klasse "Person" und Attribut a: Address ohne Methoden,
+und zweite Klasse "Address" ohne alles; Sternchen an Assoziation von Person zu Address
+
+Zwei mögliche Lösungen sind offensichtlich:
+
+1 Erweiterung der Behälter um Zusatz-Meta-Informationen über ihre enthaltenen Elemente.
+Zwar wurde dies in vielen Klassenbibliotheken durch die so genannten "Generics"
+versucht, doch können diese nur den Typ der enthaltenen Elemente, nicht aber
+weitere Informationen über sie speichern.
+
+2 Erweiterung sämtlicher anderer Typen in der Weise, dass sie alle zum Behälter werden.
+Dazu müsste ein Datentyp geschaffen werden, der alle nötigen Behälter-Zugriffsfunktionen
+enthielte, zusätzlich aber auch alle relevanten Meta-Informationen über
+enthaltene Elemente, wie sie in diesem Artikel untersucht werden.
+
+Ein solcher Datentyp würde keine fest fixierten und übersetzten (compilierten)
+Attribute mehr kennen, sondern nur noch mit dynamisch zur Laufzeit
+zugewiesenen Elementen arbeiten.
+
+evtl. ABB.?
