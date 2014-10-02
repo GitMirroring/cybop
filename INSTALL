@@ -147,10 +147,6 @@ _______________________________
 
     i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -static -lpthread -lws2_32 -lgdi32 -w
 
-- FUTURE:
-
-    -lcomctl32 might be needed for serial port (com port) communication
-
 - OLD:
 
     i686-w64-mingw32-gcc -o src/controller/cyboi.exe src/controller/cyboi.c -DPTW32_STATIC_LIB -lpthread -lws2_32 -lgdi32 -w
