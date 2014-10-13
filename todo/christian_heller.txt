@@ -11,6 +11,37 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Topic 1: DateTime
+_________________
+
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#toc-Date-and-Time-1
+
+        * Provide cybol operation "??/get-current-time":
+            Auf Unix-artigen Systemen lässt sich das Julianische Datum berechnen,
+            indem man die "vergangenen Sekunden seit 1.1.1970 00:00 (time_t)"
+            durch (60 * 60 * 24 = 86400) dividiert und die Konstante 2440587,5 addiert;
+            --> http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+
+        * Provide cybol operation "run/get-processor-time":
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#CPU-Time
+
+        * Implement a "timer" based on unix system time; see java.util.Timer
+
+        * Add calculator functions for types datetime, duration
+        * Add comparator functions for types datetime, duration
+
+        * Correct new algorithm for time scale gregorian calendar serialiser
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+
+        * Implement "utc" datetime de-/serialiser
+
+Topic 2: Sockets
+________________
+
+        * Reactivate socket functionality
+
 GUI
 ___
 
@@ -60,20 +91,9 @@ ______________
 Datetime
 ________
 
-        * Correct new algorithm for time scale gregorian calendar serialiser
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
-            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
-        * Implement "utc" datetime de-/serialiser
-        * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model OR leave them in cybol, so that model diagram and html etc. work fine?
-        * Offer a cybol operation determining the current date/time;
-            Auf Unix-artigen Systemen lässt sich das Julianische Datum berechnen,
-            indem man die "vergangenen Sekunden seit 1.1.1970 00:00 (time_t)"
-            durch 60*60*24 = 86400 dividiert und die Konstante 2440587,5 addiert;
-            --> http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
-        * Implement a "timer" based on unix system time; see java.util.Timer
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
         * Check out http://www.joda.org/joda-time/
+        * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model OR leave them in cybol, so that model diagram and html etc. work fine?
 
 xDT
 ___
@@ -122,11 +142,11 @@ ___
             inet_pton(AF_INET6, "0:0:0:0:0:0:0:1", mysocket.sin6_addr.s6_addr);
             mysocket.sin6_port = 1234;
             size = sizeof(mysocket);
-        * Reactivate socket functionality
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
             --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
                 answers to following client request were appended to the same model leading to false results
+
         * Adapt function "startup_socket_get_host_address", variable "terminated address model",
             in file "socket_starter.c" to new model constants
         * Adapt file "http_request_selector.c" or delete if not needed anymore
