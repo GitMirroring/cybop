@@ -1,2 +1,8 @@
-Entwicklung des spiels TicTacToe als Beispiel auf Kommandozeilenebene.
-Zunächst Umsetzung des Einspielermodus, wobei der zweite Spieler vom Computer gesteuert wird.
+
+CYBOL Game
+===========
+
+        * Entwickle Spiel TicTacToe auf Kommandozeilenebene
+        * Setze Einspielermodus um (zweiter Spieler vom Computer gesteuert)
+        * Baue Nutzerschnittstelle (CLI, TUI)
+
