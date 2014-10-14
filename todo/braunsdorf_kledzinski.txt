@@ -1,0 +1,9 @@
+
+CYBOL Designer
+=============
+
+        * Identify suitable cybol example
+        * Create gui in QtCreator/QtDesigner
+        * Write C++/Qt source code in QtCreator
+        * Generate CYBOL/XML code
+
