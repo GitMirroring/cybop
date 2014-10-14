@@ -4,3 +4,10 @@ Calculator
 
         * Create complex tui application, e.g. continue "calculator"
         * See example applications "helloworld", "tui", "ui_control"
+
+TODO
+
+	* Tui
+	* Logikops. (+,-,*,/,^2,Wurzel)
+	* Entwurf (Oberfläche)
+	
