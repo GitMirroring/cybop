@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-10-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update and rename cybol example application "http_communication" into "wui_socket"
+
 2014-06-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add missing utf8 conversion of gui text in x window system serialiser
