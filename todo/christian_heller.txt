@@ -14,28 +14,36 @@
 Topic 1: DateTime
 _________________
 
-            https://www.gnu.org/software/libc/manual/html_mono/libc.html#toc-Date-and-Time-1
-
         * Provide cybol operation "??/get-current-time":
             Auf Unix-artigen Systemen lässt sich das Julianische Datum berechnen,
             indem man die "vergangenen Sekunden seit 1.1.1970 00:00 (time_t)"
             durch (60 * 60 * 24 = 86400) dividiert und die Konstante 2440587,5 addiert;
-            --> http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#toc-Date-and-Time-1
 
         * Provide cybol operation "run/get-processor-time":
             https://www.gnu.org/software/libc/manual/html_mono/libc.html#CPU-Time
 
         * Implement a "timer" based on unix system time; see java.util.Timer
 
-        * Add calculator functions for types datetime, duration
-        * Add comparator functions for types datetime, duration
+        * Add calculator functions for types datetime, duration; delegating to "int" in "value_calculator.c" is not enough
+        * Add comparator functions for types datetime, duration; delegating to "int" in "value_comparator.c" is not enough
+            it is necessary to calculate julian_day (int) and julian_second (double) as separate elements
 
-        * Correct new algorithm for time scale gregorian calendar serialiser
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
-            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
-
-        * Implement "utc" datetime de-/serialiser
+        * Procedure to implement a new operation:
+            * Add commands to directory "constant/model/command/"
+            * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
+            * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
+            * Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
+            * Add new file with options for each command to directory "constant/name/command_option/"
+            * Add new file for differing options to sub directory "unix/" or "windows/"
+            * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+            * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+            * Add new file for each new command to directory "executor/commander/" (see example file "list_directory_contents_commander.c")
+            * Consider platform (unix or windows) using preprocessor defines
+            * Add new file for each command (cybol operation) to directory "applicator/command/"
+            * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
+            * Write cybol example application using shell command
 
 Topic 2: Sockets
 ________________
@@ -90,6 +98,13 @@ ______________
 
 Datetime
 ________
+
+        * Correct new algorithm for time scale gregorian calendar serialiser
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+
+        * Implement "utc" datetime de-/serialiser
 
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
         * Check out http://www.joda.org/joda-time/
@@ -174,9 +189,6 @@ ___
         * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
             the corresponding type may be forwarded between functions as parametre
         * Implement session on application level (e.g. in Res Medicinae)
-        * Investigate socket-based communication with "Scratch" visual programming language for pupil projects
-            http://wiki.scratch.mit.edu/wiki/Remote_Sensor_Connections
-            http://wiki.scratch.mit.edu/wiki/Remote_Sensors_Protocol
 
 Serial Port
 ___________
