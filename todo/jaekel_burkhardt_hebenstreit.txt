@@ -1,1 +1,6 @@
-Test 
+
+Calculator
+========
+
+        * Create complex tui application, e.g. continue "calculator"
+        * See example applications "helloworld", "tui", "ui_control"
