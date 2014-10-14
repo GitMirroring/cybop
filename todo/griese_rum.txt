@@ -1,1 +1,2 @@
-test 
+Entwicklung des spiels TicTacToe als Beispiel auf Kommandozeilenebene.
+Zunächst Umsetzung des Einspielermodus, wobei der zweite Spieler vom Computer gesteuert wird.
