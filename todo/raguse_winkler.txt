@@ -1,0 +1,15 @@
+
+Erweiterung Handbuch
+==================
+
+        * Update beginner's manual (LaTeX or LibreOffice), in order to get accepted as official GNU project
+
+        * Reapply to become accepted as official GNU project; requirements to be fulfilled:
+            - Include the sources of all documents into the distributable tarball cybop-0.12.0/
+              --> really? This will grow it up to 500 MB in size due to the images
+            - Write an actual manual that is updated as necessary to reflect the current state of cybop;
+            - Give a brief overview which documents should be read first if someone was trying to use the system
+
+        * Visualise project history using Ajax-based SIMILE timeline tool (ResMedicinae - ResMedLib - CYBOP)
+        * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
+
