@@ -1,0 +1,11 @@
+
+CYBOI Sockets
+============
+
+        * Reactivate socket functionality
+
+ODER:
+
+Debian Package
+=============
+

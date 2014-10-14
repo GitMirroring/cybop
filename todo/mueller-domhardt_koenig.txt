@@ -22,3 +22,21 @@ Shell Commands
             * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
             * Write cybol example application using shell command
 
+ADDENDUM:
+
+        * Provide cybol operation "??/get-current-time":
+            Auf Unix-artigen Systemen lässt sich das Julianische Datum berechnen,
+            indem man die "vergangenen Sekunden seit 1.1.1970 00:00 (time_t)"
+            durch (60 * 60 * 24 = 86400) dividiert und die Konstante 2440587,5 addiert;
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#toc-Date-and-Time-1
+
+        * Provide cybol operation "run/get-processor-time":
+            https://www.gnu.org/software/libc/manual/html_mono/libc.html#CPU-Time
+
+        * Implement a "timer" based on unix system time; see java.util.Timer
+
+        * Add calculator functions for types datetime, duration; delegating to "int" in "value_calculator.c" is not enough
+        * Add comparator functions for types datetime, duration; delegating to "int" in "value_comparator.c" is not enough
+            it is necessary to calculate julian_day (int) and julian_second (double) as separate elements
+
