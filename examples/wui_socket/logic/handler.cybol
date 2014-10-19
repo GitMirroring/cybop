@@ -1,20 +1,42 @@
 <model>
-<!-- OLD! TODO
-    <part name="receive" channel="inline" format="operation/plain" model="receive">
-        <property name="channel" channel="inline" format="text/plain" model="cyboi"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".http_communication.logic.handler.www_index_input"/>
-        <property name="language" channel="inline" format="text/plain" model="message/http-request"/>
+    <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
+    <part name="reset_request" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".temporary.request"/>
+    </part>
+    <part name="receive_request" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="www"/>
+<!--
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+-->
+        <property name="language" channel="inline" format="meta/language" model="message/http-request"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".temporary.request"/>
+<!-- OPTIONAL: e.g. used in "gui"; might be used for client socket or similar or deleted
+        <property name="message" channel="inline" format="path/knowledge" model=".gui.window"/>
+-->
         <property name="style" channel="inline" format="text/plain" model="stream"/>
     </part>
-    <part name="assemble_command_model" channel="inline" format="operation/plain" model="add">
-        <property name="summand_1" channel="inline" format="text/plain" model=".http_communication.logic.wui_index_actions."/>
-        <property name="summand_2" channel="inline" format="path/knowledge" model=".http_communication.logic.handler.www_index_input#uri.query.action"/>
-        <property name="sum" channel="inline" format="path/knowledge" model=".http_communication.logic.handler.www_index_input_model"/>
-        <property name="abstraction" channel="inline" format="text/plain" model="wide_character"/>
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <part name="append_path" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
+        <property name="source" channel="inline" format="text/plain" model=".wui.actions."/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="send" channel="inline" format="operation/plain" model="send">
-        <property name="channel" channel="inline" format="text/plain" model="signal"/>
-        <property name="message" channel="inline" format="path/reference" model=".http_communication.logic.handler.www_index_input_model"/>
+    <part name="append_action" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".temporary.request#uri.query.action"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
--->
+    <!--
+        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
+        Otherwise, another signal might be executed before, so that this signal could possibly
+        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
+        The "flow/sequence" operation ensures that the given model is executed directly.
+
+        CAUTION! Use path/reference format here, since the action is just
+        a string pointing to the actual model to be executed.
+    -->
+    <part name="execute_action" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/reference" model=".temporary.path"/>
+    </part>
 </model>

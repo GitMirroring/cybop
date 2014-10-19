@@ -58,7 +58,7 @@
         CAUTION! Do use character and NOT wide_character as model here!
         The http message body may be encoded and has to be read as plain characters.
     -->
-    <part name="sense_commands" channel="inline" format="live/sense" model="">
+    <part name="sense_actions" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="www"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".logic.handler"/>
     </part>

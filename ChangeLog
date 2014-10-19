@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-10-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare cybol example application "wui_socket" for Max Brenner
+
 2014-10-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update and rename cybol example application "http_communication" into "wui_socket"
