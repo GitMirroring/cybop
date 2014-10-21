@@ -12,4 +12,5 @@ CYBOL Designer
             examples/gui/window.cybol
             src/user_interface.cybol
             src/user_interface.pdf
+            src/executor/representer/serialiser/gui/shape_gui_serialiser.c
 
