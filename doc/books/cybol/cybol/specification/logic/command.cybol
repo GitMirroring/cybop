@@ -1,0 +1,3 @@
+<model>
+  <part name="archive_file" channel="file" format="element/part" model="cybol/specification/logic/command/archive_file.cybol"/>
+</model> 

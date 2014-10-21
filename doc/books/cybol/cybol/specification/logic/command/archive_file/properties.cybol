@@ -1,0 +1,23 @@
+<model>
+    <part name="result" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="create"/>
+        <property name="description" channel="inline" format="text/plain" model="The option for creating an archive."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="operand" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="update"/>
+        <property name="description" channel="inline" format="text/plain" model="The option for updating an archive."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain" />
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="type" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="bzip2"/>
+        <property name="description" channel="inline" format="text/plain" model="The option for using the bzip2 compression algorithm."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>
