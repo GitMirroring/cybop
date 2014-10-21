@@ -209,8 +209,6 @@ _______
         * Unify common code of files "handler.c" and "knowledge_part_getter.c"?
             --> possibly, state and logic models need to be handled differently (at least path/reference)
 
-        * Clean up local directory "tmp/" and collect new ideas from code examples
-
         * Optimise signal (event) handling
             You don't need to get a character to block on a terminal or serial port.
             You should just select() or poll() or epoll() or similar on the file
