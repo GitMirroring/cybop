@@ -7,7 +7,9 @@ CYBOL Designer
         * Write C++/Qt source code in QtCreator
         * Generate CYBOL/XML code
 
-        * See cybol examples:
+        * See:
             examples/gui/gui.cybol
             examples/gui/window.cybol
+            src/user_interface.cybol
+            src/user_interface.pdf
 
