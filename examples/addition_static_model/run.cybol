@@ -15,7 +15,7 @@
         <property name="model" channel="inline" format="path/knowledge" model=".domain"/>
     </part>
     <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <part name="test_knowledge_tree_1" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
@@ -29,7 +29,7 @@
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
     <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <part name="test_knowledge_tree_2" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>

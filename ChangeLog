@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-10-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add cybol example application "string_comparison"
+
 2014-10-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare cybol example application "wui_socket" for Max Brenner
