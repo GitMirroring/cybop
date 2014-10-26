@@ -7,7 +7,7 @@ Calculator
 
 TODO
 
-	* Tui
-	* Logikops. (+,-,*,/,^2,Wurzel)
-	* Entwurf (Oberfläche)
-	
+        * Tui
+        * Logikops. (+,-,*,/,^2,Wurzel)
+        * Entwurf (Oberfläche)
+

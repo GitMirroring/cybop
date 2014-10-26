@@ -11,6 +11,49 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+WUI
+___
+
+        * Reactivate socket functionality
+
+        * Replace deprecated "inet_addr" with "inet_pton" to convert ip4 AS WELL AS ip6 addresses to network byte order, e.g.:
+            mysocket.sin6_family = AF_INET6;
+            inet_pton(AF_INET6, "0:0:0:0:0:0:0:1", mysocket.sin6_addr.s6_addr);
+            mysocket.sin6_port = 1234;
+            size = sizeof(mysocket);
+        * Study "libcurl3" library for URL transfer
+        * Adapt cybol example applications "http_communication" and "presence" using HTTP
+            --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
+                answers to following client request were appended to the same model leading to false results
+
+        * Adapt function "startup_socket_get_host_address", variable "terminated address model",
+            in file "socket_starter.c" to new model constants
+        * Adapt file "http_request_selector.c" or delete if not needed anymore
+        * Remove model and details content of receiving compound for each new http request;
+            otherwise, new commands are just added to the "action" part entry in "receive_socket.c";
+            this fixes the errors caused by using "append" instead the "replace" function
+            (e.g. html file http response was generated twice as long as wanted;
+            only first action was received and added properly to uri internal model,
+            all following actions were appended but only the first is considered)
+        * Create three different sockets (local, inet, inet6)? distinguish at socket startup?
+            and store as different entries in internal memory?
+        * It was decided that "send" operations do NOT run in an own thread (for now and the near future, at least),
+            also if querying a server via http, since this would mix up the signal handling mechanism
+        * Use htons for socket transfer
+        * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (See socket examples in tmp/)
+        * Figure out necessary LIMITATION of the socket receive buffer in function "communicate_receiving_socket" to 1024!
+        * See: http://www.w3.org/TR/html5/urls.html#urls
+        * See also file "resmedicinae/apps/residenz/logic/handler/handle_www_service.cybol"
+
+        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
+        * Ensure that non-encoded characters are copied as well in character reference deserialiser
+        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
+        * Call percent encoding deserialiser in this order: utf-8 decode, percent deserialise, url deserialise
+        * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
+        * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
+            the corresponding type may be forwarded between functions as parametre
+        * Implement session on application level (e.g. in Res Medicinae)
+
 GUI
 ___
 
@@ -109,47 +152,6 @@ ___
             to find out why file descriptor-to-stream conversion does not work
             (see commented code lines and replace "stdin" and "stdout" with value read from internal memory)
             --> probably, the reason is that descriptor-to-stream conversion uses different attributes than "stdin" and "stdout"
-
-WUI
-___
-
-        * Replace deprecated "inet_addr" with "inet_pton" to convert ip4 AS WELL AS ip6 addresses to network byte order, e.g.:
-            mysocket.sin6_family = AF_INET6;
-            inet_pton(AF_INET6, "0:0:0:0:0:0:0:1", mysocket.sin6_addr.s6_addr);
-            mysocket.sin6_port = 1234;
-            size = sizeof(mysocket);
-        * Study "libcurl3" library for URL transfer
-        * Adapt cybol example applications "http_communication" and "presence" using HTTP
-            --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
-                answers to following client request were appended to the same model leading to false results
-
-        * Adapt function "startup_socket_get_host_address", variable "terminated address model",
-            in file "socket_starter.c" to new model constants
-        * Adapt file "http_request_selector.c" or delete if not needed anymore
-        * Remove model and details content of receiving compound for each new http request;
-            otherwise, new commands are just added to the "action" part entry in "receive_socket.c";
-            this fixes the errors caused by using "append" instead the "replace" function
-            (e.g. html file http response was generated twice as long as wanted;
-            only first action was received and added properly to uri internal model,
-            all following actions were appended but only the first is considered)
-        * Create three different sockets (local, inet, inet6)? distinguish at socket startup?
-            and store as different entries in internal memory?
-        * It was decided that "send" operations do NOT run in an own thread (for now and the near future, at least),
-            also if querying a server via http, since this would mix up the signal handling mechanism
-        * Use htons for socket transfer
-        * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (See socket examples in tmp/)
-        * Figure out necessary LIMITATION of the socket receive buffer in function "communicate_receiving_socket" to 1024!
-        * See: http://www.w3.org/TR/html5/urls.html#urls
-        * See also file "resmedicinae/apps/residenz/logic/handler/handle_www_service.cybol"
-
-        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
-        * Ensure that non-encoded characters are copied as well in character reference deserialiser
-        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
-        * Call percent encoding deserialiser in this order: utf-8 decode, percent deserialise, url deserialise
-        * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
-        * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
-            the corresponding type may be forwarded between functions as parametre
-        * Implement session on application level (e.g. in Res Medicinae)
 
 Serial Port
 ___________

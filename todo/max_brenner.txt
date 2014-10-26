@@ -1,5 +1,8 @@
 
-* Provide more shell commands in a platform-independent way, usable on posix and win32
+Shell Commands
+==============
+
+        * Provide more shell commands in a platform-independent way, usable on posix and win32
         * See list of commands:
             http://de.wikipedia.org/wiki/Unix-Kommandos#Kommandos_.28Auswahl.29
             http://de.wikipedia.org/wiki/Windows_PowerShell#Cmdlets

@@ -18,8 +18,19 @@ _____________
             - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
             - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
 
+        * Update beginner's manual (LaTeX or LibreOffice), in order to get accepted as official GNU project
+
+        * Visualise project history using Ajax-based SIMILE timeline tool (ResMedicinae - ResMedLib - CYBOP)
+        * Update CYBOP poster in DIN A0 format, to be used at conferences and exhibitions
+
 Project
 _______
+
+        * Reapply to become accepted as official GNU project; requirements to be fulfilled:
+            - Include the sources of all documents into the distributable tarball cybop-0.12.0/
+              --> really? This will grow it up to 500 MB in size due to the images
+            - Write an actual manual that is updated as necessary to reflect the current state of cybop;
+            - Give a brief overview which documents should be read first if someone was trying to use the system
 
         * Update build (automake) scripts
         * Provide Debian package
@@ -27,6 +38,9 @@ _______
 
 CYBOL
 _____
+
+        * Create complex tui application, e.g. continue "calculator"
+        * See example applications "helloworld", "tui", "ui_control"
 
         * Write cybol application communicating with microcontroller device,
         * Make it usable also from Windows via serial API(Win32::SerialPort)
@@ -59,7 +73,29 @@ _____
         * Adapt automake script accordingly
         * Minimise cyboi size for usage in embedded systems
 
-        * Reactivate socket functionality
+        * Provide more shell commands in a platform-independent way, usable on posix and win32
+        * See list of commands:
+            http://de.wikipedia.org/wiki/Unix-Kommandos#Kommandos_.28Auswahl.29
+            http://de.wikipedia.org/wiki/Windows_PowerShell#Cmdlets
+        * Create useful and uniform names for commands using pattern "verb-noun"
+        * Procedure:
+            * cybol command
+            * Add commands to directory "constant/model/command/"
+            * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
+            * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
+            * cybol commandoptions
+            * Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
+            * unix/win32 commandoptions
+            * Add new file with options for each command to directory "constant/name/command_option/"
+            * Add new file for differing options to sub directory "unix/" or "windows/"
+            *
+            * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+            * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+            * Add new file for each new command to directory "executor/commander/" (see example file "list_directory_contents_commander.c")
+            * Consider platform (unix or windows) using preprocessor defines
+            * Add new file for each command (cybol operation) to directory "applicator/command/"
+            * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
+            * Write cybol example application using shell command
 
         * Add calculator functions for types datetime, duration
         * Add comparator functions for types datetime, duration
@@ -108,3 +144,4 @@ ____
         * Enable code folding for single parts
         * Offer settings page for configuration of editor colours, tab width etc.
         * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
+

@@ -1,6 +1,6 @@
 
 Erweiterung Handbuch
-==================
+====================
 
         * Update beginner's manual (LaTeX or LibreOffice), in order to get accepted as official GNU project
 
