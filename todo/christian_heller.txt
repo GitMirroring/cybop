@@ -15,6 +15,9 @@ WUI
 ___
 
         * Reactivate socket functionality
+        * Provide two cybol properties in parallel:
+            - "port-name" for default ports compiled into cyboi, e.g. "www" for port 80;
+            - "port-number" for special, self-defined, arbitrary port numbers
 
         * Replace deprecated "inet_addr" with "inet_pton" to convert ip4 AS WELL AS ip6 addresses to network byte order, e.g.:
             mysocket.sin6_family = AF_INET6;
