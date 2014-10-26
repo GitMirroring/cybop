@@ -27,13 +27,11 @@
 #define BSD_SOCKET_STARTER_SOURCE
 
 /*??
- #include <arpa/inet.h>
- #include <netinet/in.h>
- #include <sys/socket.h>
- #include <sys/types.h>
- #include <errno.h>
- #include <fcntl.h>
- #include <stdio.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <stdio.h>
 */
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -110,8 +108,6 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         int* as = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner socket address size.
         int* pas = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The socket of this system.
-        int* s = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner socket.
         int* ps = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The character buffer being used in the thread procedure receiving messages via socket.
@@ -294,160 +290,7 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         i = *base + *SIZE_CHARACTER_BUFFER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward(p0, (void*) &bs, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        // Initialise error number.
-        // It is a global variable/ function and other operations
-        // may have set some value that is not wanted here.
-        //
-        // CAUTION! Initialise the error number BEFORE calling the procedure
-        // that might cause an error.
-        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-        // Initialise server socket.
-        //
-        // param 0: namespace
-        // param 1: style
-        // param 2: protocol
-        //
-        // CAUTION! Use prefix "PF_" here and NOT "AF_"!
-        // The latter is to be used for address family assignment.
-        // See further below!
-        *s = socket(sn, st, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            // Set non-blocking mode for the socket file descriptor.
-            //
-            // If the O_NONBLOCK flag (a bit) is set, read requests on the socket
-            // (file) can return immediately with a failure status if there is no
-            // input immediately available, instead of blocking. Likewise, write
-            // requests can also return immediately with a failure status if the
-            // output can't be written immediately.
-            //
-            // CAUTION! The "select" procedure was NOT used to make this socket
-            // non-blocking, because it has some overhead in that other sockets
-            // need to be considered and their file descriptors handed over as
-            // parametre.
-            // A simple "sleep" procedure is considered to be a more simple and
-            // clean solution here.
-
-            /*??
-             // Get file status flags.
-             int fl = fcntl(*s, F_GETFL, NUMBER_0_INTEGER);
-
-             if (fl != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-             // Set non-blocking flag (bit).
-             fl |= O_NONBLOCK;
-
-             // Store modified flag word in the file descriptor.
-             fcntl(*s, F_SETFL, fl);
-
-             } else {
-
-             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket / set non-blocking mode. The socket file descriptor flags could not be read.");
-             }
-             */
-
-            // Initialise error number.
-            // It is a global variable/ function and other operations
-            // may have set some value that is not wanted here.
-            //
-            // CAUTION! Initialise the error number BEFORE calling the procedure
-            // that might cause an error.
-            errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // The address data.
-            struct sockaddr* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The error flag.
-            int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-            // Choose address depending on family.
-            // CAUTION! Distinguishing the address data IS necessary here,
-            // since they have a different structure.
-            startup_bsd_socket_choose((void*) &ad, (void*) &la, (void*) &ia4, (void*) &ia6, (void*) &an);
-            // Bind address to socket.
-            startup_bsd_socket_bind((void*) &e, (void*) s, (void*) ad, (void*) as);
-
-            if (e == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                if (st == SOCK_STREAM) {
-
-                    // Reset result.
-                    r = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-                    // Initialise error number.
-                    // It is a global variable/ function and other operations
-                    // may have set some value that is not wanted here.
-                    //
-                    // CAUTION! Initialise the error number BEFORE calling the procedure
-                    // that might cause an error.
-                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                    // CAUTION! Datagram sockets do NOT have connections,
-                    // which is why the "listen" procedure is only called
-                    // for stream sockets here.
-
-                    // Enable socket to accept connections, thus making it a server socket.
-                    // The second parametre determines the number of possible
-                    // pending client connection requests.
-                    r = listen(*s, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-
-                    fwprintf(stdout, L"TEST: startup socket listen s: %i \n", *s);
-                    sleep(2);
-
-                    if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        if (errno == EBADF) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The argument socket is not a valid file descriptor.");
-
-                        } else if (errno == ENOTSOCK) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The argument socket is not a socket.");
-
-                        } else if (errno == EOPNOTSUPP) {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The socket does not support this operation.");
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. An unknown error occured while listening at the socket.");
-                        }
-                    }
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The address binding failed.");
-            }
-
-        } else {
-
-            if (errno == EPROTONOSUPPORT) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The protocol or style is not supported by the namespace specified.");
-
-            } else if (errno == EMFILE) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The process already has too many file descriptors open.");
-
-            } else if (errno == ENFILE) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The system already has too many file descriptors open.");
-
-            } else if (errno == EACCES) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The process does not have the privilege to create a socket of the specified style or protocol.");
-
-            } else if (errno == ENOBUFS) {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. The system ran out of internal buffer space.");
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket. An unknown error occured while initialising the socket.");
-            }
-        }
+        startup_bsd_socket_create((void*) &sn, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     } else {
 

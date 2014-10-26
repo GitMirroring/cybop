@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-10-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide separate functions for socket creation and listening
+
 2014-10-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Distinguish platforms in socket starter

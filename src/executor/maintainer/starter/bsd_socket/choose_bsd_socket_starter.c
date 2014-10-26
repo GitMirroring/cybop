@@ -26,6 +26,8 @@
 #ifndef CHOOSE_SOCKET_STARTER_SOURCE
 #define CHOOSE_SOCKET_STARTER_SOURCE
 
+#include <sys/socket.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"

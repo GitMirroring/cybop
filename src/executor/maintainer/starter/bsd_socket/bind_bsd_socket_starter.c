@@ -26,6 +26,9 @@
 #ifndef BIND_BSD_SOCKET_STARTER_SOURCE
 #define BIND_BSD_SOCKET_STARTER_SOURCE
 
+#include <sys/socket.h>
+#include <errno.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -54,12 +57,20 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind.");
 
-                int e = bind(*s, ad, *as);
+                // Initialise error number.
+                // It is a global variable/ function and other operations
+                // may have set some value that is not wanted here.
+                //
+                // CAUTION! Initialise the error number BEFORE calling the procedure
+                // that might cause an error.
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                fwprintf(stdout, L"TEST: startup bsd socket bind s: %i \n", *s);
-                sleep(2);
+                int r = bind(*s, ad, *as);
 
-                if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST: startup bsd socket bind s: %i \n", *s);
+sleep(2);
+
+                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                     // Set error flag.
                     // CAUTION! Only set flag if an error occured.
