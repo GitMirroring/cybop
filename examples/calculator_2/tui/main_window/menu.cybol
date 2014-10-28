@@ -15,8 +15,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.tui.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
+        <property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_seven"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_eight"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_seven"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_four"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.seven"/>
     </part>
     <part name="w_eight" channel="file" format="element/part" model="calculator_2/tui/main_window/menu/m_eight.cybol">
@@ -29,6 +31,8 @@
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_seven"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_nine"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_eight"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_five"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.eight"/>
         
     </part>
@@ -41,7 +45,9 @@
         
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_eight"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_four"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_addition"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_nine"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_six"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.nine"/>
     </part>
     <part name="w_four" channel="file" format="element/part" model="calculator_2/tui/main_window/menu/m_four.cybol">
@@ -52,8 +58,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
-	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_nine"/>
+	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_four"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_five"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_seven"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_one"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.four"/>
         
     </part>
@@ -66,8 +74,8 @@
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_four"/>
-	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_eight"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_six"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_eight"/>
         <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_two"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.five"/>
         
@@ -81,7 +89,9 @@
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_five"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_one"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_multiplication"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_nine"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_three"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.six"/>
         
     </part>
@@ -93,8 +103,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
-	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_six"/>
+	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_one"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_two"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_four"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.one"/>
         
     </part>
@@ -108,6 +120,8 @@
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_one"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_three"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_five"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.two"/>
         
     </part>
@@ -120,7 +134,9 @@
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_two"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_six"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.three"/>
         
     </part>
@@ -132,8 +148,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
-	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_three"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_addition"/>
+	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_two"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".calculator_2.logic.functionality.zero"/>
         
     </part>
@@ -146,8 +164,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
-	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
+	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_nine"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_subtraction"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_addition"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_multiplication"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
     </part>
     <part name="w_subtraction" channel="file" format="element/part" model="calculator_2/tui/main_window/menu/m_subtraction.cybol">
@@ -160,6 +180,8 @@
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_addition"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_squaret"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_subtraction"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_division"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
         
     </part>
@@ -172,7 +194,9 @@
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_subtraction"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_multiplication"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_squaret"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_squaret"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_quadrat"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
         
     </part>
@@ -184,8 +208,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
-	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_squaret"/>
+	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_six"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_division"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_addition"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
         
     </part>
@@ -199,6 +225,8 @@
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_multiplication"/>
         <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_quadrat"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_subtraction"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
         
     </part>
@@ -211,7 +239,9 @@
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
 	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_division"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_quadrat"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_squaret"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
         
     </part>
@@ -223,8 +253,10 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
 
 	<property name="super" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item"/>
-	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_quadrat"/>
-        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_seven"/>
+	<property name="previous" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
+        <property name="next" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
+	<property name="up" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_zero"/>
+        <property name="down" channel="inline" format="text/plain" model=".calculator_2.tui.main_window.menu.w_enter"/>
         <property name="button_press_action" channel="inline" format="text/plain" model="8"/>
         
     </part>
