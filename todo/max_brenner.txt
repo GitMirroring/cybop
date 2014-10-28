@@ -26,3 +26,6 @@ Shell Commands
             * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
             * Write cybol example application using shell command
 
+commands:
+- ping
+-

@@ -213,6 +213,9 @@ static int* WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1608_INTEGER_STATE_CY
 /** The create folder command logic cyboi format. */
 static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1609_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The ping command logic cyboi format. */
+static int* PING_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1610_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //
