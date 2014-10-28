@@ -1,0 +1,7 @@
+<model>
+    <part name="temporary" channel="file" format="element/part" model="tui_control/temporary.cybol"/>
+    <part name="application_information" channel="file" format="element/part" model="tui_control/application_information.cybol"/>
+    <part name="settings" channel="file" format="element/part" model="tui_control/settings.cybol"/>
+    <part name="tui" channel="file" format="element/part" model="tui_control/tui.cybol"/>
+    <part name="logic" channel="file" format="element/part" model="tui_control/logic.cybol"/>
+</model>
