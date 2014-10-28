@@ -1,8 +1,8 @@
 <model>
 <!--
     <part name="copy_name" channel="inline" format="operation/plain" model="copy">
-        <property name="source" channel="inline" format="path/knowledge" model=".tui_control.application_information.name"/>
-        <property name="destination" channel="inline" format="path/knowledge" model=".tui_control.tui.about_dialogue.name"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.application_information.name"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about_dialogue.name"/>
         <property name="abstraction" channel="inline" format="text/plain" model="wide_character"/>
     </part>
 -->

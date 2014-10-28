@@ -8,6 +8,7 @@
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
     <part name="path" channel="inline" format="path/knowledge" model=""/>
+    <part name="navigation" channel="inline" format="text/plain" model=""/>
 </model>
 
 <!--

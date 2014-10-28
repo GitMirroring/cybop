@@ -4,12 +4,12 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui_control.tui.main_window"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.main_window"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="sense" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".tui_control.logic.handler.handle_gnu_linux_console"/>
+        <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_gnu_linux_console"/>
     </part>
 </model>
 

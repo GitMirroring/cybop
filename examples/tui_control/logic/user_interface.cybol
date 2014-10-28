@@ -1,4 +1,5 @@
 <model>
+    <part name="select_part" channel="file" format="element/part" model="tui_control/logic/user_interface/select_part.cybol"/>
     <part name="select_current_part" channel="file" format="element/part" model="tui_control/logic/user_interface/select_current_part.cybol"/>
     <part name="select_previous_part" channel="file" format="element/part" model="tui_control/logic/user_interface/select_previous_part.cybol"/>
     <part name="select_next_part" channel="file" format="element/part" model="tui_control/logic/user_interface/select_next_part.cybol"/>

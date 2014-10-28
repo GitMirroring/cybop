@@ -1,23 +1,23 @@
 <model>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
     <part name="reset_command" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".tui_control.temporary.command"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.temporary.command"/>
     </part>
     <part name="receive_command" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".tui_control.temporary.command"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.temporary.command"/>
     </part>
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".tui_control.temporary.path"/>
-        <property name="source" channel="inline" format="text/plain" model=".tui_control.logic.user_interface.main_window_actions."/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.temporary.path"/>
+        <property name="source" channel="inline" format="text/plain" model=".app.logic.user_interface.main_window_actions."/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_command" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".tui_control.temporary.path"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".tui_control.temporary.command"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.temporary.path"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.temporary.command"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <!--
@@ -28,7 +28,7 @@
     -->
     <part name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <property name="model" channel="inline" format="path/knowledge" model=".tui_control.temporary.path"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.temporary.path"/>
     </part>
 </model>
 

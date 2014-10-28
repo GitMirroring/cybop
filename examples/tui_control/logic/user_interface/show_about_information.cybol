@@ -1,16 +1,16 @@
 <model>
-    <part name="translate" channel="inline" format="path/knowledge" model=".tui_control.logic.translation.translate_application_information_to_about_dialogue"/>
+    <part name="translate" channel="inline" format="path/knowledge" model=".app.logic.translation.translate_application_information_to_about_dialogue"/>
     <part name="send" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui_control.tui.about_dialogue"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.about_dialogue"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="sense" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".tui_control.logic.handler.handle_about_dialogue"/>
+        <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_about_dialogue"/>
     </part>
 </model>
 

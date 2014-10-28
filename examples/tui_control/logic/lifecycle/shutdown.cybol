@@ -1,22 +1,12 @@
 <model>
 <!--
-    <part name="interrupt_x_window_system" channel="inline" format="live/interrupt" model="">
-        <property name="service" channel="inline" format="meta/channel" model="display"/>
-    </part>
--->
-<!--
-    <part name="interrupt_gnu_linux_console" channel="inline" format="live/interrupt" model="">
-        <property name="service" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
--->
-<!--
-    <part name="shutdown_x_window_system" channel="inline" format="maintain/shutdown" model="">
-        <property name="service" channel="inline" format="meta/channel" model="display"/>
+    <part name="interrupt_terminal" channel="inline" format="live/interrupt" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 -->
 <!--
     <part name="shutdown_gnu_linux_console" channel="inline" format="maintain/shutdown" model="">
-        <property name="service" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 -->
 <!--
@@ -30,8 +20,8 @@
     instances of the Res Medicinae application. But as long as CYBOI does not run as
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
-    <part name="destroy_tui_control" channel="inline" format="memorise/destroy" model="">
-        <property name="name" channel="inline" format="path/knowledge" model=".tui_control"/>
+    <part name="destroy_app" channel="inline" format="memorise/destroy" model="">
+        <property name="name" channel="inline" format="path/knowledge" model=".app"/>
     </part>
 -->
     <part name="clean_tui" channel="inline" format="communicate/send" model="">
@@ -42,28 +32,3 @@
     </part>
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 </model>
-
-<!--
-    Copyright (C) 1999-2014. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.16.0 2014-03-31
-    @author Christian Heller <christian.heller@tuxtax.de>
--->
