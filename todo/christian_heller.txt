@@ -14,6 +14,7 @@
 WUI
 ___
 
+        * Write port de-/serialiser translating standard protocol into port and vice versa
         * Reactivate socket functionality
         * Provide two cybol properties in parallel:
             - "port-name" for default ports compiled into cyboi, e.g. "www" for port 80;
