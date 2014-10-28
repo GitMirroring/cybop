@@ -1,15 +1,15 @@
 <model>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.select_next_part"/>
-    <part name="arrow-up" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.select_previous_part"/>
-    <part name="arrow-right" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.select_next_part"/>
-    <part name="arrow-left" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.select_previous_part"/>
-    <part name="enter" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.enter"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".tui_control.logic.lifecycle.exit_programme"/>
-    <part name="m" channel="inline" format="path/knowledge" model=".tui_control.logic.functionality.start_mc"/>
-    <part name="d" channel="inline" format="path/knowledge" model=".tui_control.logic.functionality.start_dosemu"/>
-    <part name="x" channel="inline" format="path/knowledge" model=".tui_control.logic.functionality.show_x_window"/>
-    <part name="a" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.show_about_information"/>
-    <part name="e" channel="inline" format="path/knowledge" model=".tui_control.logic.lifecycle.exit_programme"/>
+    <part name="arrow-down" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_next_part"/>
+    <part name="arrow-up" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_previous_part"/>
+    <part name="arrow-right" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_next_part"/>
+    <part name="arrow-left" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_previous_part"/>
+    <part name="enter" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.enter"/>
+    <part name="escape" channel="inline" format="path/knowledge" model=".calculator_2.logic.lifecycle.exit_programme"/>
+    <part name="m" channel="inline" format="path/knowledge" model=".calculator_2.logic.functionality.start_mc"/>
+    <part name="d" channel="inline" format="path/knowledge" model=".calculator_2.logic.functionality.start_dosemu"/>
+    <part name="x" channel="inline" format="path/knowledge" model=".calculator_2.logic.functionality.show_x_window"/>
+    <part name="a" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.show_about_information"/>
+    <part name="e" channel="inline" format="path/knowledge" model=".calculator_2.logic.lifecycle.exit_programme"/>
 </model>
 
 <!--

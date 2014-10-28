@@ -1,7 +1,7 @@
 <model>
-    <part name="enter" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.hide_about_information"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.hide_about_information"/>
-    <part name="o" channel="inline" format="path/knowledge" model=".tui_control.logic.user_interface.hide_about_information"/>
+    <part name="enter" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.hide_about_information"/>
+    <part name="escape" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.hide_about_information"/>
+    <part name="o" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.hide_about_information"/>
 </model>
 
 <!--
