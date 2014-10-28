@@ -1,13 +1,13 @@
 <model>
-    <part name="window" channel="file" format="element/part" model="tui_control/settings/tui/window.cybol"/>
-    <part name="menu" channel="file" format="element/part" model="tui_control/settings/tui/menu.cybol"/>
-    <part name="menu_header" channel="file" format="element/part" model="tui_control/settings/tui/menu_header.cybol"/>
-    <part name="menu_title" channel="file" format="element/part" model="tui_control/settings/tui/menu_title.cybol"/>
-    <part name="menu_item" channel="file" format="element/part" model="tui_control/settings/tui/menu_item.cybol"/>
-    <part name="menu_footer" channel="file" format="element/part" model="tui_control/settings/tui/menu_footer.cybol"/>
-    <part name="label" channel="file" format="element/part" model="tui_control/settings/tui/label.cybol"/>
-    <part name="button" channel="file" format="element/part" model="tui_control/settings/tui/button.cybol"/>
-    <part name="selection" channel="file" format="element/part" model="tui_control/settings/tui/selection.cybol"/>
+    <part name="window" channel="file" format="element/part" model="calculator_2/settings/tui/window.cybol"/>
+    <part name="menu" channel="file" format="element/part" model="calculator_2/settings/tui/menu.cybol"/>
+    <part name="menu_header" channel="file" format="element/part" model="calculator_2/settings/tui/menu_header.cybol"/>
+    <part name="menu_title" channel="file" format="element/part" model="calculator_2/settings/tui/menu_title.cybol"/>
+    <part name="menu_item" channel="file" format="element/part" model="calculator_2/settings/tui/menu_item.cybol"/>
+    <part name="menu_footer" channel="file" format="element/part" model="calculator_2/settings/tui/menu_footer.cybol"/>
+    <part name="label" channel="file" format="element/part" model="calculator_2/settings/tui/label.cybol"/>
+    <part name="button" channel="file" format="element/part" model="calculator_2/settings/tui/button.cybol"/>
+    <part name="selection" channel="file" format="element/part" model="calculator_2/settings/tui/selection.cybol"/>
 <!--
     <part name="tab_order" channel="inline" format="number/integer" model="0"/>
     <part name="tab_stop" channel="inline" format="logicvalue/boolean" model="true"/>

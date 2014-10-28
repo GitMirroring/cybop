@@ -3,6 +3,7 @@
     <part name="background" channel="inline" format="colour/terminal" model="blue"/>
     <part name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
     <part name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    <property name="position" channel="inline" format="number/integer" model="1,1"/>
 </model>
 
 <!--
