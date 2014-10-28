@@ -1,0 +1,26 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="Calculator 2.0">
+        <property name="position" channel="inline" format="number/integer" model="5,2"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+	<property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="red"/>
+    </part>
+    <part name="exit" channel="inline" format="text/plain" model="'esc', 'e' - Exit">
+        <property name="position" channel="inline" format="number/integer" model="2,5"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+	<property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
+    <part name="a_keys" channel="inline" format="text/plain" model="arrow keys - move">
+        <property name="position" channel="inline" format="number/integer" model="2,7"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+	<property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
+    <part name="enter" channel="inline" format="text/plain" model="enter - select">
+        <property name="position" channel="inline" format="number/integer" model="2,9"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+	<property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
+</model>
