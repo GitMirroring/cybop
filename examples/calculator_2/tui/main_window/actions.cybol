@@ -1,6 +1,6 @@
 <model>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_next_part"/>
-    <part name="arrow-up" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_previous_part"/>
+    <part name="arrow-down" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_down_part"/>
+    <part name="arrow-up" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_up_part"/>
     <part name="arrow-right" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_next_part"/>
     <part name="arrow-left" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.select_previous_part"/>
     <part name="enter" channel="inline" format="path/knowledge" model=".calculator_2.logic.user_interface.enter"/>

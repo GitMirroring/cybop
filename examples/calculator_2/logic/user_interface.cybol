@@ -1,6 +1,8 @@
 <model>
     <part name="select_current_part" channel="file" format="element/part" model="calculator_2/logic/user_interface/select_current_part.cybol"/>
     <part name="select_previous_part" channel="file" format="element/part" model="calculator_2/logic/user_interface/select_previous_part.cybol"/>
+    <part name="select_up_part" channel="file" format="element/part" model="calculator_2/logic/user_interface/select_up_part.cybol"/>
+    <part name="select_down_part" channel="file" format="element/part" model="calculator_2/logic/user_interface/select_down_part.cybol"/>
     <part name="select_next_part" channel="file" format="element/part" model="calculator_2/logic/user_interface/select_next_part.cybol"/>
     <part name="enter" channel="file" format="element/part" model="calculator_2/logic/user_interface/enter.cybol"/>
     <!--<part name="show_about_information" channel="file" format="element/part" model="calculator_2/logic/user_interface/show_about_information.cybol"/>
