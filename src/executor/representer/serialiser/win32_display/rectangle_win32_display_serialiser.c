@@ -73,21 +73,21 @@ void serialise_win32_display_rectangle(void* p0, void* p1, void* p2, void* p3, v
                         // The HDC type is: void*
                         // Therefore, cast parametre value AS IS
                         // to handle (WITHOUT dereferencing).
-                        HDC h = (HDC) p0;
+                        HDC hdc = (HDC) p0;
 
                         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise win32 display rectangle.");
 
                         // The x-coordinate, in logical coordinates, of the upper-left corner of the rectangle.
-                        int x1 = x;
+                        int x1 = *x;
                         // The y-coordinate, in logical coordinates, of the upper-left corner of the rectangle.
-                        int y1 = y;
+                        int y1 = *y;
                         // The x-coordinate, in logical coordinates, of the lower-right corner of the rectangle.
-                        int x2 = x + w;
+                        int x2 = *x + *w;
                         // The y-coordinate, in logical coordinates, of the lower-right corner of the rectangle.
-                        int y2 = y + h;
+                        int y2 = *y + *h;
 
                         // Draw rectangle.
-                        BOOL b = Rectangle(h, x1, y1, x2, y2);
+                        BOOL b = Rectangle(hdc, x1, y1, x2, y2);
 
                         // If the return value is zero, then an error occured.
                         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
