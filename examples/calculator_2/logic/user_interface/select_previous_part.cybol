@@ -1,0 +1,106 @@
+<model>
+    <part name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_current_element_background_2" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="text/plain" model="#background"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="unfocus_background" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/reference" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item.background"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_current_element_foreground_1" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_current_element_foreground_2" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="text/plain" model="#foreground"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="unfocus_foreground" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/reference" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.menu_item.foreground"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_previous_element_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="source" channel="inline" format="text/plain" model="#previous"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <!-- The element name assembled before is now used to get the real element that the name points to. -->
+    <part name="determine_real_element_name" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="source" channel="inline" format="path/reference" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_previous_element_background_1" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_previous_element_background_2" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="text/plain" model="#background"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="focus_background" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/reference" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.selection.background"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_previous_element_foreground_1" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window.menu#focus"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assemble_previous_element_foreground_2" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="text/plain" model="#foreground"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="focus_foreground" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/reference" model=".calculator_2.temporary.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.settings.tui.selection.foreground"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="send_tui" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".calculator_2.tui.main_window"/>
+        <property name="area" channel="inline" format="text/plain" model=".main_window.menu"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

@@ -1,0 +1,84 @@
+<model>
+    <part name="copy_name" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.name"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_version" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.version"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.version"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_date" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.date"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.date"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_slogan" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.slogan"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.slogan"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+<!--
+    <part name="copy_logo" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.logo"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.logo"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+-->
+    <part name="copy_copyright" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.copyright"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.copyright"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_contact" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.contact"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.contact"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_description" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.description"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.description"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_authors" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.authors"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.authors"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_helpers" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.helpers"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.helpers"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_licence" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".calculator_2.tui.about_dialogue.licence"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".calculator_2.application_information.licence"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

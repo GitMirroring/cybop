@@ -1,0 +1,56 @@
+<model>
+   
+    <part name="one" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_one.cybol"/>
+    <part name="two" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_two.cybol"/>
+    <part name="three" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_three.cybol"/>
+    <part name="four" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_four.cybol"/>
+    <part name="five" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_five.cybol"/>
+    <part name="six" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_six.cybol"/>
+    <part name="seven" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_seven.cybol"/>
+    <part name="eight" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_eight.cybol"/>
+    <part name="nine" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_nine.cybol"/>
+    <part name="zero" channel="file" format="element/part" model="calculator_2/logic/functionality/handle_zero.cybol"/>
+        
+
+   
+
+
+<!--    <part name="start_mc" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="mc"/>
+    </part>
+    <part name="start_dosemu" channel="inline" format="run/run" model="">
+        <property name="programme" channel="inline" format="text/plain" model="xdosemu"/>
+
+        <property name="programme" channel="inline" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
+-->
+    </part>
+    <part name="show_x_window" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="display"/>
+        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
+    </part>
+</model>
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
