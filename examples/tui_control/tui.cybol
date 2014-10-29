@@ -1,37 +1,14 @@
 <model>
-    <part name="main_window" channel="file" format="element/part" model="tui_control/tui/main_window/window.cybol">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.window"/>
+    <part name="main" channel="file" format="element/part" model="tui_control/tui/main/window.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.window"/>
         <property name="position" channel="inline" format="number/integer" model="0,0"/>
         <property name="size" channel="inline" format="number/integer" model="80,24"/>
     </part>
-    <part name="about_dialogue" channel="file" format="element/part" model="tui_control/tui/about_dialogue/window.cybol">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.window"/>
+    <part name="about" channel="file" format="element/part" model="tui_control/tui/about/window.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.window"/>
         <property name="position" channel="inline" format="number/integer" model="0,0"/>
         <property name="size" channel="inline" format="number/integer" model="80,24"/>
     </part>
+    <part name="main_actions" channel="file" format="element/part" model="tui_control/tui/main/actions.cybol"/>
+    <part name="about_actions" channel="file" format="element/part" model="tui_control/tui/about/actions.cybol"/>
 </model>
-
-<!--
-    Copyright (C) 1999-2014. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.16.0 2014-03-31
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

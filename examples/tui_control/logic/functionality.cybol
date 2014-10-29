@@ -8,8 +8,4 @@
         <property name="programme" channel="inline" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
 -->
     </part>
-    <part name="show_x_window" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
-    </part>
 </model>

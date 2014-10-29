@@ -1,0 +1,18 @@
+<model>
+    <part name="header" channel="file" format="element/part" model="tui_control/tui/main/header.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.menu_header"/>
+        <property name="position" channel="inline" format="number/integer" model="1,1"/>
+        <property name="size" channel="inline" format="number/integer" model="78,1"/>
+    </part>
+    <part name="menu" channel="file" format="element/part" model="tui_control/tui/main/menu.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.menu"/>
+        <property name="position" channel="inline" format="number/integer" model="5,5"/>
+        <property name="size" channel="inline" format="number/integer" model="70,15"/>
+        <property name="focus" channel="inline" format="text/plain" model=".app.tui.main.menu.mc"/>
+    </part>
+    <part name="footer" channel="file" format="element/part" model="tui_control/tui/main/footer.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.menu_footer"/>
+        <property name="position" channel="inline" format="number/integer" model="1,22"/>
+        <property name="size" channel="inline" format="number/integer" model="78,1"/>
+    </part>
+</model>

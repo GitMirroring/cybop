@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Simplify and update "tui_control" cybol example application
+        * Debug "tui_control" cybol example application
         * Fix log file generation for level "debug" (all other levels work fine)
 
 WUI

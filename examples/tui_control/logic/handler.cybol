@@ -1,32 +1,4 @@
 <model>
-    <part name="handle_gnu_linux_console" channel="file" format="element/part" model="tui_control/logic/handler/handle_gnu_linux_console.cybol"/>
-    <part name="handle_about_dialogue" channel="file" format="element/part" model="tui_control/logic/handler/handle_about_dialogue.cybol"/>
-    <part name="handle_x_window_system" channel="file" format="element/part" model="tui_control/logic/handler/handle_x_window_system.cybol"/>
-    <part name="handle_www_service" channel="file" format="element/part" model="tui_control/logic/handler/handle_www_service.cybol"/>
-    <part name="handle_cyboi_service" channel="file" format="element/part" model="tui_control/logic/handler/handle_cyboi_service.cybol"/>
+    <part name="handle_main" channel="file" format="element/part" model="tui_control/logic/handler/handle_main.cybol"/>
+    <part name="handle_about" channel="file" format="element/part" model="tui_control/logic/handler/handle_about.cybol"/>
 </model>
-
-<!--
-    Copyright (C) 1999-2014. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.16.0 2014-03-31
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

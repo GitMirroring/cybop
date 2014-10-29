@@ -1,66 +1,16 @@
 <model>
-    <!-- Since the "whole" property is not given the greeting model is added to the knowledge memory root. -->
-    <part name="create_application" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="app"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <!--
-        CAUTION! Create actions only AFTER having initialised logic above.
-        The logic contains a "user_interface" node that has to be built up
-        before using it as "whole" (parent) node here.
-    -->
-    <part name="create_tui_main_window_actions" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="main_window_actions"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" format="path/knowledge" model=".app.logic.user_interface"/>
-    </part>
-    <part name="create_tui_about_dialogue_actions" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="about_dialogue_actions"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" format="path/knowledge" model=".app.logic.user_interface"/>
-    </part>
-    <part name="initialise_tui_main_window_actions" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui_control/tui/main_window/actions.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.main_window_actions"/>
-    </part>
-    <part name="initialise_tui_about_dialogue_actions" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui_control/tui/about_dialogue/actions.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.about_dialogue_actions"/>
-    </part>
-    <!-- Write knowledge tree into file. -->
-<!--
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
-        <property name="receiver" channel="inline" format="text/plain" model="TEST_UI_CONTROL.txt"/>
-    </part>
--->
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-    <part name="select_current_menu_item" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_current_part"/>
+    <part name="focus_current_menu_item" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.focus"/>
     </part>
     <!--
         CAUTION! Sending the tui to the terminal is NOT necessary here,
-        since that refresh is already done within "select_current_menu_item" above!
+        since that refresh is already done within "focus_current_menu_item" above!
     -->
-    <part name="sense_tui_commands" channel="inline" format="live/sense" model="">
+    <part name="sense_terminal" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_gnu_linux_console"/>
+        <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_main"/>
     </part>
 </model>

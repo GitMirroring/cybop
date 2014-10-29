@@ -1,0 +1,5 @@
+<model>
+    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.hide_about"/>
+    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.user_interface.hide_about"/>
+    <part name="o" channel="inline" format="path/knowledge" model=".app.logic.user_interface.hide_about"/>
+</model>

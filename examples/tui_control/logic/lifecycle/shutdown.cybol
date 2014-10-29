@@ -5,7 +5,7 @@
     </part>
 -->
 <!--
-    <part name="shutdown_gnu_linux_console" channel="inline" format="maintain/shutdown" model="">
+    <part name="shutdown_terminal" channel="inline" format="maintain/shutdown" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 -->
