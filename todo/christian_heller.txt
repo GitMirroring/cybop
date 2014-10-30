@@ -11,7 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Fix log file generation for level "debug" (all other levels work fine)
+        * Debug memory error when logging with "debug" log level (all other levels work fine)
+            see variable "LOG_OUTPUT" in file "variable/log_setting.c";
+            try valgrind
+        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
+
+        * Rename and restructure "calculator_2" cybol example application
+        * Think about handing over pressed button key
 
 WUI
 ___

@@ -30,21 +30,25 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The debug level name log cyboi model. */
+static wchar_t* DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL = L"Debug";
+static int* DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The error level name log cyboi model. */
 static wchar_t* ERROR_LEVEL_NAME_LOG_CYBOI_MODEL = L"Error";
 static int* ERROR_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The warning level name log cyboi model. */
-static wchar_t* WARNING_LEVEL_NAME_LOG_CYBOI_MODEL = L"Warning";
-static int* WARNING_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The information level name log cyboi model. */
 static wchar_t* INFORMATION_LEVEL_NAME_LOG_CYBOI_MODEL = L"Information";
 static int* INFORMATION_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The debug level name log cyboi model. */
-static wchar_t* DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL = L"Debug";
-static int* DEBUG_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The undefined level name log cyboi model. */
+static wchar_t* UNDEFINED_LEVEL_NAME_LOG_CYBOI_MODEL = L"Undefined";
+static int* UNDEFINED_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The warning level name log cyboi model. */
+static wchar_t* WARNING_LEVEL_NAME_LOG_CYBOI_MODEL = L"Warning";
+static int* WARNING_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LEVEL_NAME_LOG_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif

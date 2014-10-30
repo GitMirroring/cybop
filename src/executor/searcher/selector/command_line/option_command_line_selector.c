@@ -26,12 +26,12 @@
 #ifndef OPTION_COMMAND_LINE_SELECTOR_SOURCE
 #define OPTION_COMMAND_LINE_SELECTOR_SOURCE
 
-#ifdef WIN32
-#include <windows.h>
-#endif
-
 #include <stdio.h>
 #include <wchar.h>
+
+#ifdef WIN32
+    #include <windows.h>
+#endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

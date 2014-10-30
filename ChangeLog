@@ -21,6 +21,7 @@
 2014-10-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Simplify and update "tui_control" cybol example application
+        * Debug memory error when logging with "debug" log level (all other levels work fine)
 
 2014-10-26  Christian Heller  <christian.heller@tuxtax.de>
 

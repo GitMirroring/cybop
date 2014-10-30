@@ -75,16 +75,16 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The file.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    FILE* f = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Open file.
     // CAUTION! The file name cannot be handed over as is.
     // CYBOI strings are NOT terminated with the null character '\0'.
     // Since 'fopen' expects a null terminated string, the termination character
     // must be added to the string before that is used to open the file.
-    f = (void*) fopen((char*) td, "w");
+    f = fopen((char*) td, "w");
 
-    if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (((void*) f) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         send_file_content((void*) f, p2, p3);
 
@@ -97,7 +97,7 @@ void send_file_stream(void* p0, void* p1, void* p2, void* p3) {
         // - the program terminated by calling exit
         // - a newline was written with the stream being line buffered
         // - an input operation on any stream actually read data from its file
-        fflush((FILE*) f);
+        fflush(f);
 
         // Close file.
         // CAUTION! Check file for null pointer to avoid a segmentation fault!

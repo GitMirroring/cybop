@@ -31,7 +31,7 @@
 /**
  * Deoptionalises the given command line argument options.
  *
- * @param p0 the log file stream
+ * @param p0 the log file stream (pointer reference)
  */
 void deoptionalise(void* p0) {
 

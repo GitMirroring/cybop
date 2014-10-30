@@ -66,8 +66,9 @@ static int LOG_MESSAGE_SIZE_ARRAY[1];
 static int* LOG_MESSAGE_SIZE = LOG_MESSAGE_SIZE_ARRAY;
 
 /** The log output. */
-static void* LOG_OUTPUT_ARRAY[1];
-static void** LOG_OUTPUT = LOG_OUTPUT_ARRAY;
+//?? static FILE LOG_OUTPUT_ARRAY[1];
+//?? static FILE* LOG_OUTPUT = LOG_OUTPUT_ARRAY;
+static FILE* LOG_OUTPUT;
 
 /* LOG_SETTING_SOURCE */
 #endif

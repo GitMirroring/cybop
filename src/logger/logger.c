@@ -29,10 +29,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
 #include <wchar.h>
+
+#ifdef WIN32
+    #include <windows.h>
+#endif
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
 
 #include "../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -46,10 +51,6 @@
 #include "../logger/level_name_logger.c"
 #include "../logger/write_logger.c"
 #include "../variable/log_setting.c"
-
-#ifdef WIN32
-    #include <windows.h>
-#endif
 
 //
 // CAUTION! This logger uses some CYBOI functions so that
@@ -135,7 +136,11 @@ void log_message(void* p0, void* p1, void* p2) {
         // in order to overwrite the destination from the beginning.
         int di = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // Add name of the given log level to log entry.
+        // Initialise log level name.
+        copy_pointer((void*) &ln, (void*) &UNDEFINED_LEVEL_NAME_LOG_CYBOI_MODEL);
+        copy_integer((void*) &lnc, (void*) UNDEFINED_LEVEL_NAME_LOG_CYBOI_MODEL_COUNT);
+
+        // Get name of the given log level.
         log_level_name((void*) &ln, (void*) &lnc, p0);
 
         // CAUTION! Do NOT use the "overwrite_array" function following,
@@ -171,7 +176,7 @@ void log_message(void* p0, void* p1, void* p2) {
         copy_array_forward((void*) LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Log message.
-        log_write(*LOG_OUTPUT, (void*) LOG_MESSAGE);
+        log_write(LOG_OUTPUT, (void*) LOG_MESSAGE);
 
     } else {
 
@@ -190,32 +195,61 @@ void log_message(void* p0, void* p1, void* p2) {
  */
 void log_message_terminated(void* p0, void* p1) {
 
-    // The message count.
-    int c = wcslen((wchar_t*) p1);
-    // Calculate overall count.
-    //
-    // Some characters are added by default [Byte]:
-    // 11 (the longest log level name is "information")
-    //  1 (colon)
-    //  1 (space)
-    // xx (the actual message)
-    //  1 line feed
-    //  1 null termination
-    // __
-    // 15
-    // ==
-    int o = c + *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // Test message count.
-    // CAUTION! This is important, since the destination
-    // log message count is fixed and limited in size.
-    if (o > *LOG_MESSAGE_SIZE) {
+        // The message count.
+        int c = wcslen((wchar_t*) p1);
 
-        // Limit message count.
-        c = *LOG_MESSAGE_SIZE - o;
+        if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // Calculate overall count.
+            //
+            // Some characters are added by default [Byte]:
+            // 11 (the longest log level name is "information")
+            //  1 (colon)
+            //  1 (space)
+            // xx (the actual message)
+            //  1 line feed
+            //  1 null termination
+            // __
+            // 15
+            // ==
+            int o = c + *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
+
+            // Test message count.
+            // CAUTION! This is important, since the destination
+            // log message count is fixed and limited in size.
+            if (o > *LOG_MESSAGE_SIZE) {
+
+                // CAUTION! Do NOT call the logger here.
+                // It cannot log itself.
+                fputws(L"Warning: Could not log message terminated. The message count gets limited to 1000 - 15.\n", stdout);
+
+                // Limit message count.
+                c = *LOG_MESSAGE_SIZE - *NUMBER_15_INTEGER_STATE_CYBOI_MODEL;
+            }
+
+            log_message(p0, p1, (void*) &c);
+
+        } else if (c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // CAUTION! Do NOT call the logger here.
+            // It cannot log itself.
+            fputws(L"Warning: Could not log message terminated. The message count is zero.\n", stdout);
+
+        } else {
+
+            // CAUTION! Do NOT call the logger here.
+            // It cannot log itself.
+            fputws(L"Error: Could not log message terminated. The message count is negative.\n", stdout);
+        }
+
+    } else {
+
+        // CAUTION! Do NOT call the logger here.
+        // It cannot log itself.
+        fputws(L"Error: Could not log message terminated. The log message as null terminated string is null.\n", stdout);
     }
-
-    log_message(p0, p1, (void*) &c);
 }
 
 /**

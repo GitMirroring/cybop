@@ -193,13 +193,13 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
         allocate_item((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Optionalise command line argument options.
-        optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) &t, (void*) LOG_OUTPUT, (void*) p1, (void*) &p0);
+        optionalise((void*) &m, k, (void*) LOG_LEVEL, (void*) &t, (void*) &LOG_OUTPUT, (void*) p1, (void*) &p0);
 
         // Orient log output file stream.
         //
         // CAUTION! This can only be done AFTER having read the command line options,
         // since one of the options determines the log output file name.
-        orient(*LOG_OUTPUT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        orient(LOG_OUTPUT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Run cyboi.");
@@ -235,7 +235,7 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
         // If this was not done, subsequent logger calls would cause segmentation faults,
         // because the null pointer test within the logger would be successful,
         // even though the LOG_OUTPUT pointer would be invalid.
-        deoptionalise((void*) LOG_OUTPUT);
+        deoptionalise((void*) &LOG_OUTPUT);
 
         // Deallocate cybol knowledge file path.
         deallocate_item((void*) &k, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

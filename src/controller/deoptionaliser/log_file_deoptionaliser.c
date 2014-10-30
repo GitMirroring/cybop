@@ -40,7 +40,7 @@ void deoptionalise_log_file(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        void** f = (void**) p0;
+        FILE** f = (FILE**) p0;
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
@@ -51,10 +51,10 @@ void deoptionalise_log_file(void* p0) {
         // Checking the file stream argument above is not sufficient,
         // since a segmentation fault will occur here,
         // if no log file is given as command line argument at system startup.
-        if (*f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (((void*) *f) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Close log file.
-            fclose((FILE*) *f);
+            fclose(*f);
 
             // Reset log file pointer.
             // CAUTION! Hand over the log file stream AS REFERENCE!

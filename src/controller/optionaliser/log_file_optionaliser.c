@@ -46,7 +46,7 @@ void optionalise_log_file(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        void** f = (void**) p0;
+        FILE** f = (FILE**) p0;
 
         // CAUTION! DO NOT use logging functionality here!
         // The logger will not work before its options are set.
@@ -70,9 +70,9 @@ void optionalise_log_file(void* p0, void* p1) {
         // library functions. The library creates objects of type FILE.
         // Programs should deal only with pointers to these objects (FILE* values),
         // rather than the objects themselves.
-        *f = (void*) fopen((char*) td, "w");
+        *f = fopen((char*) td, "w");
 
-        if (*f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (((void*) *f) != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // The file owner.
             int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
@@ -80,23 +80,23 @@ void optionalise_log_file(void* p0, void* p1) {
             int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
             // Set file owner.
-            #ifdef WIN32
-                // ...
-            #else
-                int e = chown((char*) td, o, g);
-            #endif
+#ifdef WIN32
+            // ...
+#else
+            int e = chown((char*) td, o, g);
+#endif
 
             // The file access rights.
 
             // Set file access rights.
-            #ifdef WIN32
-                //?? TODO: When trying to cross-compile cyboi for windows,
-                //?? the two S_IRGRP and S_IWGRP were not recognised by mingw.
-                // ...
-            #else
-                int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
-                chmod((char*) td, r);
-            #endif
+#ifdef WIN32
+            //?? TODO: When trying to cross-compile cyboi for windows,
+            //?? the two S_IRGRP and S_IWGRP were not recognised by mingw.
+            // ...
+#else
+            int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
+            chmod((char*) td, r);
+#endif
 
         } else {
 

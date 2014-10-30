@@ -26,12 +26,12 @@
 #ifndef WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
 #define WIDE_ARGUMENT_COMMAND_LINE_DESERIALISER_SOURCE
 
+#include <stdio.h>
+#include <wchar.h>
+
 #ifdef WIN32
     #include <windows.h>
 #endif
-
-#include <stdio.h>
-#include <wchar.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

@@ -38,14 +38,23 @@
 void globalise_log() {
 
     *LOG_LEVEL = *OFF_LEVEL_LOG_CYBOI_MODEL;
+
+    //
+    // CAUTION! The LOG_MESSAGE variable array was already allocated.
+    // It does not receive an initial value and remains empty here.
+    // It gets only filled later, by the logger.
+    //
+    // CAUTION! Do NOT assign a null pointer here, since then,
+    // the allocated array would be lost!
+    //
     *LOG_MESSAGE_COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     *LOG_MESSAGE_SIZE = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
 
     //
-    // The LOG_MESSAGE variable does not receive an initial value
-    // and remains empty here. It gets only filled later, by the logger.
-    //
-
+    // CAUTION! This variable HAS TO BE INITIALISED with null!
+    // Otherwise, strange log errors will appear at runtime,
+    // since some functions call the logger before it is setup.
+    // The LOG_OUTPUT variable is tested for a defined null there.
     //
     // CAUTION! Do NOT try to initialise the log output of type FILE!
     //
@@ -61,6 +70,7 @@ void globalise_log() {
     // and remains empty here. It gets only filled later,
     // in file "optionaliser.c", which cares about log file creation.
     //
+    LOG_OUTPUT = *NULL_POINTER_STATE_CYBOI_MODEL;
 }
 
 /* LOG_GLOBALISER_SOURCE */
