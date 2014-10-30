@@ -11,11 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Debug memory error when logging with "debug" log level (all other levels work fine)
-            see variable "LOG_OUTPUT" in file "variable/log_setting.c";
-            try valgrind
-        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
-
         * Rename and restructure "calculator_2" cybol example application
         * Think about handing over pressed button key
 
@@ -203,6 +198,14 @@ ________
 
         * Add error messages for logic operations with overflow (nand, nor, xnor, not, neg)
         * Fix error occuring while printing byte values in terminal applications
+
+Logger
+______
+
+        * Debug memory error when logging with "debug" log level (all other levels work fine)
+            see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
+
+        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
 
 Project
 _______
