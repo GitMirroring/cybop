@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-10-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Reorganise "calculator" cybol example application
+
 2014-10-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Simplify and update "tui_control" cybol example application

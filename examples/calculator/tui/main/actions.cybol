@@ -1,11 +1,30 @@
 <model>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
+
+    <part name="tabulator" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_next"/>
+    <part name="shift-tabulator" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_previous"/>
+
     <part name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_up"/>
-    <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
+    <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
     <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>
+    <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
+
     <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.enter"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
-    <part name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.start_mc"/>
+    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset"/>
+
     <part name="a" channel="inline" format="path/knowledge" model=".app.logic.user_interface.show_about"/>
     <part name="e" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
+
+    <part name="0" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="1" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="2" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="3" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="4" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="5" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="6" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="7" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="8" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+    <part name="9" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_number"/>
+
+    <part name="+" channel="inline" format="path/knowledge" model=".app.logic.functionality.add"/>
+
 </model>

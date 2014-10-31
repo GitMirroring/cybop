@@ -1,0 +1,7 @@
+<model>
+
+    <!-- Convert .app.tui.main.menu.display.display text to number .app.tmp.operand -->
+    <!-- Execute operation stored in .app.tmp.operation before; if empty, then add number by default; use .app.tmp.result as first operand and .app.tmp.operand as second -->
+    <!-- Store operation type (e.g. "+") from .app.tmp.command into .app.tmp.operation -->
+
+</model>
