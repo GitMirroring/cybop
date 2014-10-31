@@ -1,0 +1,34 @@
+<model>
+<!--
+    <part name="interrupt_terminal" channel="inline" format="live/interrupt" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+-->
+<!--
+    <part name="shutdown_terminal" channel="inline" format="maintain/shutdown" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+-->
+<!--
+    CAUTION! The memory MUST NOT be destroyed here!
+    Otherwise, also THIS model is destroyed in memory so that the exit operation
+    below cannot be executed anymore.
+    The rubbish (garbage) collector cares about destruction evaluating references.
+    If CYBOI runs as operating system one day, the exit operation will only be called
+    when the whole operating system is shutdown. At this time, the "destroy_tui_control"
+    operation HAS TO BE REACTIVATED and called as final operation cleaning up the memory
+    instances of the Res Medicinae application. But as long as CYBOI does not run as
+    operating system and each application is started with its own instance of CYBOI,
+    the exit operation is the last one to be called. It cleans up all memory, too.
+    <part name="destroy_app" channel="inline" format="memorise/destroy" model="">
+        <property name="name" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
+-->
+    <part name="clean_tui" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+</model>

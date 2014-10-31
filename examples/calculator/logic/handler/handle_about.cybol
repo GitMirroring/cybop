@@ -1,0 +1,33 @@
+<model>
+    <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
+    <part name="reset_command" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+    </part>
+    <part name="receive_command" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+    </part>
+    <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
+    <part name="append_path" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <property name="source" channel="inline" format="text/plain" model=".app.tui.about_actions."/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_command" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <!--
+        CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
+        Otherwise, another signal might be executed before, so that this signal could possibly
+        not find all resources anymore, if they meanwhile have been manipulated by the other signal.
+        The "flow/sequence" operation ensures that the given model is executed directly.
+    -->
+    <part name="send_command" channel="inline" format="flow/sequence" model="">
+        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
+        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+    </part>
+</model>

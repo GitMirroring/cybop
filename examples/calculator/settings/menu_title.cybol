@@ -1,0 +1,6 @@
+<model>
+    <part name="background" channel="inline" format="colour/terminal" model="blue"/>
+    <part name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    <part name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    <part name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+</model>

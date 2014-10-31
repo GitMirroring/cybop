@@ -1,0 +1,14 @@
+<model>
+    <part name="main" channel="file" format="element/part" model="calculator/tui/main/window.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.window"/>
+        <property name="position" channel="inline" format="number/integer" model="0,0"/>
+        <property name="size" channel="inline" format="number/integer" model="80,24"/>
+    </part>
+    <part name="about" channel="file" format="element/part" model="calculator/tui/about/window.cybol">
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.window"/>
+        <property name="position" channel="inline" format="number/integer" model="0,0"/>
+        <property name="size" channel="inline" format="number/integer" model="80,24"/>
+    </part>
+    <part name="main_actions" channel="file" format="element/part" model="calculator/tui/main/actions.cybol"/>
+    <part name="about_actions" channel="file" format="element/part" model="calculator/tui/about/actions.cybol"/>
+</model>

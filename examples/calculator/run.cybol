@@ -1,0 +1,57 @@
+<model>
+    <part name="create" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="app"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="calculator/app.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_tui_control.txt"/>
+    </part>
+    <part name="startup" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.startup"/>
+    </part>
+</model>
+
+<!--
+    This example demonstrates how to navigate through a tui menu
+    using arrow keys, enter and escape.
+-->
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

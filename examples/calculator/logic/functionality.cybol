@@ -1,0 +1,14 @@
+<model>
+
+    <part name="one" channel="file" format="element/part" model="calculator/logic/functionality/handle_one.cybol"/>
+    <part name="two" channel="file" format="element/part" model="calculator/logic/functionality/handle_two.cybol"/>
+    <part name="three" channel="file" format="element/part" model="calculator/logic/functionality/handle_three.cybol"/>
+    <part name="four" channel="file" format="element/part" model="calculator/logic/functionality/handle_four.cybol"/>
+    <part name="five" channel="file" format="element/part" model="calculator/logic/functionality/handle_five.cybol"/>
+    <part name="six" channel="file" format="element/part" model="calculator/logic/functionality/handle_six.cybol"/>
+    <part name="seven" channel="file" format="element/part" model="calculator/logic/functionality/handle_seven.cybol"/>
+    <part name="eight" channel="file" format="element/part" model="calculator/logic/functionality/handle_eight.cybol"/>
+    <part name="nine" channel="file" format="element/part" model="calculator/logic/functionality/handle_nine.cybol"/>
+    <part name="zero" channel="file" format="element/part" model="calculator/logic/functionality/handle_zero.cybol"/>
+
+</model>

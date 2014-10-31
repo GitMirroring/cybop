@@ -1,0 +1,11 @@
+<model>
+    <part name="window" channel="file" format="element/part" model="calculator/settings/window.cybol"/>
+    <part name="menu" channel="file" format="element/part" model="calculator/settings/menu.cybol"/>
+    <part name="menu_header" channel="file" format="element/part" model="calculator/settings/menu_header.cybol"/>
+    <part name="menu_title" channel="file" format="element/part" model="calculator/settings/menu_title.cybol"/>
+    <part name="menu_item" channel="file" format="element/part" model="calculator/settings/menu_item.cybol"/>
+    <part name="menu_footer" channel="file" format="element/part" model="calculator/settings/menu_footer.cybol"/>
+    <part name="label" channel="file" format="element/part" model="calculator/settings/label.cybol"/>
+    <part name="button" channel="file" format="element/part" model="calculator/settings/button.cybol"/>
+    <part name="selection" channel="file" format="element/part" model="calculator/settings/selection.cybol"/>
+</model>

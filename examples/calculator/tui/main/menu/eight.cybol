@@ -1,0 +1,11 @@
+<model>
+
+    <part name="eight" channel="inline" format="text/plain" model="8">
+        <property name="position" channel="inline" format="number/integer" model="2,2"/>
+        <property name="size" channel="inline" format="number/integer" model="1,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+</model>

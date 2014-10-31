@@ -1,0 +1,25 @@
+<model>
+
+<!--
+    <part name="io" channel="inline" format="path/knowledge" model="">
+        <property name="position" channel="inline" format="number/integer" model="2,2"/>
+        <property name="size" channel="inline" format="number/integer" model="1,1"/>
+-->
+
+    <part name="input" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="2,2"/>
+        <property name="size" channel="inline" format="number/integer" model="1,1"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    </part>
+
+    <part name="output" channel="inline" format="text/plain" model="">
+        <property name="position" channel="inline" format="number/integer" model="15,4"/>
+        <property name="size" channel="inline" format="number/integer" model="1,1"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    </part>
+
+</model>

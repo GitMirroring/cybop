@@ -1,0 +1,59 @@
+<model>
+    <part name="copy_name" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.name"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_version" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.version"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.version"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_date" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.date"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.date"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_slogan" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.slogan"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.slogan"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+<!--
+    <part name="copy_logo" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.logo"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.logo"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+-->
+    <part name="copy_copyright" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.copyright"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.copyright"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_contact" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.contact"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.contact"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_description" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.description"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.description"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_authors" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.authors"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.authors"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_helpers" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.helpers"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.helpers"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="copy_licence" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.about.licence"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.appinfo.licence"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+</model>
