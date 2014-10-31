@@ -1,8 +1,0 @@
-<model>
-    <part name="safetmp" channel="file" format="element/part" model="calculator/safetmp.cybol"/>
-    <part name="logic" channel="file" format="element/part" model="calculator/logic.cybol"/>
-    <part name="tui" channel="file" format="element/part" model="calculator/tui.cybol"/>
-    <part name="actions" channel="file" format="element/part" model="calculator/actions.cybol"/>
-    <part name="handler" channel="file" format="element/part" model="calculator/handler.cybol"/>
-    <part name="calculation" channel="file" format="element/part" model="calculator/calculation.cybol"/>
-</model>

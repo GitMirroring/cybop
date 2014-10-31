@@ -1,5 +1,5 @@
 <model>
-    <part name="menu" channel="file" format="element/part" model="calculator/menu.cybol">
+    <part name="menu" channel="file" format="element/part" model="calculator_old/menu.cybol">
         <property name="position" channel="inline" format="number/integer" model="2,2"/>
         <property name="size" channel="inline" format="number/integer" model="95,13"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>

@@ -2,8 +2,8 @@
     <!-- Space -->
     <part name="if_is_operation" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.safetmp.position_flag"/>
-        <property name="true" channel="file" format="element/part" model="calculator/logic_operation.cybol"/>
-        <property name="false" channel="file" format="element/part" model="calculator/logic_first_number.cybol"/>
+        <property name="true" channel="file" format="element/part" model="calculator_old/logic_operation.cybol"/>
+        <property name="false" channel="file" format="element/part" model="calculator_old/logic_first_number.cybol"/>
     </part>
     <part name="set_position_flag_true" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.safetmp.position_flag"/>

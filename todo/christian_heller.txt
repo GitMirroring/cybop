@@ -11,6 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Reorganise "calculator" cybol example application
         * Rename and restructure "calculator_2" cybol example application
         * Think about handing over pressed button key
 

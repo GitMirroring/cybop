@@ -1,7 +1,7 @@
 <model>
-    <part name="enter" channel="file" format="element/part" model="calculator/logic_enter.cybol"/>
-    <part name="space" channel="file" format="element/part" model="calculator/logic_space.cybol"/>
-    <part name="clear_calculation" channel="file" format="element/part" model="calculator/logic_clear.cybol"/>
+    <part name="enter" channel="file" format="element/part" model="calculator_old/logic_enter.cybol"/>
+    <part name="space" channel="file" format="element/part" model="calculator_old/logic_space.cybol"/>
+    <part name="clear_calculation" channel="file" format="element/part" model="calculator_old/logic_clear.cybol"/>
     <part name="exit" channel="inline" format="live/exit" model=""/>
 
     <!-- Numbers -->
