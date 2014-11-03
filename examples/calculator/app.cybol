@@ -1,7 +1,9 @@
 <model>
+
     <part name="appinfo" channel="file" format="element/part" model="calculator/appinfo.cybol"/>
     <part name="logic" channel="file" format="element/part" model="calculator/logic.cybol"/>
     <part name="settings" channel="file" format="element/part" model="calculator/settings.cybol"/>
     <part name="tmp" channel="file" format="element/part" model="calculator/tmp.cybol"/>
     <part name="tui" channel="file" format="element/part" model="calculator/tui.cybol"/>
+
 </model>

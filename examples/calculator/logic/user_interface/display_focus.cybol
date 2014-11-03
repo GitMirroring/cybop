@@ -1,0 +1,28 @@
+<model>
+
+    <part name="determine_button" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu#focus"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="determine_button_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <property name="source" channel="inline" format="text/plain" model=".value"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="append" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <property name="source" channel="inline" format="path/reference" model=".app.tmp.character"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="send_tui" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
+    </part>
+
+</model>

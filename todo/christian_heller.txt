@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Debug "calculator" cybol example application; continue with addition in "add.cybol"; displayed numbers are wrongly deserialised as integer vector separated by comma
+
 WUI
 ___
 

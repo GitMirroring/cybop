@@ -1,6 +1,8 @@
 <model>
+
     <part name="character" channel="inline" format="text/plain" model=""/>
-    <part name="integer" channel="inline" format="number/integer" model=""/>
+    <part name="integer" channel="inline" format="number/integer" model="0"/>
+
     <part name="command" channel="inline" format="text/plain" model=""/>
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
@@ -8,5 +10,10 @@
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
     <part name="path" channel="inline" format="path/knowledge" model=""/>
+
     <part name="navigation" channel="inline" format="text/plain" model=""/>
+
+    <part name="result" channel="inline" format="number/integer" model="0"/>
+    <part name="operand" channel="inline" format="number/integer" model="0"/>
+
 </model>

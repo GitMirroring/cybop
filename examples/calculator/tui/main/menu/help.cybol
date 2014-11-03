@@ -6,20 +6,38 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="red"/>
     </part>
-    <part name="exit" channel="inline" format="text/plain" model="'esc', 'e' - Exit">
+    <part name="direct" channel="inline" format="text/plain" model="direct number - input">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
     </part>
-    <part name="a_keys" channel="inline" format="text/plain" model="arrow keys - move">
+    <part name="direct" channel="inline" format="text/plain" model="direct operator - calculate">
         <property name="position" channel="inline" format="number/integer" model="2,7"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
     </part>
-    <part name="enter" channel="inline" format="text/plain" model="enter - select">
+    <part name="arrow" channel="inline" format="text/plain" model="arrow keys - move focus">
         <property name="position" channel="inline" format="number/integer" model="2,9"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
+    <part name="enter" channel="inline" format="text/plain" model="<enter> - input">
+        <property name="position" channel="inline" format="number/integer" model="2,11"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
+    <part name="about" channel="inline" format="text/plain" model="<a> - show about info">
+        <property name="position" channel="inline" format="number/integer" model="2,13"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
+    <part name="exit" channel="inline" format="text/plain" model="<e> - exit">
+        <property name="position" channel="inline" format="number/integer" model="2,15"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="green"/>

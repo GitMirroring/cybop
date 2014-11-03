@@ -12,7 +12,7 @@
     </part>
     <part name="focus_background" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/reference" model=".app.tmp.character"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.settings.selection.background"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.settings.focus.background"/>
         <property name="type" channel="inline" format="meta/type" model="colour/terminal"/>
     </part>
 
@@ -28,7 +28,7 @@
     </part>
     <part name="focus_foreground" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/reference" model=".app.tmp.character"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.settings.selection.foreground"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.settings.focus.foreground"/>
         <property name="type" channel="inline" format="meta/type" model="colour/terminal"/>
     </part>
 

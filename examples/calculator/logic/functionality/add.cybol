@@ -1,7 +1,42 @@
 <model>
 
-    <!-- Convert .app.tui.main.menu.display.display text to number .app.tmp.operand -->
-    <!-- Execute operation stored in .app.tmp.operation before; if empty, then add number by default; use .app.tmp.result as first operand and .app.tmp.operand as second -->
-    <!-- Store operation type (e.g. "+") from .app.tmp.command into .app.tmp.operation -->
+    <!-- TODO: use double instead of integer -->
+
+    <part name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    </part>
+
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree_1" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_tui_control_1.txt"/>
+    </part>
+
+    <part name="add_operand" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree_2" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_tui_control_2.txt"/>
+    </part>
+
+    <part name="update_display" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display"/>
+    </part>
 
 </model>

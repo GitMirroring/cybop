@@ -1,7 +1,10 @@
 <model>
 
-    <part name="update" channel="file" format="element/part" model="calculator/logic/user_interface/update.cybol"/>
-    <part name="display_number" channel="file" format="element/part" model="calculator/logic/user_interface/display_number.cybol"/>
+    <part name="update_focus" channel="file" format="element/part" model="calculator/logic/user_interface/update_focus.cybol"/>
+    <part name="update_display" channel="file" format="element/part" model="calculator/logic/user_interface/update_display.cybol"/>
+
+    <part name="display_command" channel="file" format="element/part" model="calculator/logic/user_interface/display_command.cybol"/>
+    <part name="display_focus" channel="file" format="element/part" model="calculator/logic/user_interface/display_focus.cybol"/>
 
     <part name="focus" channel="file" format="element/part" model="calculator/logic/user_interface/focus.cybol"/>
     <part name="unfocus" channel="file" format="element/part" model="calculator/logic/user_interface/unfocus.cybol"/>
@@ -13,8 +16,6 @@
     <part name="select_down" channel="file" format="element/part" model="calculator/logic/user_interface/select_down.cybol"/>
     <part name="select_left" channel="file" format="element/part" model="calculator/logic/user_interface/select_left.cybol"/>
     <part name="select_right" channel="file" format="element/part" model="calculator/logic/user_interface/select_right.cybol"/>
-
-    <part name="enter" channel="file" format="element/part" model="calculator/logic/user_interface/enter.cybol"/>
 
     <part name="show_about" channel="file" format="element/part" model="calculator/logic/user_interface/show_about.cybol"/>
     <part name="hide_about" channel="file" format="element/part" model="calculator/logic/user_interface/hide_about.cybol"/>

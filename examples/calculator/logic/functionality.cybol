@@ -3,5 +3,8 @@
     <part name="reset" channel="file" format="element/part" model="calculator/logic/functionality/reset.cybol"/>
 
     <part name="add" channel="file" format="element/part" model="calculator/logic/functionality/add.cybol"/>
+<!--
+    TODO: Add further operations here!
+-->
 
 </model>
