@@ -25,6 +25,7 @@
     <part name="8" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
     <part name="9" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
 
+    <part name="=" channel="inline" format="path/knowledge" model=".app.logic.functionality.equals"/>
     <part name="+" channel="inline" format="path/knowledge" model=".app.logic.functionality.add"/>
     <part name="-" channel="inline" format="path/knowledge" model=".app.logic.functionality.subtract"/>
     <part name="*" channel="inline" format="path/knowledge" model=".app.logic.functionality.multiply"/>

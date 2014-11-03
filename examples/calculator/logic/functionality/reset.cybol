@@ -1,14 +1,33 @@
 <model>
 
+    <!--
+        CAUTION! Do NOT empty array here, but assign an initial value instead.
+        Otherwise, the calculation cannot happen due to unequal dimensions of operands.
+        The result has to have exactly one integer number.
+    -->
     <part name="reset_result" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
         <property name="source" channel="inline" format="number/integer" model="0"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
-    <part name="reset_operand" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+
+    <!--
+        CAUTION! Do NOT assign an initial value like zero, but empty array instead.
+        Otherwise, many numbers will appear in the value, so that the calculation
+        cannot happen due to different dimension of the two operand arrays.
+    -->
+    <part name="reset_operand" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+    </part>
+
+    <part name="reset_operation" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+    </part>
+
+    <part name="reset_operation" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+        <property name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_display" channel="inline" format="modify/empty" model="">

@@ -2,9 +2,12 @@
 
     <part name="reset" channel="file" format="element/part" model="calculator/logic/functionality/reset.cybol"/>
 
+    <part name="equals" channel="file" format="element/part" model="calculator/logic/functionality/equals.cybol"/>
     <part name="add" channel="file" format="element/part" model="calculator/logic/functionality/add.cybol"/>
 <!--
     TODO: Add further operations here!
 -->
+
+    <part name="calculate" channel="file" format="element/part" model="calculator/logic/functionality/calculate.cybol"/>
 
 </model>

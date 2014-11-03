@@ -1,6 +1,6 @@
 <model>
 
-    <part name="value" channel="inline" format="path/knowledge" model="">
+    <part name="value" channel="inline" format="text/plain" model="">
         <property name="position" channel="inline" format="number/integer" model="2,2"/>
         <property name="size" channel="inline" format="number/integer" model="1,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>

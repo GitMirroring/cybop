@@ -1,7 +1,7 @@
 <model>
 
     <part name="character" channel="inline" format="text/plain" model=""/>
-    <part name="integer" channel="inline" format="number/integer" model="0"/>
+    <part name="integer" channel="inline" format="number/integer" model=""/>
 
     <part name="command" channel="inline" format="text/plain" model=""/>
     <!--
@@ -13,7 +13,19 @@
 
     <part name="navigation" channel="inline" format="text/plain" model=""/>
 
+    <!--
+        CAUTION! The result MUST NOT be empty since otherwise,
+        the calculation cannot happen due to unequal dimensions of operands.
+        The result has to have exactly one integer number.
+    -->
     <part name="result" channel="inline" format="number/integer" model="0"/>
-    <part name="operand" channel="inline" format="number/integer" model="0"/>
+    <part name="operand" channel="inline" format="number/integer" model=""/>
+
+    <!--??????????????
+        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
+        A knowledge path is treated like a character array anyway.
+        So, text fragments may be added to it in the "handler.cybol" file.
+    -->
+    <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.add"/>
 
 </model>
