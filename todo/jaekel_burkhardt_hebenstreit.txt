@@ -1,13 +1,10 @@
 
 Calculator
-========
+==========
 
-        * Create complex tui application, e.g. continue "calculator"
-        * See example applications "helloworld", "tui", "ui_control"
-
-TODO
-
-        * Tui
-        * Logikops. (+,-,*,/,^2,Wurzel)
-        * Entwurf (Oberfläche)
+        * Create tui application "calculator"
+        * See example applications "helloworld", "tui", "tui_control"
+        * Use double instead of integer
+        * Create state chart/state machine diagram for calculator
+        * Complete implementation of calculation operations (+, -, *, /, square, squareroot)
 

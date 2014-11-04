@@ -11,8 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Debug "calculator" cybol example application; continue with addition in "add.cybol"; displayed numbers are wrongly deserialised as integer vector separated by comma
-
 WUI
 ___
 
@@ -126,6 +124,8 @@ ___
         * Think about implementation of "src/executor/searcher/selector/xdt/bdt/end_compound_field_bdt_xdt_selector.c"
             which possibly requires stack-like variables to be processed hierarchically
             see file cybop/tmp/cybop_stack.pdf
+        * Implement stack easily using a part accessing its children in a LIFO-manner
+
         * Delete all if-else clauses with "text/plain" format, since it is the default, in order to increase xdt deserialiser efficiency
         * Comment testing warning message in file "format_field_xdt_deserialiser.c", in order to deactivate it
         * Uncomment line 132 in file "array_allocator.c" again as soon as all field constants have been implemented

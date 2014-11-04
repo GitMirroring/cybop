@@ -17,8 +17,19 @@
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
+<!--
         <property name="area" channel="inline" format="path/knowledge" model=".app.tui.main.menu"/>
+-->
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <!--
+        CAUTION! The display HAS TO BE EMPTIED here again after refreshing the ui
+        since otherwise, new input numbers will be appended to the existing display content,
+        which would lead to a not-wanted prefix and false results.
+    -->
+    <part name="reset_display_again" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
     </part>
 
 </model>

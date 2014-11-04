@@ -1,7 +1,5 @@
 <model>
 
-    <!-- TODO: use double instead of integer -->
-
     <!--
         CAUTION! Do NOT assign an initial value like zero, but empty array instead.
         Otherwise, many numbers will appear in the value, so that the calculation

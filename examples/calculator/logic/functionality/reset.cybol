@@ -20,8 +20,10 @@
         <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
     </part>
 
-    <part name="reset_operation" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+    <part name="reset_new_operand" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.new_operand"/>
+        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_operation" channel="inline" format="modify/overwrite" model="">
