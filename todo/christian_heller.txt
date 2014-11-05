@@ -148,6 +148,10 @@ _____
 TUI
 ___
 
+        * Check if having to use &= or |= instead of just = everywhere flags are set,
+            e.g. in file "set_attributes_unix_terminal_starter.c",
+            in order to not reset already existing values in termios by accident
+
         * CAUTION! Win32 console input might not work due to disabled signal interrupts (with pre-processor if-def) in file "system_signal_handler_manager.c"
         * Deserialise win32 console input (also arrow keys etc.) into command, see:
             http://msdn.microsoft.com/en-us/library/windows/desktop/ms646268(v=vs.85).aspx#displaying_input
@@ -161,6 +165,10 @@ ___
 
 Serial Port
 ___________
+
+        * Check if having to use &= or |= instead of just = everywhere flags are set,
+            e.g. in file "set_attributes_serial_port_starter.c",
+            in order to not reset already existing values in termios by accident
 
         * serial_port: offer "crlf_termination" flag in cybol; see "adc" example application
         * serial_port: offer sync in "stream_serial_port_sender" as flag property in cybol
