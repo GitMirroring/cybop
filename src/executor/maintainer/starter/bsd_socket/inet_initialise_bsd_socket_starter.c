@@ -23,8 +23,13 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IPV4_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define IPV4_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef INET_INITIALISE_BSD_SOCKET_STARTER_SOURCE
+#define INET_INITIALISE_BSD_SOCKET_STARTER_SOURCE
+
+#include <sys/types.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
 
 #ifdef __APPLE__
     //?? Check support for apple
@@ -34,22 +39,17 @@
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+    #ifndef _MSC_VER
+        #include <unistd.h>
+    #endif
 #else
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
+    #ifndef _MSC_VER
+        #include <unistd.h>
+    #endif
 #endif
-#endif
-
-#include <sys/types.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/address_cybol_model.c"
@@ -67,13 +67,13 @@
 #include "../../../../variable/type_size/socket_type_size.c"
 
 /**
- * Starts up socket ipv4 socket address.
+ * Initialise inet address.
  *
- * @param p0 the ipv4 socket address (pointer reference)
+ * @param p0 the inet address data
  * @param p1 the host address (in network byte order)
  * @param p2 the socket port (in host byte order)
  */
-void startup_socket_socket_address_ipv4(void* p0, void* p1, void* p2) {
+void startup_bsd_socket_initialise_inet(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,15 +85,15 @@ void startup_socket_socket_address_ipv4(void* p0, void* p1, void* p2) {
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                struct sockaddr_in** a = (struct sockaddr_in**) p0;
+                struct sockaddr_in* a = (struct sockaddr_in*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address ipv4.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket initialise inet.");
 
-                // Set namespace (address format/ family).
+                // Set namespace (address format/family).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
                 // The latter is to be used for socket creation.
-                (*a)->sin_family = AF_INET;
+                (*a).sin_family = AF_INET;
 
                 // Set host address.
                 //
@@ -104,29 +104,29 @@ void startup_socket_socket_address_ipv4(void* p0, void* p1, void* p2) {
                 //
                 // CAUTION! The host address parametre is already given in
                 // network byte order, so that it does NOT have to be converted!
-                (*a)->sin_addr.s_addr = *h;
+                (*a).sin_addr.s_addr = *h;
 
                 // Set socket port.
                 //
                 // CAUTION! The port number is given in host byte order and
                 // HAS TO BE converted into network byte order!
-                (*a)->sin_port = htons(*p);
+                (*a).sin_port = htons(*p);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address ipv4. The socket address is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet. The socket address is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address ipv4. The host address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet. The host address is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address ipv4. The socket port is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet. The socket port is null.");
     }
 }
 
-/* IPV4_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* INET_INITIALISE_BSD_SOCKET_STARTER_SOURCE */
 #endif

@@ -23,8 +23,13 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IPV6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
-#define IPV6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE
+#define INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE
+
+#include <sys/types.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
 
 #ifdef __APPLE__
     //?? Check support for apple
@@ -34,22 +39,17 @@
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+    #ifndef _MSC_VER
+        #include <unistd.h>
+    #endif
 #else
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
+    #ifndef _MSC_VER
+        #include <unistd.h>
+    #endif
 #endif
-#endif
-
-#include <sys/types.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/address_cybol_model.c"
@@ -67,13 +67,13 @@
 #include "../../../../variable/type_size/socket_type_size.c"
 
 /**
- * Startup socket socket address ipv6.
+ * Initialise inet6 address.
  *
- * @param p0 the ipv6 socket address (pointer reference)
+ * @param p0 the inet6 address data
  * @param p1 the host address (in network byte order)
  * @param p2 the socket port (in host byte order)
  */
-void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2) {
+void startup_bsd_socket_initialise_inet6(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,54 +85,54 @@ void startup_socket_initialise_ipv6_socket_address(void* p0, void* p1, void* p2)
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                struct sockaddr_in6** a = (struct sockaddr_in6**) p0;
+                struct sockaddr_in6* a = (struct sockaddr_in6*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address ipv6.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket initialise inet6.");
 
-                // Set namespace (address format/ family).
+                // Set namespace (address format/family).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
                 // The latter is to be used for socket creation.
-                (*a)->sin6_family = AF_INET6;
+                (*a).sin6_family = AF_INET6;
 
                 // Set host address.
                 //
-                // The "a.sin_addr" field is of type "struct in_addr".
-                // This data type is used in certain contexts to contain an
-                // IPv4 internet host address. It has just one field, named
-                // "s_addr", which records the host address number as an "uint32_t".
+                // The "a.sin6_addr" field is of type "struct in6_addr".
+                // This data type is used to store an IPv6 address.
+                // It stores 128 bits of data, which can be accessed
+                // (via a union) in a variety of ways.
                 //
                 // CAUTION! The host address parametre is already given in
                 // network byte order, so that it does NOT have to be converted!
-                (*a)->sin6_addr = *h;
+                (*a).sin6_addr = *h;
 
                 // Set flow information.
                 //
                 // CAUTION! This is a currently unimplemented field,
                 // as written in the gnu c library documentation.
-                // (*a)->sin6_flowinfo = ??
+                // (*a).sin6_flowinfo = ??
 
                 // Set socket port.
                 //
                 // CAUTION! The port number is given in host byte order and
                 // HAS TO BE converted into network byte order!
-                (*a)->sin6_port = htons(*p);
+                (*a).sin6_port = htons(*p);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address ipv6. The socket address is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet6. The socket address is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address ipv6. The host address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet6. The host address is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address ipv6. The socket port is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet6. The socket port is null.");
     }
 }
 
-/* IPV6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
+/* INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE */
 #endif

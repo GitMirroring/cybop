@@ -26,6 +26,11 @@
 #ifndef LOCAL_INITIALISE_BSD_SOCKET_STARTER_SOURCE
 #define LOCAL_INITIALISE_BSD_SOCKET_STARTER_SOURCE
 
+#include <sys/types.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <stdio.h>
+
 #ifdef __APPLE__
     //?? Check support for apple
 #elif WIN32
@@ -34,22 +39,17 @@
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
+    #ifndef _MSC_VER
+        #include <unistd.h>
+    #endif
 #else
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
+    #ifndef _MSC_VER
+        #include <unistd.h>
+    #endif
 #endif
-#endif
-
-#include <sys/types.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cybol/address_cybol_model.c"
@@ -69,7 +69,7 @@
 /**
  * Initialise local address.
  *
- * @param p0 the local socket address (pointer reference)
+ * @param p0 the local address data
  * @param p1 the file name data
  * @param p2 the file name count
  */
@@ -81,14 +81,14 @@ void startup_bsd_socket_initialise_local(void* p0, void* p1, void* p2) {
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            wchar_t* f = (wchar_t*) p1;
+            wchar_t* fd = (wchar_t*) p1;
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
                 // CAUTION! The compiler brings an error if the "struct sockaddr_un"
                 // type is used, because pointer calculation is done below!
-                // Therefore, a cast to void** is done here instead.
-                void** a = (void**) p0;
+                // Therefore, a cast to void* is done here instead.
+                void* a = (void*) p0;
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket initialise local.");
 
@@ -96,14 +96,14 @@ void startup_bsd_socket_initialise_local(void* p0, void* p1, void* p2) {
                 // ("sun_family" field within the "sockaddr_un" structure).
                 //
                 // Do NOT access the "sun_family" field directly with:
-                // (*a)->sun_family = AF_LOCAL;
+                // (*a).sun_family = AF_LOCAL;
                 // It won't work because the "sockaddr_un" structure, due to
                 // the unknown size of its "sun_path" field (a character array),
                 // is considered an incomplete type, so that the compiler
                 // brings an error.
-                short int* family = (short int*) (*a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                short int* family = (short int*) (a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                // Set namespace (address format/ family).
+                // Set namespace (address format/family).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
                 // The latter is to be used for socket creation.
@@ -113,11 +113,11 @@ void startup_bsd_socket_initialise_local(void* p0, void* p1, void* p2) {
                 // is limited to 108 ascii characters in the gnu c library!
                 // The documentation called it a "magic number" and does not
                 // know why this limit exists.
-                if (*fc < *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
+                if (*fc <= *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
 
                     // CAUTION! Do NOT reallocate the file name array with:
                     // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                    // reallocate_array((void*) &((*a)->sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+                    // reallocate_array((void*) &(a.sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
                     //
                     // The reason is that the size of the "sun_path" field of
                     // the "sockaddr_un" structure had to be fixed (to 108,
@@ -132,17 +132,17 @@ void startup_bsd_socket_initialise_local(void* p0, void* p1, void* p2) {
                     // ("sun_path" field within the "sockaddr_un" structure).
                     //
                     // Do NOT access the "sun_path" field directly with:
-                    // (*a)->sun_path
+                    // (*a).sun_path
                     // It won't work because the "sockaddr_un" structure, due to
                     // the unknown size of its "sun_path" field (a character array),
                     // is considered an incomplete type, so that the compiler
                     // brings an error.
-                    void* path = (void*) (*a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+                    void* path = (void*) (a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
 
                     // Set terminated file name by first copying the actual name
                     // and then adding the null termination character.
-                    copy_array_forward((void*) &path, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                    copy_array_forward((void*) &path, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                    copy_array_forward(path, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    copy_array_forward(path, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 } else {
 

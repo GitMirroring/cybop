@@ -14,7 +14,10 @@
 WUI
 ___
 
-        * Continue bsd_socket and socket
+        * Continue bsd_socket and socket; integrate new file "host_bsd_socket_starter.c"
+        * Adapt function "startup_socket_get_host_address", variable "terminated address model",
+            in file "socket_starter.c" to new model constants
+
         * Write port de-/serialiser translating standard protocol into port and vice versa
         * Reactivate socket functionality
         * Provide two cybol properties in parallel:
@@ -31,8 +34,6 @@ ___
             --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
                 answers to following client request were appended to the same model leading to false results
 
-        * Adapt function "startup_socket_get_host_address", variable "terminated address model",
-            in file "socket_starter.c" to new model constants
         * Adapt file "http_request_selector.c" or delete if not needed anymore
         * Remove model and details content of receiving compound for each new http request;
             otherwise, new commands are just added to the "action" part entry in "receive_socket.c";

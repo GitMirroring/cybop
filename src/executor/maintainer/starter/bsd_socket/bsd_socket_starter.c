@@ -60,12 +60,12 @@
  * Starts up the bsd socket.
  *
  * @param p0 the internal memory data
- * @param p1 the namespace model
- * @param p2 the namespace model count
- * @param p3 the style model
- * @param p4 the style model count
- * @param p5 the socket file name or host address model (depending on the socket type: local, ipv4, ipv6)
- * @param p6 the socket file name or host address model count
+ * @param p1 the namespace data
+ * @param p2 the namespace count
+ * @param p3 the style data
+ * @param p4 the style count
+ * @param p5 the host address or file name data, depending on the family
+ * @param p6 the host address or file name count, depending on the family
  * @param p7 the port model
  * @param p8 the base internal
  */
@@ -77,27 +77,28 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket.");
 
-        // The socket namespace.
-        int sn = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The address namespace.
-        int an = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        // The protocol family (socket namespace).
+        int pf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        // The address family (namespace).
+        int af = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
         // The communication style.
         int st = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-        // The ipv4 host address of this system.
-        struct in_addr ha4;
-        // The ipv6 host address of this system.
-        struct in6_addr ha6;
+
+        // Get protocol- and address family.
+        startup_bsd_socket_family((void*) &pf, (void*) &af, p1, p2);
+        // Get socket communication style.
+        startup_bsd_socket_style((void*) &st, p3, p4);
+
+        // CAUTION! The third parametre is the protocol,
+        // for which a value of zero is usually right.
+        startup_bsd_socket_create((void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, host_address (network byte order), socket_port (host byte order), file_name_data, file_name_count, (void*) &af);
+
+/*??
         //
         // CAUTION! Do use pointers for the addresses declared below,
         // and not only the structure as type, so that the different
         // socket addresses can be processed uniformly below!
         //
-        // The local socket address of this system.
-        struct sockaddr_un* la = (struct sockaddr_un*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The ipv4 internet socket address of this system.
-        struct sockaddr_in* ia4 = (struct sockaddr_in*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The ipv6 internet socket address of this system.
-        struct sockaddr_in6* ia6 = (struct sockaddr_in6*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner local socket address.
         struct sockaddr_un* pla = (struct sockaddr_un*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner ipv4 internet socket address.
@@ -117,21 +118,6 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // The result.
         int r = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
-        // Get socket- and address namespace.
-        startup_socket_get_namespace((void*) &sn, (void*) &an, p1, p2);
-        // Get socket communication style.
-        startup_socket_get_style((void*) &st, p3, p4);
-
-        // Get host address constant.
-        if (an == AF_INET) {
-
-            startup_socket_get_host_address((void*) &ha4, p5, p6, (void*) &an);
-
-        } else if (an == AF_INET6) {
-
-            startup_socket_get_host_address((void*) &ha6, p5, p6, (void*) &an);
-        }
-
         // Allocate communication partner socket address size.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
@@ -148,7 +134,7 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // Initialise communication partner socket address size.
         copy_integer(pas, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        if (an == AF_LOCAL) {
+        if (af == AF_LOCAL) {
 
             // CAUTION! The following line CANNOT be used:
             // *as = sizeof(struct sockaddr_un);
@@ -169,11 +155,11 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             calculate_integer_add(pas, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
             calculate_integer_add(pas, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
 
-        } else if (an == AF_INET) {
+        } else if (af == AF_INET) {
 
             calculate_integer_add(pas, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
-        } else if (an == AF_INET6) {
+        } else if (af == AF_INET6) {
 
             calculate_integer_add(pas, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
         }
@@ -182,15 +168,15 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // Allocate communication partner socket address.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
-        if (an == AF_LOCAL) {
+        if (af == AF_LOCAL) {
 
             pla = (struct sockaddr_un*) malloc(*pas);
 
-        } else if (an == AF_INET) {
+        } else if (af == AF_INET) {
 
             pia4 = (struct sockaddr_in*) malloc(*pas);
 
-        } else if (an == AF_INET6) {
+        } else if (af == AF_INET6) {
 
             pia6 = (struct sockaddr_in6*) malloc(*pas);
         }
@@ -221,21 +207,21 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         // Set socket address of this system.
         // Set communication partner socket address.
-        if (an == AF_LOCAL) {
+        if (af == AF_LOCAL) {
 
             i = *base + *DATA_ADDRESS_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             copy_array_forward(p0, (void*) &la, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             i = *base + *ADDRESS_COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             copy_array_forward(p0, (void*) &pla, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        } else if (an == AF_INET) {
+        } else if (af == AF_INET) {
 
             i = *base + *DATA_ADDRESS_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             copy_array_forward(p0, (void*) &ia4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             i = *base + *ADDRESS_COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             copy_array_forward(p0, (void*) &pia4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-        } else if (an == AF_INET6) {
+        } else if (af == AF_INET6) {
 
             i = *base + *DATA_ADDRESS_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
             copy_array_forward(p0, (void*) &ia6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -262,8 +248,7 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         copy_array_forward(p0, (void*) &bc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         i = *base + *SIZE_CHARACTER_BUFFER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward(p0, (void*) &bs, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-        startup_bsd_socket_create((void*) &sn, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+*/
 
     } else {
 
