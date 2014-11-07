@@ -104,8 +104,6 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         struct sockaddr_in* pia4 = (struct sockaddr_in*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner ipv6 internet socket address.
         struct sockaddr_in6* pia6 = (struct sockaddr_in6*) *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The socket address size of this system.
-        int* as = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner socket address size.
         int* pas = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
         // The communication partner socket.
@@ -134,10 +132,6 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             startup_socket_get_host_address((void*) &ha6, p5, p6, (void*) &an);
         }
 
-        // Allocate socket address size of this system.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate((void*) &as, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         // Allocate communication partner socket address size.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
@@ -151,8 +145,6 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // be negative or zero, but have at least a value of ONE.
         allocate((void*) &ps, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        // Initialise socket address size of this system.
-        copy_integer(as, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Initialise communication partner socket address size.
         copy_integer(pas, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
@@ -174,19 +166,15 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             // With the known type "short int" of the "sun_family" field and
             // a fixed size "108" of the "sun_path" field, the overall size of
             // the "sockaddr_un" structure can be calculated as sum.
-            calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-            calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
             calculate_integer_add(pas, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
             calculate_integer_add(pas, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
 
         } else if (an == AF_INET) {
 
-            calculate_integer_add(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
             calculate_integer_add(pas, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
         } else if (an == AF_INET6) {
 
-            calculate_integer_add(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
             calculate_integer_add(pas, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
         }
 
@@ -196,35 +184,20 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         // be negative or zero, but have at least a value of ONE.
         if (an == AF_LOCAL) {
 
-            la = (struct sockaddr_un*) malloc(*as);
             pla = (struct sockaddr_un*) malloc(*pas);
 
         } else if (an == AF_INET) {
 
-            ia4 = (struct sockaddr_in*) malloc(*as);
             pia4 = (struct sockaddr_in*) malloc(*pas);
 
         } else if (an == AF_INET6) {
 
-            ia6 = (struct sockaddr_in6*) malloc(*as);
             pia6 = (struct sockaddr_in6*) malloc(*pas);
         }
 
         // Initialise socket address of this system.
         // CAUTION! Do NOT initialise communication partner socket address!
         // It gets initialised only before sending, or at reception of a message.
-        if (an == AF_LOCAL) {
-
-            startup_socket_initialise_local_socket_address((void*) &la, p5, p6);
-
-        } else if (an == AF_INET) {
-
-            startup_socket_initialise_ipv4_socket_address((void*) &ia4, (void*) &ha4, p7);
-
-        } else if (an == AF_INET6) {
-
-            startup_socket_initialise_ipv6_socket_address((void*) &ia6, (void*) &ha6, p7);
-        }
 
         // Allocate character buffer count and size.
         // CAUTION! Due to memory allocation handling, the size MUST NOT

@@ -14,6 +14,7 @@
 WUI
 ___
 
+        * Continue bsd_socket and socket
         * Write port de-/serialiser translating standard protocol into port and vice versa
         * Reactivate socket functionality
         * Provide two cybol properties in parallel:

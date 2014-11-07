@@ -92,7 +92,7 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2) {
                     // A simple "sleep" procedure is considered to be a more simple and
                     // clean solution here.
 
-        /*??
+/*??
                     // Get file status flags.
                     int fl = fcntl(*s, F_GETFL, NUMBER_0_INTEGER);
 
@@ -108,26 +108,25 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2) {
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket / set non-blocking mode. The socket file descriptor flags could not be read.");
                     }
-        */
+*/
 
-                    // The address data.
+                    // The address data, size.
                     struct sockaddr* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+                    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The error flag.
                     int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    // Choose address depending on family.
-                    // CAUTION! Distinguishing the address data IS necessary here,
-                    // since they have a different structure.
-                    startup_bsd_socket_choose((void*) &ad, (void*) &la, (void*) &ia4, (void*) &ia6, (void*) &an);
+                    // Initialise address depending on family.
+                    startup_bsd_socket_initialise((void*) &ad, (void*) &as, (void*) &af);
                     // Bind address to socket.
-                    startup_bsd_socket_bind((void*) &e, (void*) &s, (void*) ad, (void*) as);
+                    startup_bsd_socket_bind((void*) &e, (void*) &s, ad, (void*) &as);
 
                     if (e == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                         // CAUTION! Datagram sockets do NOT have connections,
-                        // which is why the "listen" function is only called
+                        // which is why the "listen" function is ONLY called
                         // for stream sockets here.
-                        if (st == SOCK_STREAM) {
+                        if (*st == SOCK_STREAM) {
 
                             startup_bsd_socket_listen((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
                         }

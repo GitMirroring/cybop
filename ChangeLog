@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure bsd_socket and socket
+
 2014-11-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug and complete basic functionality of "calculator" cybol example application
