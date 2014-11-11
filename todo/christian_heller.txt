@@ -22,10 +22,14 @@ WUI
 ___
 
         * Continue bsd_socket
-        * Integrate new file "host_bsd_socket_starter.c"
-        * Adapt function "startup_socket_get_host_address",
-            variable "terminated address model",
-            in file "socket_starter.c" to new model constants
+        * Figure out how to return new allocated host address in file "inet_host_address_bsd_socket_starter.c"
+        * Copy and adapt file "inet6_host_address_bsd_socket_starter.c" in a similar way
+
+        * Replace deprecated "inet_addr" with "inet_pton" to convert ip4 AS WELL AS ip6 addresses to network byte order, e.g.:
+            mysocket.sin6_family = AF_INET6;
+            inet_pton(AF_INET6, "0:0:0:0:0:0:0:1", mysocket.sin6_addr.s6_addr);
+            mysocket.sin6_port = 1234;
+            size = sizeof(mysocket);
 
         * Write port de-/serialiser translating standard protocol into port and vice versa
         * Reactivate socket functionality
@@ -33,11 +37,6 @@ ___
             - "port-name" for default ports compiled into cyboi, e.g. "www" for port 80;
             - "port-number" for special, self-defined, arbitrary port numbers
 
-        * Replace deprecated "inet_addr" with "inet_pton" to convert ip4 AS WELL AS ip6 addresses to network byte order, e.g.:
-            mysocket.sin6_family = AF_INET6;
-            inet_pton(AF_INET6, "0:0:0:0:0:0:0:1", mysocket.sin6_addr.s6_addr);
-            mysocket.sin6_port = 1234;
-            size = sizeof(mysocket);
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
             --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",

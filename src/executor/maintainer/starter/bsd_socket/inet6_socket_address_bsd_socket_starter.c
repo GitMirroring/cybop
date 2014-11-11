@@ -37,7 +37,7 @@
  * @param p1 the host address (in network byte order)
  * @param p2 the socket port (in host byte order)
  */
-void startup_bsd_socket_initialise_inet6(void* p0, void* p1, void* p2) {
+void startup_bsd_socket_socket_address_inet6(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -51,7 +51,7 @@ void startup_bsd_socket_initialise_inet6(void* p0, void* p1, void* p2) {
 
                 struct sockaddr_in6* a = (struct sockaddr_in6*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket initialise inet6.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket socket address inet6.");
 
                 // Set address family (namespace).
                 //
@@ -88,17 +88,17 @@ void startup_bsd_socket_initialise_inet6(void* p0, void* p1, void* p2) {
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet6. The socket address is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address inet6. The socket address is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet6. The host address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address inet6. The host address is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise inet6. The socket port is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address inet6. The socket port is null.");
     }
 }
 
