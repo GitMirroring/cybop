@@ -172,7 +172,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="subtraction" channel="file" format="element/part" model="calculator/tui/main/menu/subtraction.cybol">
         <property name="position" channel="inline" format="number/integer" model="21,7"/>
@@ -187,7 +187,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="squareroot" channel="file" format="element/part" model="calculator/tui/main/menu/squareroot.cybol">
         <property name="position" channel="inline" format="number/integer" model="25,7"/>
@@ -202,7 +202,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="multiplication" channel="file" format="element/part" model="calculator/tui/main/menu/multiplication.cybol">
         <property name="position" channel="inline" format="number/integer" model="17,11"/>
@@ -217,7 +217,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="division" channel="file" format="element/part" model="calculator/tui/main/menu/division.cybol">
         <property name="position" channel="inline" format="number/integer" model="21,11"/>
@@ -232,7 +232,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="square" channel="file" format="element/part" model="calculator/tui/main/menu/square.cybol">
         <property name="position" channel="inline" format="number/integer" model="25,11"/>
@@ -247,7 +247,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="equals" channel="file" format="element/part" model="calculator/tui/main/menu/equals.cybol">
         <property name="position" channel="inline" format="number/integer" model="17,19"/>
@@ -262,7 +262,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
 
     <part name="help" channel="file" format="element/part" model="calculator/tui/main/menu/help.cybol">
