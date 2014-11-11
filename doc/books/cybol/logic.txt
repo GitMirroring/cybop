@@ -1,0 +1,1184 @@
+[selected_node] | element/part | 
++-translate_specification | element/part | 
+| +-count_topics | access/count | 
+| | #-count | path/knowledge | .temporary.topic_count
+| | #-part | path/knowledge | .specification
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.topic_break
+| | #-left | path/knowledge | .temporary.topic_index
+| | #-right | path/knowledge | .temporary.topic_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
+| +-loop_topic | flow/loop | 
+| | #-break | path/knowledge | .temporary.topic_break
+| | #-model | path/knowledge | .logic.translate_topic
++-translate_topic | element/part | 
+| +-build_index_string | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_topic_index_string
+| +-build_html_template | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_topic
+| +-reset_break | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_break
+| | #-source | logicvalue/boolean | false
+| | #-type | meta/type | logicvalue/boolean
+| +-reset_count | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_count
+| | #-source | number/integer | 0
+| | #-type | meta/type | number/integer
+| +-reset_index | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_index
+| | #-source | number/integer | 0
+| | #-type | meta/type | number/integer
+| +-count_parts | access/count | 
+| | #-count | path/knowledge | .temporary.category_count
+| | #-part | path/reference | .temporary.topic_link
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.category_break
+| | #-left | path/knowledge | .temporary.category_index
+| | #-right | path/knowledge | .temporary.category_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
+| +-loop_parts | flow/loop | 
+| | #-break | path/knowledge | .temporary.category_break
+| | #-model | path/knowledge | .logic.translate_category
+| +-increment_index | calculate/add | 
+| | #-result | path/knowledge | .temporary.topic_index
+| | #-operand | number/integer | 1
+| | #-type | meta/type | number/integer
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.topic_break
+| | #-left | path/knowledge | .temporary.topic_index
+| | #-right | path/knowledge | .temporary.topic_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
++-build_topic | element/part | 
+| +-create_content | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_topic
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/knowledge | .wui.index.body.content
+| +-create_toc | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_topic
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/knowledge | .wui.index.body.toc
+| +-build_content_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_topic_content_path
+| +-build_toc_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_topic_toc_path
+| +-initialise_content | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/topic_content.cybol
+| | #-model | path/reference | .temporary.topic_content_path
+| +-initialise_toc | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/topic_toc.cybol
+| | #-model | path/reference | .temporary.topic_toc_path
+| +-copy_content_name | modify/overwrite | 
+| | #-destination | path/reference | .temporary.topic_content_path_name
+| | #-source | path/knowledge | .temporary.selected_topic
+| | #-type | meta/type | text/plain
+| +-copy_content_anchor | modify/overwrite | 
+| | #-destination | path/reference | .temporary.topic_content_path_anchor
+| | #-source | path/knowledge | .temporary.selected_topic
+| | #-type | meta/type | text/plain
+| +-copy_toc_name | modify/overwrite | 
+| | #-destination | path/reference | .temporary.topic_toc_path_name
+| | #-source | path/knowledge | .temporary.selected_topic
+| | #-type | meta/type | text/plain
+| +-copy_toc_href_prefix | modify/overwrite | 
+| | #-destination | path/reference | .temporary.topic_toc_path_href
+| | #-source | text/plain | #
+| | #-type | meta/type | text/plain
+| +-copy_toc_href_topic | modify/append | 
+| | #-destination | path/reference | .temporary.topic_toc_path_href
+| | #-source | path/knowledge | .temporary.selected_topic
+| | #-type | meta/type | text/plain
++-build_topic_content_path | element/part | 
+| +-empty_path | modify/empty | 
+| | #-part | path/knowledge | .temporary.topic_content_path
+| +-empty_name | modify/empty | 
+| | #-part | path/knowledge | .temporary.topic_content_path_name
+| +-empty_anchor | modify/empty | 
+| | #-part | path/knowledge | .temporary.topic_content_path_anchor
+| +-add_path_static | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_content_path
+| | #-source | text/plain | .wui.index.body.content.
+| | #-type | meta/type | text/plain
+| +-add_path_dynamic | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_content_path
+| | #-source | path/knowledge | .temporary.selected_topic
+| | #-type | meta/type | text/plain
+| +-add_name_dynamic | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_content_path_name
+| | #-source | path/knowledge | .temporary.topic_content_path
+| | #-type | meta/type | text/plain
+| +-add_name_static | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_content_path_name
+| | #-source | text/plain | .topic
+| | #-type | meta/type | text/plain
+| +-add_anchor_dynamic | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_content_path_anchor
+| | #-source | path/knowledge | .temporary.topic_content_path
+| | #-type | meta/type | text/plain
+| +-add_anchor_static | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_content_path_anchor
+| | #-source | text/plain | .topic_anchor#name
+| | #-type | meta/type | text/plain
++-build_topic_toc_path | element/part | 
+| +-clear_topic_toc_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_static_knowledge_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path
+| | #-source | text/plain | .wui.index.body.toc.
+| | #-type | meta/type | text/plain
+| +-add_dynamic_knowledge_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path
+| | #-source | path/knowledge | .temporary.selected_topic
+| | #-type | meta/type | text/plain
+| +-clear_topic_toc_path_name | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_topic_path_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_name
+| | #-source | path/knowledge | .temporary.topic_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_name_to_topic_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_name
+| | #-source | text/plain | .topic_toc
+| | #-type | meta/type | text/plain
+| +-clear_topic_toc_href | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_href
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_topic_path_to_href | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_href
+| | #-source | path/knowledge | .temporary.topic_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_href_to_topic_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_href
+| | #-source | text/plain | .topic_toc#href
+| | #-type | meta/type | text/plain
+| +-clear_topic_toc_div | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_div
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_topic_path_to_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_div
+| | #-source | path/knowledge | .temporary.topic_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_tag_to_topic_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_div
+| | #-source | text/plain | #tag
+| | #-type | meta/type | text/plain
+| +-clear_topic_toc_class | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_div_class
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_topic_path_to_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_div_class
+| | #-source | path/knowledge | .temporary.topic_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_tag_to_topic_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_toc_path_div_class
+| | #-source | text/plain | #class
+| | #-type | meta/type | text/plain
+| +-create_div_tag_for_topic_toc_node | memorise/create | 
+| | #-name | text/plain | tag
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.topic_toc_path
+| +-copy_div_tag_to_knowledge_path | modify/overwrite | 
+| | #-destination | path/reference | .temporary.topic_toc_path_div
+| | #-source | text/plain | div
+| | #-type | meta/type | text/plain
+| +-create_class_for_topic_toc_tag | memorise/create | 
+| | #-name | text/plain | class
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.topic_toc_path
+| +-copy_div_class_tag_to_knowledge_path | modify/overwrite | 
+| | #-destination | path/reference | .temporary.topic_toc_path_div_class
+| | #-source | text/plain | topic_toc
+| | #-type | meta/type | text/plain
++-build_topic_index_string | element/part | 
+| +-empty_topic_link | modify/empty | 
+| | #-part | path/knowledge | .temporary.topic_link
+| +-empty_topic_link_number | modify/empty | 
+| | #-part | path/knowledge | .temporary.topic_link_number
+| +-serialise_index_to_topic_link_number | represent/serialise | 
+| | #-destination | path/knowledge | .temporary.topic_link_number
+| | #-source | path/knowledge | .temporary.topic_index
+| | #-format | meta/format | number/integer
+| | #-language | meta/language | text/cybol
+| +-add_prefix | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_link
+| | #-source | text/plain | .specification.[
+| | #-type | meta/type | text/plain
+| +-add_topic_link_number_as_text | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_link
+| | #-source | path/knowledge | .temporary.topic_link_number
+| | #-type | meta/type | text/plain
+| +-add_suffix | modify/append | 
+| | #-destination | path/knowledge | .temporary.topic_link
+| | #-source | text/plain | ]
+| | #-type | meta/type | text/plain
+| +-copy_topic_name | access/get-name | 
+| | #-element | path/knowledge | .temporary.selected_topic
+| | #-part | path/reference | .temporary.topic_link
++-translate_category | element/part | 
+| +-build_index_string | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_category_index_string
+| +-build_html_template | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_category
+| +-reset_break | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_break
+| | #-source | logicvalue/boolean | false
+| | #-type | meta/type | logicvalue/boolean
+| +-reset_count | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_count
+| | #-source | number/integer | 0
+| | #-type | meta/type | number/integer
+| +-reset_index | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_index
+| | #-source | number/integer | 0
+| | #-type | meta/type | number/integer
+| +-count_parts | access/count | 
+| | #-count | path/knowledge | .temporary.part_count
+| | #-part | path/reference | .temporary.category_link
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.part_break
+| | #-left | path/knowledge | .temporary.part_index
+| | #-right | path/knowledge | .temporary.part_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
+| +-loop_parts | flow/loop | 
+| | #-break | path/knowledge | .temporary.part_break
+| | #-model | path/knowledge | .logic.translate_part
+| +-increment_index | calculate/add | 
+| | #-result | path/knowledge | .temporary.category_index
+| | #-operand | number/integer | 1
+| | #-type | meta/type | number/integer
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.category_break
+| | #-left | path/knowledge | .temporary.category_index
+| | #-right | path/knowledge | .temporary.category_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
++-build_category | element/part | 
+| +-generate_category_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_category_path
+| +-create_category_topic | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_category
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/reference | .temporary.topic_content_path
+| +-initialise_wui_category_with_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/category_content.cybol
+| | #-model | path/reference | .temporary.category_content_path
+| +-create_category_knowledgepath_in_toc | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_category
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/reference | .temporary.topic_toc_path
+| +-initialise_wui_category_toc_with_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/category_toc.cybol
+| | #-model | path/reference | .temporary.category_toc_path
+| +-generate_category_properties_content_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_category_content_path
+| +-copy_category_name | modify/overwrite | 
+| | #-destination | path/reference | .temporary.category_content_path_name
+| | #-source | path/knowledge | .temporary.selected_category
+| | #-type | meta/type | text/plain
+| +-copy_category_name_to_anchor | modify/overwrite | 
+| | #-destination | path/reference | .temporary.category_content_path_anchor
+| | #-source | path/knowledge | .temporary.selected_category
+| | #-type | meta/type | text/plain
+| +-generate_category_properties_toc_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_category_toc_path
+| +-copy_category_name_to_toc | modify/overwrite | 
+| | #-destination | path/reference | .temporary.category_toc_path_name
+| | #-source | path/knowledge | .temporary.selected_category
+| | #-type | meta/type | text/plain
+| +-copy_sharp_to_category_href | modify/overwrite | 
+| | #-destination | path/reference | .temporary.category_toc_path_href
+| | #-source | text/plain | #
+| | #-type | meta/type | text/plain
+| +-copy_category_name_to_toc_href | modify/append | 
+| | #-destination | path/reference | .temporary.category_toc_path_href
+| | #-source | path/knowledge | .temporary.selected_category
+| | #-type | meta/type | text/plain
++-build_category_index_string | element/part | 
+| +-clear_category | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_link
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_topic_path_to_category | modify/append | 
+| | #-source | path/knowledge | .temporary.topic_link
+| | #-destination | path/knowledge | .temporary.category_link
+| | #-type | meta/type | text/plain
+| +-add_static_pre_to_category_path | modify/append | 
+| | #-source | text/plain | .[
+| | #-destination | path/knowledge | .temporary.category_link
+| | #-type | meta/type | text/plain
+| +-clear_category_link_number | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_link_number
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-serialise_index_to_category_link_number | represent/serialise | 
+| | #-destination | path/knowledge | .temporary.category_link_number
+| | #-source | path/knowledge | .temporary.category_index
+| | #-format | meta/format | number/integer
+| | #-language | meta/language | text/cybol
+| +-add_category_link_number_as_text | modify/append | 
+| | #-source | path/knowledge | .temporary.category_link_number
+| | #-destination | path/knowledge | .temporary.category_link
+| | #-type | meta/type | text/plain
+| +-add_post_to_category_link | modify/append | 
+| | #-source | text/plain | ]
+| | #-destination | path/knowledge | .temporary.category_link
+| | #-type | meta/type | text/plain
+| +-copy_name_of_category_to_temp | access/get-name | 
+| | #-element | path/knowledge | .temporary.selected_category
+| | #-part | path/reference | .temporary.category_link
++-build_category_path | element/part | 
+| +-clear_category_content_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_content_path
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_belonging_topic_knowledge_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path
+| | #-source | path/knowledge | .temporary.topic_content_path
+| | #-type | meta/type | text/plain
+| +-add_dot | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path
+| | #-source | text/plain | .
+| | #-type | meta/type | text/plain
+| +-add_selected_category_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path
+| | #-source | path/knowledge | .temporary.selected_category
+| | #-type | meta/type | text/plain
+| +-clear_category_toc_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_toc_path
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path
+| | #-source | path/knowledge | .temporary.topic_toc_path
+| | #-type | meta/type | text/plain
+| +-add_dot_to_path_of_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path
+| | #-source | text/plain | .
+| | #-type | meta/type | text/plain
+| +-add_selected_category_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path
+| | #-source | path/knowledge | .temporary.selected_category
+| | #-type | meta/type | text/plain
++-build_category_content_path | element/part | 
+| +-clear_category_content_path_name | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_content_path_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_belonging_category_knowledge_path_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path_name
+| | #-source | path/knowledge | .temporary.category_content_path
+| | #-type | meta/type | text/plain
+| +-add_path_to_name_to_property | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path_name
+| | #-source | text/plain | .category
+| | #-type | meta/type | text/plain
+| +-clear_category_content_path_anchor | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_content_path_anchor
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_belonging_category_knowledge_path_to_anchor | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path_anchor
+| | #-source | path/knowledge | .temporary.category_content_path
+| | #-type | meta/type | text/plain
+| +-add_path_to_anchor_to_property | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_content_path_anchor
+| | #-source | text/plain | .category_anchor#name
+| | #-type | meta/type | text/plain
++-build_category_toc_path | element/part | 
+| +-clear_category_content_path_name | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_belonging_category_knowledge_path_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_name
+| | #-source | path/knowledge | .temporary.category_toc_path
+| | #-type | meta/type | text/plain
+| +-add_path_to_name_to_property | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_name
+| | #-source | text/plain | .category_toc
+| | #-type | meta/type | text/plain
+| +-clear_category_toc_path_href | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_href
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_belonging_category_knowledge_path_to_href | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_href
+| | #-source | path/knowledge | .temporary.category_toc_path
+| | #-type | meta/type | text/plain
+| +-add_path_to_href_to_property | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_href
+| | #-source | text/plain | .category_toc#href
+| | #-type | meta/type | text/plain
+| +-clear_category_toc_div | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_div
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_category_path_to_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_div
+| | #-source | path/knowledge | .temporary.category_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_tag_to_category_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_div
+| | #-source | text/plain | #tag
+| | #-type | meta/type | text/plain
+| +-clear_category_toc_class | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_div_class
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_category_path_to_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_div_class
+| | #-source | path/knowledge | .temporary.category_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_tag_to_category_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.category_toc_path_div_class
+| | #-source | text/plain | #class
+| | #-type | meta/type | text/plain
+| +-create_div_tag_for_category_toc_node | memorise/create | 
+| | #-name | text/plain | tag
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.category_toc_path
+| +-copy_div_tag_to_knowledge_path | modify/overwrite | 
+| | #-destination | path/reference | .temporary.category_toc_path_div
+| | #-source | text/plain | div
+| | #-type | meta/type | text/plain
+| +-create_class_for_category_toc_tag | memorise/create | 
+| | #-name | text/plain | class
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.category_toc_path
+| +-copy_class_to_style_tag | modify/overwrite | 
+| | #-destination | path/reference | .temporary.category_toc_path_div_class
+| | #-source | text/plain | category_toc
+| | #-type | meta/type | text/plain
++-translate_part | element/part | 
+| +-build_index_string | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_index_string
+| +-build_access_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_access_path
+| +-build_part_wui_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_wui_path
+| +-build_part_name | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_name
+| +-build_part_description | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_description
+| +-build_part_format | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_format
+| +-build_part_example | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_example
+| +-build_part_property | flow/sequence | 
+| | #-model | path/knowledge | .logic.translate_part_property
+| +-build_part_toc | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_part_toc
+| +-increment_index | calculate/add | 
+| | #-result | path/knowledge | .temporary.part_index
+| | #-operand | number/integer | 1
+| | #-type | meta/type | number/integer
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.part_break
+| | #-left | path/knowledge | .temporary.part_index
+| | #-right | path/knowledge | .temporary.part_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
++-build_part_index_string | element/part | 
+| +-clear_part | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_link
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_category_path_to_part | modify/append | 
+| | #-source | path/knowledge | .temporary.category_link
+| | #-destination | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_static_pre_to_part_path | modify/append | 
+| | #-source | text/plain | .[
+| | #-destination | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-clear_part_link_number | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_link_number
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-serialise_index_to_part_link_number | represent/serialise | 
+| | #-destination | path/knowledge | .temporary.part_link_number
+| | #-source | path/knowledge | .temporary.part_index
+| | #-format | meta/format | number/integer
+| | #-language | meta/language | text/cybol
+| +-add_part_link_number_as_text | modify/append | 
+| | #-source | path/knowledge | .temporary.part_link_number
+| | #-destination | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_post_to_part_link | modify/append | 
+| | #-source | text/plain | ]
+| | #-destination | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_name_of_part_to_content_path | access/get-name | 
+| | #-element | path/knowledge | .temporary.selected_part
+| | #-part | path/reference | .temporary.part_link
+| +-clear_part_toc_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_toc_path
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_category_path_to_part_toc | modify/append | 
+| | #-source | path/knowledge | .temporary.category_toc_path
+| | #-destination | path/knowledge | .temporary.part_toc_path
+| | #-type | meta/type | text/plain
+| +-add_dot_to_part_toc_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path
+| | #-source | text/plain | .
+| | #-type | meta/type | text/plain
+| +-add_part_name_to_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path
+| | #-source | path/knowledge | .temporary.selected_part
+| | #-type | meta/type | text/plain
++-build_part_access_path | element/part | 
+| +-clear_part_spec_name | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_spec_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_name
+| | #-source | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_seperator_and_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_name
+| | #-source | text/plain | .name
+| | #-type | meta/type | text/plain
+| +-clear_part_spec_description | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_spec_description
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_description | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_description
+| | #-source | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_seperator_and_description | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_description
+| | #-source | text/plain | .description
+| | #-type | meta/type | text/plain
+| +-clear_part_spec_example | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_spec_example
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_example | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_example
+| | #-source | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_seperator_and_example | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_example
+| | #-source | text/plain | .example
+| | #-type | meta/type | text/plain
+| +-clear_part_spec_format | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_spec_format
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_format | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_format
+| | #-source | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_seperator_and_format | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_format
+| | #-source | text/plain | .format
+| | #-type | meta/type | text/plain
+| +-clear_part_spec_properties | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_spec_properties
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_properties | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_properties
+| | #-source | path/knowledge | .temporary.part_link
+| | #-type | meta/type | text/plain
+| +-add_seperator_and_properties | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_spec_properties
+| | #-source | text/plain | .properties
+| | #-type | meta/type | text/plain
++-build_part_wui_path | element/part | 
+| +-clear_part_wui_name | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path
+| | #-source | path/knowledge | .temporary.category_content_path
+| | #-type | meta/type | text/plain
+| +-add_seperator_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path
+| | #-source | text/plain | .
+| | #-type | meta/type | text/plain
+| +-add_part_name_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path
+| | #-source | path/knowledge | .temporary.selected_part
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_name_content | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_name_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_name
+| | #-source | path/knowledge | .temporary.part_content_path
+| | #-type | meta/type | text/plain
+| +-add_part_name_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_name
+| | #-source | text/plain | .part_name
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_name_anchor | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_anchor
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_name_anchor | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_anchor
+| | #-source | path/knowledge | .temporary.part_content_path
+| | #-type | meta/type | text/plain
+| +-add_part_name_anchor | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_anchor
+| | #-source | text/plain | .part_name_anchor#name
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_description_content | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_description
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_description_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_description
+| | #-source | path/knowledge | .temporary.part_content_path
+| | #-type | meta/type | text/plain
+| +-add_part_description_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_description
+| | #-source | text/plain | .part_description_name
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_format_content | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_format
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_format_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_format
+| | #-source | path/knowledge | .temporary.part_content_path
+| | #-type | meta/type | text/plain
+| +-add_part_format_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_format
+| | #-source | text/plain | .part_format_name
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_example_content | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_example_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example
+| | #-source | path/knowledge | .temporary.part_content_path
+| | #-type | meta/type | text/plain
+| +-add_part_example_content | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example
+| | #-source | text/plain | .part_example_name
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_example_div | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example_div
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_example_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example_div
+| | #-source | path/knowledge | .temporary.part_content_path_example
+| | #-type | meta/type | text/plain
+| +-add_part_example_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example_div
+| | #-source | text/plain | #tag
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_example_div_class | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example_div_class
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_example_div_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example_div_class
+| | #-source | path/knowledge | .temporary.part_content_path_example
+| | #-type | meta/type | text/plain
+| +-add_part_example_div_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_content_path_example_div_class
+| | #-source | text/plain | #class
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_name_toc | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_name_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_name
+| | #-source | path/knowledge | .temporary.part_toc_path
+| | #-type | meta/type | text/plain
+| +-add_part_name_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_name
+| | #-source | text/plain | .part_toc
+| | #-type | meta/type | text/plain
+| +-clear_part_wui_href_toc | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_href
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_part_to_href_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_href
+| | #-source | path/knowledge | .temporary.part_toc_path
+| | #-type | meta/type | text/plain
+| +-add_part_href_toc | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_href
+| | #-source | text/plain | .part_toc#href
+| | #-type | meta/type | text/plain
++-build_part_name | element/part | 
+| +-create_wui_toc_part | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_part
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/reference | .temporary.category_content_path
+| +-initialise_wui_part_content_with_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/part_name_content.cybol
+| | #-model | path/reference | .temporary.part_content_path
+| +-copy_part_name | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_name
+| | #-source | path/knowledge | .temporary.selected_part
+| | #-type | meta/type | text/plain
+| +-copy_part_name_to_anchor | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_anchor
+| | #-source | path/knowledge | .temporary.selected_part
+| | #-type | meta/type | text/plain
++-build_part_description | element/part | 
+| +-copy_wui_part_description_content_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/part_description_content.cybol
+| | #-model | path/reference | .temporary.part_content_path
+| +-copy_part_description | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_description
+| | #-source | path/reference | .temporary.link_spec_description
+| | #-type | meta/type | text/plain
++-build_part_format | element/part | 
+| +-copy_wui_part_format_content_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/part_format_content.cybol
+| | #-model | path/reference | .temporary.part_content_path
+| +-copy_part_format | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_format
+| | #-source | path/reference | .temporary.link_spec_format
+| | #-type | meta/type | text/plain
++-build_part_example | element/part | 
+| +-copy_wui_part_example_environment_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/part_example_content.cybol
+| | #-model | path/reference | .temporary.part_content_path
+| +-copy_part_example | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_example
+| | #-source | path/reference | .temporary.link_spec_example
+| | #-type | meta/type | text/plain
+| +-create_div_tag_for_example_node | memorise/create | 
+| | #-name | text/plain | tag
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.part_content_path_example
+| +-copy_div_tag_to_knowledge_path | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_example_div
+| | #-source | text/plain | div
+| | #-type | meta/type | text/plain
+| +-create_class_for_example_tag | memorise/create | 
+| | #-name | text/plain | class
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.part_content_path_example
+| +-copy_class_to_style_tag | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_content_path_example_div_class
+| | #-source | text/plain | part_example
+| | #-type | meta/type | text/plain
++-build_part_toc | element/part | 
+| +-create_part_knowledgepath_in_toc | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_part
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/reference | .temporary.category_toc_path
+| +-copy_wui_part_toc_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/part_toc.cybol
+| | #-model | path/reference | .temporary.part_toc_path
+| +-clear_part_toc_div | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_div
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_part_path_to_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_div
+| | #-source | path/knowledge | .temporary.part_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_tag_to_part_div | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_div
+| | #-source | text/plain | #tag
+| | #-type | meta/type | text/plain
+| +-clear_part_toc_class | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_div_class
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_dynamic_part_path_to_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_div_class
+| | #-source | path/knowledge | .temporary.part_toc_path
+| | #-type | meta/type | text/plain
+| +-add_static_tag_to_part_class | modify/append | 
+| | #-destination | path/knowledge | .temporary.part_toc_path_div_class
+| | #-source | text/plain | #class
+| | #-type | meta/type | text/plain
+| +-create_div_tag_for_part_toc_node | memorise/create | 
+| | #-name | text/plain | tag
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.part_toc_path
+| +-copy_div_tag_to_knowledge_path | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_toc_path_div
+| | #-source | text/plain | div
+| | #-type | meta/type | text/plain
+| +-create_class_for_part_toc_tag | memorise/create | 
+| | #-name | text/plain | class
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.part_toc_path
+| +-copy_class_to_style_tag | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_toc_path_div_class
+| | #-source | text/plain | part_toc
+| | #-type | meta/type | text/plain
+| +-copy_part_name_to_toc | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_toc_path_name
+| | #-source | path/knowledge | .temporary.selected_part
+| | #-type | meta/type | text/plain
+| +-copy_sharp_to_toc_href | modify/overwrite | 
+| | #-destination | path/reference | .temporary.part_toc_path_href
+| | #-source | text/plain | #
+| | #-type | meta/type | text/plain
+| +-copy_part_name_to_toc_href | modify/append | 
+| | #-destination | path/reference | .temporary.part_toc_path_href
+| | #-source | path/knowledge | .temporary.selected_part
+| | #-type | meta/type | text/plain
++-translate_part_property | element/part | 
+| +-reset_break | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.properties_break
+| | #-source | logicvalue/boolean | false
+| | #-type | meta/type | logicvalue/boolean
+| +-reset_count | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.properties_count
+| | #-source | number/integer | 0
+| | #-type | meta/type | number/integer
+| +-reset_index | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.properties_index
+| | #-source | number/integer | 0
+| | #-type | meta/type | number/integer
+| +-copy_part_content_html_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/part_property_content.cybol
+| | #-model | path/reference | .temporary.part_content_path
+| +-count_parts | access/count | 
+| | #-count | path/knowledge | .temporary.properties_count
+| | #-part | path/reference | .temporary.link_spec_properties
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.properties_break
+| | #-left | path/knowledge | .temporary.properties_index
+| | #-right | path/knowledge | .temporary.properties_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
+| +-loop_parts | flow/loop | 
+| | #-break | path/knowledge | .temporary.properties_break
+| | #-model | path/knowledge | .logic.translate_properties
++-translate_properties | element/part | 
+| +-build_property_specification_global_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_property_spec
+| +-build_property_specification_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_property_spec_path
+| +-build_property_wui_path | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_property_wui_path
+| +-build_property_wui_row | flow/sequence | 
+| | #-model | path/knowledge | .logic.build_property_wui_row
+| +-increment_index | calculate/add | 
+| | #-result | path/knowledge | .temporary.properties_index
+| | #-operand | number/integer | 1
+| | #-type | meta/type | number/integer
+| +-compare_index | compare/greater-or-equal | 
+| | #-result | path/knowledge | .temporary.properties_break
+| | #-left | path/knowledge | .temporary.properties_index
+| | #-right | path/knowledge | .temporary.properties_count
+| | #-type | meta/type | number/integer
+| | #-selection | text/plain | all
++-build_property_spec | element/part | 
+| +-clear_property | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_link
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_properties | modify/append | 
+| | #-source | path/knowledge | .temporary.link_spec_properties
+| | #-destination | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-add_pre_to_property_link | modify/append | 
+| | #-source | text/plain | .[
+| | #-destination | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-clear_property_link_number | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_link_number
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-serialise_index_to_property_link_number | represent/serialise | 
+| | #-destination | path/knowledge | .temporary.property_link_number
+| | #-source | path/knowledge | .temporary.properties_index
+| | #-format | meta/format | number/integer
+| | #-language | meta/language | text/cybol
+| +-add_specification_link_number_as_text | modify/append | 
+| | #-source | path/knowledge | .temporary.property_link_number
+| | #-destination | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-add_post_to_property_link | modify/append | 
+| | #-source | text/plain | ]
+| | #-destination | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-copy_name_of_property_to_temp | access/get-name | 
+| | #-element | path/knowledge | .temporary.selected_property
+| | #-part | path/reference | .temporary.property_link
++-build_property_spec_path | element/part | 
+| +-clear_property_spec_name_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_property_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-append_path_to_property_spec_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_name
+| | #-source | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-append_property_spec_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_name
+| | #-source | text/plain | #name
+| | #-type | meta/type | text/plain
+| +-clear_property_spec_description_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_property_description
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-append_path_to_property_spec_description | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_description
+| | #-source | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-append_property_spec_description | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_description
+| | #-source | text/plain | #description
+| | #-type | meta/type | text/plain
+| +-clear_property_spec_required_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_property_required
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-append_path_to_property_spec_required | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_required
+| | #-source | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-append_property_spec_required | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_required
+| | #-source | text/plain | #required
+| | #-type | meta/type | text/plain
+| +-clear_property_spec_format_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_property_format
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-append_path_to_property_spec_format | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_format
+| | #-source | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-append_property_spec_format | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_format
+| | #-source | text/plain | #format
+| | #-type | meta/type | text/plain
+| +-clear_property_spec_model_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.link_property_model
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-append_path_to_property_spec_model | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_model
+| | #-source | path/knowledge | .temporary.property_link
+| | #-type | meta/type | text/plain
+| +-append_property_spec_model | modify/append | 
+| | #-destination | path/knowledge | .temporary.link_property_model
+| | #-source | text/plain | #model
+| | #-type | meta/type | text/plain
++-build_property_wui_path | element/part | 
+| +-clear_property_wui_name | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_property | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path
+| | #-source | path/knowledge | .temporary.part_content_path
+| | #-type | meta/type | text/plain
+| +-add_seperator_to_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path
+| | #-source | text/plain | .part_property_table
+| | #-type | meta/type | text/plain
+| +-clear_property_wui_specific_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_specific
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_to_property | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_specific
+| | #-source | path/knowledge | .temporary.property_content_path
+| | #-type | meta/type | text/plain
+| +-add_dot_to_specific_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_specific
+| | #-source | text/plain | .
+| | #-type | meta/type | text/plain
+| +-add_selected_property_name_to_specific_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_specific
+| | #-source | path/knowledge | .temporary.selected_property
+| | #-type | meta/type | text/plain
+| +-clear_property_wui_specific_name_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_name
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_of_property_to_property_name | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_name
+| | #-source | path/knowledge | .temporary.property_content_path_specific
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_name_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_name
+| | #-source | text/plain | .column_name
+| | #-type | meta/type | text/plain
+| +-clear_property_wui_specific_description_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_description
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_of_property_to_property_description | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_description
+| | #-source | path/knowledge | .temporary.property_content_path_specific
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_description_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_description
+| | #-source | text/plain | .column_description
+| | #-type | meta/type | text/plain
+| +-clear_property_wui_specific_required_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_required
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_of_property_to_property_required | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_required
+| | #-source | path/knowledge | .temporary.property_content_path_specific
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_required_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_required
+| | #-source | text/plain | .column_required
+| | #-type | meta/type | text/plain
+| +-clear_property_wui_specific_format_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_format
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_of_property_to_format_required | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_format
+| | #-source | path/knowledge | .temporary.property_content_path_specific
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_format_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_format
+| | #-source | text/plain | .column_format
+| | #-type | meta/type | text/plain
+| +-clear_property_wui_specific_model_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_model
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_of_property_to_model_required | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_model
+| | #-source | path/knowledge | .temporary.property_content_path_specific
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_model_path | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_model
+| | #-source | text/plain | .column_model
+| | #-type | meta/type | text/plain
+| +-clear_property_tag_path | modify/overwrite | 
+| | #-destination | path/knowledge | .temporary.property_content_path_tag
+| | #-source | text/plain | 
+| | #-type | meta/type | text/plain
+| +-add_path_of_property_to_tag | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_tag
+| | #-source | path/knowledge | .temporary.property_content_path_specific
+| | #-type | meta/type | text/plain
+| +-add_static_path_to_tag | modify/append | 
+| | #-destination | path/knowledge | .temporary.property_content_path_tag
+| | #-source | text/plain | #tag
+| | #-type | meta/type | text/plain
++-build_property_wui_row | element/part | 
+| +-create_wui_content_property | memorise/create | 
+| | #-name | path/knowledge | .temporary.selected_property
+| | #-format | meta/format | element/part
+| | #-element | text/plain | part
+| | #-whole | path/reference | .temporary.property_content_path
+| +-create_property_for_wui_content_property | memorise/create | 
+| | #-name | text/plain | tag
+| | #-format | meta/format | text/plain
+| | #-element | text/plain | property
+| | #-whole | path/reference | .temporary.property_content_path_specific
+| +-set_table_row_property | modify/overwrite | 
+| | #-source | text/plain | tr
+| | #-destination | path/reference | .temporary.property_content_path_tag
+| | #-type | meta/type | text/plain
+| +-initialise_wui_property_content_with_template | communicate/receive | 
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/cybol
+| | #-format | meta/format | element/part
+| | #-message | text/plain | cybol/wui/template/property_content_cells.cybol
+| | #-model | path/reference | .temporary.property_content_path_specific
+| +-copy_property_name_information | modify/overwrite | 
+| | #-source | path/reference | .temporary.link_property_name
+| | #-destination | path/reference | .temporary.property_content_path_name
+| | #-type | meta/type | text/plain
+| +-copy_property_description_information | modify/overwrite | 
+| | #-source | path/reference | .temporary.link_property_description
+| | #-destination | path/reference | .temporary.property_content_path_description
+| | #-type | meta/type | text/plain
+| +-copy_property_required_information | modify/overwrite | 
+| | #-source | path/reference | .temporary.link_property_required
+| | #-destination | path/knowledge | .temporary.property_required_value
+| | #-type | meta/type | logicvalue/boolean
+| +-serialise_property_required_value_to_text | represent/serialise | 
+| | #-destination | path/reference | .temporary.property_content_path_required
+| | #-source | path/knowledge | .temporary.property_required_value
+| | #-format | meta/format | logicvalue/boolean
+| | #-language | meta/language | text/cybol
+| +-copy_property_format_information | modify/overwrite | 
+| | #-source | path/reference | .temporary.link_property_format
+| | #-destination | path/reference | .temporary.property_content_path_format
+| | #-type | meta/type | text/plain
+| +-copy_property_model_information | modify/overwrite | 
+| | #-source | path/reference | .temporary.link_property_model
+| | #-destination | path/reference | .temporary.property_content_path_model
+| | #-type | meta/type | text/plain

@@ -1,4 +1,4 @@
-<part name="add" channel="inline" format="command/archive_file" model="">
+<part name="archive_file" channel="inline" format="command/archive-file" model="">
     <property name="create" channel="inline" format="logicvalue/boolean" model="true"/>
     <property name="update" channel="inline" format="logicvalue/boolean" model="false"/>
     <property name="bzip2" channel="inline" format="logicvalue/boolean" model="false"/>
