@@ -11,11 +11,20 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+API
+___
+
+        * Eliminate error due to missing <div> tag in generated html file
+        * Receive "wui/template/properties.cybol" file containing div tag
+        * See "lehre/systems_implementation/overview/project/" as better solution
+
 WUI
 ___
 
-        * Continue bsd_socket and socket; integrate new file "host_bsd_socket_starter.c"
-        * Adapt function "startup_socket_get_host_address", variable "terminated address model",
+        * Continue bsd_socket
+        * Integrate new file "host_bsd_socket_starter.c"
+        * Adapt function "startup_socket_get_host_address",
+            variable "terminated address model",
             in file "socket_starter.c" to new model constants
 
         * Write port de-/serialiser translating standard protocol into port and vice versa

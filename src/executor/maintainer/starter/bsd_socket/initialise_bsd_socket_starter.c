@@ -35,8 +35,8 @@
 /**
  * Initialise address depending on the given address family.
  *
- * @param p0 the address data (pointer reference)
- * @param p1 the address size
+ * @param p0 the socket address data (pointer reference)
+ * @param p1 the socket address size
  * @param p2 the host address (in network byte order) or file name data, depending on the family
  * @param p3 the socket port (in host byte order) or file name count, depending on the family
  * @param p4 the address family (namespace)
@@ -97,20 +97,20 @@ void startup_bsd_socket_initialise(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    // Initialise address size.
+                    // Initialise socket address size.
                     calculate_integer_add(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
-                    // Allocate address.
+                    // Allocate socket address.
                     *ad = malloc(*as);
 
                     // The ipv4 host address of this system.
-                    struct in_addr ha4;
+                    struct in_addr ha;
 
-                    // Get host address constant.
-                    startup_bsd_socket_host((void*) &ha4, p5, p6, (void*) &af);
+                    // Get host address.
+                    startup_bsd_socket_host((void*) &ha, p5, p6, (void*) &af);
 
-                    // Initialise address.
-                    startup_bsd_socket_initialise_inet(*ad, p2, p3);
+                    // Initialise socket address.
+                    startup_bsd_socket_initialise_inet(*ad, (void*) &ha, socket_port);
                 }
             }
 
@@ -120,10 +120,10 @@ void startup_bsd_socket_initialise(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    // Initialise address size.
+                    // Initialise socket address size.
                     calculate_integer_add(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
-                    // Allocate address.
+                    // Allocate socket address.
                     *ad = malloc(*as);
 
                     // The ipv6 host address of this system.
@@ -132,7 +132,7 @@ void startup_bsd_socket_initialise(void* p0, void* p1, void* p2, void* p3, void*
                     // Get host address constant.
                     startup_bsd_socket_host((void*) &ha6, p5, p6, (void*) &af);
 
-                    // Initialise address.
+                    // Initialise socket address.
                     startup_bsd_socket_initialise_inet6(*ad, p2, p3);
                 }
             }

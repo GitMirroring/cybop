@@ -23,64 +23,28 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef HOST_ADDRESS_SOCKET_STARTER_SOURCE
-#define HOST_ADDRESS_SOCKET_STARTER_SOURCE
+#ifndef HOST_BSD_SOCKET_STARTER_SOURCE
+#define HOST_BSD_SOCKET_STARTER_SOURCE
 
-#ifdef __APPLE__
-    //?? Check support for apple
-#elif WIN32
-    //?? Add WIN32 support
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <arpa/inet.h>
-    #include <netinet/in.h>
-    #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#else
-    #include <arpa/inet.h>
-    #include <netinet/in.h>
-    #include <sys/socket.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#endif
-
-#include <sys/types.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cybol/address_cybol_model.c"
-#include "../../../../constant/model/cybol/communication_style_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cybol/namespace_cybol_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/memoriser/allocator.c"
-#include "../../../../variable/type_size/socket_type_size.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Starts up socket host address.
+ * Identifies host address.
  *
  * @param p0 the ipv4 or ipv6 host address, depending on the address namespace (pointer reference)
  * @param p1 the address model data
  * @param p2 the address model count
  * @param p3 the address namespace
  */
-void startup_socket_host_address(void* p0, void* p1, void* p2, void* p3) {
+void startup_bsd_socket_host(void* p0, void* p1, void* p2, void* p3) {
 
     // This test IS necessary, since the host address is assigned directly,
     // using the assignment operator and not a copy function.
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket host address.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket host.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -211,9 +175,9 @@ void startup_socket_host_address(void* p0, void* p1, void* p2, void* p3) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket host address. The host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host. The host address is null.");
     }
 }
 
-/* HOST_ADDRESS_SOCKET_STARTER_SOURCE */
+/* HOST_BSD_SOCKET_STARTER_SOURCE */
 #endif

@@ -26,42 +26,18 @@
 #ifndef BSD_SOCKET_STARTER_SOURCE
 #define BSD_SOCKET_STARTER_SOURCE
 
-/*??
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <stdio.h>
-*/
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/family_bsd_socket_starter.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/style_bsd_socket_starter.c"
 #include "../../../../logger/logger.c"
-/*??
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/address_cybol_model.c"
-#include "../../../../constant/model/cybol/communication_style_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cybol/namespace_cybol_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/memoriser/allocator.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../variable/type_size/socket_type_size.c"
-*/
 
 /**
  * Starts up the bsd socket.
  *
  * @param p0 the internal memory data
- * @param p1 the namespace data
- * @param p2 the namespace count
+ * @param p1 the family (namespace) data
+ * @param p2 the family (namespace) count
  * @param p3 the style data
  * @param p4 the style count
  * @param p5 the host address or file name data, depending on the family
@@ -88,7 +64,6 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         startup_bsd_socket_family((void*) &pf, (void*) &af, p1, p2);
         // Get socket communication style.
         startup_bsd_socket_style((void*) &st, p3, p4);
-
         // CAUTION! The third parametre is the protocol,
         // for which a value of zero is usually right.
         startup_bsd_socket_create((void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, host_address (network byte order), socket_port (host byte order), file_name_data, file_name_count, (void*) &af);

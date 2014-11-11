@@ -26,50 +26,14 @@
 #ifndef INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE
 #define INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE
 
-#include <sys/types.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
-
-#ifdef __APPLE__
-    //?? Check support for apple
-#elif WIN32
-    //?? Add WIN32 support
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <arpa/inet.h>
-    #include <netinet/in.h>
-    #include <sys/socket.h>
-    #ifndef _MSC_VER
-        #include <unistd.h>
-    #endif
-#else
-    #include <arpa/inet.h>
-    #include <netinet/in.h>
-    #include <sys/socket.h>
-    #ifndef _MSC_VER
-        #include <unistd.h>
-    #endif
-#endif
-
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cybol/address_cybol_model.c"
-#include "../../../../constant/model/cybol/communication_style_cybol_model.c"
-#include "../../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../../constant/model/cybol/namespace_cybol_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/getter.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/memoriser/allocator.c"
-#include "../../../../variable/type_size/socket_type_size.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Initialise inet6 address.
+ * Initialise inet6 socket address.
  *
- * @param p0 the inet6 address data
+ * @param p0 the inet6 socket address
  * @param p1 the host address (in network byte order)
  * @param p2 the socket port (in host byte order)
  */
@@ -89,10 +53,14 @@ void startup_bsd_socket_initialise_inet6(void* p0, void* p1, void* p2) {
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket initialise inet6.");
 
-                // Set namespace (address format/family).
+                // Set address family (namespace).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
                 // The latter is to be used for socket creation.
+                //
+                // CAUTION! The "sin_family" field is of type
+                // "sa_family_t", which is actually an "integer",
+                // as well as the "AF_INET" constant.
                 (*a).sin6_family = AF_INET6;
 
                 // Set host address.

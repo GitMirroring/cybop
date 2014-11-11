@@ -20,7 +20,8 @@
 
 2014-11-11  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Move style and family (namespace) files from "socket" into "bsd_socket"
+        * Move style and family (namespace) files from directory "socket" into "bsd_socket"
+        * Restructure directory "bsd_socket"
 
 2014-11-07  Christian Heller  <christian.heller@tuxtax.de>
 
