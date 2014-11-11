@@ -1,0 +1,72 @@
+<model>
+    <part name="channel" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="channel"/>
+        <property name="description" channel="inline" format="text/plain" model="the channel via which to receive the message (terminal, display, www etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/* | meta/channel"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="encoding" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="encoding"/>
+        <property name="description" channel="inline" format="text/plain" model="the encoding (utf-8, utf-32 for inline channel etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/encoding"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="language" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="language"/>
+        <property name="description" channel="inline" format="text/plain" model="the language of the data received (cybol, http_request, xdt etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/language"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="format" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="format"/>
+        <property name="description" channel="inline" format="text/plain" model="the format of the data received (boolean, character, integer etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/format"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="message" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="message"/>
+        <property name="description" channel="inline" format="text/plain" model="the source (knowledge template) from where to receive data, e.g. the gui root window"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" model="path/knowledge | text/plain" format="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="meta" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="meta"/>
+        <property name="description" channel="inline" format="text/plain" model="the source (knowledge template) from where to receive meta data (properties)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="model" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="model"/>
+        <property name="description" channel="inline" format="text/plain" model="the model to be filled with the data received"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="minimum" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="minimum"/>
+        <property name="description" channel="inline" format="text/plain" model="the minimum number of bytes to be received in one call of the read function"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="maximum" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="maximum"/>
+        <property name="description" channel="inline" format="text/plain" model="the maximum number of bytes to be received in one call of the read function"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="style" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="style"/>
+        <property name="description" channel="inline" format="text/plain" model="the style of socket communication, only if channel is www, cyboi or similar"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model=""/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>
