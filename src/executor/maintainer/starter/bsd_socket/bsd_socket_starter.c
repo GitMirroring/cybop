@@ -78,11 +78,11 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket.");
 
         // The protocol family (socket namespace).
-        int pf = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        int pf = PF_INET6;
         // The address family (namespace).
-        int af = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        int af = AF_INET6;
         // The communication style.
-        int st = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        int st = SOCK_STREAM;
 
         // Get protocol- and address family.
         startup_bsd_socket_family((void*) &pf, (void*) &af, p1, p2);
