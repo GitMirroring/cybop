@@ -1,7 +1,7 @@
 <model>
 
     <part name="display" channel="file" format="element/part" model="calculator/tui/main/menu/display.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,2"/>
+        <property name="position" channel="inline" format="number/integer" model="3,1"/>
         <property name="size" channel="inline" format="number/integer" model="25,4"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -9,7 +9,7 @@
     </part>
 
     <part name="seven" channel="file" format="element/part" model="calculator/tui/main/menu/seven.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,7"/>
+        <property name="position" channel="inline" format="number/integer" model="3,6"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -24,7 +24,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="eight" channel="file" format="element/part" model="calculator/tui/main/menu/eight.cybol">
-        <property name="position" channel="inline" format="number/integer" model="7,7"/>
+        <property name="position" channel="inline" format="number/integer" model="7,6"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -39,7 +39,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="nine" channel="file" format="element/part" model="calculator/tui/main/menu/nine.cybol">
-        <property name="position" channel="inline" format="number/integer" model="11,7"/>
+        <property name="position" channel="inline" format="number/integer" model="11,6"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -54,7 +54,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="four" channel="file" format="element/part" model="calculator/tui/main/menu/four.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,11"/>
+        <property name="position" channel="inline" format="number/integer" model="3,10"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -69,7 +69,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="five" channel="file" format="element/part" model="calculator/tui/main/menu/five.cybol">
-        <property name="position" channel="inline" format="number/integer" model="7,11"/>
+        <property name="position" channel="inline" format="number/integer" model="7,10"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -84,7 +84,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="six" channel="file" format="element/part" model="calculator/tui/main/menu/six.cybol">
-        <property name="position" channel="inline" format="number/integer" model="11,11"/>
+        <property name="position" channel="inline" format="number/integer" model="11,10"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -99,7 +99,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="one" channel="file" format="element/part" model="calculator/tui/main/menu/one.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,15"/>
+        <property name="position" channel="inline" format="number/integer" model="3,14"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -114,7 +114,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="two" channel="file" format="element/part" model="calculator/tui/main/menu/two.cybol">
-        <property name="position" channel="inline" format="number/integer" model="7,15"/>
+        <property name="position" channel="inline" format="number/integer" model="7,14"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -129,7 +129,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="three" channel="file" format="element/part" model="calculator/tui/main/menu/three.cybol">
-        <property name="position" channel="inline" format="number/integer" model="11,15"/>
+        <property name="position" channel="inline" format="number/integer" model="11,14"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -144,7 +144,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="zero" channel="file" format="element/part" model="calculator/tui/main/menu/zero.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,19"/>
+        <property name="position" channel="inline" format="number/integer" model="3,18"/>
         <property name="size" channel="inline" format="number/integer" model="11,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -160,7 +160,7 @@
     </part>
 
     <part name="addition" channel="file" format="element/part" model="calculator/tui/main/menu/addition.cybol">
-        <property name="position" channel="inline" format="number/integer" model="17,7"/>
+        <property name="position" channel="inline" format="number/integer" model="17,6"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -175,7 +175,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="subtraction" channel="file" format="element/part" model="calculator/tui/main/menu/subtraction.cybol">
-        <property name="position" channel="inline" format="number/integer" model="21,7"/>
+        <property name="position" channel="inline" format="number/integer" model="21,6"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -190,7 +190,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="squareroot" channel="file" format="element/part" model="calculator/tui/main/menu/squareroot.cybol">
-        <property name="position" channel="inline" format="number/integer" model="25,7"/>
+        <property name="position" channel="inline" format="number/integer" model="25,6"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -205,7 +205,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="multiplication" channel="file" format="element/part" model="calculator/tui/main/menu/multiplication.cybol">
-        <property name="position" channel="inline" format="number/integer" model="17,11"/>
+        <property name="position" channel="inline" format="number/integer" model="17,10"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -220,7 +220,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="division" channel="file" format="element/part" model="calculator/tui/main/menu/division.cybol">
-        <property name="position" channel="inline" format="number/integer" model="21,11"/>
+        <property name="position" channel="inline" format="number/integer" model="21,10"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -235,7 +235,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="square" channel="file" format="element/part" model="calculator/tui/main/menu/square.cybol">
-        <property name="position" channel="inline" format="number/integer" model="25,11"/>
+        <property name="position" channel="inline" format="number/integer" model="25,10"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -250,7 +250,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="equals" channel="file" format="element/part" model="calculator/tui/main/menu/equals.cybol">
-        <property name="position" channel="inline" format="number/integer" model="17,19"/>
+        <property name="position" channel="inline" format="number/integer" model="17,18"/>
         <property name="size" channel="inline" format="number/integer" model="11,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -266,7 +266,7 @@
     </part>
 
     <part name="help" channel="file" format="element/part" model="calculator/tui/main/menu/help.cybol">
-        <property name="position" channel="inline" format="number/integer" model="35,2"/>
+        <property name="position" channel="inline" format="number/integer" model="35,1"/>
         <property name="size" channel="inline" format="number/integer" model="40,20"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
