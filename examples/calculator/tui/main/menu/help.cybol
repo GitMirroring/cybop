@@ -42,5 +42,11 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
     </part>
+    <part name="reset" channel="inline" format="text/plain" model="<esc> - resets numbers">
+        <property name="position" channel="inline" format="number/integer" model="2,15"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
 
 </model>

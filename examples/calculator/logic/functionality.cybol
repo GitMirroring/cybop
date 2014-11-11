@@ -4,8 +4,11 @@
 
     <part name="equals" channel="file" format="element/part" model="calculator/logic/functionality/equals.cybol"/>
     <part name="add" channel="file" format="element/part" model="calculator/logic/functionality/add.cybol"/>
+    <part name="divide" channel="file" format="element/part" model="calculator/logic/functionality/divide.cybol"/>
+    <part name="subtract" channel="file" format="element/part" model="calculator/logic/functionality/subtract.cybol"/>
+    <part name="multiply" channel="file" format="element/part" model="calculator/logic/functionality/multiply.cybol"/>
 <!--
-    TODO: Add further operations here!
+    TODO: square, squareroot
 -->
 
     <part name="calculate" channel="file" format="element/part" model="calculator/logic/functionality/calculate.cybol"/>

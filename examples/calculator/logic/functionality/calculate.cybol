@@ -5,7 +5,22 @@
         <property name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
+    <part name="subtract" channel="inline" format="calculate/subtract" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="multiply" channel="inline" format="calculate/multiply" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="divide" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
 
-    <!-- TODO: subtract, multiply, divide -->
+    <!-- TODO: square, squareroot -->
 
 </model>
