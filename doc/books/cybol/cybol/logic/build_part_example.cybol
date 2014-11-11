@@ -1,6 +1,7 @@
 <model>
+
     <!-- copy part content template for example -->
-    <part name="copy_wui_part_example_environment_template" channel="inline" format="communicate/receive" model="">
+    <part name="copy_wui_part_example_environment_template_part" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -8,12 +9,22 @@
         <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/part_example_content.cybol"/>
         <property name="model" channel="inline" format="path/reference" model=".temporary.part_content_path"/>
     </part>
+    <part name="copy_wui_part_example_environment_template_properties" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/property"/>
+        <property name="message" channel="inline" format="text/plain" model="cybol/wui/template/properties.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".temporary.part_content_path"/>
+    </part>
+
     <!-- copy part example to html content -->
     <part name="copy_part_example" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/reference" model=".temporary.part_content_path_example"/>
         <property name="source" channel="inline" format="path/reference" model=".temporary.link_spec_example"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+
     <!-- add div tag to example (otherwise it is hidden in browser) -->
     <part name="create_div_tag_for_example_node" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="tag"/>
@@ -26,6 +37,7 @@
         <property name="source" channel="inline" format="text/plain" model="div"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+
     <!-- set div class tag of example -->
     <part name="create_class_for_example_tag" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="class"/>
@@ -38,4 +50,5 @@
         <property name="source" channel="inline" format="text/plain" model="part_example"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+
 </model>
