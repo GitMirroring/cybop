@@ -715,15 +715,175 @@
 | | +-receive | element/part | 
 | | | +-name | text/plain | receive
 | | | +-description | text/plain | Receives a message via the given channel.
-| | | +-example | text/plain | 
+| | | +-example | text/plain |     <part name="initialise" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="ui/app.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
 | | | +-format | text/plain | communicate/receive
 | | | +-properties | element/part | 
+| | | | +-channel | text/plain | 
+| | | | | #-name | text/plain | channel
+| | | | | #-description | text/plain | the channel via which to receive the message (terminal, display, www etc.)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | path/* | meta/channel
+| | | | | #-model | text/plain | 
+| | | | +-encoding | text/plain | 
+| | | | | #-name | text/plain | encoding
+| | | | | #-description | text/plain | the encoding (utf-8, utf-32 for inline channel etc.)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | meta/encoding
+| | | | | #-model | text/plain | 
+| | | | +-language | text/plain | 
+| | | | | #-name | text/plain | language
+| | | | | #-description | text/plain | the language of the data received (cybol, http_request, xdt etc.)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | meta/language
+| | | | | #-model | text/plain | 
+| | | | +-format | text/plain | 
+| | | | | #-name | text/plain | format
+| | | | | #-description | text/plain | the format of the data received (boolean, character, integer etc.)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | meta/format
+| | | | | #-model | text/plain | 
+| | | | +-message | text/plain | 
+| | | | | #-name | text/plain | message
+| | | | | #-description | text/plain | the source (knowledge template) from where to receive data, e.g. the gui root window
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | path/knowledge | text/plain
+| | | | | #-model | text/plain | 
+| | | | +-meta | text/plain | 
+| | | | | #-name | text/plain | meta
+| | | | | #-description | text/plain | the source (knowledge template) from where to receive meta data (properties)
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | path/knowledge
+| | | | | #-model | text/plain | 
+| | | | +-model | text/plain | 
+| | | | | #-name | text/plain | model
+| | | | | #-description | text/plain | the model to be filled with the data received
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | path/knowledge
+| | | | | #-model | text/plain | 
+| | | | +-minimum | text/plain | 
+| | | | | #-name | text/plain | minimum
+| | | | | #-description | text/plain | the minimum number of bytes to be received in one call of the read function
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | number/integer
+| | | | | #-model | text/plain | 
+| | | | +-maximum | text/plain | 
+| | | | | #-name | text/plain | maximum
+| | | | | #-description | text/plain | the maximum number of bytes to be received in one call of the read function
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | number/integer
+| | | | | #-model | text/plain | 
+| | | | +-style | text/plain | 
+| | | | | #-name | text/plain | style
+| | | | | #-description | text/plain | the style of socket communication, only if channel is www, cyboi or similar
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | 
+| | | | | #-model | text/plain | 
 | | +-send | element/part | 
 | | | +-name | text/plain | send
 | | | +-description | text/plain | Sends a message via the given channel.
-| | | +-example | text/plain | 
+| | | +-example | text/plain |     <part name="print_adc" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Current adc rounded in voltage:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_adc_value" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.adc"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
 | | | +-format | text/plain | communicate/send
 | | | +-properties | element/part | 
+| | | | +-channel | text/plain | 
+| | | | | #-name | text/plain | channel
+| | | | | #-description | text/plain | the channel via which to send the message (e.g. http)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | path/* | meta/channel
+| | | | | #-model | text/plain | 
+| | | | +-encoding | text/plain | 
+| | | | | #-name | text/plain | encoding
+| | | | | #-description | text/plain | the encoding to be used, e.g. ascii; the default is utf-8
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | meta/encoding
+| | | | | #-model | text/plain | 
+| | | | +-language | text/plain | 
+| | | | | #-name | text/plain | language
+| | | | | #-description | text/plain | the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | meta/language
+| | | | | #-model | text/plain | 
+| | | | +-format | text/plain | 
+| | | | | #-name | text/plain | format
+| | | | | #-description | text/plain | the format into which to serialise the message before sending (e.g. element/part, number/integer)
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | meta/format
+| | | | | #-model | text/plain | 
+| | | | +-message | text/plain | 
+| | | | | #-name | text/plain | message
+| | | | | #-description | text/plain | the source message to be sent to another system
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | path/knowledge | text/plain
+| | | | | #-model | text/plain | 
+| | | | +-receiver | text/plain | 
+| | | | | #-name | text/plain | receiver
+| | | | | #-description | text/plain | the destination receiving the message
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | text/plain
+| | | | | #-model | text/plain | 
+| | | | +-mode | text/plain | 
+| | | | | #-name | text/plain | mode
+| | | | | #-description | text/plain | the mode of communication, only if channel is http
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | 
+| | | | | #-model | text/plain | 
+| | | | +-namespace | text/plain | 
+| | | | | #-name | text/plain | namespace
+| | | | | #-description | text/plain | the namespace of the socket, only if channel is http
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | 
+| | | | | #-model | text/plain | 
+| | | | +-style | text/plain | 
+| | | | | #-name | text/plain | style
+| | | | | #-description | text/plain | the style of communicationl, only if channel is http
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | text/plain
+| | | | | #-model | text/plain | 
+| | | | +-area | text/plain | 
+| | | | | #-name | text/plain | area
+| | | | | #-description | text/plain | the user interface area to be repainted, only if type is tui or gui
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | 
+| | | | | #-model | text/plain | 
+| | | | +-clear | text/plain | 
+| | | | | #-name | text/plain | clear
+| | | | | #-description | text/plain | the flag indicating whether or not to clear the screen before painting a user interface, only if type is terminal or tui
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | logicvalue/boolean
+| | | | | #-model | text/plain | 
+| | | | +-newline | text/plain | 
+| | | | | #-name | text/plain | newline
+| | | | | #-description | text/plain | the flag indicating whether or not to add a new line after having printed the message on screen, only if channel is terminal
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | logicvalue/boolean
+| | | | | #-model | text/plain | 
+| | | | +-null_termination | text/plain | 
+| | | | | #-name | text/plain | null_termination
+| | | | | #-description | text/plain | the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)
+| | | | | #-required | logicvalue/boolean | false
+| | | | | #-format | text/plain | logicvalue/boolean
+| | | | | #-model | text/plain | 
 | +-compare | element/part | 
 | | +-equal | element/part | 
 | | +-greater | element/part | 
@@ -742,6 +902,33 @@
 | | +-list-directory-contents | element/part | 
 | +-flow | element/part | 
 | | +-branch | element/part | 
+| | | +-name | text/plain | branch
+| | | +-description | text/plain | Branches the programme flow, depending on the criterion flag.
+| | | +-example | text/plain |     <part name="branch_voltage" channel="inline" format="flow/branch" model="">
+        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
+        <property name="true" channel="file" format="element/part" model="indoor_climate/add_voltage.cybol"/>
+        <property name="false" channel="file" format="element/part" model="indoor_climate/report_voltage_failure.cybol"/>
+    </part>
+| | | +-format | text/plain | flow/branch
+| | | +-properties | element/part | 
+| | | | +-criterion | text/plain | 
+| | | | | #-name | text/plain | criterion
+| | | | | #-description | text/plain | the flag specifying which of the two models to execute
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | path/* | logicvalue/boolean
+| | | | | #-model | text/plain | 
+| | | | +-true | text/plain | 
+| | | | | #-name | text/plain | true
+| | | | | #-description | text/plain | the logic knowledge model to be executed if the condition is true
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | element/part
+| | | | | #-model | text/plain | 
+| | | | +-false | text/plain | 
+| | | | | #-name | text/plain | false
+| | | | | #-description | text/plain | the logic knowledge model to be executed if the condition is false
+| | | | | #-required | logicvalue/boolean | true
+| | | | | #-format | text/plain | element/part
+| | | | | #-model | text/plain | 
 | | +-loop | element/part | 
 | | +-sequence | element/part | 
 | +-live | element/part | 

@@ -2924,7 +2924,14 @@
 | | | | | +-part_format_name | text/plain | communicate/receive
 | | | | | +-part_example_header | text/plain | Example
 | | | | | | #-tag | text/plain | h5
-| | | | | +-part_example_name | text/plain | 
+| | | | | +-part_example_name | text/plain |     <part name="initialise" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="ui/app.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
 | | | | | | #-preformatted | logicvalue/boolean | true
 | | | | | | #-tag | text/plain | div
 | | | | | | #-class | text/plain | part_example
@@ -2943,6 +2950,126 @@
 | | | | | | | +-column_model | text/plain | model
 | | | | | | | | #-tag | text/plain | th
 | | | | | | | #-tag | text/plain | tr
+| | | | | | +-channel | element/part | 
+| | | | | | | +-column_name | text/plain | channel
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the channel via which to receive the message (terminal, display, www etc.)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/* | meta/channel
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-encoding | element/part | 
+| | | | | | | +-column_name | text/plain | encoding
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the encoding (utf-8, utf-32 for inline channel etc.)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | meta/encoding
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-language | element/part | 
+| | | | | | | +-column_name | text/plain | language
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the language of the data received (cybol, http_request, xdt etc.)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | meta/language
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-format | element/part | 
+| | | | | | | +-column_name | text/plain | format
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the format of the data received (boolean, character, integer etc.)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | meta/format
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-message | element/part | 
+| | | | | | | +-column_name | text/plain | message
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the source (knowledge template) from where to receive data, e.g. the gui root window
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/knowledge | text/plain
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-meta | element/part | 
+| | | | | | | +-column_name | text/plain | meta
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the source (knowledge template) from where to receive meta data (properties)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/knowledge
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-model | element/part | 
+| | | | | | | +-column_name | text/plain | model
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the model to be filled with the data received
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/knowledge
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-minimum | element/part | 
+| | | | | | | +-column_name | text/plain | minimum
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the minimum number of bytes to be received in one call of the read function
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | number/integer
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-maximum | element/part | 
+| | | | | | | +-column_name | text/plain | maximum
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the maximum number of bytes to be received in one call of the read function
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | number/integer
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-style | element/part | 
+| | | | | | | +-column_name | text/plain | style
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the style of socket communication, only if channel is www, cyboi or similar
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
 | | | | | | #-tag | text/plain | table
 | | | | | | #-class | text/plain | property_table
 | | | | | | #-border | text/plain | 1
@@ -2960,7 +3087,22 @@
 | | | | | +-part_format_name | text/plain | communicate/send
 | | | | | +-part_example_header | text/plain | Example
 | | | | | | #-tag | text/plain | h5
-| | | | | +-part_example_name | text/plain | 
+| | | | | +-part_example_name | text/plain |     <part name="print_adc" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Current adc rounded in voltage:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_adc_value" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".settings.adc"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
 | | | | | | #-preformatted | logicvalue/boolean | true
 | | | | | | #-tag | text/plain | div
 | | | | | | #-class | text/plain | part_example
@@ -2978,6 +3120,162 @@
 | | | | | | | | #-tag | text/plain | th
 | | | | | | | +-column_model | text/plain | model
 | | | | | | | | #-tag | text/plain | th
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-channel | element/part | 
+| | | | | | | +-column_name | text/plain | channel
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the channel via which to send the message (e.g. http)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/* | meta/channel
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-encoding | element/part | 
+| | | | | | | +-column_name | text/plain | encoding
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the encoding to be used, e.g. ascii; the default is utf-8
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | meta/encoding
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-language | element/part | 
+| | | | | | | +-column_name | text/plain | language
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the language into which to serialise the message before sending it (e.g. html, model-diagram etc.)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | meta/language
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-format | element/part | 
+| | | | | | | +-column_name | text/plain | format
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the format into which to serialise the message before sending (e.g. element/part, number/integer)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | meta/format
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-message | element/part | 
+| | | | | | | +-column_name | text/plain | message
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the source message to be sent to another system
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/knowledge | text/plain
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-receiver | element/part | 
+| | | | | | | +-column_name | text/plain | receiver
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the destination receiving the message
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | text/plain
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-mode | element/part | 
+| | | | | | | +-column_name | text/plain | mode
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the mode of communication, only if channel is http
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-namespace | element/part | 
+| | | | | | | +-column_name | text/plain | namespace
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the namespace of the socket, only if channel is http
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-style | element/part | 
+| | | | | | | +-column_name | text/plain | style
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the style of communicationl, only if channel is http
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | text/plain
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-area | element/part | 
+| | | | | | | +-column_name | text/plain | area
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the user interface area to be repainted, only if type is tui or gui
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-clear | element/part | 
+| | | | | | | +-column_name | text/plain | clear
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the flag indicating whether or not to clear the screen before painting a user interface, only if type is terminal or tui
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | logicvalue/boolean
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-newline | element/part | 
+| | | | | | | +-column_name | text/plain | newline
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the flag indicating whether or not to add a new line after having printed the message on screen, only if channel is terminal
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | logicvalue/boolean
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-null_termination | element/part | 
+| | | | | | | +-column_name | text/plain | null_termination
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | logicvalue/boolean
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
 | | | | | | | #-tag | text/plain | tr
 | | | | | | #-tag | text/plain | table
 | | | | | | #-class | text/plain | property_table
@@ -3482,13 +3780,17 @@
 | | | | | | #-tag | text/plain | h3
 | | | | | +-part_description_header | text/plain | Description
 | | | | | | #-tag | text/plain | h5
-| | | | | +-part_description_name | text/plain | 
+| | | | | +-part_description_name | text/plain | Branches the programme flow, depending on the criterion flag.
 | | | | | +-part_format_header | text/plain | Format
 | | | | | | #-tag | text/plain | h5
-| | | | | +-part_format_name | text/plain | 
+| | | | | +-part_format_name | text/plain | flow/branch
 | | | | | +-part_example_header | text/plain | Example
 | | | | | | #-tag | text/plain | h5
-| | | | | +-part_example_name | text/plain | 
+| | | | | +-part_example_name | text/plain |     <part name="branch_voltage" channel="inline" format="flow/branch" model="">
+        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
+        <property name="true" channel="file" format="element/part" model="indoor_climate/add_voltage.cybol"/>
+        <property name="false" channel="file" format="element/part" model="indoor_climate/report_voltage_failure.cybol"/>
+    </part>
 | | | | | | #-preformatted | logicvalue/boolean | true
 | | | | | | #-tag | text/plain | div
 | | | | | | #-class | text/plain | part_example
@@ -3506,6 +3808,42 @@
 | | | | | | | | #-tag | text/plain | th
 | | | | | | | +-column_model | text/plain | model
 | | | | | | | | #-tag | text/plain | th
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-criterion | element/part | 
+| | | | | | | +-column_name | text/plain | criterion
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the flag specifying which of the two models to execute
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | path/* | logicvalue/boolean
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-true | element/part | 
+| | | | | | | +-column_name | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the logic knowledge model to be executed if the condition is true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | element/part
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | #-tag | text/plain | tr
+| | | | | | +-false | element/part | 
+| | | | | | | +-column_name | text/plain | false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_description | text/plain | the logic knowledge model to be executed if the condition is false
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_required | text/plain | true
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_format | text/plain | element/part
+| | | | | | | | #-tag | text/plain | td
+| | | | | | | +-column_model | text/plain | 
+| | | | | | | | #-tag | text/plain | td
 | | | | | | | #-tag | text/plain | tr
 | | | | | | #-tag | text/plain | table
 | | | | | | #-class | text/plain | property_table

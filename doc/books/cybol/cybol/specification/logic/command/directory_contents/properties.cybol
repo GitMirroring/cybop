@@ -1,0 +1,65 @@
+<model>
+    <part name="path" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="path"/>
+        <property name="description" channel="inline" format="text/plain" model="the listing for the given path (the default is the current directory)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="all" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="all"/>
+        <property name="description" channel="inline" format="text/plain" model="the list all option (showing hidden, current . and upper .. directory)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="long" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="long"/>
+        <property name="description" channel="inline" format="text/plain" model="the long listing option (showing user rights etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="one row per entry" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="one row per entry"/>
+        <property name="description" channel="inline" format="text/plain" model="the listing for showing one file or directory per row"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="recursive" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="recursive"/>
+        <property name="description" channel="inline" format="text/plain" model="the list for all files and directories, looking up all directories recursively for additional files and directories for the listing"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="short" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="short"/>
+        <property name="description" channel="inline" format="text/plain" model="the short version of the files and directory listing"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="sort by file size" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="sort by file size"/>
+        <property name="description" channel="inline" format="text/plain" model="sorts the current listing by file size"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="sort by modification date" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="sort by modification date"/>
+        <property name="description" channel="inline" format="text/plain" model="sorts the current listing by the file and directory modification date"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="sort by extension" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="sort by extension"/>
+        <property name="description" channel="inline" format="text/plain" model="sorts the current listing alphabetically by file extension"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

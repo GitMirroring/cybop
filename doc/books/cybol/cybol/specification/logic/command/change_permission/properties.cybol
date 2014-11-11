@@ -1,0 +1,51 @@
+<model>
+    <part name="path" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="path"/>
+        <property name="description" channel="inline" format="text/plain" model="The path to the file or directory."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="user" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="user"/>
+        <property name="description" channel="inline" format="text/plain" model="The user rights."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain" />
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="group" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="group"/>
+        <property name="description" channel="inline" format="text/plain" model="The group rights."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="other" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="group"/>
+        <property name="description" channel="inline" format="text/plain" model="The rights for anyone."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="recursive" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="recursive"/>
+        <property name="description" channel="inline" format="text/plain" model="change files and directories recursively"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+        <part name="silent" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="silent"/>
+        <property name="description" channel="inline" format="text/plain" model="supress most error messages"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="verbose" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="verbose"/>
+        <property name="description" channel="inline" format="text/plain" model="output a diagnostic for every file processed"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

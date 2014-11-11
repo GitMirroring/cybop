@@ -1,0 +1,37 @@
+<model>
+    <part name="source" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="source"/>
+        <property name="description" channel="inline" format="text/plain" model="the path of the file or the directory which sould be moved"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	<part name="destination" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="destination"/>
+        <property name="description" channel="inline" format="text/plain" model="the path of the file or the directory which sould be moved"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="force" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="force"/>
+        <property name="description" channel="inline" format="text/plain" model="the force option (never ask for permission to move any files or directories)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="interactive" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="interactive"/>
+        <property name="description" channel="inline" format="text/plain" model="the interactive option (askes everytime for permission of moving a file or directory)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	<part name="verbal" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="verbal"/>
+        <property name="description" channel="inline" format="text/plain" model="the verbal option (shows what have been moved)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+</model>
