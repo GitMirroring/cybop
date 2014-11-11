@@ -1,7 +1,7 @@
 <model>
 
     <part name="display" channel="file" format="element/part" model="calculator/tui/main/menu/display.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,3"/>
+        <property name="position" channel="inline" format="number/integer" model="3,2"/>
         <property name="size" channel="inline" format="number/integer" model="25,4"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -9,7 +9,7 @@
     </part>
 
     <part name="seven" channel="file" format="element/part" model="calculator/tui/main/menu/seven.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,8"/>
+        <property name="position" channel="inline" format="number/integer" model="3,7"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -24,7 +24,7 @@
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="eight" channel="file" format="element/part" model="calculator/tui/main/menu/eight.cybol">
-        <property name="position" channel="inline" format="number/integer" model="7,8"/>
+        <property name="position" channel="inline" format="number/integer" model="7,7"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -34,12 +34,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="nine" channel="file" format="element/part" model="calculator/tui/main/menu/nine.cybol">
-        <property name="position" channel="inline" format="number/integer" model="11,8"/>
+        <property name="position" channel="inline" format="number/integer" model="11,7"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -49,12 +49,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="four" channel="file" format="element/part" model="calculator/tui/main/menu/four.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,12"/>
+        <property name="position" channel="inline" format="number/integer" model="3,11"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -64,12 +64,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="five" channel="file" format="element/part" model="calculator/tui/main/menu/five.cybol">
-        <property name="position" channel="inline" format="number/integer" model="7,12"/>
+        <property name="position" channel="inline" format="number/integer" model="7,11"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -79,12 +79,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="six" channel="file" format="element/part" model="calculator/tui/main/menu/six.cybol">
-        <property name="position" channel="inline" format="number/integer" model="11,12"/>
+        <property name="position" channel="inline" format="number/integer" model="11,11"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -94,12 +94,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="one" channel="file" format="element/part" model="calculator/tui/main/menu/one.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,16"/>
+        <property name="position" channel="inline" format="number/integer" model="3,15"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -109,12 +109,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="two" channel="file" format="element/part" model="calculator/tui/main/menu/two.cybol">
-        <property name="position" channel="inline" format="number/integer" model="7,16"/>
+        <property name="position" channel="inline" format="number/integer" model="7,15"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -124,12 +124,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="three" channel="file" format="element/part" model="calculator/tui/main/menu/three.cybol">
-        <property name="position" channel="inline" format="number/integer" model="11,16"/>
+        <property name="position" channel="inline" format="number/integer" model="11,15"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -139,12 +139,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="zero" channel="file" format="element/part" model="calculator/tui/main/menu/zero.cybol">
-        <property name="position" channel="inline" format="number/integer" model="3,20"/>
+        <property name="position" channel="inline" format="number/integer" model="3,19"/>
         <property name="size" channel="inline" format="number/integer" model="11,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -154,13 +154,13 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
 
     <part name="addition" channel="file" format="element/part" model="calculator/tui/main/menu/addition.cybol">
-        <property name="position" channel="inline" format="number/integer" model="17,8"/>
+        <property name="position" channel="inline" format="number/integer" model="17,7"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -170,12 +170,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
     <part name="subtraction" channel="file" format="element/part" model="calculator/tui/main/menu/subtraction.cybol">
-        <property name="position" channel="inline" format="number/integer" model="21,8"/>
+        <property name="position" channel="inline" format="number/integer" model="21,7"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -185,12 +185,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
     <part name="squareroot" channel="file" format="element/part" model="calculator/tui/main/menu/squareroot.cybol">
-        <property name="position" channel="inline" format="number/integer" model="25,8"/>
+        <property name="position" channel="inline" format="number/integer" model="25,7"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -200,12 +200,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
     <part name="multiplication" channel="file" format="element/part" model="calculator/tui/main/menu/multiplication.cybol">
-        <property name="position" channel="inline" format="number/integer" model="17,12"/>
+        <property name="position" channel="inline" format="number/integer" model="17,11"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -215,12 +215,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
     <part name="division" channel="file" format="element/part" model="calculator/tui/main/menu/division.cybol">
-        <property name="position" channel="inline" format="number/integer" model="21,12"/>
+        <property name="position" channel="inline" format="number/integer" model="21,11"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -230,12 +230,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
     <part name="square" channel="file" format="element/part" model="calculator/tui/main/menu/square.cybol">
-        <property name="position" channel="inline" format="number/integer" model="25,12"/>
+        <property name="position" channel="inline" format="number/integer" model="25,11"/>
         <property name="size" channel="inline" format="number/integer" model="3,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -245,12 +245,12 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
     <part name="equals" channel="file" format="element/part" model="calculator/tui/main/menu/equals.cybol">
-        <property name="position" channel="inline" format="number/integer" model="17,20"/>
+        <property name="position" channel="inline" format="number/integer" model="17,19"/>
         <property name="size" channel="inline" format="number/integer" model="11,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
@@ -260,14 +260,14 @@
         <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.??"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.??"/>
     </part>
 
     <part name="help" channel="file" format="element/part" model="calculator/tui/main/menu/help.cybol">
-        <property name="position" channel="inline" format="number/integer" model="35,3"/>
-        <property name="size" channel="inline" format="number/integer" model="30,20"/>
+        <property name="position" channel="inline" format="number/integer" model="35,2"/>
+        <property name="size" channel="inline" format="number/integer" model="40,20"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
