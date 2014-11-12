@@ -17,6 +17,7 @@ ___
         * Eliminate error due to missing <div> tag in generated html file
         * Receive "wui/template/properties.cybol" file containing div tag
         * See "lehre/systems_implementation/overview/project/" as better solution
+        * Put date for title into separate knowledge tree node, for easier maintenance
 
 WUI
 ___
