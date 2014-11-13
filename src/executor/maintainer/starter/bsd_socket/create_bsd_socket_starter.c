@@ -113,17 +113,17 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
                     }
 */
 
-                    // The address data, size.
+                    // The socket address data, size.
                     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
                     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
                     // The error flag.
                     int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-                    // Initialise address depending on family.
+                    // Initialise socket address depending on family.
                     // CAUTION! Hand over address data as pointer reference,
                     // since it gets allocated inside the function and
                     // has to be preserved as return value.
-                    startup_bsd_socket_initialise((void*) &ad, (void*) &as, p3, p4, p5);
+                    startup_bsd_socket_socket_address((void*) &ad, (void*) &as, p3, p4, p5);
                     // Bind address to socket.
                     startup_bsd_socket_bind((void*) &e, (void*) &s, ad, (void*) &as);
 

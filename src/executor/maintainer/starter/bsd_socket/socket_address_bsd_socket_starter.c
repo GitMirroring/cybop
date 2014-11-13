@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INITIALISE_SOCKET_STARTER_SOURCE
-#define INITIALISE_SOCKET_STARTER_SOURCE
+#ifndef SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#define SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
@@ -33,15 +33,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Initialise address depending on the given address family.
+ * Startup socket address depending on the given address family.
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
- * @param p2 the host address (in network byte order) or file name data, depending on the family
- * @param p3 the socket port (in host byte order) or file name count, depending on the family
- * @param p4 the address family (namespace)
+ * @param p2 the filename data
+ * @param p3 the filename count
+ * @param p4 the host address data
+ * @param p5 the host address count
+ * @param p6 the socket port
+ * @param p7 the address family (namespace)
  */
-void startup_bsd_socket_initialise(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -51,14 +54,14 @@ void startup_bsd_socket_initialise(void* p0, void* p1, void* p2, void* p3, void*
 
             void** ad = (void**) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket initialise.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket socket address.");
 
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p4, (void*) AF_LOCAL);
+                compare_integer_equal((void*) &r, p7, (void*) AF_LOCAL);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -87,71 +90,65 @@ void startup_bsd_socket_initialise(void* p0, void* p1, void* p2, void* p3, void*
                     *ad = malloc(*as);
 
                     // Initialise address.
-                    startup_bsd_socket_initialise_local(*ad, p2, p3);
+                    startup_bsd_socket_socket_address_local(*ad, p2, p3);
                 }
             }
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p4, (void*) AF_INET);
+                compare_integer_equal((void*) &r, p7, (void*) AF_INET);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    // The host address.
+                    struct in_addr ha;
+                    // Get host address.
+                    startup_bsd_socket_host_address_inet((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
                     calculate_integer_add(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
-
                     // Allocate socket address.
                     *ad = malloc(*as);
-
-                    // The ipv4 host address of this system.
-                    struct in_addr ha;
-
-                    // Get host address.
-                    startup_bsd_socket_host((void*) &ha, p5, p6, (void*) &af);
-
                     // Initialise socket address.
-                    startup_bsd_socket_initialise_inet(*ad, (void*) &ha, socket_port);
+                    startup_bsd_socket_socket_address_inet(*ad, (void*) &ha, socket_port);
                 }
             }
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p4, (void*) AF_INET6);
+                compare_integer_equal((void*) &r, p7, (void*) AF_INET6);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                    // The host address.
+                    struct in6_addr ha;
+                    // Get host address.
+                    startup_bsd_socket_host_address_inet6((void*) &ha, p4, p5);
+
                     // Initialise socket address size.
                     calculate_integer_add(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
-
                     // Allocate socket address.
                     *ad = malloc(*as);
-
-                    // The ipv6 host address of this system.
-                    struct in6_addr ha6;
-
-                    // Get host address constant.
-                    startup_bsd_socket_host((void*) &ha6, p5, p6, (void*) &af);
-
                     // Initialise socket address.
-                    startup_bsd_socket_initialise_inet6(*ad, p2, p3);
+                    startup_bsd_socket_socket_address_inet6(*ad, (void*) &ha, socket_port);
                 }
             }
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise. The address family is unknown.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address. The address family is unknown.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise. The address data is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket initialise. The address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address. The address size is null.");
     }
 }
 
-/* INITIALISE_SOCKET_STARTER_SOURCE */
+/* SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
 #endif

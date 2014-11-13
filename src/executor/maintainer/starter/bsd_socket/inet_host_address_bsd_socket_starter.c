@@ -57,7 +57,14 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                (*a).s_addr = INADDR_LOOPBACK;
+                // Assign address.
+                //
+                // CAUTION! It has to be made sure that this value is represented
+                // in a canonical format called "NETWORK BYTE ORDER".
+                // That is specified by the internet protocols as convention
+                // for data transmitted over the network, so that machines
+                // with different byte order conventions can communicate.
+                (*a).s_addr = htonl(INADDR_LOOPBACK);
                 *a = in6addr_loopback;
             }
         }
@@ -68,7 +75,14 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                (*a).s_addr = INADDR_ANY;
+                // Assign address.
+                //
+                // CAUTION! It has to be made sure that this value is represented
+                // in a canonical format called "NETWORK BYTE ORDER".
+                // That is specified by the internet protocols as convention
+                // for data transmitted over the network, so that machines
+                // with different byte order conventions can communicate.
+                (*a).s_addr = htonl(INADDR_ANY);
                 *a = in6addr_any;
             }
         }
@@ -100,13 +114,25 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
             // with elements pointing to different memory areas now.
             copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            // Convert uint16_t integer hostshort from host byte order
-            // to network byte order.
+            // Convert internet address from presentation (textual)
+            // to network (binary) format, the latter being an integer.
             //
             // CAUTION! It is the caller's responsibility to make sure
             // the destination parametre p0 is large enough.
+            //
+            // CAUTION! The returned int value is already in network byte order.
             inet_pton(AF_INET, (char*) td, p0);
             inet_pton(AF_INET6, (char*) td, p0);
+
+            // Assign address.
+            //
+            // CAUTION! It has to be made sure that this value is represented
+            // in a canonical format called "NETWORK BYTE ORDER".
+            // That is specified by the internet protocols as convention
+            // for data transmitted over the network, so that machines
+            // with different byte order conventions can communicate.
+            (*a).s_addr = ??;
+            *a = ??;
 
             // Deallocate terminated address item.
             deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -114,7 +140,7 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet. The host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet. The inet host address is null.");
     }
 }
 

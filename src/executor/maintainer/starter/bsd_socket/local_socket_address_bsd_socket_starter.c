@@ -31,11 +31,11 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Initialise local socket address.
+ * Startup local socket address.
  *
- * @param p0 the local address data
- * @param p1 the file name data
- * @param p2 the file name count
+ * @param p0 the local socket address data
+ * @param p1 the filename data
+ * @param p2 the filename count
  */
 void startup_bsd_socket_socket_address_local(void* p0, void* p1, void* p2) {
 

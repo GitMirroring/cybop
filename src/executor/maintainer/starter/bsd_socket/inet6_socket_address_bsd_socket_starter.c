@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE
-#define INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE
+#ifndef INET6_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#define INET6_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -102,5 +102,5 @@ void startup_bsd_socket_socket_address_inet6(void* p0, void* p1, void* p2) {
     }
 }
 
-/* INET6_INITIALISE_BSD_SOCKET_STARTER_SOURCE */
+/* INET6_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
 #endif

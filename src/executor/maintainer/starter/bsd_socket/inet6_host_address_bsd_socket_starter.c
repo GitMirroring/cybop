@@ -33,12 +33,11 @@
 /**
  * Determines inet6 host address.
  *
- * @param p0 the ipv4 or ipv6 host address, depending on the address namespace (pointer reference)
- * @param p1 the address model data
- * @param p2 the address model count
- * @param p3 the address namespace
+ * @param p0 the inet6 host address
+ * @param p1 the host address data
+ * @param p2 the host address count
  */
-void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2, void* p3) {
+void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
     // This test IS necessary, since the host address is assigned directly,
     // using the assignment operator and not a copy function.
@@ -51,7 +50,7 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2, void* p
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet6. The host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet6. The inet6 host address is null.");
     }
 }
 
