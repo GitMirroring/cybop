@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!--
+-->
+<gui>
+	<widgetgroup title="Layouts">
+		<widget name="Vertical Layout" file="" icon=""/>
+		<widget name="Horizontal Layout" file="" icon="" />
+		<widget name="Grid Layout" file="" icon="" />
+		<widget name="Form Layout" file="" icon="" />
+		<widget name="Absolute Layout" file="" icon=""/>
+	</widgetgroup>
+	<widgetgroup title="Spacers">
+		<widget name="Horizontal Spacer" file="" icon="" />
+		<widget name="Vertical Spacer" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Buttons">
+		<widget name="Push Button" file="" icon="" />
+		<widget name="Push Button" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Containers">
+		<widget name="Push Button" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Input Widgets">
+		<widget name="ComboBox" file="" icon="" />
+		<widget name="EditField" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Display Widgets">
+		<widget name="Label" file="" icon="" />
+	</widgetgroup>
+
+</gui>
