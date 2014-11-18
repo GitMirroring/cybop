@@ -11,6 +11,19 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Random
+______
+
+        * Implement operation "calculate/randomise" or "randomise/xyz"
+        * See glibc manual
+
+        <property "result" .../>
+        <property "minimum" .../>
+        <property "maximum" .../>
+        <property "seed" .../>
+        <property "inclusive" (or exclusive min and max) .../>
+        <property "type" (integer oder double) .../>
+
 API
 ___
 
@@ -21,8 +34,8 @@ ___
 WUI
 ___
 
-        * Continue bsd_socket
-        * Think through host to network byte order conversion
+        * Investigate network byte order conversion for ipv6 address:
+            http://stackoverflow.com/questions/14301973/is-network-byte-order-pointless-under-ipv6
         * Adapt function "startup_socket_get_host_address",
             variable "terminated address model",
             in file "socket_starter.c" to new model constants

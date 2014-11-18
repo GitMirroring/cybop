@@ -26,6 +26,8 @@
 #ifndef INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 #define INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 
+#include <arpa/inet.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -33,18 +35,31 @@
 /**
  * Determines inet host address.
  *
- * @param p0 the inet host address
+ * CAUTION! It has to be made sure that the host address is
+ * represented in a canonical format called "NETWORK BYTE ORDER".
+ * That is specified by the internet protocols as convention
+ * for data transmitted over the network, so that machines
+ * with different byte order conventions can communicate.
+ *
+ * It would actually be possible to convert the host address
+ * later and use HOST byte order for loopback and any.
+ * But since the "inet_pton" function used below for
+ * directly input addresses returns its address in
+ * NETWORK byte order, that was used for local and any as well.
+ *
+ * @param p0 the inet host address (in network byte order)
  * @param p1 the host address data
  * @param p2 the host address count
  */
 void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
-    // This test IS necessary, since the host address is assigned directly,
-    // using the assignment operator and not a copy function.
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        // This data type is used in certain contexts
+        // to contain an IPv4 Internet host address.
+        // It has just one field, named s_addr, which
+        // records the host address number as an uint32_t.
         struct in_addr* a = (struct in_addr*) p0;
-        struct in6_addr* a = (struct in6_addr*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket host address inet.");
 
@@ -59,13 +74,19 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
                 // Assign address.
                 //
-                // CAUTION! It has to be made sure that this value is represented
-                // in a canonical format called "NETWORK BYTE ORDER".
-                // That is specified by the internet protocols as convention
-                // for data transmitted over the network, so that machines
-                // with different byte order conventions can communicate.
+                // One can use the INADDR_LOOPBACK constant
+                // to stand for the address of this machine,
+                // instead of finding its actual address.
+                // It is the IPv4 Internet address '127.0.0.1',
+                // which is usually called 'localhost'.
+                // This special constant saves the trouble of
+                // looking up the address of one's own machine.
+                // Also, the system usually implements it specially,
+                // avoiding any network traffic for the case
+                // of one machine talking to itself.
+                //
+                // CAUTION! Convert to NETWORK byte order.
                 (*a).s_addr = htonl(INADDR_LOOPBACK);
-                *a = in6addr_loopback;
             }
         }
 
@@ -77,13 +98,14 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
                 // Assign address.
                 //
-                // CAUTION! It has to be made sure that this value is represented
-                // in a canonical format called "NETWORK BYTE ORDER".
-                // That is specified by the internet protocols as convention
-                // for data transmitted over the network, so that machines
-                // with different byte order conventions can communicate.
+                // One can use the INADDR_ANY constant to stand
+                // for any incoming address, when binding to an address.
+                // This is the usual address to give in
+                // the sin_addr member of struct sockaddr_in
+                // when you want to accept Internet connections.
+                //
+                // CAUTION! Convert to NETWORK byte order.
                 (*a).s_addr = htonl(INADDR_ANY);
-                *a = in6addr_any;
             }
         }
 
@@ -96,6 +118,8 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
             void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The terminated address item data.
             void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+            // The internet address in network (binary) format.
+            uint32_t n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Allocate terminated address item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -117,22 +141,11 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
             // Convert internet address from presentation (textual)
             // to network (binary) format, the latter being an integer.
             //
-            // CAUTION! It is the caller's responsibility to make sure
-            // the destination parametre p0 is large enough.
-            //
-            // CAUTION! The returned int value is already in network byte order.
-            inet_pton(AF_INET, (char*) td, p0);
-            inet_pton(AF_INET6, (char*) td, p0);
+            // CAUTION! The returned value is already in NETWORK byte order.
+            inet_pton(AF_INET, (char*) td, (void*) &n);
 
             // Assign address.
-            //
-            // CAUTION! It has to be made sure that this value is represented
-            // in a canonical format called "NETWORK BYTE ORDER".
-            // That is specified by the internet protocols as convention
-            // for data transmitted over the network, so that machines
-            // with different byte order conventions can communicate.
-            (*a).s_addr = ??;
-            *a = ??;
+            (*a).s_addr = n;
 
             // Deallocate terminated address item.
             deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

@@ -30,6 +30,11 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/inet_host_address_bsd_socket_starter.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/inet_socket_address_bsd_socket_starter.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/inet6_host_address_bsd_socket_starter.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/inet6_socket_address_bsd_socket_starter.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/local_socket_address_bsd_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -103,6 +108,8 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // The host address.
                     struct in_addr ha;
                     // Get host address.
+                    // CAUTION! The returned host address
+                    // is already in network byte order.
                     startup_bsd_socket_host_address_inet((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
@@ -110,6 +117,8 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Allocate socket address.
                     *ad = malloc(*as);
                     // Initialise socket address.
+                    // CAUTION! The forwarded host address
+                    // is already in network byte order.
                     startup_bsd_socket_socket_address_inet(*ad, (void*) &ha, socket_port);
                 }
             }
