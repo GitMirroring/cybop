@@ -45,6 +45,8 @@
 *
 * Expected parametres:
 * - host (required): host, to be pinged
+* - count (optional): count of ping packets to send
+* - interface (optional): interface to send packets on
 *
 * Constraints:
 *
@@ -60,11 +62,15 @@ void apply_ping(void* p0, void* p1, void* p2) {
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interface part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The host part model item.
     void* hm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interface part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The host part model item data and count.
     void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -72,16 +78,23 @@ void apply_ping(void* p0, void* p1, void* p2) {
     // The count part model item data and count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The interface part model item data and count.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get host part.
     get_part_knowledge((void*) &h, p0, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
     get_part_knowledge((void*) &c, p0, (void*) COUNT_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) COUNT_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get interface part.
+    get_part_knowledge((void*) &i, p0, (void*) INTERFACE_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERFACE_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get host part model item.
     copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get host part model item.
+    // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get interface part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get host part model item data and count.
     copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -89,8 +102,11 @@ void apply_ping(void* p0, void* p1, void* p2) {
     // Get count part model item data and count.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get interface part model item data and count.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &imc, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    command_ping(hmd, hmc, cmd, cmc);
+    command_ping(hmd, hmc, cmd, cmc, imd, imc);
 }
 
 /* PING_SOURCE */

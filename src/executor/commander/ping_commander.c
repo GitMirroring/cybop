@@ -69,9 +69,12 @@
 * @param hmc the host model count
 * @param cmd the count model data
 * @param cmc the count model count
-
+* @param imd the interface model data
+* @param imc the interface model count
+*
+*
 */
-void command_ping(void* hmd, void* hmc, void* cmd, void* cmc) {
+void command_ping(void* hmd, void* hmc, void* cmd, void* cmc, void* imd, void* imc) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command ping.");
 
@@ -120,6 +123,32 @@ void command_ping(void* hmd, void* hmc, void* cmd, void* cmc) {
 #endif
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+
+        // Reset comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, imd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append interface option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#ifdef __APPLE__
+            append_item_element(arg, (void*) INTERFACE_PING_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERFACE_PING_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(arg, (void*) INTERFACE_PING_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERFACE_PING_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+            append_item_element(arg, (void*) INTERFACE_PING_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERFACE_PING_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
+
+#ifndef WIN32
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, imd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
         }
 
         // Reset comparison result.

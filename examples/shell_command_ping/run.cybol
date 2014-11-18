@@ -1,8 +1,9 @@
 <model>
 
-    <part name="chmod_file" channel="inline" format="command/ping" model="">
+    <part name="ping" channel="inline" format="command/ping" model="">
         <property name="host" channel="inline" format="text/plain" model="www.google.com"/>
         <property name="count" channel="inline" format="text/plain" model="5"/>
+	<property name="interface" channel="inline" format="text/plain" model="eth0"/>
     </part>
 
     <part name="exit" channel="inline" format="live/exit" model=""/>
