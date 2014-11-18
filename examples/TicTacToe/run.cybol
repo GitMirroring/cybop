@@ -1,0 +1,489 @@
+<model>
+
+//Erstellen des Temp-Knotens
+    <part name="create_temporary" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="temporary"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des Computerinput
+    <part name="create_computerinput" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="computerinput"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des Checkcomputerinput
+    <part name="create_checkcomputerinput" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checkcomputerinput"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des Setrandom
+    <part name="create_setrandom" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="setrandom"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des Checkloose
+    <part name="create_checkloose" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checkloose"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des Playerloose
+    <part name="create_playerloose" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="playerloose"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des startgame
+    <part name="create_startgame" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="startgame"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des playerwin
+    <part name="create_startgame" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="playerwin"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des checkwin
+    <part name="create_checkwin" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checkwin"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des draw
+    <part name="create_draw" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checkwin"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des playerturn
+    <part name="create_playerturn" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="playerturn"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des setfields
+    <part name="create_playerturn" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="setfields"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des computerturn
+    <part name="create_computerturn" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="computerturn"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des checkplayerinput
+    <part name="create_checkplayerinput" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checkplayerinput"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des playerinput
+    <part name="create_playerinput" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="playerinput"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des printfield
+    <part name="create_printfield" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="printfield"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des exit
+    <part name="create_exit" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="exit"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des checknewgame
+    <part name="create_checknewgame" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checknewgame"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen der inputnewgame
+    <part name="create_nothing" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="inputnewgame"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des inting
+    <part name="create_inting" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="inting"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+
+
+//Temp initialisieren
+    <part name="initialise_temporary" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/temporary.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".temporary"/>
+    </part>
+
+    <part name="initialise_computerinput" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/computerinput.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".computerinput"/>
+    </part>
+
+    <part name="initialise_checkcomputerinput" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/checkcomputerinput.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".checkcomputerinput"/>
+    </part>
+
+    <part name="initialise_setrandom" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/setrandom.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".setrandom"/>
+    </part>
+
+    <part name="initialise_checkloose" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/checkloose.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".checkloose"/>
+    </part>
+
+    <part name="initialise_playerloose" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/playerloose.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".playerloose"/>
+    </part>
+
+//playerwin initialisieren
+    <part name="initialise_playerwin" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/playerwin.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".playerwin"/>
+    </part>
+
+//Exit initialisieren 
+    <part name="initialise_exit" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/exit.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".exit"/>
+    </part>#
+
+//Checkplayerinput initialisieren 
+    <part name="initialise_checkplayerinput" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/checkplayerinput.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".checkplayerinput"/>
+    </part>
+
+//Playerinput initialisieren 
+    <part name="initialise_playerinput" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/playerinput.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".playerinput"/>
+    </part>
+
+//Setfields initialisieren 
+    <part name="initialise_setfields" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/setfields.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".setfields"/>
+    </part>
+
+//Checkwin initialisieren 
+    <part name="initialise_checkwin" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/checkwin.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".checkwin"/>
+    </part>
+
+//Draw initialisieren 
+    <part name="initialise_draw" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/draw.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".draw"/>
+    </part>
+
+//Computerturn initialisieren 
+    <part name="initialise_computerturn" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/computerturn.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".computerturn"/>
+    </part>
+
+//Playerturn initialisieren 
+    <part name="initialise_playerturn" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/playerturn.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".playerturn"/>
+    </part>
+
+//Printfield initialisieren 
+    <part name="initialise_printfield" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/printfield.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".printfield"/>
+    </part>
+
+//Startgame initialisieren 
+    <part name="initialise_printfield" channel="inline" format="communicate/receive" model="">
+      <property name="channel" channel="inline" format="meta/channel" model="file"/>
+      <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+      <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="message" channel="inline" format="text/plain" model="TicTacToe/startgame.cybol"/>
+      <property name="model" channel="inline" format="path/knowledge" model=".startgame"/>
+    </part>
+
+//Checknewgame initialisieren
+    <part name="initialise_checknewgame" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/checknewgame.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".checknewgame"/>
+    </part>
+
+//Inputnewgame initialisieren
+    <part name="initialise_inputnewgame" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/inputnewgame.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".inputnewgame"/>
+    </part>
+
+//Inting initialisieren
+    <part name="initialise_inting" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/inting.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".inting"/>
+    </part>
+
+
+
+
+
+
+
+
+//alle Baumknoten ausgeben
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".startgame"/>
+        <property name="receiver" channel="inline" format="text/plain" model="TicTacToe.txt"/>
+    </part>
+
+
+
+
+//Starten
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
+
+
+//String-Ausgabe
+
+    <part name="newline0" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitung1" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="ANLEITUNG:"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitung2" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Beenden: q eingeben"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitung3" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Feld auswählen: Zahl (1-9) eingeben"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitung4" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Feldbelegung:"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="newline1" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitung5" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="1|2|3"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitungstartgame6" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="4|5|6"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="anleitung7" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="7|8|9"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="newline2" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="newline3" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model=""/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+
+
+// Wechsel zu .startgame
+    <part name="start_command" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".startgame"/>
+    </part>
+
+
+
+
+</model>

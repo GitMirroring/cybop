@@ -1,0 +1,14 @@
+<model>
+
+// Wechsel zu .printfield
+    <part name="start_printfield" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".printfield"/>
+    </part>
+
+// Wechsel zu .computerinput
+    <part name="start_playerinput" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".computerinput"/>
+    </part>
+
+
+</model>

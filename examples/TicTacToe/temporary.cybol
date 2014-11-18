@@ -1,0 +1,38 @@
+<model>
+   
+// Flags und Variablen setzen
+
+    <part name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="no_newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="exit_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="win_flag_player" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="win_flag_pc" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <part name="command" channel="inline" format="text/plain" model=""/>
+
+    <part name="field_1" channel="inline" format="text/plain" model=""/>
+    <part name="field_2" channel="inline" format="text/plain" model=""/>
+    <part name="field_3" channel="inline" format="text/plain" model=""/>
+    <part name="field_4" channel="inline" format="text/plain" model=""/>
+    <part name="field_5" channel="inline" format="text/plain" model=""/>
+    <part name="field_6" channel="inline" format="text/plain" model=""/>
+    <part name="field_7" channel="inline" format="text/plain" model=""/>
+    <part name="field_8" channel="inline" format="text/plain" model=""/>
+    <part name="field_9" channel="inline" format="text/plain" model=""/>
+
+
+    <part name="flag_field_1" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_2" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_3" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_4" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_5" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_6" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_7" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_8" channel="inline" format="logicvalue/boolean" model="false"/>
+    <part name="flag_field_9" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <part name="flag_field_empty" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <part name="wingame" channel="inline" format="logicvalue/boolean" model="false"/>
+
+</model> 

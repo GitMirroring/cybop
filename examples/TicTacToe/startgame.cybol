@@ -1,0 +1,21 @@
+<model> 
+//String-Ausgabe
+    <part name="neues_spiel" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Neues Spiel starten? [y/n]"/>
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+// Wechsel zu .inputnewgame
+    <part name="start_command" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".inputnewgame"/>
+    </part>
+
+
+
+
+</model>
