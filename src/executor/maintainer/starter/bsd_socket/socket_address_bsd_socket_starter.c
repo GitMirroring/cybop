@@ -46,7 +46,7 @@
  * @param p3 the filename count
  * @param p4 the host address data
  * @param p5 the host address count
- * @param p6 the socket port
+ * @param p6 the port
  * @param p7 the address family (namespace)
  */
 void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
@@ -119,7 +119,7 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Initialise socket address.
                     // CAUTION! The forwarded host address
                     // is already in network byte order.
-                    startup_bsd_socket_socket_address_inet(*ad, (void*) &ha, socket_port);
+                    startup_bsd_socket_socket_address_inet(*ad, (void*) &ha, p6);
                 }
             }
 
@@ -132,6 +132,8 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // The host address.
                     struct in6_addr ha;
                     // Get host address.
+                    // CAUTION! The returned host address
+                    // is already in network byte order.
                     startup_bsd_socket_host_address_inet6((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
@@ -139,7 +141,9 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Allocate socket address.
                     *ad = malloc(*as);
                     // Initialise socket address.
-                    startup_bsd_socket_socket_address_inet6(*ad, (void*) &ha, socket_port);
+                    // CAUTION! The forwarded host address
+                    // is already in network byte order.
+                    startup_bsd_socket_socket_address_inet6(*ad, (void*) &ha, p6);
                 }
             }
 

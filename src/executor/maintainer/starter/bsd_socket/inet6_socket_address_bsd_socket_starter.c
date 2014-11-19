@@ -35,7 +35,7 @@
  *
  * @param p0 the inet6 socket address
  * @param p1 the host address (in network byte order)
- * @param p2 the socket port (in host byte order)
+ * @param p2 the port (in host byte order)
  */
 void startup_bsd_socket_socket_address_inet6(void* p0, void* p1, void* p2) {
 
@@ -70,20 +70,19 @@ void startup_bsd_socket_socket_address_inet6(void* p0, void* p1, void* p2) {
                 // It stores 128 bits of data, which can be accessed
                 // (via a union) in a variety of ways.
                 //
-                // CAUTION! The host address parametre is already given in
-                // network byte order, so that it does NOT have to be converted!
+                // CAUTION! The host address has to be in NETWORK byte order.
                 (*a).sin6_addr = *h;
 
                 // Set flow information.
                 //
-                // CAUTION! This is a currently unimplemented field,
+                // CAUTION! This is a currently unimplemented field of type uint32_t,
                 // as written in the gnu c library documentation.
-                // (*a).sin6_flowinfo = ??
+                // Several documentations on the web recommend setting it to ZERO.
+                (*a).sin6_flowinfo = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 // Set socket port.
                 //
-                // CAUTION! The port number is given in host byte order and
-                // HAS TO BE converted into network byte order!
+                // CAUTION! The port has to be in NETWORK byte order.
                 (*a).sin6_port = htons(*p);
 
             } else {

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue bsd socket
+
 2014-11-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move style and family (namespace) files from directory "socket" into "bsd_socket"

@@ -54,6 +54,8 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket.");
 
+        // The socket.
+        int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The protocol family (socket namespace).
         int pf = PF_INET6;
         // The address family (namespace).

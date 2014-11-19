@@ -34,7 +34,7 @@
  * Initialise inet socket address.
  *
  * @param p0 the inet socket address
- * @param p1 the host address (in host byte order)
+ * @param p1 the host address (in network byte order)
  * @param p2 the port (in host byte order)
  */
 void startup_bsd_socket_socket_address_inet(void* p0, void* p1, void* p2) {
@@ -53,11 +53,6 @@ void startup_bsd_socket_socket_address_inet(void* p0, void* p1, void* p2) {
 
                 log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket socket address inet.");
 
-                // Convert host address from host byte order to network byte order.
-                uint32_t hn = htonl(*h);
-                // Convert port from host byte order to network byte order.
-                uint16_t pn = htons(*p);
-
                 // Set address family (namespace).
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
@@ -75,21 +70,13 @@ void startup_bsd_socket_socket_address_inet(void* p0, void* p1, void* p2) {
                 // IPv4 internet host address. It has just one field, named
                 // "s_addr", which records the host address number as an "uint32_t".
                 //
-                // CAUTION! It has to be made sure that this value is represented
-                // in a canonical format called "NETWORK BYTE ORDER".
-                // That is specified by the internet protocols as convention
-                // for data transmitted over the network, so that machines
-                // with different byte order conventions can communicate.
-                (*a).sin_addr.s_addr = hn;
+                // CAUTION! The host address has to be in NETWORK byte order.
+                (*a).sin_addr.s_addr = *h;
 
                 // Set socket port.
                 //
-                // CAUTION! It has to be made sure that this value is represented
-                // in a canonical format called "NETWORK BYTE ORDER".
-                // That is specified by the internet protocols as convention
-                // for data transmitted over the network, so that machines
-                // with different byte order conventions can communicate.
-                (*a).sin_port = pn;
+                // CAUTION! The port has to be in NETWORK byte order.
+                (*a).sin_port = htons(*p);
 
             } else {
 

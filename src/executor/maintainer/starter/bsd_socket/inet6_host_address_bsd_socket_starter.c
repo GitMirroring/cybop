@@ -83,11 +83,12 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 // Also, the system usually implements it specially,
                 // avoiding any network traffic for the case
                 // of one machine talking to itself.
-                // The macro IN6ADDR_LOOPBACK_INIT is provided for
-                // initialisation of one's own variables to this value.
                 //
-                // CAUTION! Convert to NETWORK byte order.
-                *a = htonl(in6addr_loopback);
+                // CAUTION! While ipv4 constants are all defined in host byte order,
+                // the ipv6 constants are already defined in NETWORK byte order,
+                // so that a conversion is NOT necessary here:
+                // http://www.questionscompiled.com/ipv6-socket-api.html
+                *a = in6addr_loopback;
             }
         }
 
@@ -105,11 +106,12 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 // This is the usual address to give in
                 // the sin_addr member of struct sockaddr_in
                 // when you want to accept Internet connections.
-                // The macro IN6ADDR_ANY_INIT is provided for
-                // initialisation of one's own variables to this value.
                 //
-                // CAUTION! Convert to NETWORK byte order.
-                *a = htonl(in6addr_any);
+                // CAUTION! While ipv4 constants are all defined in host byte order,
+                // the ipv6 constants are already defined in NETWORK byte order,
+                // so that a conversion is NOT necessary here:
+                // http://www.questionscompiled.com/ipv6-socket-api.html
+                *a = in6addr_any;
             }
         }
 
@@ -123,7 +125,14 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             // The terminated address item data.
             void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The internet address in network (binary) format.
-            struct in6_addr n = IN6ADDR_LOOPBACK_INIT;
+            //
+            // CAUTION! While ipv4 constants are all defined in host byte order,
+            // the ipv6 constants are already defined in NETWORK byte order,
+            // so that a conversion is NOT necessary here:
+            // http://www.questionscompiled.com/ipv6-socket-api.html
+            //
+            // CAUTION! The loopback is used as default here.
+            struct in6_addr n = in6addr_loopback;
 
             // Allocate terminated address item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT

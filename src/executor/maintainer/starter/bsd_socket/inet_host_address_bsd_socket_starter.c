@@ -74,7 +74,7 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
                 // Assign address.
                 //
-                // One can use the INADDR_LOOPBACK constant
+                // One can use the INADDR_LOOPBACK constant (127.0.0.1)
                 // to stand for the address of this machine,
                 // instead of finding its actual address.
                 // It is the IPv4 Internet address '127.0.0.1',
@@ -98,8 +98,9 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
                 // Assign address.
                 //
-                // One can use the INADDR_ANY constant to stand
-                // for any incoming address, when binding to an address.
+                // One can use the INADDR_ANY constant (0.0.0.0)
+                // to stand for any incoming address,
+                // when binding to an address.
                 // This is the usual address to give in
                 // the sin_addr member of struct sockaddr_in
                 // when you want to accept Internet connections.
@@ -119,7 +120,11 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
             // The terminated address item data.
             void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The internet address in network (binary) format.
-            uint32_t n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            //
+            // CAUTION! Convert to NETWORK byte order.
+            //
+            // CAUTION! The loopback is used as default here.
+            uint32_t n = htonl(INADDR_LOOPBACK);
 
             // Allocate terminated address item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
