@@ -34,8 +34,8 @@ ___
 WUI
 ___
 
-        * Continue bsd_socket; almost done (also file "create_bsd_socket_starter.c"); continue in file "bsd_socket_starter.c" to adapt parametres and includes
-        * Consider creation of client socket
+        * Continue creation of client bsd socket; adapt parametres and includes
+        * Deallocate socket properly; addresses are allocated at startup and possibly have to be stored in internal memory in order to be freed again later
 
         * Write port de-/serialiser translating standard protocol into port and vice versa
         * Reactivate socket functionality

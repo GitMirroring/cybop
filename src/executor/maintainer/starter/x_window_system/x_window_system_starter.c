@@ -275,6 +275,7 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     xcb_create_gc((xcb_connection_t*) c, (xcb_gcontext_t) *((int*) gc), (xcb_drawable_t) *((int*) w), gcm, gcv);
 
                     // Store x window system items in internal memory.
+                    //
                     // CAUTION! Do NOT use "overwrite_array" function here,
                     // since it adapts the array count and size.
                     // But the internal array's count and size are CONSTANT.

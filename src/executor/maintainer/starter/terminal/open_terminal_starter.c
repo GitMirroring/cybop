@@ -55,11 +55,11 @@
  */
 void startup_terminal_open(void* p0) {
 
-    // The input- and output item.
+    // The input- and output data.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get input- and output item.
+    // Get input- and output data.
     copy_array_forward((void*) &ip, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &op, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
@@ -69,7 +69,7 @@ void startup_terminal_open(void* p0) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup terminal open.");
 
-        // Allocate input- and output array.
+        // Allocate input- and output data.
         //
         // A unix file descriptor AS WELL AS a win32
         // console handle is just an int value.
@@ -82,11 +82,16 @@ void startup_terminal_open(void* p0) {
         allocate_array((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
         allocate_array((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        // Set input- and output item.
+        // Set input- and output data.
+        //
         // CAUTION! Add it as soon as it was allocated above
         // ALWAYS and not only if opened successfully below.
         // Otherwise, in case of an error, the shutdown function
         // freeing it may not find it leading to a memory leak.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the internal array's count and size are CONSTANT.
         copy_array_forward(p0, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
@@ -101,7 +106,7 @@ void startup_terminal_open(void* p0) {
 #endif
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal open. The input- or output item or both already exist.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup terminal open. The input- or output data or both already exist.");
     }
 }
 

@@ -127,33 +127,14 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
                         // The socket address data, size.
                         void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
                         int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-                        // The error flag.
-                        int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
                         // Initialise socket address depending on family.
                         // CAUTION! Hand over address data as pointer reference,
                         // since it gets allocated inside the function and
                         // has to be preserved as return value.
                         startup_bsd_socket_socket_address((void*) &ad, (void*) &as, p4, p5, p6, p7, p8, p9);
-                        // Bind address to socket.
-                        startup_bsd_socket_bind((void*) &e, p0, ad, (void*) &as);
-
-                        if (e == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                            // CAUTION! Datagram sockets do NOT have connections,
-                            // which is why the "listen" function is ONLY called
-                            // for stream sockets here.
-                            if (*st == SOCK_STREAM) {
-
-                                // The second argument specifies the length of the queue for pending connections.
-                                // For now, just ONE client may connect (possibly to be adapted later).
-                                startup_bsd_socket_listen(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
-                            }
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket create. The address binding failed.");
-                        }
+                        // Startup client or server mode.
+                        startup_bsd_socket_mode(p0, ad, (void*) &as, p2 (style), connexions, mode_data, mode_count);
 
                     } else {
 

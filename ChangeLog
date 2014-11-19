@@ -20,7 +20,7 @@
 
 2014-11-19  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue bsd socket
+        * Prepare bsd socket for server and client usage
 
 2014-11-11  Christian Heller  <christian.heller@tuxtax.de>
 
