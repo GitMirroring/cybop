@@ -83,7 +83,7 @@ void apply_send_socket_get_socket_server_mode(void* p0, void* p1, void* p2) {
         pthread_mutex_t** mt = (pthread_mutex_t**) NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get socket mutex.
-        i = *base + *MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *MUTEX_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         get((void*) &mt, p1, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 */
 

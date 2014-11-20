@@ -63,7 +63,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for interrupt requests.");
 
         // The internal memory index.
-        int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         //
         // CAUTION! The boolean logic expressions below ARE NECESSARY for comparison, because:
@@ -75,26 +75,6 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
         // Otherwise, if an irq was retrieved AND its value is not false (irq is set),
         // this and further interrupts are NOT checked.
         //
-
-        if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
-
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected cyboi service interrupt.");
-
-            // Get interrupt request.
-            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-            // Get mutex.
-            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-            // Get handler.
-            copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-
-//?? fwprintf(stdout, L"TEST detected cyboi service irq: %i\n", *((int*) *irq));
-        }
 
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
@@ -137,16 +117,16 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected www service interrupt.");
 
             // Get interrupt request.
-            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             // Get mutex.
-            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) MUTEX_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             // Get handler.
-            copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) HANDLER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) HANDLER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
 //?? fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));

@@ -78,35 +78,6 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-/*??
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) CYBOI_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The base internal.
-            int base = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            // The internal memory index.
-            int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-            // The communication partner-connected socket of this system.
-            void** ps = NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get communication partner-connected socket of this system.
-            i = base + *COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &ps, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-    fwprintf(stdout, L"TEST ps: %i \n", *((int*) *ps));
-
-            // Receive model by reading http request or response.
-            //
-            // CAUTION! The properties are handed over as well,
-            // since they will store http headers as meta data.
-            receive_socket(p0, p1, *ps, p20, p21, p18, p19, p1, p2);
-        }
-    }
-*/
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p13, (void*) DISPLAY_CYBOI_CHANNEL);
@@ -159,11 +130,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            receive_socket(p0, p1, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p6, p7, p10, p11, p12, p13, p17, p18, p19, p20);
+//??            receive_socket(p0, p1, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) &receive_socket_www, p1, p2, p3, p6, p7, p10, p11, p12, p13, p17, p18, p19, p20);
         }
     }
 

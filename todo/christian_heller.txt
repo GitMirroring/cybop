@@ -34,8 +34,11 @@ ___
 WUI
 ___
 
+        * Figure out how to handle different ports/services (really hand over all of them to internal memory?)
+        * Replace "cyboi" and "www" with "socket"
         * Reactivate socket in file "starter.c"
         * Deallocate socket properly; addresses are allocated at startup and possibly have to be stored in internal memory in order to be freed again later
+        * Prepare using winsock2
 
         * Write port de-/serialiser translating standard protocol into port and vice versa
         * Provide two cybol properties in parallel:

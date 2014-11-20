@@ -58,14 +58,10 @@
  * Therefore, the knowledge memory and signal memory NEED TO BE ADDED
  * to the internal memory, in order to be forwardable to threads.
  *
- * @param p0 the internal memory data
+ * @param p0 the internal memory data (pointer reference)
  * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the signal memory item (pointer reference)
  * @param p3 the signal memory sleep time (pointer reference)
- * @param p4 the cyboi service enable flag (pointer reference)
- * @param p5 the cyboi service interrupt request flag (pointer reference)
- * @param p6 the cyboi service mutex (pointer reference)
- * @param p7 the cyboi service sleep time (pointer reference)
  * @param p8 the display enable flag (pointer reference)
  * @param p9 the display interrupt request flag (pointer reference)
  * @param p10 the display mutex (pointer reference)
@@ -78,10 +74,10 @@
  * @param p17 the terminal interrupt request flag (pointer reference)
  * @param p18 the terminal mutex (pointer reference)
  * @param p19 the terminal sleep time (pointer reference)
- * @param p20 the www service enable flag (pointer reference)
- * @param p21 the www service interrupt request flag (pointer reference)
- * @param p22 the www service mutex (pointer reference)
- * @param p23 the www service sleep time (pointer reference)
+ * @param p20 the socket service enable flag (pointer reference)
+ * @param p21 the socket service interrupt request flag (pointer reference)
+ * @param p22 the socket service mutex (pointer reference)
+ * @param p23 the socket service sleep time (pointer reference)
  */
 void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
     void* p4, void* p5, void* p6, void* p7,
@@ -143,7 +139,7 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
     //
 
     // The internal memory index.
-    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Set knowledge memory internals.
     copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -151,23 +147,6 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
     copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set signal memory sleep time.
     copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Set cyboi service enable flag.
-    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set cyboi service interrupt request flag.
-    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set cyboi service mutex.
-    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set cyboi service sleep time.
-    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) SLEEP_TIME_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set display enable flag.
     copy_array_forward(p0, p8, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
@@ -187,6 +166,23 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
     // Set serial port sleep time.
     copy_array_forward(p0, p15, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
+    // Set socket service interrupt request flag.
+    copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p20, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set socket service interrupt request flag.
+    copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p21, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set socket service mutex.
+    copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) MUTEX_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p22, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set socket service sleep time.
+    copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) SLEEP_TIME_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward(p0, p23, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
     // Set terminal enable flag.
     copy_array_forward(p0, p16, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set terminal interrupt request flag.
@@ -195,23 +191,6 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
     copy_array_forward(p0, p18, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Set terminal sleep time.
     copy_array_forward(p0, p19, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    // Set www service interrupt request flag.
-    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p20, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set www service interrupt request flag.
-    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p21, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set www service mutex.
-    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p22, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set www service sleep time.
-    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) SLEEP_TIME_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward(p0, p23, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* INTERNAL_MEMORY_MANAGER_SOURCE */

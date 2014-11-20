@@ -90,9 +90,6 @@ void manage(void* p0) {
     int signal_memory_sleep_time_array[1];
     int* signal_memory_sleep_time = signal_memory_sleep_time_array;
 
-    // The cyboi service enable flag.
-    int cyboi_service_enable_array[1];
-    int* cyboi_service_enable = cyboi_service_enable_array;
     // The display enable flag.
     int display_enable_array[1];
     int* display_enable = display_enable_array;
@@ -173,9 +170,6 @@ void manage(void* p0) {
     // away, and the system will detect the change when it occurs.
     //
 
-    // The cyboi service interrupt request flag.
-    volatile sig_atomic_t cyboi_service_irq_array[1];
-    volatile sig_atomic_t* cyboi_service_irq = cyboi_service_irq_array;
     // The display interrupt request flag.
     volatile sig_atomic_t display_irq_array[1];
     volatile sig_atomic_t* display_irq = display_irq_array;
@@ -189,9 +183,6 @@ void manage(void* p0) {
     volatile sig_atomic_t www_service_irq_array[1];
     volatile sig_atomic_t* www_service_irq = www_service_irq_array;
 
-    // The cyboi service mutex.
-    pthread_mutex_t cyboi_service_mutex_array[1];
-    pthread_mutex_t* cyboi_service_mutex = cyboi_service_mutex_array;
     // The display mutex.
     pthread_mutex_t display_mutex_array[1];
     pthread_mutex_t* display_mutex = display_mutex_array;
@@ -205,9 +196,6 @@ void manage(void* p0) {
     pthread_mutex_t www_service_mutex_array[1];
     pthread_mutex_t* www_service_mutex = www_service_mutex_array;
 
-    // The cyboi service sleep time.
-    int cyboi_service_sleep_time_array[1];
-    int* cyboi_service_sleep_time = cyboi_service_sleep_time_array;
     // The display sleep time.
     int display_sleep_time_array[1];
     int* display_sleep_time = display_sleep_time_array;
@@ -266,8 +254,6 @@ void manage(void* p0) {
     // Initialise signal memory sleep time.
     copy_integer((void*) signal_memory_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
-    // Initialise cyboi service enable flag.
-    copy_integer((void*) cyboi_service_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise display enable flag.
     copy_integer((void*) display_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise serial port enable flag.
@@ -277,8 +263,6 @@ void manage(void* p0) {
     // Initialise www service enable flag.
     copy_integer((void*) www_service_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Initialise cyboi service interrupt request flag.
-    copy_integer((void*) cyboi_service_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise display interrupt request flag.
     copy_integer((void*) display_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise serial port interrupt request flag.
@@ -294,8 +278,6 @@ void manage(void* p0) {
     // If the parametre is null, the mutex is initialised with default attributes.
     //
 
-    // Initialise cyboi service mutex.
-    pthread_mutex_init(cyboi_service_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise display mutex.
     pthread_mutex_init(display_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise serial port mutex.
@@ -305,8 +287,6 @@ void manage(void* p0) {
     // Initialise www service mutex.
     pthread_mutex_init(www_service_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    // Initialise cyboi service sleep time.
-    copy_integer((void*) cyboi_service_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise display sleep time.
     copy_integer((void*) display_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise serial port sleep time.
@@ -339,7 +319,7 @@ void manage(void* p0) {
     // to the internal memory, in order to be forwardable to threads.
 
     startup_internal_memory(i, (void*) &k, (void*) &s, (void*) &signal_memory_sleep_time,
-        (void*) &cyboi_service_enable, (void*) &cyboi_service_irq, (void*) &cyboi_service_mutex, (void*) &cyboi_service_sleep_time,
+        (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL,
         (void*) &display_enable, (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time,
         (void*) &serial_port_enable, (void*) &serial_port_irq, (void*) &serial_port_mutex, (void*) &serial_port_sleep_time,
         (void*) &terminal_enable, (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
@@ -364,8 +344,6 @@ void manage(void* p0) {
     // corresponding service shutdown operation in cybol logic templates.
     // The "interrupt" procedures are called within the "shutdown" procedures.
 
-    // Shutdown cyboi service.
-    shutdown_socket(i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT);
     // Shutdown display.
     shutdown_display(i, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT);
     // Shutdown serial port.
@@ -373,7 +351,7 @@ void manage(void* p0) {
     // Shutdown terminal.
     shutdown_terminal(i, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
     // Shutdown www service.
-    shutdown_socket(i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
+    shutdown_socket(i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
 
     //
     // Variable finalisation.
@@ -385,8 +363,6 @@ void manage(void* p0) {
     // thus make all entries invalid, since they could not be found
     // at their original index anymore.
 
-    // Destroy cyboi service mutex.
-    pthread_mutex_destroy(cyboi_service_mutex);
     // Destroy display mutex.
     pthread_mutex_destroy(display_mutex);
     // Destroy serial port mutex.

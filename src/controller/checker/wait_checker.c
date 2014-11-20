@@ -49,7 +49,7 @@
 void check_wait(void* p0, void* p1) {
 
     // The internal memory index.
-    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The cyboi service enable flag and interrupt request.
     void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ci = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -69,14 +69,6 @@ void check_wait(void* p0, void* p1) {
     // CAUTION! For reasons of efficiency, the following values
     // are retrieved here and NOT inside the loop below.
 
-    // Get cyboi service enable flag and interrupt request.
-    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ce, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-    copy_integer((void*) &i, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ci, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-
     // Get display enable flag and interrupt request.
     copy_array_forward((void*) &de, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &di, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -90,11 +82,11 @@ void check_wait(void* p0, void* p1) {
     copy_array_forward((void*) &ti, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Get www service enable flag and interrupt request.
-    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) ENABLE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &we, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-    copy_integer((void*) &i, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_integer((void*) &i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &wi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");

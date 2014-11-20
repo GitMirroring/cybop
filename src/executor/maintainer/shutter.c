@@ -60,16 +60,6 @@ void shutdown_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) CYBOI_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-//??            shutdown_socket(p0, (void*) CYBOI_SERVICE_THREAD, (void*) CYBOI_SERVICE_EXIT, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -100,11 +90,11 @@ void shutdown_service(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            shutdown_socket(p0, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+//??            shutdown_socket(p0, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

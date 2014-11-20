@@ -321,13 +321,13 @@ void sense_socket(void* p0, void* p1) {
         void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
         
         // Get interrupt.
-        i = *base + *INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
         // Get mutex.
-        i = *base + *MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *MUTEX_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
         // Get sleep time.
-        i = *base + *SLEEP_TIME_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *SLEEP_TIME_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
         // Get communication partner-connected socket of this system.
         i = *base + *COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
@@ -389,7 +389,7 @@ void sense_www_socket(void* p0) {
     // cause unpredictable programme behaviour.
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense www socket.");
     
-    sense_socket(p0, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    sense_socket(p0, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 }
 
 /**
@@ -699,13 +699,13 @@ void sense_socket(void* p0, void* p1) {
         void* os = *NULL_POINTER_STATE_CYBOI_MODEL;
         
         // Get interrupt.
-        i = *base + *INTERRUPT_REQUEST_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward((void*) &irq, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
         // Get mutex.
-        i = *base + *MUTEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *MUTEX_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
         // Get sleep time.
-        i = *base + *SLEEP_TIME_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
+        i = *base + *SLEEP_TIME_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
         copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
         // Get communication partner-connected socket of this system.
         i = *base + *COMMUNICATION_PARTNER_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
@@ -767,7 +767,7 @@ void sense_www_socket(void* p0) {
     // cause unpredictable programme behaviour.
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense www socket.");
     
-    sense_socket(p0, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    sense_socket(p0, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 }
 
 /**
