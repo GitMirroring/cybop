@@ -3,10 +3,17 @@
 
 #include <QMultiMap>
 #include <QString>
+#include <QLayout>
+#include <QPushButton>
+#include <QLabel>
+#include <QVector>
 
 #include "variables.h"
 #include "cybolmainwindow.h"
 #include "ui_cybolmainwindow.h"
+#include "rectangle.h"
+#include "button.h"
+#include "image.h"
 
 class CybolMainWindow;
 
@@ -28,6 +35,13 @@ private:
 
     CybolMainWindow * m_mainWindow;
     QDockWidget * m_window;
+    QWidget * m_windowlayout;
+
+    QVector<Button *> m_buttonList;
+    QVector<Rectangle *> m_rectangleList;
+    QVector<Image *> m_imageList;
+
+
 
     void createWindow( QMultiMap<QString, properties> widgets, QString & key );
     void createButton( QMultiMap<QString, properties> widgets, QString & key );

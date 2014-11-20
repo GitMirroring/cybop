@@ -5,6 +5,7 @@
 #include <QMultiMap>
 #include <QVBoxLayout>
 
+#include "variables.h"
 #include "cybolmainwindow.h"
 
 class CybolMainWindow;
@@ -44,9 +45,9 @@ private:
     //! \brief m_filename - filename of the describing file
     QString m_filename;
 
-    QMultiMap< QString, QString> m_values;
+    QMultiMap< QString, Widget> m_values;
 
-    //! \brieg m_mainWindow
+    //! \brief m_mainWindow
     CybolMainWindow * m_mainWindow;
 
     QVBoxLayout * m_layout;

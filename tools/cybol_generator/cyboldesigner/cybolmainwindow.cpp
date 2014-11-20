@@ -19,7 +19,10 @@
 CybolMainWindow::CybolMainWindow(QWidget *parent) :
     QMainWindow(parent),
     m_ui(new Ui::CybolMainWindow),
-    m_disp( new DisplayWindow( this ) )
+    m_disp( new DisplayWindow( this ) ),
+    m_cwb( new CreateWidgetBox( this ) ),
+    m_cw( new CreateWindow( this ) ),
+    m_window( 0 )
 {
     m_ui->setupUi(this);
     iniReader::getInstance();
@@ -39,7 +42,16 @@ CybolMainWindow::CybolMainWindow(QWidget *parent) :
 
     }
 
+    QAction * dwa = m_ui->widgetbox->toggleViewAction();
+    QAction * doa = m_ui->objectinspector->toggleViewAction();
+
+
     connect( m_ui->action_OEffnen, &QAction::triggered, this, &CybolMainWindow::openFile );
+    connect( m_ui->actionWidgetbox, &QAction::triggered, this, &CybolMainWindow::chgWidgetbox );
+    connect( dwa, &QAction::toggled, this, &CybolMainWindow::chgWidgetBoxView );
+    connect( m_ui->actionObjektinspektor, &QAction::triggered, this, &CybolMainWindow::chgObjektinspektor );
+    connect( doa, &QAction::toggled, this, &CybolMainWindow::chgObjektinspektorView );
+    connect( m_ui->action_Neu, &QAction::triggered, this, &CybolMainWindow::createWindow );
 }
 
 // CybolMainWindow::~CybolMainWindow **********************************************************************************
@@ -102,4 +114,70 @@ CybolMainWindow::openFile(
 
         m_disp->showWidget( filename, widgets );
     }
+}
+
+// CybolMainWindow::chgWidgetbox **************************************************************************************
+//
+//*********************************************************************************************************************
+void
+CybolMainWindow::chgWidgetbox(
+        void )
+{
+    if( m_ui->actionWidgetbox->isChecked() ) {
+        m_ui->widgetbox->setVisible( true );
+    } else {
+        m_ui->widgetbox->setVisible( false );
+    }
+}
+
+// CybolMainWindow::chgWidgetboxView **********************************************************************************
+//
+//*********************************************************************************************************************
+void
+CybolMainWindow::chgWidgetBoxView(
+        void )
+{
+    if( m_ui->widgetbox->isVisible() ) {
+        m_ui->actionWidgetbox->setChecked( true );
+    } else {
+        m_ui->actionWidgetbox->setChecked( false );
+    }
+}
+
+
+// CybolMainWindow::chgObjektinspektor ********************************************************************************
+//
+//*********************************************************************************************************************
+void
+CybolMainWindow::chgObjektinspektor(
+        void )
+{
+    if( m_ui->actionObjektinspektor->isChecked() ) {
+        m_ui->objectinspector->setVisible( true );
+    } else {
+        m_ui->objectinspector->setVisible( false );
+    }
+}
+
+// CybolMainWindow::chgObjektinspektor ********************************************************************************
+//
+//*********************************************************************************************************************
+void
+CybolMainWindow::chgObjektinspektorView(
+        void )
+{
+    if( m_ui->objectinspector->isVisible() ) {
+        m_ui->actionObjektinspektor->setChecked( true );
+    } else {
+        m_ui->actionObjektinspektor->setChecked( false );
+    }
+}
+
+// CybolMainWindow::createWindow **************************************************************************************
+//
+//*********************************************************************************************************************
+void
+CybolMainWindow::createWindow(
+        void ) {
+    m_cw->createNewWindow();
 }

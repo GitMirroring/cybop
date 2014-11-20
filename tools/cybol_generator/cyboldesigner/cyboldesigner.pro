@@ -18,7 +18,17 @@ SOURCES += main.cpp\
     displaywindow.cpp \
     colorreader.cpp \
     createwidgetbox.cpp \
-    inireader.cpp
+    inireader.cpp \
+    component.cpp \
+    createwindow.cpp \
+    button.cpp \
+    rectangle.cpp \
+    label.cpp \
+    checkbox.cpp \
+    radiobutton.cpp \
+    image.cpp \
+    window.cpp \
+    aktuelleselement.cpp
 
 HEADERS  += cybolmainwindow.h \
     cybolreader.h \
@@ -26,6 +36,19 @@ HEADERS  += cybolmainwindow.h \
     variables.h \
     colorreader.h \
     createwidgetbox.h \
-    inireader.h
+    inireader.h \
+    component.h \
+    createwindow.h \
+    button.h \
+    rectangle.h \
+    label.h \
+    checkbox.h \
+    radiobutton.h \
+    image.h \
+    window.h \
+    aktuelleselement.h
 
 FORMS    += cybolmainwindow.ui
+
+RESOURCES += \
+    icons.qrc

@@ -15,6 +15,7 @@
 		<widget name="Vertical Spacer" file="" icon="" />
 	</widgetgroup>
 	<widgetgroup title="Buttons">
+		<widget name="RadioButton" file="" icon="../cyboldesigner/icons/radiobutton.ico" />
 		<widget name="Push Button" file="" icon="" />
 		<widget name="Push Button" file="" icon="" />
 	</widgetgroup>
@@ -26,7 +27,14 @@
 		<widget name="EditField" file="" icon="" />
 	</widgetgroup>
 	<widgetgroup title="Display Widgets">
-		<widget name="Label" file="" icon="" />
+		<widget name="Label" file="" icon="../cyboldesigner/icons/neu.ico" />
+	</widgetgroup>
+	<widgetgroup title="Shapes">
+		<widget name="Ellipse" file="" icon="" />
+		<widget name="Line" file="" icon="" />
+		<widget name="Rectangle" file="" icon="" />
+		<widget name="Triangle" file="" icon="" />
+
 	</widgetgroup>
 
 </gui>

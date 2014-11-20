@@ -2,9 +2,14 @@
 #include <QXmlStreamReader>
 #include <QDir>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QMessageBox>
 #include <QLabel>
+#include <QToolBox>
+#include <QPicture>
+#include <QIcon>
 
+#include "component.h"
 #include "inireader.h"
 #include "createwidgetbox.h"
 
@@ -95,7 +100,13 @@ CreateWidgetBox::displayGroupLabel(
 
     if( attributes.hasAttribute( "title" ) ) {
         key = attributes.value( "title" ).toString();
-        m_values.insert( key, "" );
+
+        Widget widget;
+        widget.name ="";
+        widget.icon ="";
+        widget.path ="";
+
+        m_values.insert( key, widget );
     }
 }
 
@@ -108,10 +119,21 @@ CreateWidgetBox::displayWidget(
         QString & key ) {
 
     QXmlStreamAttributes attributes = xml.attributes();
+    Widget widget;
 
     if( attributes.hasAttribute( "name" ) ) {
-        m_values.insert( key, attributes.value( "name" ).toString() );
+        widget.name = attributes.value( "name" ).toString();
     }
+
+    if( attributes.hasAttribute( "file" ) ) {
+        widget.path = attributes.value( "file" ).toString();
+    }
+
+    if( attributes.hasAttribute( "icon" ) ) {
+        widget.icon = attributes.value( "icon" ).toString();
+    }
+
+    m_values.insert( key, widget );
 }
 
 // CreateWidgetBox::displayAll ****************************************************************************************
@@ -120,28 +142,52 @@ CreateWidgetBox::displayWidget(
 void
 CreateWidgetBox::displayAll(
         void ) {
-    QMultiMap<QString, QString>::iterator iterVal;
+    QMultiMap<QString, Widget>::iterator iterVal;
 
-    int i = 1;
+    QToolBox * toolbox = new QToolBox();
+    QString aktTitle = "";
+
     // count downwards, because it was read upwards
     for( iterVal = m_values.end(); iterVal != m_values.begin(); --iterVal ) {
         if( iterVal.key() == "" ) {
             continue;
         }
 
-        if( iterVal.value() == "" ) {
-            QLabel * label = new QLabel( iterVal.key() );
-            label->setGeometry( 10, 20 * i + 10 , 100, 16);
+        Widget aktWidget = iterVal.value();
 
-            m_mainWindow->m_ui->widgetbox->layout()->addWidget( label );
+        if( aktWidget.name == "" ) {
+            aktTitle = iterVal.key();
         } else {
-            QLabel * label = new QLabel( iterVal.value() );
-            label->setGeometry( 20, 20 * i + 10 , 100, 16);
 
-            m_mainWindow->m_ui->widgetbox->layout()->addWidget( label );
+            QWidget * widget = new QWidget();
+            QVBoxLayout * layout = new QVBoxLayout();
+            int count = 0;
+            for( iterVal; iterVal != m_values.begin(); -- iterVal ) {
+
+                aktWidget = iterVal.value();
+
+                if( aktWidget.name == "" ) {
+                    ++iterVal;
+                    break;
+                }
+
+                Component * icon = new Component( aktWidget.icon, aktWidget.name );
+                layout->addWidget( icon );
+
+                ++count;
+            }
+
+            widget->setMaximumHeight( count * 20 + 30 );
+            widget->setLayout( layout );
+
+            toolbox->addItem( widget, aktTitle );
 
         }
 
-        ++i;
+        if( iterVal == m_values.begin() ) {
+            break;
+        }
     }
+
+    m_mainWindow->m_ui->widgetbox->setWidget( toolbox );
 }
