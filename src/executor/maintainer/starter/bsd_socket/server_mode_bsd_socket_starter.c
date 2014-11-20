@@ -58,11 +58,13 @@ void startup_bsd_socket_mode_server(void* p0, void* p1, void* p2, void* p3, void
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Listen for client requests.
+            // This is a stream socket.
             //
-            // CAUTION! Datagram sockets do NOT have connections,
+            // CAUTION! Datagram sockets do NOT have connexions,
             // which is why the "listen" function is ONLY called
             // for stream sockets here.
+
+            // Listen for client requests.
             //
             // The second argument specifies the length
             // of the queue for pending connexions.

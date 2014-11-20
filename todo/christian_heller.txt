@@ -34,11 +34,10 @@ ___
 WUI
 ___
 
-        * Continue creation of client bsd socket; adapt parametres and includes
+        * Reactivate socket in file "starter.c"
         * Deallocate socket properly; addresses are allocated at startup and possibly have to be stored in internal memory in order to be freed again later
 
         * Write port de-/serialiser translating standard protocol into port and vice versa
-        * Reactivate socket functionality
         * Provide two cybol properties in parallel:
             - "port-name" for default ports compiled into cyboi, e.g. "www" for port 80;
             - "port-number" for special, self-defined, arbitrary port numbers

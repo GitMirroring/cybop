@@ -26,6 +26,8 @@
 #ifndef CLIENT_MODE_BSD_SOCKET_STARTER_SOURCE
 #define CLIENT_MODE_BSD_SOCKET_STARTER_SOURCE
 
+#include <sys/socket.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
@@ -39,11 +41,110 @@
  */
 void startup_bsd_socket_mode_client(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket mode client.");
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    int r = connect(p0, p1, p2);
+        socklen_t* as = (socklen_t*) p2;
 
-    ... HANDLE ERRORS
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            struct sockaddr* ad = (struct sockaddr*) p1;
+
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                int* s = (int*) p0;
+
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket mode client.");
+
+                // Initialise error number.
+                // It is a global variable/ function and other operations
+                // may have set some value that is not wanted here.
+                //
+                // CAUTION! Initialise the error number BEFORE calling
+                // the function that might cause an error.
+                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                // CAUTION! The "select" function was NOT used to make
+                // this socket non-blocking, because it has some overhead
+                // in that other sockets need to be considered and
+                // their file descriptors handed over as argument.
+                // If nonblocking mode is necessary, then using a thread
+                // is considered to be a more simple and clean solution here.
+
+                // Make connexion with server.
+                //
+                // This function call waits until the server responds
+                // to the request before it returns.
+                int r = connect(*s, ad, *as);
+
+fwprintf(stdout, L"TEST: startup bsd socket mode client connect s: %i \n", *s);
+sleep(2);
+
+                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    if (errno == EBADF) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The argument socket is not a valid file descriptor.");
+
+                    } else if (errno == ENOTSOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The argument socket is not a socket.");
+
+                    } else if (errno == EADDRNOTAVAIL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The specified address is not available on the remote machine.");
+
+                    } else if (errno == EAFNOSUPPORT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The namespace of the address is not supported by this socket.");
+
+                    } else if (errno == EISCONN) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The socket is already connected.");
+
+                    } else if (errno == ETIMEDOUT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The attempt to establish the connexion timed out.");
+
+                    } else if (errno == ECONNREFUSED) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The server has actively refused to establish the connexion.");
+
+                    } else if (errno == ENETUNREACH) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The network of the given address is not reachable from this host.");
+
+                    } else if (errno == EADDRINUSE) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The socket address of the given address is already in use.");
+
+                    } else if (errno == EINPROGRESS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The socket is non-blocking and the connexion could not be established immediately. You can determine when the connexion is completely established with select; see Waiting for I/O. Another connect call on the same socket, before the connexion is completely established, will fail with EALREADY.");
+
+                    } else if (errno == EALREADY) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The socket is non-blocking and already has a pending connexion in progress (see EINPROGRESS above).");
+
+                    } else {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. An unknown error occured while connecting the socket.");
+                    }
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The socket is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The address data is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode client. The address size is null.");
+    }
 }
 
 /* CLIENT_MODE_BSD_SOCKET_STARTER_SOURCE */

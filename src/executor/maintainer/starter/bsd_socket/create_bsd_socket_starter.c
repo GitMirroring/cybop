@@ -49,8 +49,11 @@
  * @param p7 the host address count
  * @param p8 the port
  * @param p9 the address family (address namespace)
+ * @param p10 the connexions
+ * @param p11 the mode data
+ * @param p12 the mode count
  */
-void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -74,8 +77,8 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
                     // It is a global variable/ function and other operations
                     // may have set some value that is not wanted here.
                     //
-                    // CAUTION! Initialise the error number BEFORE calling the procedure
-                    // that might cause an error.
+                    // CAUTION! Initialise the error number BEFORE calling the
+                    // function that might cause an error.
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // Initialise server socket.
@@ -87,42 +90,9 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
                     // CAUTION! Use prefix "PF_" here and NOT "AF_"!
                     // The latter is to be used for address family assignment.
                     // See further below!
-                    *s = socket(*pf, *st, *p);
+                    *s = socket(*pf, *st, *pr);
 
                     if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        // Set non-blocking mode for the socket file descriptor.
-                        //
-                        // If the O_NONBLOCK flag (a bit) is set, read requests on the socket
-                        // (file) can return immediately with a failure status if there is no
-                        // input immediately available, instead of blocking. Likewise, write
-                        // requests can also return immediately with a failure status if the
-                        // output can't be written immediately.
-                        //
-                        // CAUTION! The "select" procedure was NOT used to make this socket
-                        // non-blocking, because it has some overhead in that other sockets
-                        // need to be considered and their file descriptors handed over as
-                        // parametre.
-                        // A simple "sleep" procedure is considered to be a more simple and
-                        // clean solution here.
-
-    /*??
-                        // Get file status flags.
-                        int fl = fcntl(*s, F_GETFL, NUMBER_0_INTEGER);
-
-                        if (fl != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-                            // Set non-blocking flag (bit).
-                            fl |= O_NONBLOCK;
-
-                            // Store modified flag word in the file descriptor.
-                            fcntl(*s, F_SETFL, fl);
-
-                        } else {
-
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket / set non-blocking mode. The socket file descriptor flags could not be read.");
-                        }
-    */
 
                         // The socket address data, size.
                         void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -134,7 +104,7 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
                         // has to be preserved as return value.
                         startup_bsd_socket_socket_address((void*) &ad, (void*) &as, p4, p5, p6, p7, p8, p9);
                         // Startup client or server mode.
-                        startup_bsd_socket_mode(p0, ad, (void*) &as, p2 (style), connexions, mode_data, mode_count);
+                        startup_bsd_socket_mode(p0, ad, (void*) &as, p2, p10, p11, p12);
 
                     } else {
 

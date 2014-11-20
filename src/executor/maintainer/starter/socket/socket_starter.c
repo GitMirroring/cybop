@@ -56,6 +56,22 @@ void startup_socket(void* p0) {
 #elif GNU_LINUX_OPERATING_SYSTEM
     startup_bsd_socket(p0);
 #else
+/*??
+    @param p0 the internal memory data (pointer reference)
+    @param p1 the family data (namespace)
+    @param p2 the family count
+    @param p3 the style data
+    @param p4 the style count
+    @param p5 the filename data
+    @param p6 the filename count
+    @param p7 the host address data
+    @param p8 the host address count
+    @param p9 the port
+    @param p10 the internal memory base
+    @param p11 the connexions
+    @param p12 the mode data
+    @param p13 the mode count
+*/
     startup_bsd_socket(p0);
 #endif
 }

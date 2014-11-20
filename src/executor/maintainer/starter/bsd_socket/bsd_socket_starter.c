@@ -47,8 +47,11 @@
  * @param p8 the host address count
  * @param p9 the port
  * @param p10 the internal memory base
+ * @param p11 the connexions
+ * @param p12 the mode data
+ * @param p13 the mode count
  */
-void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     // The socket.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -82,7 +85,7 @@ void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
         startup_bsd_socket_style((void*) &st, p3, p4);
         // Create socket.
         // CAUTION! A value of ZERO is usually right for the "protocol".
-        startup_bsd_socket_create((void*) &s, (void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &af);
+        startup_bsd_socket_create((void*) &s, (void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &af, p11, p12, p13);
 
         // Store socket in internal memory.
         //

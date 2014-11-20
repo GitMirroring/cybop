@@ -57,13 +57,9 @@
  * The value of unneeded parametres may just be set to NULL.
  *
  * @param p0 the internal memory data
- * ... cyboi socket
  * @param p1 the serial port filename data
  * @param p2 the serial port filename count
  * @param p3 the serial port baudrate
- * ... terminal
- * ... www socket
- * ... x window system
  * @param p4 the channel
  */
 void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
@@ -72,34 +68,6 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The internal memory index.
-//??    int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-    // The server socket internal.
-//??    int** s = (int**) NULL_POINTER_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) CYBOI_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-/*??
-            // Get server socket internal.
-            i = *CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-            if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // Startup server socket if it does not already exist.
-                startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_CYBOI_SERVICE_PORT_MODEL, (void*) CYBOI_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
-
-            } else {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The cyboi service is already running.");
-            }
-*/
-        }
-    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -133,25 +101,11 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) WWW_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-/*??
-            // Get server socket internal.
-            i = *WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME + *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
-            get((void*) &s, p0, (void*) &i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) POINTER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-
-            if (*s == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                // Startup server socket if it does not already exist.
-                startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_WWW_SERVICE_PORT_MODEL, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
-
-            } else {
-
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply startup. The www service is already running.");
-            }
-*/
+//??            startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_WWW_SERVICE_PORT_MODEL, (void*) WWW_BASE_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
         }
     }
 

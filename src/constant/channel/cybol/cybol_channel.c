@@ -35,11 +35,6 @@ static wchar_t CORBA_CYBOL_CHANNEL_ARRAY[] = {L'c', L'o', L'r', L'b', L'a'};
 static wchar_t* CORBA_CYBOL_CHANNEL = CORBA_CYBOL_CHANNEL_ARRAY;
 static int* CORBA_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The cyboi cybol channel. */
-static wchar_t CYBOI_CYBOL_CHANNEL_ARRAY[] = {L'c', L'y', L'b', L'o', L'i'};
-static wchar_t* CYBOI_CYBOL_CHANNEL = CYBOI_CYBOL_CHANNEL_ARRAY;
-static int* CYBOI_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The display cybol channel. */
 static wchar_t DISPLAY_CYBOL_CHANNEL_ARRAY[] = {L'd', L'i', L's', L'p', L'l', L'a', L'y'};
 static wchar_t* DISPLAY_CYBOL_CHANNEL = DISPLAY_CYBOL_CHANNEL_ARRAY;
