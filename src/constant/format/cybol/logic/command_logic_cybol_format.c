@@ -176,5 +176,16 @@ static wchar_t PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm'
 static wchar_t* PING_COMMAND_LOGIC_CYBOL_FORMAT = PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+* The command/grep logic cybol format.
+*
+* prints lines matching a pattern
+*
+* This is a CYBOL extension.
+*/
+static wchar_t GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'g', L'r', L'e', L'p'};
+static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

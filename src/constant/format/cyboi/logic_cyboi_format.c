@@ -216,6 +216,9 @@ static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1609_INTEGER_STATE
 /** The ping command logic cyboi format. */
 static int* PING_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1610_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The grep command logic cyboi format. */
+static int* GREP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1611_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //
