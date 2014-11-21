@@ -1,0 +1,74 @@
+<model>
+
+    <part name="create_time" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="time"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="create_random" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="random"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+    <!--
+        Operation calls using the same seed deliver identical pseudo random numbers:
+        <property name="seed" channel="inline" format="number/integer" model="5"/>
+        Ideally, the seed should change with every call, in C syntax e.g.: srand(time(0)).
+        Therefore, the current time is determined and used as seed here:
+        <property name="seed" channel="inline" format="number/integer" model=".time"/>
+    -->
+    <part name="get_time" channel="inline" format="calculate/time" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".time"/>
+    </part>
+    <part name="get_random" channel="inline" format="calculate/randomise" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".random"/>
+        <property name="seed" channel="inline" format="number/integer" model=".time"/>
+        <property name="minimum" channel="inline" format="number/integer" model="20"/>
+        <property name="maximum" channel="inline" format="number/integer" model="30"/>
+    </part>
+
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+    <part name="print_random" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".random"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</model>
+
+<!--
+    This example generates a random number and displays it on terminal.
+-->
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

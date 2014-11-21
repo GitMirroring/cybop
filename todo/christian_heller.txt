@@ -11,32 +11,60 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Allocation
-__________
-
-        * Check initialisation of new array; use character '\0' instead of digit 0?
-            memset(buffer, '\0', sizeof (struct xyz));
-
 Random
 ______
 
+        * Implement operation "time/current" (in directory "executor/timer/")
+        * Implement operation "randomise/seed" for establishing a seed for a new series of pseudo-random numbers, in directory "executor/randomiser/"
+        * Implement operation "randomise/pseudo" for retrieving the next pseudo-random number in the series, in directory "executor/randomiser/"
+
+        #include <time.h>
         #include <stdlib.h>
-        * Implement only the following functions (already investigated):
-            long int lrand48 (void)
-            [not useful ??] void srand48 (long int seedval) --> srand48 (time (0))
-            --> investigate function again
-            --> only seed is provided by all of them
-            --> min/max values would have to be calculated manually in programme, e.g. by division
 
-        * Implement operation "calculate/randomise" or "randomise/xyz"
-        * See glibc manual
+        // The numbers generated here are not truly random,
+        // which is why they are called "pseudo-random".
+        // Typically, they form a sequence that repeats periodically,
+        // with a period so large that you can ignore it for ordinary purposes.
+        // The random number generator works by remembering a seed value
+        // which it uses to compute the next random number and also to compute a new seed.
+        //
+        // Although the generated numbers look unpredictable within one run of a program,
+        // the sequence of numbers is exactly the same from one run to the next.
+        // This is because the initial seed is always the same.
+        // If a different pseudo-random series is wanted each time a program runs,
+        // one must specify a different seed each time.
+        // For ordinary purposes, basing the seed on the current time works well.
+        //
+        // One can obtain repeatable sequences of numbers on a particular machine type
+        // by specifying the same initial seed value for the random number generator.
+        // There is no standard meaning for a particular seed value;
+        // the same seed, used in different C libraries or on different
+        // CPU types, will deliver different random numbers.
 
-        <property "result" .../>
-        <property "minimum" .../>
-        <property "maximum" .../>
-        <property "seed" .../>
-        <property "inclusive" (or exclusive min and max) .../>
-        <property "type" (integer oder double) .../>
+        // In the GNU C Library, time_t is equivalent to long int.
+        time_t t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+
+        // Establish seed for new series of pseudo-random numbers.
+        srand((unsigned int) t);
+
+        // Get next pseudo-random number in the series.
+        //
+        // CAUTION! The value ranges from 0 to RAND_MAX.
+        // In the GNU C Library, RAND_MAX is 2147483647, which is
+        // the largest signed integer representable in 32 bits.
+        //
+        // CAUTION! If calling "rand" before a seed has been established
+        // with "srand", it uses the value 1 as a default seed.
+        int r = rand();
+
+        // Operation calls using the same seed deliver identical pseudo random numbers.
+        // Ideally, the seed should change with every call, in C syntax e.g.: srand(time(0))
+
+        Java-Code generating a random number with minimum and maximum, from Sandra Rum:
+        int min = 1;
+        int max = 9;
+        Random rn = new Random();
+        int randomNum = rn.nextInt((max - min) + 1) + min;
 
 API
 ___
@@ -98,6 +126,7 @@ ___
 GUI
 ___
 
+        * Think through design of gui using cybol (box model, layout manager, look'n'feel)
         * Use css box model with relative positioning also for tui, gui etc.?
 
         * Move the following hints on layout usage into source code:

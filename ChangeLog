@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create "randomiser" cybol example application
+
 2014-11-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare bsd socket for server and client usage
