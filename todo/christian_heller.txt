@@ -11,8 +11,22 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Allocation
+__________
+
+        * Check initialisation of new array; use character '\0' instead of digit 0?
+            memset(buffer, '\0', sizeof (struct xyz));
+
 Random
 ______
+
+        #include <stdlib.h>
+        * Implement only the following functions (already investigated):
+            long int lrand48 (void)
+            [not useful ??] void srand48 (long int seedval) --> srand48 (time (0))
+            --> investigate function again
+            --> only seed is provided by all of them
+            --> min/max values would have to be calculated manually in programme, e.g. by division
 
         * Implement operation "calculate/randomise" or "randomise/xyz"
         * See glibc manual
