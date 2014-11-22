@@ -347,6 +347,16 @@ static int* OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2305_INTEGER_STATE_CYBO
 static int* REMOVE_MODIFY_LOGIC_CYBOI_FORMAT = NUMBER_2306_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// randomise
+//
+
+/** The retrieve randomise logic cyboi format. */
+static int* RETRIEVE_RANDOMISE_LOGIC_CYBOI_FORMAT = NUMBER_2350_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The sow randomise logic cyboi format. */
+static int* SOW_RANDOMISE_LOGIC_CYBOI_FORMAT = NUMBER_2351_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // represent
 //
 
@@ -368,6 +378,13 @@ static int* NANO_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2501_INTEGER_STATE_CYBOI_
 
 /** The second sleep run logic cyboi format. */
 static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2502_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// time
+//
+
+/** The current time logic cyboi format. */
+static int* CURRENT_TIME_LOGIC_CYBOI_FORMAT = NUMBER_2550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

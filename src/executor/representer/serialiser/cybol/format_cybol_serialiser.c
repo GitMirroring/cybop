@@ -41,8 +41,10 @@
 #include "../../../../constant/format/cybol/logic/manipulate_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/memorise_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/modify_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/randomise_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/represent_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/run_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/time_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_vnd_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_x_state_cybol_format.c"
@@ -1395,6 +1397,30 @@ void serialise_cybol_format(void* p0, void* p1) {
     }
 
     //
+    // randomise
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) RETRIEVE_RANDOMISE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RETRIEVE_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) SOW_RANDOMISE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) SOW_RANDOMISE_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOW_RANDOMISE_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    //
     // represent
     //
 
@@ -1451,6 +1477,26 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
+
+    //
+    // time
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) CURRENT_TIME_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) CURRENT_TIME_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CURRENT_TIME_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    // ======================================================================
+    //
+    // Unknown.
+    //
+    // ======================================================================
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

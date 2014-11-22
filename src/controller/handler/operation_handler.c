@@ -65,10 +65,13 @@
 #include "../../applicator/modify/insert.c"
 #include "../../applicator/modify/overwrite.c"
 #include "../../applicator/modify/remove.c"
+#include "../../applicator/randomise/retrieve.c"
+#include "../../applicator/randomise/sow.c"
 #include "../../applicator/represent/deserialise.c"
 #include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
+#include "../../applicator/time/time.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
@@ -959,6 +962,30 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     }
 
     //
+    // randomise
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) RETRIEVE_RANDOMISE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_retrieve(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) SOW_RANDOMISE_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_sow(p0, p1, p3);
+        }
+    }
+
+    //
     // represent
     //
 
@@ -1013,6 +1040,20 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_sleep(p0, p1, p3, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // time
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) CURRENT_TIME_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_time(p0, p1, p3);
         }
     }
 

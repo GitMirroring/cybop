@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement new cybol operation "time/current", in directory "executor/timer/"
+        * Implement new cybol operation "randomise/sow" for establishing a seed for a new series of pseudo-random numbers, in directory "executor/randomiser/"
+        * Implement new cybol operation "randomise/retrieve" for retrieving the next pseudo-random number in the series, in directory "executor/randomiser/"
+
 2014-11-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create "randomiser" cybol example application
