@@ -11,10 +11,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Random
-______
+Randomiser
+__________
 
-        * Implement formula considering minimum and maximum in file "executor/randomiser/retriever.c"
+        * Debug formula considering minimum and maximum in directory "executor/randomiser/"
+        * Replace type "unsigned long" with simple "int" (temporarily, until other solutions is found)
+        * Comment out non-working lines (possibly due to usage of type "unsigned long")
 
 API
 ___

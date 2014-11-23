@@ -31,7 +31,8 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../executor/randomiser/maximum_retriever.c"
 #include "../../logger/logger.c"
 
 /**
@@ -43,50 +44,43 @@
  */
 void retrieve(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Retrieve.");
 
-        int* max = (int*) p2;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    compare_integer_smaller((void*) &r, p1, p2);
 
-            int* min = (int*) p1;
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        //
+        // The range is applied by shifting it using the formula:
+        //     int r = min + retrieve_pseudo_random_number_with_given_maximum(max - min + 1)
+        // This also works with negative values.
+        //
 
-                int* n = (int*) p0;
+        // The pseudo random number.
+        int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The shifted maximum.
+        int max = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Retrieve.");
-
-                // Get next pseudo-random number in the series.
-                //
-                // CAUTION! The value ranges from 0 (inclusive) to RAND_MAX (exclusive).
-                // In the GNU C Library, RAND_MAX is 2147483647, which is
-                // the largest signed integer representable in 32 bits.
-                //
-                // CAUTION! If calling "rand" before a seed has been established
-                // with "srand", it uses the value 1 as a default seed.
-                int r = rand();
-
-                // Normalise to area between minimum and maximum.
-
-                //?? TODO
-
-                // Copy to destination number.
-                copy_integer(p0, (void*) &r);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve. The destination number is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve. The source minimum is null.");
-        }
+        // Initialise shifted maximum.
+        copy_integer((void*) &max, p2);
+        // Shift range [min,max) to range [0,max - min + 1).
+        calculate_integer_subtract((void*) &max, p1);
+        // The addition of number 1 is probably necessary,
+        // because the generated random numbers exclude the maximum.
+        calculate_integer_add((void*) &max, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+        // Retrieve pseudo random number.
+        retrieve_maximum((void*) &n, (void*) &max);
+        // Shift back pseudo random number into original range [min,max).
+        calculate_integer_add((void*) &n, p1);
+        // Copy to destination number.
+        copy_integer(p0, (void*) &n);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve. The source maximum is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve. The minimum is greater or equal to the maximum.");
     }
 }
 
