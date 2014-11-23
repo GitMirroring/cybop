@@ -57,6 +57,8 @@ void retrieve_maximum(void* p0, void* p1) {
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //?? TODO: Delete this test message later!
+        fwprintf(stdout, L"INFORMATION: Retrieve maximum. n: %i\n", *((int*) p1));
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Retrieve maximum.");
 
         //
@@ -171,14 +173,21 @@ void retrieve_maximum(void* p0, void* p1) {
         // The multiple.
         unsigned long mul = (unsigned long) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // Initialise pseudo random number.
-        long n = rand();
+//??        long n = rand();
+        long n;
 
         // The loop IS NECESSARY to get a perfectly uniform distribution.
         // For example, if being given random numbers from 0 to 2
         // and wanting only the ones from 0 to 1,
         // one just keeps pulling until not getting a 2.
         // This gives 0 or 1 with equal probability.
+
+        //?? TEST
+        while (m - d <= (unsigned long) (n = rand())); // This is carefully written not to overflow
+/*??
         while (*NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
+
+            fwprintf(stdout, L"TEST: loop n: %i\n", n);
 
             // Calculate multiple [Vielfaches] dividable without remainder.
             mul = m - d;
@@ -198,15 +207,25 @@ void retrieve_maximum(void* p0, void* p1) {
             // with "srand", it uses the value 1 as a default seed.
             n = rand();
         }
+*/
+
+        //?? TODO: Delete this test message later!
+        fwprintf(stdout, L"TEST: after loop c: %ul\n", c);
+        fwprintf(stdout, L"TEST: after loop m: %ul\n", m);
+        fwprintf(stdout, L"TEST: after loop s: %ul\n", s);
+        fwprintf(stdout, L"TEST: after loop d: %ul\n", d);
+        fwprintf(stdout, L"TEST: after loop n: %li\n", n);
 
         // Divide pseudo random number by interval size.
         // CAUTION! Truncated division is intentional.
         calculate_integer_divide((void*) &n, (void*) &s);
+        fwprintf(stdout, L"TEST: after division n: %li\n", n);
         // Copy to destination number.
         copy_integer(p0, (void*) &n);
 
     } else {
 
+        fwprintf(stdout, L"ERROR: Could not retrieve maximum. The maximum is greater than RAND_MAX. n: %i\n", *((int*) p1));
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve maximum. The maximum is greater than RAND_MAX.");
     }
 }

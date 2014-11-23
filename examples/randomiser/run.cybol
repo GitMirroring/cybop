@@ -22,6 +22,10 @@
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
 
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
     <!--
         Operation calls using the same seed deliver identical pseudo random numbers.
         Ideally, the seed should change with every call, in C syntax e.g.: srand(time(0)).
@@ -30,7 +34,6 @@
     <part name="get_time" channel="inline" format="time/current" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".seed"/>
     </part>
-
     <!--
         By default, the current time is used as seed below:
         <property name="seed" channel="inline" format="path/knowledge" model=".seed"/>
@@ -41,16 +44,26 @@
         <property name="seed" channel="inline" format="path/knowledge" model=".seed"/>
     </part>
 
-    <part name="get_random_number" channel="inline" format="randomise/retrieve" model="">
+    <part name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".number"/>
         <property name="minimum" channel="inline" format="number/integer" model="20"/>
         <property name="maximum" channel="inline" format="number/integer" model="30"/>
     </part>
-
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+    <part name="print_random_number_1" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".number"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="print_random_number" channel="inline" format="communicate/send" model="">
+
+    <part name="get_random_number_2" channel="inline" format="randomise/retrieve" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".number"/>
+        <property name="minimum" channel="inline" format="number/integer" model="20"/>
+        <property name="maximum" channel="inline" format="number/integer" model="30"/>
+    </part>
+    <part name="print_random_number_2" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>

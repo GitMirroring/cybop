@@ -14,9 +14,85 @@
 Randomiser
 __________
 
+        * Use recommended loop testwise, in order to avoid possible endless loop in file "maximum_retriever.c"
         * Debug formula considering minimum and maximum in directory "executor/randomiser/"
         * Replace type "unsigned long" with simple "int" (temporarily, until other solutions is found)
         * Comment out non-working lines (possibly due to usage of type "unsigned long")
+
+        * Use integer datatype "long long int" (64 Bit) in operations of directory "executor/", at least in calculator, e.g. used by pseudo random numbers
+
+        * Taken from book "Jürgen Wolf: C von A bis Z. Galileo Computing openbook":
+
+            //
+            // Integer Number Date Range
+            //
+            // CAUTION! The datatype "int" covers DIFFERENT DATA RANGES
+            // (2 Byte or 4 Byte), depending on the platform.
+            // It therefore seems better to use EXPLICIT data types, in order
+            // to make cyboi run correctly on different platforms (16/32/64 Bit).
+            //
+            // -----------------------------------------------------
+            // | Long Form     | Short Form    | Data Range [Byte] |
+            // -----------------------------------------------------
+            // | signed char   | char          |  1 (8 Bit)        |
+            // | short int     | short         |  2 (16 Bit)       |
+            // | long int      | long          |  4 (32 Bit)       |
+            // | long long int | long long     |  8 (64 Bit)       |
+            // -----------------------------------------------------
+            //
+            // In cyboi, only the correct LONG FORM is used for datatype names.
+            // For integer numbers, the LARGEST datatype "long long int" is used.
+            //
+            // http://openbook.galileo-press.de/c_von_a_bis_z/
+            //
+
+            //
+            // Sign
+            //
+            // By default, all datatypes are "signed".
+            //
+            // CAUTION! For the datatype "char", the C language specification
+            // does NOT define whether or not it contains a sign.
+            // This might lead to errors when used on different platforms.
+            // There is the three different datatypes:
+            // char, unsigned char, signed char.
+            // However, in the end it depends on the compiler implementation
+            // if a "char" can hold negative numbers or not.
+            //
+            // CAUTION! For the datatype "wchar_t" an explicit "signed"
+            // or "unsigned" is NOT defined. It depends on the actual
+            // underlying implementation, if it is signed or not.
+            //
+            // http://openbook.galileo-press.de/c_von_a_bis_z/
+            //
+
+            //
+            // Floating Point Number Date Range
+            //
+            // CAUTION! The size and range of floating point numbers are
+            // NOT defined and absolutely implementation-dependent.
+            // Their internal representation depends on the compiler used.
+            //
+            // -------------------------------------
+            // | Data Type     | Data Range [Byte] |
+            // -------------------------------------
+            // | float         |  4 (32 Bit)       |
+            // | double        |  8 (64 Bit)       |
+            // | long double   | 10 (80 Bit)       |
+            // -------------------------------------
+            //
+            // CAUTION! The datatype "long double" has a size of 10 Byte
+            // on 16 Bit machines. It gets filled up from 10 to 12 Byte
+            // on 32 Bit machines. HP-UX machines even need 16 Byte of memory.
+            //
+            // CAUTION! Using the datatype "double" suffices for most applications.
+            // If higher precision is needed, then special libraries with functions
+            // for infinite precision should be used rather than "long double".
+            //
+            // In cyboi, for floating point numbers, the STANDARD datatype "double" is used.
+            //
+            // http://openbook.galileo-press.de/c_von_a_bis_z/
+            //
 
 API
 ___
@@ -28,6 +104,8 @@ ___
 WUI
 ___
 
+        * See "wolf_-_c_von_a_bis_z" for platform independence
+        * Remove "bind" from client variant of socket
         * Figure out how to handle different ports/services (really hand over all of them to internal memory?)
         * Replace "cyboi" and "www" with "socket"
         * Reactivate socket in file "starter.c"

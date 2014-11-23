@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend "randomiser" cybol example application, now generating and printing two pseudo random numbers
+        * Debug directory "executor/randomiser/"
+
 2014-11-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement new cybol operation "time/current", in directory "executor/timer/"
