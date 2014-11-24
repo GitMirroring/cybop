@@ -1,0 +1,66 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef SERVICE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE
+#define SERVICE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE
+
+#include <stddef.h>
+
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
+/** The file transfer protocol (ftp) service socket cybol model. */
+static wchar_t* FTP_SERVICE_SOCKET_CYBOL_MODEL = L"ftp";
+static int* FTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The hypertext transfer protocol (http) service socket cybol model. */
+static wchar_t* HTTP_SERVICE_SOCKET_CYBOL_MODEL = L"http";
+static int* HTTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The imap service socket cybol model. */
+static wchar_t* IMAP_SERVICE_SOCKET_CYBOL_MODEL = L"imap";
+static int* IMAP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The imaps service socket cybol model. */
+static wchar_t* IMAPS_SERVICE_SOCKET_CYBOL_MODEL = L"imaps";
+static int* IMAPS_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The nntp service socket cybol model. */
+static wchar_t* NNTP_SERVICE_SOCKET_CYBOL_MODEL = L"nntp";
+static int* NNTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The secure file transfer protocol (sftp) service socket cybol model. */
+static wchar_t* SFTP_SERVICE_SOCKET_CYBOL_MODEL = L"sftp";
+static int* SFTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The smtp service socket cybol model. */
+static wchar_t* SMTP_SERVICE_SOCKET_CYBOL_MODEL = L"smtp";
+static int* SMTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The smtps service socket cybol model. */
+static wchar_t* SMTPS_SERVICE_SOCKET_CYBOL_MODEL = L"smtps";
+static int* SMTPS_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* SERVICE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */
+#endif

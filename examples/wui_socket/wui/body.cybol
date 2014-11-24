@@ -1,14 +1,16 @@
 <model>
+
     <part name="heading" channel="inline" format="text/plain" model="CYBOL WUI Socket Example">
         <property name="tag" channel="inline" format="text/plain" model="h1"/>
     </part>
-    <part name="content" channel="inline" format="text/plain" model="This is an example web page created from cybol files.">
+    <part name="content_1" channel="inline" format="text/plain" model="This is an example web page created from cybol files.">
         <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content" channel="inline" format="text/plain" model="Following is a line break which IS allowed to be serialised as empty tag.">
+    <part name="content_2" channel="inline" format="text/plain" model="Following is a line break which IS allowed to be serialised as empty tag.">
         <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content" channel="inline" format="text/plain" model="">
+    <part name="content_3" channel="inline" format="text/plain" model="">
         <property name="tag" channel="inline" format="text/plain" model="br"/>
     </part>
+
 </model>

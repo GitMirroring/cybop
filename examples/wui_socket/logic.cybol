@@ -1,11 +1,14 @@
 <model>
+
     <part name="handler" channel="file" format="text/cybol" model="wui_socket/logic/handler.cybol"/>
+
     <part name="send_index" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="www"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="move_arrow_down"/>
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="knowledge/path" model=".app.wui.index"/>
     </part>
+
     <part name="exit_programme" channel="inline" format="live/exit" model=""/>
+
 </model>

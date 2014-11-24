@@ -31,13 +31,11 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The any address socket cybol model. */
-static wchar_t ANY_ADDRESS_SOCKET_CYBOL_MODEL_ARRAY[] = {L'a', L'n', L'y'};
-static wchar_t* ANY_ADDRESS_SOCKET_CYBOL_MODEL = ANY_ADDRESS_SOCKET_CYBOL_MODEL_ARRAY;
+static wchar_t* ANY_ADDRESS_SOCKET_CYBOL_MODEL = L"any";
 static int* ANY_ADDRESS_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The loopback address socket cybol model. */
-static wchar_t LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_ARRAY[] = {L'l', L'o', L'o', L'p', L'b', L'a', L'c', L'k'};
-static wchar_t* LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL = LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_ARRAY;
+static wchar_t* LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL = L"loopback";
 static int* LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ADDRESS_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */

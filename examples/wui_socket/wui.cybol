@@ -1,7 +1,9 @@
 <model>
+
     <part name="actions" channel="file" format="text/cybol" model="wui_socket/wui/actions.cybol"/>
     <part name="index" channel="file" format="element/part" model="wui_socket/wui/index.cybol">
         <property name="tag" channel="inline" format="text/plain" model="html"/>
     </part>
     <!-- Further html files may follow here ... -->
+
 </model>

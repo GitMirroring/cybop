@@ -1,0 +1,7 @@
+<model>
+
+    <part name="tmp" channel="file" format="element/part" model="wui_socket/tmp.cybol"/>
+    <part name="wui" channel="file" format="element/part" model="wui_socket/wui.cybol"/>
+    <part name="logic" channel="file" format="element/part" model="wui_socket/logic.cybol"/>
+
+</model>

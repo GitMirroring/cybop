@@ -1,4 +1,5 @@
 <model>
+
     <part name="http-equiv" channel="inline" format="text/plain" model="">
         <property name="tag" channel="inline" format="text/plain" model="meta"/>
         <property name="http-equiv" channel="inline" format="text/plain" model="content-type"/>
@@ -12,4 +13,5 @@
     <part name="title" channel="inline" format="text/plain" model="CYBOL WUI Socket Example">
         <property name="tag" channel="inline" format="text/plain" model="title"/>
     </part>
+
 </model>

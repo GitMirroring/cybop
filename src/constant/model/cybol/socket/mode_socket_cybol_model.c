@@ -31,13 +31,11 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The client mode socket cybol model. */
-static wchar_t CLIENT_MODE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'c', L'l', L'i', L'e', L'n', L't'};
-static wchar_t* CLIENT_MODE_SOCKET_CYBOL_MODEL = CLIENT_MODE_SOCKET_CYBOL_MODEL_ARRAY;
+static wchar_t* CLIENT_MODE_SOCKET_CYBOL_MODEL = L"client";
 static int* CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The server mode socket cybol model. */
-static wchar_t SERVER_MODE_SOCKET_CYBOL_MODEL_ARRAY[] = {L's', L'e', L'r', L'v', L'e', L'r'};
-static wchar_t* SERVER_MODE_SOCKET_CYBOL_MODEL = SERVER_MODE_SOCKET_CYBOL_MODEL_ARRAY;
+static wchar_t* SERVER_MODE_SOCKET_CYBOL_MODEL = L"server";
 static int* SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MODE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */

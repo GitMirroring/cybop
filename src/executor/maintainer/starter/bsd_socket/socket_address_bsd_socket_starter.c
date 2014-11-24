@@ -66,36 +66,9 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) AF_LOCAL);
+                compare_integer_equal((void*) &r, p7, (void*) AF_BLUETOOTH);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                    // Initialise address size.
-                    //
-                    // CAUTION! The following line CANNOT be used:
-                    // *as = sizeof(struct sockaddr_un);
-                    // because the compiler brings the error
-                    // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
-                    // The reason is the "sun_path" field of the "sockaddr_un" structure,
-                    // which is a character array whose size is unknown at compilation time.
-                    //
-                    // The size of the "sun_path" character array is therefore set
-                    // to the fixed size of 108.
-                    // The number "108" is the limit as set by the gnu c library!
-                    // Its documentation called it a "magic number" and does not
-                    // know why this limit exists.
-                    //
-                    // With the known type "short int" of the "sun_family" field and
-                    // a fixed size "108" of the "sun_path" field, the overall size of
-                    // the "sockaddr_un" structure can be calculated as sum.
-                    calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-                    calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
-
-                    // Allocate address.
-                    *ad = malloc(*as);
-
-                    // Initialise address.
-                    startup_bsd_socket_socket_address_local(*ad, p2, p3);
                 }
             }
 
@@ -144,6 +117,49 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // CAUTION! The forwarded host address
                     // is already in network byte order.
                     startup_bsd_socket_socket_address_inet6(*ad, (void*) &ha, p6);
+                }
+            }
+
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                compare_integer_equal((void*) &r, p7, (void*) AF_IRDA);
+
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                }
+            }
+
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                compare_integer_equal((void*) &r, p7, (void*) AF_LOCAL);
+
+                if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    // Initialise address size.
+                    //
+                    // CAUTION! The following line CANNOT be used:
+                    // *as = sizeof(struct sockaddr_un);
+                    // because the compiler brings the error
+                    // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
+                    // The reason is the "sun_path" field of the "sockaddr_un" structure,
+                    // which is a character array whose size is unknown at compilation time.
+                    //
+                    // The size of the "sun_path" character array is therefore set
+                    // to the fixed size of 108.
+                    // The number "108" is the limit as set by the gnu c library!
+                    // Its documentation called it a "magic number" and does not
+                    // know why this limit exists.
+                    //
+                    // With the known type "short int" of the "sun_family" field and
+                    // a fixed size "108" of the "sun_path" field, the overall size of
+                    // the "sockaddr_un" structure can be calculated as sum.
+                    calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+                    calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
+
+                    // Allocate address.
+                    *ad = malloc(*as);
+
+                    // Initialise address.
+                    startup_bsd_socket_socket_address_local(*ad, p2, p3);
                 }
             }
 

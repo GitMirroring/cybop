@@ -1,10 +1,13 @@
 <model>
-    <!-- CAUTION! The request is used in file "logic/handler.cybol". -->
+
+    <!-- The request is used in file "logic/handler.cybol". -->
     <part name="request" channel="inline" format="text/plain" model=""/>
+
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
     <part name="path" channel="inline" format="path/knowledge" model=""/>
+
 </model>

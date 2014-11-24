@@ -30,44 +30,44 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The local namespace socket cybol model. */
-static wchar_t LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'l', L'o', L'c', L'a', L'l'};
-static wchar_t* LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL = LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The bluetooth namespace socket cybol model. */
+static wchar_t* BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL = L"bluetooth";
+static int* BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ccitt namespace socket cybol model. */
+static wchar_t* CCITT_NAMESPACE_SOCKET_CYBOL_MODEL = L"ccitt";
+static int* CCITT_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The internet model processor (implink) namespace socket cybol model. */
+static wchar_t* IMPLINK_NAMESPACE_SOCKET_CYBOL_MODEL = L"implink";
+static int* IMPLINK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The internet protocol version 4 (ipv4) namespace socket cybol model. */
-static wchar_t INET_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'i', L'p', L'v', L'4'};
-static wchar_t* INET_NAMESPACE_SOCKET_CYBOL_MODEL = INET_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
+static wchar_t* INET_NAMESPACE_SOCKET_CYBOL_MODEL = L"ipv4";
 static int* INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The internet protocol version 6 (ipv6) namespace socket cybol model. */
-static wchar_t INET6_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'i', L'p', L'v', L'6'};
-static wchar_t* INET6_NAMESPACE_SOCKET_CYBOL_MODEL = INET6_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
+static wchar_t* INET6_NAMESPACE_SOCKET_CYBOL_MODEL = L"ipv6";
 static int* INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The xerox network software protocols namespace socket cybol model. */
-static wchar_t NS_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'n', L's'};
-static wchar_t* NS_NAMESPACE_SOCKET_CYBOL_MODEL = NS_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* NS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The infrared data association (irda) namespace socket cybol model. */
+static wchar_t* IRDA_NAMESPACE_SOCKET_CYBOL_MODEL = L"irda";
+static int* IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The open systems interconnect (osi) namespace socket cybol model. */
-static wchar_t ISO_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'i', L's', L'o'};
-static wchar_t* ISO_NAMESPACE_SOCKET_CYBOL_MODEL = ISO_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
+/** The international organization for standardization (iso) open systems interconnect (osi) namespace socket cybol model. */
+static wchar_t* ISO_NAMESPACE_SOCKET_CYBOL_MODEL = L"iso";
 static int* ISO_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The ccitt namespace socket cybol model. */
-static wchar_t CCITT_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'c', L'c', L'i', L't', L't'};
-static wchar_t* CCITT_NAMESPACE_SOCKET_CYBOL_MODEL = CCITT_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* CCITT_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The local namespace socket cybol model. */
+static wchar_t* LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL = L"local";
+static int* LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The internet cybol model processor namespace socket cybol model. */
-static wchar_t IMPLINK_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'i', L'm', L'p', L'l', L'i', L'n', L'k'};
-static wchar_t* IMPLINK_NAMESPACE_SOCKET_CYBOL_MODEL = IMPLINK_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
-static int* IMPLINK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The xerox network software protocols namespace socket cybol model. */
+static wchar_t* NS_NAMESPACE_SOCKET_CYBOL_MODEL = L"ns";
+static int* NS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The local area routing protocol namespace socket cybol model. */
-static wchar_t ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY[] = {L'r', L'o', L'u', L't', L'e'};
-static wchar_t* ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL = ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL_ARRAY;
+/** The local area routing protocol (route) namespace socket cybol model. */
+static wchar_t* ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL = L"route";
 static int* ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* NAMESPACE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */

@@ -53,18 +53,18 @@ void startup_bsd_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p2, (void*) LOCAL_NAMESPACE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) LOCAL_NAMESPACE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p2, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_LOCAL);
-            copy_integer(p1, (void*) &AF_LOCAL);
+            copy_integer(p0, (void*) &PF_BLUETOOTH);
+            copy_integer(p1, (void*) &AF_BLUETOOTH);
         }
     }
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p2, (void*) INET_NAMESPACE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) INET_NAMESPACE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p2, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -75,12 +75,34 @@ void startup_bsd_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p2, (void*) INET6_NAMESPACE_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) INET6_NAMESPACE_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p2, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) &PF_INET6);
             copy_integer(p1, (void*) &AF_INET6);
+        }
+    }
+
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p2, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) &PF_IRDA);
+            copy_integer(p1, (void*) &AF_IRDA);
+        }
+    }
+
+    if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p2, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) &PF_LOCAL);
+            copy_integer(p1, (void*) &AF_LOCAL);
         }
     }
 

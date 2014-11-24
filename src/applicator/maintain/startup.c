@@ -87,9 +87,9 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
     // Get channel part.
     get_part_knowledge((void*) &c, p0, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get serial port filename.
-    get_part_knowledge((void*) &serial_f, p0, (void*) FILENAME_SERIAL_PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SERIAL_PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &serial_f, p0, (void*) FILENAME_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get serial port baudrate.
-    get_part_knowledge((void*) &serial_b, p0, (void*) BAUDRATE_SERIAL_PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) BAUDRATE_SERIAL_PORT_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_knowledge((void*) &serial_b, p0, (void*) BAUDRATE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) BAUDRATE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get socket namespace.
     get_part_knowledge((void*) &socket_n, p0, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get socket communication style.

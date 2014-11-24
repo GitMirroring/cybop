@@ -1,32 +1,28 @@
 <model>
+
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <part name="reset_request" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".temporary.request"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.request"/>
     </part>
     <part name="receive_request" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="www"/>
-<!--
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
--->
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary.request"/>
-<!-- OPTIONAL: e.g. used in "gui"; might be used for client socket or similar or deleted
-        <property name="message" channel="inline" format="path/knowledge" model=".gui.window"/>
--->
-        <property name="style" channel="inline" format="text/plain" model="stream"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.request"/>
     </part>
+
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
         <property name="source" channel="inline" format="text/plain" model=".wui.actions."/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_action" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".temporary.request#uri.query.action"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.tmp.request#uri.query.action"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
@@ -37,6 +33,7 @@
         a string pointing to the actual model to be executed.
     -->
     <part name="execute_action" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/reference" model=".temporary.path"/>
+        <property name="model" channel="inline" format="path/reference" model=".app.tmp.path"/>
     </part>
+
 </model>

@@ -1,4 +1,6 @@
 <model>
-    <part name="index" channel="inline" format="path/knowledge" model=".logic.send_index"/>
-    <part name="exit" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
+
+    <part name="index" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
+    <part name="exit" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+
 </model>
