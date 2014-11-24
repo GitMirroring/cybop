@@ -1,0 +1,20 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="sense"/>
+    <part name="description" channel="inline" format="text/plain" model="  Senses an interrupt request happening on the given channel.
+ 
+  In order to sense interrupt requests of various devices, special mechanisms
+  for interrupt detection have to be started. To these mechanisms belong:
+  - terminal
+  - x window system
+  - socket
+ 
+  All of them have their own internal signal/ action/ event/ interrupt waiting loops
+  which get (re-)activated here, running as parallel services in separate threads.
+  Whenever an event occurs in one of these threads, it gets transformed into a
+  cyboi-internal interrupt request by setting the corresponding flag.
+  The cyboi signal checker loop then senses the interrupt and receives the
+  corresponding message via the channel the interrupt belongs to."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/live/sense/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="flow/sense"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/live/sense/properties.cybol"/>
+</model>

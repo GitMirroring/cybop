@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="shutdown"/>
+    <part name="description" channel="inline" format="text/plain" model="Shuts down the service running on the given channel."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/maintain/shutdown/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="maintain/shutdown"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/maintain/shutdown/properties.cybol"/>
+</model>

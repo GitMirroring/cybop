@@ -1,0 +1,30 @@
+<model>
+	<part name="channel" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="channel"/>
+        <property name="description" channel="inline" format="text/plain" model="the channel on which to startup a service (terminal, display, tcp_socket, unix_socket, ...)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/* | meta/channel"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="namespace" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="namespace"/>
+        <property name="description" channel="inline" format="text/plain" model="Only if service is www, cyboi or similar! The namespace of the socket"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="style" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="style"/>
+        <property name="description" channel="inline" format="text/plain" model="Only if service is www, cyboi or similar! The namespace of the socket"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="address" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="address"/>
+        <property name="description" channel="inline" format="text/plain" model="Only if service is www, cyboi or similar! The address of hosts communicating with this system via socket."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

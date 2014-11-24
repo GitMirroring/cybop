@@ -1,0 +1,9 @@
+<model>
+	<part name="channel" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="channel"/>
+        <property name="description" channel="inline" format="text/plain" model="the channel whose service is to be interrupted (terminal, display, www etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/* | meta/channel"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>
