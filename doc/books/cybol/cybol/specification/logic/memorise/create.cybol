@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="create"/>
+    <part name="description" channel="inline" format="text/plain" model=" Creates an empty part consisting of name and type only."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/memorise/create/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="memorise/create"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/memorise/create/properties.cybol"/>
+</model>

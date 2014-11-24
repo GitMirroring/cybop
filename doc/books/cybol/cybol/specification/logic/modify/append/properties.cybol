@@ -1,0 +1,37 @@
+<model>
+	<part name="destination" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="destination"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination part"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="source" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="source"/>
+        <property name="description" channel="inline" format="text/plain" model="the source part"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="type" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="type"/>
+        <property name="description" channel="inline" format="text/plain" model="the operand type which is equal for both operands"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="count" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="count"/>
+        <property name="description" channel="inline" format="text/plain" model="If null, the source part model count will be used instead. The number of elements to be appended."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+		<part name="index" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="index"/>
+        <property name="description" channel="inline" format="text/plain" model="If null, an index of zero will be used instead. The source index from which to start copying elements from."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

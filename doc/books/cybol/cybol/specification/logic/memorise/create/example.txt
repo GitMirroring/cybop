@@ -1,0 +1,6 @@
+    <part name="create_summand_2" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="summand_2"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" format="path/knowledge" model=".addition_application"/>
+    </part>
