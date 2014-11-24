@@ -45,7 +45,6 @@
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/modifier/copier/part_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../executor/modifier/copier/unsigned_long_copier.c"
 #include "../../../executor/modifier/copier/wide_character_copier.c"
 #include "../../../logger/logger.c"
 
@@ -177,16 +176,6 @@ void copy_value(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, p1);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p2, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            copy_unsigned_long(p0, p1);
         }
     }
 

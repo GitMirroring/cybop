@@ -88,7 +88,9 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *BOOLEAN_LOGICVALUE_STATE_CYBOI_TYPE) {
 
+            //?? TODO: Remove this later, when boolean values have been changed from "int" to "unsigned char"!
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+//??            copy_integer(p0, (void*) UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
 
         //
         // number
@@ -112,11 +114,9 @@ void determine_size(void* p0, void* p1) {
 
         } else if (*t == *INTEGER_NUMBER_STATE_CYBOI_TYPE) {
 
+            //?? TODO: Remove this later, when integer values have been changed from "int" to "long long int"!
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-
-        } else if (*t == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
-
-            copy_integer(p0, (void*) UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+//??            copy_integer(p0, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
         //
         // pointer

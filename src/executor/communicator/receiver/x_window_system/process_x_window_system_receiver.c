@@ -643,7 +643,7 @@ fwprintf(stdout, L"TEST receive x window system XCB_KEY_PRESS t: %i\n", t);
             char str_test[1000];
             char str_zugriff[1000];
             char str_menubar[100];
-            //??unsigned long //??double menu_foreground;
+            //?? long long int or double menu_foreground;
             // The temporary variables.
         //??    int k;
             int menu_eintrage_ende;

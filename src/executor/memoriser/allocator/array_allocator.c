@@ -58,7 +58,6 @@ void allocate_array(void* p0, void* p1, void* p2) {
 
         // Determine type (type) size.
         determine_size((void*) &ma, p2);
-
         // Calculate memory area.
         calculate_integer_multiply((void*) &ma, p1);
 
@@ -104,7 +103,7 @@ void allocate_array(void* p0, void* p1, void* p2) {
             //
             // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
             // because values are casted to int* internally again.
-            size_t tma = ma;
+            size_t tma = (size_t) ma;
 
             // Allocate memory area.
             *a = malloc(tma);

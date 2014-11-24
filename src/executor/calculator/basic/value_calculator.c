@@ -38,7 +38,6 @@
 #include "../../../executor/calculator/basic/integer_calculator.c"
 #include "../../../executor/calculator/basic/part_calculator.c"
 #include "../../../executor/calculator/basic/pointer_calculator.c"
-#include "../../../executor/calculator/basic/unsigned_long_calculator.c"
 #include "../../../logger/logger.c"
 
 //
@@ -109,9 +108,9 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
             calculate_character(p0, p1, p2);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-    
+
         compare_integer_equal((void*) &r, p3, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -119,7 +118,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
             calculate_complex(p0, p1, p2);
         }
     }
-    
+
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -148,16 +147,6 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             calculate_integer(p0, p1, p2);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p3, (void*) UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            calculate_unsigned_long(p0, p1, p2);
         }
     }
 
@@ -206,7 +195,7 @@ void calculate_value(void* p0, void* p1, void* p2, void* p3) {
  * @param p4 the index
  */
 void calculate_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
-  
+
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate value offset.");
 
     // The result value, operand value.

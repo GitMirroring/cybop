@@ -34,9 +34,9 @@
  */
 void globalise_real() {
 
-    *FLOAT_REAL_TYPE_SIZE = sizeof(float);
+//??    *FLOAT_REAL_TYPE_SIZE = sizeof(float);
     *DOUBLE_REAL_TYPE_SIZE = sizeof(double);
-    *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof(long double);
+//??    *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof(long double);
 }
 
 /* REAL_GLOBALISER_SOURCE */

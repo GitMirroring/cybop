@@ -16,83 +16,8 @@ __________
 
         * Use recommended loop testwise, in order to avoid possible endless loop in file "maximum_retriever.c"
         * Debug formula considering minimum and maximum in directory "executor/randomiser/"
-        * Replace type "unsigned long" with simple "int" (temporarily, until other solutions is found)
+        * Replace datatype "unsigned long" with simple "int" (temporarily, until other solutions is found)
         * Comment out non-working lines (possibly due to usage of type "unsigned long")
-
-        * Use integer datatype "long long int" (64 Bit) in operations of directory "executor/", at least in calculator, e.g. used by pseudo random numbers
-
-        * Taken from book "Jürgen Wolf: C von A bis Z. Galileo Computing openbook":
-
-            //
-            // Integer Number Date Range
-            //
-            // CAUTION! The datatype "int" covers DIFFERENT DATA RANGES
-            // (2 Byte or 4 Byte), depending on the platform.
-            // It therefore seems better to use EXPLICIT data types, in order
-            // to make cyboi run correctly on different platforms (16/32/64 Bit).
-            //
-            // -----------------------------------------------------
-            // | Long Form     | Short Form    | Data Range [Byte] |
-            // -----------------------------------------------------
-            // | signed char   | char          |  1 (8 Bit)        |
-            // | short int     | short         |  2 (16 Bit)       |
-            // | long int      | long          |  4 (32 Bit)       |
-            // | long long int | long long     |  8 (64 Bit)       |
-            // -----------------------------------------------------
-            //
-            // In cyboi, only the correct LONG FORM is used for datatype names.
-            // For integer numbers, the LARGEST datatype "long long int" is used.
-            //
-            // http://openbook.galileo-press.de/c_von_a_bis_z/
-            //
-
-            //
-            // Sign
-            //
-            // By default, all datatypes are "signed".
-            //
-            // CAUTION! For the datatype "char", the C language specification
-            // does NOT define whether or not it contains a sign.
-            // This might lead to errors when used on different platforms.
-            // There is the three different datatypes:
-            // char, unsigned char, signed char.
-            // However, in the end it depends on the compiler implementation
-            // if a "char" can hold negative numbers or not.
-            //
-            // CAUTION! For the datatype "wchar_t" an explicit "signed"
-            // or "unsigned" is NOT defined. It depends on the actual
-            // underlying implementation, if it is signed or not.
-            //
-            // http://openbook.galileo-press.de/c_von_a_bis_z/
-            //
-
-            //
-            // Floating Point Number Date Range
-            //
-            // CAUTION! The size and range of floating point numbers are
-            // NOT defined and absolutely implementation-dependent.
-            // Their internal representation depends on the compiler used.
-            //
-            // -------------------------------------
-            // | Data Type     | Data Range [Byte] |
-            // -------------------------------------
-            // | float         |  4 (32 Bit)       |
-            // | double        |  8 (64 Bit)       |
-            // | long double   | 10 (80 Bit)       |
-            // -------------------------------------
-            //
-            // CAUTION! The datatype "long double" has a size of 10 Byte
-            // on 16 Bit machines. It gets filled up from 10 to 12 Byte
-            // on 32 Bit machines. HP-UX machines even need 16 Byte of memory.
-            //
-            // CAUTION! Using the datatype "double" suffices for most applications.
-            // If higher precision is needed, then special libraries with functions
-            // for infinite precision should be used rather than "long double".
-            //
-            // In cyboi, for floating point numbers, the STANDARD datatype "double" is used.
-            //
-            // http://openbook.galileo-press.de/c_von_a_bis_z/
-            //
 
 API
 ___
@@ -104,24 +29,26 @@ ___
 WUI
 ___
 
+        * Hint for thinking: Only the "socket" number should be stored in a cybol property,
+            in order to be able to use it for communication;
+            all other things are set inside the socket, when starting it up
+        * Implement session on application level (e.g. in Res Medicinae)
+
         * See "wolf_-_c_von_a_bis_z" for platform independence
-        * Remove "bind" from client variant of socket
         * Figure out how to handle different ports/services (really hand over all of them to internal memory?)
         * Replace "cyboi" and "www" with "socket"
         * Reactivate socket in file "starter.c"
         * Deallocate socket properly; addresses are allocated at startup and possibly have to be stored in internal memory in order to be freed again later
         * Prepare using winsock2
 
-        * Write port de-/serialiser translating standard protocol into port and vice versa
-        * Provide two cybol properties in parallel:
-            - "port-name" for default ports compiled into cyboi, e.g. "www" for port 80;
-            - "port-number" for special, self-defined, arbitrary port numbers
+        * Reactivate send/receive functionality: hint from "wolf_-_c_von_a_bis_z" for UDP connexion:
+            "Sollten Sie bei einer UDP-Verbindung die connect()-Funktion verwenden,
+            können Sie auch die Funktionen send/recv (statt sendto/recvfrom) verwenden.
+            In diesem Fall werden die fehlenden Informationen zur Adresse
+            automatisch ergänzt und brauchen nicht als Argument angegeben zu werden."
+            --> leave "connect" in maintainer/starter, even if not a server service
+            --> only send/receive should be in communicator
 
-        * Replace deprecated "inet_addr" with "inet_pton" to convert ip4 AS WELL AS ip6 addresses to network byte order, e.g.:
-            mysocket.sin6_family = AF_INET6;
-            inet_pton(AF_INET6, "0:0:0:0:0:0:0:1", mysocket.sin6_addr.s6_addr);
-            mysocket.sin6_port = 1234;
-            size = sizeof(mysocket);
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example applications "http_communication" and "presence" using HTTP
             --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
@@ -134,11 +61,9 @@ ___
             (e.g. html file http response was generated twice as long as wanted;
             only first action was received and added properly to uri internal model,
             all following actions were appended but only the first is considered)
-        * Create three different sockets (local, inet, inet6)? distinguish at socket startup?
-            and store as different entries in internal memory?
         * It was decided that "send" operations do NOT run in an own thread (for now and the near future, at least),
             also if querying a server via http, since this would mix up the signal handling mechanism
-        * Use htons for socket transfer
+        * Apply byte order conversion from/to network byte order also for message
         * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (See socket examples in tmp/)
         * Figure out necessary LIMITATION of the socket receive buffer in function "communicate_receiving_socket" to 1024!
         * See: http://www.w3.org/TR/html5/urls.html#urls
@@ -151,7 +76,8 @@ ___
         * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
         * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
             the corresponding type may be forwarded between functions as parametre
-        * Implement session on application level (e.g. in Res Medicinae)
+
+        * Write de-/serialiser translating service to port and vice versa
 
 GUI
 ___
@@ -312,6 +238,15 @@ ______
 
 Project
 _______
+
+        * Change datatypes; CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
+        * Use integer datatype "unsigned char" (8 Bit) for boolean values;
+            search for constants FALSE_BOOLEAN_STATE_CYBOI_MODEL and TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+            CAUTION! it IS NECESSARY to adapt ALL compare/copy functions, since otherwise, memory errors will occur (see valgrind) when dereferencing a value of 1 Byte to 4 Byte and vice versa;
+            e.g. replace "compare_integer_unequal" with "compare_character_unequal";
+            do not forget to adapt file "size_determiner.c"
+        * Use integer datatype "long long int" (64 Bit) wherever useful in cyboi;
+            adapt file "executor/memoriser/size_determiner.c" to use "SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE" instead of "SIGNED_INTEGER_INTEGRAL_TYPE_SIZE" for "INTEGER_NUMBER_STATE_CYBOI_TYPE"
 
         * Fix memory bugs reported by valgrind tool when starting cybol example applications "tui" and "ui_control"
             (appears in function call "fwprintf" of file "stream_terminal_sender.c";

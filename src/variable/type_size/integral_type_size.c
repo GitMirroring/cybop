@@ -45,6 +45,8 @@
 //
 
 //
+// Date Range
+//
 // The C standard does not require that any of the type sizes
 // be necessarily different. It is perfectly valid, for example,
 // if all types are 64 bits long.
@@ -57,38 +59,70 @@
 // - LP64: long int and pointers are 64 bits, and int are 32 bits
 // Most implementations under these schemes use 16-bit short ints.
 //
+// -----------------------------------------------------
+// | Long Form     | Short Form    | Data Range [Byte] |
+// -----------------------------------------------------
+// | signed char   | char          |  1 (8 Bit)        |
+// | short int     | short         |  2 (16 Bit)       |
+// | long int      | long          |  4 (32 Bit)       |
+// | long long int | long long     |  8 (64 Bit)       |
+// -----------------------------------------------------
+//
+// CAUTION! The datatype "int" covers DIFFERENT DATA RANGES
+// (2 Byte or 4 Byte), depending on the platform.
+// It therefore seems better to use EXPLICIT data types, in order
+// to make cyboi run correctly on different platforms (16/32/64 Bit).
+//
+// In cyboi, only the correct LONG FORM is used for datatype names.
+// For standard integer numbers, the LARGEST datatype "long long int" is used.
+//
+// http://openbook.galileo-press.de/c_von_a_bis_z/
+//
 
 //
-// All C integer types have signed and unsigned variants.
-// If "signed" or "unsigned" is not specified explicitly,
-// in most circumstances "signed" is assumed.
+// Performance
 //
-// However, for historic reasons plain "char" is a type
-// distinct from both "signed char" and "unsigned char".
-// It may be a signed type or an unsigned type, depending on
-// the compiler and the character set (C guarantees that
-// members of the C basic character set have positive values).
-//
-// Also, bit field types specified as plain "int" may be
-// signed or unsigned, depending on the compiler.
-//
-
-//
-// Performance:
-//
-// Using 32-bit variables (like "int") is better than working
+// Using 32-bit variables (like "long") IS BETTER than working
 // with 8- or 16-bit ones (like "short" or "unsigned char"),
-// since the latter might slow down processor speed due to
+// since the latter might SLOW DOWN PROCESSOR SPEED due to
 // memory addressing mechanisms. Most processors are totally
 // 32-bit -- just the size of the "int" type.
 //
 // Pointers on 64 Bit systems are 64 Bit, but at least
-// multiples of 32 bytes.
+// MULTIPLES of 32 bytes.
 //
 // Increase in speed means more memory consumption due to
 // larger type sizes. But this is always the decision:
 // Space or time? Precision or momentum?
 // (Heisenberg uncertainty principle?)
+//
+// In the end, this is one more argument for using the
+// datatype "long long int" for standard integers.
+//
+
+//
+// Sign
+//
+// All C integer types have signed and unsigned variants.
+// If "signed" or "unsigned" is not specified explicitly,
+// in most circumstances "signed" is assumed by default.
+//
+// CAUTION! For the datatype "char", the C language specification
+// does NOT define whether or not it contains a sign.
+// This might lead to errors when used on different platforms.
+// For historic reasons plain "char" is a type distinct
+// from both "signed char" and "unsigned char".
+// It may be a signed type or an unsigned type, depending on
+// the compiler and the character set (C guarantees that
+// members of the C basic character set have positive values).
+// Similarly, bit field types specified as plain "int" may be
+// signed or unsigned, depending on the compiler.
+//
+// CAUTION! For the datatype "wchar_t" an explicit "signed"
+// or "unsigned" is NOT defined. It depends on the actual
+// underlying type, if it is signed or not.
+//
+// http://openbook.galileo-press.de/c_von_a_bis_z/
 //
 
 /**
@@ -99,8 +133,8 @@
  * Typical size [Byte]: 1
  * Typical size [Bit]: 8
  */
-static int SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned char integral type size.
@@ -121,8 +155,8 @@ static int* UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = UNSIGNED_CHARACTER_INTEGRAL_
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static int SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned short int integral type size.
@@ -132,8 +166,8 @@ static int* SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_SHORT_INTEGER_INTEG
  * Typical size [Byte]: 2
  * Typical size [Bit]: 16
  */
-static int UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed int integral type size.
@@ -154,8 +188,8 @@ static int* SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_INTEGER_INTEGRAL_TYPE_SIZ
  * Typical size [Byte]: 2 (antique systems) or 4
  * Typical size [Bit]: 16 (antique systems) or 32
  */
-static int UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed long int integral type size.
@@ -165,8 +199,8 @@ static int* UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_INTEGER_INTEGRAL_TYPE
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static int SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The unsigned long int integral type size.
@@ -176,8 +210,8 @@ static int* SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_INTEGER_INTEGRA
  * Typical size [Byte]: 4 or 8 (64-Bit systems)
  * Typical size [Bit]: 32 or 64 (64-Bit systems)
  */
-static int UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The signed long long int integral type size.
@@ -198,8 +232,8 @@ static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_LONG_INTEG
  * Typical size [Byte]: 8
  * Typical size [Bit]: 64
  */
-static int UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
-static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
+//?? static int UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY[1];
+//?? static int* UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE_ARRAY;
 
 /**
  * The wchar_t integral type size.

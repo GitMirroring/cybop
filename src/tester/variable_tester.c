@@ -53,20 +53,20 @@ void test_type_sizes() {
     fwprintf(stdout, L"unsigned long int: %i\n", sizeof(unsigned long int));
     fwprintf(stdout, L"unsigned int: %i\n", sizeof(unsigned int));
 
-    fwprintf(stdout, L"signed char: %i\n", *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"signed char: %i\n", *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"unsigned char: %i\n", *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed short int: %i\n", *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned short int: %i\n", *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed int: %i\n", *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned int: %i\n", *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"signed long int: %i\n", *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned long int: %i\n", *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"signed short int: %i\n", *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"unsigned short int: %i\n", *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"signed int: %i\n", *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"unsigned int: %i\n", *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"signed long int: %i\n", *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"unsigned long int: %i\n", *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"signed long long int: %i\n", *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"unsigned long long int: %i\n", *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"unsigned long long int: %i\n", *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
     fwprintf(stdout, L"wchar_t: %i\n", *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE);
-    fwprintf(stdout, L"float: %i\n", *FLOAT_REAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"float: %i\n", *FLOAT_REAL_TYPE_SIZE);
     fwprintf(stdout, L"double: %i\n", *DOUBLE_REAL_TYPE_SIZE);
-    fwprintf(stdout, L"long double: %i\n", *LONG_DOUBLE_REAL_TYPE_SIZE);
+//??    fwprintf(stdout, L"long double: %i\n", *LONG_DOUBLE_REAL_TYPE_SIZE);
 }
 
 /**

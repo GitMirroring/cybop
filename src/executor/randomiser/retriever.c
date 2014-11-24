@@ -72,8 +72,12 @@ void retrieve(void* p0, void* p1, void* p2) {
         // because the generated random numbers exclude the maximum.
         calculate_integer_add((void*) &max, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         // Retrieve pseudo random number.
+        // CAUTION! The following source code line is just for TESTING!
+        // For reasons explained in the file "maximum_retriever.c",
+        // using the modulo operator is mathematically not quite correct.
+        // However, for testing it delivers sufficiently random results.
+        n = rand() % max;
 //??        retrieve_maximum((void*) &n, (void*) &max);
-        n = rand() % max; //?? TODO: Delete this later! Temporary solution until "retrieve_maximum" works fine.
         // Shift back pseudo random number into original range [min,max).
         calculate_integer_add((void*) &n, p1);
         // Copy to destination number.

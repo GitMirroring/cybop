@@ -48,6 +48,13 @@
 void globalise() {
 
     //
+    // CAUTION! DO NOT use array functionality here!
+    // The array functions use the logger which in turn depends on global
+    // log variables set here. So this would cause circular references.
+    // Instead, use malloc, free and similar functions directly!
+    //
+
+    //
     // CAUTION! These global variables are initialised here,
     // because not all of them represent primitive values.
     //
@@ -59,36 +66,6 @@ void globalise() {
     // for which only an array variable using a size was defined,
     // because initial values are more complex and should be
     // initialised here.
-    //
-
-    //
-    // CAUTION! DO NOT use array functionality here!
-    // The array functions use the logger which in turn depends on global
-    // log variables set here. So this would cause circular references.
-    // Instead, use malloc, free and similar functions directly!
-    //
-
-    //
-    // CAUTION! The glibc manual states that the data type of the result
-    // of the "sizeof" function may vary between compilers.
-    // It therefore recommends to use type "size_t" (instead of "int")
-    // as the preferred way to declare any arguments or variables
-    // that hold the size of an object.
-    //
-    // See:
-    // http://www.gnu.org/software/libtool/manual/libc/Important-Data-Types.html#Important-Data-Types
-    //
-    // However, cyboi assigns the sizes of all primitive types to special
-    // global integer variables at system startup, in module "globaliser.c".
-    // As long as these global integer variables are used, there is
-    // no need to work with type "sizt_t" in cyboi source code.
-    //
-    // But do NOT forget to introduce a local variable of type "size_t"
-    // and to assign the value of the cyboi-internal int variable to it!
-    // Otherwise, memory errors will occur and valgrind memcheck report
-    // something like "Invalid read of size 8", at least on 64 Bit machines.
-    // On such systems, "size_t" has a size of 8 Byte (unsigned long int),
-    // whereas an "int" has the usual size of 4 Byte.
     //
 
     globalise_conversion();

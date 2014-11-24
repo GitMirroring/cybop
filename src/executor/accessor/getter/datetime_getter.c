@@ -89,7 +89,7 @@ void get_datetime_element(void* p0, void* p1, void* p2) {
                 // this one, but NOT the type size of this element itself.
                 // CAUTION! The pointer type is needed here, since
                 // the result is a pointer to which the offset is added.
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+                calculate_pointer_add((void*) &e, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
                 // Copy element to destination.
                 copy_double(p0, e);

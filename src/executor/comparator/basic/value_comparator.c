@@ -41,7 +41,6 @@
 #include "../../../executor/comparator/basic/integer_comparator.c"
 #include "../../../executor/comparator/basic/part_comparator.c"
 #include "../../../executor/comparator/basic/pointer_comparator.c"
-#include "../../../executor/comparator/basic/unsigned_long_comparator.c"
 #include "../../../executor/comparator/basic/wide_character_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -152,16 +151,6 @@ void compare_value(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_integer(p0, p1, p2, p3);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            if (*a == *UNSIGNED_LONG_NUMBER_STATE_CYBOI_TYPE) {
-
-                r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                compare_unsigned_long(p0, p1, p2, p3);
             }
         }
 

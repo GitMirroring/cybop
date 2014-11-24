@@ -33,16 +33,39 @@
  */
 void globalise_integral() {
 
-    *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(signed char);
+    //
+    // CAUTION! The glibc manual states that the data type of the result
+    // of the "sizeof" function may vary between compilers.
+    // It therefore recommends to use type "size_t" (instead of "int")
+    // as the preferred way to declare any arguments or variables
+    // that hold the size of an object.
+    //
+    // See:
+    // http://www.gnu.org/software/libtool/manual/libc/Important-Data-Types.html#Important-Data-Types
+    //
+    // However, cyboi assigns the sizes of all primitive types to special
+    // global integer variables at system startup, in module "globaliser.c".
+    // As long as these global integer variables are used, there is
+    // no need to work with type "sizt_t" in cyboi source code.
+    //
+    // But do NOT forget to introduce a variable of type "size_t" in LOCAL CONTEXT
+    // and to assign the value of the cyboi-internal int variable to it!
+    // Otherwise, memory errors will occur and valgrind memcheck report
+    // something like "Invalid read of size 8", at least on 64 Bit machines.
+    // On such systems, "size_t" has a size of 8 Byte (unsigned long int),
+    // whereas an "int" has the usual size of 4 Byte.
+    //
+
+//??    *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(signed char);
     *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(unsigned char);
-    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed short int);
-    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned short int);
+//??    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed short int);
+//??    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned short int);
     *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed int);
-    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned int);
-    *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long int);
-    *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long int);
+//??    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned int);
+//??    *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long int);
+//??    *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long int);
     *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long long int);
-    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long long int);
+//??    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long long int);
     *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(wchar_t);
 }
 

@@ -93,7 +93,7 @@ void set_datetime_element(void* p0, void* p1, void* p2) {
                 // since some compound types have elements of different type.
                 // CAUTION! The pointer type is needed here, since
                 // the result is a pointer to which the offset is added.
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
+                calculate_pointer_add((void*) &e, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
                 // Copy element to destination.
                 copy_double(e, p1);

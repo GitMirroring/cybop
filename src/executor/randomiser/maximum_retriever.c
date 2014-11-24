@@ -58,7 +58,7 @@ void retrieve_maximum(void* p0, void* p1) {
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         //?? TODO: Delete this test message later!
-        fwprintf(stdout, L"INFORMATION: Retrieve maximum. n: %i\n", *((int*) p1));
+        fwprintf(stdout, L"INFORMATION: Retrieve maximum. src max p1: %i\n", *((int*) p1));
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Retrieve maximum.");
 
         //
@@ -146,32 +146,26 @@ void retrieve_maximum(void* p0, void* p1) {
         // x = x / bin_size; // Truncated division is intentional
         //
 
-        //
-        // ??TODO: The data type used here should be "unsigned long",
-        // but the integer calculation functions use simple "int",
-        // which leads to data loss.
-        // Change this later. Possibly use "long long int" or
-        // "unsigned long" everywhere in cyboi?
-        //
-
         // The interval count.
         // CAUTION! Initialise with ONE and NOT zero,
         // in order to save one addition calculation below.
-        unsigned long c = (unsigned long) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        long long int c = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         calculate_integer_add((void*) &c, p1);
         // The maximum.
-        unsigned long m = (unsigned long) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        // CAUTION! Initialise with ONE and NOT zero,
+        // in order to save one addition calculation below.
+        long long int m = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
         calculate_integer_add((void*) &m, (void*) &mv);
         // The interval size.
-        unsigned long s = (unsigned long) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        long long int s = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         calculate_integer_add((void*) &s, (void*) &m);
         calculate_integer_divide((void*) &s, (void*) &c);
         // The defect (remainder).
-        unsigned long d = (unsigned long) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        long long int d = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         calculate_integer_add((void*) &d, (void*) &m);
         calculate_integer_modulo((void*) &d, (void*) &c);
         // The multiple.
-        unsigned long mul = (unsigned long) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        long long int mul = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // Initialise pseudo random number.
 //??        long n = rand();
         long n;
@@ -183,7 +177,7 @@ void retrieve_maximum(void* p0, void* p1) {
         // This gives 0 or 1 with equal probability.
 
         //?? TEST
-        while (m - d <= (unsigned long) (n = rand())); // This is carefully written not to overflow
+        while (m - d <= (long long int) (n = rand())); // This is carefully written not to overflow
 /*??
         while (*NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -192,7 +186,7 @@ void retrieve_maximum(void* p0, void* p1) {
             // Calculate multiple [Vielfaches] dividable without remainder.
             mul = m - d;
 
-            if (mul <= (unsigned long) n) {
+            if (mul <= (long long int) n) {
 
                 break;
             }

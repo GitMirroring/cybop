@@ -53,7 +53,6 @@ void serialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol integer value.");
 
     // The value.
-    // unsigned long long int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int v = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get value from vector at index.

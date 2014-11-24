@@ -18,6 +18,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove superfluous datatype "unsigned long" in all source code
+        * Change datatype from "int" to "long long int" at some places
+        * Add modulo operator calculation as temporary solution to file "executor/randomiser/retriever.c"
+        * Add address families "AF_IRDA" and "AF_BLUETOOTH" to socket files
+        * Update cybol example application "wui_socket"
+        * Move network protocols like http and ftp from channel constants to new file "constant/model/cybol/socket/service_socket_cybol_model.c"
+        * Provide cybol socket properties "service" and "port" as constants
+        * Update constants in file "constant/model/service/port_service_model.c"
+
 2014-11-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend "randomiser" cybol example application, now generating and printing two pseudo random numbers

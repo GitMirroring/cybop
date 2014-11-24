@@ -41,14 +41,39 @@
 //
 
 //
-// A double variable can be marked as being a "long double",
-// which the compiler may use to select a larger floating point
-// representation than a plain double. However, the standard is
-// unspecific on the relative sizes of the floating point values,
-// and only requires a float not to be larger than a double,
-// which should not be larger than a long double.
+// Date Range
+//
+// The C standard is unspecific on the relative sizes of the
+// floating point values and only requires a float not to be
+// larger than a double, which should not be larger than a long double.
+//
+// -------------------------------------
+// | Data Type     | Data Range [Byte] |
+// -------------------------------------
+// | float         |  4 (32 Bit)       |
+// | double        |  8 (64 Bit)       |
+// | long double   | 10 (80 Bit)       |
+// -------------------------------------
+//
+// CAUTION! The size and range of floating point numbers are
+// NOT DEFINED and absolutely implementation-dependent.
+// Their internal representation depends on the compiler used.
+//
+// CAUTION! The datatype "long double" has a size of 10 Byte
+// on 16 Bit machines. It gets filled up from 10 to 12 Byte
+// on 32 Bit machines. HP-UX machines even need 16 Byte of memory.
+//
+// CAUTION! Using the datatype "double" SUFFICES for most applications.
+// If higher precision is needed, then special libraries with functions
+// for infinite precision should be used rather than "long double".
+//
+// In cyboi, for floating point numbers, the STANDARD datatype "double" is used.
+//
+// http://openbook.galileo-press.de/c_von_a_bis_z/
 //
 
+//
+// Representation
 //
 // Each of the three types of real values may represent values
 // in a different form, often one of the IEEE floating point formats:
@@ -81,8 +106,8 @@
  * Typical size [Byte]: 4
  * Typical size [Bit]: 32
  */
-static int FLOAT_REAL_TYPE_SIZE_ARRAY[1];
-static int* FLOAT_REAL_TYPE_SIZE = FLOAT_REAL_TYPE_SIZE_ARRAY;
+//?? static int FLOAT_REAL_TYPE_SIZE_ARRAY[1];
+//?? static int* FLOAT_REAL_TYPE_SIZE = FLOAT_REAL_TYPE_SIZE_ARRAY;
 
 /**
  * The double real type size.
@@ -107,8 +132,8 @@ static int* DOUBLE_REAL_TYPE_SIZE = DOUBLE_REAL_TYPE_SIZE_ARRAY;
  * Typical size [Byte]: 8 or 12
  * Typical size [Bit]: 64 or 96
  */
-static int LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
-static int* LONG_DOUBLE_REAL_TYPE_SIZE = LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY;
+//?? static int LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY[1];
+//?? static int* LONG_DOUBLE_REAL_TYPE_SIZE = LONG_DOUBLE_REAL_TYPE_SIZE_ARRAY;
 
 /* REAL_TYPE_SIZE_SOURCE */
 #endif
