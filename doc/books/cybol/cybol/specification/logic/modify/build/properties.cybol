@@ -1,0 +1,23 @@
+<model>
+	<part name="result" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="result"/>
+        <property name="description" channel="inline" format="text/plain" model="The knowledge part where to store the resulting composed name."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="base" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="base"/>
+        <property name="description" channel="inline" format="text/plain" model="the base name"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="index" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="index"/>
+        <property name="description" channel="inline" format="text/plain" model="The index to add to the base name."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

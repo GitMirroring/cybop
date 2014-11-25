@@ -1,7 +1,7 @@
-<model>
+  <model>
     <part name="name" channel="inline" format="text/plain" model="time"/>
     <part name="description" channel="inline" format="text/plain" model="Retrieves the current time from the system."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/modify/time/example.txt"/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/time/time/example.txt"/>
     <part name="format" channel="inline" format="text/plain" model="time/time"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/modify/time/properties.cybol"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/time/time/properties.cybol"/>
 </model>

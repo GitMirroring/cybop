@@ -16,4 +16,5 @@
     <part name="modify" channel="file" format="element/part" model="cybol/specification/logic/modify.cybol"/>
     <part name="represent" channel="file" format="element/part" model="cybol/specification/logic/represent.cybol"/>
     <part name="run" channel="file" format="element/part" model="cybol/specification/logic/run.cybol"/>
+    <part name="time" channel="file" format="element/part" model="cybol/specification/logic/time.cybol"/>
 </model>
