@@ -4,6 +4,7 @@
     <part name="integer" channel="inline" format="number/integer" model=""/>
 
     <part name="command" channel="inline" format="text/plain" model=""/>
+    <part name="action" channel="inline" format="text/plain" model=""/>
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
@@ -30,5 +31,6 @@
     <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.divide"/>
     <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.subtract"/>
     <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.multiply"/>
+    <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.modulo"/>
 
 </model>

@@ -2,5 +2,6 @@
 
     <part name="handle_main" channel="file" format="element/part" model="calculator/logic/handler/handle_main.cybol"/>
     <part name="handle_about" channel="file" format="element/part" model="calculator/logic/handler/handle_about.cybol"/>
+    <part name="handle_action" channel="file" format="element/part" model="calculator/logic/handler/handle_action.cybol"/>
 
 </model>

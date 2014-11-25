@@ -20,7 +20,8 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
+	<!--<property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>-->
+	<property name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="eight" channel="file" format="element/part" model="calculator/tui/main/menu/eight.cybol">
         <property name="position" channel="inline" format="number/integer" model="7,6"/>
@@ -151,7 +152,8 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
-        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
+        <!--<property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>-->
+	<property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.add"/>
     </part>
     <part name="subtraction" channel="file" format="element/part" model="calculator/tui/main/menu/subtraction.cybol">
         <property name="position" channel="inline" format="number/integer" model="21,6"/>

@@ -6,7 +6,8 @@
     <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>
     <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
 
-    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_focus"/>
+    <!--<part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_focus"/>-->
+    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
     <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset"/>
 
     <part name="a" channel="inline" format="path/knowledge" model=".app.logic.user_interface.show_about"/>
@@ -30,5 +31,7 @@
     <part name="/" channel="inline" format="path/knowledge" model=".app.logic.functionality.divide"/>
     <part name="s" channel="inline" format="path/knowledge" model=".app.logic.functionality.square"/>
     <part name="r" channel="inline" format="path/knowledge" model=".app.logic.functionality.squareroot"/>
+    <part name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.modulo"/>
+    <!--<part name="+/-" channel="inline" format="path/knowledge" model=".app.logic.functionality.whatever"/>-->
 
 </model>

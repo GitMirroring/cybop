@@ -18,7 +18,7 @@
     -->
     <part name="execute_action" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.action"/>
+        <property name="model" channel="inline" format="path/reference" model=".app.tmp.action"/>
     </part>
 
 </model>
