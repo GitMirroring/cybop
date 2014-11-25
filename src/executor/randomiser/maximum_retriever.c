@@ -49,7 +49,7 @@ void retrieve_maximum(void* p0, void* p1) {
     //?? TODO: This test for null may be REMOVED when "int" has been replaced by "long long int", so that below commented functions may be used.
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* src = (int*) p1;
+        int* max = (int*) p1;
 
         //?? TODO: This test for null may be REMOVED when "int" has been replaced by "long long int", so that below commented functions may be used.
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -144,24 +144,32 @@ void retrieve_maximum(void* p0, void* p1) {
                 //
 
                 // The interval count (number of bins).
-                // CAUTION! Extend by one, in order to INCLUDE it.
+                // CAUTION! Extend by one, in order to INCLUDE the
+                // possible maximum, so that [0,max) becomes [0,max]
 /*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
                 // CAUTION! Initialise with ONE and NOT zero,
                 // in order to save one addition calculation below.
                 long long int c = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                 calculate_integer_add((void*) &c, p1);
 */
-                unsigned long int c = (unsigned long) (*src + 1);
+                // CAUTION! Convert to greater number range FIRST,
+                // BEFORE adding number 1.
+                unsigned long int c = (unsigned long) *max;
+                c += *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 // The maximum random value range.
-                // CAUTION! Extend by one, in order to INCLUDE it.
+                // CAUTION! Extend by one, in order to INCLUDE the
+                // possible maximum, so that [0,RAND_MAX) becomes [0,RAND_MAX]
 /*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
                 // CAUTION! Initialise with ONE and NOT zero,
                 // in order to save one addition calculation below.
                 long long int m = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
                 calculate_integer_add((void*) &m, (void*) &mv);
 */
-                unsigned long int m = (unsigned long) RAND_MAX + 1;
+                // CAUTION! Convert to greater number range FIRST,
+                // BEFORE adding number 1.
+                unsigned long int m = (unsigned long) mv;
+                m += *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
                 // The interval size (size of one bin).
 /*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
@@ -192,7 +200,12 @@ void retrieve_maximum(void* p0, void* p1) {
                 //
                 // CAUTION! Do NOT initialise with zero or similar since otherwise,
                 // that value will be returned as always identical result.
-                long int n = random();
+                //
+                // CAUTION! The bsd "random" rather than glibc "rand" function
+                // is used here, as it supposedly has a better distribution,
+                // as noted by the man page for "rand", as Ryan Reich wrote at:
+                // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
+                long int n = (long int) random();
 
                 //
                 // The loop IS NECESSARY to get a perfectly uniform distribution.
@@ -209,7 +222,7 @@ void retrieve_maximum(void* p0, void* p1) {
                     // that lies within the given range "mul".
                     // Any other random numbers outside (in the remainder)
                     // are ignored, so that all intervals have an equal chance.
-                    if (mul > (unsigned long) n) {
+                    if (mul > ((unsigned long) n)) {
 
                         break;
                     }
@@ -224,10 +237,10 @@ void retrieve_maximum(void* p0, void* p1) {
                     // with "srand", it uses the value 1 as a default seed.
                     //
                     // CAUTION! The bsd "random" rather than glibc "rand" function
-                    // is used here, as it supposedly has a better distribution
-                    // (noted by the man page for "rand", as Ryan Reich wrote at:
+                    // is used here, as it supposedly has a better distribution,
+                    // as noted by the man page for "rand", as Ryan Reich wrote at:
                     // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
-                    n = random();
+                    n = (long int) random();
                 }
 
                 // Divide pseudo random number by interval size.

@@ -66,11 +66,8 @@ void retrieve(void* p0, void* p1, void* p2) {
 
         // Initialise shifted maximum.
         copy_integer((void*) &max, p2);
-        // Shift range [min,max) to range [0,max - min + 1).
+        // Shift range [min,max) to range [0,max - min).
         calculate_integer_subtract((void*) &max, p1);
-        // The addition of number 1 is probably necessary,
-        // because the generated random numbers exclude the maximum.
-        calculate_integer_add((void*) &max, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
         //
         // Retrieve pseudo random number.
         //
@@ -81,7 +78,7 @@ void retrieve(void* p0, void* p1, void* p2) {
         // using the modulo operator is mathematically not quite correct.
         //
         retrieve_maximum((void*) &n, (void*) &max);
-        // Shift back pseudo random number into original range [min,max).
+        // Shift back pseudo random number into original range [min,max].
         calculate_integer_add((void*) &n, p1);
         // Copy to destination number.
         copy_integer(p0, (void*) &n);
