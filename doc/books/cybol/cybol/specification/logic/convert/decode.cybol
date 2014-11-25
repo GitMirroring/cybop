@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="decode"/>
+    <part name="description" channel="inline" format="text/plain" model="Decodes the source into the destination, according to the given decoding."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/convert/decode/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="convert/decode"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/convert/decode/properties.cybol"/>
+</model>

@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="indicate-empty"/>
+    <part name="description" channel="inline" format="text/plain" model="Indicates if data are empty, i.e. the count is zero."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/access/indicate-empty/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="access/indicate-empty"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/access/indicate-empty/properties.cybol"/>
+</model>
