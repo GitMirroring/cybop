@@ -1,0 +1,30 @@
+<model>
+	<part name="destination" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="destination"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination part"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="source" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="source"/>
+        <property name="description" channel="inline" format="text/plain" model="the source part"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="format" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="type"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination part format"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="language" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="language"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination part language (cybol, http_request, xdt etc.)"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/language"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>
