@@ -15,9 +15,7 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.tui.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
-        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
+        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
@@ -30,8 +28,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
@@ -45,8 +41,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
@@ -60,8 +54,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
@@ -75,8 +67,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
@@ -90,8 +80,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
@@ -105,8 +93,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
@@ -120,8 +106,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
@@ -135,8 +119,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
@@ -150,11 +132,9 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
@@ -166,8 +146,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
@@ -181,8 +159,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
@@ -196,8 +172,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
@@ -211,8 +185,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
@@ -226,8 +198,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
@@ -241,8 +211,6 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
@@ -256,12 +224,10 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="previous" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="next" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
+        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
 
