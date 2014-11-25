@@ -96,7 +96,7 @@
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
@@ -123,7 +123,7 @@
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
     <part name="zero" channel="file" format="element/part" model="calculator/tui/main/menu/zero.cybol">
@@ -187,7 +187,7 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
-        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
@@ -200,7 +200,7 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
-        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
@@ -213,7 +213,7 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
-        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
@@ -225,10 +225,36 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
+        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
+    </part>
+    <part name="modulo" channel="file" format="element/part" model="calculator/tui/main/menu/modulo.cybol">
+        <property name="position" channel="inline" format="number/integer" model="17,14"/>
+        <property name="size" channel="inline" format="number/integer" model="3,3"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
+        <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
+    </part>
+    <part name="sign" channel="file" format="element/part" model="calculator/tui/main/menu/sign.cybol">
+        <property name="position" channel="inline" format="number/integer" model="21,14"/>
+        <property name="size" channel="inline" format="number/integer" model="7,3"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
+        <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
         <property name="button_press_action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
 
