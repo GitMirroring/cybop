@@ -11,14 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Randomiser
-__________
-
-        * Use recommended loop testwise, in order to avoid possible endless loop in file "maximum_retriever.c"
-        * Debug formula considering minimum and maximum in directory "executor/randomiser/"
-        * Replace datatype "unsigned long" with simple "int" (temporarily, until other solutions is found)
-        * Comment out non-working lines (possibly due to usage of type "unsigned long")
-
 API
 ___
 

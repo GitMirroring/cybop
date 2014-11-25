@@ -20,6 +20,7 @@
 
 2014-11-25  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Debug formula considering minimum and maximum in directory "executor/randomiser/"
         * Extend cybol example application "wui_socket" by "socket" property
 
 2014-11-24  Christian Heller  <christian.heller@tuxtax.de>

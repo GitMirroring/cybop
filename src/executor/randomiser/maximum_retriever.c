@@ -38,189 +38,224 @@
  * Retrieves next pseudo-random number in the series,
  * with the given maximum.
  *
- * The values are in the range: [0,max)
- * that is zero (inclusive) and the given maximum (exclusive).
+ * The values are in the range: [0,max]
+ * that is zero AND the given maximum are INCLUSIVE.
  *
  * @param p0 the destination number
  * @param p1 the source maximum
  */
 void retrieve_maximum(void* p0, void* p1) {
 
-    // The maximum value the "rand" function can return.
-    // CAUTION! The value is a macro and CANNOT be
-    // handed over as reference directly.
-    int mv = RAND_MAX;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    //?? TODO: This test for null may be REMOVED when "int" has been replaced by "long long int", so that below commented functions may be used.
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    compare_integer_smaller_or_equal((void*) &r, p1, (void*) &mv);
+        int* src = (int*) p1;
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        //?? TODO: This test for null may be REMOVED when "int" has been replaced by "long long int", so that below commented functions may be used.
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        //?? TODO: Delete this test message later!
-        fwprintf(stdout, L"INFORMATION: Retrieve maximum. src max p1: %i\n", *((int*) p1));
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Retrieve maximum.");
+            int* dest = (int*) p0;
 
-        //
-        // Some sources suggest using the modulo operator:
-        //
-        // 1 to get a number between 0 and n - 1:
-        //     int r = rand() % n;
-        //
-        // 2 to get a number between min and max:
-        //     int r = (rand() % (max - min + 1)) + min;
-        //
-        // However, there are TWO PROBLEMS with this solution:
-        //
-        // Problem 1:
-        //
-        // It does not uniformly give a number in the range [0, N)
-        // unless N divides the length of the interval into
-        // which rand() returns (i.e. is a power of 2).
-        // In other words, it produces biased results,
-        // when n is not an exact divisor of RAND_MAX.
-        // The higher the value of n, the stronger this bias becomes.
-        // Hence, this is mathematically wrong.
-        //
-        // To illustrate why this happens, let's imagine that
-        // rand() would be implemented with a six-sided die.
-        // So RAND_MAX would be 5. We want to use this die to
-        // generate random numbers between 0 and 3, so we do this:
-        //     int r = rand() % 4;
-        //
-        // The value of r for each of the six outcomes of rand is:
-        //     0 % 4 = 0
-        //     1 % 4 = 1
-        //     2 % 4 = 2
-        //     3 % 4 = 3
-        //     4 % 4 = 0
-        //     5 % 4 = 1
-        //
-        // As you can see, the numbers 0 and 1 will be generated
-        // twice as often as the numbers 2 and 3.
-        //
-        // Problem 2:
-        //
-        // Furthermore, one has no idea whether the moduli
-        // of rand() are independent. It's possible that they
-        // go 0, 1, 2, ..., which is uniform but not very random.
-        //
-        // Solution:
-        //
-        // The only assumption it seems reasonable to make is
-        // that rand() puts out a POISSON distribution:
-        // Any two nonoverlapping subintervals of the
-        // same size are equally likely and independent.
-        // For a finite set of values, this implies a
-        // uniform distribution and also ensures that
-        // the values of rand() are nicely scattered.
-        //
-        // This means that the only correct way of changing
-        // the range of rand() is to DIVIDE IT INTO BOXES.
-        // For example, if RAND_MAX == 11 and one wants a range of 1..6,
-        // one should assign {0,1} to 1, {2,3} to 2, and so on.
-        // These are disjoint, equally-sized intervals and
-        // thus are uniformly and independently distributed.
-        //
-        // The suggestion to use floating-point division
-        // is mathematically plausible but suffers from
-        // rounding issues in principle. Perhaps double is
-        // high-enough precision to make it work; perhaps not.
-        // In any case, the answer is system-dependent.
-        // The correct way is to use INTEGER ARITHMETIC.
-        //
-        // https://stackoverflow.com/questions/12807459/generate-random-number-in-a-range-l-u?lq=1
-        // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
-        //
+            // The maximum value the "rand" function can return.
+            // CAUTION! The value is a macro and CANNOT be
+            // handed over as reference directly.
+            int mv = RAND_MAX;
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        //
-        // The following algorithm was proposed by Ryan Reich at:
-        // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
-        //
-        // long x; // This result type is okay, since: max <= RAND_MAX < ULONG_MAX
-        // unsigned long num_bins = (unsigned long) max + 1; // number of bins, interval count
-        // unsigned long num_rand = (unsigned long) RAND_MAX + 1; // interval maximum extended by one, since it is exclusive
-        // unsigned long bin_size = num_rand / num_bins; // size of a bin, interval size
-        // unsigned long defect   = num_rand % num_bins; // remainder
-        // while (num_rand - defect <= (unsigned long) (x = random())); // This is carefully written not to overflow
-        // x = x / bin_size; // Truncated division is intentional
-        //
+            compare_integer_smaller_or_equal((void*) &r, p1, (void*) &mv);
 
-        // The interval count.
-        // CAUTION! Initialise with ONE and NOT zero,
-        // in order to save one addition calculation below.
-        long long int c = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        calculate_integer_add((void*) &c, p1);
-        // The maximum.
-        // CAUTION! Initialise with ONE and NOT zero,
-        // in order to save one addition calculation below.
-        long long int m = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-        calculate_integer_add((void*) &m, (void*) &mv);
-        // The interval size.
-        long long int s = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        calculate_integer_add((void*) &s, (void*) &m);
-        calculate_integer_divide((void*) &s, (void*) &c);
-        // The defect (remainder).
-        long long int d = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        calculate_integer_add((void*) &d, (void*) &m);
-        calculate_integer_modulo((void*) &d, (void*) &c);
-        // The multiple.
-        long long int mul = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // Initialise pseudo random number.
-//??        long n = rand();
-        long n;
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // The loop IS NECESSARY to get a perfectly uniform distribution.
-        // For example, if being given random numbers from 0 to 2
-        // and wanting only the ones from 0 to 1,
-        // one just keeps pulling until not getting a 2.
-        // This gives 0 or 1 with equal probability.
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Retrieve maximum.");
 
-        //?? TEST
-        while (m - d <= (long long int) (n = rand())); // This is carefully written not to overflow
-/*??
-        while (*NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
+                //
+                // Some sources suggest using the modulo operator:
+                //
+                // 1 to get a number between 0 and n - 1:
+                //     int r = rand() % n;
+                //
+                // 2 to get a number between min and max:
+                //     int r = (rand() % (max - min + 1)) + min;
+                //
+                // However, there are TWO PROBLEMS with this solution:
+                //
+                // Problem 1:
+                //
+                // It does not uniformly give a number in the range [0, N)
+                // unless N divides the length of the interval into
+                // which rand() returns (i.e. is a power of 2).
+                // In other words, it produces biased results,
+                // when n is not an exact divisor of RAND_MAX.
+                // The higher the value of n, the stronger this bias becomes.
+                // Hence, this is mathematically wrong.
+                //
+                // To illustrate why this happens, let's imagine that
+                // rand() would be implemented with a six-sided die.
+                // So RAND_MAX would be 5. We want to use this die to
+                // generate random numbers between 0 and 3, so we do this:
+                //     int r = rand() % 4;
+                //
+                // The value of r for each of the six outcomes of rand is:
+                //     0 % 4 = 0
+                //     1 % 4 = 1
+                //     2 % 4 = 2
+                //     3 % 4 = 3
+                //     4 % 4 = 0
+                //     5 % 4 = 1
+                //
+                // As you can see, the numbers 0 and 1 will be generated
+                // twice as often as the numbers 2 and 3.
+                //
+                // Problem 2:
+                //
+                // Furthermore, one has no idea whether the moduli
+                // of rand() are independent. It's possible that they
+                // go 0, 1, 2, ..., which is uniform but not very random.
+                //
+                // Solution:
+                //
+                // The only assumption it seems reasonable to make is
+                // that rand() puts out a POISSON distribution:
+                // Any two nonoverlapping subintervals of the
+                // same size are equally likely and independent.
+                // For a finite set of values, this implies a
+                // uniform distribution and also ensures that
+                // the values of rand() are nicely scattered.
+                //
+                // This means that the only correct way of changing
+                // the range of rand() is to DIVIDE IT INTO BOXES.
+                // For example, if RAND_MAX == 11 and one wants a range of 1..6,
+                // one should assign {0,1} to 1, {2,3} to 2, and so on.
+                // These are disjoint, equally-sized intervals and
+                // thus are uniformly and independently distributed.
+                //
+                // The suggestion to use floating-point division
+                // is mathematically plausible but suffers from
+                // rounding issues in principle. Perhaps double is
+                // high-enough precision to make it work; perhaps not.
+                // In any case, the answer is system-dependent.
+                // The correct way is to use INTEGER ARITHMETIC.
+                //
+                // https://stackoverflow.com/questions/12807459/generate-random-number-in-a-range-l-u?lq=1
+                //
+                // The following algorithm was proposed by Ryan Reich at:
+                // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
+                //
 
-            fwprintf(stdout, L"TEST: loop n: %i\n", n);
+                // The interval count (number of bins).
+                // CAUTION! Extend by one, in order to INCLUDE it.
+/*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
+                // CAUTION! Initialise with ONE and NOT zero,
+                // in order to save one addition calculation below.
+                long long int c = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                calculate_integer_add((void*) &c, p1);
+*/
+                unsigned long int c = (unsigned long) (*src + 1);
 
-            // Calculate multiple [Vielfaches] dividable without remainder.
-            mul = m - d;
+                // The maximum random value range.
+                // CAUTION! Extend by one, in order to INCLUDE it.
+/*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
+                // CAUTION! Initialise with ONE and NOT zero,
+                // in order to save one addition calculation below.
+                long long int m = (long long int) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                calculate_integer_add((void*) &m, (void*) &mv);
+*/
+                unsigned long int m = (unsigned long) RAND_MAX + 1;
 
-            if (mul <= (long long int) n) {
+                // The interval size (size of one bin).
+/*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
+                long long int s = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                calculate_integer_add((void*) &s, (void*) &m);
+                calculate_integer_divide((void*) &s, (void*) &c);
+*/
+                unsigned long int s = m / c;
 
-                break;
+                // The defect (remainder).
+/*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
+                long long int d = (long long int) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                calculate_integer_add((void*) &d, (void*) &m);
+                calculate_integer_modulo((void*) &d, (void*) &c);
+*/
+                unsigned long int d = m % c;
+
+                // The multiple [Vielfaches] dividable without remainder.
+                unsigned long int mul = m - d;
+
+                // The pseudo random number.
+                //
+                // CAUTION! The type "long" is okay, since:
+                // max <= RAND_MAX < ULONG_MAX
+                //
+                // CAUTION! Initialise with a random number here since otherwise,
+                // at least two loop cycles are necessary to find an initial number.
+                //
+                // CAUTION! Do NOT initialise with zero or similar since otherwise,
+                // that value will be returned as always identical result.
+                long int n = random();
+
+                //
+                // The loop IS NECESSARY to get a perfectly uniform distribution.
+                // For example, if being given random numbers from 0 to 2
+                // and wanting only the ones from 0 to 1,
+                // one just keeps pulling until not getting a 2.
+                // This gives 0 or 1 with equal probability.
+                //
+                // CAUTION! This is carefully written not to overflow.
+                //
+                while (*NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
+
+                    // The loop is left as soon as a random number is found
+                    // that lies within the given range "mul".
+                    // Any other random numbers outside (in the remainder)
+                    // are ignored, so that all intervals have an equal chance.
+                    if (mul > (unsigned long) n) {
+
+                        break;
+                    }
+
+                    // Get next pseudo-random number in the series.
+                    //
+                    // CAUTION! The value ranges from 0 (inclusive) to RAND_MAX (exclusive).
+                    // In the GNU C Library, RAND_MAX is 2147483647, which is
+                    // the largest signed integer representable in 32 bits.
+                    //
+                    // CAUTION! If calling "rand" before a seed has been established
+                    // with "srand", it uses the value 1 as a default seed.
+                    //
+                    // CAUTION! The bsd "random" rather than glibc "rand" function
+                    // is used here, as it supposedly has a better distribution
+                    // (noted by the man page for "rand", as Ryan Reich wrote at:
+                    // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
+                    n = random();
+                }
+
+                // Divide pseudo random number by interval size.
+                // CAUTION! The truncated division is intentional.
+/*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
+                calculate_integer_divide((void*) &n, (void*) &s);
+*/
+                n = n / s;
+
+                // Copy to destination number.
+/*?? TODO: The following functions may NOT be used as long as they use "int" and not "long long int" internally.
+                copy_integer(p0, (void*) &n);
+*/
+                *dest = (int) n;
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve maximum. The maximum is greater than RAND_MAX.");
             }
 
-            // Get next pseudo-random number in the series.
-            //
-            // CAUTION! The value ranges from 0 (inclusive) to RAND_MAX (exclusive).
-            // In the GNU C Library, RAND_MAX is 2147483647, which is
-            // the largest signed integer representable in 32 bits.
-            //
-            // CAUTION! If calling "rand" before a seed has been established
-            // with "srand", it uses the value 1 as a default seed.
-            n = rand();
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve maximum. The destination number is null.");
         }
-*/
-
-        //?? TODO: Delete this test message later!
-        fwprintf(stdout, L"TEST: after loop c: %ul\n", c);
-        fwprintf(stdout, L"TEST: after loop m: %ul\n", m);
-        fwprintf(stdout, L"TEST: after loop s: %ul\n", s);
-        fwprintf(stdout, L"TEST: after loop d: %ul\n", d);
-        fwprintf(stdout, L"TEST: after loop n: %li\n", n);
-
-        // Divide pseudo random number by interval size.
-        // CAUTION! Truncated division is intentional.
-        calculate_integer_divide((void*) &n, (void*) &s);
-        fwprintf(stdout, L"TEST: after division n: %li\n", n);
-        // Copy to destination number.
-        copy_integer(p0, (void*) &n);
 
     } else {
 
-        fwprintf(stdout, L"ERROR: Could not retrieve maximum. The maximum is greater than RAND_MAX. n: %i\n", *((int*) p1));
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve maximum. The maximum is greater than RAND_MAX.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not retrieve maximum. The source maximum is null.");
     }
 }
 

@@ -42,7 +42,7 @@ void time_current(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        time_t* t = (time_t*) p0;
+        int* t = (int*) p0;
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Time current.");
 

@@ -42,7 +42,7 @@ void sow(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        unsigned int* s = (unsigned int*) p0;
+        int* s = (int*) p0;
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sow.");
 
