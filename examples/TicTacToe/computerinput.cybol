@@ -13,6 +13,7 @@
     </part>
 
 
+
 //gehe zu checkcomputerinput
     <part name="start_playerinput" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".checkcomputerinput"/>

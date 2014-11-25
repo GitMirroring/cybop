@@ -43,7 +43,7 @@
 	<property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
-//Flag setzen Eingabe Kuh
+//Flag setzen Eingabe q
     <part name="comparison3" channel="inline" format="compare/equal" model="">
 	<property name="left" channel="inline" format="path/knowledge" model=".temporary.command"/>
 	<property name="right" channel="inline" format="text/plain" model="q"/>
@@ -53,6 +53,13 @@
     </part>
 
 
+//If-Abfrage yes
+    <part name="if-then-else" channel="inline" format="flow/branch" model="">
+        <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.newgame_flag"/>
+        <property name="true" channel="inline" format="path/knowledge" model=".initialising"/>
+        <property name="false" channel="inline" format="path/knowledge" model=".inputnewgame"/> 
+    </part>
+
 //If-Abfrage no
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.no_newgame_flag"/>
@@ -60,18 +67,11 @@
         <property name="false" channel="inline" format="path/knowledge" model=""/> 
     </part>
 
-//If-Abfrage Kuh
+//If-Abfrage q
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.exit_flag"/>
         <property name="true" channel="inline" format="path/knowledge" model=".exit.exit_app"/>
         <property name="false" channel="inline" format="path/knowledge" model=""/> 
-    </part>
-
-//If-Abfrage yes
-    <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.newgame_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".inting"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".inputnewgame"/> 
     </part>
 
 </model>

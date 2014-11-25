@@ -1,8 +1,38 @@
 <model>
 
+//Initialisieren der Randomize-Methode
+    <part name="create_seed" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="seed"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="create_number" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="number"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <part name="initialise_seed" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".seed"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="initialise_number" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".number"/>
+        <property name="source" channel="inline" format="number/integer" model="0"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+
+
 //Erstellen des Temp-Knotens
     <part name="create_temporary" channel="inline" format="memorise/create" model="">
       <property name="name" channel="inline" format="text/plain" model="temporary"/>
+      <property name="format" channel="inline" format="meta/format" model="element/part"/>
+      <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+//Erstellen des CheckDraw
+    <part name="create_checkdraw" channel="inline" format="memorise/create" model="">
+      <property name="name" channel="inline" format="text/plain" model="checkdraw"/>
       <property name="format" channel="inline" format="meta/format" model="element/part"/>
       <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
@@ -65,7 +95,7 @@
 
 //Erstellen des draw
     <part name="create_draw" channel="inline" format="memorise/create" model="">
-      <property name="name" channel="inline" format="text/plain" model="checkwin"/>
+      <property name="name" channel="inline" format="text/plain" model="draw"/>
       <property name="format" channel="inline" format="meta/format" model="element/part"/>
       <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
@@ -133,9 +163,9 @@
       <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
 
-//Erstellen des inting
+//Erstellen des initialising
     <part name="create_inting" channel="inline" format="memorise/create" model="">
-      <property name="name" channel="inline" format="text/plain" model="inting"/>
+      <property name="name" channel="inline" format="text/plain" model="initialising"/>
       <property name="format" channel="inline" format="meta/format" model="element/part"/>
       <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
@@ -177,6 +207,15 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="text/plain" model="TicTacToe/setrandom.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".setrandom"/>
+    </part>
+
+    <part name="initialise_checkdraw" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/checkdraw.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".checkdraw"/>
     </part>
 
     <part name="initialise_checkloose" channel="inline" format="communicate/receive" model="">
@@ -327,34 +366,15 @@
         <property name="model" channel="inline" format="path/knowledge" model=".inputnewgame"/>
     </part>
 
-//Inting initialisieren
+//Initialising initialisieren
     <part name="initialise_inting" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="TicTacToe/inting.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".inting"/>
+        <property name="message" channel="inline" format="text/plain" model="TicTacToe/initialising.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".initialising"/>
     </part>
-
-
-
-
-
-
-
-
-//alle Baumknoten ausgeben
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".startgame"/>
-        <property name="receiver" channel="inline" format="text/plain" model="TicTacToe.txt"/>
-    </part>
-
-
 
 
 //Starten

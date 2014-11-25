@@ -9,6 +9,7 @@
     <part name="win_flag_pc" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <part name="command" channel="inline" format="text/plain" model=""/>
+    <part name="commandPC" channel="inline" format="number/integer" model="0"/>
 
     <part name="field_1" channel="inline" format="text/plain" model=""/>
     <part name="field_2" channel="inline" format="text/plain" model=""/>

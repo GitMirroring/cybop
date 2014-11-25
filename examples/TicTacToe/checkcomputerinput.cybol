@@ -1,6 +1,6 @@
 <model>
 
-//Zeichen löschen
+//Zurücksetzen der Variablen
     <part name="reset_command" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".temporary.command"/>
     </part>
@@ -8,16 +8,6 @@
 //gehe zu setrandom
     <part name="start_playerinput" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".setrandom"/>
-    </part>
-
-//Ausgabe der Nachricht
-    <part name="send_message" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".temporary.command"/>
-	<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
 //Rücksetzen der Flags
@@ -74,6 +64,7 @@
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
+
 
 //Flag setzen Eingabe 1
     <part name="comparison1" channel="inline" format="compare/equal" model="">
@@ -346,7 +337,6 @@
     </part>
 
 
-
 //Ausgewähltes Feld setzen
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.flag_field_1"/>
@@ -467,16 +457,11 @@
     </part>
 
 
-
-
 //Gehe weiter oder zurück
     <part name="if-then-else2" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.flag_field_empty"/>
         <property name="true" channel="inline" format="path/knowledge" model=".checkloose"/>
         <property name="false" channel="inline" format="path/knowledge" model=".checkcomputerinput"/> 
     </part>
-
-
-
 
 </model> 

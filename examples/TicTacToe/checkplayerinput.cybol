@@ -22,6 +22,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".temporary.command"/>
 	<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+
 //Rücksetzen der Flags
     <part name="reset_player_field_1" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_1"/>
@@ -349,7 +350,7 @@
 
 
 
-//Flag setzen Eingabe Kuh
+//Flag setzen Eingabe q
     <part name="comparison3" channel="inline" format="compare/equal" model="">
         <property name="left" channel="inline" format="path/knowledge" model=".temporary.command"/>
         <property name="right" channel="inline" format="text/plain" model="q"/>
@@ -359,7 +360,7 @@
     </part>
 
 
-//If-Abfrage Kuh
+//If-Abfrage q
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.exit_flag"/>
         <property name="true" channel="inline" format="path/knowledge" model=".exit.exit_app"/>
@@ -430,7 +431,7 @@
     </part>
 
 
-//Test ob ausgewählt
+//Test ob Feld ausgewählt
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
         <property name="output" channel="inline" format="path/knowledge" model=".temporary.flag_field_empty"/>
         <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_9"/>
@@ -486,16 +487,11 @@
     </part>
 
 
-
-
 //Gehe weiter oder zurück
     <part name="if-then-else2" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.flag_field_empty"/>
         <property name="true" channel="inline" format="path/knowledge" model=".checkwin"/>
         <property name="false" channel="inline" format="path/knowledge" model=".playerinput"/> 
     </part>
-
-
-
 
 </model> 
