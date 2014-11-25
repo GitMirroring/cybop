@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="run"/>
+    <part name="description" channel="inline" format="text/plain" model="Puts the executing thread to sleep for at least x microseconds (the actual duration may differ depending on the systems load and timer accuracy)"/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/run/sleep/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="run/sleep"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/run/sleep/properties.cybol"/>
+</model>

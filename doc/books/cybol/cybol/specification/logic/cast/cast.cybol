@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="cast"/>
+    <part name="description" channel="inline" format="text/plain" model="Casts a value from type to another."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/cast/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="cast/cast"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/cast/cast/properties.cybol"/>
+</model>
