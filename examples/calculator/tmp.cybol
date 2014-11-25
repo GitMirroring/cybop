@@ -27,12 +27,6 @@
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-<!--
     <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.add"/>
-    <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.divide"/>
-    <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.subtract"/>
-    <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.multiply"/>
-    <part name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.modulo"/>
--->
 
 </model>
