@@ -21,6 +21,8 @@
 2014-11-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug formula considering minimum and maximum in directory "executor/randomiser/"
+        * Remove outdated cybol example application "calculator_old"
+        * Extend cybol example application "calculator" by action handling
         * Extend cybol example application "wui_socket" by "socket" property
 
 2014-11-24  Christian Heller  <christian.heller@tuxtax.de>

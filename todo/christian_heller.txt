@@ -161,6 +161,8 @@ _____
 TUI
 ___
 
+        * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
+
         * Check if having to use &= or |= instead of just = everywhere flags are set,
             e.g. in file "set_attributes_unix_terminal_starter.c",
             in order to not reset already existing values in termios by accident
