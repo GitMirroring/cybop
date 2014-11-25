@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="get-encoding"/>
+    <part name="description" channel="inline" format="text/plain" model="Get a part's encoding."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/access/get-encoding/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="access/get-encoding"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/access/get-encoding/properties.cybol"/>
+</model>
