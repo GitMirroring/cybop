@@ -29,16 +29,15 @@ ___
 WUI
 ___
 
-        * Hint for thinking: Only the "socket" number should be stored in a cybol property,
-            in order to be able to use it for communication;
-            all other things are set inside the socket, when starting it up
+        * Hint for thinking: Only the "socket" number should be stored
+            in a cybol property, in order to be able to use it for communication;
+            all other things are set inside the socket, when starting it up;
+            only one service may exist per port
         * Implement session on application level (e.g. in Res Medicinae)
 
         * See "wolf_-_c_von_a_bis_z" for platform independence
-        * Figure out how to handle different ports/services (really hand over all of them to internal memory?)
-        * Replace "cyboi" and "www" with "socket"
         * Reactivate socket in file "starter.c"
-        * Deallocate socket properly; addresses are allocated at startup and possibly have to be stored in internal memory in order to be freed again later
+        * Deallocate socket properly; addresses etc. had only been used as local variables and already got deallocated when leaving the corresponding startup function
         * Prepare using winsock2
 
         * Reactivate send/receive functionality: hint from "wolf_-_c_von_a_bis_z" for UDP connexion:

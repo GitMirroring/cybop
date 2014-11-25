@@ -1,7 +1,12 @@
 <model>
 
-    <!-- The request is used in file "logic/handler.cybol". -->
-    <part name="request" channel="inline" format="text/plain" model=""/>
+    <!--
+        The request is used in file "logic/handler.cybol".
+        CAUTION! TODO: Use character and NOT wide_character as model here??
+        "text/ascii" instead of "text/plain"??
+        The http message body may be encoded and has to be read as plain characters.
+    -->
+    <part name="request" channel="inline" format="text/ascii" model=""/>
 
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
@@ -9,5 +14,7 @@
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
     <part name="path" channel="inline" format="path/knowledge" model=""/>
+
+    <part name="socket" channel="inline" format="number/integer" model="0"/>
 
 </model>

@@ -7,6 +7,7 @@
         <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="knowledge/path" model=".app.wui.index"/>
+        <property name="socket" channel="inline" format="number/integer" model=".app.tmp.socket"/>
     </part>
 
     <part name="exit_programme" channel="inline" format="live/exit" model=""/>

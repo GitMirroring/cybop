@@ -9,6 +9,7 @@
         <property name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.request"/>
+        <property name="socket" channel="inline" format="number/integer" model=".app.tmp.socket"/>
     </part>
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->

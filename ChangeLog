@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend cybol example application "wui_socket" by "socket" property
+
 2014-11-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Remove superfluous datatype "unsigned long" in all source code
@@ -26,6 +30,7 @@
         * Add address families "AF_IRDA" and "AF_BLUETOOTH" to socket files
         * Update cybol example application "wui_socket"
         * Move network protocols like http and ftp from channel constants to new file "constant/model/cybol/socket/service_socket_cybol_model.c"
+        * Replace channels "cyboi" and "www" with "socket"
         * Provide cybol socket properties "service" and "port" as constants
         * Update constants in file "constant/model/service/port_service_model.c"
 

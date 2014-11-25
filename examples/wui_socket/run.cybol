@@ -34,12 +34,8 @@
         <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="port" channel="inline" format="number/integer" model="80"/>
         <property name="mode" channel="inline" format="text/plain" model="server"/>
+        <property name="socket" channel="inline" format="number/integer" model=".app.tmp.socket"/>
     </part>
-
-    <!--
-        CAUTION! Do use character and NOT wide_character as model here!
-        The http message body may be encoded and has to be read as plain characters.
-    -->
     <part name="sense_http_client_requests" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".logic.handler"/>
