@@ -1,12 +1,13 @@
 <model>
 
-
     <part name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_up"/>
     <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
     <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>
     <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
 
-    <!--<part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_focus"/>-->
+<!--
+    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_focus"/>
+-->
     <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
     <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset"/>
 
@@ -25,13 +26,16 @@
     <part name="9" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
 
     <part name="=" channel="inline" format="path/knowledge" model=".app.logic.functionality.equals"/>
+    <part name="+" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
+<!--
     <part name="+" channel="inline" format="path/knowledge" model=".app.logic.functionality.add"/>
+-->
     <part name="-" channel="inline" format="path/knowledge" model=".app.logic.functionality.subtract"/>
     <part name="*" channel="inline" format="path/knowledge" model=".app.logic.functionality.multiply"/>
     <part name="/" channel="inline" format="path/knowledge" model=".app.logic.functionality.divide"/>
     <part name="s" channel="inline" format="path/knowledge" model=".app.logic.functionality.square"/>
     <part name="r" channel="inline" format="path/knowledge" model=".app.logic.functionality.squareroot"/>
     <part name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.modulo"/>
-    <!--<part name="+/-" channel="inline" format="path/knowledge" model=".app.logic.functionality.whatever"/>-->
+    <part name="+/-" channel="inline" format="path/knowledge" model=".app.logic.functionality.negate"/>
 
 </model>
