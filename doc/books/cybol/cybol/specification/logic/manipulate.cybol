@@ -1,10 +1,11 @@
 <model>
-    <part name="clear (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/clear.cybol"/>
-    <part name="rotate-left (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/rotate-left.cybol"/>
-    <part name="rotate-right (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/rotate-right.cybol"/>
-    <part name="set (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/set.cybol"/>
-    <part name="shift-left (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/shift-left.cybol"/>
-    <part name="shift-right (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/shift-right.cybol"/>
-    <part name="toggle (TODO)" channel="file" format="element/part" model="cybol/specification/logic/manipulate/toggle.cybol"/>
+    <part name="check" channel="file" format="element/part" model="cybol/specification/logic/manipulate/check.cybol"/>
+    <part name="clear" channel="file" format="element/part" model="cybol/specification/logic/manipulate/clear.cybol"/>
+    <part name="rotate-left" channel="file" format="element/part" model="cybol/specification/logic/manipulate/rotate-left.cybol"/>
+    <part name="rotate-right" channel="file" format="element/part" model="cybol/specification/logic/manipulate/rotate-right.cybol"/>
+    <part name="set" channel="file" format="element/part" model="cybol/specification/logic/manipulate/set.cybol"/>
+    <part name="shift-left" channel="file" format="element/part" model="cybol/specification/logic/manipulate/shift-left.cybol"/>
+    <part name="shift-right" channel="file" format="element/part" model="cybol/specification/logic/manipulate/shift-right.cybol"/>
+    <part name="toggle" channel="file" format="element/part" model="cybol/specification/logic/manipulate/toggle.cybol"/>
 </model>
 

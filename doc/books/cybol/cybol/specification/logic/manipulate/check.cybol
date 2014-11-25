@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="check"/>
+    <part name="description" channel="inline" format="text/plain" model="Gets the bit at the given position."/>
+    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/manipulate/check/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="manipulate/check"/>
+    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/manipulate/check/properties.cybol"/>
+</model>
