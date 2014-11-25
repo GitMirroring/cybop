@@ -1,5 +1,6 @@
 <model>
 
+
     <part name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_up"/>
     <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
     <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>

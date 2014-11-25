@@ -1,5 +1,6 @@
 <model>
 
+
     <part name="display" channel="file" format="element/part" model="calculator/tui/main/menu/display.cybol">
         <property name="position" channel="inline" format="number/integer" model="3,1"/>
         <property name="size" channel="inline" format="number/integer" model="25,4"/>
