@@ -1,0 +1,11 @@
+<model>
+    <part name="check" channel="file" format="element/part" model="api/spec/logic/manipulate/check.cybol"/>
+    <part name="clear" channel="file" format="element/part" model="api/spec/logic/manipulate/clear.cybol"/>
+    <part name="rotate-left" channel="file" format="element/part" model="api/spec/logic/manipulate/rotate-left.cybol"/>
+    <part name="rotate-right" channel="file" format="element/part" model="api/spec/logic/manipulate/rotate-right.cybol"/>
+    <part name="set" channel="file" format="element/part" model="api/spec/logic/manipulate/set.cybol"/>
+    <part name="shift-left" channel="file" format="element/part" model="api/spec/logic/manipulate/shift-left.cybol"/>
+    <part name="shift-right" channel="file" format="element/part" model="api/spec/logic/manipulate/shift-right.cybol"/>
+    <part name="toggle" channel="file" format="element/part" model="api/spec/logic/manipulate/toggle.cybol"/>
+</model>
+

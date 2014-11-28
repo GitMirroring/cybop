@@ -1,0 +1,6 @@
+<part name="serialise_operand" channel="inline" format="represent/serialise" model="">
+    <property name="destination" channel="inline" format="path/knowledge" model=".summand"/>
+    <property name="source" channel="inline" format="path/knowledge" model=".text"/>
+    <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+    <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+</part>

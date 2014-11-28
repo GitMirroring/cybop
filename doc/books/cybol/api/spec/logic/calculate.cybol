@@ -1,0 +1,10 @@
+<model>
+    <part name="absolute" channel="file" format="element/part" model="api/spec/logic/calculate/absolute.cybol"/>
+    <part name="add" channel="file" format="element/part" model="api/spec/logic/calculate/add.cybol"/>
+    <part name="divide" channel="file" format="element/part" model="api/spec/logic/calculate/divide.cybol"/>
+    <part name="multiply" channel="file" format="element/part" model="api/spec/logic/calculate/multiply.cybol"/>
+    <part name="negate" channel="file" format="element/part" model="api/spec/logic/calculate/negate.cybol"/>
+    <part name="reduce (TODO)" channel="file" format="element/part" model="api/spec/logic/calculate/reduce.cybol"/>
+    <part name="remainder (TODO)" channel="file" format="element/part" model="api/spec/logic/calculate/remainder.cybol"/>
+    <part name="subtract" channel="file" format="element/part" model="api/spec/logic/calculate/subtract.cybol"/>
+</model>

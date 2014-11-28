@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="encode"/>
+    <part name="description" channel="inline" format="text/plain" model="Encodes the source into the destination, according to the given encoding."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/convert/encode/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="convert/encode"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/convert/encode/properties.cybol"/>
+</model>

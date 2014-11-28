@@ -1,0 +1,4 @@
+<model>
+    <part name="keyboard" channel="file" format="element/part" model="api/spec/state/device/keyboard.cybol"/>
+    <part name="mouse" channel="file" format="element/part" model="api/spec/state/device/mouse.cybol"/>
+</model>

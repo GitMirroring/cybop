@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="change-permission"/>
+    <part name="description" channel="inline" format="text/plain" model="Changes the permission of a file or directory."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/change_permission/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="command/change-permission"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/change_permission/properties.cybol"/>
+</model> 

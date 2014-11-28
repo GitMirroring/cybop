@@ -1,0 +1,4 @@
+<model>
+    <part name="run" channel="file" format="element/part" model="api/spec/logic/run/run.cybol"/>
+    <part name="sleep" channel="file" format="element/part" model="api/spec/logic/run/sleep.cybol"/>
+</model>

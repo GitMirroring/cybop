@@ -1,0 +1,6 @@
+<model>
+    <part name="byte" channel="file" format="element/part" model="api/spec/logic/cast/byte.cybol"/>
+    <part name="character" channel="file" format="element/part" model="api/spec/logic/cast/character.cybol"/>
+    <part name="double" channel="file" format="element/part" model="api/spec/logic/cast/double.cybol"/>
+    <part name="integer" channel="file" format="element/part" model="api/spec/logic/cast/integer.cybol"/>
+</model>

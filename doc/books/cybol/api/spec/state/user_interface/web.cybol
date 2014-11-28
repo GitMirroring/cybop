@@ -1,0 +1,6 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="wui"/>
+    <part name="description" channel="inline" format="text/plain" model="A web user interface element."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/state/user_interface/web/example.txt"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/state/user_interface/web/properties.cybol"/>
+</model>

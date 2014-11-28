@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="indicate-exists"/>
+    <part name="description" channel="inline" format="text/plain" model="Indicates if data exist, i.e. the count is greater than zero."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/access/indicate-exists/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="access/indicate-exists"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/access/indicate-exists/properties.cybol"/>
+</model>

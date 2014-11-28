@@ -1,0 +1,4 @@
+<model>
+    <part name="create" channel="file" format="element/part" model="api/spec/logic/memorise/create.cybol"/>
+    <part name="destroy" channel="file" format="element/part" model="api/spec/logic/memorise/destroy.cybol"/>
+</model>

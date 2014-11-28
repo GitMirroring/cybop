@@ -11,13 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-API
-___
-
-        * Eliminate error due to missing <div> tag in generated html file
-        * Receive "wui/template/properties.cybol" file containing div tag
-        * See "lehre/systems_implementation/overview/project/" as better solution
-
 WUI
 ___
 
@@ -282,6 +275,10 @@ _______
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
         * Replace constant values using single characters like {L'm', L'v'} with string like L"mv"
+
+        * Make sure types are compared for correctness when copying a value (called by receive, overwrite, append etc.);
+            usually a "type" property is given; the two arguments also have a type; all three have to be identical
+            since otherwise, segmentation faults will occur; this happened in some cybol applications
 
         * Search for comments with "??", "TODO", "TEST", in order to clean them up
 

@@ -1,0 +1,15 @@
+<model>
+
+    <part name="chmod_file" channel="inline" format="command/change-permission" model="">
+        <property name="path" channel="inline" format="text/plain" model="./shell_command_change_permission/example.txt"/>
+        <property name="user" channel="inline" format="text/plain" model="rwx"/>
+        <property name="group" channel="inline" format="text/plain" model="rwx"/>
+        <property name="other" channel="inline" format="text/plain" model="rw"/>
+        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="verbose" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+
+    <part name="exit" channel="inline" format="live/exit" model=""/>
+
+</model>

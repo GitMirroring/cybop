@@ -1,0 +1,44 @@
+<model>
+	<part name="destination" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="destination"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination part"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="source" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="source"/>
+        <property name="description" channel="inline" format="text/plain" model="the source part"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="type" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="type"/>
+        <property name="description" channel="inline" format="text/plain" model="the type of data."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="count" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="count"/>
+        <property name="description" channel="inline" format="text/plain" model="If null, the part model count will be used instead. The number of elements to be inserted."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="destination_index" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="index"/>
+        <property name="description" channel="inline" format="text/plain" model="If null, an index of zero will be used instead. The destination index from which to start copying elements to."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="source_index" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="index"/>
+        <property name="description" channel="inline" format="text/plain" model="If null, an index of zero will be used instead. The source index from which to start copying elements from."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

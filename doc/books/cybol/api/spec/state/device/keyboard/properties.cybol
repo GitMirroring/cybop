@@ -1,0 +1,44 @@
+<model>
+    <part name="arrow-up" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="arrow-up"/>
+        <property name="description" channel="inline" format="text/plain" model="The arrow up key."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/*"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="arrow-down" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="arrow-down"/>
+        <property name="description" channel="inline" format="text/plain" model="The arrow down key."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/*"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="arrow-left" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="arrow-left"/>
+        <property name="description" channel="inline" format="text/plain" model="The arrow left key."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/*"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="arrow-right" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="arrow-right"/>
+        <property name="description" channel="inline" format="text/plain" model="The arrow right key."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/*"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="enter" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="enter"/>
+        <property name="description" channel="inline" format="text/plain" model="The enter key."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/*"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+    <part name="escape" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="escape"/>
+        <property name="description" channel="inline" format="text/plain" model="The escape key."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="path/*"/>
+        <property name="model" channel="inline" format="text/plain" model="a logic model to be executed"/>
+    </part>
+</model>

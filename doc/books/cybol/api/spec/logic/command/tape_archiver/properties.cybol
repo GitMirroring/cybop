@@ -1,0 +1,45 @@
+<model>
+    <part name="source" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="source"/>
+        <property name="description" channel="inline" format="text/plain" model="the source for archiving"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>		
+	<part name="destination" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="destination"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination where the source is being archived"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	<part name="force" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="force"/>
+        <property name="description" channel="inline" format="text/plain" model="the force option for not asking for permission for overwriting files or directories"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	<part name="gzip" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="gzip"/>
+        <property name="description" channel="inline" format="text/plain" model="the gunzip option to indicate gunzip compression or extraction"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	<part name="unpack" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="unpack"/>
+        <property name="description" channel="inline" format="text/plain" model="the option for unpacking / extraction or else it will pack"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	<part name="verbal" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="verbal"/>
+        <property name="description" channel="inline" format="text/plain" model="shows which files and directories are being copied"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>	
+	
+</model>

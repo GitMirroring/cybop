@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="divide"/>
+    <part name="description" channel="inline" format="text/plain" model="Divides two numbers of the given format"/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/calculate/divide/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="calculate/divide"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/calculate/divide/properties.cybol"/>
+</model>

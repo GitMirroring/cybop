@@ -1,0 +1,9 @@
+<model>
+    <part name="append" channel="file" format="element/part" model="api/spec/logic/modify/append.cybol"/>
+    <part name="build" channel="file" format="element/part" model="api/spec/logic/modify/build.cybol"/>
+    <part name="empty" channel="file" format="element/part" model="api/spec/logic/modify/empty.cybol"/>
+    <part name="fill" channel="file" format="element/part" model="api/spec/logic/modify/fill.cybol"/>
+    <part name="insert" channel="file" format="element/part" model="api/spec/logic/modify/insert.cybol"/>
+    <part name="overwrite" channel="file" format="element/part" model="api/spec/logic/modify/overwrite.cybol"/>
+    <part name="remove" channel="file" format="element/part" model="api/spec/logic/modify/remove.cybol"/>
+</model>

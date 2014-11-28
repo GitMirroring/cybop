@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="deserialize"/>
+    <part name="description" channel="inline" format="text/plain" model="Deserialises the source- into the destination part."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/represent/deserialize/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="represent/deserialize"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/represent/deserialize/properties.cybol"/>
+</model>

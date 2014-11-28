@@ -1,0 +1,8 @@
+<model>
+
+    <part name="anchor" channel="file" format="element/part" model="api/wui/content/category/anchor.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="a"/>
+        <property name="name" channel="inline" format="text/plain" model=""/>
+    </part>
+
+</model>

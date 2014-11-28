@@ -1,0 +1,12 @@
+<model>
+
+    <part name="heading" channel="inline" format="text/plain" model="Properties">
+        <property name="tag" channel="inline" format="text/plain" model="h5"/>
+    </part>
+    <part name="table" channel="file" format="element/part" model="api/wui/content/properties.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="table"/>
+        <property name="border" channel="inline" format="text/plain" model="1"/>
+        <property name="class" channel="inline" format="text/plain" model="property_table"/>
+    </part>
+
+</model>

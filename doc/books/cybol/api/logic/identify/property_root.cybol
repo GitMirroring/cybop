@@ -1,0 +1,33 @@
+<model>
+
+    <part name="overwrite_part" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.property.root"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.part.root"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <!--
+        CAUTION! This is different from other such files.
+        Between a part and a property, there is the node "properties" that has to be added here.
+    -->
+    <part name="append_prefix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.property.root"/>
+        <property name="source" channel="inline" format="text/plain" model=".properties"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_prefix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.property.root"/>
+        <property name="source" channel="inline" format="text/plain" model=".["/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_number" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.property.root"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.property.number"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_suffix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.property.root"/>
+        <property name="source" channel="inline" format="text/plain" model="]"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+</model>

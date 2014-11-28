@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new API generator to directory "doc/books/cybol/api/
+        * Eliminate errors due to missing tags in generated html file
+        * Provide more slim and efficient solution
+
 2014-11-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug formula considering minimum and maximum in directory "executor/randomiser/"

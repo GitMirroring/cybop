@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="archive-file"/>
+    <part name="description" channel="inline" format="text/plain" model="Archives the given data into a file."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/archive_file/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="command/archive_file"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/archive_file/properties.cybol"/>
+</model>

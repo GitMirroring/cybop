@@ -1,0 +1,33 @@
+<model>
+	<part name="name" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="name"/>
+        <property name="description" channel="inline" format="text/plain" model="the name of the part to be created"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="format" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="format"/>
+        <property name="description" channel="inline" format="text/plain" model="the format of the part to be created, from which gets determined the type"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="meta/format"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="element" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="element"/>
+        <property name="description" channel="inline" format="text/plain" model="the kind of element to be created (part, property);
+        a part element will be added to the whole model's part hierarchy;
+        a property element to the whole model's properties hierarchy"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="whole" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="whole"/>
+        <property name="description" channel="inline" format="text/plain" model="If null, the new part will be added to the knowledge memory root.
+       The compound to which to add to the new part."/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="element/part"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

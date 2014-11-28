@@ -1,0 +1,7 @@
+<model>
+
+    <part name="spec" channel="file" format="element/part" model="api/spec.cybol"/>
+    <part name="var" channel="file" format="element/part" model="api/var.cybol"/>
+    <part name="logic" channel="file" format="element/part" model="api/logic.cybol"/>
+
+</model>

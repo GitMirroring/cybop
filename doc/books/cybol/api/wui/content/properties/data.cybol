@@ -1,0 +1,19 @@
+<model>
+
+    <part name="name" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+    </part>
+    <part name="description" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+    </part>
+    <part name="required" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+    </part>
+    <part name="format" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+    </part>
+    <part name="model" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+    </part>
+
+</model>

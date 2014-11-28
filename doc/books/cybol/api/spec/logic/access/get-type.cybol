@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="get-type"/>
+    <part name="description" channel="inline" format="text/plain" model="Get a part's type."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/access/get-type/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="access/get-type"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/access/get-type/properties.cybol"/>
+</model>

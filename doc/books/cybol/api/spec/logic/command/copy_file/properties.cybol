@@ -1,0 +1,65 @@
+<model>
+    <part name="source" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="source"/>
+        <property name="description" channel="inline" format="text/plain" model="the source to be copied"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="destination" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="destination"/>
+        <property name="description" channel="inline" format="text/plain" model="the destination to copy to"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="force" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="force"/>
+        <property name="description" channel="inline" format="text/plain" model="the force option for not asking for permission for overwriting files or directories"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="interactive" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="interactive"/>
+        <property name="description" channel="inline" format="text/plain" model="the interactive option which askes everytime for permission of overwriting a file or directory"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="preserve_all_attributes" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="preserve_all_attributes"/>
+        <property name="description" channel="inline" format="text/plain" model="copied files and directories will have the same attributes as the originals"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="preserve_links" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="preserve_links"/>
+        <property name="description" channel="inline" format="text/plain" model="preserves links so that they are not dereferenced while copying"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="recursive" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="recursive"/>
+        <property name="description" channel="inline" format="text/plain" model="the option indicating that all sub directories should be copied as well"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="update" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="update"/>
+        <property name="description" channel="inline" format="text/plain" model="the update option which just copies more recent data to a destination path"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+	<part name="verbal" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="verbal"/>
+        <property name="description" channel="inline" format="text/plain" model="shows which files and directories are being copied"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

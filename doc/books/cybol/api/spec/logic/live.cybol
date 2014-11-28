@@ -1,0 +1,4 @@
+<model>
+    <part name="interrupt" channel="file" format="element/part" model="api/spec/logic/live/interrupt.cybol"/>
+    <part name="sense" channel="file" format="element/part" model="api/spec/logic/live/sense.cybol"/>
+</model>

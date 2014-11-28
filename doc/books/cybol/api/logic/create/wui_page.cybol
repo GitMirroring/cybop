@@ -1,0 +1,38 @@
+<model>
+
+    <part name="create_page" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="wui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
+
+    <part name="initialise_page" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="text/plain" model="api/wui/page/page.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.wui"/>
+    </part>
+    <part name="initialise_page_properties" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/property"/>
+        <property name="message" channel="inline" format="text/plain" model="api/wui/page/page_properties.cybol"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.wui"/>
+    </part>
+
+    <part name="assign_page_title" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.head.title"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.title"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="assign_page_content_heading" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.heading"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.title"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+</model>

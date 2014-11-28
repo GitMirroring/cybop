@@ -1,0 +1,4 @@
+<model>
+    <part name="decode (TODO)" channel="file" format="element/part" model="api/spec/logic/convert/decode.cybol"/>
+    <part name="encode (TODO)" channel="file" format="element/part" model="api/spec/logic/convert/encode.cybol"/>
+</model>

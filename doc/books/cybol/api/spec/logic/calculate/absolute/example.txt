@@ -1,0 +1,5 @@
+<part name="absolute" channel="inline" format="calculate/absolute" model="">
+    <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+    <property name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+    <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+</part>

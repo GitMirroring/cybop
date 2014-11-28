@@ -1,0 +1,14 @@
+<model>
+    <part name="count" channel="file" format="element/part" model="api/spec/logic/access/count.cybol"/>
+    <part name="get-channel" channel="file" format="element/part" model="api/spec/logic/access/get-channel.cybol"/>
+    <part name="get-encoding" channel="file" format="element/part" model="api/spec/logic/access/get-encoding.cybol"/>
+    <part name="get-format" channel="file" format="element/part" model="api/spec/logic/access/get-format.cybol"/>
+    <part name="get-language" channel="file" format="element/part" model="api/spec/logic/access/get-language.cybol"/>
+    <part name="get-model" channel="file" format="element/part" model="api/spec/logic/access/get-model.cybol"/>
+    <part name="get-name" channel="file" format="element/part" model="api/spec/logic/access/get-name.cybol"/>
+    <part name="get-properties" channel="file" format="element/part" model="api/spec/logic/access/get-properties.cybol"/>
+    <part name="get-reference" channel="file" format="element/part" model="api/spec/logic/access/get-reference.cybol"/>
+    <part name="get-type" channel="file" format="element/part" model="api/spec/logic/access/get-type.cybol"/>
+    <part name="indicate-empty" channel="file" format="element/part" model="api/spec/logic/access/indicate-empty.cybol"/>
+    <part name="indicate-exists" channel="file" format="element/part" model="api/spec/logic/access/indicate-exists.cybol"/>
+</model>

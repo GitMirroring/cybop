@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="empty"/>
+    <part name="description" channel="inline" format="text/plain" model="Empties the part, i.e. removes all of its elements."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/modify/empty/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="modify/empty"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/modify/empty/properties.cybol"/>
+</model>

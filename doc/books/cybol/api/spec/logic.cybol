@@ -1,0 +1,22 @@
+<model>
+
+    <part name="access" channel="file" format="element/part" model="api/spec/logic/access.cybol"/>
+    <part name="calculate" channel="file" format="element/part" model="api/spec/logic/calculate.cybol"/>
+    <part name="cast" channel="file" format="element/part" model="api/spec/logic/cast.cybol"/>
+    <part name="command" channel="file" format="element/part" model="api/spec/logic/command.cybol"/>
+    <part name="communicate" channel="file" format="element/part" model="api/spec/logic/communicate.cybol"/>
+    <part name="compare" channel="file" format="element/part" model="api/spec/logic/compare.cybol"/>
+    <part name="convert" channel="file" format="element/part" model="api/spec/logic/convert.cybol"/>
+    <part name="file" channel="file" format="element/part" model="api/spec/logic/file.cybol"/>
+    <part name="flow" channel="file" format="element/part" model="api/spec/logic/flow.cybol"/>
+    <part name="live" channel="file" format="element/part" model="api/spec/logic/live.cybol"/>
+    <part name="logify" channel="file" format="element/part" model="api/spec/logic/logify.cybol"/>
+    <part name="maintain" channel="file" format="element/part" model="api/spec/logic/maintain.cybol"/>
+    <part name="manipulate" channel="file" format="element/part" model="api/spec/logic/manipulate.cybol"/>
+    <part name="memorise" channel="file" format="element/part" model="api/spec/logic/memorise.cybol"/>
+    <part name="modify" channel="file" format="element/part" model="api/spec/logic/modify.cybol"/>
+    <part name="represent" channel="file" format="element/part" model="api/spec/logic/represent.cybol"/>
+    <part name="run" channel="file" format="element/part" model="api/spec/logic/run.cybol"/>
+    <part name="time" channel="file" format="element/part" model="api/spec/logic/time.cybol"/>
+
+</model>
