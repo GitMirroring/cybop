@@ -1,9 +1,3 @@
-<model>
-
-    <part name="echo_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="hello, this is an echo over standard output"/>
-    </part>
-
-    <part name="exit" channel="inline" format="live/exit" model=""/>
-
-</model>
+<part name="echo_message" channel="inline" format="command/echo" model="">
+    <property name="message" channel="inline" format="text/plain" model="hello, this is an echo over standard output"/>
+</part>

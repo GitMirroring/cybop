@@ -2,6 +2,6 @@
     <part name="name" channel="inline" format="text/plain" model="tape-archiver"/>
     <part name="description" channel="inline" format="text/plain" model="Moving files and directories from a path to another.."/>
     <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/tape_archiver/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="command/change-permission"/>
+    <part name="format" channel="inline" format="text/plain" model="command/change-tape-archiver"/>
     <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/tape_archiver/properties.cybol"/>
 </model> 

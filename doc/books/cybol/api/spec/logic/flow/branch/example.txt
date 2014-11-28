@@ -1,5 +1,5 @@
-    <part name="branch_voltage" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
-        <property name="true" channel="file" format="element/part" model="indoor_climate/add_voltage.cybol"/>
-        <property name="false" channel="file" format="element/part" model="indoor_climate/report_voltage_failure.cybol"/>
-    </part>
+<part name="branch_voltage" channel="inline" format="flow/branch" model="">
+    <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
+    <property name="true" channel="file" format="element/part" model="indoor_climate/add_voltage.cybol"/>
+    <property name="false" channel="file" format="element/part" model="indoor_climate/report_voltage_failure.cybol"/>
+</part>

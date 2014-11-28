@@ -1,34 +1,23 @@
 <!-- pack -->
-<model>
 
-    <part name="pack_text_file_with_tape_archiver" channel="inline" format="command/tape-archiver" model="">
-        <property name="source" channel="inline" format="text/plain" model="./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt"/>
-        <property name="destination" channel="inline" format="text/plain" model="./shell_command_tape_archiver_pack/i_am_packed_now.tar"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="unpack" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-
-    <part name="exit" channel="inline" format="live/exit" model=""/>
-
-</model>
-
+<part name="pack_text_file_with_tape_archiver" channel="inline" format="command/tape-archiver" model="">
+    <property name="source" channel="inline" format="text/plain" model="./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt"/>
+    <property name="destination" channel="inline" format="text/plain" model="./shell_command_tape_archiver_pack/i_am_packed_now.tar"/>
+    <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="unpack" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+ </part>
 
 <!-- unpack -->
-<model>
 
-    <part name="unpack_tar_with_text_file" channel="inline" format="command/tape-archiver" model="">
-        <property name="source" channel="inline" format="text/plain" model="./shell_command_tape_archiver_unpack/package.tar"/>
-        <property name="destination" channel="inline" format="text/plain" model="./shell_command_tape_archiver_unpack"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-
-    <part name="exit" channel="inline" format="live/exit" model=""/>
-
-</model>
+<part name="unpack_tar_with_text_file" channel="inline" format="command/tape-archiver" model="">
+    <property name="source" channel="inline" format="text/plain" model="./shell_command_tape_archiver_unpack/package.tar"/>
+    <property name="destination" channel="inline" format="text/plain" model="./shell_command_tape_archiver_unpack"/>
+    <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="gzip" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
+    <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+</part>

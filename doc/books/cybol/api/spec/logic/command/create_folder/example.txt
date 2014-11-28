@@ -1,9 +1,3 @@
-<model>
-
-    <part name="create_folder" channel="inline" format="command/create-folder" model="">
-        <property name="path" channel="inline" format="text/plain" model="./shell_command_create_folder/i_am_a_created_folder"/>
-    </part>
-
-    <part name="exit" channel="inline" format="live/exit" model=""/>
-
-</model>
+<part name="create_folder" channel="inline" format="command/create-folder" model="">
+    <property name="path" channel="inline" format="text/plain" model="./shell_command_create_folder/i_am_a_created_folder"/>
+</part>
