@@ -1,3 +1,0 @@
-    <part name="remove" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".summand"/>
-    </part>

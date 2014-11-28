@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="send"/>
-    <part name="description" channel="inline" format="text/plain" model="Sends a message via the given channel."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/communicate/send/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="communicate/send"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/communicate/send/properties.cybol"/>
-</model>

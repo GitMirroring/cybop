@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="get-model"/>
-    <part name="description" channel="inline" format="text/plain" model="Get a part's model."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/access/get-model/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="access/get-model"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/access/get-model/properties.cybol"/>
-</model>

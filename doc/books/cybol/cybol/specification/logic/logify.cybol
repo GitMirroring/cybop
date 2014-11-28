@@ -1,5 +1,0 @@
-<model>
-    <part name="and" channel="file" format="element/part" model="cybol/specification/logic/logify/and.cybol"/>
-    <part name="not" channel="file" format="element/part" model="cybol/specification/logic/logify/not.cybol"/>
-    <part name="or" channel="file" format="element/part" model="cybol/specification/logic/logify/or.cybol"/>
-</model>

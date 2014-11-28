@@ -1,4 +1,0 @@
-<model>
-    <part name="logic" channel="file" format="element/part" model="cybol/specification/logic.cybol"/>
-    <part name="state" channel="file" format="element/part" model="cybol/specification/state.cybol"/>
-</model>

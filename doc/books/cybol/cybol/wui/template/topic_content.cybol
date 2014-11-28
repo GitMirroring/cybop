@@ -1,9 +1,0 @@
-<model>
-    <part name="topic_anchor" channel="inline" format="text/plain" model="">
-        <property name="tag" channel="inline" format="text/plain" model="a"/>
-        <property name="name" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="topic" channel="inline" format="text/plain" model="">
-        <property name="tag" channel="inline" format="text/plain" model="h1"/>
-    </part>
-</model>

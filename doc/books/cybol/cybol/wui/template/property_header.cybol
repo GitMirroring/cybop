@@ -1,5 +1,0 @@
-<model>
-    <part name="headerrow" channel="file" format="element/part" model="cybol/wui/template/property_header_row.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="tr"/>
-    </part>
-</model>

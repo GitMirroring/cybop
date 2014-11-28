@@ -1,5 +1,0 @@
-<model>
-    <part name="branch" channel="file" format="element/part" model="cybol/specification/logic/flow/branch.cybol"/>
-    <part name="loop" channel="file" format="element/part" model="cybol/specification/logic/flow/loop.cybol"/>
-    <part name="sequence" channel="file" format="element/part" model="cybol/specification/logic/flow/sequence.cybol"/>
-</model>

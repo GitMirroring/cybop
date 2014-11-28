@@ -1,4 +1,0 @@
-<model>
-    <part name="shutdown" channel="file" format="element/part" model="cybol/specification/logic/maintain/shutdown.cybol"/>
-    <part name="startup" channel="file" format="element/part" model="cybol/specification/logic/maintain/startup.cybol"/>
-</model>

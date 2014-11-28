@@ -1,8 +1,0 @@
-<model>
-    <part name="head" channel="file" format="element/part" model="cybol/wui/index/head.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="head"/>
-    </part>
-    <part name="body" channel="file" format="element/part" model="cybol/wui/index/body.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="body"/>
-    </part>
-</model>

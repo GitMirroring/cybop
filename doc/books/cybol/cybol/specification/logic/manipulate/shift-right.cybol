@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="shift-right"/>
-    <part name="description" channel="inline" format="text/plain" model="Shifts all bits of value to the right by position."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/manipulate/shift-right/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="manipulate/shift-right"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/manipulate/shift-right/properties.cybol"/>
-</model>

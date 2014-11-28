@@ -1,9 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="or"/>
-    <part name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation OR.
-	The 'output' parametre represents the first operand;
-  the 'input' parametre the second."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/logify/or/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="logify/or"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/logify/or/properties.cybol"/>
-</model>

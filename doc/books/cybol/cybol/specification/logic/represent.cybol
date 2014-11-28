@@ -1,4 +1,0 @@
-<model>
-    <part name="deserialise" channel="file" format="element/part" model="cybol/specification/logic/represent/deserialise.cybol"/>
-    <part name="serialise" channel="file" format="element/part" model="cybol/specification/logic/represent/serialise.cybol"/>
-</model>

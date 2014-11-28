@@ -1,3 +1,0 @@
-<model>
-    <part name="time" channel="file" format="element/part" model="cybol/specification/logic/time/time.cybol"/>
-</model>

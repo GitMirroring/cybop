@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="absolute"/>
-    <part name="description" channel="inline" format="text/plain" model="Determine the absolute value of a number."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/calculate/absolute/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="calculate/absolute"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/calculate/absolute/properties.cybol"/>
-</model>

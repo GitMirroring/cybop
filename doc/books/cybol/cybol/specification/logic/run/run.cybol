@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="run"/>
-    <part name="description" channel="inline" format="text/plain" model="Runs a local program"/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/run/run/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="run/run"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/run/run/properties.cybol"/>
-</model>

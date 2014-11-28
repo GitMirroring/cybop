@@ -1,6 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="tui"/>
-    <part name="description" channel="inline" format="text/plain" model="A graphical user interface element."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/state/user_interface/graphical/example.txt"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/state/user_interface/graphical/properties.cybol"/>
-</model>

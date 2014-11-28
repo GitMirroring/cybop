@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="branch"/>
-    <part name="description" channel="inline" format="text/plain" model="Branches the programme flow, depending on the criterion flag."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/flow/branch/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="flow/branch"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/flow/branch/properties.cybol"/>
-</model>

@@ -1,4 +1,0 @@
-<model>
-    <part name="device" channel="file" format="element/part" model="cybol/specification/state/device.cybol"/>
-    <part name="user_interface" channel="file" format="element/part" model="cybol/specification/state/user_interface.cybol"/>
-</model>

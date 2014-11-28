@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="indicate"/>
-    <part name="description" channel="inline" format="text/plain" model="Indicates if data are empty, i.e. the count is zero. Indicates if data exist, i.e. the count is greater than zero."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/access/indicate/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="access/indicate"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/access/indicate/properties.cybol"/>
-</model>

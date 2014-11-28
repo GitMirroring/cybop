@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="destroy"/>
-    <part name="description" channel="inline" format="text/plain" model="Destroys a part and removes it from the knowledge model."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/memorise/destroy/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="memorise/destroy"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/memorise/destroy/properties.cybol"/>
-</model>

@@ -1,3 +1,0 @@
-<part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>

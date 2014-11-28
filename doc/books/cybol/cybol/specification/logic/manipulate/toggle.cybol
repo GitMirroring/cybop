@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="toggle"/>
-    <part name="description" channel="inline" format="text/plain" model="Toggles the bit at the given position."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/manipulate/toggle/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="manipulate/toggle"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/manipulate/toggle/properties.cybol"/>
-</model>

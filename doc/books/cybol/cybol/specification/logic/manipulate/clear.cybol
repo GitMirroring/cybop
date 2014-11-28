@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="clear"/>
-    <part name="description" channel="inline" format="text/plain" model="Resets the bit at a given position."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/manipulate/clear/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="manipulate/clear"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/manipulate/clear/properties.cybol"/>
-</model>

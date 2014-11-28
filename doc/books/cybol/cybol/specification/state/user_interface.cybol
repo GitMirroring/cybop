@@ -1,5 +1,0 @@
-<model>
-    <part name="graphical" channel="file" format="element/part" model="cybol/specification/state/user_interface/graphical.cybol"/>
-    <part name="text" channel="file" format="element/part" model="cybol/specification/state/user_interface/text.cybol"/>
-    <part name="web" channel="file" format="element/part" model="cybol/specification/state/user_interface/web.cybol"/>
-</model>

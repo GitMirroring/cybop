@@ -1,5 +1,0 @@
-<model>
-    <part name="heading" channel="inline" format="text/plain" model="Contents">
-        <property name="tag" channel="inline" format="text/plain" model="h1"/>
-    </part>
-</model>

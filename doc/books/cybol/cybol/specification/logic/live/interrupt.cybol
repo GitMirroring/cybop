@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="interrupt"/>
-    <part name="description" channel="inline" format="text/plain" model="Interrupts a service."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/live/interrupt/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="flow/interrupt"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/live/interrupt/properties.cybol"/>
-</model>

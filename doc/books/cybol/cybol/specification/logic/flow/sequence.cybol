@@ -1,7 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="sequence"/>
-    <part name="description" channel="inline" format="text/plain" model="Executes the given programme flow as sequence."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/flow/sequence/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="flow/sequence"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/flow/sequence/properties.cybol"/>
-</model>

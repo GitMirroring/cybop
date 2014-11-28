@@ -1,9 +1,0 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="and"/>
-    <part name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation AND.
-	The 'output' parametre represents the first operand;
-  the 'input' parametre the second."/>
-    <part name="example" channel="file" format="text/plain" model="cybol/specification/logic/logify/and/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="logify/and"/>
-    <part name="properties" channel="file" format="element/part" model="cybol/specification/logic/logify/and/properties.cybol"/>
-</model>
