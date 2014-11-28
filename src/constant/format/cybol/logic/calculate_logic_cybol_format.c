@@ -63,8 +63,7 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'b', L's', L'o', L'l', L'u', L't', L'e'};
-static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/absolute";
 static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -76,8 +75,7 @@ static int* ABSOLUTE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * This is a CYBOL extension.
  */
-static wchar_t ADD_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'a', L'd', L'd'};
-static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = ADD_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* ADD_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/add";
 static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -89,21 +87,19 @@ static int* ADD_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * This is a CYBOL extension.
  */
-static wchar_t DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'd', L'i', L'v', L'i', L'd', L'e'};
-static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/divide";
 static int* DIVIDE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The calculate/modulo logic cybol format.
  *
- * Determine the remainder of an integer division.
+ * Calculate the remainder of an integer division.
  *
  * remainder = dividend % divisor
  *
  * This is a CYBOL extension.
  */
-static wchar_t MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'm', L'o', L'd', L'u', L'l', L'o'};
-static wchar_t* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT = MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/modulo";
 static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -115,8 +111,7 @@ static int* MODULO_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'm', L'u', L'l', L't', L'i', L'p', L'l', L'y'};
-static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/multiply";
 static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -128,8 +123,7 @@ static int* MULTIPLY_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * This is a CYBOL extension.
  */
-static wchar_t NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'n', L'e', L'g', L'a', L't', L'e'};
-static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT = NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/negate";
 static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -141,22 +135,8 @@ static int* NEGATE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'd', L'u', L'c', L'e'};
-static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT = REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/reduce";
 static int* REDUCE_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The calculate/remainder logic cybol format.
- *
- * Calculate the remainder of the division of two numbers.
- *
- * result = dividend mod divisor
- *
- * This is a CYBOL extension.
- */
-static wchar_t REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'e', L'm', L'a', L'i', L'n', L'd', L'e', L'r'};
-static wchar_t* REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT = REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The calculate/subtract logic cybol format.
@@ -167,8 +147,7 @@ static int* REMAINDER_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * This is a CYBOL extension.
  */
-static wchar_t SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L'l', L'c', L'u', L'l', L'a', L't', L'e', L'/', L's', L'u', L'b', L't', L'r', L'a', L'c', L't'};
-static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT = L"calculate/subtract";
 static int* SUBTRACT_CALCULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CALCULATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

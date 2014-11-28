@@ -1,0 +1,175 @@
+<model>
+
+    <part name="create_result" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="result"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+    <!-- CAUTION! This initialisation IS NECESSARY since otherwise, the result number would be empty (not zero, just plain empty without space in the array). -->
+    <part name="initialise_result" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="inline"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="text/plain" model="0"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".result"/>
+    </part>
+    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
+    <part name="init_add" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="source" channel="inline" format="number/integer" model="5"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="test_add" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_add" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="init_subtract" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="source" channel="inline" format="number/integer" model="5"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="test_subtract" channel="inline" format="calculate/subtract" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_subtract" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="init_multiply" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="source" channel="inline" format="number/integer" model="5"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="test_multiply" channel="inline" format="calculate/multiply" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_multiply" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="init_divide" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="source" channel="inline" format="number/integer" model="5"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="test_divide" channel="inline" format="calculate/divide" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_divide" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="init_modulo" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="source" channel="inline" format="number/integer" model="5"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="test_modulo" channel="inline" format="calculate/modulo" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_modulo" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="test_negate" channel="inline" format="calculate/negate" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_negate" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="test_absolute" channel="inline" format="calculate/absolute" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="-2"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <part name="print_absolute" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</model>
+
+<!--
+    This example applies a number of arithmetic operations.
+-->
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
