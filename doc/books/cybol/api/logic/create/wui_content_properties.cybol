@@ -34,10 +34,11 @@
         <property name="source" channel="inline" format="path/knowledge" model=".app.spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).properties.(.app.var.property.name)#description"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="overwrite_required" channel="inline" format="modify/overwrite" model="">
+    <part name="serialise_required" channel="inline" format="represent/serialise" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).properties.table.(.app.var.property.name).required"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).properties.(.app.var.property.name)#required"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
     </part>
     <part name="overwrite_format" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).properties.table.(.app.var.property.name).format"/>

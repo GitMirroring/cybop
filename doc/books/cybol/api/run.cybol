@@ -26,6 +26,7 @@
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.generate"/>
     </part>
 
+<!--
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -34,6 +35,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app"/>
         <property name="receiver" channel="inline" format="text/plain" model="api_knowledge_tree.txt"/>
     </part>
+-->
 
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
 
