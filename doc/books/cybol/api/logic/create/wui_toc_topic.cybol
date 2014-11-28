@@ -12,7 +12,7 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="api/wui/toc/anchor.cybol"/>
+        <property name="message" channel="inline" format="text/plain" model="api/wui/toc/container.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name)"/>
     </part>
     <part name="initialise_wui_toc_topic_properties" channel="inline" format="communicate/receive" model="">
@@ -20,23 +20,23 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/property"/>
-        <property name="message" channel="inline" format="text/plain" model="api/wui/toc/anchor_properties.cybol"/>
+        <property name="message" channel="inline" format="text/plain" model="api/wui/toc/container_properties.cybol"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name)"/>
     </part>
 
-    <part name="overwrite_anchor_heading" channel="inline" format="modify/overwrite" model="">
+    <part name="overwrite_container_heading" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name).heading"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <part name="overwrite_anchor_reference_with_sharp" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name)#href"/>
+    <part name="overwrite_anchor_sharp" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name).heading#href"/>
         <property name="source" channel="inline" format="text/plain" model="#"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <!-- CAUTION! Use "append" and NOT "overwrite" here! -->
-    <part name="overwrite_anchor_reference_with_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name)#href"/>
+    <part name="overwrite_anchor_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.toc.(.app.var.topic.name).heading#href"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>

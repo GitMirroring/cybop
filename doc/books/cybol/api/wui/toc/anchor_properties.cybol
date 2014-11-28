@@ -1,7 +1,0 @@
-<model>
-
-    <property name="tag" channel="inline" format="text/plain" model="a"/>
-    <property name="href" channel="inline" format="text/plain" model=""/>
-    <property name="class" channel="inline" format="text/plain" model=""/>
-
-</model>

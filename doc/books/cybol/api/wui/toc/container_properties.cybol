@@ -1,0 +1,6 @@
+<model>
+
+    <property name="tag" channel="inline" format="text/plain" model="div"/>
+    <property name="class" channel="inline" format="text/plain" model=""/>
+
+</model>
