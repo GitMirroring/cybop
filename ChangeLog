@@ -23,6 +23,7 @@
         * Add new API generator to directory "doc/books/cybol/api/
         * Eliminate errors due to missing tags in generated html file
         * Provide more slim and efficient solution
+        * Remove old API generator directory "doc/books/cybol/cybol/
 
 2014-11-25  Christian Heller  <christian.heller@tuxtax.de>
 
