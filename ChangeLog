@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise cybol example application "TicTacToe"
+
 2014-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug API generator so that properties are now generated correctly

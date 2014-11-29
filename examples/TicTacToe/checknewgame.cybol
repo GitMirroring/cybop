@@ -1,8 +1,8 @@
 <model>
-    
+
 //Zeichen löschen
     <part name="reset_command" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".temporary.command"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
     </part>
 
 //Speichern der Nachricht in Variable
@@ -10,7 +10,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary.command"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.var.command"/>
     </part>
 
 
@@ -20,58 +20,58 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".temporary.command"/>
-	<property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
 
 //Flag setzen Eingabe yes
     <part name="comparison1" channel="inline" format="compare/equal" model="">
-	<property name="left" channel="inline" format="path/knowledge" model=".temporary.command"/>
-	<property name="right" channel="inline" format="text/plain" model="y"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
-	<property name="result" channel="inline" format="path/knowledge" model=".temporary.newgame_flag"/>
-	<property name="selection" channel="inline" format="text/plain" model="all"/>
+    <property name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <property name="right" channel="inline" format="text/plain" model="y"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="result" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
+    <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
 //Flag setzen Eingabe no
     <part name="comparison2" channel="inline" format="compare/equal" model="">
-	<property name="left" channel="inline" format="path/knowledge" model=".temporary.command"/>
-	<property name="right" channel="inline" format="text/plain" model="n"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
-	<property name="result" channel="inline" format="path/knowledge" model=".temporary.no_newgame_flag"/>
-	<property name="selection" channel="inline" format="text/plain" model="all"/>
+    <property name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <property name="right" channel="inline" format="text/plain" model="n"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="result" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
+    <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
 //Flag setzen Eingabe q
     <part name="comparison3" channel="inline" format="compare/equal" model="">
-	<property name="left" channel="inline" format="path/knowledge" model=".temporary.command"/>
-	<property name="right" channel="inline" format="text/plain" model="q"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
-	<property name="result" channel="inline" format="path/knowledge" model=".temporary.exit_flag"/>
-	<property name="selection" channel="inline" format="text/plain" model="all"/>
+    <property name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <property name="right" channel="inline" format="text/plain" model="q"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="result" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
+    <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
 
 //If-Abfrage yes
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.newgame_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".initialising"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".inputnewgame"/> 
+        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
+        <property name="true" channel="inline" format="path/knowledge" model=".app.initialising"/>
+        <property name="false" channel="inline" format="path/knowledge" model=".app.inputnewgame"/>
     </part>
 
 //If-Abfrage no
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.no_newgame_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".exit.exit_app"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
+        <property name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
 //If-Abfrage q
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.exit_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".exit.exit_app"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
+        <property name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
 </model>

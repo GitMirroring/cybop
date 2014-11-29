@@ -1,24 +1,24 @@
 <model>
     <part name="get_time" channel="inline" format="time/current" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".seed"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.seed"/>
     </part>
 
     <part name="set_seed" channel="inline" format="randomise/sow" model="">
-        <property name="seed" channel="inline" format="path/knowledge" model=".seed"/>
+        <property name="seed" channel="inline" format="path/knowledge" model=".app.seed"/>
     </part>
 
 
     <part name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.commandPC"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.commandPC"/>
         <property name="minimum" channel="inline" format="number/integer" model="1"/>
         <property name="maximum" channel="inline" format="number/integer" model="9"/>
-        <property name="seed" channel="inline" format="path/knowledge" model=".seed"/>
+        <property name="seed" channel="inline" format="path/knowledge" model=".app.seed"/>
     </part>
 
 
     <part name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.command"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".temporary.commandPC"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.commandPC"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
     </part>

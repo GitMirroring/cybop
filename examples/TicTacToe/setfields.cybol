@@ -3,55 +3,55 @@
 //Variablen auf 'X' setzen
 
     <part name="set_player_field_1" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_1"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_2" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_2"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_3" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_3"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_4" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_4"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_5" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_5"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_6" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_6"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_7" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_7"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_8" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_8"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_player_field_9" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_9"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
         <property name="source" channel="inline" format="text/plain" model="X"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
@@ -59,55 +59,55 @@
 //Variablen auf 'O' setzen
 
     <part name="set_computer_field_1" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_1"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_2" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_2"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_3" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_3"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_4" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_4"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_5" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_5"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_6" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_6"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_7" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_7"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_8" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_8"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="set_computer_field_9" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_9"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
         <property name="source" channel="inline" format="text/plain" model="O"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>

@@ -2,76 +2,76 @@
 
 //Variablen auf default setzen
     <part name="reset_field_1" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_1"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_2" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_2"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_3" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_3"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_4" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_4"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_5" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_5"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_6" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_6"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_7" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_7"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_8" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_8"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="reset_field_9" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.field_9"/>
-	<property name="source" channel="inline" format="text/plain" model="_"/>
-	<property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
+    <property name="source" channel="inline" format="text/plain" model="_"/>
+    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
 
     <part name="reset_win_flag_player" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.win_flag_player"/>
-	<property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-	<property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.win_flag_player"/>
+    <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_win_flag_pc" channel="inline" format="modify/overwrite" model="">
-	<property name="destination" channel="inline" format="path/knowledge" model=".temporary.win_flag_pc"/>
-	<property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-	<property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    <property name="destination" channel="inline" format="path/knowledge" model=".app.var.win_flag_pc"/>
+    <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
 
 // Wechsel zu .startgame
     <part name="start_command" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".playerturn"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.playerturn"/>
     </part>
 
 

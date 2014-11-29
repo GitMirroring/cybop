@@ -2,197 +2,197 @@
 
 //Rücksetzen der Flags
     <part name="reset_player_field_1" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_1"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_2" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_2"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_3" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_3"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_4" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_4"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_5" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_5"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_6" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_6"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_7" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_7"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_8" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_8"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="reset_player_field_9" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.flag_field_9"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
 <part name="flag_empty_1" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_1"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_1"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_2" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_2"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_2"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_3" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_3"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_3"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_4" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_4"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_4"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_5" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_5"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_5"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_6" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_6"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_6"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_7" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_7"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_7"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_8" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_8"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_8"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="flag_empty_9" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".temporary.field_9"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
         <property name="right" channel="inline" format="text/plain" model="_"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".temporary.flag_field_9"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
 //Wingame Flag rücksetzen
     <part name="wingame" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
         <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_1"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_2"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_3"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_4"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_5"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_6"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_7"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_8"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
     <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".temporary.flag_field_9"/>
+        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
         <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </part>
 
 //Test auf draw, wenn nicht -> computerturn
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".temporary.wingame"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".computerturn"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".draw"/> 
+        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <property name="true" channel="inline" format="path/knowledge" model=".app.computerturn"/>
+        <property name="false" channel="inline" format="path/knowledge" model=".app.draw"/> 
     </part>
   
 

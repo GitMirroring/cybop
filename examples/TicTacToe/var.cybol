@@ -1,6 +1,6 @@
 <model>
-   
-// Flags und Variablen setzen
+
+    // Flags und Variablen setzen
 
     <part name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <part name="no_newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -36,4 +36,4 @@
 
     <part name="wingame" channel="inline" format="logicvalue/boolean" model="false"/>
 
-</model> 
+</model>
