@@ -14,10 +14,19 @@
 WUI
 ___
 
+        * Continue thinking: Add socket data to internal memory by dynamically extending it?
+            One socket per port is possible, not more.
+            Therefore, the port may be used to identify the socket data within the internal memory.
+            Possibly write special access function in file "existing_bsd_socket_starter.c",
+                in order to get existing socket data from internal memory and
+                otherwise extend internal memory to add new socket's data
+
         * Hint for thinking: Only the "socket" number should be stored
             in a cybol property, in order to be able to use it for communication;
             all other things are set inside the socket, when starting it up;
-            only one service may exist per port
+            only one service may exist per port;
+            server sockets are stored in internal memory;
+            client sockets NOT -- they have to be stored in the corresponding cybol application
         * Implement session on application level (e.g. in Res Medicinae)
 
         * See "wolf_-_c_von_a_bis_z" for platform independence

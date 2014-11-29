@@ -94,7 +94,7 @@ void shutdown_service(void* p0, void* p1) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            shutdown_socket(p0, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+//??            shutdown_socket(p0, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
 

@@ -351,7 +351,7 @@ void manage(void* p0) {
     // Shutdown terminal.
     shutdown_terminal(i, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
     // Shutdown www service.
-    shutdown_socket(i, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
+    shutdown_socket(i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
 
     //
     // Variable finalisation.

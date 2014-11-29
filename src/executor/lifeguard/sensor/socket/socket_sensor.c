@@ -389,7 +389,7 @@ void sense_www_socket(void* p0) {
     // cause unpredictable programme behaviour.
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense www socket.");
     
-    sense_socket(p0, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    sense_socket(p0, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 }
 
 /**
@@ -767,7 +767,7 @@ void sense_www_socket(void* p0) {
     // cause unpredictable programme behaviour.
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense www socket.");
     
-    sense_socket(p0, (void*) WWW_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    sense_socket(p0, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 }
 
 /**
