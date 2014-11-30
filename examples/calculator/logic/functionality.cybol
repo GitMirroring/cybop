@@ -8,6 +8,7 @@
     <part name="subtract" channel="file" format="element/part" model="calculator/logic/functionality/subtract.cybol"/>
     <part name="multiply" channel="file" format="element/part" model="calculator/logic/functionality/multiply.cybol"/>
     <part name="modulo" channel="file" format="element/part" model="calculator/logic/functionality/modulo.cybol"/>
+	<part name="negate" channel="file" format="element/part" model="calculator/logic/functionality/negate.cybol"/>
 <!--
     TODO: square, squareroot
 -->

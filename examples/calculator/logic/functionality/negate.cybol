@@ -1,0 +1,44 @@
+<model>
+
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tmp"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_calculator_negate.txt"/>
+    </part>
+
+    <!--
+        CAUTION! Do NOT assign an initial value like zero, but empty array instead.
+        Otherwise, many numbers will appear in the value, so that the calculation
+        cannot happen due to different dimension of the two operand arrays.
+    -->
+    <part name="reset_operand" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+    </part>
+
+    <part name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    </part>
+
+    <part name="execute_stored_operation" channel="inline" format="flow/sequence" model="">
+        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
+        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+    </part>
+
+    <part name="store_operation" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+        <property name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.negate"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="update_display" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display"/>
+    </part>
+
+</model>

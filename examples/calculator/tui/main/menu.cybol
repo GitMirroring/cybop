@@ -247,7 +247,7 @@
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
         <property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.modulo"/>
     </part>
-    <part name="sign" channel="file" format="element/part" model="calculator/tui/main/menu/sign.cybol">
+    <part name="negate" channel="file" format="element/part" model="calculator/tui/main/menu/negate.cybol">
         <property name="position" channel="inline" format="number/integer" model="21,14"/>
         <property name="size" channel="inline" format="number/integer" model="7,3"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -258,7 +258,7 @@
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
-        <property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.whatever"/>
+        <property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.negate"/>
     </part>
 
     <part name="help" channel="file" format="element/part" model="calculator/tui/main/menu/help.cybol">

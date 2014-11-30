@@ -30,6 +30,6 @@
     <part name="s" channel="inline" format="path/knowledge" model=".app.logic.functionality.square"/>
     <part name="r" channel="inline" format="path/knowledge" model=".app.logic.functionality.squareroot"/>
     <part name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.modulo"/>
-    <part name="+/-" channel="inline" format="path/knowledge" model=".app.logic.functionality.negate"/>
+    <part name="n" channel="inline" format="path/knowledge" model=".app.logic.functionality.negate"/>
 
 </model>
