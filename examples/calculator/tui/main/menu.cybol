@@ -99,7 +99,7 @@
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
-        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
+        <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <property name="action" channel="inline" format="text/plain" model=".app.logic.user_interface.display_focus"/>
     </part>
@@ -203,7 +203,7 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
-        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.divide"/>
@@ -216,7 +216,7 @@
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
-        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
+        <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.whatever"/>
@@ -228,7 +228,7 @@
         <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
-        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
+        <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
@@ -244,7 +244,7 @@
         <property name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <property name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <property name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
-        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.sign"/>
+        <property name="right" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <property name="action" channel="inline" format="text/plain" model=".app.logic.functionality.modulo"/>
     </part>
     <part name="negate" channel="file" format="element/part" model="calculator/tui/main/menu/negate.cybol">
