@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<!--
+-->
+<gui>
+	<widgetgroup title="Layouts">
+		<widget name="Vertical Layout" file="" icon=""/>
+		<widget name="Horizontal Layout" file="" icon="" />
+		<widget name="Grid Layout" file="" icon="" />
+		<widget name="Form Layout" file="" icon="" />
+		<widget name="Absolute Layout" file="" icon=""/>
+	</widgetgroup>
+	<widgetgroup title="Buttons">
+		<widget name="RadioButton" file="" icon="../cyboldesigner/icons/radiobutton.ico" />
+		<widget name="CheckBox" file="" icon="../cyboldesigner/icons/checkbox.ico" />
+		<widget name="Push Button" file="" icon="../cyboldesigner/icons/button.ico" />
+		<widget name="Push Button" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Containers">
+		<widget name="GroupBox" file="" icon="" />
+		<widget name="ScrollArea" file="" icon="" />
+		<widget name="Frame" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Input Widgets">
+		<widget name="ComboBox" file="" icon="" />
+		<widget name="EditField" file="" icon="" />
+		<widget name="SpinBox" file="" icon="" />
+		<widget name="DateEdit" file="" icon="" />
+		<widget name="Horizontal Scroll Bar" file="" icon="../cyboldesigner/icons/scrollbar_horizontal.ico" />
+		<widget name="Vertical Scroll Bar" file="" icon="../cyboldesigner/icons/scrollbar_vertical.ico" />
+		<widget name="Horizontal Slider" file="" icon="" />
+		<widget name="Vertical Slider" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Display Widgets">
+		<widget name="Label" file="" icon="" />
+	</widgetgroup>
+	<widgetgroup title="Shapes">
+		<widget name="Ellipse" file="" icon="../cyboldesigner/icons/ellipse.ico" />
+		<widget name="Line" file="" icon="../cyboldesigner/icons/line.ico" />
+		<widget name="Rectangle" file="" icon="../cyboldesigner/icons/rectangle.ico" />
+		<widget name="Triangle" file="" icon="../cyboldesigner/icons/triangle.ico" />
+
+	</widgetgroup>
+
+</gui>

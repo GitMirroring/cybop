@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+
+<properties>
+	<!-- Typedefinition used in the following xml-->
+	<typedefs>
+		<type name="string" cybol="text/plain" />
+		<type name="bool" cybol="logicvalue/boolean" />
+		<type name="image" cybol="png,jpg" />
+		<type name="int" cybol="number/interger" />
+		<type name="float" cybol="number/double" />
+		<type name="radio" cybol="" /> <!-- radio shows a group of radiobuttons -->
+		<type name="enumShape" cybol="" />
+		<type name="enumBorderstyle" cybol="" />
+	</typedefs>
+	<propertygroup name="default">
+		<property name="shape" type="enumShape" />
+		<property name="size" type="string" default="99,27">
+			<singlepro name="width" type="int" default="99" />
+			<singlepro name="height" type="int" default="27" />
+		</property>
+		<property name="position" type="string" default="0,0">
+			<singlepro name="x" type="int" default="0" />
+			<singlepro name="y" type="int" default="0" />
+		</property>
+		<property name="colour" type="string" default="153,153,153" >
+			<singlepro name="red" type="int" default="153" />
+			<singlepro name="green" type="int" default="153" />
+			<singlepro name="blue" type="int" default="153" />
+		</property>
+		<property name="background-colour" type="string" default="153,153,153" >
+			<singlepro name="red" type="int" default="153" />
+			<singlepro name="green" type="int" default="153" />
+			<singlepro name="blue" type="int" default="153" />
+		</property>
+		<property name="enabled" type="bool" default="true" />
+		<property name="visible" type="bool" default="true" />
+		<property name="text" type="string" default="" />
+		<property name="tooltip" type="string" default="" />
+		<property name="tooltip-duration" type="int" default="4" /> <!-- Angabe in ms -->
+		<property name="cursor" type="image" default="" />
+		<property name="opacity" type="int" default="100" /><!-- Angabe in Propzent -->
+		<property name="margin" type="string" default="0,0,0,0">
+			<singlepro name="top" type="int" default="0" />
+			<singlepro name="bottom" type="int" default="0" />
+			<singlepro name="left" type="int" default="0" />
+			<singlepro name="right" type="int" default="0" />
+		</property>
+		<property name="padding" type="string" default="0,0,0,0">
+			<singlepro name="top" type="int" default="0" />
+			<singlepro name="bottom" type="int" default="0" />
+			<singlepro name="left" type="int" default="0" />
+			<singlepro name="right" type="int" default="0" />
+		</property>
+		<property name="font" type="string" default="Arial,12,none">
+			<singlepro name="family" type="string" default="Arial" />
+			<singlepro name="size" type="int" default="12" />
+			<singlepro name="style" type="string" default="none" />
+		</property>
+		<property name="horizontal-alignment" type="string" default="center">
+			<singlepro name="left" type="radio" default="false" />
+			<singlepro name="center" type="radio" default="true" />
+			<singlepro name="right" type="radio" default="false" />
+		</property>
+		<property name="vertical-alignment" type="string" default="center">
+			<singlepro name="top" type="radio" default="false" />
+			<singlepro name="center" type="radio" default="true" />
+			<singlepro name="bottom" type="radio" default="true" />
+		</property>
+		<property name="orientation" type="string" default="horizontal">
+			<singlepro name="horizontal" type="radio" default="true" />
+			<singlepro name="vertical" type="radio" default="true" />
+		</property>
+		<property name="border" type="string" default="1 solid rgb(0,0,0)" >
+			<singlepro name="weight" type="int" default="1" />
+			<singlepro name="style" type="enumBorderstyle" default="solid" />
+			<property name="colour" type="string" default="0,0,0">
+				<singlepro name="red" type="int" default="0" />
+				<singlepro name="green" type="int" default="0" />
+				<singlepro name="blue" type="int" default="0" />
+			</property>
+			<property name="border-top" type="string" default="1 solid rgb(0,0,0)">
+				<singlepro name="weight" type="int" default="1" />
+				<singlepro name="style" type="enumBorderstyle" default="solid" />
+				<property name="colour" type="string" default="0,0,0">
+					<singlepro name="red" type="int" default="0" />
+					<singlepro name="green" type="int" default="0" />
+					<singlepro name="blue" type="int" default="0" />
+				</property>
+			</property>
+			<property name="border-bottom" type="string" default="1 solid rgb(0,0,0)">
+				<singlepro name="weight" type="int" default="1" />
+				<singlepro name="style" type="enumBorderstyle" default="solid" />
+				<property name="colour" type="string" default="0,0,0">
+					<singlepro name="red" type="int" default="0" />
+					<singlepro name="green" type="int" default="0" />
+					<singlepro name="blue" type="int" default="0" />
+				</property>
+			</property>
+			<property name="border-left" type="string" default="1 solid rgb(0,0,0)">
+				<singlepro name="weight" type="int" default="1" />
+				<singlepro name="style" type="enumBorderstyle" default="solid" />
+				<property name="colour" type="string" default="0,0,0">
+					<singlepro name="red" type="int" default="0" />
+					<singlepro name="green" type="int" default="0" />
+					<singlepro name="blue" type="int" default="0" />
+				</property>
+			</property>
+			<property name="border-right" type="string" default="1 solid rgb(0,0,0)">
+				<singlepro name="weight" type="int" default="1" />
+				<singlepro name="style" type="enumBorderstyle" default="solid" />
+				<property name="colour" type="string" default="0,0,0">
+					<singlepro name="red" type="int" default="0" />
+					<singlepro name="green" type="int" default="0" />
+					<singlepro name="blue" type="int" default="0" />
+				</property>
+			</property>
+		</property>
+	</propertygroup>
+
+	<propertygroup name="Label">
+		<!-- no specific property-->
+	</propertygroup>
+
+	<propertygroup name="Button">
+		<property name="icon" type="image" default="" />
+		<property name="default" type="bool" default="false" />
+	</propertygroup>
+
+
+	<propertygroup name="Edit">
+		<property name="numbersOnly" type="bool" default="false" />
+		<property name="readOnly" type="bool" default="false" />
+		<property name="passwordChar" type="char" default="" />
+	</propertygroup>
+
+	<propertygroup name="Scrollbar">
+		<property name="minimum" type="int" default="0" />
+		<property name="maximum" type="int" default="99" />
+		<property name="singleStep" type="int" default="1" /> <!-- user pressing an arrow key -->
+		<property name="pageStep" type="int" default="10" /> <!-- user pressing page up or page down -->
+		<property name="sliderPosition" type="int" default="0" />
+		<!-- orientation names here the direction of the scrollbar -->
+	</propertygroup>
+
+	<propertygroup name="TableView">
+		<property name="colCount" type="int" default="5" />
+		<property name="rowCount" type="int" default="5" />
+		<property name="rowHeight" type="int" default="10" />
+		<property name="colWidth" type="int" default="30" />
+		<property name="editable" type="bool" default="true" />
+		<property name="fixedRow" type="string" default="" /> 
+		<property name="fixedCol" type="string" default="" />
+		<property name="sortingEnabled" type="bool" default="false" />
+		<property name="wordWrap" type="bool" default="true" />
+	</propertygroup>
+
+	<propertygroup name="ListView">
+		<property name="editable" type="bool" default="true" />
+		<property name="iconsAllowed" type="bool" default="true" />
+		<property name="wordWrap" type="bool" default="true" />
+		<property name="checkable" type="bool" default="true" />
+	</propertygroup>
+
+	<propertygroup name="TreeView">
+		<property name="editable" type="bool" default="true" />
+		<property name="itemsExpandable" type="bool" default="true" />
+		<property name="sortingEnabled" type="bool" default="true" />
+		<property name="wordWrap" type="bool" default="false" />
+		<property name="expandsOnDoubleClick" type="bool" default="true" />
+		<property name="useImages" type="bool" default="true" />
+	</propertygroup>
+
+	<propertygroup name="TabWidget">
+		<property name="tabPosition" type="string" default="North">
+			<singlepro name="North" type="radio" default="true" />
+			<singlepro name="South" type="radio" default="false" />
+			<singlepro name="West" type="radio" default="false" />
+			<singlepro name="East" type="radio" default="false" />
+		</property>
+		<property name="tabs" type="int" default="2" />
+		<property name="currentIndex" type="int" default="0" />
+		<property name="movable" type="bool" default="false" />
+		<property name="currentTabText" type="string" default="" />
+		<property name="currentTabName" type="string" default="" />
+		<property name="currentTabIcon" type="image" default="" />
+		<property name="currentTabToolTip" type="string" default="" />
+		<property name="currentTabToolTipDuration" type="int" default="4" /> <!-- in ms -->
+		<property name="tabsClosable" type="bool" default="false" />
+	</propertygroup>	
+
+	<propertygroup name="Panel">
+		<property name="autoSize" type="bool" default="false" />		
+	</propertygroup>
+
+	<propertygroup name="ComboBox">
+		<property name="editable" type="bool" default="false" />
+		<property name="currentText" type="string" default="" />
+		<property name="currentIndex" type="int" default="-1" /> <!-- no Text is shown -->
+		<property name="maxVisibleItems" type="int" default="10" />
+		<property name="items" type="string" default="" />
+		<property name="autoComplete" type="bool" default="true" />
+		<property name="selectionStart" type="int" default="0" />
+		<property name="sorted" type="string" default="" />
+	</propertygroup>
+
+	<propertygroup name="CheckBox">
+		<property name="tristate" type="bool" default="false" />
+		<property name="icon" type="image" default="" />
+		<property name="checked" type="bool" default="false" />
+		<property name="wordWrap" type="bool" default="false" />
+	</propertygroup>
+
+	<propertygroup name="RadioButton">
+		<property name="icon" type="image" default="" />
+		<property name="checked" type="bool" default="false" />
+		<property name="wordWrap" type="bool" default="false" />		
+	</propertygroup>
+
+	<propertygroup name="SpinBox">
+		<property name="minimum" type="float" default="0.00" />
+		<property name="maximum" type="float" default="99.00" />
+		<property name="decimals" type="int" default="0" />
+		<property name="singleStep" type="float" default="1.00" />
+		<property name="editable" type="bool" default="true" />
+	</propertygroup>
+
+	<propertygroup name="ProgressBar">
+		<property name="minimum" type="int" default="0" />
+		<property name="maximum" type="int" default="100" />
+		<property name="value" type="int" default="0" />
+		<property name="textVisible" type="bool" default="true" />
+
+		<!-- orientation: the orientation describes if the progress bar is horizontal or vertical -->
+	</propertygroup>
+
+	<propertygroup name="Line">
+		<!-- orientation: the orientation describes if the line is horizontal or vertical -->
+	</propertygroup>
+
+	<propertygroup name="Rectangle">
+		<property name="image" type="image" default="" />
+		<property name="roundedEdges" type="string" default="0,0">
+			<singlepro name="radiusX" type="int" default="0" />
+			<singlepro name="radiusY" type="int" default="0" />
+		</property>
+	</propertygroup>
+
+	<propertygroup name="Ellipse">
+		<property name="image" type="image" default="" />
+	</propertygroup>
+
+	<propertygroup name="Triangle">
+		<property name="image" type="image" default="" />
+	</propertygroup>
+
+	<propertygroup name="Slider">
+		<property name="minimum" type="int" default="0" />
+		<property name="maximum" type="int" default="99" />
+		<property name="singleStep" type="int" default="1" /> <!-- user pressing an arrow key -->
+		<property name="pageStep" type="int" default="10" /> <!-- user pressing page up or page down -->
+		<property name="sliderPosition" type="int" default="0" />
+
+		<property name="useScala" type="bool" default="false" />
+		<property name="scalaFrequency" type="int" default="10" />
+		
+		<!-- orientation: the orientation describes if the slider is horizontal or vertical -->
+	</propertygroup>
+
+	<propertygroup name="Calendar">
+		<property name="selectedDate" type="date" default="today()" />
+		<property name="minimumDate" type="date" default="01.01.1800" />
+		<property name="maximumDate" type="date" default="01.01.3000" />
+		<property name="firstDayOfWeek" type="day" default="Monday" />
+		<property name="horizontalHeaderFormat" type="string" default="ShortDayNames" />
+	</propertygroup>
+
+	<propertygroup name="GroupBox">
+		<!-- titel is setting by text -->
+	</propertygroup>
+
+	<propertygroup name="VerticalLayout">
+		<!-- no special properties -->
+	</propertygroup>
+
+	<propertygroup name="HorizontalLayout">
+		<!-- no special properties -->
+	</propertygroup>
+
+	<propertygroup name="GridLayout">
+		<!-- no special properties -->
+	</propertygroup>
+</properties>
