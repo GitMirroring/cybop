@@ -48,5 +48,11 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
     </part>
+	<part name="negate" channel="inline" format="text/plain" model="<n> - negate (+/-)">
+        <property name="position" channel="inline" format="number/integer" model="2,19"/>
+        <property name="size" channel="inline" format="number/integer" model="20,1"/>
+        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+    </part>
 
 </model>
