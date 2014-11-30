@@ -26,7 +26,7 @@
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </part>
 
-    <part name="execute_stored_operation" channel="inline" format="flow/sequence" model="">
+   <!--<part name="execute_stored_operation" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
         <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
     </part>
@@ -36,7 +36,12 @@
         <property name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.negate"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-
+	-->
+	<part name="negate" channel="inline" format="calculate/negate" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <property name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
     <part name="update_display" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display"/>
     </part>
