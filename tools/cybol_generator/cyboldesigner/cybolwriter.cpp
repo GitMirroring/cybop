@@ -93,13 +93,66 @@ CybolWriter::writePart(
 
     //generelle properties
 
-    QMap<QString,QString>::iterator iter;
+    QMap<PROPERS,QString>::iterator iter;
 
     for( iter = element.properties.begin();
          iter != element.properties.end();
          ++iter ){
            xmlWriter.writeStartElement( "property" );
-           xmlWriter.writeAttribute( iter.key(), iter.value() );
+
+           QString propname;
+
+           switch( iter.key() ) {
+           case SHAPE:
+               propname = STRSHAPE;
+               break;
+
+           case SIZE:
+               propname = STRSIZE;
+               break;
+
+           case POSITION:
+               propname = STRPOSITION;
+               break;
+
+           case COLOR:
+               propname = STRCOLOR;
+               break;
+
+           case BACKGROUNDCOLOR:
+               propname = STRBACKGROUND;
+               break;
+
+           case ENABLED:
+               propname = STRENABLED;
+               break;
+
+           case TEXT:
+               propname = STRTEXT;
+               break;
+
+           case ICON:
+               propname = STRICON;
+               break;
+
+           case TOOLTIP:
+               propname = STRTOOLTIP;
+               break;
+
+           case TOOLTIPDURATION:
+               propname = STRTOOLTIPDURATION;
+               break;
+
+           case CURSOR:
+               propname = STRCURSOR;
+               break;
+
+           case OPACITY:
+               propname = STROPACITY;
+               break;
+           }
+
+           xmlWriter.writeAttribute( propname, iter.value() );
            xmlWriter.writeEndElement();
     }
 

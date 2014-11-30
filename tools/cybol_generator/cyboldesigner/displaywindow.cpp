@@ -74,7 +74,7 @@ DisplayWindow::showWidget( QString & filename, QMultiMap<QString, properties> wi
 
         if( prop.name == "shape" ) {
 
-            if( m_window == 0 ) {
+            if( m_mainWindow->m_window == 0 ) {
                 QMessageBox::critical( m_mainWindow,
                                        "No window created",
                                        "There was not created a window, so there is no widget to fill.",
@@ -130,6 +130,7 @@ DisplayWindow::createWindow(
         QMultiMap<QString, properties> widgets,
         QString &key )
 {
+    //delete the old window if exists
     if( m_mainWindow->m_window != 0 ) {
         delete m_mainWindow->m_window;
         m_mainWindow->m_window = 0;
@@ -146,6 +147,8 @@ DisplayWindow::createWindow(
     QMultiMap<QString, properties>::iterator iterWidgets;
     bool keyFound = false;
 
+    PROPERS pro;
+
     for( iterWidgets = widgets.begin(); iterWidgets != widgets.end(); ++iterWidgets ) {
         properties prop = iterWidgets.value();
 
@@ -159,8 +162,9 @@ DisplayWindow::createWindow(
             element.name = prop.name;
         }
 
-        if( ( prop.name == "title" ) && prop.property ) {
+        if( ( prop.name == "text" ) && prop.property ) {
             m_mainWindow->m_window->setWindowTitle( prop.model );
+            pro = TEXT;
         }
 
         if( ( prop.name == "size" ) && prop.property ) {
@@ -168,6 +172,7 @@ DisplayWindow::createWindow(
             QString height = prop.model.right( prop.model.indexOf( "," ) );
             m_mainWindow->m_window->setMinimumSize( width.toInt(), height.toInt() );
             m_mainWindow->m_window->setMaximumSize( width.toInt(), height.toInt() );
+            pro = SIZE;
         }
 
         if( ( prop.name == "position") && prop.property ) {
@@ -175,6 +180,7 @@ DisplayWindow::createWindow(
             QString yPos = prop.model.right( prop.model.indexOf( "," ) );
 
             m_mainWindow->m_window->setGeometry( xPos.toInt(), yPos.toInt(), m_mainWindow->m_window->width(), m_mainWindow->m_window->height() );
+            pro = POSITION;
         }
 
         if( ( prop.name == "background-color" ) && prop.property ) {
@@ -184,6 +190,8 @@ DisplayWindow::createWindow(
             palette.setColor(QPalette::Window, QColor( bgcolor.red, bgcolor.green, bgcolor.blue ) );
 
             m_mainWindow->m_window->setPalette( palette );
+
+            pro = BACKGROUNDCOLOR;
         }
 
         if( (prop.name == "foreground-color" ) && prop.property ) {
@@ -193,14 +201,20 @@ DisplayWindow::createWindow(
             palette.setColor(QPalette::WindowText, QColor( fgcolor.red, fgcolor.green, fgcolor.blue ) );
 
             m_mainWindow->m_window->setPalette( palette );
+
+            pro = COLOR;
         }
 
         if( ( iterWidgets.key() != key ) && keyFound ) {
             break;
         }        
 
-        element.properties.insert( prop.name, prop.model );
+        element.properties.insert( pro, prop.model );
     }
+
+    element.self = m_mainWindow->m_window;
+
+    m_mainWindow->m_window->setElement( element );
 
     m_mainWindow->m_window->show();
 }
@@ -234,6 +248,8 @@ DisplayWindow::createButton(
     bool keyFound = false;
     QString xPos, yPos, width, height;
 
+    PROPERS pro;
+
     for( iterWidgets = widgets.begin(); iterWidgets != widgets.end(); ++iterWidgets ) {
         properties prop = iterWidgets.value();
 
@@ -248,9 +264,13 @@ DisplayWindow::createButton(
             element.name = prop.name;
         }
 
-        if( ( prop.name == "text" ) && prop.property ) {
+        if( ( prop.name.compare( "shape", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = SHAPE;
+        }
+
+        if( ( prop.name.compare( "text", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
             button->setText( prop.model );
-            element.properties.insert( prop.name, prop.model );
+            pro = TEXT;
         }
 
         if( ( prop.name == "position") && prop.property ) {
@@ -261,27 +281,27 @@ DisplayWindow::createButton(
                 yPos.remove(",");
             }
 
-            element.properties.insert( prop.name, prop.model );
+            pro = POSITION;
         }
 
         if( ( prop.name == "size" ) && prop.property ) {
             width = prop.model.left( prop.model.indexOf( "," ) );
             height = prop.model.right( prop.model.indexOf( "," ) - 1 );
 
-            element.properties.insert( prop.name, prop.model );
+            pro = SIZE;
         }
 
-        if( ( prop.name == "background-color" ) && prop.property ) {
+        if( ( prop.name == "background-colour" ) && prop.property ) {
             RGB rgb = colorReader::getRGB( prop.model );
 
             QString stylesheet = "background-color:rgb(" + QString::number( rgb.red )
                     + "," + QString::number( rgb.green ) + "," + QString::number( rgb.blue ) + ")";
             button->setStyleSheet( stylesheet );
 
-            element.properties.insert( prop.name, prop.model );
+            pro = BACKGROUNDCOLOR;
         }
 
-        if( ( prop.name == "color" ) && prop.property ) {
+        if( ( prop.name == "colour" ) && prop.property ) {
             RGB rgb = colorReader::getRGB( prop.model );
 
             QPalette palette = button->palette();
@@ -289,12 +309,39 @@ DisplayWindow::createButton(
 
             button->setPalette( palette );
 
-            element.properties.insert( prop.name, prop.model );
+            pro = COLOR;
+        }
+
+        if( ( prop.name.compare( "enabled", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = ENABLED;
+        }
+
+        if( ( prop.name.compare( "icon", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = ICON;
+        }
+
+        if( ( prop.name.compare( "tooltip", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = TOOLTIP;
+        }
+
+        if( ( prop.name.compare( "tooltip-duration", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = TOOLTIPDURATION;
+        }
+
+        if( ( prop.name.compare( "cursor", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = CURSOR;
+        }
+
+        if( ( prop.name.compare( "opacity", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = OPACITY;
         }
 
         if( ( key != iterWidgets.key() ) && keyFound ) {
             break;
         }
+
+
+        element.properties.insert( pro, prop.model );
     }
 
     button->setGeometry( xPos.toInt(), yPos.toInt(), width.toInt(), height.toInt());

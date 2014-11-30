@@ -1,3 +1,6 @@
+
+#include "aktuelleselement.h"
+
 #include "window.h"
 
 // Window::Window *****************************************************************************************************
@@ -26,5 +29,13 @@ void
 Window::mousePressEvent(
         QMouseEvent *e )
 {
+    if( e->button() == Qt::LeftButton ) {
+        aktuellesElement * ele = aktuellesElement::getInstance();
+        ele->setElement( m_element );
+
+        m_offset = e->pos();
+
+        this->setCursor( Qt::SizeAllCursor );
+    }
 }
 

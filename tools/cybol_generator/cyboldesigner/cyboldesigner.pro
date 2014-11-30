@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = cyboldesigner
 TEMPLATE = app
 
+CONFIG += qt
 
 SOURCES += main.cpp\
         cybolmainwindow.cpp \

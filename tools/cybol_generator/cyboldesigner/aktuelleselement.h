@@ -1,14 +1,19 @@
 #ifndef AKTUELLESELEMENT_H
 #define AKTUELLESELEMENT_H
 
+#include <QStandardItem>
+#include <QStandardItemModel>
+#include <QObject>
+
 #include "focuspoints.h"
 #include "cybolmainwindow.h"
 #include "variables.h"
 
 class CybolMainWindow;
 
-class aktuellesElement
+class aktuellesElement : public QObject
 {
+    Q_OBJECT
 public:
     static aktuellesElement * getInstance( void );
 
@@ -32,12 +37,17 @@ private:
                 * m_halfWidthTop,
                 * m_halfWidthBottom;
 
+    QStandardItemModel * m_model;
+
     CybolMainWindow * m_mainWindow;
 
     static aktuellesElement * m_self;
 
     Elements m_element;
-    aktuellesElement();
+    aktuellesElement(QObject *parent = 0);
+
+private slots:
+    void changedItem( QStandardItem * item );
 };
 
 #endif // AKTUELLESELEMENT_H

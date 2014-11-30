@@ -4,8 +4,12 @@
 #include <QStandardItemModel>
 #include <QTableView>
 
-#include "aktuelleselement.h"
+#include <QMessageBox>
 
+#include "aktuelleselement.h"
+#include "propertyconverter.h"
+
+#define PROPERTIECOL 0
 #define SELECTIONPOINTS 6
 
 aktuellesElement* aktuellesElement::m_self = 0;
@@ -13,7 +17,8 @@ aktuellesElement* aktuellesElement::m_self = 0;
 // aktuellesElement::aktuellesElement *********************************************************************************
 //
 //*********************************************************************************************************************
-aktuellesElement::aktuellesElement()
+aktuellesElement::aktuellesElement( QObject * parent ):
+    QObject( parent )
 {
     m_element.self = 0;
 
@@ -61,8 +66,6 @@ void
 aktuellesElement::setElement(Elements &element )
 {
     onElementChangedEvent( element );
-
-
 
     m_imgAtX->setParent( m_mainWindow->m_window );
     m_imgAtXY->setParent( m_mainWindow->m_window );
@@ -164,12 +167,179 @@ aktuellesElement::showObjectInspector(
         void )
 {
     QTableView * view = new QTableView();
-    QStandardItemModel * model = new QStandardItemModel();
+    m_model = new QStandardItemModel();
 
-    model->setHorizontalHeaderItem( 0, new QStandardItem( "Eigenschaft" ) );
-    model->setHorizontalHeaderItem( 1, new QStandardItem( "Wert" ) );
+    m_model->connect( m_model, &QStandardItemModel::itemChanged, this, &aktuellesElement::changedItem );
 
-    view->setModel( model );
+    m_model->setHorizontalHeaderItem( 0, new QStandardItem( "Eigenschaft" ) );
+    m_model->setHorizontalHeaderItem( 1, new QStandardItem( "Wert" ) );
+
+    QMap< PROPERS, QString >::Iterator iterElements;
+
+    for( iterElements = m_element.properties.begin();
+         iterElements != m_element.properties.end();
+         ++iterElements )
+    {
+        QList< QStandardItem *> list;
+
+
+        QStandardItem * prop = new QStandardItem();
+        QStandardItem * value = new QStandardItem();
+
+        switch( iterElements.key() ) {
+        case SHAPE:
+            prop->setText( STRSHAPE );
+            value->setEditable( false );
+            break;
+
+        case SIZE:
+            prop->setText( STRSIZE );
+            break;
+
+        case POSITION:
+            prop->setText( STRPOSITION );
+            break;
+
+        case COLOR:
+            prop->setText( STRCOLOR );
+            break;
+
+        case BACKGROUNDCOLOR:
+            prop->setText( STRBACKGROUND );
+            break;
+
+        case ENABLED:
+            prop->setText( STRENABLED );
+            break;
+
+        case TEXT:
+            prop->setText( STRTEXT );
+            break;
+
+        case ICON:
+            prop->setText( STRICON );
+            break;
+
+        case TOOLTIP:
+            prop->setText( STRTOOLTIP );
+            break;
+
+        case TOOLTIPDURATION:
+            prop->setText( STRTOOLTIPDURATION );
+            break;
+
+        case CURSOR:
+            prop->setText( STRCURSOR );
+            break;
+
+        case OPACITY:
+            prop->setText( STROPACITY );
+            break;
+        }
+
+        prop->setEditable( false );
+
+        value->setText( iterElements.value() );
+
+        list.append( prop );
+        list.append( value );
+
+        m_model->appendRow( list );
+    }
+
+    view->setModel( m_model );
 
     m_mainWindow->m_ui->objectinspector->setWidget( view );
+}
+
+void
+aktuellesElement::changedItem(
+        QStandardItem * item )
+{
+    int row = item->row();
+
+    if( row != PROPERTIECOL ) {
+
+        QStandardItem * prop = m_model->item( row, PROPERTIECOL );
+
+        QMap< PROPERS, QString>::const_iterator iterElements;
+
+        PROPERS toRemove;
+
+        if( prop->text().compare( STRSIZE, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = SIZE;
+
+            QMessageBox::information( 0, "", item->text(), QMessageBox::Ok );
+            if( !item->text().contains( QRegExp( "^\\d+,\\d+$" ) ) ) {
+                item->setText( m_element.properties.value( toRemove ) );
+            }
+
+            QString strsize = item->text();
+
+            Size size = PropertyConverter::getSize( strsize );
+
+            m_element.self->resize( size.width, size.height );
+        } else if( prop->text().compare( STRPOSITION, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = POSITION;
+
+            if( !item->text().contains( QRegExp( "^\\d+,\\d+$" ) ) ) {
+                item->setText( m_element.properties.value( toRemove ) );
+            }
+
+            QString pos = item->text();
+
+            Position ppos = PropertyConverter::getPosition( pos );
+
+            m_element.properties.remove( toRemove );
+            m_element.properties.insert( toRemove, pos );
+
+            m_element.self->move( ppos.x, ppos.y );
+
+        } else if( prop->text().compare( STRCOLOR, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = COLOR;
+        } else if( prop->text().compare( STRBACKGROUND, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = BACKGROUNDCOLOR;
+        } else if( prop->text().compare( STRENABLED, Qt::CaseInsensitive )  == 0 ) {
+            toRemove = ENABLED;
+
+            if( !item->text().compare( "true", Qt::CaseInsensitive )
+                    && !item->text().compare( "false", Qt::CaseInsensitive ) ) {
+                item->setText( m_element.properties.value( toRemove ) );
+            }
+        } else if( prop->text().compare( STRTEXT, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = TEXT;
+
+            // !!TODO!!
+        } else if( prop->text().compare( STRICON, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = ICON;
+
+            // !!TODO!!
+        } else if( prop->text().compare( STRTOOLTIP, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = TOOLTIP;
+        } else if( prop->text().compare( STRTOOLTIPDURATION, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = TOOLTIPDURATION;
+        } else if( prop->text().compare( STRCURSOR, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = CURSOR;
+        } else if( prop->text().compare( STROPACITY, Qt::CaseInsensitive ) == 0 ) {
+            toRemove = OPACITY;
+        } else {
+            //No Propertie
+
+            return;
+        }
+
+        //Getting the positoin for insert
+        for( iterElements = m_element.properties.cbegin();
+             iterElements != m_element.properties.cend();
+             ++iterElements )
+        {
+            if( iterElements.key() == toRemove) {
+
+                break;
+            }
+        }
+
+        m_element.properties.remove( toRemove );
+        m_element.properties.insert( toRemove, item->text() );
+    }
 }

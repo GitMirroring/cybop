@@ -6,9 +6,9 @@
         <property name="position" channel="inline" format="number/integer" model="20,50"/>
         <property name="size" channel="inline" format="number/integer" model="200,50"/>
         <!-- black -->
-        <property name="foreground-color" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <property name="colour" channel="inline" format="colour/rgb" model="0,0,0"/>
         <!-- yellow -->
-        <property name="background-color" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <property name="background-colour" channel="inline" format="colour/rgb" model="255,255,0"/>
         <property name="shape" channel="inline" format="text/plain" model="button"/>
         <property name="font" channel="inline" format="text/plain" model="7x13"/>
         <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
@@ -25,9 +25,9 @@
         <property name="position" channel="inline" format="number/integer" model="230,50"/>
         <property name="size" channel="inline" format="number/integer" model="200,50"/>
         <!-- black -->
-        <property name="foreground-color" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <property name="colour" channel="inline" format="colour/rgb" model="0,0,0"/>
         <!-- yellow -->
-        <property name="background-color" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <property name="background-colour" channel="inline" format="colour/rgb" model="255,255,0"/>
         <property name="shape" channel="inline" format="text/plain" model="button"/>
         <property name="font" channel="inline" format="text/plain" model="7x13"/>
         <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
@@ -44,9 +44,9 @@
         <property name="position" channel="inline" format="number/integer" model="230,100"/>
         <property name="size" channel="inline" format="number/integer" model="200,50"/>
         <!-- black -->
-        <property name="foreground-color" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <property name="colour" channel="inline" format="colour/rgb" model="0,0,0"/>
         <!-- yellow -->
-        <property name="background-color" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <property name="background-colour" channel="inline" format="colour/rgb" model="255,255,0"/>
         <property name="shape" channel="inline" format="text/plain" model="button"/>
         <property name="font" channel="inline" format="text/plain" model="7x13"/>
         <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>

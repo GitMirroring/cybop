@@ -46,7 +46,10 @@ Button::mouseMoveEvent(
 
     if( e->buttons() & Qt::LeftButton ) {
         this->move( mapToParent( e->pos() - m_offset ) );
-        m_element.properties.find( "position" ).value() = this->x() + "," + this->y();
+        m_element.properties.find( POSITION ).value() = QString(
+                    QString::number( this->x() )
+                    + ","
+                    + QString::number( this->y() ) );
 
         ele->setElement( m_element );
     }
@@ -69,9 +72,20 @@ void
 Button::resizeEvent(
         QResizeEvent *e ) {
 
-    m_element.properties.find( "size" ).value() = QString::number( this->width() ) + "," + QString::number( this->height() );
-    m_element.properties.find( "position" ).value() = QString::number( this->x() ) + "," + QString::number( this->y() );
+    m_element.properties.find( SIZE ).value() = QString::number( this->width() ) + "," + QString::number( this->height() );
+    m_element.properties.find( POSITION ).value() = QString::number( this->x() ) + "," + QString::number( this->y() );
 
+    aktuellesElement * ele = aktuellesElement::getInstance();
+
+    ele->setElement( m_element );
+}
+
+// Button::moveEvent **************************************************************************************************
+//
+//*********************************************************************************************************************
+void
+Button::moveEvent(
+        QMoveEvent *e ) {
     aktuellesElement * ele = aktuellesElement::getInstance();
 
     ele->setElement( m_element );

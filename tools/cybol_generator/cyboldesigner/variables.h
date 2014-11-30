@@ -1,6 +1,19 @@
 #ifndef VARIABLES_H
 #define VARIABLES_H
 
+#define STRSHAPE "Shape"
+#define STRSIZE "Size"
+#define STRPOSITION "Position"
+#define STRCOLOR "Color"
+#define STRBACKGROUND "Background-Colour"
+#define STRENABLED "Enabled"
+#define STRTEXT "Text"
+#define STRICON "Icon"
+#define STRTOOLTIP "ToolTip"
+#define STRTOOLTIPDURATION "ToolTip Duration"
+#define STRCURSOR "Cursor"
+#define STROPACITY "Opacity"
+
 #define MAXIMUM 999
 
 #include <QWidget>
@@ -54,13 +67,28 @@ struct Tooltip{
     int duration;
 };
 
+enum PROPERS {
+    SHAPE,
+    SIZE,
+    POSITION,
+    COLOR,
+    BACKGROUNDCOLOR,
+    ENABLED,
+    TEXT,
+    ICON,
+    TOOLTIP,
+    TOOLTIPDURATION,
+    CURSOR,
+    OPACITY
+};
+
 //! Struct foreach Element
 //! Each properties is setting here
 struct Elements{
     ELEMENT elementtype;
     QWidget * self;
     QString name;
-    QMap<QString, QString> properties;
+    QMap<PROPERS, QString> properties;
 };
 
 struct ToolboxWidget{

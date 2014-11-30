@@ -4,7 +4,7 @@
 #include <QString>
 #include <QXmlStreamReader>
 #include <QMultiMap>
-#include <Qlist>
+#include <QList>
 #include "variables.h"
 
 /*!
