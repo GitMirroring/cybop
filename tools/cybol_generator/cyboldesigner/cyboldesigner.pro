@@ -28,7 +28,12 @@ SOURCES += main.cpp\
     radiobutton.cpp \
     image.cpp \
     window.cpp \
-    aktuelleselement.cpp
+    aktuelleselement.cpp \
+    focuspoints.cpp \
+    cybolwriter.cpp \
+    propertyconverter.cpp \
+    border.cpp \
+    widget.cpp
 
 HEADERS  += cybolmainwindow.h \
     cybolreader.h \
@@ -46,7 +51,12 @@ HEADERS  += cybolmainwindow.h \
     radiobutton.h \
     image.h \
     window.h \
-    aktuelleselement.h
+    aktuelleselement.h \
+    focuspoints.h \
+    cybolwriter.h \
+    propertyconverter.h \
+    border.h \
+    widget.h
 
 FORMS    += cybolmainwindow.ui
 

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QList>
 
+#include "aktuelleselement.h"
 #include "variables.h"
 #include "displaywindow.h"
 #include "createwidgetbox.h"
@@ -19,6 +20,7 @@ class CybolMainWindow;
 class DisplayWindow;
 class CreateWidgetBox;
 class CreateWindow;
+class aktuellesElement;
 
 class CybolMainWindow : public QMainWindow
 {
@@ -33,10 +35,13 @@ private:
     friend class DisplayWindow;
     friend class CreateWidgetBox;
     friend class CreateWindow;
+    friend class aktuellesElement;
     DisplayWindow * m_disp;
     CreateWidgetBox * m_cwb;
     CreateWindow * m_cw;
+    aktuellesElement * m_aktEle;
     QList<Elements> m_elementList;
+    QString m_filepath;
 
     Window * m_window;
 
@@ -50,6 +55,7 @@ private slots:
     void chgObjektinspektor( void );
     void chgObjektinspektorView( void );
     void createWindow( void );
+    void saveFile( void );
 };
 
 #endif // CYBOLMAINWINDOW_H

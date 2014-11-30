@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>CybolMainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/icons/logo.ico</normaloff>:/icons/icons/logo.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <property name="palette">
     <palette>

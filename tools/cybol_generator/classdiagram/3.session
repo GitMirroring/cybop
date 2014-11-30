@@ -1,0 +1,11 @@
+window_sizes 1600 838 375 1125 600 82
+diagrams
+  active  classdiagram_ref 128003 // Klassendiagramm
+    1219 680 100 4 0 0
+end
+show_stereotypes
+selected classdiagram_ref 128003 // Klassendiagramm
+open
+  classview_ref 128003 // Klassen
+end
+end

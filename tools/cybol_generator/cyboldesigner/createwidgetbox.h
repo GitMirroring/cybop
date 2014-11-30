@@ -45,7 +45,7 @@ private:
     //! \brief m_filename - filename of the describing file
     QString m_filename;
 
-    QMultiMap< QString, Widget> m_values;
+    QMultiMap< QString, ToolboxWidget> m_values;
 
     //! \brief m_mainWindow
     CybolMainWindow * m_mainWindow;

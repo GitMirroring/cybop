@@ -1,17 +1,18 @@
 <RCC>
-    <qresource prefix="/icons">
-        <file>icons/ausschneiden.ico</file>
-        <file>icons/drucken.ico</file>
-        <file>icons/ebene_nachhinten.ico</file>
-        <file>icons/ebene_vor.ico</file>
-        <file>icons/einfuegen.ico</file>
-        <file>icons/kopieren.ico</file>
-        <file>icons/loeschen.ico</file>
-        <file>icons/neu.ico</file>
-        <file>icons/oeffnen.ico</file>
-        <file>icons/rueckgaengig.ico</file>
-        <file>icons/speichern.ico</file>
-        <file>icons/speichern_unter.ico</file>
-        <file>icons/wiederholen.ico</file>
-    </qresource>
+  <qresource prefix="/icons">
+    <file>icons/logo.ico</file>
+    <file>icons/ausschneiden.ico</file>
+    <file>icons/drucken.ico</file>
+    <file>icons/ebene_nachhinten.ico</file>
+    <file>icons/ebene_vor.ico</file>
+    <file>icons/einfuegen.ico</file>
+    <file>icons/kopieren.ico</file>
+    <file>icons/loeschen.ico</file>
+    <file>icons/neu.ico</file>
+    <file>icons/oeffnen.ico</file>
+    <file>icons/rueckgaengig.ico</file>
+    <file>icons/speichern.ico</file>
+    <file>icons/speichern_unter.ico</file>
+    <file>icons/wiederholen.ico</file>
+  </qresource>
 </RCC>

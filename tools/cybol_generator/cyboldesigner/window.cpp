@@ -27,3 +27,4 @@ Window::mousePressEvent(
         QMouseEvent *e )
 {
 }
+

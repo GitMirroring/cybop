@@ -118,6 +118,8 @@ DisplayWindow::showWidget( QString & filename, QMultiMap<QString, properties> wi
             }
         }
     }
+
+    m_mainWindow->setCursor( Qt::ArrowCursor );
 }
 
 // DisplayWindow::createWindow ****************************************************************************************
@@ -136,6 +138,7 @@ DisplayWindow::createWindow(
 
     element.elementtype = WINDOW;
     m_mainWindow->m_window = new Window( m_mainWindow->m_ui->centralWidget );
+    m_mainWindow->m_window->setFeatures( QDockWidget::DockWidgetClosable );
     m_mainWindow->m_window->setAllowedAreas( Qt::NoDockWidgetArea );
 
     m_mainWindow->m_window->setAutoFillBackground( true );
@@ -152,9 +155,12 @@ DisplayWindow::createWindow(
             keyFound = true;
         }
 
+        if( !prop.property ) {
+            element.name = prop.name;
+        }
+
         if( ( prop.name == "title" ) && prop.property ) {
             m_mainWindow->m_window->setWindowTitle( prop.model );
-            element.text = prop.model;
         }
 
         if( ( prop.name == "size" ) && prop.property ) {
@@ -162,8 +168,6 @@ DisplayWindow::createWindow(
             QString height = prop.model.right( prop.model.indexOf( "," ) );
             m_mainWindow->m_window->setMinimumSize( width.toInt(), height.toInt() );
             m_mainWindow->m_window->setMaximumSize( width.toInt(), height.toInt() );
-            element.size.width = width.toInt();
-            element.size.height = height.toInt();
         }
 
         if( ( prop.name == "position") && prop.property ) {
@@ -171,8 +175,6 @@ DisplayWindow::createWindow(
             QString yPos = prop.model.right( prop.model.indexOf( "," ) );
 
             m_mainWindow->m_window->setGeometry( xPos.toInt(), yPos.toInt(), m_mainWindow->m_window->width(), m_mainWindow->m_window->height() );
-            element.pos.x = xPos.toInt();
-            element.pos.y = yPos.toInt();
         }
 
         if( ( prop.name == "background-color" ) && prop.property ) {
@@ -182,9 +184,6 @@ DisplayWindow::createWindow(
             palette.setColor(QPalette::Window, QColor( bgcolor.red, bgcolor.green, bgcolor.blue ) );
 
             m_mainWindow->m_window->setPalette( palette );
-            element.backgroundcolor.blue = bgcolor.blue;
-            element.backgroundcolor.red = bgcolor.red;
-            element.backgroundcolor.green = bgcolor.green;
         }
 
         if( (prop.name == "foreground-color" ) && prop.property ) {
@@ -194,20 +193,16 @@ DisplayWindow::createWindow(
             palette.setColor(QPalette::WindowText, QColor( fgcolor.red, fgcolor.green, fgcolor.blue ) );
 
             m_mainWindow->m_window->setPalette( palette );
-
-            element.foregroundcolor.blue = fgcolor.blue;
-            element.foregroundcolor.green = fgcolor.green;
-            element.foregroundcolor.red = fgcolor.red;
         }
 
         if( ( iterWidgets.key() != key ) && keyFound ) {
             break;
-        }
+        }        
+
+        element.properties.insert( prop.name, prop.model );
     }
 
-    QVBoxLayout vboxlayout;
-    vboxlayout.addWidget(m_mainWindow->m_window);
-    m_mainWindow->m_ui->centralWidget->setLayout(&vboxlayout);
+    m_mainWindow->m_window->show();
 }
 
 // DisplayWindow::deleteOldOne ****************************************************************************************
@@ -231,7 +226,9 @@ void
 DisplayWindow::createButton(
         QMultiMap<QString, properties> widgets,
         QString & key ) {
-    Button * button = new Button();
+    Button * button = new Button( m_mainWindow->m_window );
+    Elements element;
+    element.elementtype = BUTTON;
     QMultiMap<QString, properties>::iterator iterWidgets;
 
     bool keyFound = false;
@@ -246,18 +243,32 @@ DisplayWindow::createButton(
             keyFound = true;
         }
 
+        //müsste der parttag sein
+        if( !prop.property ) {
+            element.name = prop.name;
+        }
+
         if( ( prop.name == "text" ) && prop.property ) {
             button->setText( prop.model );
+            element.properties.insert( prop.name, prop.model );
         }
 
         if( ( prop.name == "position") && prop.property ) {
             xPos = prop.model.left( prop.model.indexOf("," ) );
             yPos = prop.model.right( prop.model.indexOf( "," ) );
+
+            if( yPos.contains(",") ) {
+                yPos.remove(",");
+            }
+
+            element.properties.insert( prop.name, prop.model );
         }
 
         if( ( prop.name == "size" ) && prop.property ) {
             width = prop.model.left( prop.model.indexOf( "," ) );
             height = prop.model.right( prop.model.indexOf( "," ) - 1 );
+
+            element.properties.insert( prop.name, prop.model );
         }
 
         if( ( prop.name == "background-color" ) && prop.property ) {
@@ -266,15 +277,19 @@ DisplayWindow::createButton(
             QString stylesheet = "background-color:rgb(" + QString::number( rgb.red )
                     + "," + QString::number( rgb.green ) + "," + QString::number( rgb.blue ) + ")";
             button->setStyleSheet( stylesheet );
+
+            element.properties.insert( prop.name, prop.model );
         }
 
-        if( ( prop.name == "foreground-color" ) && prop.property ) {
+        if( ( prop.name == "color" ) && prop.property ) {
             RGB rgb = colorReader::getRGB( prop.model );
 
             QPalette palette = button->palette();
             palette.setColor( button->foregroundRole(), QColor( rgb.red, rgb.green, rgb.blue ));
 
             button->setPalette( palette );
+
+            element.properties.insert( prop.name, prop.model );
         }
 
         if( ( key != iterWidgets.key() ) && keyFound ) {
@@ -282,11 +297,11 @@ DisplayWindow::createButton(
         }
     }
 
-    button->setGeometry( xPos.toInt(), yPos.toInt() + m_mainWindow->m_window->y(), width.toInt(), height.toInt());
+    button->setGeometry( xPos.toInt(), yPos.toInt(), width.toInt(), height.toInt());
 
-    m_buttonList.append( button );
-
-    m_mainWindow->m_window->layout()->addWidget( m_buttonList[ m_buttonList.size() - 1 ] );
+    element.self = button;
+    button->setElement( element );
+    button->show();
 }
 
 // DisplayWindow::createCheckBox ****************************************************************************************

@@ -38,7 +38,7 @@ private:
     QWidget * m_windowlayout;
 
     QVector<Button *> m_buttonList;
-    QVector<Rectangle *> m_rectangleList;
+    QVector<QLabel *> m_rectangleList;
     QVector<Image *> m_imageList;
 
 

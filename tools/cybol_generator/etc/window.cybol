@@ -22,13 +22,32 @@
     <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 255. -->
     <part name="rectangle_1" channel="inline" format="text/plain" model="">
         <property name="text" channel="inline" format="text/plain" model="Hello, World!"/>
-        <property name="position" channel="inline" format="number/integer" model="220,50"/>
+        <property name="position" channel="inline" format="number/integer" model="230,50"/>
         <property name="size" channel="inline" format="number/integer" model="200,50"/>
         <!-- black -->
         <property name="foreground-color" channel="inline" format="colour/rgb" model="0,0,0"/>
         <!-- yellow -->
         <property name="background-color" channel="inline" format="colour/rgb" model="255,255,0"/>
-        <property name="shape" channel="inline" format="text/plain" model="rectangle"/>
+        <property name="shape" channel="inline" format="text/plain" model="button"/>
+        <property name="font" channel="inline" format="text/plain" model="7x13"/>
+        <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
+        <!--
+            CAUTION! The following line may possibly be deleted, since the refresh is done by .app.gui already.
+            However, deletion was leading to nothing to be drawn anymore.
+            Check this out later!
+        -->
+        <property name="expose" channel="inline" format="text/plain" model=".app.logic.refresh_display"/>
+    </part>
+    <!-- CAUTION! Colour values for the x window system have to be given as 16 bit values ranging from 0 to 255. -->
+    <part name="rectangle_2" channel="inline" format="text/plain" model="">
+        <property name="text" channel="inline" format="text/plain" model="Hello, World!"/>
+        <property name="position" channel="inline" format="number/integer" model="230,100"/>
+        <property name="size" channel="inline" format="number/integer" model="200,50"/>
+        <!-- black -->
+        <property name="foreground-color" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <!-- yellow -->
+        <property name="background-color" channel="inline" format="colour/rgb" model="255,255,0"/>
+        <property name="shape" channel="inline" format="text/plain" model="button"/>
         <property name="font" channel="inline" format="text/plain" model="7x13"/>
         <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
         <!--

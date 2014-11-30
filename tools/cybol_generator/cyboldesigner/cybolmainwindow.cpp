@@ -5,13 +5,14 @@
 #include <QMultiMap>
 #include <QFileDialog>
 
-#include "cybolmainwindow.h"
-#include "ui_cybolmainwindow.h"
+#include "cybolwriter.h"
 #include "cybolreader.h"
 #include "variables.h"
 #include "displaywindow.h"
 #include "createwidgetbox.h"
 #include "inireader.h"
+#include "cybolmainwindow.h"
+#include "ui_cybolmainwindow.h"
 
 // CybolMainWindow::CybolMainWindow ***********************************************************************************
 //
@@ -22,8 +23,12 @@ CybolMainWindow::CybolMainWindow(QWidget *parent) :
     m_disp( new DisplayWindow( this ) ),
     m_cwb( new CreateWidgetBox( this ) ),
     m_cw( new CreateWindow( this ) ),
+    m_aktEle( aktuellesElement::getInstance() ),
     m_window( 0 )
 {
+    m_filepath.clear();
+
+    m_aktEle->setMainWindow( this );
     m_ui->setupUi(this);
     iniReader::getInstance();
 
@@ -52,6 +57,7 @@ CybolMainWindow::CybolMainWindow(QWidget *parent) :
     connect( m_ui->actionObjektinspektor, &QAction::triggered, this, &CybolMainWindow::chgObjektinspektor );
     connect( doa, &QAction::toggled, this, &CybolMainWindow::chgObjektinspektorView );
     connect( m_ui->action_Neu, &QAction::triggered, this, &CybolMainWindow::createWindow );
+    connect( m_ui->action_Speichern, &QAction::triggered, this, &CybolMainWindow::saveFile );
 }
 
 // CybolMainWindow::~CybolMainWindow **********************************************************************************
@@ -112,6 +118,7 @@ CybolMainWindow::openFile(
     } else {
         CybolReader::scanFile( filename, widgets );
 
+        this->setCursor( Qt::WaitCursor );
         m_disp->showWidget( filename, widgets );
     }
 }
@@ -181,3 +188,20 @@ CybolMainWindow::createWindow(
         void ) {
     m_cw->createNewWindow();
 }
+
+void
+CybolMainWindow::saveFile(
+        void )
+{
+    if( m_filepath.isEmpty() ) {
+        m_filepath = QFileDialog::getExistingDirectory( this, "Speichern..." );
+    }
+
+    this->setCursor( Qt::BusyCursor );
+
+    CybolWriter writer( m_filepath );
+    writer.saveToFile( m_window );
+
+    this->setCursor( Qt::ArrowCursor );
+}
+

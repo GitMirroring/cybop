@@ -3,6 +3,7 @@
 
 #include <QToolButton>
 
+//Widgetbox
 class Component : public QToolButton
 {
     Q_OBJECT

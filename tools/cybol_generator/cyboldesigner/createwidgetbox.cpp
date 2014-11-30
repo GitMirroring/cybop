@@ -101,7 +101,7 @@ CreateWidgetBox::displayGroupLabel(
     if( attributes.hasAttribute( "title" ) ) {
         key = attributes.value( "title" ).toString();
 
-        Widget widget;
+        ToolboxWidget widget;
         widget.name ="";
         widget.icon ="";
         widget.path ="";
@@ -119,7 +119,7 @@ CreateWidgetBox::displayWidget(
         QString & key ) {
 
     QXmlStreamAttributes attributes = xml.attributes();
-    Widget widget;
+    ToolboxWidget widget;
 
     if( attributes.hasAttribute( "name" ) ) {
         widget.name = attributes.value( "name" ).toString();
@@ -142,7 +142,7 @@ CreateWidgetBox::displayWidget(
 void
 CreateWidgetBox::displayAll(
         void ) {
-    QMultiMap<QString, Widget>::iterator iterVal;
+    QMultiMap<QString, ToolboxWidget>::iterator iterVal;
 
     QToolBox * toolbox = new QToolBox();
     QString aktTitle = "";
@@ -153,7 +153,7 @@ CreateWidgetBox::displayAll(
             continue;
         }
 
-        Widget aktWidget = iterVal.value();
+        ToolboxWidget aktWidget = iterVal.value();
 
         if( aktWidget.name == "" ) {
             aktTitle = iterVal.key();

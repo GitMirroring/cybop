@@ -4,6 +4,7 @@
 #define MAXIMUM 999
 
 #include <QWidget>
+#include <QMap>
 
 //!Struct for properties of a tag
 struct properties{
@@ -58,22 +59,25 @@ struct Tooltip{
 struct Elements{
     ELEMENT elementtype;
     QWidget * self;
-    Size size;
-    Position pos;
-    Tooltip tool;
-    RGB foregroundcolor;
-    RGB backgroundcolor;
-    QString cursor;
-    QString icon;
-    bool enabled;
-    QString text;
-    int opacity;
+    QString name;
+    QMap<QString, QString> properties;
 };
 
-struct Widget{
+struct ToolboxWidget{
     QString name;
     QString path;
     QString icon;
+};
+
+enum FOCUSPOINTPOS {
+    TOPLEFT,
+    TOP,
+    TOPRIGHT,
+    RIGHT,
+    BOTTOMRIGHT,
+    BOTTOM,
+    BOTTOMLEFT,
+    LEFT
 };
 
 #endif // VARIABLES_H

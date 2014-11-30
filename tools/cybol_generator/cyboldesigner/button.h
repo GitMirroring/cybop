@@ -3,19 +3,30 @@
 
 #include <QMouseEvent>
 #include <QPushButton>
+#include <QPoint>
+#include <QPalette>
+#include <QMargins>
+#include <QSize>
 
-class Button : public QPushButton
+#include "widget.h"
+
+#include "variables.h"
+
+class Button : public Widget, public QPushButton
 {
-    Q_OBJECT
 public:
-    explicit Button( QPushButton * parent = 0 );
-    explicit Button( QString & text, QPushButton *parent = 0);
+    explicit Button( QWidget * parent = 0 );
+    explicit Button( QString & text, QWidget *parent = 0 );
+
+private:
+    QPoint m_offset;
 
 protected:
     virtual void mousePressEvent( QMouseEvent * e );
-    virtual void dragEnterEvent( QDragEnterEvent * e );
-    virtual void dragLeaveEvent( QDragLeaveEvent * e );
-    virtual void dragMoveEvent( QDragMoveEvent * e );
+    virtual void mouseMoveEvent( QMouseEvent * e );
+    virtual void mouseReleaseEvent( QMouseEvent * e );
+    virtual void resizeEvent( QResizeEvent * e );
+
 
 signals:
 

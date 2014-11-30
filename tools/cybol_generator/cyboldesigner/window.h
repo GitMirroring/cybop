@@ -4,12 +4,18 @@
 #include <QMouseEvent>
 #include <QDockWidget>
 
-class Window : public QDockWidget
+#include "widget.h"
+#include "variables.h"
+
+class Window : public QDockWidget, public Widget
 {
-    Q_OBJECT
+
+
 public:
     explicit Window(QWidget *parent = 0);
     explicit Window( QString & title, QWidget * parent =  0 );
+
+private:
 
 protected:
     virtual void mousePressEvent( QMouseEvent * e );
