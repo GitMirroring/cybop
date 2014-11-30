@@ -39,7 +39,7 @@
 /**
  * Converts family string into socket- and address integer.
  *
- * @param p0 the socket family
+ * @param p0 the protocol family
  * @param p1 the address family
  * @param p2 the family data
  * @param p3 the family count

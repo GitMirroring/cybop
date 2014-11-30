@@ -28,9 +28,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
-#include "../../../../executor/maintainer/starter/bsd_socket/family_bsd_socket_starter.c"
-#include "../../../../executor/maintainer/starter/bsd_socket/style_bsd_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/mode_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -47,57 +45,18 @@
  * @param p8 the host address count
  * @param p9 the port
  * @param p10 the internal memory base
- * @param p11 the connexions
+ * @param p11 the connexions (number of possible pending client requests)
  * @param p12 the mode data
  * @param p13 the mode count
  */
 void startup_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    // The socket.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket.");
 
-    // Calculate internal memory index.
-    copy_integer((void*) &i, p10);
-    calculate_integer_add((void*) &i, (void*) SERVER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Retrieval of necessary internal memory values can be done here.
 
-    // Get socket.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-
-    // Only create socket if not existent.
-    if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket.");
-
-        // The socket.
-        int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The protocol family (socket namespace).
-        int pf = PF_INET6;
-        // The address family (namespace).
-        int af = AF_INET6;
-        // The communication style.
-        int st = SOCK_STREAM;
-
-        // Get protocol- and address family.
-        startup_bsd_socket_family((void*) &pf, (void*) &af, p1, p2);
-        // Get socket communication style.
-        startup_bsd_socket_style((void*) &st, p3, p4);
-        // Create socket.
-        // CAUTION! A value of ZERO is usually right for the "protocol".
-        startup_bsd_socket_create((void*) &s, (void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &af, p11, p12, p13);
-
-        // Store socket in internal memory.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the internal array's count and size are CONSTANT.
-        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    } else {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket. The socket at the given internal memory base (port) already exists.");
-    }
+    // Startup bsd socket in either client or server mode.
+    startup_bsd_socket_mode();
 }
 
 /* BSD_SOCKET_STARTER_SOURCE */

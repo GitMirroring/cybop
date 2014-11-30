@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-11-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add protocol socket cybol model constants
+        * Continue bsd socket files
+
 2014-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise cybol example application "TicTacToe"

@@ -26,9 +26,9 @@
 #ifndef INET_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 #define INET_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Initialise inet socket address.

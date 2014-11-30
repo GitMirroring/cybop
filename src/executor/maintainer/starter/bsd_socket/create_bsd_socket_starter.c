@@ -43,17 +43,8 @@
  * @param p1 the protocol family (socket namespace)
  * @param p2 the communication style
  * @param p3 the protocol
- * @param p4 the filename data
- * @param p5 the filename count
- * @param p6 the host address data
- * @param p7 the host address count
- * @param p8 the port
- * @param p9 the address family (address namespace)
- * @param p10 the connexions
- * @param p11 the mode data
- * @param p12 the mode count
  */
-void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -83,8 +74,8 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
 
                     // Initialise server socket.
                     //
-                    // param 0: namespace
-                    // param 1: style
+                    // param 0: protocol family (namespace)
+                    // param 1: communication style
                     // param 2: protocol (zero is usually right)
                     //
                     // CAUTION! Use prefix "PF_" here and NOT "AF_"!
@@ -92,21 +83,7 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4,
                     // See further below!
                     *s = socket(*pf, *st, *pr);
 
-                    if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                        // The socket address data, size.
-                        void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
-                        int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                        // Initialise socket address depending on family.
-                        // CAUTION! Hand over address data as pointer reference,
-                        // since it gets allocated inside the function and
-                        // has to be preserved as return value.
-                        startup_bsd_socket_socket_address((void*) &ad, (void*) &as, p4, p5, p6, p7, p8, p9);
-                        // Startup client or server mode.
-                        startup_bsd_socket_mode(p0, ad, (void*) &as, p2, p10, p11, p12);
-
-                    } else {
+                    if (*s < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         if (errno == EPROTONOSUPPORT) {
 

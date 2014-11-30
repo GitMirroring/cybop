@@ -23,41 +23,45 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SOCKET_STARTER_SOURCE
-#define SOCKET_STARTER_SOURCE
+#ifndef CREATE_SOCKET_STARTER_SOURCE
+#define CREATE_SOCKET_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/maintainer/starter/socket/mode_socket_starter.c"
 #include "../../../../logger/logger.c"
 
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+#elif WIN32
+    #include "../../../../executor/maintainer/starter/winsock/create_winsock_starter.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+#else
+    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+#endif
+
 /**
- * Starts up the socket.
+ * Creates the socket.
  *
- * @param p0 the internal memory data (pointer reference)
- * @param p1 the family data (namespace)
- * @param p2 the family count
- * @param p3 the style data
- * @param p4 the style count
- * @param p5 the filename data
- * @param p6 the filename count
- * @param p7 the host address data
- * @param p8 the host address count
- * @param p9 the port
- * @param p10 the internal memory base
- * @param p11 the connexions (number of possible pending client requests)
- * @param p12 the mode data
- * @param p13 the mode count
+ * @param p0 the socket
+ * @param p1 the protocol family (socket namespace)
+ * @param p2 the communication style
+ * @param p3 the protocol
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket create.");
 
-    // Retrieval of necessary internal memory values can be done here.
-
-    // Startup socket in either client or server mode.
-    startup_socket_mode();
+#ifdef __APPLE__
+    startup_bsd_socket_create(p0, p1, p2, p3);
+#elif WIN32
+    startup_winsock_create(p0, p1, p2, p3);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    startup_bsd_socket_create(p0, p1, p2, p3);
+#else
+    startup_bsd_socket_create(p0, p1, p2, p3);
+#endif
 }
 
-/* SOCKET_STARTER_SOURCE */
+/* CREATE_SOCKET_STARTER_SOURCE */
 #endif

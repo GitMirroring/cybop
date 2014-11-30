@@ -23,17 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INET6_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
-#define INET6_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#ifndef INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#define INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
 
-#include <netinet/in.h>
+#include <arpa/inet.h>
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Determines inet6 host address.
+ * Determines inet host address.
  *
  * CAUTION! It has to be made sure that the host address is
  * represented in a canonical format called "NETWORK BYTE ORDER".
@@ -47,20 +47,21 @@
  * directly input addresses returns its address in
  * NETWORK byte order, that was used for local and any as well.
  *
- * @param p0 the inet6 host address (in network byte order)
+ * @param p0 the inet host address (in network byte order)
  * @param p1 the host address data
  * @param p2 the host address count
  */
-void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
+void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // This data type is used to store an IPv6 address.
-        // It stores 128 bits of data, which can be
-        // accessed via a union in a variety of ways.
-        struct in6_addr* a = (struct in6_addr*) p0;
+        // This data type is used in certain contexts
+        // to contain an IPv4 Internet host address.
+        // It has just one field, named s_addr, which
+        // records the host address number as an uint32_t.
+        struct in_addr* a = (struct in_addr*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket host address inet6.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket host address inet.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -73,10 +74,10 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
                 // Assign address.
                 //
-                // One can use the in6addr_loopback constant
+                // One can use the INADDR_LOOPBACK constant (127.0.0.1)
                 // to stand for the address of this machine,
                 // instead of finding its actual address.
-                // It is the IPv6 Internet address '::1',
+                // It is the IPv4 Internet address '127.0.0.1',
                 // which is usually called 'localhost'.
                 // This special constant saves the trouble of
                 // looking up the address of one's own machine.
@@ -84,11 +85,8 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
                 // avoiding any network traffic for the case
                 // of one machine talking to itself.
                 //
-                // CAUTION! While ipv4 constants are all defined in host byte order,
-                // the ipv6 constants are already defined in NETWORK byte order,
-                // so that a conversion is NOT necessary here:
-                // http://www.questionscompiled.com/ipv6-socket-api.html
-                *a = in6addr_loopback;
+                // CAUTION! Convert to NETWORK byte order.
+                (*a).s_addr = htonl(INADDR_LOOPBACK);
             }
         }
 
@@ -100,18 +98,15 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
                 // Assign address.
                 //
-                // One can use the in6addr_any constant to stand
-                // for any incoming address, when binding to an address.
-                // It is the IPv6 address '::', the unspecified address.
+                // One can use the INADDR_ANY constant (0.0.0.0)
+                // to stand for any incoming address,
+                // when binding to an address.
                 // This is the usual address to give in
                 // the sin_addr member of struct sockaddr_in
                 // when you want to accept Internet connections.
                 //
-                // CAUTION! While ipv4 constants are all defined in host byte order,
-                // the ipv6 constants are already defined in NETWORK byte order,
-                // so that a conversion is NOT necessary here:
-                // http://www.questionscompiled.com/ipv6-socket-api.html
-                *a = in6addr_any;
+                // CAUTION! Convert to NETWORK byte order.
+                (*a).s_addr = htonl(INADDR_ANY);
             }
         }
 
@@ -126,13 +121,10 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The internet address in network (binary) format.
             //
-            // CAUTION! While ipv4 constants are all defined in host byte order,
-            // the ipv6 constants are already defined in NETWORK byte order,
-            // so that a conversion is NOT necessary here:
-            // http://www.questionscompiled.com/ipv6-socket-api.html
+            // CAUTION! Convert to NETWORK byte order.
             //
             // CAUTION! The loopback is used as default here.
-            struct in6_addr n = in6addr_loopback;
+            uint32_t n = htonl(INADDR_LOOPBACK);
 
             // Allocate terminated address item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -155,10 +147,10 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             // to network (binary) format, the latter being an integer.
             //
             // CAUTION! The returned value is already in NETWORK byte order.
-            inet_pton(AF_INET6, (char*) td, (void*) &n);
+            inet_pton(AF_INET, (char*) td, (void*) &n);
 
             // Assign address.
-            *a = n;
+            (*a).s_addr = n;
 
             // Deallocate terminated address item.
             deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -166,9 +158,9 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet6. The inet6 host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet. The inet host address is null.");
     }
 }
 
-/* INET6_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
+/* INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
 #endif

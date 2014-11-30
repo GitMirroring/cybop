@@ -14,6 +14,9 @@
 WUI
 ___
 
+        * Copy/move/delete socket files in socket/bsd_socket/winsock
+        * Clean up socket files
+
         * Continue thinking: Add socket data to internal memory by dynamically extending it?
             One socket per port is possible, not more.
             Therefore, the port may be used to identify the socket data within the internal memory.

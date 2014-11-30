@@ -23,15 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MODE_BSD_SOCKET_STARTER_SOURCE
-#define MODE_BSD_SOCKET_STARTER_SOURCE
+#ifndef MODE_SOCKET_STARTER_SOURCE
+#define MODE_SOCKET_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/maintainer/starter/socket/client/client_socket_starter.c"
+#include "../../../../executor/maintainer/starter/socket/server/existing_server_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up bsd socket in either client or server mode.
+ * Starts up socket in either client or server mode.
  *
  * @param p0 the socket
  * @param p1 the socket address data
@@ -41,9 +43,9 @@
  * @param p5 the mode data
  * @param p6 the mode count
  */
-void startup_bsd_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void startup_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket mode.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket mode.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -54,7 +56,7 @@ void startup_bsd_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_bsd_socket_mode_client(p0, p1, p2);
+            startup_socket_mode_client(p0, p1, p2, p3);
         }
     }
 
@@ -64,15 +66,15 @@ void startup_bsd_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_bsd_socket_mode_server_existing(p0, p1, p2, p3, p4);
+            startup_socket_mode_server_existing(p0, p1, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket mode. The mode is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket mode. The mode is unknown.");
     }
 }
 
-/* MODE_BSD_SOCKET_STARTER_SOURCE */
+/* MODE_SOCKET_STARTER_SOURCE */
 #endif

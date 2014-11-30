@@ -23,68 +23,78 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STYLE_BSD_SOCKET_STARTER_SOURCE
-#define STYLE_BSD_SOCKET_STARTER_SOURCE
+#ifndef PROTOCOL_BSD_SOCKET_STARTER_SOURCE
+#define PROTOCOL_BSD_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/socket/style_socket_cybol_model.c"
+#include "../../../../constant/model/cybol/socket/protocol_socket_cybol_model.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Converts communication style string into integer.
+ * Converts protocol string into integer.
  *
- * @param p0 the style
- * @param p1 the style data
- * @param p2 the style count
+ * @param p0 the protocol
+ * @param p1 the protocol data
+ * @param p2 the protocol count
  */
-void startup_bsd_socket_style(void* p0, void* p1, void* p2) {
+void startup_bsd_socket_protocol(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket style.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket protocol.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) STREAM_STYLE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) STREAM_STYLE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) ICMP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ICMP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_STREAM);
+            copy_integer(p0, (void*) &IPPROTO_ICMP);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) DATAGRAM_STYLE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) RAW_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RAW_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_DGRAM);
+            copy_integer(p0, (void*) &IPPROTO_RAW);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) RAW_STYLE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) RAW_STYLE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) TCP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TCP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_RAW);
+            copy_integer(p0, (void*) &IPPROTO_TCP);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket style. The style is not known.");
+        compare_all_array((void*) &r, p1, (void*) UDP_PROTOCOL_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) UDP_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) &IPPROTO_UDP);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket protocol. The protocol is not known.");
     }
 }
 
-/* STYLE_BSD_SOCKET_STARTER_SOURCE */
+/* PROTOCOL_BSD_SOCKET_STARTER_SOURCE */
 #endif

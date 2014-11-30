@@ -29,9 +29,9 @@
 #include <sys/socket.h>
 #include <errno.h>
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../logger/logger.c"
 
 /**
  * Enable socket to accept connections, thus making it a server socket.
