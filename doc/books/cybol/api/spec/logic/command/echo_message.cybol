@@ -2,6 +2,6 @@
     <part name="name" channel="inline" format="text/plain" model="echo-message"/>
     <part name="description" channel="inline" format="text/plain" model="Echos the message to standard output."/>
     <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/echo_message/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="command/echo-message"/>
+    <part name="format" channel="inline" format="text/plain" model="command/echo"/>
     <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/echo_message/properties.cybol"/>
 </model> 

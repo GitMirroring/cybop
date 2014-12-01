@@ -2,6 +2,6 @@
     <part name="name" channel="inline" format="text/plain" model="remove-file"/>
     <part name="description" channel="inline" format="text/plain" model="Moving files and directories from a path to another.."/>
     <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/remove_file/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="command/remove-file"/>
+    <part name="format" channel="inline" format="text/plain" model="command/remove"/>
     <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/remove_file/properties.cybol"/>
 </model> 

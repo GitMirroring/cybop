@@ -2,6 +2,6 @@
     <part name="name" channel="inline" format="text/plain" model="directory-contents"/>
     <part name="description" channel="inline" format="text/plain" model="Lists the directory contents."/>
     <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/directory_contents/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="command/directory-contents"/>
+    <part name="format" channel="inline" format="text/plain" model="command/list-directory-contents"/>
     <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/directory_contents/properties.cybol"/>
 </model> 
