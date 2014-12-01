@@ -1,5 +1,6 @@
 <part name="chmod_file" channel="inline" format="command/change-permission" model="">
-    <property name="path" channel="inline" format="text/plain" model="./shell_command_change_permission/example.txt"/>
+    <property name="path" channel="inline" format="text/plain"
+      model="./shell_command_change_permission/example.txt"/>
     <property name="user" channel="inline" format="text/plain" model="rwx"/>
     <property name="group" channel="inline" format="text/plain" model="rwx"/>
     <property name="other" channel="inline" format="text/plain" model="rw"/>

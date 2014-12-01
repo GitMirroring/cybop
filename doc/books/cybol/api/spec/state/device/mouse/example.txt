@@ -1,4 +1,5 @@
 <part name="exit_button" channel="inline" format="text/plain" model="Exit">
     <property name="cell" channel="inline" format="text/plain" model="east"/>
-    <property name="left-release" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+    <property name="left-release" channel="inline" format="path/knowledge"
+      model=".app.logic.exit_programme"/>
 </part>

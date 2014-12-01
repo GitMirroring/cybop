@@ -2750,7 +2750,8 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;chmod_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/change-permission&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_change_permission/example.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_change_permission/example.txt&#x22;/&#x3E;
     &#x3C;property name=&#x22;user&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;rwx&#x22;/&#x3E;
     &#x3C;property name=&#x22;group&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;rwx&#x22;/&#x3E;
     &#x3C;property name=&#x22;other&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;rw&#x22;/&#x3E;
@@ -2758,7 +2759,6 @@
     &#x3C;property name=&#x22;verbose&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;silent&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
 &#x3C;/part&#x3E;
-
                             </p>
                         </div>
                         <div>
@@ -2926,8 +2926,10 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;copy_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/copy&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_copy_file/original.txt&#x22;/&#x3E;
-    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_copy_file/copied_and_please_do_not_commit_me.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_copy_file/original.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_copy_file/copied_and_please_do_not_commit_me.txt&#x22;/&#x3E;
     &#x3C;property name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;interactive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;preserve-all-attributes&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
@@ -3135,9 +3137,9 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;create_folder&#x22; channel=&#x22;inline&#x22; format=&#x22;command/create-folder&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_create_folder/i_am_a_created_folder&#x22;/&#x3E;
+    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_create_folder/i_am_a_created_folder&#x22;/&#x3E;
 &#x3C;/part&#x3E;
-
                             </p>
                         </div>
                         <div>
@@ -3209,7 +3211,8 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;echo_message&#x22; channel=&#x22;inline&#x22; format=&#x22;command/echo&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;hello, this is an echo over standard output&#x22;/&#x3E;
+    &#x3C;property name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;hello, this is an echo over standard output&#x22;/&#x3E;
 &#x3C;/part&#x3E;
                             </p>
                         </div>
@@ -3281,7 +3284,8 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;part name=&#x22;list_parent_directory_recursively&#x22; channel=&#x22;inline&#x22; format=&#x22;command/list-directory-contents&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;part name=&#x22;list_parent_directory_recursively&#x22; channel=&#x22;inline&#x22; format=&#x22;command/list-directory-contents&#x22;
+  model=&#x22;&#x22;&#x3E;
     &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./..&#x22;/&#x3E;
     &#x3C;property name=&#x22;all&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;property name=&#x22;long&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
@@ -3293,7 +3297,8 @@
     &#x3C;property name=&#x22;sort_by_extension&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
 &#x3C;/part&#x3E;
 
-&#x3C;part name=&#x22;list_files_in_current_directory&#x22; channel=&#x22;inline&#x22; format=&#x22;command/list-directory-contents&#x22; model=&#x22;&#x22;&#x3E;
+&#x3C;part name=&#x22;list_files_in_current_directory&#x22; channel=&#x22;inline&#x22; format=&#x22;command/list-directory-contents&#x22;
+  model=&#x22;&#x22;&#x3E;
     &#x3C;property name=&#x22;all&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;long&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;property name=&#x22;export&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;test.txt&#x22;/&#x3E;
@@ -3497,8 +3502,10 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;move_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/move&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_move_file/original.txt&#x22;/&#x3E;
-    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_move_file/moved_and_please_do_not_commit_me.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_move_file/original.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_move_file/moved_and_please_do_not_commit_me.txt&#x22;/&#x3E;
     &#x3C;property name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;interactive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;property name=&#x22;verbal&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
@@ -3638,7 +3645,8 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;remove_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/remove&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt&#x22;/&#x3E;
     &#x3C;property name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;property name=&#x22;interactive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;property name=&#x22;recursive&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
@@ -3765,8 +3773,10 @@
 &#x3C;!-- pack --&#x3E;
 
 &#x3C;part name=&#x22;pack_text_file_with_tape_archiver&#x22; channel=&#x22;inline&#x22; format=&#x22;command/tape-archiver&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt&#x22;/&#x3E;
-    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_pack/i_am_packed_now.tar&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_tape_archiver_pack/i_should_be_packed_soon.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_tape_archiver_pack/i_am_packed_now.tar&#x22;/&#x3E;
     &#x3C;property name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;gzip&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;unpack&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
@@ -3777,8 +3787,10 @@
 &#x3C;!-- unpack --&#x3E;
 
 &#x3C;part name=&#x22;unpack_tar_with_text_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/tape-archiver&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_unpack/package.tar&#x22;/&#x3E;
-    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_tape_archiver_unpack&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_tape_archiver_unpack/package.tar&#x22;/&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_tape_archiver_unpack&#x22;/&#x3E;
     &#x3C;property name=&#x22;force&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;gzip&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;unpack&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
@@ -3936,7 +3948,8 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;chmod_file&#x22; channel=&#x22;inline&#x22; format=&#x22;command/word-count&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;./shell_command_word_count/example.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;path&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22;
+      model=&#x22;./shell_command_word_count/example.txt&#x22;/&#x3E;
     &#x3C;property name=&#x22;bytes&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
     &#x3C;property name=&#x22;chars&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
     &#x3C;property name=&#x22;lines&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;true&#x22;/&#x3E;
@@ -5297,7 +5310,8 @@
 &#x3C;part name=&#x22;branch_voltage&#x22; channel=&#x22;inline&#x22; format=&#x22;flow/branch&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;property name=&#x22;criterion&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.settings.voltage_criterion&#x22;/&#x3E;
     &#x3C;property name=&#x22;true&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;indoor_climate/add_voltage.cybol&#x22;/&#x3E;
-    &#x3C;property name=&#x22;false&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22; model=&#x22;indoor_climate/report_voltage_failure.cybol&#x22;/&#x3E;
+    &#x3C;property name=&#x22;false&#x22; channel=&#x22;file&#x22; format=&#x22;element/part&#x22;
+      model=&#x22;indoor_climate/report_voltage_failure.cybol&#x22;/&#x3E;
 &#x3C;/part&#x3E;
                             </p>
                         </div>
@@ -5553,7 +5567,7 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;interrupt_x_window_system&#x22; channel=&#x22;inline&#x22; format=&#x22;live/interrupt&#x22; model=&#x22;&#x22;&#x3E;
-	&#x3C;property name=&#x22;service&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
+    &#x3C;property name=&#x22;service&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;display&#x22;/&#x3E;
 &#x3C;/part&#x3E;
                             </p>
                         </div>
@@ -8100,8 +8114,10 @@
                             </h5>
                             <p class="part_example">
 &#x3C;part name=&#x22;reset_count&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.settings.voltage_buffer_count&#x22;/&#x3E;
-    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.settings.voltage_buffer_count_default&#x22;/&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.settings.voltage_buffer_count&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.settings.voltage_buffer_count_default&#x22;/&#x3E;
     &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
 &#x3C;/part&#x3E;
                             </p>
@@ -9182,7 +9198,8 @@ The model.cybol
                             <p class="part_example">
 &#x3C;part name=&#x22;exit_button&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;Exit&#x22;&#x3E;
     &#x3C;property name=&#x22;cell&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;east&#x22;/&#x3E;
-    &#x3C;property name=&#x22;left-release&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.logic.exit_programme&#x22;/&#x3E;
+    &#x3C;property name=&#x22;left-release&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.app.logic.exit_programme&#x22;/&#x3E;
 &#x3C;/part&#x3E;
                             </p>
                         </div>

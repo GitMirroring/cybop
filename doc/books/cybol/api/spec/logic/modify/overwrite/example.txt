@@ -1,5 +1,7 @@
 <part name="reset_count" channel="inline" format="modify/overwrite" model="">
-    <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count_default"/>
+    <property name="destination" channel="inline" format="path/knowledge"
+      model=".settings.voltage_buffer_count"/>
+    <property name="source" channel="inline" format="path/knowledge"
+      model=".settings.voltage_buffer_count_default"/>
     <property name="type" channel="inline" format="meta/type" model="number/integer"/>
 </part>

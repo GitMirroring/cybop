@@ -1,5 +1,6 @@
 <part name="remove_file" channel="inline" format="command/remove" model="">
-    <property name="path" channel="inline" format="text/plain" model="./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt"/>
+    <property name="path" channel="inline" format="text/plain"
+      model="./shell_command_remove_file/do_not_commit_if_this_is_deleted.txt"/>
     <property name="force" channel="inline" format="logicvalue/boolean" model="true"/>
     <property name="interactive" channel="inline" format="logicvalue/boolean" model="true"/>
     <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
