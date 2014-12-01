@@ -3789,7 +3789,7 @@
                                 Description
                             </h5>
                             <p>
-                                Moving files and directories from a path to another..
+                                Moving files and directories from a path to another.
                             </p>
                         </div>
                         <div>
@@ -5145,6 +5145,7 @@
                     <div>
                         <a name="greater (TODO)">
                             <h3>
+                                greater
                             </h3>
                         </a>
                         <div>
@@ -5152,6 +5153,7 @@
                                 Description
                             </h5>
                             <p>
+                                Compares left and right parametre.
                             </p>
                         </div>
                         <div>
@@ -5159,6 +5161,7 @@
                                 Format
                             </h5>
                             <p>
+                                compare/greater
                             </p>
                         </div>
                         <div>
@@ -5166,6 +5169,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;compare_loop_count&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/greater&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.break&#x22;/&#x3E;
+    &#x3C;property name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
+    &#x3C;property name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.maximum&#x22;/&#x3E;
+    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+    &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -5189,6 +5199,86 @@
                                     <th>
                                         model
                                     </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        result
+                                    </td>
+                                    <td>
+                                        the knowledge model, in which the result is stored (of type boolean)
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | logicvalue/boolean
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        left
+                                    </td>
+                                    <td>
+                                        the left operand
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | number/* | text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        right
+                                    </td>
+                                    <td>
+                                        the right operand
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | number/* | text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        the operand type which is equal for both operands
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | meta/type
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selection
+                                    </td>
+                                    <td>
+                                        the area of two strings or number vectors to be compared
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | meta/type
+                                    </td>
+                                    <td>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
