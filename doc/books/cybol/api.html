@@ -232,23 +232,23 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#greater">
-                            greater
+                        <a href="#greater (TODO)">
+                            greater (TODO)
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#greater-or-equal">
-                            greater-or-equal
+                        <a href="#greater-or-equal (TODO)">
+                            greater-or-equal (TODO)
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#smaller">
-                            smaller
+                        <a href="#smaller (TODO)">
+                            smaller (TODO)
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#smaller-or-equal">
-                            smaller-or-equal
+                        <a href="#smaller-or-equal (TODO)">
+                            smaller-or-equal (TODO)
                         </a>
                     </div>
                     <div class="part_toc">
@@ -4593,6 +4593,7 @@
                     <div>
                         <a name="equal">
                             <h3>
+                                equal
                             </h3>
                         </a>
                         <div>
@@ -4600,6 +4601,7 @@
                                 Description
                             </h5>
                             <p>
+                                Compares left and right parametre.
                             </p>
                         </div>
                         <div>
@@ -4607,6 +4609,7 @@
                                 Format
                             </h5>
                             <p>
+                                compare/equal
                             </p>
                         </div>
                         <div>
@@ -4614,6 +4617,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;compare_equal&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/equal&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.model.result&#x22;/&#x3E;
+    &#x3C;property name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.model.left&#x22;/&#x3E;
+    &#x3C;property name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.model.right&#x22;/&#x3E;
+    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/complex-cartesian&#x22;/&#x3E;
+    &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -4638,11 +4648,91 @@
                                         model
                                     </th>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        result
+                                    </td>
+                                    <td>
+                                        the knowledge model, in which the result is stored (of type boolean)
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | logicvalue/boolean
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        left
+                                    </td>
+                                    <td>
+                                        the left operand
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | number/* | text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        right
+                                    </td>
+                                    <td>
+                                        the right operand
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | number/* | text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        the operand type which is equal for both operands
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | meta/type
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selection
+                                    </td>
+                                    <td>
+                                        the area of two strings or number vectors to be compared
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | meta/type
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
                     <div>
-                        <a name="greater">
+                        <a name="greater (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -4693,7 +4783,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="greater-or-equal">
+                        <a name="greater-or-equal (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -4744,7 +4834,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="smaller">
+                        <a name="smaller (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -4795,7 +4885,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="smaller-or-equal">
+                        <a name="smaller-or-equal (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -4848,6 +4938,7 @@
                     <div>
                         <a name="unequal">
                             <h3>
+                                unequal
                             </h3>
                         </a>
                         <div>
@@ -4855,6 +4946,7 @@
                                 Description
                             </h5>
                             <p>
+                                Compares left and right parametre.
                             </p>
                         </div>
                         <div>
@@ -4862,6 +4954,7 @@
                                 Format
                             </h5>
                             <p>
+                                compare/unequal
                             </p>
                         </div>
                         <div>
@@ -4869,6 +4962,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;compare_unequal&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/unequal&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.model.result&#x22;/&#x3E;
+    &#x3C;property name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.model.left&#x22;/&#x3E;
+    &#x3C;property name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.model.right&#x22;/&#x3E;
+    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/complex-cartesian&#x22;/&#x3E;
+    &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -4892,6 +4992,86 @@
                                     <th>
                                         model
                                     </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        result
+                                    </td>
+                                    <td>
+                                        the knowledge model, in which the result is stored (of type boolean)
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | logicvalue/boolean
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        left
+                                    </td>
+                                    <td>
+                                        the left operand
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | number/* | text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        right
+                                    </td>
+                                    <td>
+                                        the right operand
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | number/* | text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        type
+                                    </td>
+                                    <td>
+                                        the operand type which is equal for both operands
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | meta/type
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        selection
+                                    </td>
+                                    <td>
+                                        the area of two strings or number vectors to be compared
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        path/* | meta/type
+                                    </td>
+                                    <td>
+                                    </td>
                                 </tr>
                             </table>
                         </div>

@@ -12,6 +12,5 @@
         <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="format" channel="inline" format="text/plain" model="path/* | element/part"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>	
-	
+    </part>
 </model>
