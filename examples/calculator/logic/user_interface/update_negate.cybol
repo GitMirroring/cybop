@@ -1,0 +1,32 @@
+<model>
+
+    <!-- The display HAS TO BE EMPTIED since otherwise, the result is appended to the old operand. -->
+    <part name="reset_display" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+    </part>
+    <part name="serialise_result" channel="inline" format="represent/serialise" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    </part>
+
+    <part name="send_tui" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
+<!--
+        <property name="area" channel="inline" format="path/knowledge" model=".app.tui.main.menu"/>
+-->
+        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <!--
+        CAUTION! The display HAS TO BE EMPTIED here again after refreshing the ui
+        since otherwise, new input numbers will be appended to the existing display content,
+        which would lead to a not-wanted prefix and false results.
+    -->
+   
+</model>

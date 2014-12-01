@@ -2,6 +2,7 @@
 
     <part name="update_focus" channel="file" format="element/part" model="calculator/logic/user_interface/update_focus.cybol"/>
     <part name="update_display" channel="file" format="element/part" model="calculator/logic/user_interface/update_display.cybol"/>
+	<part name="update_negate" channel="file" format="element/part" model="calculator/logic/user_interface/update_negate.cybol"/>
 
     <part name="display_command" channel="file" format="element/part" model="calculator/logic/user_interface/display_command.cybol"/>
     <part name="display_focus" channel="file" format="element/part" model="calculator/logic/user_interface/display_focus.cybol"/>
