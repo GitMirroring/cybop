@@ -22,7 +22,7 @@
     </part>
 
     <part name="update_display" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display_without_reset"/>
     </part>
 
 </model>
