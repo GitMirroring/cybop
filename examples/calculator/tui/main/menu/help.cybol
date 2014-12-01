@@ -1,7 +1,7 @@
 <model>
 
     <part name="name" channel="inline" format="text/plain" model="Calculator 2.0">
-        <property name="position" channel="inline" format="number/integer" model="5,2"/>
+        <property name="position" channel="inline" format="number/integer" model="14,2"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="red"/>
