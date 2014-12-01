@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="grep"/>
+    <part name="description" channel="inline" format="text/plain" model="Searches for pattern in file."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/grep/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="command/grep"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/grep/properties.cybol"/>
+</model>

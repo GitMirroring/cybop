@@ -1,0 +1,7 @@
+<model>
+    <part name="name" channel="inline" format="text/plain" model="ping"/>
+    <part name="description" channel="inline" format="text/plain" model="Pings a given host."/>
+    <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/ping/example.txt"/>
+    <part name="format" channel="inline" format="text/plain" model="command/ping"/>
+    <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/ping/properties.cybol"/>
+</model>

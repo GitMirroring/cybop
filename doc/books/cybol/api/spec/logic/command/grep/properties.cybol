@@ -1,0 +1,16 @@
+<model>
+    <part name="pattern" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="pattern"/>
+        <property name="description" channel="inline" format="text/plain" model="the pattern to search for"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="file" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="file"/>
+        <property name="description" channel="inline" format="text/plain" model="the file to search in"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

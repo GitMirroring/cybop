@@ -187,8 +187,18 @@
                         </a>
                     </div>
                     <div class="part_toc">
+                        <a href="#grep">
+                            grep
+                        </a>
+                    </div>
+                    <div class="part_toc">
                         <a href="#move-file">
                             move-file
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#ping">
+                            ping
                         </a>
                     </div>
                     <div class="part_toc">
@@ -3679,6 +3689,92 @@
                         </div>
                     </div>
                     <div>
+                        <a name="grep">
+                            <h3>
+                                grep
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Searches for pattern in file.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                command/grep
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <table border="1" class="property_table">
+                                <tr>
+                                    <th>
+                                        name
+                                    </th>
+                                    <th>
+                                        description
+                                    </th>
+                                    <th>
+                                        required
+                                    </th>
+                                    <th>
+                                        format
+                                    </th>
+                                    <th>
+                                        model
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pattern
+                                    </td>
+                                    <td>
+                                        the pattern to search for
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        file
+                                    </td>
+                                    <td>
+                                        the file to search in
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
                         <a name="move-file">
                             <h3>
                                 move-file
@@ -3814,6 +3910,108 @@
                                     </td>
                                     <td>
                                         logicvalue/boolean
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="ping">
+                            <h3>
+                                ping
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Pings a given host.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                command/ping
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <table border="1" class="property_table">
+                                <tr>
+                                    <th>
+                                        name
+                                    </th>
+                                    <th>
+                                        description
+                                    </th>
+                                    <th>
+                                        required
+                                    </th>
+                                    <th>
+                                        format
+                                    </th>
+                                    <th>
+                                        model
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        host
+                                    </td>
+                                    <td>
+                                        the host to be pinged
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        count
+                                    </td>
+                                    <td>
+                                        count of ping packets to send
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        number/integer
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        interface
+                                    </td>
+                                    <td>
+                                        interface to send packets on
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        text/plain
                                     </td>
                                     <td>
                                     </td>
