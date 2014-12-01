@@ -190,22 +190,34 @@ void retrieve_maximum(void* p0, void* p1) {
                 // The multiple [Vielfaches] dividable without remainder.
                 unsigned long int mul = m - d;
 
+                //
                 // The pseudo random number.
                 //
                 // CAUTION! The type "long" is okay, since:
                 // max <= RAND_MAX < ULONG_MAX
                 //
                 // CAUTION! Initialise with a random number here since otherwise,
-                // at least two loop cycles are necessary to find an initial number.
+                // at least two loop cycles are necessary to find an initial number below.
                 //
                 // CAUTION! Do NOT initialise with zero or similar since otherwise,
                 // that value will be returned as always identical result.
                 //
-                // CAUTION! The bsd "random" rather than glibc "rand" function
-                // is used here, as it supposedly has a better distribution,
-                // as noted by the man page for "rand", as Ryan Reich wrote at:
+                // CAUTION! The value ranges from 0 (inclusive) to RAND_MAX (exclusive).
+                // In the GNU C Library, RAND_MAX is 2147483647, which is
+                // the largest signed integer representable in 32 bits.
+                //
+                // CAUTION! If calling "rand" before a seed has been established
+                // with "srand", it uses the value 1 as a default seed.
+                //
+                // CAUTION! The bsd "random" function is claimed to have a
+                // better distribution than the glibc "rand" function
+                // (noted by the man page for "rand"), as Ryan Reich wrote at:
                 // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
-                long int n = (long int) random();
+                // However, since "random" is a BSD function, the compilation failes
+                // with mingw, because it is not supported on Windows OS.
+                // Therefore, the standard glibc "rand" function is used here.
+                //
+                long int n = (long int) rand();
 
                 //
                 // The loop IS NECESSARY to get a perfectly uniform distribution.
@@ -227,6 +239,7 @@ void retrieve_maximum(void* p0, void* p1) {
                         break;
                     }
 
+                    //
                     // Get next pseudo-random number in the series.
                     //
                     // CAUTION! The value ranges from 0 (inclusive) to RAND_MAX (exclusive).
@@ -236,11 +249,15 @@ void retrieve_maximum(void* p0, void* p1) {
                     // CAUTION! If calling "rand" before a seed has been established
                     // with "srand", it uses the value 1 as a default seed.
                     //
-                    // CAUTION! The bsd "random" rather than glibc "rand" function
-                    // is used here, as it supposedly has a better distribution,
-                    // as noted by the man page for "rand", as Ryan Reich wrote at:
+                    // CAUTION! The bsd "random" function is claimed to have a
+                    // better distribution than the glibc "rand" function
+                    // (noted by the man page for "rand"), as Ryan Reich wrote at:
                     // https://stackoverflow.com/questions/2509679/how-to-generate-a-random-number-from-within-a-range/6852396#6852396
-                    n = (long int) random();
+                    // However, since "random" is a BSD function, the compilation failes
+                    // with mingw, because it is not supported on Windows OS.
+                    // Therefore, the standard glibc "rand" function is used here.
+                    //
+                    n = (long int) rand();
                 }
 
                 // Divide pseudo random number by interval size.
