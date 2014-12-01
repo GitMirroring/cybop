@@ -1,0 +1,4 @@
+<part name="copy_name_of_part_1_into_model_of_part_2" channel="inline" format="access/get-name" model="">
+    <property name="element" channel="inline" format="path/knowledge" model=".part_2"/>
+    <property name="part" channel="inline" format="path/knowledge" model=".part_1"/>
+</part>

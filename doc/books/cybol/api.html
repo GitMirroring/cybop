@@ -1161,6 +1161,10 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;copy_name_of_part_1_into_model_of_part_2&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-name&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.part_2&#x22;/&#x3E;
+    &#x3C;property name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.part_1&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2645,6 +2649,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;cast_temperature_maximum_count&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/double&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.settings.temperature_maximum_count_divisor&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.settings.temperature_maximum_count&#x22;/&#x3E;
+    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2747,6 +2758,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;cast_high_byte&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/integer&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.settings.voltage_high_byte&#x22;/&#x3E;
+    &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+      model=&#x22;.settings.voltage_buffer_high_byte&#x22;/&#x3E;
+    &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/byte&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
