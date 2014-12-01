@@ -287,18 +287,18 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#copy-file-unix-shell">
-                            copy-file-unix-shell
+                        <a href="#copy-file-unix-shell (TODO)">
+                            copy-file-unix-shell (TODO)
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#copy-file-win32-command">
-                            copy-file-win32-command
+                        <a href="#copy-file-win32-command (TODO)">
+                            copy-file-win32-command (TODO)
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#list-directory-contents">
-                            list-directory-contents
+                        <a href="#list-directory-contents (TODO)">
+                            list-directory-contents (TODO)
                         </a>
                     </div>
                 </div>
@@ -317,8 +317,8 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#sequence">
-                            sequence
+                        <a href="#sequence (TODO)">
+                            sequence (TODO)
                         </a>
                     </div>
                 </div>
@@ -5505,7 +5505,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="copy-file-unix-shell">
+                        <a name="copy-file-unix-shell (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -5556,7 +5556,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="copy-file-win32-command">
+                        <a name="copy-file-win32-command (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -5607,7 +5607,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="list-directory-contents">
+                        <a name="list-directory-contents (TODO)">
                             <h3>
                             </h3>
                         </a>
@@ -5863,7 +5863,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="sequence">
+                        <a name="sequence (TODO)">
                             <h3>
                                 sequence
                             </h3>
@@ -9184,110 +9184,6 @@
                                 Example
                             </h5>
                             <p class="part_example">
-The run.cybol
-This example uses a loop to print out the system time multiple times.
-
-&#x3C;model&#x3E;
-    &#x3C;part name=&#x22;create_application&#x22; channel=&#x22;inline&#x22; format=&#x22;memorise/create&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;counter&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;part&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;create_break&#x22; channel=&#x22;inline&#x22; format=&#x22;memorise/create&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;break&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;logicvalue/boolean&#x22;/&#x3E;
-        &#x3C;property name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;whole&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;create_count&#x22; channel=&#x22;inline&#x22; format=&#x22;memorise/create&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;count&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-        &#x3C;property name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;whole&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;create_maximum&#x22; channel=&#x22;inline&#x22; format=&#x22;memorise/create&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;maximum&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-        &#x3C;property name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;whole&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;create_model&#x22; channel=&#x22;inline&#x22; format=&#x22;memorise/create&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;name&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;model&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;whole&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;initialise_break&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.break&#x22;/&#x3E;
-        &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
-        &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;logicvalue/boolean&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;initialise_count&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
-        &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1&#x22;/&#x3E;
-        &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;initialise_maximum&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.maximum&#x22;/&#x3E;
-        &#x3C;property name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;10&#x22;/&#x3E;
-        &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;initialise_model&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/receive&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
-        &#x3C;property name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
-        &#x3C;property name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/cybol&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;time_output_1/model.cybol&#x22;/&#x3E;
-        &#x3C;property name=&#x22;model&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.model&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;!-- Write knowledge tree into file. --&#x3E;
-    &#x3C;part name=&#x22;test_knowledge_tree&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;file&#x22;/&#x3E;
-        &#x3C;property name=&#x22;encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/encoding&#x22; model=&#x22;utf-8&#x22;/&#x3E;
-        &#x3C;property name=&#x22;language&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/language&#x22; model=&#x22;text/model-diagram&#x22;/&#x3E;
-        &#x3C;property name=&#x22;format&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/format&#x22; model=&#x22;element/part&#x22;/&#x3E;
-        &#x3C;property name=&#x22;message&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter&#x22;/&#x3E;
-        &#x3C;property name=&#x22;receiver&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;TEST_TIME_OUTPUT_1.txt&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;startup_terminal&#x22; channel=&#x22;inline&#x22; format=&#x22;maintain/startup&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. --&#x3E;
-    &#x3C;part name=&#x22;compare_loop_count&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/greater-or-equal&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.break&#x22;/&#x3E;
-        &#x3C;property name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
-        &#x3C;property name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.maximum&#x22;/&#x3E;
-        &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-        &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;call_loop&#x22; channel=&#x22;inline&#x22; format=&#x22;flow/loop&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;break&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.break&#x22;/&#x3E;
-        &#x3C;property name=&#x22;model&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.model&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;exit_application&#x22; channel=&#x22;inline&#x22; format=&#x22;live/exit&#x22; model=&#x22;&#x22;/&#x3E;
-&#x3C;/model&#x3E;
-
-The model.cybol
-
-&#x3C;model&#x3E;
-    &#x3C;part name=&#x22;print_time&#x22; channel=&#x22;inline&#x22; format=&#x22;run/run&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;programme&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;date +%X&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;part name=&#x22;increment_loop_count&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/add&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
-        &#x3C;property name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1&#x22;/&#x3E;
-        &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-    &#x3C;!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. --&#x3E;
-    &#x3C;part name=&#x22;compare_loop_count&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/greater&#x22; model=&#x22;&#x22;&#x3E;
-        &#x3C;property name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.break&#x22;/&#x3E;
-        &#x3C;property name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.count&#x22;/&#x3E;
-        &#x3C;property name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.counter.maximum&#x22;/&#x3E;
-        &#x3C;property name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-        &#x3C;property name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
-    &#x3C;/part&#x3E;
-&#x3C;/model&#x3E;
-
                             </p>
                         </div>
                         <div>

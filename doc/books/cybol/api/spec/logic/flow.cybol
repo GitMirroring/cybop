@@ -1,5 +1,5 @@
 <model>
     <part name="branch" channel="file" format="element/part" model="api/spec/logic/flow/branch.cybol"/>
     <part name="loop" channel="file" format="element/part" model="api/spec/logic/flow/loop.cybol"/>
-    <part name="sequence" channel="file" format="element/part" model="api/spec/logic/flow/sequence.cybol"/>
+    <part name="sequence (TODO)" channel="file" format="element/part" model="api/spec/logic/flow/sequence.cybol"/>
 </model>

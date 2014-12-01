@@ -1,7 +1,7 @@
 <model>
     <part name="archive-file" channel="file" format="element/part" model="api/spec/logic/file/archive-file.cybol"/>
     <part name="copy-file" channel="file" format="element/part" model="api/spec/logic/file/copy-file.cybol"/>
-    <part name="copy-file-unix-shell" channel="file" format="element/part" model="api/spec/logic/file/copy-file-unix-shell.cybol"/>
-    <part name="copy-file-win32-command" channel="file" format="element/part" model="api/spec/logic/file/copy-file-win32-command.cybol"/>
-    <part name="list-directory-contents" channel="file" format="element/part" model="api/spec/logic/file/list-directory-contents.cybol"/>
+    <part name="copy-file-unix-shell (TODO)" channel="file" format="element/part" model="api/spec/logic/file/copy-file-unix-shell.cybol"/>
+    <part name="copy-file-win32-command (TODO)" channel="file" format="element/part" model="api/spec/logic/file/copy-file-win32-command.cybol"/>
+    <part name="list-directory-contents (TODO)" channel="file" format="element/part" model="api/spec/logic/file/list-directory-contents.cybol"/>
 </model>
