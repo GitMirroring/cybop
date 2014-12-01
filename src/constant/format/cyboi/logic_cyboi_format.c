@@ -222,6 +222,9 @@ static int* TRACEROUTE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1612_INTEGER_STATE_CY
 /** The diff command logic cyboi format. */
 static int* DIFF_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1613_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The sort command logic cyboi format. */
+static int* SORT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1614_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //

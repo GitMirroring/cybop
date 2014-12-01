@@ -28,4 +28,7 @@ Shell Commands
 
 commands:
 - ping
--
+- grep
+- traceroute
+- diff
+- sort

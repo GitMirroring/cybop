@@ -23,16 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PING_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-#define PING_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#ifndef SORT_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
+#define SORT_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The count ping win32 command option name. */
-static wchar_t* COUNT_PING_WIN32_COMMAND_OPTION_NAME = L"-n";
-static int* COUNT_PING_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The output sort win32 command option name. */
+static wchar_t* OUTPUT_SORT_WIN32_COMMAND_OPTION_NAME = L"/O";
+static int* OUTPUT_SORT_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/* PING_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
+/** The reversed sort win32 command option name. */
+static wchar_t* REVERSED_SORT_WIN32_COMMAND_OPTION_NAME = L"/R";
+static int* REVERSED_SORT_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* SORT_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif
