@@ -216,6 +216,12 @@ static int* PING_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1610_INTEGER_STATE_CYBOI_MO
 /** The grep command logic cyboi format. */
 static int* GREP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1611_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The traceroute command logic cyboi format. */
+static int* TRACEROUTE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1612_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The diff command logic cyboi format. */
+static int* DIFF_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1613_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // flow
 //

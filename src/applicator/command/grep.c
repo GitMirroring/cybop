@@ -41,7 +41,7 @@
 #endif
 
 /**
-* Searches for pattern in filee
+* Searches for pattern in file
 *
 * Expected parametres:
 * - pattern (required): pattern, to search for

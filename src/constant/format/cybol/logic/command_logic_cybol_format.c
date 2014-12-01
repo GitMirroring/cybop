@@ -187,5 +187,27 @@ static wchar_t GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm'
 static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+* The command/traceroute logic cybol format.
+*
+* displays packet routes to any reachable host
+*
+* This is a CYBOL extension.
+*/
+static wchar_t TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L't', L'r', L'a', L'c', L'e', L'r', L'o', L'u', L't', L'e'};
+static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+* The command/diff logic cybol format.
+*
+* displays differences between two files
+*
+* This is a CYBOL extension.
+*/
+static wchar_t DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L'f', L'f'};
+static wchar_t* DIFF_COMMAND_LOGIC_CYBOL_FORMAT = DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

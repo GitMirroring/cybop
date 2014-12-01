@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef GREP_COMMANDER_SOURCE
-#define GREP_COMMANDER_SOURCE
+#ifndef DIFF_COMMANDER_SOURCE
+#define DIFF_COMMANDER_SOURCE
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -59,21 +59,21 @@
 #endif
 
 /**
-* Searches for a pattern in a file.
+* Compares two files.
 *
-* @param pmd the pattern model data
-* @param pmc the pattern model count
-* @param fmd the file model data
-* @param fmc the file model count
+* @param f1md the first file model data
+* @param f1mc the first file model count
+* @param f2md the second file model data
+* @param f2mc the second file model count
 *
 */
-void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
+void command_diff(void* f1md, void* f1mc, void* f2md, void* f2mc) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command grep.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command diff.");
 
-    if (pmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (f1mc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (fmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (f2mc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // The arguments item.
             void *arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -88,45 +88,45 @@ void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
 
             // Append command.
 #ifdef __APPLE__
-            append_item_element(arg, (void*) GREP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) DIFF_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DIFF_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     #elif WIN32
-            append_item_element(arg, (void*) FIND_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) FC_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FC_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     #elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) GREP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) DIFF_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DIFF_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     #else
-            append_item_element(arg, (void *) GREP_UNIX_COMMAND_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) GREP_UNIX_COMMAND_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void *) DIFF_UNIX_COMMAND_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) DIFF_UNIX_COMMAND_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 
-            // Append pattern.
+            // Append first file.
 #ifdef __APPLE__
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f1md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f1mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     #elif WIN32
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f1md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f1mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             append_item_element(arg, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f1md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f1mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     #else
             append_item_element(arg, (void *) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, pmd, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void *) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f1md, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f1mc, (void *) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
 
-            // Append file.
+            // Append second file.
 #ifdef __APPLE__
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, fmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f2md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f2mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     #elif WIN32
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, fmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f2md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f2mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, fmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f2md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f2mc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     #else
             append_item_element(arg, (void *) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, fmd, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void *) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, f2md, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, f2mc, (void *) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
 
             // Get arguments item data, count.
@@ -139,13 +139,13 @@ void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
             // Deallocate arguments item.
             deallocate_item((void *) &arg, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
         } else {
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The file is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command diff. The second file is null.");
         }
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The pattern is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The first file is null.");
     }
 }
 
-/* GREP_COMMANDER_SOURCE */
+/* DIFF_COMMANDER_SOURCE */
 #endif

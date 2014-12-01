@@ -1,9 +1,8 @@
 <model>
 
-    <part name="ping" channel="inline" format="command/ping" model="">
-        <property name="host" channel="inline" format="text/plain" model="www.google.com"/>
-        <property name="count" channel="inline" format="text/plain" model="5"/>
-	    <property name="interface" channel="inline" format="text/plain" model="eth0"/>
+    <part name="diff" channel="inline" format="command/diff" model="">
+        <property name="file1" channel="inline" format="text/plain" model="shell_command_diff\diff1.txt"/>
+        <property name="file2" channel="inline" format="text/plain" model="shell_command_diff\diff2.txt"/>
     </part>
 
     <part name="exit" channel="inline" format="live/exit" model=""/>
