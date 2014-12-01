@@ -36,7 +36,7 @@
 #include "../../executor/maintainer/shutter/display/display_shutter.c"
 #include "../../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
-#include "../../executor/maintainer/shutter/socket/socket_shutter.c"
+//?? #include "../../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
