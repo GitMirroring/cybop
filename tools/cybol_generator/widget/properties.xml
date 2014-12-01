@@ -9,9 +9,15 @@
 		<type name="int" cybol="number/interger" />
 		<type name="float" cybol="number/double" />
 		<type name="radio" cybol="" /> <!-- radio shows a group of radiobuttons -->
+		<type name="color" cybol="">
+			<singletype name="red" type="int" default="0" />
+			<singletype name="green" type="int" default="0" />
+			<singletype name="blue" type="int" default="0" />
+		</type>
 		<type name="enumShape" cybol="" />
 		<type name="enumBorderstyle" cybol="" />
 	</typedefs>
+
 	<propertygroup name="default">
 		<property name="shape" type="enumShape" />
 		<property name="size" type="string" default="99,27">
@@ -73,49 +79,37 @@
 		<property name="border" type="string" default="1 solid rgb(0,0,0)" >
 			<singlepro name="weight" type="int" default="1" />
 			<singlepro name="style" type="enumBorderstyle" default="solid" />
-			<property name="colour" type="string" default="0,0,0">
-				<singlepro name="red" type="int" default="0" />
-				<singlepro name="green" type="int" default="0" />
-				<singlepro name="blue" type="int" default="0" />
-			</property>
-			<property name="border-top" type="string" default="1 solid rgb(0,0,0)">
-				<singlepro name="weight" type="int" default="1" />
-				<singlepro name="style" type="enumBorderstyle" default="solid" />
-				<property name="colour" type="string" default="0,0,0">
-					<singlepro name="red" type="int" default="0" />
-					<singlepro name="green" type="int" default="0" />
-					<singlepro name="blue" type="int" default="0" />
-				</property>
-			</property>
-			<property name="border-bottom" type="string" default="1 solid rgb(0,0,0)">
-				<singlepro name="weight" type="int" default="1" />
-				<singlepro name="style" type="enumBorderstyle" default="solid" />
-				<property name="colour" type="string" default="0,0,0">
-					<singlepro name="red" type="int" default="0" />
-					<singlepro name="green" type="int" default="0" />
-					<singlepro name="blue" type="int" default="0" />
-				</property>
-			</property>
-			<property name="border-left" type="string" default="1 solid rgb(0,0,0)">
-				<singlepro name="weight" type="int" default="1" />
-				<singlepro name="style" type="enumBorderstyle" default="solid" />
-				<property name="colour" type="string" default="0,0,0">
-					<singlepro name="red" type="int" default="0" />
-					<singlepro name="green" type="int" default="0" />
-					<singlepro name="blue" type="int" default="0" />
-				</property>
-			</property>
-			<property name="border-right" type="string" default="1 solid rgb(0,0,0)">
-				<singlepro name="weight" type="int" default="1" />
-				<singlepro name="style" type="enumBorderstyle" default="solid" />
-				<property name="colour" type="string" default="0,0,0">
-					<singlepro name="red" type="int" default="0" />
-					<singlepro name="green" type="int" default="0" />
-					<singlepro name="blue" type="int" default="0" />
-				</property>
-			</property>
+		</property>
+		<property name="border-colour" type="string" default="0,0,0">
+			<singlepro name="red" type="int" default="0" />
+			<singlepro name="green" type="int" default="0" />
+			<singlepro name="blue" type="int" default="0" />
+		</property>
+		<property name="border-top" type="string" default="1 solid rgb(0,0,0)">
+			<singlepro name="weight" type="int" default="1" />
+			<singlepro name="style" type="enumBorderstyle" default="solid" />
+			<singlepro name="colour" type="color" default="0,0,0" />
+		</property>
+		<property name="border-bottom" type="string" default="1 solid rgb(0,0,0)">
+			<singlepro name="weight" type="int" default="1" />
+			<singlepro name="style" type="enumBorderstyle" default="solid" />
+			<singlepro name="colour" type="color" default="0,0,0" />
+		</property>
+		<property name="border-left" type="string" default="1 solid rgb(0,0,0)">
+			<singlepro name="weight" type="int" default="1" />
+			<singlepro name="style" type="enumBorderstyle" default="solid" />
+			<singlepro name="colour" type="color" default="0,0,0" />
+		</property>
+		<property name="border-right" type="string" default="1 solid rgb(0,0,0)">
+			<singlepro name="weight" type="int" default="1" />
+			<singlepro name="style" type="enumBorderstyle" default="solid" />
+			<singlepro name="colour" type="color" default="0,0,0" />
 		</property>
 	</propertygroup>
+
+	<propertygroup name="Window">
+		<propertya name="icon" type="image" default="" />
+	</propertygroup>	
 
 	<propertygroup name="Label">
 		<!-- no specific property-->
@@ -287,6 +281,10 @@
 	</propertygroup>
 
 	<propertygroup name="GridLayout">
+		<!-- no special properties -->
+	</propertygroup>
+
+	<propertygroup name="AbsoluteLayout">
 		<!-- no special properties -->
 	</propertygroup>
 </properties>

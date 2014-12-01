@@ -45,6 +45,7 @@ private:
 
     Elements m_element;
     aktuellesElement(QObject *parent = 0);
+    void fillObjectinspector( void );
 
 private slots:
     void changedItem( QStandardItem * item );

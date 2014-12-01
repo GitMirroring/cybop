@@ -8,6 +8,7 @@
 
 #include "aktuelleselement.h"
 #include "propertyconverter.h"
+#include "propertyreader.h"
 
 #define PROPERTIECOL 0
 #define SELECTIONPOINTS 6
@@ -167,7 +168,10 @@ aktuellesElement::showObjectInspector(
         void )
 {
     QTableView * view = new QTableView();
+
     m_model = new QStandardItemModel();
+
+    fillObjectinspector();
 
     m_model->connect( m_model, &QStandardItemModel::itemChanged, this, &aktuellesElement::changedItem );
 
@@ -180,71 +184,76 @@ aktuellesElement::showObjectInspector(
          iterElements != m_element.properties.end();
          ++iterElements )
     {
-        QList< QStandardItem *> list;
-
-
-        QStandardItem * prop = new QStandardItem();
-        QStandardItem * value = new QStandardItem();
+        QStandardItem * prop;
+        QStandardItem * value;
 
         switch( iterElements.key() ) {
         case SHAPE:
-            prop->setText( STRSHAPE );
+            prop = m_model->findItems( STRSHAPE, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1);
+
             value->setEditable( false );
             break;
 
         case SIZE:
-            prop->setText( STRSIZE );
+            prop = m_model->findItems( STRSIZE, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case POSITION:
-            prop->setText( STRPOSITION );
+            prop = m_model->findItems( STRPOSITION, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case COLOR:
-            prop->setText( STRCOLOR );
+            prop = m_model->findItems( STRCOLOR, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case BACKGROUNDCOLOR:
-            prop->setText( STRBACKGROUND );
+            prop = m_model->findItems( STRBACKGROUND, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case ENABLED:
-            prop->setText( STRENABLED );
+            prop = m_model->findItems( STRENABLED, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case TEXT:
-            prop->setText( STRTEXT );
+            prop = m_model->findItems( STRTEXT, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case ICON:
-            prop->setText( STRICON );
+            prop = m_model->findItems( STRICON, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case TOOLTIP:
-            prop->setText( STRTOOLTIP );
+            prop = m_model->findItems( STRTOOLTIP, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case TOOLTIPDURATION:
-            prop->setText( STRTOOLTIPDURATION );
+            prop = m_model->findItems( STRTOOLTIPDURATION, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case CURSOR:
-            prop->setText( STRCURSOR );
+            prop = m_model->findItems( STRCURSOR, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
 
         case OPACITY:
-            prop->setText( STROPACITY );
+            prop = m_model->findItems( STROPACITY, Qt::MatchExactly, PROPERTIECOL )[0];
+            value = m_model->item( prop->row(), prop->column() + 1 );
             break;
         }
 
         prop->setEditable( false );
 
         value->setText( iterElements.value() );
-
-        list.append( prop );
-        list.append( value );
-
-        m_model->appendRow( list );
     }
 
     view->setModel( m_model );
@@ -341,5 +350,23 @@ aktuellesElement::changedItem(
 
         m_element.properties.remove( toRemove );
         m_element.properties.insert( toRemove, item->text() );
+    }
+}
+
+void
+aktuellesElement::fillObjectinspector(
+        void )
+{
+    propertyReader * prop = propertyReader::getInstance();
+
+    QList<Qualities> list = prop->getProperties( m_element.elementtype );
+
+    for( int i = 0; i < list.size(); ++i ) {
+
+        QStandardItem * item = new QStandardItem( list[i].name() );
+
+        item->setEditable( false );
+
+        m_model->appendRow( QList<QStandardItem *>() << item << new QStandardItem() );
     }
 }

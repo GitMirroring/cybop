@@ -34,7 +34,9 @@ SOURCES += main.cpp\
     cybolwriter.cpp \
     propertyconverter.cpp \
     border.cpp \
-    widget.cpp
+    widget.cpp \
+    propertyreader.cpp \
+    qualities.cpp
 
 HEADERS  += cybolmainwindow.h \
     cybolreader.h \
@@ -57,7 +59,9 @@ HEADERS  += cybolmainwindow.h \
     cybolwriter.h \
     propertyconverter.h \
     border.h \
-    widget.h
+    widget.h \
+    propertyreader.h \
+    qualities.h
 
 FORMS    += cybolmainwindow.ui
 

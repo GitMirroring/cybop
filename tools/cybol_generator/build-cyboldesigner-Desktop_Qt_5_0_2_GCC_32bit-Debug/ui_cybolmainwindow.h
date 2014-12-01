@@ -72,6 +72,7 @@ public:
         QIcon icon;
         icon.addFile(QStringLiteral(":/icons/icons/logo.ico"), QSize(), QIcon::Normal, QIcon::Off);
         CybolMainWindow->setWindowIcon(icon);
+        CybolMainWindow->setUnifiedTitleAndToolBarOnMac(false);
         action_Neu = new QAction(CybolMainWindow);
         action_Neu->setObjectName(QStringLiteral("action_Neu"));
         QIcon icon1;
@@ -225,7 +226,7 @@ public:
         CybolMainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(CybolMainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 895, 21));
+        menuBar->setGeometry(QRect(0, 0, 895, 25));
         menu_Datein = new QMenu(menuBar);
         menu_Datein->setObjectName(QStringLiteral("menu_Datein"));
         menu_Bearbeiten = new QMenu(menuBar);
@@ -247,7 +248,7 @@ public:
         CybolMainWindow->setStatusBar(statusBar);
         widgetbox = new QDockWidget(CybolMainWindow);
         widgetbox->setObjectName(QStringLiteral("widgetbox"));
-        widgetbox->setMinimumSize(QSize(146, 38));
+        widgetbox->setMinimumSize(QSize(146, 41));
         QPalette palette1;
         palette1.setBrush(QPalette::Active, QPalette::Base, brush6);
         palette1.setBrush(QPalette::Active, QPalette::Window, brush6);
@@ -265,7 +266,7 @@ public:
         CybolMainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), widgetbox);
         objectinspector = new QDockWidget(CybolMainWindow);
         objectinspector->setObjectName(QStringLiteral("objectinspector"));
-        objectinspector->setMinimumSize(QSize(146, 38));
+        objectinspector->setMinimumSize(QSize(146, 41));
         objectinspector->setAllowedAreas(Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea);
         contentObjectInspector = new QWidget();
         contentObjectInspector->setObjectName(QStringLiteral("contentObjectInspector"));
