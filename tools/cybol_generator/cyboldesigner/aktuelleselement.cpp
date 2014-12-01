@@ -187,9 +187,11 @@ aktuellesElement::showObjectInspector(
         QStandardItem * prop;
         QStandardItem * value;
 
+        QList<QStandardItem *> list;
         switch( iterElements.key() ) {
         case SHAPE:
-            prop = m_model->findItems( STRSHAPE, Qt::MatchExactly, PROPERTIECOL )[0];
+            list = m_model->findItems( STRSHAPE, Qt::MatchExactly, PROPERTIECOL );
+            prop = list[0];
             value = m_model->item( prop->row(), prop->column() + 1);
 
             value->setEditable( false );
@@ -249,6 +251,10 @@ aktuellesElement::showObjectInspector(
             prop = m_model->findItems( STROPACITY, Qt::MatchExactly, PROPERTIECOL )[0];
             value = m_model->item( prop->row(), prop->column() + 1 );
             break;
+
+        default:
+            prop = new QStandardItem();
+            value = new QStandardItem();
         }
 
         prop->setEditable( false );
@@ -278,7 +284,6 @@ aktuellesElement::changedItem(
         if( prop->text().compare( STRSIZE, Qt::CaseInsensitive ) == 0 ) {
             toRemove = SIZE;
 
-            QMessageBox::information( 0, "", item->text(), QMessageBox::Ok );
             if( !item->text().contains( QRegExp( "^\\d+,\\d+$" ) ) ) {
                 item->setText( m_element.properties.value( toRemove ) );
             }
@@ -364,9 +369,10 @@ aktuellesElement::fillObjectinspector(
     for( int i = 0; i < list.size(); ++i ) {
 
         QStandardItem * item = new QStandardItem( list[i].name() );
+        QStandardItem * value = new QStandardItem( list[i].defValue() );
 
         item->setEditable( false );
 
-        m_model->appendRow( QList<QStandardItem *>() << item << new QStandardItem() );
+        m_model->appendRow( QList<QStandardItem *>() << item << value );
     }
 }

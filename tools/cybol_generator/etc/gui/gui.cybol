@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><model>
+    <part name="window" channel="inline" format="text/plain" model="window.cybol">
+        <property name="layout" channel="inline" format="text/plain" model="absolute"/>
+        <property name="shape" channel="inline" format="text/plain" model="window.cybol"/>
+        <property name="size" channel="inline" format="number/integer" model="600,400"/>
+        <property name="position" channel="inline" format="number/integer" model="30,30"/>
+        <property name="colour" channel="inline" format="colour/rgb" model="255,0,0"/>
+        <property name="background-colour" channel="inline" format="colour/rgb" model="255,255,255"/>
+        <property name="text" channel="inline" format="text/plain" model="GUI Example"/>
+        <property name="icon" channel="file" format="" model="Iconised GUI Example"/>
+    </part>
+</model>

@@ -11,6 +11,7 @@
 #include "displaywindow.h"
 #include "rectangle.h"
 #include "window.h"
+#include "propertyconverter.h"
 
 // DisplayWindow::DisplayWindow ***************************************************************************************
 //
@@ -149,6 +150,8 @@ DisplayWindow::createWindow(
 
     PROPERS pro;
 
+    element.name = key;
+
     for( iterWidgets = widgets.begin(); iterWidgets != widgets.end(); ++iterWidgets ) {
         properties prop = iterWidgets.value();
 
@@ -158,8 +161,8 @@ DisplayWindow::createWindow(
             keyFound = true;
         }
 
-        if( !prop.property ) {
-            element.name = prop.name;
+        if( ( prop.name.compare( "shape", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = SHAPE;
         }
 
         if( ( prop.name == "text" ) && prop.property ) {
@@ -183,7 +186,7 @@ DisplayWindow::createWindow(
             pro = POSITION;
         }
 
-        if( ( prop.name == "background-color" ) && prop.property ) {
+        if( ( prop.name == "background-colour" ) && prop.property ) {
             RGB bgcolor = colorReader::getRGB( prop.model );
 
             QPalette palette = m_mainWindow->m_window->palette();
@@ -194,7 +197,7 @@ DisplayWindow::createWindow(
             pro = BACKGROUNDCOLOR;
         }
 
-        if( (prop.name == "foreground-color" ) && prop.property ) {
+        if( (prop.name == "colour" ) && prop.property ) {
             RGB fgcolor = colorReader::getRGB( prop.model );
 
             QPalette palette = m_mainWindow->m_window->palette();
@@ -205,9 +208,81 @@ DisplayWindow::createWindow(
             pro = COLOR;
         }
 
+        if( ( prop.name.compare( "enabled", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = ENABLED;
+        }
+
+        if( ( prop.name.compare( "visible", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = VISIBLE;
+        }
+
+        if( ( prop.name.compare( "tooltip", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = TOOLTIP;
+        }
+
+        if( ( prop.name.compare( "tooltip-duration", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = TOOLTIPDURATION;
+        }
+
+        if( ( prop.name.compare( "cursor", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = CURSOR;
+        }
+
+        if( ( prop.name.compare( "opacity", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = OPACITY;
+        }
+
+        if( ( prop.name.compare( "margin", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = MARGIN;
+        }
+
+        if( ( prop.name.compare( "padding", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = PADDING;
+        }
+
+        if( ( prop.name.compare( "font", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = FONT;
+        }
+
+        if( ( prop.name.compare( "horizontal-alignment", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = HORIZONTALALIGN;
+        }
+
+        if( ( prop.name.compare( "vertical-alignment", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = VERTICALALIGN;
+        }
+
+        if( ( prop.name.compare( "border", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = BORDER;
+        }
+
+        if( ( prop.name.compare( "border-top", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = BORDERTOP;
+        }
+
+        if( ( prop.name.compare( "border-bottom", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = BORDERBOTTOM;
+        }
+
+        if( ( prop.name.compare( "border-left", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = BORDERLEFT;
+        }
+
+        if( ( prop.name.compare( "border-right", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = BORDERRIGHT;
+        }
+
+        if( ( prop.name.compare( "icon", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = ICON;
+        }
+
+        if( ( prop.name.compare( "layout", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
+            pro = LAYOUT;
+        }
+
         if( ( iterWidgets.key() != key ) && keyFound ) {
             break;
-        }        
+        }
 
         element.properties.insert( pro, prop.model );
     }
@@ -241,15 +316,19 @@ DisplayWindow::createButton(
         QMultiMap<QString, properties> widgets,
         QString & key ) {
     Button * button = new Button( m_mainWindow->m_window );
+
+    m_mainWindow->m_window->addChild( button );
     Elements element;
     element.elementtype = BUTTON;
     QMultiMap<QString, properties>::iterator iterWidgets;
 
     bool keyFound = false;
     QString xPos, yPos, width, height;
+    Size size;
 
-    PROPERS pro;
+    PROPERS pro;    
 
+    element.name = key;
     for( iterWidgets = widgets.begin(); iterWidgets != widgets.end(); ++iterWidgets ) {
         properties prop = iterWidgets.value();
 
@@ -257,11 +336,6 @@ DisplayWindow::createButton(
             continue;
         } else{
             keyFound = true;
-        }
-
-        //müsste der parttag sein
-        if( !prop.property ) {
-            element.name = prop.name;
         }
 
         if( ( prop.name.compare( "shape", Qt::CaseInsensitive ) == 0 ) && prop.property ) {
@@ -285,8 +359,9 @@ DisplayWindow::createButton(
         }
 
         if( ( prop.name == "size" ) && prop.property ) {
-            width = prop.model.left( prop.model.indexOf( "," ) );
-            height = prop.model.right( prop.model.indexOf( "," ) - 1 );
+
+            QString s = prop.model;
+            size = PropertyConverter::getSize( s );
 
             pro = SIZE;
         }
@@ -344,7 +419,7 @@ DisplayWindow::createButton(
         element.properties.insert( pro, prop.model );
     }
 
-    button->setGeometry( xPos.toInt(), yPos.toInt(), width.toInt(), height.toInt());
+    button->setGeometry( xPos.toInt(), yPos.toInt(), size.width, size.height );
 
     element.self = button;
     button->setElement( element );

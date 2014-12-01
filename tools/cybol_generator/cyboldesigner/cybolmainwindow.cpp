@@ -13,6 +13,7 @@
 #include "inireader.h"
 #include "cybolmainwindow.h"
 #include "ui_cybolmainwindow.h"
+#include "propertyreader.h"
 
 // CybolMainWindow::CybolMainWindow ***********************************************************************************
 //
@@ -30,7 +31,10 @@ CybolMainWindow::CybolMainWindow(QWidget *parent) :
 
     m_aktEle->setMainWindow( this );
     m_ui->setupUi(this);
-    iniReader::getInstance();
+    iniReader ini = iniReader::getInstance();
+
+    propertyReader * prop = propertyReader::getInstance();
+    prop->readFile( ini.getValue( "propFile" ) );
 
     int builded = buildWidgetBox();
 

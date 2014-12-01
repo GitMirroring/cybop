@@ -30,6 +30,9 @@ public:
 
 private:
     QString m_file;
+    QString m_newFilename;
+    bool m_new, m_close;
+    QFile file;
 };
 
 #endif // CYBOLWRITER_H

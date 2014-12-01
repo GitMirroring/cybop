@@ -79,11 +79,7 @@
 		<property name="border" type="string" default="1 solid rgb(0,0,0)" >
 			<singlepro name="weight" type="int" default="1" />
 			<singlepro name="style" type="enumBorderstyle" default="solid" />
-		</property>
-		<property name="border-colour" type="string" default="0,0,0">
-			<singlepro name="red" type="int" default="0" />
-			<singlepro name="green" type="int" default="0" />
-			<singlepro name="blue" type="int" default="0" />
+			<singlepro name="colour" type="color" default="0,0,0" />
 		</property>
 		<property name="border-top" type="string" default="1 solid rgb(0,0,0)">
 			<singlepro name="weight" type="int" default="1" />
@@ -108,7 +104,8 @@
 	</propertygroup>
 
 	<propertygroup name="Window">
-		<propertya name="icon" type="image" default="" />
+		<property name="icon" type="image" default="" />
+		<property name="layout" type="image" default="absolute" />
 	</propertygroup>	
 
 	<propertygroup name="Label">

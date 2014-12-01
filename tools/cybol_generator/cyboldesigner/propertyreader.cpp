@@ -49,8 +49,6 @@ propertyReader::readFile(
 
     QXmlStreamReader xml(xmlfile);
 
-    QString key;
-
     while( !xml.atEnd() && !xml.hasError() ) {
         QXmlStreamReader::TokenType token = xml.readNext();
 
@@ -59,7 +57,7 @@ propertyReader::readFile(
         }
 
         if( token == QXmlStreamReader::StartElement ) {
-            if( xml.name() == "propertyGroup" ) {
+            if( xml.name() == "propertygroup" ) {
                 readPropertyGroup( xml );
             }
 

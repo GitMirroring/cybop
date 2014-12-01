@@ -18,6 +18,8 @@ public:
     explicit Button( QWidget * parent = 0 );
     explicit Button( QString & text, QWidget *parent = 0 );
 
+    QObject * self();
+
 private:
     QPoint m_offset;
 

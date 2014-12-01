@@ -1,4 +1,5 @@
 #include "aktuelleselement.h"
+#include "propertyconverter.h"
 
 #include "button.h"
 
@@ -71,6 +72,7 @@ Button::mouseReleaseEvent(
 void
 Button::resizeEvent(
         QResizeEvent *e ) {
+    int height = m_element.self->height();
 
     m_element.properties.find( SIZE ).value() = QString::number( this->width() ) + "," + QString::number( this->height() );
     m_element.properties.find( POSITION ).value() = QString::number( this->x() ) + "," + QString::number( this->y() );

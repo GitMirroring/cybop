@@ -1,18 +1,31 @@
 #ifndef VARIABLES_H
 #define VARIABLES_H
 
-#define STRSHAPE "Shape"
-#define STRSIZE "Size"
-#define STRPOSITION "Position"
-#define STRCOLOR "Color"
-#define STRBACKGROUND "Background-Colour"
-#define STRENABLED "Enabled"
-#define STRTEXT "Text"
-#define STRICON "Icon"
-#define STRTOOLTIP "ToolTip"
-#define STRTOOLTIPDURATION "ToolTip Duration"
-#define STRCURSOR "Cursor"
-#define STROPACITY "Opacity"
+#define STRSHAPE            "shape"
+#define STRSIZE             "size"
+#define STRPOSITION         "position"
+#define STRCOLOR            "colour"
+#define STRBACKGROUND       "background-colour"
+#define STRENABLED          "enabled"
+#define STRTEXT             "text"
+#define STRICON             "icon"
+#define STRTOOLTIP          "tooltip"
+#define STRTOOLTIPDURATION  "tooltipduration"
+#define STRCURSOR           "cursor"
+#define STROPACITY          "opacity"
+#define STRVISIBLE          "visible"
+#define STRMARGIN           "margin"
+#define STRPADDING          "padding"
+#define STRFONT             "font"
+#define STRHORALIGN         "horizontal-alignment"
+#define STRVERALIGN         "vertical-alignment"
+#define STRORIENTATION      "orientation"
+#define STRBORDER           "border"
+#define STRBORDERTOP        "border-top"
+#define STRBORDERLEFT       "border-left"
+#define STRBORDERRIGHT      "border-right"
+#define STRBORDERBOTTOM     "border-bottom"
+#define STRLAYOUT           "layout"
 
 #include <QWidget>
 #include <QMap>
@@ -78,6 +91,7 @@ struct Tooltip{
 };
 
 enum PROPERS {
+    LAYOUT,
     SHAPE,
     SIZE,
     POSITION,
@@ -101,6 +115,7 @@ enum PROPERS {
     BORDERTOP,
     BORDERBOTTOM,
     BORDERLEFT,
+    BORDERRIGHT,
     NUMBERSONLY,
     READONLY,
     PASSWORDCHAR,

@@ -36,6 +36,7 @@ iniReader::readValues(
 
     settings.beginGroup( "Default" );
     m_values.insert( "elementsFile", qvariant_cast<QString>( settings.value( "elementsFile" ) ) );
+    m_values.insert( "propFile", qvariant_cast<QString>( settings.value( "propertieFile" ) ) );
 }
 
 // iniReader::getValue ************************************************************************************************

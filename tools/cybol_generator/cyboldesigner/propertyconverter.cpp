@@ -8,7 +8,7 @@ PropertyConverter::getSize(
         QString &size )
 {
     QString width = size.left( size.indexOf( "," ) );
-    QString height = size.right( size.indexOf( "," ) );
+    QString height = size.right( size.indexOf( "," ) - 1);
 
     Size conSize;
     conSize.width = width.toInt();

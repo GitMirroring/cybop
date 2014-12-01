@@ -2,6 +2,7 @@
 #define WIDGET_H
 
 #include <QObject>
+#include <QList>
 
 #include "variables.h"
 
@@ -12,8 +13,15 @@ public:
     void setElement( Elements element );
     Elements element( void );
 
+    void addChild(Widget *child );
+    int removeChild( Widget * child );
+    QList< Widget * > children( void );
+    bool hasChild( void );
+
 protected:
     Elements m_element;
+    QList< Widget * > m_child;
+    bool m_hasChilds;
 
 signals:
 
