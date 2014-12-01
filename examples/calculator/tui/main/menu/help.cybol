@@ -6,53 +6,53 @@
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
         <property name="foreground" channel="inline" format="colour/terminal" model="red"/>
     </part>
-    <part name="direct" channel="inline" format="text/plain" model="direct number - input">
+    <part name="direct" channel="inline" format="text/plain" model="direct number   - input">
         <property name="position" channel="inline" format="number/integer" model="2,5"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
     <part name="direct" channel="inline" format="text/plain" model="direct operator - calculate">
         <property name="position" channel="inline" format="number/integer" model="2,7"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="arrow" channel="inline" format="text/plain" model="arrow keys - move focus">
+    <part name="arrow" channel="inline" format="text/plain" model="arrow keys      - move focus">
         <property name="position" channel="inline" format="number/integer" model="2,9"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="enter" channel="inline" format="text/plain" model="<enter> - input">
+    <part name="enter" channel="inline" format="text/plain" model="<enter>         - input">
         <property name="position" channel="inline" format="number/integer" model="2,11"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="about" channel="inline" format="text/plain" model="<a> - show about info">
+    <part name="about" channel="inline" format="text/plain" model="<a>             - show about info">
         <property name="position" channel="inline" format="number/integer" model="2,13"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="exit" channel="inline" format="text/plain" model="<e> - exit">
+    <part name="exit" channel="inline" format="text/plain" model="<e>             - exit">
         <property name="position" channel="inline" format="number/integer" model="2,15"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-    <part name="reset" channel="inline" format="text/plain" model="<esc> - reset number">
+    <part name="reset" channel="inline" format="text/plain" model="<esc>           - reset number">
         <property name="position" channel="inline" format="number/integer" model="2,17"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
-	<part name="negate" channel="inline" format="text/plain" model="<n> - negate (+/-)">
+	<part name="negate" channel="inline" format="text/plain" model="<n>             - negate (+/-)">
         <property name="position" channel="inline" format="number/integer" model="2,19"/>
         <property name="size" channel="inline" format="number/integer" model="20,1"/>
         <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </part>
 
 </model>
