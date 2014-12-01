@@ -23,25 +23,24 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BIND_BSD_SOCKET_STARTER_SOURCE
-#define BIND_BSD_SOCKET_STARTER_SOURCE
+#ifndef BIND_WINSOCK_STARTER_SOURCE
+#define BIND_WINSOCK_STARTER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
+#include <winsock2.h>
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Binds the address to the bsd socket.
+ * Binds the address to the socket.
  *
  * @param p0 the error flag
  * @param p1 the socket
  * @param p2 the address data
  * @param p3 the address size
  */
-void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
+void startup_winsock_bind(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,7 +54,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
 
                 int* s = (int*) p1;
 
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind.");
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock bind.");
 
                 // Initialise error number.
                 // It is a global variable/ function and other operations
@@ -67,7 +66,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
 
                 int r = bind(*s, ad, *as);
 
-fwprintf(stdout, L"TEST: startup bsd socket bind s: %i \n", *s);
+fwprintf(stdout, L"TEST: startup winsock bind s: %i \n", *s);
 sleep(2);
 
                 if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -80,49 +79,49 @@ sleep(2);
 
                     if (errno == EBADF) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The socket argument is not a valid file descriptor.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The socket argument is not a valid file descriptor.");
 
                     } else if (errno == ENOTSOCK) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The descriptor socket is not a socket.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The descriptor socket is not a socket.");
 
                     } else if (errno == EADDRNOTAVAIL) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The specified address is not available on this machine.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The specified address is not available on this machine.");
 
                     } else if (errno == EADDRINUSE) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The specified address is already used by some other socket.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The specified address is already used by some other socket.");
 
                     } else if (errno == EINVAL) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The socket socket already has an address.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The socket socket already has an address.");
 
                     } else if (errno == EACCES) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. An unknown error occured while binding the socket to the address.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An unknown error occured while binding the socket to the address.");
                     }
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The socket is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The socket is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The address data is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The address size is null.");
     }
 }
 
-/* BIND_BSD_SOCKET_STARTER_SOURCE */
+/* BIND_WINSOCK_STARTER_SOURCE */
 #endif

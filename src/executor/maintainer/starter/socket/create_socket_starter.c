@@ -53,6 +53,16 @@ void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket create.");
 
 #ifdef __APPLE__
+    // Nothing to be done here.
+#elif WIN32
+    startup_winsock_initialise();
+#elif GNU_LINUX_OPERATING_SYSTEM
+    // Nothing to be done here.
+#else
+    // Nothing to be done here.
+#endif
+
+#ifdef __APPLE__
     startup_bsd_socket_create(p0, p1, p2, p3);
 #elif WIN32
     startup_winsock_create(p0, p1, p2, p3);

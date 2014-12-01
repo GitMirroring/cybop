@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROTOCOL_BSD_SOCKET_STARTER_SOURCE
-#define PROTOCOL_BSD_SOCKET_STARTER_SOURCE
+#ifndef PROTOCOL_SOCKET_STARTER_SOURCE
+#define PROTOCOL_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
@@ -43,9 +43,9 @@
  * @param p1 the protocol data
  * @param p2 the protocol count
  */
-void startup_bsd_socket_protocol(void* p0, void* p1, void* p2) {
+void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket protocol.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket protocol.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -92,9 +92,9 @@ void startup_bsd_socket_protocol(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket protocol. The protocol is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket protocol. The protocol is not known.");
     }
 }
 
-/* PROTOCOL_BSD_SOCKET_STARTER_SOURCE */
+/* PROTOCOL_SOCKET_STARTER_SOURCE */
 #endif

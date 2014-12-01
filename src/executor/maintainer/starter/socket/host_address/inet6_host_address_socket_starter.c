@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INET6_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
-#define INET6_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#ifndef INET6_HOST_ADDRESS_SOCKET_STARTER_SOURCE
+#define INET6_HOST_ADDRESS_SOCKET_STARTER_SOURCE
 
 #include <netinet/in.h>
 
@@ -51,7 +51,7 @@
  * @param p1 the host address data
  * @param p2 the host address count
  */
-void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
+void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -60,7 +60,7 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
         // accessed via a union in a variety of ways.
         struct in6_addr* a = (struct in6_addr*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket host address inet6.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket host address inet6.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -166,9 +166,9 @@ void startup_bsd_socket_host_address_inet6(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet6. The inet6 host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket host address inet6. The inet6 host address is null.");
     }
 }
 
-/* INET6_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
+/* INET6_HOST_ADDRESS_SOCKET_STARTER_SOURCE */
 #endif

@@ -28,12 +28,17 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../../logger/logger.c"
+
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/shutter/bsd_socket/bsd_socket_shutter.c"
+#elif WIN32
+    #include "../../../../executor/maintainer/shutter/winsock/winsock_shutter.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/shutter/bsd_socket/bsd_socket_shutter.c"
+#else
+    #include "../../../../executor/maintainer/shutter/bsd_socket/bsd_socket_shutter.c"
+#endif
 
 /**
  * Shuts down the socket service.
@@ -47,8 +52,15 @@
  */
 void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
 
-    // Close socket.
-//??    close(*s);
+#ifdef __APPLE__
+    shutdown_bsd_socket(p0, p1, p2, p3);
+#elif WIN32
+    shutdown_winsock(p0, p1, p2, p3);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    shutdown_bsd_socket(p0, p1, p2, p3);
+#else
+    shutdown_bsd_socket(p0, p1, p2, p3);
+#endif
 }
 
 /* SOCKET_SHUTTER_SOURCE */

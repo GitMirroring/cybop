@@ -26,23 +26,18 @@
 #ifndef INITIALISE_WINSOCK_STARTER_SOURCE
 #define INITIALISE_WINSOCK_STARTER_SOURCE
 
+#include <winsock2.h>
+
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
-
-/*??
-#include <stdio.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-*/
 
 /**
  * Initialises the winsock.
  *
  * @param p0 the internal memory data
  */
-void startup_winsock_initialise(void* p0) {
+void startup_winsock_initialise() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock initialise.");
 

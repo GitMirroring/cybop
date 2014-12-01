@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
-#define INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#ifndef INET_HOST_ADDRESS_SOCKET_STARTER_SOURCE
+#define INET_HOST_ADDRESS_SOCKET_STARTER_SOURCE
 
 #include <arpa/inet.h>
 
@@ -51,7 +51,7 @@
  * @param p1 the host address data
  * @param p2 the host address count
  */
-void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
+void startup_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -61,7 +61,7 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
         // records the host address number as an uint32_t.
         struct in_addr* a = (struct in_addr*) p0;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket host address inet.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket host address inet.");
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -158,9 +158,9 @@ void startup_bsd_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket host address inet. The inet host address is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket host address inet. The inet host address is null.");
     }
 }
 
-/* INET_HOST_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
+/* INET_HOST_ADDRESS_SOCKET_STARTER_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef FAMILY_BSD_SOCKET_STARTER_SOURCE
-#define FAMILY_BSD_SOCKET_STARTER_SOURCE
+#ifndef FAMILY_SOCKET_STARTER_SOURCE
+#define FAMILY_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
@@ -44,9 +44,9 @@
  * @param p2 the family data
  * @param p3 the family count
  */
-void startup_bsd_socket_family(void* p0, void* p1, void* p2, void* p3) {
+void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket family.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket family.");
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -108,9 +108,9 @@ void startup_bsd_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket family. The family is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket family. The family is not known.");
     }
 }
 
-/* FAMILY_BSD_SOCKET_STARTER_SOURCE */
+/* FAMILY_SOCKET_STARTER_SOURCE */
 #endif

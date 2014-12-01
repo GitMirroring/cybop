@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EXISTING_SERVER_BSD_SOCKET_STARTER_SOURCE
-#define EXISTING_SERVER_BSD_SOCKET_STARTER_SOURCE
+#ifndef EXISTING_SERVER_SOCKET_STARTER_SOURCE
+#define EXISTING_SERVER_SOCKET_STARTER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Starts up bsd socket in server mode.
+ * Starts up socket in server mode.
  *
  * @param p0 the socket
  * @param p1 the socket address data
@@ -39,9 +39,9 @@
  * @param p3 the communication style
  * @param p4 the connexions (number of possible pending client requests)
  */
-void startup_bsd_socket_server_existing(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_socket_server_existing(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket server existing.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server existing.");
 
     // The socket.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -59,13 +59,20 @@ void startup_bsd_socket_server_existing(void* p0, void* p1, void* p2, void* p3, 
 
         // Only create socket if not existent.
 
-        startup_bsd_socket_server();
+        startup_socket_server((void*) &s, ...);
+
+        // Store socket in internal memory.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the internal array's count and size are CONSTANT.
+        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket server existing. The socket at the given internal memory base (port) already exists.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server existing. The socket already exists in internal memory.");
     }
 }
 
-/* EXISTING_SERVER_BSD_SOCKET_STARTER_SOURCE */
+/* EXISTING_SERVER_SOCKET_STARTER_SOURCE */
 #endif

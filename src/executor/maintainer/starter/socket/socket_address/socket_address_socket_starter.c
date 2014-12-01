@@ -23,18 +23,18 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
-#define SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#ifndef SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#define SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../executor/maintainer/starter/bsd_socket/inet_host_address_bsd_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/bsd_socket/inet_socket_address_bsd_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/bsd_socket/inet6_host_address_bsd_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/bsd_socket/inet6_socket_address_bsd_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/bsd_socket/local_socket_address_bsd_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/inet_host_address_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/inet_socket_address_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/inet6_host_address_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/inet6_socket_address_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/local_socket_address_socket_starter.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -49,7 +49,7 @@
  * @param p6 the port
  * @param p7 the address family (namespace)
  */
-void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -59,7 +59,7 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
 
             void** ad = (void**) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket socket address.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address.");
 
             // The comparison result.
             int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -109,7 +109,7 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Get host address.
                     // CAUTION! The returned host address
                     // is already in network byte order.
-                    startup_bsd_socket_host_address_inet((void*) &ha, p4, p5);
+                    startup_socket_host_address_inet((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
                     calculate_integer_add(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
@@ -144,7 +144,7 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Initialise socket address.
                     // CAUTION! The forwarded host address
                     // is already in network byte order.
-                    startup_bsd_socket_socket_address_inet(*ad, (void*) &ha, p6);
+                    startup_socket_socket_address_inet(*ad, (void*) &ha, p6);
                 }
             }
 
@@ -185,7 +185,7 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Get host address.
                     // CAUTION! The returned host address
                     // is already in network byte order.
-                    startup_bsd_socket_host_address_inet6((void*) &ha, p4, p5);
+                    startup_socket_host_address_inet6((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
                     calculate_integer_add(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
@@ -220,7 +220,7 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     // Initialise socket address.
                     // CAUTION! The forwarded host address
                     // is already in network byte order.
-                    startup_bsd_socket_socket_address_inet6(*ad, (void*) &ha, p6);
+                    startup_socket_socket_address_inet6(*ad, (void*) &ha, p6);
                 }
             }
 
@@ -289,25 +289,25 @@ void startup_bsd_socket_socket_address(void* p0, void* p1, void* p2, void* p3, v
                     memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
 
                     // Initialise address.
-                    startup_bsd_socket_socket_address_local(*ad, p2, p3);
+                    startup_socket_socket_address_local(*ad, p2, p3);
                 }
             }
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address. The address family is unknown.");
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address. The address family is unknown.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address. The address data is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address. The address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address. The address size is null.");
     }
 }
 
-/* SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
+/* SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CREATE_SOCKET_STARTER_SOURCE
-#define CREATE_SOCKET_STARTER_SOURCE
+#ifndef CREATE_BSD_SOCKET_STARTER_SOURCE
+#define CREATE_BSD_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 #include <errno.h>
@@ -132,5 +132,5 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* CREATE_SOCKET_STARTER_SOURCE */
+/* CREATE_BSD_SOCKET_STARTER_SOURCE */
 #endif

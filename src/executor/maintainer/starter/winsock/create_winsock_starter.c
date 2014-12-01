@@ -26,7 +26,7 @@
 #ifndef CREATE_WINSOCK_STARTER_SOURCE
 #define CREATE_WINSOCK_STARTER_SOURCE
 
-#include <winsock.h>
+#include <winsock2.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -36,7 +36,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Create winsock.
+ * Create socket.
  *
  * @param p0 the socket
  * @param p1 the protocol family (socket namespace)

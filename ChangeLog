@@ -21,6 +21,7 @@
 2014-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use standard glibc "rand" function instead of BSD's "random", since the latter is not supported by mingw and win32
+        * Sort socket files into one of the directories "socket", "bsd_socket", "winsock"
 
 2014-11-30  Christian Heller  <christian.heller@tuxtax.de>
 

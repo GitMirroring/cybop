@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STYLE_BSD_SOCKET_STARTER_SOURCE
-#define STYLE_BSD_SOCKET_STARTER_SOURCE
+#ifndef STYLE_SOCKET_STARTER_SOURCE
+#define STYLE_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
@@ -43,9 +43,9 @@
  * @param p1 the style data
  * @param p2 the style count
  */
-void startup_bsd_socket_style(void* p0, void* p1, void* p2) {
+void startup_socket_style(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket style.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket style.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -82,9 +82,9 @@ void startup_bsd_socket_style(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket style. The style is not known.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The style is not known.");
     }
 }
 
-/* STYLE_BSD_SOCKET_STARTER_SOURCE */
+/* STYLE_SOCKET_STARTER_SOURCE */
 #endif

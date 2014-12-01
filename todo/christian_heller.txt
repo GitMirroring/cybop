@@ -14,8 +14,16 @@
 WUI
 ___
 
-        * Copy/move/delete socket files in socket/bsd_socket/winsock
-        * Clean up socket files
+        DONE: preprocessor header constants
+
+        * Add includes in all socket functions
+        * Add ifdefs for operating system in startup/shutdown in directory "socket/"
+        * Build in special error codes for winsock; if not existent, then winsock and bsd may be merged, e.g. "connect"
+        * Adapt parametres in all socket functions
+        * Store socket and possibly addresses etc. in internal memory
+        * Deallocate socket properly; had addresses etc. only been used as local variables? and already got deallocated when leaving the corresponding startup function?
+        * Reactivate socket in file "starter.c"
+        * Uncomment socket in file "controller/manager.c"
 
         * Continue thinking: Add socket data to internal memory by dynamically extending it?
             One socket per port is possible, not more.
@@ -31,11 +39,6 @@ ___
             server sockets are stored in internal memory;
             client sockets NOT -- they have to be stored in the corresponding cybol application
         * Implement session on application level (e.g. in Res Medicinae)
-
-        * See "wolf_-_c_von_a_bis_z" for platform independence
-        * Reactivate socket in file "starter.c"
-        * Deallocate socket properly; addresses etc. had only been used as local variables and already got deallocated when leaving the corresponding startup function
-        * Prepare using winsock2
 
         * Reactivate send/receive functionality: hint from "wolf_-_c_von_a_bis_z" for UDP connexion:
             "Sollten Sie bei einer UDP-Verbindung die connect()-Funktion verwenden,

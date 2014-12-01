@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LOCAL_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
-#define LOCAL_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE
+#ifndef LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
+#define LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -37,7 +37,7 @@
  * @param p1 the filename data
  * @param p2 the filename count
  */
-void startup_bsd_socket_socket_address_local(void* p0, void* p1, void* p2) {
+void startup_socket_socket_address_local(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -54,7 +54,7 @@ void startup_bsd_socket_socket_address_local(void* p0, void* p1, void* p2) {
                 // Therefore, a cast to void* is done here instead.
                 void* a = (void*) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket socket address local.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local.");
 
                 // Determine position of namespace
                 // ("sun_family" field within the "sockaddr_un" structure).
@@ -110,24 +110,24 @@ void startup_bsd_socket_socket_address_local(void* p0, void* p1, void* p2) {
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address local. The socket file name is longer than the limit 108, as set by the gnu c library.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The socket file name is longer than the limit 108, as set by the gnu c library.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address local. The socket address is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The socket address is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address local. The file name is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The file name is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket socket address local. The file name count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The file name count is null.");
     }
 }
 
-/* LOCAL_SOCKET_ADDRESS_BSD_SOCKET_STARTER_SOURCE */
+/* LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE */
 #endif

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CLIENT_BSD_SOCKET_STARTER_SOURCE
-#define CLIENT_BSD_SOCKET_STARTER_SOURCE
+#ifndef CLIENT_SOCKET_STARTER_SOURCE
+#define CLIENT_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
 
@@ -33,7 +33,7 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Starts up bsd socket in client mode.
+ * Starts up socket in client mode.
  *
  * @param p0 the socket
  * @param p1 the filename data
@@ -48,9 +48,9 @@
  * @param p10 the family data
  * @param p11 the family count
  */
-void startup_bsd_socket_mode_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket mode client.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client.");
 
     // The protocol family (socket namespace).
     // By default, its value is set to: PF_INET6
@@ -71,24 +71,31 @@ void startup_bsd_socket_mode_client(void* p0, void* p1, void* p2, void* p3, void
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get protocol- and address family.
-    startup_bsd_socket_family((void*) &pf, (void*) &af, p10, p11);
+    startup_socket_family((void*) &pf, (void*) &af, p10, p11);
     // Get socket communication style.
-    startup_bsd_socket_style((void*) &st, p8, p9);
+    startup_socket_style((void*) &st, p8, p9);
     // Get socket protocol.
-    startup_bsd_socket_protocol((void*) &p, p6, p7);
+    startup_socket_protocol((void*) &p, p6, p7);
 
     // Create socket.
-    startup_bsd_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
+    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
 
     // Initialise socket address depending on family.
     // CAUTION! Hand over address data as pointer reference,
     // since it gets allocated inside the function and
     // has to be preserved as return value.
-    startup_bsd_socket_socket_address((void*) &ad, (void*) &as, p1, p2, p3, p4, p5, (void*) &af);
+    startup_socket_socket_address((void*) &ad, (void*) &as, p1, p2, p3, p4, p5, (void*) &af);
+
+    // CAUTION! The "select" function was NOT used to make
+    // this socket non-blocking, because it has some overhead
+    // in that other sockets need to be considered and
+    // their file descriptors handed over as argument.
+    // If nonblocking mode is necessary, then using a thread
+    // is considered to be a more simple and clean solution here.
 
     // Connect via socket with server.
-    startup_bsd_socket_client_connect(p0, ad, (void*) &as);
+    startup_socket_client_connect(p0, ad, (void*) &as);
 }
 
-/* CLIENT_BSD_SOCKET_STARTER_SOURCE */
+/* CLIENT_SOCKET_STARTER_SOURCE */
 #endif

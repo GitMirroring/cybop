@@ -23,15 +23,14 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LISTEN_SOCKET_STARTER_SOURCE
-#define LISTEN_SOCKET_STARTER_SOURCE
+#ifndef LISTEN_WINSOCK_STARTER_SOURCE
+#define LISTEN_WINSOCK_STARTER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
+#include <winsock2.h>
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Enable socket to accept connections, thus making it a server socket.
@@ -39,7 +38,7 @@
  * @param p0 the socket
  * @param p1 the connexions (number of possible pending client requests)
  */
-void startup_bsd_socket_listen(void* p0, void* p1) {
+void startup_winsock_listen(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -49,7 +48,7 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
 
             int* s = (int*) p0;
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket listen.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock listen.");
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -64,39 +63,39 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
             // pending client connection requests.
             int r = listen(*s, *c);
 
-            fwprintf(stdout, L"TEST: startup bsd socket listen s: %i \n", *s);
-            sleep(2);
+fwprintf(stdout, L"TEST: startup winsock listen s: %i \n", *s);
+sleep(2);
 
             if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 if (errno == EBADF) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The argument socket is not a valid file descriptor.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The argument socket is not a valid file descriptor.");
 
                 } else if (errno == ENOTSOCK) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The argument socket is not a socket.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The argument socket is not a socket.");
 
                 } else if (errno == EOPNOTSUPP) {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The socket does not support this operation.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The socket does not support this operation.");
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. An unknown error occured while listening at the socket.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. An unknown error occured while listening at the socket.");
                 }
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The socket is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The socket is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket listen. The connexions is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock listen. The connexions is null.");
     }
 }
 
-/* LISTEN_SOCKET_STARTER_SOURCE */
+/* LISTEN_WINSOCK_STARTER_SOURCE */
 #endif
