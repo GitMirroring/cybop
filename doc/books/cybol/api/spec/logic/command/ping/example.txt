@@ -1,0 +1,5 @@
+<part name="ping" channel="inline" format="command/ping" model="">
+    <property name="host" channel="inline" format="text/plain" model="www.google.com"/>
+    <property name="count" channel="inline" format="text/plain" model="5"/>
+    <property name="interface" channel="inline" format="text/plain" model="eth0"/>
+</part>

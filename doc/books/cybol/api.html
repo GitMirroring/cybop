@@ -3715,6 +3715,10 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;grep&#x22; channel=&#x22;inline&#x22; format=&#x22;command/grep&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;pattern&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;test&#x22;/&#x3E;
+    &#x3C;property name=&#x22;file&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;shell_command_grep/grep.txt&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -3944,6 +3948,11 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;part name=&#x22;ping&#x22; channel=&#x22;inline&#x22; format=&#x22;command/ping&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;host&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;www.google.com&#x22;/&#x3E;
+    &#x3C;property name=&#x22;count&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;5&#x22;/&#x3E;
+    &#x3C;property name=&#x22;interface&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;eth0&#x22;/&#x3E;
+&#x3C;/part&#x3E;
                             </p>
                         </div>
                         <div>
@@ -3995,7 +4004,7 @@
                                         false
                                     </td>
                                     <td>
-                                        number/integer
+                                        text/plain
                                     </td>
                                     <td>
                                     </td>

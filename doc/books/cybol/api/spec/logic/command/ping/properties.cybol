@@ -10,7 +10,7 @@
         <property name="name" channel="inline" format="text/plain" model="count"/>
         <property name="description" channel="inline" format="text/plain" model="count of ping packets to send"/>
         <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
     <part name="interface" channel="inline" format="text/plain" model="">
