@@ -21,7 +21,7 @@
 2014-11-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add protocol socket cybol model constants
-        * Continue bsd socket files
+        * Continue socket files for bsd and windows
 
 2014-11-29  Christian Heller  <christian.heller@tuxtax.de>
 

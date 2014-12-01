@@ -23,8 +23,10 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SOCKET_SHUTTER_SOURCE
-#define SOCKET_SHUTTER_SOURCE
+#ifndef WINSOCK_SHUTTER_SOURCE
+#define WINSOCK_SHUTTER_SOURCE
+
+#include <winsock.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -45,11 +47,22 @@
  * @param p2 the service thread interrupt
  * @param p3 the base internal
  */
-void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_winsock(void* p0, void* p1, void* p2, void* p3) {
 
     // Close socket.
-//??    close(*s);
+    //
+    // CAUTION! The winsock api provides this "closesocket" function.
+    // It does basically the same as the standard "close" function.
+    closesocket(SOCKET s);
+
+    // Cleanup winsock.
+    //
+    // This releases the link with libraries WS2_32.DLL and WINSOCK.DLL,
+    // by doing internal cleanups and decrementing a library reference counter.
+    //
+    // CAUTION! Do this only AFTER having closed the socket above.
+    WSACleanup();
 }
 
-/* SOCKET_SHUTTER_SOURCE */
+/* WINSOCK_SHUTTER_SOURCE */
 #endif

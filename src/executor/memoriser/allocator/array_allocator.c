@@ -116,8 +116,9 @@ void allocate_array(void* p0, void* p1, void* p2) {
 
                 // Initialise array elements.
                 //
-                // CAUTION! Initialising with zero values is essential, since
-                // cyboi frequently tests variables for null pointer values.
+                // CAUTION! Initialising with zero values is essential,
+                // since cyboi frequently tests variables for null pointer values.
+                // Otherwise, unpredictable pre-existing values might reside in memory.
                 //
                 // Whether the values will be interpreted as
                 // zero integer or zero float or null pointer or

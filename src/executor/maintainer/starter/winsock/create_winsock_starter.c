@@ -80,12 +80,12 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
                     if (*s < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                         // Get the calling thread's last-error code.
+                        // CAUTION! This function is the winsock substitute
+                        // for the Windows "GetLastError" function.
                         DWORD e = WSAGetLastError();
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The socket creation failed.");
                         log_windows_system_error((void*) &e);
-
-                        MessageBox(*NULL_POINTER_STATE_CYBOI_MODEL, "Socket Creation Failed!", "Error!", MB_ICONEXCLAMATION | MB_OK);
                     }
 
                 } else {
