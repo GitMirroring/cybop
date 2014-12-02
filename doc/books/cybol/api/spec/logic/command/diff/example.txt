@@ -1,0 +1,4 @@
+<part name="diff" channel="inline" format="command/diff" model="">
+    <property name="file1" channel="inline" format="text/plain" model="shell_command_diff\diff1.txt"/>
+    <property name="file2" channel="inline" format="text/plain" model="shell_command_diff\diff2.txt"/>
+</part>

@@ -177,6 +177,11 @@
                         </a>
                     </div>
                     <div class="part_toc">
+                        <a href="#diff">
+                            diff
+                        </a>
+                    </div>
+                    <div class="part_toc">
                         <a href="#echo-message">
                             echo-message
                         </a>
@@ -3402,6 +3407,96 @@
                                     </td>
                                     <td>
                                         path to the directory
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="diff">
+                            <h3>
+                                diff
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Compares two files.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                command/diff
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;part name=&#x22;diff&#x22; channel=&#x22;inline&#x22; format=&#x22;command/diff&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;property name=&#x22;file1&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;shell_command_diff\diff1.txt&#x22;/&#x3E;
+    &#x3C;property name=&#x22;file2&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;shell_command_diff\diff2.txt&#x22;/&#x3E;
+&#x3C;/part&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <table border="1" class="property_table">
+                                <tr>
+                                    <th>
+                                        name
+                                    </th>
+                                    <th>
+                                        description
+                                    </th>
+                                    <th>
+                                        required
+                                    </th>
+                                    <th>
+                                        format
+                                    </th>
+                                    <th>
+                                        model
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        file1
+                                    </td>
+                                    <td>
+                                        first file to compare
+                                    </td>
+                                    <td>
+                                        true
+                                    </td>
+                                    <td>
+                                        text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        file2
+                                    </td>
+                                    <td>
+                                        second file to compare
                                     </td>
                                     <td>
                                         true

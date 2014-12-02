@@ -1,0 +1,16 @@
+<model>
+    <part name="file1" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="file1"/>
+        <property name="description" channel="inline" format="text/plain" model="first file to compare"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+    <part name="file2" channel="inline" format="text/plain" model="">
+        <property name="name" channel="inline" format="text/plain" model="file2"/>
+        <property name="description" channel="inline" format="text/plain" model="second file to compare"/>
+        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <property name="model" channel="inline" format="text/plain" model=""/>
+    </part>
+</model>

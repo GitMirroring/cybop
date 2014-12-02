@@ -3,6 +3,7 @@
   <part name="change-permission" channel="file" format="element/part" model="api/spec/logic/command/change_permission.cybol"/>
   <part name="copy-file" channel="file" format="element/part" model="api/spec/logic/command/copy_file.cybol"/>
   <part name="create-folder" channel="file" format="element/part" model="api/spec/logic/command/create_folder.cybol"/>
+  <part name="diff" channel="file" format="element/part" model="api/spec/logic/command/diff.cybol"/>
   <part name="echo-message" channel="file" format="element/part" model="api/spec/logic/command/echo_message.cybol"/>
   <part name="directory-contents" channel="file" format="element/part" model="api/spec/logic/command/directory_contents.cybol"/>
   <part name="grep" channel="file" format="element/part" model="api/spec/logic/command/grep.cybol"/>
