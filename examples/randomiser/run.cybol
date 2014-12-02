@@ -46,8 +46,8 @@
 
     <part name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".number"/>
-        <property name="minimum" channel="inline" format="number/integer" model="20"/>
-        <property name="maximum" channel="inline" format="number/integer" model="30"/>
+        <property name="minimum" channel="inline" format="number/integer" model="1"/>
+        <property name="maximum" channel="inline" format="number/integer" model="9"/>
     </part>
     <part name="print_random_number_1" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -60,8 +60,8 @@
 
     <part name="get_random_number_2" channel="inline" format="randomise/retrieve" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".number"/>
-        <property name="minimum" channel="inline" format="number/integer" model="20"/>
-        <property name="maximum" channel="inline" format="number/integer" model="30"/>
+        <property name="minimum" channel="inline" format="number/integer" model="30"/>
+        <property name="maximum" channel="inline" format="number/integer" model="60"/>
     </part>
     <part name="print_random_number_2" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

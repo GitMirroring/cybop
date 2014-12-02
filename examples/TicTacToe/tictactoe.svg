@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Bouml (http://bouml.free.fr/) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="817" height="823" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse fill="black" stroke="none" cx="34" cy="93" rx="8.5" ry="8.5" />
+<polygon fill="white" stroke="black" stroke-opacity="1" points ="544,94 553,77 562,94 553,111" />
+<polygon fill="white" stroke="black" stroke-opacity="1" points ="544,405 553,388 562,405 553,422" />
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="245" y="83" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="189" y="105" width="59" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="185" y="79" width="60" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="215" y="98">startgame</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="472" y="83" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="388" y="105" width="87" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="384" y="79" width="88" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="428" y="98">checknewgame</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="701" y="83" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="677" y="105" width="27" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="673" y="79" width="28" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="687" y="98">exit</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="580" y="150" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="528" y="172" width="55" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="524" y="146" width="56" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="552" y="165">initialising</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="582" y="207" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="526" y="229" width="59" height="3" />
+	<rect fill="#60d460" stroke="black" stroke-width="1" stroke-opacity="1" x="522" y="203" width="60" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="552" y="222">playerturn</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="359" y="83" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="281" y="105" width="81" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="277" y="79" width="82" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="318" y="98">inputnewgame</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="598" y="329" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="508" y="351" width="93" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="504" y="325" width="94" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="551" y="344">checkplayerinput</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="579" y="463" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="525" y="485" width="57" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="521" y="459" width="58" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="550" y="478">checkwin</text>
+</g>
+<polygon fill="white" stroke="black" stroke-opacity="1" points ="542,537 551,520 560,537 551,554" />
+<polygon fill="white" stroke="black" stroke-opacity="1" points ="542,664 551,647 560,664 551,681" />
+<polygon fill="white" stroke="black" stroke-opacity="1" points ="306,719 315,702 324,719 315,736" />
+<polygon fill="white" stroke="black" stroke-opacity="1" points ="102,612 111,595 120,612 111,629" />
+<g>
+	<ellipse fill="white" stroke="black" stroke-width="1" stroke-opacity="1" cx="687" cy="38" rx="11.5" ry="11.5" />
+	<ellipse fill="black" cx="687" cy="38" rx="8.5" ry="8.5" />
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="334" y="335" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="278" y="357" width="59" height="3" />
+	<rect fill="#60d460" stroke="black" stroke-width="1" stroke-opacity="1" x="274" y="331" width="60" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="304" y="350">playerwin</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="582" y="588" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="520" y="610" width="65" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="516" y="584" width="66" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="549" y="603">checkdraw</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="233" y="334" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="199" y="356" width="37" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="195" y="330" width="38" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="214" y="349">draw</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="593" y="714" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="521" y="736" width="75" height="3" />
+	<rect fill="#60d460" stroke="black" stroke-width="1" stroke-opacity="1" x="517" y="710" width="76" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="555" y="729">computerturn</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="595" y="785" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="519" y="807" width="79" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="515" y="781" width="80" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="555" y="800">computerinput</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="277" y="785" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="173" y="807" width="107" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="169" y="781" width="108" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="223" y="800">checkcomputerinput</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="460" y="785" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="402" y="807" width="61" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="398" y="781" width="62" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="429" y="800">setrandom</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="141" y="708" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="79" y="730" width="65" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="75" y="704" width="66" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="108" y="723">checkloose</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="143" y="334" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="79" y="356" width="67" height="3" />
+	<rect fill="#60d460" stroke="black" stroke-width="1" stroke-opacity="1" x="75" y="330" width="68" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="109" y="349">playerloose</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="152" y="83" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="126" y="105" width="29" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="122" y="79" width="30" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="137" y="98">app</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="540" y1="94" x2="534" y2="88" />
+	<line stroke="black" stroke-opacity="1" x1="540" y1="94" x2="534" y2="100" />
+	<line stroke="black" stroke-opacity="1" x1="476" y1="94" x2="540" y2="94" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="606" y="87">n, q</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="672" y1="94" x2="666" y2="88" />
+	<line stroke="black" stroke-opacity="1" x1="672" y1="94" x2="666" y2="100" />
+	<line stroke="black" stroke-opacity="1" x1="565" y1="94" x2="672" y2="94" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="557" y="128">y</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="553" y1="145" x2="559" y2="139" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="145" x2="547" y2="139" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="112" x2="553" y2="145" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="276" y1="94" x2="270" y2="88" />
+	<line stroke="black" stroke-opacity="1" x1="276" y1="94" x2="270" y2="100" />
+	<line stroke="black" stroke-opacity="1" x1="249" y1="94" x2="276" y2="94" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="383" y1="94" x2="377" y2="88" />
+	<line stroke="black" stroke-opacity="1" x1="383" y1="94" x2="377" y2="100" />
+	<line stroke="black" stroke-opacity="1" x1="363" y1="94" x2="383" y2="94" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="554" y1="202" x2="560" y2="196" />
+	<line stroke="black" stroke-opacity="1" x1="554" y1="202" x2="548" y2="196" />
+	<line stroke="black" stroke-opacity="1" x1="554" y1="176" x2="554" y2="202" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="553" y1="386" x2="559" y2="380" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="386" x2="547" y2="380" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="355" x2="553" y2="386" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="634" y="319">field already set or not 1..9</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="565" y1="396" x2="662" y2="337" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="580" y1="290" x2="582" y2="298" />
+	<line stroke="black" stroke-opacity="1" x1="580" y1="290" x2="588" y2="287" />
+	<line stroke="black" stroke-opacity="1" x1="662" y1="337" x2="580" y2="290" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="676" y="398">q</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="565" y1="404" x2="796" y2="404" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="796" y1="404" x2="797" y2="93" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="705" y1="93" x2="711" y2="99" />
+	<line stroke="black" stroke-opacity="1" x1="705" y1="93" x2="711" y2="87" />
+	<line stroke="black" stroke-opacity="1" x1="797" y1="93" x2="705" y2="93" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="559" y="441">field empty and 1..9</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="552" y1="458" x2="558" y2="452" />
+	<line stroke="black" stroke-opacity="1" x1="552" y1="458" x2="546" y2="452" />
+	<line stroke="black" stroke-opacity="1" x1="552" y1="423" x2="552" y2="458" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="551" y1="518" x2="557" y2="512" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="518" x2="545" y2="512" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="489" x2="551" y2="518" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="326" y1="361" x2="327" y2="369" />
+	<line stroke="black" stroke-opacity="1" x1="326" y1="361" x2="334" y2="359" />
+	<line stroke="black" stroke-opacity="1" x1="538" y1="527" x2="326" y2="361" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="222" y1="109" x2="218" y2="116" />
+	<line stroke="black" stroke-opacity="1" x1="222" y1="109" x2="229" y2="112" />
+	<line stroke="black" stroke-opacity="1" x1="300" y1="330" x2="222" y2="109" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="551" y1="583" x2="557" y2="577" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="583" x2="545" y2="577" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="555" x2="551" y2="583" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="551" y1="645" x2="557" y2="639" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="645" x2="545" y2="639" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="614" x2="551" y2="645" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="232" y1="360" x2="232" y2="368" />
+	<line stroke="black" stroke-opacity="1" x1="232" y1="360" x2="240" y2="359" />
+	<line stroke="black" stroke-opacity="1" x1="538" y1="652" x2="232" y2="360" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="216" y1="109" x2="210" y2="115" />
+	<line stroke="black" stroke-opacity="1" x1="216" y1="109" x2="222" y2="115" />
+	<line stroke="black" stroke-opacity="1" x1="216" y1="329" x2="216" y2="109" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="551" y1="709" x2="557" y2="703" />
+	<line stroke="black" stroke-opacity="1" x1="551" y1="709" x2="545" y2="702" />
+	<line stroke="black" stroke-opacity="1" x1="552" y1="682" x2="551" y2="709" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="557" y1="780" x2="563" y2="774" />
+	<line stroke="black" stroke-opacity="1" x1="557" y1="780" x2="551" y2="774" />
+	<line stroke="black" stroke-opacity="1" x1="557" y1="740" x2="557" y2="780" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="464" y1="796" x2="470" y2="802" />
+	<line stroke="black" stroke-opacity="1" x1="464" y1="796" x2="470" y2="790" />
+	<line stroke="black" stroke-opacity="1" x1="514" y1="796" x2="464" y2="796" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="281" y1="796" x2="287" y2="802" />
+	<line stroke="black" stroke-opacity="1" x1="281" y1="796" x2="287" y2="790" />
+	<line stroke="black" stroke-opacity="1" x1="397" y1="796" x2="281" y2="796" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="302" y1="727" x2="293" y2="726" />
+	<line stroke="black" stroke-opacity="1" x1="302" y1="727" x2="301" y2="735" />
+	<line stroke="black" stroke-opacity="1" x1="241" y1="780" x2="302" y2="727" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="437" y="442">Player wins</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="393" y="505">draw</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="408" y1="780" x2="406" y2="771" />
+	<line stroke="black" stroke-opacity="1" x1="408" y1="780" x2="399" y2="781" />
+	<line stroke="black" stroke-opacity="1" x1="327" y1="726" x2="408" y2="780" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="145" y1="719" x2="151" y2="725" />
+	<line stroke="black" stroke-opacity="1" x1="145" y1="719" x2="151" y2="713" />
+	<line stroke="black" stroke-opacity="1" x1="302" y1="719" x2="145" y2="719" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="111" y1="630" x2="105" y2="636" />
+	<line stroke="black" stroke-opacity="1" x1="111" y1="630" x2="117" y2="636" />
+	<line stroke="black" stroke-opacity="1" x1="111" y1="703" x2="111" y2="630" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="111" y1="360" x2="105" y2="366" />
+	<line stroke="black" stroke-opacity="1" x1="111" y1="360" x2="117" y2="366" />
+	<line stroke="black" stroke-opacity="1" x1="111" y1="593" x2="111" y2="360" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="530" y1="290" x2="521" y2="288" />
+	<line stroke="black" stroke-opacity="1" x1="530" y1="290" x2="528" y2="298" />
+	<line stroke="black" stroke-opacity="1" x1="123" y1="601" x2="530" y2="290" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="208" y1="109" x2="200" y2="112" />
+	<line stroke="black" stroke-opacity="1" x1="208" y1="109" x2="211" y2="116" />
+	<line stroke="black" stroke-opacity="1" x1="116" y1="329" x2="208" y2="109" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="184" y1="94" x2="178" y2="88" />
+	<line stroke="black" stroke-opacity="1" x1="184" y1="94" x2="178" y2="100" />
+	<line stroke="black" stroke-opacity="1" x1="156" y1="94" x2="184" y2="94" />
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="190" y="713">Field is empty</text>
+</g>
+<g>
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" x="66" y="485">PC wins</text>
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="688" y1="78" x2="687" y2="50" />
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="90" y="82" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="66" y="104" width="27" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="62" y="78" width="28" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="76" y="97">run</text>
+</g>
+<g>
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="583" y="264" width="3" height="25" />
+	<rect fill="#808080" stroke="none" stroke-opacity="1" x="523" y="286" width="63" height="3" />
+	<rect fill="#ffffc0" stroke="black" stroke-width="1" stroke-opacity="1" x="519" y="260" width="64" height="26" />
+	<text font-family="Helvetica" font-size="10" fill="#000000" xml:space="preserve" text-anchor="middle" x="551" y="279">playerinput</text>
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="553" y1="259" x2="559" y2="253" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="259" x2="547" y2="253" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="233" x2="553" y2="259" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="553" y1="324" x2="559" y2="318" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="324" x2="547" y2="318" />
+	<line stroke="black" stroke-opacity="1" x1="553" y1="290" x2="553" y2="324" />
+</g>
+<g>
+	<line stroke="black" stroke-opacity="1" x1="121" y1="93" x2="115" y2="87" />
+	<line stroke="black" stroke-opacity="1" x1="121" y1="93" x2="115" y2="99" />
+	<line stroke="black" stroke-opacity="1" x1="94" y1="93" x2="121" y2="93" />
+</g>
+<g>
+	<line stroke-dasharray="4,4" stroke="black" stroke-opacity="1" x1="43" y1="93" x2="61" y2="93" />
+</g>
+</svg>

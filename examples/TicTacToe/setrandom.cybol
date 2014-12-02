@@ -1,10 +1,10 @@
 <model>
     <part name="get_time" channel="inline" format="time/current" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.seed"/>
     </part>
 
     <part name="set_seed" channel="inline" format="randomise/sow" model="">
-        <property name="seed" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <property name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
     </part>
 
 
@@ -12,7 +12,7 @@
         <property name="result" channel="inline" format="path/knowledge" model=".app.var.commandPC"/>
         <property name="minimum" channel="inline" format="number/integer" model="1"/>
         <property name="maximum" channel="inline" format="number/integer" model="9"/>
-        <property name="seed" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <property name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
     </part>
 
 

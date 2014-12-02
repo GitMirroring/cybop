@@ -2,9 +2,6 @@
 
     <part name="var" channel="file" format="element/part" model="TicTacToe/var.cybol"/>
 
-    <part name="seed" channel="inline" format="number/integer" model="0"/>
-    <part name="number" channel="inline" format="number/integer" model="0"/>
-
     <part name="checkdraw" channel="file" format="element/part" model="TicTacToe/checkdraw.cybol"/>
     <part name="computerinput" channel="file" format="element/part" model="TicTacToe/computerinput.cybol"/>
     <part name="checkcomputerinput" channel="file" format="element/part" model="TicTacToe/checkcomputerinput.cybol"/>
