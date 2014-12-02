@@ -120,7 +120,8 @@ _____
         * Provide graphical standard components (geometry, similar to Swing), e.g. "button", chosen via "component" property in cybol
         * Create cybol template, e.g. login- or file open/save dialogue
 
-        * LATER (when tcp sockets work): Implement communication via udp socket
+        * Investigate and possibly implement IrDA socket
+        * Investigate and possibly implement Bluetooth socket
 
         * Create css serialiser (and, optionally, deserialiser)
         * Prepare ldap communication (investigate protocol structure)

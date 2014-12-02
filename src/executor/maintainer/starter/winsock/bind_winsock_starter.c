@@ -26,7 +26,7 @@
 #ifndef BIND_WINSOCK_STARTER_SOURCE
 #define BIND_WINSOCK_STARTER_SOURCE
 
-#include <winsock2.h>
+#include <Winsock2.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,76 +35,96 @@
 /**
  * Binds the address to the socket.
  *
- * @param p0 the error flag
- * @param p1 the socket
- * @param p2 the address data
- * @param p3 the address size
+ * @param p0 the socket
+ * @param p1 the address data
+ * @param p2 the address size
  */
-void startup_winsock_bind(void* p0, void* p1, void* p2, void* p3) {
+void startup_winsock_bind(void* p0, void* p1, void* p2) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        socklen_t* as = (socklen_t*) p3;
+        int* as = (int*) p2;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            struct sockaddr* ad = (struct sockaddr*) p2;
+            struct sockaddr* ad = (struct sockaddr*) p1;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* s = (int*) p1;
+                int* s = (int*) p0;
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock bind.");
 
-                // Initialise error number.
-                // It is a global variable/ function and other operations
-                // may have set some value that is not wanted here.
+                // Cast int to winsock SOCKET.
+                SOCKET ws = (SOCKET) *s;
+
                 //
-                // CAUTION! Initialise the error number BEFORE calling the procedure
-                // that might cause an error.
-                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                // Associate local address with socket.
+                //
+                // http://msdn.microsoft.com/en-us/library/windows/desktop/ms737550%28v=vs.85%29.aspx
+                //
+                int r = bind(ws, ad, *as);
 
-                int r = bind(*s, ad, *as);
-
-fwprintf(stdout, L"TEST: startup winsock bind s: %i \n", *s);
+fwprintf(stdout, L"TEST: startup winsock bind s: %i \n", ws);
 sleep(2);
 
-                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    // Set error flag.
-                    // CAUTION! Only set flag if an error occured.
-                    // CAUTION! Do NOT assign the returned error number,
-                    // since it is different from the FALSE constant used below.
-                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                    // Get the calling thread's last-error code.
+                    //
+                    // CAUTION! This function is the winsock substitute
+                    // for the Windows "GetLastError" function.
+                    int e = WSAGetLastError();
 
-                    if (errno == EBADF) {
+                    if (e == WSANOTINITIALISED) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The socket argument is not a valid file descriptor.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. A successful WSAStartup call must occur before using this function.");
 
-                    } else if (errno == ENOTSOCK) {
+                    } else if (e == WSAENETDOWN) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The descriptor socket is not a socket.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The network subsystem has failed.");
 
-                    } else if (errno == EADDRNOTAVAIL) {
+                    } else if (e == WSAEACCES) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The specified address is not available on this machine.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An attempt was made to access a socket in a way forbidden by its access permissions. This error is returned if an attempt to bind a datagram socket to the broadcast address failed because the setsockopt option SO_BROADCAST is not enabled.");
 
-                    } else if (errno == EADDRINUSE) {
+                    } else if (e == WSAEADDRINUSE) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The specified address is already used by some other socket.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. Only one usage of each socket address (protocol/network address/port) is normally permitted. This error is returned if a process on the computer is already bound to the same fully qualified address and the socket has not been marked to allow address reuse with SO_REUSEADDR. For example, the IP address and port specified in the name parameter are already bound to another socket being used by another application. For more information, see the SO_REUSEADDR socket option in the SOL_SOCKET Socket Options reference, Using SO_REUSEADDR and SO_EXCLUSIVEADDRUSE, and SO_EXCLUSIVEADDRUSE.");
 
-                    } else if (errno == EINVAL) {
+                    } else if (e == WSAEADDRNOTAVAIL) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The socket socket already has an address.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The requested address is not valid in its context. This error is returned if the specified address pointed to by the name parameter is not a valid local IP address on this computer.");
 
-                    } else if (errno == EACCES) {
+                    } else if (e == WSAEFAULT) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. The system detected an invalid pointer address in attempting to use a pointer argument in a call. This error is returned if the name parameter is NULL, the name or namelen parameter is not a valid part of the user address space, the namelen parameter is too small, the name parameter contains an incorrect address format for the associated address family, or the first two bytes of the memory block specified by name do not match the address family associated with the socket descriptor s.");
+
+                    } else if (e == WSAEINPROGRESS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
+
+                    } else if (e == WSAEINVAL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An invalid argument was supplied. This error is returned if the socket s is already bound to an address.");
+
+                    } else if (e == WSAENOBUFS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An operation on a socket could not be performed because the system lacked sufficient buffer space or because a queue was full. This error is returned of not enough buffers are available or there are too many connections.");
+
+                    } else if (e == WSAENOTSOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An operation was attempted on something that is not a socket. This error is returned if the descriptor in the s parameter is not a socket.");
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An unknown error occured while binding the socket to the address.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock bind. An unknown error occured.");
                     }
+
+                    // Cast int to DWORD (unsigned int 32-Bit).
+                    DWORD d = (DWORD) e;
+
+                    log_windows_system_error((void*) &d);
                 }
 
             } else {

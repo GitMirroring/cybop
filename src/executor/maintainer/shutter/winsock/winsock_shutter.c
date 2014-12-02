@@ -45,18 +45,10 @@
 void shutdown_winsock(void* p0, void* p1, void* p2, void* p3) {
 
     // Close socket.
-    //
-    // CAUTION! The winsock api provides this "closesocket" function.
-    // It does basically the same as the standard "close" function.
-    closesocket(SOCKET s);
+    shutdown_winsock_close();
 
-    // Cleanup winsock.
-    //
-    // This releases the link with libraries WS2_32.DLL and WINSOCK.DLL,
-    // by doing internal cleanups and decrementing a library reference counter.
-    //
-    // CAUTION! Do this only AFTER having closed the socket above.
-    WSACleanup();
+    // Cleanup socket.
+    shutdown_winsock_cleanup();
 }
 
 /* WINSOCK_SHUTTER_SOURCE */

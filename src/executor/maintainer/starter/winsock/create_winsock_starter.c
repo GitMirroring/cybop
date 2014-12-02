@@ -26,13 +26,10 @@
 #ifndef CREATE_WINSOCK_STARTER_SOURCE
 #define CREATE_WINSOCK_STARTER_SOURCE
 
-#include <winsock2.h>
+#include <Winsock2.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/maintainer/starter/winsock/bind_winsock_starter.c"
-#include "../../../../executor/maintainer/starter/winsock/listen_winsock_starter.c"
-#include "../../../../executor/maintainer/starter/winsock/socket_address_winsock_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -63,7 +60,8 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock create.");
 
-                    // Initialise server socket.
+                    //
+                    // Create winsock socket that is bound to a specific transport service provider.
                     //
                     // param 0: protocol family (namespace)
                     // param 1: communication style
@@ -72,20 +70,87 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
                     // CAUTION! Use prefix "PF_" here and NOT "AF_"!
                     // The latter is to be used for address family assignment.
                     // See further below!
+                    //
+                    // http://msdn.microsoft.com/en-us/library/windows/desktop/ms740506%28v=vs.85%29.aspx
+                    //
                     SOCKET ws = socket(*pf, *st, *pr);
 
-                    // Assign winsock to destination socket.
-                    *s = ws;
+                    if (ws != INVALID_SOCKET) {
 
-                    if (*s < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        // No error occured.
+
+                        // Cast winsock SOCKET to destination int.
+                        *s = (int) ws;
+
+                    } else {
 
                         // Get the calling thread's last-error code.
+                        //
                         // CAUTION! This function is the winsock substitute
                         // for the Windows "GetLastError" function.
-                        DWORD e = WSAGetLastError();
+                        int e = WSAGetLastError();
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The socket creation failed.");
-                        log_windows_system_error((void*) &e);
+                        if (e == WSANOTINITIALISED) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. A successful WSAStartup call must occur before using this function.");
+
+                        } else if (e == WSAENETDOWN) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The network subsystem or the associated service provider has failed.");
+
+                        } else if (e == WSAEAFNOSUPPORT) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The specified address family is not supported. For example, an application tried to create a socket for the AF_IRDA address family but an infrared adapter and device driver is not installed on the local computer.");
+
+                        } else if (e == WSAEINPROGRESS) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
+
+                        } else if (e == WSAEMFILE) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. No more socket descriptors are available.");
+
+                        } else if (e == WSAEINVAL) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. An invalid argument was supplied. This error is returned if the af parameter is set to AF_UNSPEC and the type and protocol parameter are unspecified.");
+
+                        } else if (e == WSAEINVALIDPROVIDER) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The service provider returned a version other than 2.2.");
+
+                        } else if (e == WSAEINVALIDPROCTABLE) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The service provider returned an invalid or incomplete procedure table to the WSPStartup.");
+
+                        } else if (e == WSAENOBUFS) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. No buffer space is available. The socket cannot be created.");
+
+                        } else if (e == WSAEPROTONOSUPPORT) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The specified protocol is not supported.");
+
+                        } else if (e == WSAEPROTOTYPE) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The specified protocol is the wrong type for this socket.");
+
+                        } else if (e == WSAEPROVIDERFAILEDINIT) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The service provider failed to initialize. This error is returned if a layered service provider (LSP) or namespace provider was improperly installed or the provider fails to operate correctly.");
+
+                        } else if (e == WSAESOCKTNOSUPPORT) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. The specified socket type is not supported in this address family.");
+
+                        } else {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock create. An unknown error occured.");
+                        }
+
+                        // Cast int to DWORD (unsigned int 32-Bit).
+                        DWORD d = (DWORD) e;
+
+                        log_windows_system_error((void*) &d);
                     }
 
                 } else {

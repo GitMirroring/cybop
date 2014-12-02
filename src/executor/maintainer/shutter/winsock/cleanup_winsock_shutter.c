@@ -1,0 +1,92 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef CLEANUP_WINSOCK_SHUTTER_SOURCE
+#define CLEANUP_WINSOCK_SHUTTER_SOURCE
+
+#include <winsock.h>
+//?? #include <Winsock2.h>
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Cleanup winsock.
+ *
+ * CAUTION! Do this only AFTER having closed the socket.
+ */
+void shutdown_winsock_cleanup() {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown winsock cleanup.");
+
+    //
+    // Cleanup winsock.
+    //
+    // CAUTION! This releases the link with libraries WS2_32.DLL and WINSOCK.DLL,
+    // by doing internal cleanups and decrementing a library reference counter.
+    //
+    // CAUTION! In a multithreaded environment, WSACleanup
+    // terminates Windows Sockets operations for all threads.
+    //
+    // http://msdn.microsoft.com/en-us/library/windows/desktop/ms741549%28v=vs.85%29.aspx
+    //
+    int r = WSACleanup();
+
+    // If the return value is zero, then an error occured.
+    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        // Get the calling thread's last-error code.
+        //
+        // CAUTION! This function is the winsock substitute
+        // for the Windows "GetLastError" function.
+        int e = WSAGetLastError();
+
+        if (e == WSANOTINITIALISED) {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown winsock cleanup. A successful WSAStartup call must occur before using this function.");
+
+        } else if (e == WSAENETDOWN) {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown winsock cleanup. The network subsystem has failed.");
+
+        } else if (e == WSAEINPROGRESS) {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown winsock cleanup. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown winsock cleanup. An unknown error occured.");
+        }
+
+        // Cast int to DWORD (unsigned int 32-Bit).
+        DWORD d = (DWORD) e;
+
+        log_windows_system_error((void*) &d);
+    }
+}
+
+/* CLEANUP_WINSOCK_SHUTTER_SOURCE */
+#endif

@@ -14,11 +14,14 @@
 WUI
 ___
 
-        DONE: preprocessor header constants
+        DONE:
+            - preprocessor header constants
+            - Build in special error codes for winsock
 
-        * Add includes in all socket functions
+        * Add further constants for address family and socket style (type); see:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/ms740506%28v=vs.85%29.aspx
         * Add ifdefs for operating system in startup/shutdown in directory "socket/"
-        * Build in special error codes for winsock; if not existent, then winsock and bsd may be merged, e.g. "connect"
+        * Add includes in all socket functions
         * Adapt parametres in all socket functions
         * Store socket and possibly addresses etc. in internal memory
         * Deallocate socket properly; had addresses etc. only been used as local variables? and already got deallocated when leaving the corresponding startup function?

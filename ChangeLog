@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Build in special error codes for winsock
+
 2014-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Use standard glibc "rand" function instead of BSD's "random", since the latter is not supported by mingw and win32

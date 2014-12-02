@@ -26,7 +26,7 @@
 #ifndef CONNECT_WINSOCK_STARTER_SOURCE
 #define CONNECT_WINSOCK_STARTER_SOURCE
 
-#include <winsock2.h>
+#include <Winsock2.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -43,7 +43,7 @@ void startup_winsock_connect(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        socklen_t* as = (socklen_t*) p2;
+        int* as = (int*) p2;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,73 +55,115 @@ void startup_winsock_connect(void* p0, void* p1, void* p2) {
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock connect.");
 
-                // Initialise error number.
-                // It is a global variable/ function and other operations
-                // may have set some value that is not wanted here.
-                //
-                // CAUTION! Initialise the error number BEFORE calling the procedure
-                // that might cause an error.
-                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                // Cast int to winsock SOCKET.
+                SOCKET ws = (SOCKET) *s;
 
-                // Make connexion with server.
                 //
-                // This function call WAITS until the server responds
-                // to the request before it returns.
-                int r = connect(*s, ad, *as);
+                // Establish connection to specified socket.
+                //
+                // CAUTION! This function call WAITS until the server
+                // responds to the request before it returns.
+                //
+                // http://msdn.microsoft.com/en-us/library/windows/desktop/ms737625%28v=vs.85%29.aspx
+                //
+                int r = connect(ws, ad, *as);
 
-fwprintf(stdout, L"TEST: startup winsock connect s: %i \n", *s);
+fwprintf(stdout, L"TEST: startup winsock connect s: %i \n", ws);
 sleep(2);
 
-                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    if (errno == EBADF) {
+                    // Get the calling thread's last-error code.
+                    //
+                    // CAUTION! This function is the winsock substitute
+                    // for the Windows "GetLastError" function.
+                    int e = WSAGetLastError();
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The argument socket is not a valid file descriptor.");
+                    if (e == WSANOTINITIALISED) {
 
-                    } else if (errno == ENOTSOCK) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. A successful WSAStartup call must occur before using this function.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The argument socket is not a socket.");
+                    } else if (e == WSAENETDOWN) {
 
-                    } else if (errno == EADDRNOTAVAIL) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The network subsystem has failed.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The specified address is not available on the remote machine.");
+                    } else if (e == WSAEADDRINUSE) {
 
-                    } else if (errno == EAFNOSUPPORT) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket's local address is already in use and the socket was not marked to allow address reuse with SO_REUSEADDR. This error usually occurs when executing bind, but could be delayed until the connect function if the bind was to a wildcard address (INADDR_ANY or in6addr_any) for the local IP address. A specific address needs to be implicitly bound by the connect function.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The namespace of the address is not supported by this socket.");
+                    } else if (e == WSAEINTR) {
 
-                    } else if (errno == EISCONN) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The blocking Windows Socket 1.1 call was canceled through WSACancelBlockingCall.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket is already connected.");
+                    } else if (e == WSAEINPROGRESS) {
 
-                    } else if (errno == ETIMEDOUT) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The attempt to establish the connexion timed out.");
+                    } else if (e == WSAEALREADY) {
 
-                    } else if (errno == ECONNREFUSED) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. A nonblocking connect call is in progress on the specified socket. In order to preserve backward compatibility, this error is reported as WSAEINVAL to Windows Sockets 1.1 applications that link to either Winsock.dll or Wsock32.dll.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The server has actively refused to establish the connexion.");
+                    } else if (e == WSAEADDRNOTAVAIL) {
 
-                    } else if (errno == ENETUNREACH) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The remote address is not a valid address (such as INADDR_ANY or in6addr_any).");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The network of the given address is not reachable from this host.");
+                    } else if (e == WSAEAFNOSUPPORT) {
 
-                    } else if (errno == EADDRINUSE) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. Addresses in the specified family cannot be used with this socket.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket address of the given address is already in use.");
+                    } else if (e == WSAECONNREFUSED) {
 
-                    } else if (errno == EINPROGRESS) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The attempt to connect was forcefully rejected.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket is non-blocking and the connexion could not be established immediately. You can determine when the connexion is completely established with select; see Waiting for I/O. Another connect call on the same socket, before the connexion is completely established, will fail with EALREADY.");
+                    } else if (e == WSAEFAULT) {
 
-                    } else if (errno == EALREADY) {
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The sockaddr structure pointed to by the name contains incorrect address format for the associated address family or the namelen parameter is too small. This error is also returned if the sockaddr structure pointed to by the name parameter with a length specified in the namelen parameter is not in a valid part of the user address space.");
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket is non-blocking and already has a pending connexion in progress (see EINPROGRESS above).");
+                    } else if (e == WSAEINVAL) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The parameter s is a listening socket.");
+
+                    } else if (e == WSAEISCONN) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket is already connected (connection-oriented sockets only).");
+
+                    } else if (e == WSAENETUNREACH) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The network cannot be reached from this host at this time.");
+
+                    } else if (e == WSAEHOSTUNREACH) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. A socket operation was attempted to an unreachable host.");
+
+                    } else if (e == WSAENOBUFS) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. No buffer space is available. The socket cannot be connected.");
+
+                    } else if (e == WSAENOTSOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The descriptor specified in the s parameter is not a socket.");
+
+                    } else if (e == WSAETIMEDOUT) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. An attempt to connect timed out without establishing a connection.");
+
+                    } else if (e == WSAEWOULDBLOCK) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. The socket is marked as nonblocking and the connection cannot be completed immediately.");
+
+                    } else if (e == WSAEACCES) {
+
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. An attempt to connect a datagram socket to broadcast address failed because setsockopt option SO_BROADCAST is not enabled.");
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. An unknown error occured while connecting the socket.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup winsock connect. An unknown error occured.");
                     }
+
+                    // Cast int to DWORD (unsigned int 32-Bit).
+                    DWORD d = (DWORD) e;
+
+                    log_windows_system_error((void*) &d);
                 }
 
             } else {
