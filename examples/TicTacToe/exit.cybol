@@ -3,9 +3,4 @@
     //Programm schließen
     <part name="exit_app" channel="inline" format="live/exit" model=""/>
 
-    //Flag zurücksetzen
-    <part name="reset_flag" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.flag"/>
-    </part
-
 </model>
