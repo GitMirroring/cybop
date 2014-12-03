@@ -21,6 +21,7 @@
 2014-12-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Build in special error codes for winsock
+        * Add further constants for address family, socket style, protocol
 
 2014-12-01  Christian Heller  <christian.heller@tuxtax.de>
 

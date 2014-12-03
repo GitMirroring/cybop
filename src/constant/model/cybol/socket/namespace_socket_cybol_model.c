@@ -30,6 +30,10 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The appletalk namespace socket cybol model. */
+static wchar_t* APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL = L"appletalk";
+static int* APPLETALK_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The bluetooth namespace socket cybol model. */
 static wchar_t* BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL = L"bluetooth";
 static int* BLUETOOTH_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -50,6 +54,10 @@ static int* INET_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYB
 static wchar_t* INET6_NAMESPACE_SOCKET_CYBOL_MODEL = L"ipv6";
 static int* INET6_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The internetwork packet exchange (ipx) namespace socket cybol model. */
+static wchar_t* IPX_NAMESPACE_SOCKET_CYBOL_MODEL = L"ipx";
+static int* IPX_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The infrared data association (irda) namespace socket cybol model. */
 static wchar_t* IRDA_NAMESPACE_SOCKET_CYBOL_MODEL = L"irda";
 static int* IRDA_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -61,6 +69,10 @@ static int* ISO_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBO
 /** The local namespace socket cybol model. */
 static wchar_t* LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL = L"local";
 static int* LOCAL_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The netbios namespace socket cybol model. */
+static wchar_t* NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL = L"netbios";
+static int* NETBIOS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The xerox network software protocols namespace socket cybol model. */
 static wchar_t* NS_NAMESPACE_SOCKET_CYBOL_MODEL = L"ns";

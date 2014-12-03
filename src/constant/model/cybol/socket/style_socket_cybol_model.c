@@ -30,10 +30,6 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The stream style socket cybol model. */
-static wchar_t* STREAM_STYLE_SOCKET_CYBOL_MODEL = L"stream";
-static int* STREAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The datagram style socket cybol model. */
 static wchar_t* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL = L"datagram";
 static int* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -41,6 +37,18 @@ static int* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYB
 /** The raw style socket cybol model. */
 static wchar_t* RAW_STYLE_SOCKET_CYBOL_MODEL = L"raw";
 static int* RAW_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The reliable message datagram (rdm) style socket cybol model. */
+static wchar_t* RDM_STYLE_SOCKET_CYBOL_MODEL = L"rdm";
+static int* RDM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The pseudo-stream packet based on datagrams (seqpacket) style socket cybol model. */
+static wchar_t* SEQPACKET_STYLE_SOCKET_CYBOL_MODEL = L"seqpacket";
+static int* SEQPACKET_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The stream style socket cybol model. */
+static wchar_t* STREAM_STYLE_SOCKET_CYBOL_MODEL = L"stream";
+static int* STREAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* STYLE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif
