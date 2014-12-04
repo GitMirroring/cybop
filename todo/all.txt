@@ -32,7 +32,13 @@ _______
             - Write an actual manual that is updated as necessary to reflect the current state of cybop;
             - Give a brief overview which documents should be read first if someone was trying to use the system
 
-        * Update build (automake) scripts
+        * Switch to "CMake" tool for build system
+        * "Each subdirectory added by the command must also contain a CMakeLists.txt file as the entry point to that directory."
+            Really? Each subdir? Not good!
+        * Do NOT use it for in-source, but rather for OUT-OF-SOURCE builds (builddir != sourcedir)
+        * Remove automake scripts afterwards
+        * Use "CPack" tool to create installers as: executable installer (for Windows using "NSIS" tool), rpm, deb, tar, tar.gz, self-extracting tar file
+
         * Provide Debian package
         * Find Debian developer as official package maintainer
 

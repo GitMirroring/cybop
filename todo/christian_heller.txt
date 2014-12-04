@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Try out CMake 3.1 with GUI
+
 WUI
 ___
 
@@ -197,6 +199,7 @@ OpenGL
 ______
 
         * Add cybol opengl 3d world example and reflexions on cyboi integration of Marius Klotke
+        * See also: http://www.itk.org/Wiki/KWScene/Documentation/Overall_Design
 
 Container
 _________
