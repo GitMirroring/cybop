@@ -31,31 +31,35 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Binds the address to the bsd socket.
  *
- * @param p0 the error flag
- * @param p1 the socket
- * @param p2 the address data
- * @param p3 the address size
+ * @param p0 the socket
+ * @param p1 the address data
+ * @param p2 the address size
  */
-void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
+void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        socklen_t* as = (socklen_t*) p3;
+        int* as = (int*) p2;
 
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            struct sockaddr* ad = (struct sockaddr*) p2;
+            struct sockaddr* ad = (struct sockaddr*) p1;
 
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* s = (int*) p1;
+                int* s = (int*) p0;
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket bind.");
+
+                // Cast int to socklen_t.
+                socklen_t sl = (socklen_t) *as;
 
                 // Initialise error number.
                 // It is a global variable/ function and other operations
@@ -65,18 +69,9 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
                 // the procedure that might cause an error.
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                int r = bind(*s, ad, *as);
-
-fwprintf(stdout, L"TEST: startup bsd socket bind s: %i \n", *s);
-sleep(2);
+                int r = bind(*s, ad, sl);
 
                 if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Set error flag.
-                    // CAUTION! Only set flag if an error occured.
-                    // CAUTION! Do NOT assign the returned error number,
-                    // since it is different from the FALSE constant used below.
-                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                     if (errno == EBADF) {
 

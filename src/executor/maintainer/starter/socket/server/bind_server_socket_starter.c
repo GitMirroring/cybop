@@ -23,43 +23,44 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LISTEN_SOCKET_STARTER_SOURCE
-#define LISTEN_SOCKET_STARTER_SOURCE
+#ifndef BIND_SERVER_SOCKET_STARTER_SOURCE
+#define BIND_SERVER_SOCKET_STARTER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../logger/logger.c"
 
 #ifdef __APPLE__
-    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+    #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
 #elif WIN32
-    #include "../../../../executor/maintainer/starter/winsock/listen_winsock_starter.c"
+    #include "../../../../../executor/maintainer/starter/winsock/bind_winsock_starter.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+    #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
 #else
-    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+    #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
 #endif
 
 /**
- * Enable socket to accept connections, thus making it a server socket.
+ * Binds the address to the socket.
  *
  * @param p0 the socket
- * @param p1 the connexions (number of possible pending client requests)
+ * @param p1 the address data
+ * @param p2 the address size
  */
-void startup_socket_listen(void* p0, void* p1) {
+void startup_socket_server_bind(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket listen.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server bind.");
 
 #ifdef __APPLE__
-    startup_bsd_socket_listen(p0, p1, p2, p3);
+    startup_bsd_socket_bind(p0, p1, p2);
 #elif WIN32
-    startup_winsock_listen(p0, p1, p2, p3);
+    startup_winsock_bind(p0, p1, p2);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    startup_bsd_socket_listen(p0, p1, p2, p3);
+    startup_bsd_socket_bind(p0, p1, p2);
 #else
-    startup_bsd_socket_listen(p0, p1, p2, p3);
+    startup_bsd_socket_bind(p0, p1, p2);
 #endif
 }
 
-/* LISTEN_SOCKET_STARTER_SOURCE */
+/* BIND_SERVER_SOCKET_STARTER_SOURCE */
 #endif

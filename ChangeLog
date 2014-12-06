@@ -21,7 +21,7 @@
 2014-12-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add pre-processor ifdefs for operating system in startup/shutdown of socket
-        * Adjust includes and parametres in socket shutdown functions
+        * Adjust includes and parametres in socket startup/shutdown functions
 
 2014-12-02  Christian Heller  <christian.heller@tuxtax.de>
 

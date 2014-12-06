@@ -27,9 +27,12 @@
 #define CONNECT_BSD_SOCKET_STARTER_SOURCE
 
 #include <sys/socket.h>
+#include <errno.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -43,7 +46,7 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        socklen_t* as = (socklen_t*) p2;
+        int* as = (int*) p2;
 
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -54,6 +57,9 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 int* s = (int*) p0;
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket connect.");
+
+                // Cast int to socklen_t.
+                socklen_t sl = (socklen_t) *as;
 
                 // Initialise error number.
                 // It is a global variable/ function and other operations
@@ -74,10 +80,7 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 //
                 // This function call waits until the server responds
                 // to the request before it returns.
-                int r = connect(*s, ad, *as);
-
-fwprintf(stdout, L"TEST: startup bsd socket connect s: %i \n", *s);
-sleep(2);
+                int r = connect(*s, ad, sl);
 
                 if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

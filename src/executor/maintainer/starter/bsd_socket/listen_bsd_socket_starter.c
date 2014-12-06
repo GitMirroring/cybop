@@ -31,6 +31,8 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -63,9 +65,6 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
             // The second parametre determines the number of possible
             // pending client connexion requests.
             int r = listen(*s, *c);
-
-fwprintf(stdout, L"TEST: startup bsd socket listen s: %i \n", *s);
-sleep(2);
 
             if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

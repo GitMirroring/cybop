@@ -16,7 +16,8 @@
 WUI
 ___
 
-        * Adjust includes and parametres in socket startup functions
+        * Complete file "executor/maintainer/starter/socket/port_socket_starter.c"
+        * Add file "constant/model/service/port_name_service_model.c" with FTP, HTTP etc.
         * Store socket and possibly addresses etc. in internal memory
         * Deallocate socket properly; had addresses etc. only been used as local variables? and already got deallocated when leaving the corresponding startup function?
         * Reactivate socket in file "starter.c"

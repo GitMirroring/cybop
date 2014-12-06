@@ -28,84 +28,73 @@
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../../executor/maintainer/starter/socket/server/base_server_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
+#include "../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**
- * Starts up socket in server mode.
+ * Starts up server socket.
  *
- * @param p0 the socket
- * @param p1 the socket address data
- * @param p2 the socket address size
- * @param p3 the communication style
- * @param p4 the connexions (number of possible pending client requests)
+ * @param p0 the internal memory data (pointer reference)
+ * @param p1 the family data (namespace)
+ * @param p2 the family count
+ * @param p3 the style data (communication type)
+ * @param p4 the style count
+ * @param p5 the protocol data
+ * @param p6 the protocol count
+ * @param p7 the filename data
+ * @param p8 the filename count
+ * @param p9 the host address data
+ * @param p10 the host address count
+ * @param p11 the port
+ * @param p12 the connexions (number of possible pending client requests)
  */
-void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server.");
 
+    // The internal memory base.
+    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The socket.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket address data, size.
-    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The protocol family (socket namespace).
-    int pf = PF_INET6;
-    // The address family (namespace).
-    int af = AF_INET6;
-    // The communication style.
-    int st = SOCK_STREAM;
+    // The internal memory index.
+    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Allocate socket.
-    //?? TODO allocate int
+    // Get internal memory base from port.
+    startup_socket_server_base((void*) &b, p11);
+    // Calculate internal memory index.
+    copy_integer((void*) &i, p13);
+    calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Get protocol- and address family.
-    startup_socket_family((void*) &pf, (void*) &af, p1, p2);
-    // Get socket communication style.
-    startup_socket_style((void*) &st, p3, p4);
-    // Create socket.
-    // CAUTION! A value of ZERO is usually right for the "protocol".
-    startup_socket_create((void*) &s, (void*) &pf, (void*) &st, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &af, p11, p12, p13);
+    // Get socket.
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-    // Initialise socket address depending on family.
-    // CAUTION! Hand over address data as pointer reference,
-    // since it gets allocated inside the function and
-    // has to be preserved as return value.
-    startup_socket_socket_address((void*) &ad, (void*) &as, p4, p5, p6, p7, p8, p9);
+    if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The error flag.
-    int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // Only create socket if not existent.
 
-    // Bind address to socket.
-    startup_socket_bind((void*) &e, p0, p1, p2);
+        // Allocate socket.
+        allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-    if (e == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // Startup server socket.
+        startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        compare_integer_equal((void*) &r, p3, (void*) &SOCK_STREAM);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // This is a stream socket.
-            //
-            // CAUTION! Datagram sockets do NOT have connexions,
-            // which is why the "listen" function is ONLY called
-            // for stream sockets here.
-
-            // Listen for client requests.
-            //
-            // The second argument specifies the length
-            // of the queue for pending connexions.
-            // When the queue fills, new clients attempting to connect
-            // fail with ECONNREFUSED until the server calls accept
-            // to accept a connexion from the queue.
-            startup_socket_listen(p0, p4);
-        }
+        // Store socket in internal memory.
+        //
+        // CAUTION! Do NOT use "overwrite_array" function here,
+        // since it adapts the array count and size.
+        // But the internal array's count and size are CONSTANT.
+        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The address binding failed.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server existing. The socket already exists in internal memory.");
     }
 }
 

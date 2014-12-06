@@ -52,13 +52,13 @@ void startup_socket_client_connect(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client connect.");
 
 #ifdef __APPLE__
-    startup_bsd_socket_connect(p0, p1, p2, p3);
+    startup_bsd_socket_connect(p0, p1, p2);
 #elif WIN32
-    startup_winsock_TODO(p0, p1, p2, p3);
+    startup_winsock_TODO(p0, p1, p2);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    startup_bsd_socket_connect(p0, p1, p2, p3);
+    startup_bsd_socket_connect(p0, p1, p2);
 #else
-    startup_bsd_socket_connect(p0, p1, p2, p3);
+    startup_bsd_socket_connect(p0, p1, p2);
 #endif
 }
 

@@ -30,6 +30,8 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -64,9 +66,6 @@ void startup_winsock_bind(void* p0, void* p1, void* p2) {
                 // http://msdn.microsoft.com/en-us/library/windows/desktop/ms737550%28v=vs.85%29.aspx
                 //
                 int r = bind(ws, ad, *as);
-
-fwprintf(stdout, L"TEST: startup winsock bind s: %i \n", ws);
-sleep(2);
 
                 if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

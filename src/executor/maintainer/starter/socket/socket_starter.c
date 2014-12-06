@@ -37,30 +37,44 @@
  * @param p0 the internal memory data (pointer reference)
  * @param p1 the family data (namespace)
  * @param p2 the family count
- * @param p3 the style data
+ * @param p3 the style data (communication type)
  * @param p4 the style count
- * @param p5 the filename data
- * @param p6 the filename count
- * @param p7 the host address data
- * @param p8 the host address count
- * @param p9 the port
- * @param p10 the internal memory base
- * @param p11 the connexions (number of possible pending client requests)
- * @param p12 the mode data
- * @param p13 the mode count
+ * @param p5 the protocol data
+ * @param p6 the protocol count
+ * @param p7 the filename data
+ * @param p8 the filename count
+ * @param p9 the host address data
+ * @param p10 the host address count
+ * @param p11 the port
+ * @param p12 the connexions (number of possible pending client requests)
+ * @param p13 the client socket
+ * @param p14 the mode data
+ * @param p15 the mode count
+ * @param p16 the network service data
+ * @param p17 the network service count
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
-    //?? TODO: Allocate an integer number for storing the socket number in internal memory, e.g. like this:
-    // Allocate socket.
-    // allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // The port.
+    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Retrieval of necessary internal memory values can be done here.
+    // Copy port.
+    // CAUTION! It will NOT be copied, if its value is a NULL pointer.
+    copy_integer((void*) &p, p11);
+
+    if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        // A direct port was NOT given as parametre.
+        // Therefore, determine port from service name.
+
+        // Get port from network service name.
+        startup_socket_port((void*) &p, p16, p17);
+    }
 
     // Startup socket in either client or server mode.
-    startup_socket_mode();
+    startup_socket_mode(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, (void*) &p, p12, p13, p14, p15);
 }
 
 /* SOCKET_STARTER_SOURCE */
