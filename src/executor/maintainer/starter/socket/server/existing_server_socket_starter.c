@@ -49,8 +49,8 @@ void startup_socket_server_existing(void* p0, void* p1, void* p2, void* p3, void
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index.
-    copy_integer((void*) &i, p10);
-    calculate_integer_add((void*) &i, (void*) SERVER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_integer((void*) &i, p??);
+    calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Get socket.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);

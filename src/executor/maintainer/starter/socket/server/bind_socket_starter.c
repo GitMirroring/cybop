@@ -26,12 +26,19 @@
 #ifndef BIND_SOCKET_STARTER_SOURCE
 #define BIND_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
-
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../logger/logger.c"
+
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
+#elif WIN32
+    #include "../../../../executor/maintainer/starter/winsock/bind_winsock_starter.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
+#else
+    #include "../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
+#endif
 
 /**
  * Binds the address to the socket.
@@ -43,85 +50,17 @@
  */
 void startup_socket_bind(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket bind.");
 
-        socklen_t* as = (socklen_t*) p3;
-
-        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            struct sockaddr* ad = (struct sockaddr*) p2;
-
-            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int* s = (int*) p1;
-
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket bind.");
-
-                // Initialise error number.
-                // It is a global variable/ function and other operations
-                // may have set some value that is not wanted here.
-                //
-                // CAUTION! Initialise the error number BEFORE calling the procedure
-                // that might cause an error.
-                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                int r = bind(*s, ad, *as);
-
-fwprintf(stdout, L"TEST: startup socket bind s: %i \n", *s);
-sleep(2);
-
-                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Set error flag.
-                    // CAUTION! Only set flag if an error occured.
-                    // CAUTION! Do NOT assign the returned error number,
-                    // since it is different from the FALSE constant used below.
-                    copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                    if (errno == EBADF) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The socket argument is not a valid file descriptor.");
-
-                    } else if (errno == ENOTSOCK) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The descriptor socket is not a socket.");
-
-                    } else if (errno == EADDRNOTAVAIL) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The specified address is not available on this machine.");
-
-                    } else if (errno == EADDRINUSE) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The specified address is already used by some other socket.");
-
-                    } else if (errno == EINVAL) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The socket socket already has an address.");
-
-                    } else if (errno == EACCES) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. An unknown error occured while binding the socket to the address.");
-                    }
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The socket is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The address data is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket bind. The address size is null.");
-    }
+#ifdef __APPLE__
+    startup_bsd_socket_bind(p0, p1, p2, p3);
+#elif WIN32
+    startup_winsock_bind(p0, p1, p2, p3);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    startup_bsd_socket_bind(p0, p1, p2, p3);
+#else
+    startup_bsd_socket_bind(p0, p1, p2, p3);
+#endif
 }
 
 /* BIND_SOCKET_STARTER_SOURCE */

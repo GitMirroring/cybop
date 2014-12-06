@@ -27,14 +27,15 @@
 #define CLOSE_WINSOCK_SHUTTER_SOURCE
 
 #include <winsock.h>
-//?? #include <Winsock2.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Close winsock.
+ * Closes the winsock socket.
  *
  * @param p0 the socket
  */

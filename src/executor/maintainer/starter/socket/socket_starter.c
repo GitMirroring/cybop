@@ -53,6 +53,10 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
+    //?? TODO: Allocate an integer number for storing the socket number in internal memory, e.g. like this:
+    // Allocate socket.
+    // allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
     // Retrieval of necessary internal memory values can be done here.
 
     // Startup socket in either client or server mode.

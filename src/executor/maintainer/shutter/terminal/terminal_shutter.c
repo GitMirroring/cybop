@@ -59,6 +59,9 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown terminal.");
 
+    //?? TODO: Is the terminal parametres retrieved here an ITEM or ARRAY??
+    //?? --> Adapt the functions and arguments below!
+
     // The input- and output item.
     void* ip = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* op = *NULL_POINTER_STATE_CYBOI_MODEL;

@@ -26,7 +26,7 @@
 #ifndef INITIALISE_WINSOCK_STARTER_SOURCE
 #define INITIALISE_WINSOCK_STARTER_SOURCE
 
-#include <Winsock2.h>
+#include <winsock.h>
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

@@ -26,12 +26,19 @@
 #ifndef LISTEN_SOCKET_STARTER_SOURCE
 #define LISTEN_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
-
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../logger/logger.c"
+
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+#elif WIN32
+    #include "../../../../executor/maintainer/starter/winsock/listen_winsock_starter.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+#else
+    #include "../../../../executor/maintainer/starter/bsd_socket/listen_bsd_socket_starter.c"
+#endif
 
 /**
  * Enable socket to accept connections, thus making it a server socket.
@@ -41,61 +48,17 @@
  */
 void startup_socket_listen(void* p0, void* p1) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket listen.");
 
-        int* c = (int*) p1;
-
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* s = (int*) p0;
-
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket listen.");
-
-            // Initialise error number.
-            // It is a global variable/ function and other operations
-            // may have set some value that is not wanted here.
-            //
-            // CAUTION! Initialise the error number BEFORE calling the procedure
-            // that might cause an error.
-            errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            // Enable socket to accept connections, thus making it a server socket.
-            // The second parametre determines the number of possible
-            // pending client connection requests.
-            int r = listen(*s, *c);
-
-fwprintf(stdout, L"TEST: startup socket listen s: %i \n", *s);
-sleep(2);
-
-            if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                if (errno == EBADF) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket listen. The argument socket is not a valid file descriptor.");
-
-                } else if (errno == ENOTSOCK) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket listen. The argument socket is not a socket.");
-
-                } else if (errno == EOPNOTSUPP) {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket listen. The socket does not support this operation.");
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket listen. An unknown error occured while listening at the socket.");
-                }
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket listen. The socket is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket listen. The connexions is null.");
-    }
+#ifdef __APPLE__
+    startup_bsd_socket_listen(p0, p1, p2, p3);
+#elif WIN32
+    startup_winsock_listen(p0, p1, p2, p3);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    startup_bsd_socket_listen(p0, p1, p2, p3);
+#else
+    startup_bsd_socket_listen(p0, p1, p2, p3);
+#endif
 }
 
 /* LISTEN_SOCKET_STARTER_SOURCE */

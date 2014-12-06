@@ -26,11 +26,19 @@
 #ifndef CONNECT_CLIENT_SOCKET_STARTER_SOURCE
 #define CONNECT_CLIENT_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../logger/logger.c"
+
+#ifdef __APPLE__
+    #include "../../../../executor/maintainer/starter/bsd_socket/connect_bsd_socket_starter.c"
+#elif WIN32
+    #include "../../../../executor/maintainer/starter/winsock/connect_winsock_starter.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../executor/maintainer/starter/bsd_socket/connect_bsd_socket_starter.c"
+#else
+    #include "../../../../executor/maintainer/starter/bsd_socket/connect_bsd_socket_starter.c"
+#endif
 
 /**
  * Connects a client socket.
@@ -41,110 +49,17 @@
  */
 void startup_socket_client_connect(void* p0, void* p1, void* p2) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client connect.");
 
-        socklen_t* as = (socklen_t*) p2;
-
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            struct sockaddr* ad = (struct sockaddr*) p1;
-
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                int* s = (int*) p0;
-
-                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client connect.");
-
-                // Initialise error number.
-                // It is a global variable/ function and other operations
-                // may have set some value that is not wanted here.
-                //
-                // CAUTION! Initialise the error number BEFORE calling
-                // the function that might cause an error.
-                errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                // CAUTION! The "select" function was NOT used to make
-                // this socket non-blocking, because it has some overhead
-                // in that other sockets need to be considered and
-                // their file descriptors handed over as argument.
-                // If nonblocking mode is necessary, then using a thread
-                // is considered to be a more simple and clean solution here.
-
-                // Make connexion with server.
-                //
-                // This function call waits until the server responds
-                // to the request before it returns.
-                int r = connect(*s, ad, *as);
-
-fwprintf(stdout, L"TEST: startup socket client connect s: %i \n", *s);
-sleep(2);
-
-                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    if (errno == EBADF) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The argument socket is not a valid file descriptor.");
-
-                    } else if (errno == ENOTSOCK) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The argument socket is not a socket.");
-
-                    } else if (errno == EADDRNOTAVAIL) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The specified address is not available on the remote machine.");
-
-                    } else if (errno == EAFNOSUPPORT) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The namespace of the address is not supported by this socket.");
-
-                    } else if (errno == EISCONN) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The socket is already connected.");
-
-                    } else if (errno == ETIMEDOUT) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The attempt to establish the connexion timed out.");
-
-                    } else if (errno == ECONNREFUSED) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The server has actively refused to establish the connexion.");
-
-                    } else if (errno == ENETUNREACH) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The network of the given address is not reachable from this host.");
-
-                    } else if (errno == EADDRINUSE) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The socket address of the given address is already in use.");
-
-                    } else if (errno == EINPROGRESS) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The socket is non-blocking and the connexion could not be established immediately. You can determine when the connexion is completely established with select; see Waiting for I/O. Another connect call on the same socket, before the connexion is completely established, will fail with EALREADY.");
-
-                    } else if (errno == EALREADY) {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The socket is non-blocking and already has a pending connexion in progress (see EINPROGRESS above).");
-
-                    } else {
-
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. An unknown error occured while connecting the socket.");
-                    }
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The socket is null.");
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The address data is null.");
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket client connect. The address size is null.");
-    }
+#ifdef __APPLE__
+    startup_bsd_socket_connect(p0, p1, p2, p3);
+#elif WIN32
+    startup_winsock_TODO(p0, p1, p2, p3);
+#elif GNU_LINUX_OPERATING_SYSTEM
+    startup_bsd_socket_connect(p0, p1, p2, p3);
+#else
+    startup_bsd_socket_connect(p0, p1, p2, p3);
+#endif
 }
 
 /* CONNECT_CLIENT_SOCKET_STARTER_SOURCE */

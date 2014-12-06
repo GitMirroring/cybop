@@ -61,8 +61,8 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2, void* p3) {
                 // It is a global variable/ function and other operations
                 // may have set some value that is not wanted here.
                 //
-                // CAUTION! Initialise the error number BEFORE calling the procedure
-                // that might cause an error.
+                // CAUTION! Initialise the error number BEFORE calling
+                // the procedure that might cause an error.
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 int r = bind(*s, ad, *as);

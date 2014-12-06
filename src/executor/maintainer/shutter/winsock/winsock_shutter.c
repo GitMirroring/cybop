@@ -26,10 +26,10 @@
 #ifndef WINSOCK_SHUTTER_SOURCE
 #define WINSOCK_SHUTTER_SOURCE
 
-#include <winsock.h>
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/maintainer/shutter/winsock/cleanup_winsock_shutter.c"
+#include "../../../../executor/maintainer/shutter/winsock/close_winsock_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -37,15 +37,14 @@
  *
  * This is done in the reverse order the service was started up.
  *
- * @param p0 the internal memory data
- * @param p1 the service thread
- * @param p2 the service thread interrupt
- * @param p3 the base internal
+ * @param p0 the socket
  */
-void shutdown_winsock(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_winsock(void* p0) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown winsock.");
 
     // Close socket.
-    shutdown_winsock_close();
+    shutdown_winsock_close(p0);
 
     // Cleanup socket.
     shutdown_winsock_cleanup();

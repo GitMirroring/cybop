@@ -16,9 +16,7 @@
 WUI
 ___
 
-        * Add ifdefs for operating system in startup/shutdown in directory "socket/"
-        * Add includes in all socket functions
-        * Adapt parametres in all socket functions
+        * Adjust includes and parametres in socket startup functions
         * Store socket and possibly addresses etc. in internal memory
         * Deallocate socket properly; had addresses etc. only been used as local variables? and already got deallocated when leaving the corresponding startup function?
         * Reactivate socket in file "starter.c"
