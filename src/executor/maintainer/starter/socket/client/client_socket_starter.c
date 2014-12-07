@@ -69,11 +69,9 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The communication style.
     // By default, its value is set to: SOCK_STREAM
     int st = SOCK_STREAM;
-    // By default, its value is set to: 0
-    // CAUTION! A value of ZERO is usually right for the "protocol".
-    // It causes the default protocol of the chosen socket style to be used.
-    // Examples: IPPROTO_TCP, IPPROTO_UDP, IPPROTO_ICMP, IPPROTO_RAW
-    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The protocol.
+    // By default, its value is set to: IPPROTO_TCP
+    int p = IPPROTO_TCP;
     // The socket address data, size.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -84,25 +82,17 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     startup_socket_style((void*) &st, p8, p9);
     // Get socket protocol.
     startup_socket_protocol((void*) &p, p6, p7);
-
     // Create socket.
     startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
-
-    // Initialise socket address depending on family.
-    // CAUTION! Hand over address data as pointer reference,
+    // Allocate and initialise socket address depending on family.
+    // CAUTION! Hand over address data as POINTER REFERENCE,
     // since it gets allocated inside the function and
     // has to be preserved as return value.
-    startup_socket_socket_address((void*) &ad, (void*) &as, p1, p2, p3, p4, p5, (void*) &af);
-
-    // CAUTION! The "select" function was NOT used to make
-    // this socket non-blocking, because it has some overhead
-    // in that other sockets need to be considered and
-    // their file descriptors handed over as argument.
-    // If nonblocking mode is necessary, then using a thread
-    // is considered to be a more simple and clean solution here.
-
+    startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
     // Connect via socket with server.
     startup_socket_client_connect(p0, ad, (void*) &as);
+    // Deallocate socket address.
+    free(ad);
 }
 
 /* CLIENT_SOCKET_STARTER_SOURCE */

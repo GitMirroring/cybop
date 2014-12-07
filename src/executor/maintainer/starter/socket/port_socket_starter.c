@@ -31,9 +31,11 @@
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/socket/service_socket_cybol_model.c"
+#include "../../../../../constant/model/service/port_service_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -52,11 +54,71 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p1, (void*) FTP_PORT_NAME_SERVICE_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FTP_PORT_NAME_SERVICE_MODEL_COUNT);
+        compare_all_array((void*) &r, p1, (void*) FTP_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) FTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) FTP_DATA_PORT_SERVICE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) HTTP_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HTTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) HTTP_DATA_PORT_SERVICE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) HTTPS_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) HTTPS_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) HTTPS_DATA_PORT_SERVICE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) POP3_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) POP3_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) POP3_DATA_PORT_SERVICE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) SMTP_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SMTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) SMTP_DATA_PORT_SERVICE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) SSH_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) SSH_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) SSH_DATA_PORT_SERVICE_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) TELNET_SERVICE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) TELNET_SERVICE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) TELNET_DATA_PORT_SERVICE_MODEL);
         }
     }
 }

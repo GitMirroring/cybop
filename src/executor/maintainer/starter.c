@@ -91,21 +91,21 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            startup_terminal(p0);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //??            startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_WWW_SERVICE_PORT_MODEL, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            startup_terminal(p0);
         }
     }
 

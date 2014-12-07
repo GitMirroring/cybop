@@ -54,7 +54,7 @@ void startup_socket_client_connect(void* p0, void* p1, void* p2) {
 #ifdef __APPLE__
     startup_bsd_socket_connect(p0, p1, p2);
 #elif WIN32
-    startup_winsock_TODO(p0, p1, p2);
+    startup_winsock_connect(p0, p1, p2);
 #elif GNU_LINUX_OPERATING_SYSTEM
     startup_bsd_socket_connect(p0, p1, p2);
 #else

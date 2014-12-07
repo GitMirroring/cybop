@@ -45,7 +45,7 @@
 /**
  * Startup socket address depending on the given address family.
  *
- * @param p0 the socket address data (pointer reference)
+ * @param p0 the socket address data
  * @param p1 the socket address size
  * @param p2 the filename data
  * @param p3 the filename count
@@ -117,7 +117,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                     startup_socket_host_address_inet((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
-                    calculate_integer_add(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+                    copy_integer(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
                     // The temporary size_t variable.
                     //
                     // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -193,7 +193,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                     startup_socket_host_address_inet6((void*) &ha, p4, p5);
 
                     // Initialise socket address size.
-                    calculate_integer_add(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+                    copy_integer(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
                     // The temporary size_t variable.
                     //
                     // CAUTION! It IS NECESSARY because on 64 Bit machines,
@@ -261,7 +261,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                     // With the known type "short int" of the "sun_family" field and
                     // a fixed size "108" of the "sun_path" field, the overall size of
                     // the "sockaddr_un" structure can be calculated as sum.
-                    calculate_integer_add(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+                    copy_integer(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
                     calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
 
                     // The temporary size_t variable.

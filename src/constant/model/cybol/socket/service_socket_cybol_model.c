@@ -38,6 +38,10 @@ static int* FTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_
 static wchar_t* HTTP_SERVICE_SOCKET_CYBOL_MODEL = L"http";
 static int* HTTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The hypertext transfer protocol secure (https) service socket cybol model. */
+static wchar_t* HTTPS_SERVICE_SOCKET_CYBOL_MODEL = L"https";
+static int* HTTPS_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The imap service socket cybol model. */
 static wchar_t* IMAP_SERVICE_SOCKET_CYBOL_MODEL = L"imap";
 static int* IMAP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -50,6 +54,10 @@ static int* IMAPS_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBO
 static wchar_t* NNTP_SERVICE_SOCKET_CYBOL_MODEL = L"nntp";
 static int* NNTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The post office protocol 3 (pop3) service socket cybol model. */
+static wchar_t* POP3_SERVICE_SOCKET_CYBOL_MODEL = L"pop3";
+static int* POP3_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The secure file transfer protocol (sftp) service socket cybol model. */
 static wchar_t* SFTP_SERVICE_SOCKET_CYBOL_MODEL = L"sftp";
 static int* SFTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -61,6 +69,14 @@ static int* SMTP_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI
 /** The smtps service socket cybol model. */
 static wchar_t* SMTPS_SERVICE_SOCKET_CYBOL_MODEL = L"smtps";
 static int* SMTPS_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The secure shell (ssh) service socket cybol model. */
+static wchar_t* SSH_SERVICE_SOCKET_CYBOL_MODEL = L"ssh";
+static int* SSH_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The telnet service socket cybol model. */
+static wchar_t* TELNET_SERVICE_SOCKET_CYBOL_MODEL = L"telnet";
+static int* TELNET_SERVICE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SERVICE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif

@@ -63,12 +63,16 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server lifecycle.");
 
     // The protocol family (socket namespace).
+    // By default, its value is set to: PF_INET6
     int pf = PF_INET6;
     // The address family (namespace).
+    // By default, its value is set to: AF_INET6
     int af = AF_INET6;
     // The communication style.
+    // By default, its value is set to: SOCK_STREAM
     int st = SOCK_STREAM;
     // The protocol.
+    // By default, its value is set to: IPPROTO_TCP
     int p = IPPROTO_TCP;
     // The socket address data, size.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -83,7 +87,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     // Create socket.
     // CAUTION! A value of ZERO is usually right for the "protocol".
     startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
-    // Initialise socket address depending on family.
+    // Allocate and initialise socket address depending on family.
     // CAUTION! Hand over address data as POINTER REFERENCE,
     // since it gets allocated inside the function and
     // has to be preserved as return value.
@@ -94,6 +98,9 @@ sleep(2);
 
     // Bind address to socket.
     startup_socket_server_bind(p0, (void*) &ad, (void*) &as);
+
+    // Deallocate socket address.
+    free(ad);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

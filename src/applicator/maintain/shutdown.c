@@ -58,19 +58,47 @@ void apply_shutdown(void* p0, void* p1, void* p2, void* p3) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The service part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item.
+    void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The service part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The port part model item data.
+    void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The service part model item data.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get port part.
+    get_part_knowledge((void*) &p, p0, (void*) PORT_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PORT_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get service part.
+    get_part_knowledge((void*) &s, p0, (void*) SERVICE_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) SERVICE_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get port part model item.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get service part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get port part model item data.
+    copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get service part model item data.
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    shutdown_service(p3, cmd);
+    shutdown_service(p3, /*??pmd, smd, */cmd);
 }
 
 /* SHUTDOWN_SOURCE */

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete files "service_socket_cybol_model.c" and "port_socket_starter.c"
+        * Investigate using "struct sockaddr_storage" on stack representing addresses of any type
+        * Decide for de-/allocation of local socket address on heap to gain independence and flexibility
+
 2014-12-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add pre-processor ifdefs for operating system in startup/shutdown of socket

@@ -16,12 +16,11 @@
 WUI
 ___
 
-        * Complete file "executor/maintainer/starter/socket/port_socket_starter.c"
-        * Add file "constant/model/service/port_name_service_model.c" with FTP, HTTP etc.
-        * Store socket and possibly addresses etc. in internal memory
-        * Deallocate socket properly; had addresses etc. only been used as local variables? and already got deallocated when leaving the corresponding startup function?
+        * Adapt parametres for startup/shutdown, starting from applicator
         * Reactivate socket in file "starter.c"
         * Uncomment socket in file "controller/manager.c"
+
+        * Remove global socket variables from "socket_type_size.c" and "socket_globaliser.c" and use "sizeof" locally ??
 
         * Continue thinking: Add socket data to internal memory by dynamically extending it?
             One socket per port is possible, not more.

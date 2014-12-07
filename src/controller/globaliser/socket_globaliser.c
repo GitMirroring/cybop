@@ -26,30 +26,29 @@
 #ifndef SOCKET_GLOBALISER_SOURCE
 #define SOCKET_GLOBALISER_SOURCE
 
+#include <sys/stat.h>
+
 #ifdef WIN32
-#ifndef _MSC_VER
-#define INCLUDE_WINSOCK2
-#endif
+    #ifndef _MSC_VER
+        #define INCLUDE_WINSOCK2
+    #endif
 #endif
 
 #ifdef WIN32_LEAN_AND_MEAN
-#ifdef _MSC_VER
-#define INCLUDE_WINSOCK2
-#endif
+    #ifdef _MSC_VER
+        #define INCLUDE_WINSOCK2
+    #endif
 #endif
 
 #ifdef WIN32
-#ifdef INCLUDE_WINSOCK2
-    #include <winsock2.h>
-#endif
+    #ifdef INCLUDE_WINSOCK2
+        #include <winsock2.h>
+    #endif
 #else
     #include <arpa/inet.h>
     #include <netinet/in.h>
     #include <sys/un.h>
 #endif
-
-
-#include <sys/stat.h>
 
 #include "../../variable/type_size/integral_type_size.c"
 #include "../../variable/type_size/socket_type_size.c"
@@ -61,17 +60,17 @@ void globalise_socket() {
 
     *INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in_addr);
     *INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in);
-    *SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr);
-    #ifdef WIN32
-        // testvalues
-        *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = 0;
-        *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
-        *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
-    #else
-        *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in6_addr);
-        *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in6);
-        *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_un);
-    #endif
+
+#ifdef WIN32
+    // testvalues
+    *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = 0;
+    *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
+    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
+#else
+    *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in6_addr);
+    *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in6);
+    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_un);
+#endif
 }
 
 /* SOCKET_GLOBALISER_SOURCE */
