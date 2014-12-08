@@ -64,7 +64,7 @@ void globalise_log() {
     // rather than the objects themselves.
     //
     // Hence, the following line would NOT have sense and is FORBIDDEN:
-    // LOG_OUTPUT = (FILE*) malloc(sizeof(FILE));
+    // LOG_OUTPUT = (FILE*) malloc(sizeof (FILE));
     //
     // The LOG_OUTPUT variable does not receive an initial value
     // and remains empty here. It gets only filled later,

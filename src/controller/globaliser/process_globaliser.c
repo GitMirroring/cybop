@@ -41,7 +41,7 @@
  */
 void globalise_process() {
 
-    *IDENTIFICATION_PROCESS_TYPE_SIZE = sizeof(pid_t);
+    *IDENTIFICATION_PROCESS_TYPE_SIZE = sizeof (pid_t);
 }
 
 /* PROCESS_GLOBALISER_SOURCE */

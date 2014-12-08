@@ -59,7 +59,7 @@ void startup_win32_display_register(void* p0, void* p1) {
 
             WNDCLASSEX wc; // = {0};
 
-            wc.cbSize = (UINT) sizeof(WNDCLASSEX);
+            wc.cbSize = (UINT) sizeof (WNDCLASSEX);
             wc.style = (UINT) 0; // CS_HREDRAW | CS_VREDRAW;
             wc.lpfnWndProc = (WNDPROC) receive_win32_display_message_callback;
             wc.cbClsExtra = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

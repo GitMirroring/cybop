@@ -45,7 +45,25 @@
 /**
  * Startup socket address depending on the given address family.
  *
- * @param p0 the socket address data
+ * A socket address is handed over as argument of type
+ * "struct sockaddr" to functions like: bind, connect, sendto.
+ * The functions that use "struct sockaddr" will only read
+ * the field "sa_family" and do the opposite cast internally:
+ *
+ * https://stackoverflow.com/questions/13723971/struct-type-conversion-in-c
+ *
+ * However, an allocated variable of type "struct sockaddr"
+ * is NOT able to represent all kinds of socket addresses,
+ * since many types have BIGGER SIZES.
+ *
+ * Therefore, the type "struct sockaddr_storage" was introduced
+ * to serve as universal store for address information of any kind.
+ * It is as large as the largest address type in an architecture:
+ *
+ * https://stackoverflow.com/questions/8835322/api-using-sockaddr-storage
+ * http://msdn.microsoft.com/en-us/library/windows/desktop/ms740504%28v=vs.85%29.aspx
+ *
+ * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
  * @param p2 the filename data
  * @param p3 the filename count
@@ -74,6 +92,8 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                 compare_integer_equal((void*) &r, p7, (void*) AF_BLUETOOTH);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    //?? struct sockaddr_bth for Bluetooth
                 }
             }
 
@@ -246,7 +266,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                     // Initialise address size.
                     //
                     // CAUTION! The following line CANNOT be used:
-                    // *as = sizeof(struct sockaddr_un);
+                    // *as = sizeof (struct sockaddr_un);
                     // because the compiler brings the error
                     // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
                     // The reason is the "sun_path" field of the "sockaddr_un" structure,

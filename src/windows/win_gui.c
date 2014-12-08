@@ -32,7 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
     /*  Fill in WNDCLASSEX struct members  */
 
-    wndclass.cbSize = sizeof(wndclass);
+    wndclass.cbSize = sizeof (wndclass);
     wndclass.style = CS_HREDRAW | CS_VREDRAW;
     wndclass.lpfnWndProc = WndProc;
     wndclass.cbClsExtra = 0;

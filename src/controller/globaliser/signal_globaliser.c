@@ -36,8 +36,8 @@
  */
 void globalise_signal() {
 
-    *ATOMIC_SIGNAL_TYPE_SIZE = sizeof(sig_atomic_t);
-    *VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = sizeof(volatile sig_atomic_t);
+    *ATOMIC_SIGNAL_TYPE_SIZE = sizeof (sig_atomic_t);
+    *VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = sizeof (volatile sig_atomic_t);
 }
 
 /* SIGNAL_GLOBALISER_SOURCE */

@@ -58,8 +58,8 @@
  */
 void globalise_socket() {
 
-    *INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in_addr);
-    *INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in);
+    *INTERNET_PROTOCOL_4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
+    *INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
 
 #ifdef WIN32
     // testvalues
@@ -67,9 +67,9 @@ void globalise_socket() {
     *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
     *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = 0;
 #else
-    *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct in6_addr);
-    *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_in6);
-    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof(struct sockaddr_un);
+    *INTERNET_PROTOCOL_6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
+    *INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
+    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_un);
 #endif
 }
 

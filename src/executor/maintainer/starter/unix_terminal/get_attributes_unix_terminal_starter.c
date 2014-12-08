@@ -57,7 +57,7 @@ void startup_unix_terminal_attributes_get(void* p0, void* p1) {
         // entire collection of attributes of a serial port.
         // It is used with the functions "tcgetattr" and
         // "tcsetattr" to get and set the attributes.
-        void* a = malloc(sizeof(struct termios));
+        void* a = malloc(sizeof (struct termios));
 
         if (a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

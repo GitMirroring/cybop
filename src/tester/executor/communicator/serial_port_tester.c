@@ -154,7 +154,7 @@ int OpenComport(int comport_number, int baudrate) {
         return(1);
     }
 
-    memset(&new_port_settings, 0, sizeof(new_port_settings));  // clear the new struct
+    memset(&new_port_settings, 0, sizeof (new_port_settings));  // clear the new struct
 
 fwprintf(stdout, L"TEST baudrate: %i\n", baudr);
 

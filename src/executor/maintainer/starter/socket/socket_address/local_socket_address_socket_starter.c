@@ -45,11 +45,7 @@ void startup_socket_socket_address_local(void* p0, void* p1, void* p2) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* fc = (int*) p2;
-
         if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            wchar_t* fd = (wchar_t*) p1;
 
             if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

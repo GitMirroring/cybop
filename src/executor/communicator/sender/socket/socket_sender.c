@@ -347,7 +347,7 @@ void apply_send_socket_allocate_socket_address(void* p0, void* p1, void* p2) {
                     // Initialise socket address size.
                     //
                     // CAUTION! The following line CANNOT be used:
-                    // *as = sizeof(struct sockaddr_un);
+                    // *as = sizeof (struct sockaddr_un);
                     // because the compiler brings the error
                     // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
                     // The reason is the "sun_path" field of the "sockaddr_un" structure,
@@ -429,7 +429,7 @@ void apply_send_socket_initialise_socket_address(void* p0, void* p1, void* p2, v
             // Initialise local socket address.
             //
             // CAUTION! The following line CANNOT be used:
-            // *as = sizeof(struct sockaddr_un);
+            // *as = sizeof (struct sockaddr_un);
             // because the compiler brings the error
             // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
             // The reason is the "sun_path" field of the "sockaddr_un" structure,

@@ -34,7 +34,7 @@
  */
 void globalise_pointer() {
 
-    *POINTER_TYPE_SIZE = sizeof(void*);
+    *POINTER_TYPE_SIZE = sizeof (void*);
 }
 
 /* POINTER_GLOBALISER_SOURCE */

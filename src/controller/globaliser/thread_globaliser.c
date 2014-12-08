@@ -36,8 +36,8 @@
  */
 void globalise_thread() {
 
-    *THREAD_TYPE_SIZE = sizeof(pthread_t);
-    *MUTEX_THREAD_TYPE_SIZE = sizeof(pthread_mutex_t);
+    *THREAD_TYPE_SIZE = sizeof (pthread_t);
+    *MUTEX_THREAD_TYPE_SIZE = sizeof (pthread_mutex_t);
 }
 
 /* THREAD_GLOBALISER_SOURCE */

@@ -56,17 +56,17 @@ void globalise_integral() {
     // whereas an "int" has the usual size of 4 Byte.
     //
 
-//??    *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(signed char);
-    *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(unsigned char);
-//??    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed short int);
-//??    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned short int);
-    *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed int);
-//??    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned int);
-//??    *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long int);
-//??    *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long int);
-    *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(signed long long int);
-//??    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof(unsigned long long int);
-    *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof(wchar_t);
+//??    *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (signed char);
+    *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (unsigned char);
+//??    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed short int);
+//??    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned short int);
+    *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed int);
+//??    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned int);
+//??    *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed long int);
+//??    *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long int);
+    *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed long long int);
+//??    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long long int);
+    *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (wchar_t);
 }
 
 /* INTEGRAL_GLOBALISER_SOURCE */

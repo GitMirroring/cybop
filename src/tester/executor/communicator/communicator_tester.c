@@ -199,8 +199,8 @@ void test_wide_character_output() {
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
 //??        allocate((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-    to = (struct termios*) malloc(sizeof(struct termios));
-    tw = (struct termios*) malloc(sizeof(struct termios));
+    to = (struct termios*) malloc(sizeof (struct termios));
+    tw = (struct termios*) malloc(sizeof (struct termios));
 
     // Initialise terminal internals.
     // Set file stream.
@@ -414,8 +414,8 @@ void test_communicator_console_input() {
     struct termios* tn = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate terminal internals.
-    to = (struct termios*) malloc(sizeof(struct termios));
-    tn = (struct termios*) malloc(sizeof(struct termios));
+    to = (struct termios*) malloc(sizeof (struct termios));
+    tn = (struct termios*) malloc(sizeof (struct termios));
 
     // Set file stream.
     t = stdin;

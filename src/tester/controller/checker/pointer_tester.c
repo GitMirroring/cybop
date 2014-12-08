@@ -441,7 +441,7 @@ void test_pointer_array_with_null_values() {
  * overwrite_array(m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
  * int* c = m + 2;
  * should be: = 10 + 2 = 12
- * but it is: = 10 + (2 * sizeof(int)) = 10 + 8 = 18
+ * but it is: = 10 + (2 * sizeof (int)) = 10 + 8 = 18
  */
 void test_pointer_addition() {
 

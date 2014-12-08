@@ -84,7 +84,7 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         //Changed Benno Schilling 05.02.2014
         //VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
         //INPUT_RECORD i[is];
-        INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * sizeof(DWORD));
+        INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * sizeof (DWORD));
 #else
         INPUT_RECORD i[is];
 #endif
