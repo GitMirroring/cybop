@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move and rename file "port_socket_starter.c" to become "network_service_deserialiser.c"
+        * Provide a file "network_service_serialiser.c" as well
+        * Move and rename file "base_server_socket_starter.c" to become "socket_base_deserialiser.c"
+        * Adapt parametres for startup/shutdown, starting from applicator
+        * Use "sizeof (" with space before parenthesis
+
 2014-12-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete files "service_socket_cybol_model.c" and "port_socket_starter.c"

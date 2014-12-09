@@ -31,11 +31,11 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../../../executor/maintainer/starter/socket/server/base_server_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/representer/deserialiser/socket_base/socket_base_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -59,42 +59,46 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server.");
 
-    // The internal memory base.
-    int b = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The socket.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The socket.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get internal memory base from port.
-    startup_socket_server_base((void*) &b, p11);
-    // Calculate internal memory index.
-    copy_integer((void*) &i, p13);
-    calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    deserialise_socket_base((void*) &i, p11);
 
-    // Get socket.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Calculate internal memory index.
+        calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get socket.
+        copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-        // Only create socket if not existent.
+        if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Allocate socket.
-        allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            // Only create socket if not existent.
 
-        // Startup server socket.
-        startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+            // Allocate socket.
+            allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        // Store socket in internal memory.
-        //
-        // CAUTION! Do NOT use "overwrite_array" function here,
-        // since it adapts the array count and size.
-        // But the internal array's count and size are CONSTANT.
-        copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            // Startup server socket.
+            startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+
+            // Store socket in internal memory.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the internal array's count and size are CONSTANT.
+            copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        } else {
+
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The socket already exists in internal memory.");
+        }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server existing. The socket already exists in internal memory.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The internal memory base is zero.");
     }
 }
 

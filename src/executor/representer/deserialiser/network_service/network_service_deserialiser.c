@@ -23,31 +23,31 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PORT_SOCKET_STARTER_SOURCE
-#define PORT_SOCKET_STARTER_SOURCE
+#ifndef NETWORK_SERVICE_DESERIALISER_SOURCE
+#define NETWORK_SERVICE_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/model/cybol/socket/service_socket_cybol_model.c"
-#include "../../../../../constant/model/service/port_service_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cybol/socket/service_socket_cybol_model.c"
+#include "../../../../constant/model/service/port_service_model.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Determines the socket port from the given network service string.
+ * Deserialises the network service string into a socket port number.
  *
  * @param p0 the port
  * @param p1 the network service data
  * @param p2 the network service count
  */
-void startup_socket_port(void* p0, void* p1, void* p2) {
+void deserialise_network_service(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket port.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise network service.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -58,7 +58,7 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) FTP_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) FTP_PORT_SERVICE_MODEL);
         }
     }
 
@@ -68,7 +68,7 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) HTTP_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) HTTP_PORT_SERVICE_MODEL);
         }
     }
 
@@ -78,7 +78,7 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) HTTPS_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) HTTPS_PORT_SERVICE_MODEL);
         }
     }
 
@@ -88,7 +88,7 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) POP3_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) POP3_PORT_SERVICE_MODEL);
         }
     }
 
@@ -98,7 +98,7 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) SMTP_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) SMTP_PORT_SERVICE_MODEL);
         }
     }
 
@@ -108,7 +108,7 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) SSH_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) SSH_PORT_SERVICE_MODEL);
         }
     }
 
@@ -118,10 +118,15 @@ void startup_socket_port(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) TELNET_DATA_PORT_SERVICE_MODEL);
+            copy_integer(p0, (void*) TELNET_PORT_SERVICE_MODEL);
         }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise network service. The given network service is unknown.");
     }
 }
 
-/* PORT_SOCKET_STARTER_SOURCE */
+/* NETWORK_SERVICE_DESERIALISER_SOURCE */
 #endif

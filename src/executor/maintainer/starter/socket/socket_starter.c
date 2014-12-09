@@ -30,8 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../executor/maintainer/starter/socket/mode_socket_starter.c"
-#include "../../../../executor/maintainer/starter/socket/port_socket_starter.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/representer/deserialiser/network_service/network_service_deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -72,8 +72,8 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // A direct port was NOT given as parametre.
         // Therefore, determine port from service name.
 
-        // Get port from network service name.
-        startup_socket_port((void*) &p, p16, p17);
+        // Deserialise port from network service name.
+        deserialise_network_service((void*) &p, p16, p17);
     }
 
     // Startup socket in either client or server mode.

@@ -77,11 +77,11 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get protocol- and address family.
-    startup_socket_family((void*) &pf, (void*) &af, p10, p11);
+    startup_socket_family((void*) &pf, (void*) &af, p1, p2);
     // Get socket communication style.
-    startup_socket_style((void*) &st, p8, p9);
+    startup_socket_style((void*) &st, p3, p4);
     // Get socket protocol.
-    startup_socket_protocol((void*) &p, p6, p7);
+    startup_socket_protocol((void*) &p, p5, p6);
     // Create socket.
     startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
     // Allocate and initialise socket address depending on family.

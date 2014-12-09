@@ -16,7 +16,7 @@
 WUI
 ___
 
-        * Adapt parametres for startup/shutdown, starting from applicator
+        * Adapt parametres for startup, starting from applicator
         * Reactivate socket in file "starter.c"
         * Uncomment socket in file "controller/manager.c"
 

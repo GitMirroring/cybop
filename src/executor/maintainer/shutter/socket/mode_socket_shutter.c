@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MODE_SOCKET_STARTER_SOURCE
-#define MODE_SOCKET_STARTER_SOURCE
+#ifndef MODE_SOCKET_SHUTTER_SOURCE
+#define MODE_SOCKET_SHUTTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -32,64 +32,55 @@
 #include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/maintainer/starter/socket/client/client_socket_starter.c"
-#include "../../../../executor/maintainer/starter/socket/server/server_socket_starter.c"
+#include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../executor/maintainer/shutter/socket/server_socket_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Starts up socket in either client or server mode.
+ * Shuts down socket in either client or server mode.
  *
  * @param p0 the internal memory data (pointer reference)
- * @param p1 the family data (namespace)
- * @param p2 the family count
- * @param p3 the style data (communication type)
- * @param p4 the style count
- * @param p5 the protocol data
- * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
- * @param p12 the connexions (number of possible pending client requests)
- * @param p13 the client socket
- * @param p14 the mode data
- * @param p15 the mode count
+ * @param p1 the service thread
+ * @param p2 the service thread interrupt
+ * @param p3 the port
+ * @param p4 the client socket
+ * @param p5 the mode data
+ * @param p6 the mode count
  */
-void startup_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket mode.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket mode.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p14, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Hand over client socket.
             // CAUTION! It does NOT have to be determined from internal memory.
-            startup_socket_client(p13, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+            shutdown_socket_close(p4);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p14, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p5, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p6, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_socket_server(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+            shutdown_socket_server(p0, p1, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket mode. The mode is unknown.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket mode. The mode is unknown.");
     }
 }
 
-/* MODE_SOCKET_STARTER_SOURCE */
+/* MODE_SOCKET_SHUTTER_SOURCE */
 #endif

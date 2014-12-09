@@ -28,79 +28,48 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
-#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../executor/maintainer/shutter/socket/mode_socket_shutter.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/representer/deserialiser/network_service/network_service_deserialiser.c"
 #include "../../../../logger/logger.c"
-
-#ifdef __APPLE__
-    #include "../../../../executor/maintainer/shutter/bsd_socket/bsd_socket_shutter.c"
-#elif WIN32
-    #include "../../../../executor/maintainer/shutter/winsock/winsock_shutter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/shutter/bsd_socket/bsd_socket_shutter.c"
-#else
-    #include "../../../../executor/maintainer/shutter/bsd_socket/bsd_socket_shutter.c"
-#endif
 
 /**
  * Shuts down the socket service.
  *
- * This is done in the reverse order the service was started up.
+ * CAUTION! This is done in the reverse order the service was started up.
  *
- * @param p0 the internal memory data
+ * @param p0 the internal memory data (pointer reference)
  * @param p1 the service thread
  * @param p2 the service thread interrupt
- * @param p3 the base internal (depends on the protocol/port)
+ * @param p3 the port
+ * @param p4 the client socket
+ * @param p5 the mode data
+ * @param p6 the mode count
+ * @param p7 the network service data
+ * @param p8 the network service count
  */
-void shutdown_socket(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket.");
 
-    // The socket.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The port.
+    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Calculate internal memory index.
-    copy_integer((void*) &i, p3);
-    calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Copy port.
+    // CAUTION! It will NOT be copied, if its value is a NULL pointer.
+    copy_integer((void*) &p, p3);
 
-    // Get socket.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    // Only deallocate socket resources if the socket internal is NOT null.
-    if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // A direct port was NOT given as parametre.
+        // Therefore, determine port from service name.
 
-        // Interrupt terminal service thread.
-        interrupt_thread(p1, p2);
-
-#ifdef __APPLE__
-        shutdown_bsd_socket(s);
-#elif WIN32
-        shutdown_winsock(s);
-#elif GNU_LINUX_OPERATING_SYSTEM
-        shutdown_bsd_socket(s);
-#else
-        shutdown_bsd_socket(s);
-#endif
-
-        // Deallocate socket.
-        deallocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-        // Reset values.
-        // CAUTION! Assign NULL to the internal memory.
-        // It is ESSENTIAL, since cyboi tests for null pointers.
-        // Otherwise, wild pointers would lead to memory corruption.
-        copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-    } else {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket. There is no socket running at the given base internal.");
+        // Deserialise port from network service name.
+        deserialise_network_service((void*) &p, p7, p8);
     }
+
+    shutdown_socket_mode(p0, p1, p2, (void*) &p, p4, p5, p6);
 }
 
 /* SOCKET_SHUTTER_SOURCE */

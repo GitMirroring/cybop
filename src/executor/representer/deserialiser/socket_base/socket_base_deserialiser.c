@@ -23,34 +23,34 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BASE_SERVER_SOCKET_STARTER_SOURCE
-#define BASE_SERVER_SOCKET_STARTER_SOURCE
+#ifndef SOCKET_BASE_DESERIALISER_SOURCE
+#define SOCKET_BASE_DESERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/service/port_service_model.c"
-#include "../../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/service/port_service_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
- * Determines the internal memory base belonging to the given socket port.
+ * Deserialises the socket port into an internal memory base number.
  *
  * @param p0 the base
  * @param p1 the port
  */
-void startup_socket_server_base(void* p0, void* p1) {
+void deserialise_socket_base(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server base.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise socket base.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) FTP_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) FTP_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -60,7 +60,7 @@ void startup_socket_server_base(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) HTTP_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) HTTP_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -70,7 +70,7 @@ void startup_socket_server_base(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) HTTPS_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) HTTPS_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,7 +80,7 @@ void startup_socket_server_base(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) POP3_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) POP3_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +90,7 @@ void startup_socket_server_base(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SMTP_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) SMTP_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -100,7 +100,7 @@ void startup_socket_server_base(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SSH_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) SSH_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,14 +110,19 @@ void startup_socket_server_base(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) TELNET_DATA_PORT_SERVICE_MODEL);
+        compare_integer_equal((void*) &r, p1, (void*) TELNET_PORT_SERVICE_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             copy_integer(p0, (void*) TELNET_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise socket base. The given socket port is unknown.");
+    }
 }
 
-/* BASE_SERVER_SOCKET_STARTER_SOURCE */
+/* SOCKET_BASE_DESERIALISER_SOURCE */
 #endif

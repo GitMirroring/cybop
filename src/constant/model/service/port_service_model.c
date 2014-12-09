@@ -27,7 +27,7 @@
 #ifndef PORT_SERVICE_MODEL_CONSTANT_SOURCE
 #define PORT_SERVICE_MODEL_CONSTANT_SOURCE
 
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
 // IANA assigned ports.

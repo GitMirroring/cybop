@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BSD_SOCKET_SHUTTER_SOURCE
-#define BSD_SOCKET_SHUTTER_SOURCE
+#ifndef CLOSE_BSD_SOCKET_SHUTTER_SOURCE
+#define CLOSE_BSD_SOCKET_SHUTTER_SOURCE
 
 #include <errno.h>
 #include <unistd.h>
@@ -38,13 +38,13 @@
  *
  * @param p0 the socket
  */
-void shutdown_bsd_socket(void* p0) {
+void shutdown_bsd_socket_close(void* p0) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* s = (int*) p0;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown bsd socket.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown bsd socket close.");
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -73,35 +73,35 @@ void shutdown_bsd_socket(void* p0) {
 
             if (errno == EBADF) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The filedes argument is not a valid file descriptor.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The filedes argument is not a valid file descriptor.");
 
             } else if (errno == EINTR) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The close call was interrupted by a signal.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The close call was interrupted by a signal.");
 
             } else if (errno == ENOSPC) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. Error: ENOSPC. NO ERROR CONDITION DEFINED IN GLIBC.");
 
             } else if (errno == EIO) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. Error: EIO. NO ERROR CONDITION DEFINED IN GLIBC.");
 
             } else if (errno == EDQUOT) {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. An unknown error occured while binding the socket to the address.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. An unknown error occured while binding the socket to the address.");
             }
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket. The socket is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown bsd socket close. The socket is null.");
     }
 }
 
-/* BSD_SOCKET_SHUTTER_SOURCE */
+/* CLOSE_BSD_SOCKET_SHUTTER_SOURCE */
 #endif
