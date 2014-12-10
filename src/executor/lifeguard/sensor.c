@@ -104,7 +104,7 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

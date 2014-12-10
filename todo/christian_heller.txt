@@ -14,7 +14,8 @@
 WUI
 ___
 
-        * Replace all symbolic names (pre-processor-defined constants) with global int variables initialised in globaliser at cyboi startup
+        * CONTINUE in directories: "variable/symbolic_name/" and "controller/globaliser/symbolic_name/"
+        * Replace symbolic names (pre-processor-defined constants) with global integer variables initialised at cyboi startup
         * Remove direct comparisons with symbolic names in file "socket_address_socket_starter.c"
             --> should be a reference, but this is NOT possible with symbolic names, therefore define int variables/constants
         * Fix related mingw compilation error

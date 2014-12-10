@@ -81,7 +81,7 @@ void interrupt(void* p0, void* p1) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p1, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

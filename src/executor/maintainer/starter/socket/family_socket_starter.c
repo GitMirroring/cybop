@@ -44,6 +44,34 @@
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
+//
+// On the difference between prefix AF_ and PF_:
+//
+// The original design concept of the socket interface
+// distinguished between protocol types (families) and
+// the specific address types that each may use.
+//
+// It was envisioned that a protocol family may have
+// several address types. Address types were defined by
+// additional symbolic constants, using the prefix AF_
+// instead of PF_. The AF_-identifiers are intended
+// for all data structures that specifically deal with
+// the address type and not the protocol family.
+//
+// However, this concept of separation of protocol
+// and address type has not found implementation support
+// and the AF_-constants were simply defined by the
+// corresponding protocol identifier, rendering the
+// distinction between AF_ versus PF_ constants a technical
+// argument of no significant practical consequence.
+//
+// Indeed, much confusion exists in the proper usage of both forms.
+// However, the current POSIX.1—2008 specification doesn't
+// specify any of PF_-constants, but only AF_-constants.
+//
+// https://en.wikipedia.org/wiki/Berkeley_sockets#Protocol_and_address_families
+//
+
 /**
  * Converts family string into socket- and address integer.
  *

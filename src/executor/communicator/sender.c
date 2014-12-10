@@ -90,7 +90,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p15, (void*) FILE_SYSTEM_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p15, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,7 +120,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p15, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p15, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
