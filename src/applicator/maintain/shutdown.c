@@ -44,6 +44,10 @@
  *
  * Expected parametres:
  * - channel (required): the channel on which to shutdown a service (terminal, www, x-window-system, ...)
+ * - port (optional): the socket port (needed only if channel is "socket")
+ * - service (optional): the network service (needed only if channel is "socket")
+ * - mode (optional): the communication mode (needed only if channel is "socket")
+ * - socket (optional): the client socket (needed only if mode is "client")
  *
  * Constraints:
  *

@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Exclude local unix domain socket for windows compilation, since it doesn't exist there
+        * Exclude ipv6 support for windows compilation, since it is not supported by mingw yet
+        * Reactivate socket in file "starter.c"
+
 2014-12-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move and rename file "port_socket_starter.c" to become "network_service_deserialiser.c"

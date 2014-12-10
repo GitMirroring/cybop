@@ -26,7 +26,15 @@
 #ifndef CLIENT_SOCKET_STARTER_SOURCE
 #define CLIENT_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
+#ifdef __APPLE__
+    #include <sys/socket.h>
+#elif WIN32
+    #include <winsock.h>
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#else
+    #include <sys/socket.h>
+#endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

@@ -35,8 +35,8 @@
  *
  * This is a valid protocol for a stream socket.
  */
-static wchar_t* BLUETOOTH_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL = L"bluetooth_rfcomm";
-static int* BLUETOOTH_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* BTHPROTO_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL = L"bluetooth_rfcomm";
+static int* BTHPROTO_RFCOMM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The internet control message protocol (icmp) protocol socket cybol model.
@@ -75,8 +75,8 @@ static int* RAW_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI
  *
  * This is a valid protocol for a rdm socket.
  */
-static wchar_t* PGM_PROTOCOL_SOCKET_CYBOL_MODEL = L"pgm";
-static int* PGM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* RM_PROTOCOL_SOCKET_CYBOL_MODEL = L"rm";
+static int* RM_PROTOCOL_SOCKET_CYBOL_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The tcp protocol socket cybol model.

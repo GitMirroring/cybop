@@ -11,31 +11,18 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Try out CMake 3.1 with GUI
-
 WUI
 ___
 
-        * Adapt parametres for startup, starting from applicator
-        * Reactivate socket in file "starter.c"
-        * Uncomment socket in file "controller/manager.c"
+        * Replace all symbolic names (pre-processor-defined constants) with global int variables initialised in globaliser at cyboi startup
+        * Remove direct comparisons with symbolic names in file "socket_address_socket_starter.c"
+            --> should be a reference, but this is NOT possible with symbolic names, therefore define int variables/constants
+        * Fix related mingw compilation error
+        * Define global socket variables in files "socket_type_size.c" and "socket_globaliser.c" OR use "sizeof" locally ??
 
-        * Remove global socket variables from "socket_type_size.c" and "socket_globaliser.c" and use "sizeof" locally ??
-
-        * Continue thinking: Add socket data to internal memory by dynamically extending it?
-            One socket per port is possible, not more.
-            Therefore, the port may be used to identify the socket data within the internal memory.
-            Possibly write special access function in file "existing_bsd_socket_starter.c",
-                in order to get existing socket data from internal memory and
-                otherwise extend internal memory to add new socket's data
-
-        * Hint for thinking: Only the "socket" number should be stored
-            in a cybol property, in order to be able to use it for communication;
-            all other things are set inside the socket, when starting it up;
-            only one service may exist per port;
-            server sockets are stored in internal memory;
-            client sockets NOT -- they have to be stored in the corresponding cybol application
-        * Implement session on application level (e.g. in Res Medicinae)
+        * Uncomment function call "shutdown_socket" in file "controller/manager.c"
+        * Use a new function looping all open sockets in order to close them
+        * Provide a dictionary of flags saying if a socket service/port is open or not
 
         * Reactivate send/receive functionality: hint from "wolf_-_c_von_a_bis_z" for UDP connexion:
             "Sollten Sie bei einer UDP-Verbindung die connect()-Funktion verwenden,
@@ -46,7 +33,8 @@ ___
             --> only send/receive should be in communicator
 
         * Study "libcurl3" library for URL transfer
-        * Adapt cybol example applications "http_communication" and "presence" using HTTP
+        * Adapt cybol example application "wui_socket"
+        * Complete cybol example application "presence" using HTTP
             --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
                 answers to following client request were appended to the same model leading to false results
 
@@ -73,7 +61,9 @@ ___
         * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
             the corresponding type may be forwarded between functions as parametre
 
-        * Write de-/serialiser translating service to port and vice versa
+        * Activate ipv6 support in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
+
+        * Think about how to add socket ports given by a cybol application, if that port is not defined in cyboi
 
 GUI
 ___

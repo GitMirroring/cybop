@@ -26,6 +26,16 @@
 #ifndef LIFECYCLE_SERVER_SOCKET_STARTER_SOURCE
 #define LIFECYCLE_SERVER_SOCKET_STARTER_SOURCE
 
+#ifdef __APPLE__
+    #include <sys/socket.h>
+#elif WIN32
+    #include <winsock.h>
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <sys/socket.h>
+#else
+    #include <sys/socket.h>
+#endif
+
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -103,11 +113,12 @@ sleep(2);
     free(ad);
 
     // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+//??    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, (void*) &st, (void*) &SOCK_STREAM);
+//??    compare_integer_equal((void*) &r, (void*) &st, (void*) &SOCK_STREAM);
 
-    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+//??    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (st == SOCK_STREAM) {
 
 fwprintf(stdout, L"TEST: startup socket server lifecycle listen s: %i \n", *((int*) p0));
 sleep(2);

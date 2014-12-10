@@ -26,13 +26,24 @@
 #ifndef INET_HOST_ADDRESS_SOCKET_STARTER_SOURCE
 #define INET_HOST_ADDRESS_SOCKET_STARTER_SOURCE
 
-#include <arpa/inet.h>
+#include <stdint.h> // for uint32_t
+
+#ifdef __APPLE__
+    #include <netinet/in.h>
+#elif WIN32
+    #include <winsock.h>
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <netinet/in.h>
+#else
+    #include <netinet/in.h>
+#endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/model/cybol/socket/address_socket_cybol_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
@@ -78,7 +89,7 @@ void startup_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_all_array((void*) &r, p1, (void*) LOOPBACK_ADDRESS_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOOPBACK_ADDRESS_CYBOL_MODEL_COUNT);
+            compare_all_array((void*) &r, p1, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) LOOPBACK_ADDRESS_SOCKET_CYBOL_MODEL_COUNT);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -102,7 +113,7 @@ void startup_socket_host_address_inet(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_all_array((void*) &r, p1, (void*) ANY_ADDRESS_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ANY_ADDRESS_CYBOL_MODEL_COUNT);
+            compare_all_array((void*) &r, p1, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) ANY_ADDRESS_SOCKET_CYBOL_MODEL_COUNT);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

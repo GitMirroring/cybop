@@ -29,15 +29,19 @@
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <property name="style" channel="inline" format="text/plain" model="stream"/>
+        <property name="protocol" channel="inline" format="text/plain" model="tcp"/>
         <property name="address" channel="inline" format="text/plain" model="any"/>
         <!-- Specify either service name OR port number, NOT both. If both are given, then the port has higher priority. -->
-        <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="port" channel="inline" format="number/integer" model="80"/>
+        <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="mode" channel="inline" format="text/plain" model="server"/>
-        <property name="socket" channel="inline" format="number/integer" model=".app.tmp.socket"/>
+        <property name="connexions" channel="inline" format="number/integer" model="1"/>
     </part>
     <part name="sense_http_client_requests" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!-- Specify either service name OR port number, NOT both. If both are given, then the port has higher priority. -->
+        <property name="port" channel="inline" format="number/integer" model="80"/>
+        <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".logic.handler"/>
     </part>
 

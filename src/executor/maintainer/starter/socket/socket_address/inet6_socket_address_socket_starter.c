@@ -26,80 +26,126 @@
 #ifndef INET6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 #define INET6_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 
+#include <stddef.h> // size_t
+#include <stdlib.h> // malloc
+#include <string.h> // memset
+
+#ifdef __APPLE__
+    #include <netinet/in.h>
+#elif WIN32
+    #include <winsock.h>
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <netinet/in.h>
+#else
+    #include <netinet/in.h>
+#endif
+
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/maintainer/starter/socket/host_address/inet6_host_address_socket_starter.c"
+#include "../../../../../executor/maintainer/starter/socket/socket_address/initialise_inet6_socket_address_socket_starter.c"
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/type_size/socket_type_size.c"
 
 /**
- * Initialise inet6 socket address.
+ * Startup inet6 socket address.
  *
- * @param p0 the inet6 socket address
- * @param p1 the host address (in network byte order)
- * @param p2 the port (in host byte order)
+ * @param p0 the socket address data (pointer reference)
+ * @param p1 the socket address size
+ * @param p2 the host address data
+ * @param p3 the host address count
+ * @param p4 the port
  */
-void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2) {
+void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* p = (int*) p2;
+        int* as = (int*) p1;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            struct in6_addr* h = (struct in6_addr*) p1;
+            void** ad = (void**) p0;
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address inet6.");
 
-                struct sockaddr_in6* a = (struct sockaddr_in6*) p0;
+            // The host address.
+            struct in6_addr ha;
+            // The host address size.
+            //
+            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+            // the "size_t" type has a size of 8 Byte,
+            // whereas the "int" type has the usual size of 4 Byte.
+            // When trying to cast between the two, memory errors
+            // will occur and the valgrind memcheck tool report:
+            // "Invalid read of size 8".
+            //
+            // CAUTION! Initialise temporary size_t variable with final int value
+            // JUST BEFORE handing that over to the glibc function requiring it.
+            //
+            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+            // because values are casted to int* internally again.
+            size_t has = (size_t) sizeof (ha);
+            // Initialise array elements.
+            //
+            // CAUTION! Initialising with zero values is essential,
+            // since cyboi frequently tests variables for null pointer values.
+            // Otherwise, unpredictable pre-existing values might reside in memory.
+            //
+            // Whether the values will be interpreted as
+            // zero integer or zero float or null pointer or
+            // something else, depends on the programming
+            // context, i.e. where the array got allocated.
+            memset((void*) &ha, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, has);
+            // Get host address.
+            // CAUTION! The returned host address
+            // is already in network byte order.
+            startup_socket_host_address_inet6((void*) &ha, p2, p3);
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address inet6.");
-
-                // Set address family (namespace).
-                //
-                // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
-                // The latter is to be used for socket creation.
-                //
-                // CAUTION! The "sin_family" field is of type
-                // "sa_family_t", which is actually an "integer",
-                // as well as the "AF_INET" constant.
-                (*a).sin6_family = AF_INET6;
-
-                // Set host address.
-                //
-                // The "a.sin6_addr" field is of type "struct in6_addr".
-                // This data type is used to store an IPv6 address.
-                // It stores 128 bits of data, which can be accessed
-                // (via a union) in a variety of ways.
-                //
-                // CAUTION! The host address has to be in NETWORK byte order.
-                (*a).sin6_addr = *h;
-
-                // Set flow information.
-                //
-                // CAUTION! This is a currently unimplemented field of type uint32_t,
-                // as written in the gnu c library documentation.
-                // Several documentations on the web recommend setting it to ZERO.
-                (*a).sin6_flowinfo = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-                // Set socket port.
-                //
-                // CAUTION! The port has to be in NETWORK byte order.
-                (*a).sin6_port = htons(*p);
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet6. The socket address is null.");
-            }
+            // Initialise socket address size.
+            copy_integer(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+            // The temporary size_t variable.
+            //
+            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+            // the "size_t" type has a size of 8 Byte,
+            // whereas the "int" type has the usual size of 4 Byte.
+            // When trying to cast between the two, memory errors
+            // will occur and the valgrind memcheck tool report:
+            // "Invalid read of size 8".
+            //
+            // CAUTION! Initialise temporary size_t variable with final int value
+            // JUST BEFORE handing that over to the glibc function requiring it.
+            //
+            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+            // because values are casted to int* internally again.
+            size_t tas = (size_t) *as;
+            // Allocate socket address.
+            *ad = malloc(tas);
+            // Initialise array elements.
+            //
+            // CAUTION! Initialising with zero values is essential,
+            // since cyboi frequently tests variables for null pointer values.
+            // Otherwise, unpredictable old values might reside in memory.
+            //
+            // Whether the values will be interpreted as
+            // zero integer or zero float or null pointer or
+            // something else, depends on the programming
+            // context, i.e. where the array got allocated.
+            memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
+            // Initialise socket address.
+            // CAUTION! The forwarded host address
+            // is already in network byte order.
+            startup_socket_socket_address_inet6_initialise(*ad, (void*) &ha, p4);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet6. The host address is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet6. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet6. The socket port is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet6. The address size is null.");
     }
 }
 

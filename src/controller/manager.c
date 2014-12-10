@@ -41,7 +41,7 @@
 #include "../executor/maintainer/shutter/display/display_shutter.c"
 #include "../executor/maintainer/shutter/opengl/opengl_shutter.c"
 #include "../executor/maintainer/shutter/serial_port/serial_port_shutter.c"
-//?? #include "../executor/maintainer/shutter/socket/socket_shutter.c"
+#include "../executor/maintainer/shutter/socket/socket_shutter.c"
 #include "../executor/maintainer/shutter/terminal/terminal_shutter.c"
 #include "../logger/logger.c"
 #include "../variable/type_size/integral_type_size.c"
@@ -350,8 +350,8 @@ void manage(void* p0) {
     shutdown_serial_port(i, (void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
     // Shutdown terminal.
     shutdown_terminal(i, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
-    // Shutdown www service.
-//??    shutdown_socket(i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME,(void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
+    // Shutdown socket.
+//??    shutdown_socket(i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
 
     //
     // Variable finalisation.

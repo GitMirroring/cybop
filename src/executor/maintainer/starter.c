@@ -37,7 +37,7 @@
 #include "../../executor/maintainer/starter/display/display_starter.c"
 #include "../../executor/maintainer/starter/opengl/opengl_starter.c"
 #include "../../executor/maintainer/starter/serial_port/serial_port_starter.c"
-//?? #include "../../executor/maintainer/starter/socket/socket_starter.c"
+#include "../../executor/maintainer/starter/socket/socket_starter.c"
 #include "../../executor/maintainer/starter/terminal/terminal_starter.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -51,18 +51,34 @@
  * as that name is already used by low-level socket functionality
  * (/usr/include/i386-linux-gnu/sys/socket.h:232:12).
  *
- * There may be DOZENS or even HUNDREDS of parametres
- * handed over to this function. This is due to the
- * variety of possible settings for communication channels.
+ * There may be DOZENS of parametres handed over to this function.
+ * This is due to the variety of communication channel settings.
  * The value of unneeded parametres may just be set to NULL.
  *
  * @param p0 the internal memory data
- * @param p1 the serial port filename data
- * @param p2 the serial port filename count
- * @param p3 the serial port baudrate
- * @param p4 the channel
+ * @param p1 the serial filename data
+ * @param p2 the serial filename count
+ * @param p3 the serial baudrate
+ * @param p4 the socket family data (namespace)
+ * @param p5 the socket family count
+ * @param p6 the socket style data (communication type)
+ * @param p7 the socket style count
+ * @param p8 the socket protocol data
+ * @param p9 the socket protocol count
+ * @param p10 the socket filename data
+ * @param p11 the socket filename count
+ * @param p12 the socket host address data
+ * @param p13 the socket host address count
+ * @param p14 the socket port
+ * @param p15 the socket connexions (number of possible pending client requests)
+ * @param p16 the socket client socket
+ * @param p17 the socket mode data
+ * @param p18 the socket mode count
+ * @param p19 the socket network service data
+ * @param p20 the socket network service count
+ * @param p21 the channel
  */
-void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20, void* p21) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup.");
 
@@ -71,7 +87,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p21, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -81,7 +97,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SERIAL_PORT_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p21, (void*) SERIAL_PORT_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -91,17 +107,17 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p21, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            startup_socket(p0, *nm, *nmc, *stm, *stmc, *am, *amc, (void*) TCP_WWW_SERVICE_PORT_MODEL, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p2, p3, p4);
+            startup_socket(p0, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p21, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

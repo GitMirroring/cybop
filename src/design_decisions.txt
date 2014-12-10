@@ -312,3 +312,16 @@ http://de.wikipedia.org/wiki/Uhrzeit
 Timezone database (tz, zoneinfo):
 
 http://www.twinsun.com/tz/tz-link.htm
+
+Socket
+______
+
+Only one service may exist per port
+server sockets are stored in internal memory
+client sockets NOT -- they have to be stored in the corresponding cybol application
+Implement session on application level (e.g. in Res Medicinae)
+
+Only the server socket number gets stored in internal memory,
+in order to be able to use it for communication
+all other things (address, port etc.) are set inside the socket
+

@@ -26,12 +26,10 @@
 #ifndef STYLE_SOCKET_STARTER_SOURCE
 #define STYLE_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-
 #ifdef __APPLE__
     #include <sys/socket.h>
 #elif WIN32
-    #include <Winsock2.h>
+    #include <winsock.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include <sys/socket.h>
 #else
@@ -59,6 +57,22 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The style.
+    //
+    // CAUTION! The symbolic names (pre-processor-defined constants)
+    // used below CANNOT be handed over as reference to a function
+    // since otherwise, the compiler will show an error like:
+    // error: lvalue required as unary ‘&’ operand
+    //
+    // Therefore, they are used to assign a value to this local variable,
+    // which then gets copied to the destination parametre.
+    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Initialise style.
+    // CAUTION! This is IMPORTANT in case none of the values below matches.
+    // Just leaving the zero assigned above might falsify the original value
+    // that was handed over as argument to this function.
+    copy_integer((void*) &s, p0);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -66,7 +80,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_DGRAM);
+            s = SOCK_DGRAM;
         }
     }
 
@@ -76,7 +90,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_RAW);
+            s = SOCK_RAW;
         }
     }
 
@@ -86,7 +100,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_RDM);
+            s = SOCK_RDM;
         }
     }
 
@@ -96,7 +110,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_SEQPACKET);
+            s = SOCK_SEQPACKET;
         }
     }
 
@@ -106,7 +120,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &SOCK_STREAM);
+            s = SOCK_STREAM;
         }
     }
 
@@ -114,6 +128,9 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The style is not known.");
     }
+
+    // Assign style.
+    copy_integer(p0, (void*) &s);
 }
 
 /* STYLE_SOCKET_STARTER_SOURCE */

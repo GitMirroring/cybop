@@ -32,7 +32,7 @@ _______
             - Write an actual manual that is updated as necessary to reflect the current state of cybop;
             - Give a brief overview which documents should be read first if someone was trying to use the system
 
-        * Switch to "CMake" tool for build system
+        * Try out CMake 3.1 with GUI as tool for build system
         * "Each subdirectory added by the command must also contain a CMakeLists.txt file as the entry point to that directory."
             Really? Each subdir? Not good!
         * Do NOT use it for in-source, but rather for OUT-OF-SOURCE builds (builddir != sourcedir)

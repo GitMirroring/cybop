@@ -26,12 +26,10 @@
 #ifndef PROTOCOL_SOCKET_STARTER_SOURCE
 #define PROTOCOL_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-
 #ifdef __APPLE__
     #include <sys/socket.h>
 #elif WIN32
-    #include <Winsock2.h>
+    #include <winsock.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include <sys/socket.h>
 #else
@@ -59,6 +57,22 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The protocol.
+    //
+    // CAUTION! The symbolic names (pre-processor-defined constants)
+    // used below CANNOT be handed over as reference to a function
+    // since otherwise, the compiler will show an error like:
+    // error: lvalue required as unary ‘&’ operand
+    //
+    // Therefore, they are used to assign a value to this local variable,
+    // which then gets copied to the destination parametre.
+    int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Initialise protocol.
+    // CAUTION! This is IMPORTANT in case none of the values below matches.
+    // Just leaving the zero assigned above might falsify the original value
+    // that was handed over as argument to this function.
+    copy_integer((void*) &p, p0);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -66,7 +80,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &BTHPROTO_RFCOMM);
+//??            p = BTHPROTO_RFCOMM;
         }
     }
 
@@ -76,7 +90,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_ICMP);
+            p = IPPROTO_ICMP;
         }
     }
 
@@ -86,7 +100,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_ICMPV6);
+            p = IPPROTO_ICMPV6;
         }
     }
 
@@ -96,7 +110,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_IGMP);
+            p = IPPROTO_IGMP;
         }
     }
 
@@ -106,7 +120,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_RAW);
+            p = IPPROTO_RAW;
         }
     }
 
@@ -116,7 +130,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_RM);
+//??            p = IPPROTO_RM;
         }
     }
 
@@ -126,7 +140,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_TCP);
+            p = IPPROTO_TCP;
         }
     }
 
@@ -136,7 +150,7 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &IPPROTO_UDP);
+            p = IPPROTO_UDP;
         }
     }
 
@@ -144,6 +158,9 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket protocol. The protocol is not known.");
     }
+
+    // Assign protocol.
+    copy_integer(p0, (void*) &p);
 }
 
 /* PROTOCOL_SOCKET_STARTER_SOURCE */

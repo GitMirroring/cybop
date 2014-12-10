@@ -26,12 +26,10 @@
 #ifndef FAMILY_SOCKET_STARTER_SOURCE
 #define FAMILY_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-
 #ifdef __APPLE__
     #include <sys/socket.h>
 #elif WIN32
-    #include <Winsock2.h>
+    #include <winsock.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include <sys/socket.h>
 #else
@@ -60,6 +58,37 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
     // The comparison result.
     int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The protocol family.
+    //
+    // CAUTION! The symbolic names (pre-processor-defined constants)
+    // used below CANNOT be handed over as reference to a function
+    // since otherwise, the compiler will show an error like:
+    // error: lvalue required as unary ‘&’ operand
+    //
+    // Therefore, they are used to assign a value to this local variable,
+    // which then gets copied to the destination parametre.
+    int pf = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The address family.
+    //
+    // CAUTION! The symbolic names (pre-processor-defined constants)
+    // used below CANNOT be handed over as reference to a function
+    // since otherwise, the compiler will show an error like:
+    // error: lvalue required as unary ‘&’ operand
+    //
+    // Therefore, they are used to assign a value to this local variable,
+    // which then gets copied to the destination parametre.
+    int af = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Initialise protocol family.
+    // CAUTION! This is IMPORTANT in case none of the values below matches.
+    // Just leaving the zero assigned above might falsify the original value
+    // that was handed over as argument to this function.
+    copy_integer((void*) &pf, p0);
+    // Initialise address family.
+    // CAUTION! This is IMPORTANT in case none of the values below matches.
+    // Just leaving the zero assigned above might falsify the original value
+    // that was handed over as argument to this function.
+    copy_integer((void*) &af, p1);
 
     if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -67,8 +96,8 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_APPLETALK);
-            copy_integer(p1, (void*) &AF_APPLETALK);
+            pf = PF_APPLETALK;
+            af = AF_APPLETALK;
         }
     }
 
@@ -79,17 +108,17 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 #ifdef __APPLE__
-            copy_integer(p0, (void*) &PF_BLUETOOTH);
-            copy_integer(p1, (void*) &AF_BLUETOOTH);
+            pf = PF_BLUETOOTH;
+            af = AF_BLUETOOTH;
 #elif WIN32
-            copy_integer(p0, (void*) &PF_BTH);
-            copy_integer(p1, (void*) &AF_BTH);
+            pf = PF_BTH;
+            af = AF_BTH;
 #elif GNU_LINUX_OPERATING_SYSTEM
-            copy_integer(p0, (void*) &PF_BLUETOOTH);
-            copy_integer(p1, (void*) &AF_BLUETOOTH);
+            pf = PF_BLUETOOTH;
+            af = AF_BLUETOOTH;
 #else
-            copy_integer(p0, (void*) &PF_BLUETOOTH);
-            copy_integer(p1, (void*) &AF_BLUETOOTH);
+            pf = PF_BLUETOOTH;
+            af = AF_BLUETOOTH;
 #endif
         }
     }
@@ -100,8 +129,8 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_INET);
-            copy_integer(p1, (void*) &AF_INET);
+            pf = PF_INET;
+            af = AF_INET;
         }
     }
 
@@ -111,8 +140,8 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_INET6);
-            copy_integer(p1, (void*) &AF_INET6);
+            pf = PF_INET6;
+            af = AF_INET6;
         }
     }
 
@@ -122,8 +151,8 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_IPX);
-            copy_integer(p1, (void*) &AF_IPX);
+            pf = PF_IPX;
+            af = AF_IPX;
         }
     }
 
@@ -133,8 +162,19 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_IRDA);
-            copy_integer(p1, (void*) &AF_IRDA);
+#ifdef __APPLE__
+            pf = PF_IRDA;
+            af = AF_IRDA;
+#elif WIN32
+            // CAUTION! With "winsock.h", these symbolic names are
+            // NOT implemented in the windows operating system.
+#elif GNU_LINUX_OPERATING_SYSTEM
+            pf = PF_IRDA;
+            af = AF_IRDA;
+#else
+            pf = PF_IRDA;
+            af = AF_IRDA;
+#endif
         }
     }
 
@@ -144,8 +184,22 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_LOCAL);
-            copy_integer(p1, (void*) &AF_LOCAL);
+#ifdef __APPLE__
+            // Alternatives: PF_LOCAL, PF_UNIX, PF_FILE
+            pf = PF_LOCAL;
+            af = AF_LOCAL;
+#elif WIN32
+            // CAUTION! The local or unix domain sockets are
+            // NOT implemented in the windows operating system.
+#elif GNU_LINUX_OPERATING_SYSTEM
+            // Alternatives: PF_LOCAL, PF_UNIX, PF_FILE
+            pf = PF_LOCAL;
+            af = AF_LOCAL;
+#else
+            // Alternatives: PF_LOCAL, PF_UNIX, PF_FILE
+            pf = PF_LOCAL;
+            af = AF_LOCAL;
+#endif
         }
     }
 
@@ -155,8 +209,15 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) &PF_NETBIOS);
-            copy_integer(p1, (void*) &AF_NETBIOS);
+#ifdef __APPLE__
+#elif WIN32
+            //?? This is commented out since it is not known in "winsock.h".
+            //?? TODO: Reactivate later, when using the "Winsock2.h".
+            //?? pf = PF_NETBIOS;
+            //?? af = AF_NETBIOS;
+#elif GNU_LINUX_OPERATING_SYSTEM
+#else
+#endif
         }
     }
 
@@ -164,6 +225,32 @@ void startup_socket_family(void* p0, void* p1, void* p2, void* p3) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket family. The family is not known.");
     }
+
+/*?? TODO:
+    PF_ASH          Ash
+    PF_ATMPVC       ATM PVCs
+    PF_ATMSVC       ATM SVCs
+    PF_AX25         Amateur Radio AX.25
+    PF_BRIDGE       Multiprotocol bridge
+    PF_DECnet       Reserved for DECnet project
+    PF_ECONET       Acorn Econet
+    PF_KEY          PF_KEY key management API
+    PF_NETBEUI      Reserved for 802.2LLC project
+    PF_NETLINK, PF_ROUTE routing API
+    PF_NETROM       Amateur radio NetROM
+    PF_PACKET       Packet family
+    PF_PPPOX        PPP over X sockets
+    PF_ROSE         Amateur Radio X.25 PLP
+    PF_SECURITY     Security callback pseudo AF
+    PF_SNA          Linux SNA Project
+    PF_WANPIPE      Wanpipe API sockets
+    PF_X25          Reserved for X.25 project
+*/
+
+    // Assign protocol family.
+    copy_integer(p0, (void*) &pf);
+    // Assign address family.
+    copy_integer(p1, (void*) &af);
 }
 
 /* FAMILY_SOCKET_STARTER_SOURCE */

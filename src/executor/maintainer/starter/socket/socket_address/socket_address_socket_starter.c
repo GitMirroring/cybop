@@ -26,21 +26,28 @@
 #ifndef SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 #define SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 
-#include <sys/socket.h>
-
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/maintainer/starter/socket/host_address/inet_host_address_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/host_address/inet6_host_address_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/socket_address/inet_socket_address_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/inet6_socket_address_socket_starter.c"
-#include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+//?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
+#ifndef WIN32
+    #include "../../../../../executor/maintainer/starter/socket/socket_address/inet6_socket_address_socket_starter.c"
+#endif
 #include "../../../../../logger/logger.c"
+
+#ifdef __APPLE__
+    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+#elif WIN32
+    // CAUTION! The local or unix domain sockets are
+    // NOT implemented in the windows operating system.
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+#else
+    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+#endif
 
 /**
  * Startup socket address depending on the given address family.
@@ -62,6 +69,10 @@
  *
  * https://stackoverflow.com/questions/8835322/api-using-sockaddr-storage
  * http://msdn.microsoft.com/en-us/library/windows/desktop/ms740504%28v=vs.85%29.aspx
+ *
+ * But in order to gain independence and flexibility, it was decided
+ * NOT to use "struct sockaddr_storage" on the function's stack memory,
+ * but rather allocate space manually on the heap memory.
  *
  * @param p0 the socket address data (pointer reference)
  * @param p1 the socket address size
@@ -93,7 +104,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    //?? struct sockaddr_bth for Bluetooth
+                    //?? TODO: struct sockaddr_bth for Bluetooth
                 }
             }
 
@@ -103,73 +114,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    // The host address.
-                    struct in_addr ha;
-                    // The host address size.
-                    //
-                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                    // the "size_t" type has a size of 8 Byte,
-                    // whereas the "int" type has the usual size of 4 Byte.
-                    // When trying to cast between the two, memory errors
-                    // will occur and the valgrind memcheck tool report:
-                    // "Invalid read of size 8".
-                    //
-                    // CAUTION! Initialise temporary size_t variable with final int value
-                    // JUST BEFORE handing that over to the glibc function requiring it.
-                    //
-                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                    // because values are casted to int* internally again.
-                    size_t has = (size_t) sizeof (ha);
-                    // Initialise array elements.
-                    //
-                    // CAUTION! Initialising with zero values is essential,
-                    // since cyboi frequently tests variables for null pointer values.
-                    // Otherwise, unpredictable pre-existing values might reside in memory.
-                    //
-                    // Whether the values will be interpreted as
-                    // zero integer or zero float or null pointer or
-                    // something else, depends on the programming
-                    // context, i.e. where the array got allocated.
-                    memset((void*) &ha, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, has);
-                    // Get host address.
-                    // CAUTION! The returned host address
-                    // is already in network byte order.
-                    startup_socket_host_address_inet((void*) &ha, p4, p5);
-
-                    // Initialise socket address size.
-                    copy_integer(as, (void*) INTERNET_PROTOCOL_4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
-                    // The temporary size_t variable.
-                    //
-                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                    // the "size_t" type has a size of 8 Byte,
-                    // whereas the "int" type has the usual size of 4 Byte.
-                    // When trying to cast between the two, memory errors
-                    // will occur and the valgrind memcheck tool report:
-                    // "Invalid read of size 8".
-                    //
-                    // CAUTION! Initialise temporary size_t variable with final int value
-                    // JUST BEFORE handing that over to the glibc function requiring it.
-                    //
-                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                    // because values are casted to int* internally again.
-                    size_t tas = (size_t) *as;
-                    // Allocate socket address.
-                    *ad = malloc(tas);
-                    // Initialise array elements.
-                    //
-                    // CAUTION! Initialising with zero values is essential,
-                    // since cyboi frequently tests variables for null pointer values.
-                    // Otherwise, unpredictable old values might reside in memory.
-                    //
-                    // Whether the values will be interpreted as
-                    // zero integer or zero float or null pointer or
-                    // something else, depends on the programming
-                    // context, i.e. where the array got allocated.
-                    memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
-                    // Initialise socket address.
-                    // CAUTION! The forwarded host address
-                    // is already in network byte order.
-                    startup_socket_socket_address_inet(*ad, (void*) &ha, p6);
+                    startup_socket_socket_address_inet(p0, p1, p4, p5, p6);
                 }
             }
 
@@ -179,73 +124,10 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    // The host address.
-                    struct in6_addr ha;
-                    // The host address size.
-                    //
-                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                    // the "size_t" type has a size of 8 Byte,
-                    // whereas the "int" type has the usual size of 4 Byte.
-                    // When trying to cast between the two, memory errors
-                    // will occur and the valgrind memcheck tool report:
-                    // "Invalid read of size 8".
-                    //
-                    // CAUTION! Initialise temporary size_t variable with final int value
-                    // JUST BEFORE handing that over to the glibc function requiring it.
-                    //
-                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                    // because values are casted to int* internally again.
-                    size_t has = (size_t) sizeof (ha);
-                    // Initialise array elements.
-                    //
-                    // CAUTION! Initialising with zero values is essential,
-                    // since cyboi frequently tests variables for null pointer values.
-                    // Otherwise, unpredictable pre-existing values might reside in memory.
-                    //
-                    // Whether the values will be interpreted as
-                    // zero integer or zero float or null pointer or
-                    // something else, depends on the programming
-                    // context, i.e. where the array got allocated.
-                    memset((void*) &ha, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, has);
-                    // Get host address.
-                    // CAUTION! The returned host address
-                    // is already in network byte order.
-                    startup_socket_host_address_inet6((void*) &ha, p4, p5);
-
-                    // Initialise socket address size.
-                    copy_integer(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
-                    // The temporary size_t variable.
-                    //
-                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                    // the "size_t" type has a size of 8 Byte,
-                    // whereas the "int" type has the usual size of 4 Byte.
-                    // When trying to cast between the two, memory errors
-                    // will occur and the valgrind memcheck tool report:
-                    // "Invalid read of size 8".
-                    //
-                    // CAUTION! Initialise temporary size_t variable with final int value
-                    // JUST BEFORE handing that over to the glibc function requiring it.
-                    //
-                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                    // because values are casted to int* internally again.
-                    size_t tas = (size_t) *as;
-                    // Allocate socket address.
-                    *ad = malloc(tas);
-                    // Initialise array elements.
-                    //
-                    // CAUTION! Initialising with zero values is essential,
-                    // since cyboi frequently tests variables for null pointer values.
-                    // Otherwise, unpredictable old values might reside in memory.
-                    //
-                    // Whether the values will be interpreted as
-                    // zero integer or zero float or null pointer or
-                    // something else, depends on the programming
-                    // context, i.e. where the array got allocated.
-                    memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
-                    // Initialise socket address.
-                    // CAUTION! The forwarded host address
-                    // is already in network byte order.
-                    startup_socket_socket_address_inet6(*ad, (void*) &ha, p6);
+//?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
+#ifndef WIN32
+                    startup_socket_socket_address_inet6(p0, p1, p4, p5, p6);
+#endif
                 }
             }
 
@@ -254,6 +136,8 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                 compare_integer_equal((void*) &r, p7, (void*) AF_IRDA);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    //?? TODO
                 }
             }
 
@@ -263,58 +147,16 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                    // Initialise address size.
-                    //
-                    // CAUTION! The following line CANNOT be used:
-                    // *as = sizeof (struct sockaddr_un);
-                    // because the compiler brings the error
-                    // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
-                    // The reason is the "sun_path" field of the "sockaddr_un" structure,
-                    // which is a character array whose size is unknown at compilation time.
-                    //
-                    // The size of the "sun_path" character array is therefore set
-                    // to the fixed size of 108.
-                    // The number "108" is the limit as set by the gnu c library!
-                    // Its documentation called it a "magic number" and does not
-                    // know why this limit exists.
-                    //
-                    // With the known type "short int" of the "sun_family" field and
-                    // a fixed size "108" of the "sun_path" field, the overall size of
-                    // the "sockaddr_un" structure can be calculated as sum.
-                    copy_integer(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-                    calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
-
-                    // The temporary size_t variable.
-                    //
-                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                    // the "size_t" type has a size of 8 Byte,
-                    // whereas the "int" type has the usual size of 4 Byte.
-                    // When trying to cast between the two, memory errors
-                    // will occur and the valgrind memcheck tool report:
-                    // "Invalid read of size 8".
-                    //
-                    // CAUTION! Initialise temporary size_t variable with final int value
-                    // JUST BEFORE handing that over to the glibc function requiring it.
-                    //
-                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                    // because values are casted to int* internally again.
-                    size_t tas = (size_t) *as;
-                    // Allocate socket address.
-                    *ad = malloc(tas);
-                    // Initialise array elements.
-                    //
-                    // CAUTION! Initialising with zero values is essential,
-                    // since cyboi frequently tests variables for null pointer values.
-                    // Otherwise, unpredictable old values might reside in memory.
-                    //
-                    // Whether the values will be interpreted as
-                    // zero integer or zero float or null pointer or
-                    // something else, depends on the programming
-                    // context, i.e. where the array got allocated.
-                    memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
-
-                    // Initialise address.
-                    startup_socket_socket_address_local(*ad, p2, p3);
+#ifdef __APPLE__
+                    startup_socket_socket_address_local(p0, p1, p2, p3);
+#elif WIN32
+                    // CAUTION! The local or unix domain sockets are
+                    // NOT implemented in the windows operating system.
+#elif GNU_LINUX_OPERATING_SYSTEM
+                    startup_socket_socket_address_local(p0, p1, p2, p3);
+#else
+                    startup_socket_socket_address_local(p0, p1, p2, p3);
+#endif
                 }
             }
 

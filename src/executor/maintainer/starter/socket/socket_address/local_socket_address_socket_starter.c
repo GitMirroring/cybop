@@ -26,106 +26,101 @@
 #ifndef LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 #define LOCAL_SOCKET_ADDRESS_SOCKET_STARTER_SOURCE
 
+#include <sys/socket.h>
+#include <stddef.h> // size_t
+#include <stdlib.h> // malloc
+#include <string.h> // memset
+
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/maintainer/starter/socket/socket_address/initialise_local_socket_address_socket_starter.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Startup local socket address.
  *
- * @param p0 the local socket address data
- * @param p1 the filename data
- * @param p2 the filename count
+ * @param p0 the socket address data (pointer reference)
+ * @param p1 the socket address size
+ * @param p2 the filename data
+ * @param p3 the filename count
  */
-void startup_socket_socket_address_local(void* p0, void* p1, void* p2) {
+void startup_socket_socket_address_local(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        int* as = (int*) p1;
 
-            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // CAUTION! The compiler brings an error if the "struct sockaddr_un"
-                // type is used, because pointer calculation is done below!
-                // Therefore, a cast to void* is done here instead.
-                void* a = (void*) p0;
+            void** ad = (void**) p0;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local.");
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local.");
 
-                // Determine position of namespace
-                // ("sun_family" field within the "sockaddr_un" structure).
-                //
-                // Do NOT access the "sun_family" field directly with:
-                // (*a).sun_family = AF_LOCAL;
-                // It won't work because the "sockaddr_un" structure, due to
-                // the unknown size of its "sun_path" field (a character array),
-                // is considered an incomplete type, so that the compiler
-                // brings an error.
-                short int* family = (short int*) (a + *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            // Initialise address size.
+            //
+            // CAUTION! The following line CANNOT be used:
+            // *as = sizeof (struct sockaddr_un);
+            // because the compiler brings the error
+            // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
+            // The reason is the "sun_path" field of the "sockaddr_un" structure,
+            // which is a character array whose size is unknown at compilation time.
+            //
+            // The size of the "sun_path" character array is therefore set
+            // to the fixed size of 108.
+            // The number "108" is the limit as set by the gnu c library!
+            // Its documentation called it a "magic number" and does not
+            // know why this limit exists.
+            //
+            // With the known type "short int" of the "sun_family" field and
+            // a fixed size "108" of the "sun_path" field, the overall size of
+            // the "sockaddr_un" structure can be calculated as sum.
+            copy_integer(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
+            calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
 
-                // Set namespace (address format/family).
-                //
-                // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
-                // The latter is to be used for socket creation.
-                *family = AF_LOCAL;
+            // The temporary size_t variable.
+            //
+            // CAUTION! It IS NECESSARY because on 64 Bit machines,
+            // the "size_t" type has a size of 8 Byte,
+            // whereas the "int" type has the usual size of 4 Byte.
+            // When trying to cast between the two, memory errors
+            // will occur and the valgrind memcheck tool report:
+            // "Invalid read of size 8".
+            //
+            // CAUTION! Initialise temporary size_t variable with final int value
+            // JUST BEFORE handing that over to the glibc function requiring it.
+            //
+            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+            // because values are casted to int* internally again.
+            size_t tas = (size_t) *as;
+            // Allocate socket address.
+            *ad = malloc(tas);
+            // Initialise array elements.
+            //
+            // CAUTION! Initialising with zero values is essential,
+            // since cyboi frequently tests variables for null pointer values.
+            // Otherwise, unpredictable old values might reside in memory.
+            //
+            // Whether the values will be interpreted as
+            // zero integer or zero float or null pointer or
+            // something else, depends on the programming
+            // context, i.e. where the array got allocated.
+            memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
 
-                // CAUTION! For some strange reason, the socket file name length
-                // is limited to 108 ascii characters in the gnu c library!
-                // The documentation called it a "magic number" and does not
-                // know why this limit exists.
-                if (*fc <= *NUMBER_108_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // CAUTION! Do NOT reallocate the file name array with:
-                    // int nc = *fc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                    // reallocate_array((void*) &(a.sun_path), p2, (void*) &nc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-                    //
-                    // The reason is that the size of the "sun_path" field of
-                    // the "sockaddr_un" structure had to be fixed (to 108,
-                    // for reasons explained above), in order to be able to
-                    // calculate the overall size of the "sockaddr_un" structure.
-                    //
-                    // It is no problem if the "sun_path" array size is greater
-                    // than the actual file name size, since the file name is
-                    // terminated with a null character.
-
-                    // Determine position of file name
-                    // ("sun_path" field within the "sockaddr_un" structure).
-                    //
-                    // Do NOT access the "sun_path" field directly with:
-                    // (*a).sun_path
-                    // It won't work because the "sockaddr_un" structure, due to
-                    // the unknown size of its "sun_path" field (a character array),
-                    // is considered an incomplete type, so that the compiler
-                    // brings an error.
-                    void* path = (void*) (a + *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-
-                    // Set terminated file name by first copying the actual name
-                    // and then adding the null termination character.
-                    copy_array_forward(path, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-                    copy_array_forward(path, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The socket file name is longer than the limit 108, as set by the gnu c library.");
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The socket address is null.");
-            }
+            // Initialise address.
+            startup_socket_socket_address_local_initialise(*ad, p2, p3);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The file name is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The address data is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The file name count is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address local. The address size is null.");
     }
 }
 

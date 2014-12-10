@@ -58,7 +58,7 @@ void globalise_integral() {
 
 //??    *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (signed char);
     *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (unsigned char);
-//??    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed short int);
+    *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed short int);
 //??    *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned short int);
     *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed int);
 //??    *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned int);
