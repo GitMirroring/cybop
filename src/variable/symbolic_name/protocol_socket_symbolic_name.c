@@ -40,9 +40,95 @@
 // #define AF_INET     PF_INET
 //
 
-/** The xyz protocol family socket symbolic name. */
-static int XYZ_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
-static int* XYZ_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME = XYZ_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+//
+// The well-defined ip protocols below were mostly taken from:
+//
+// /usr/src/linux-headers-*-common/include/linux/in.h
+//
+
+/** The dummy for tcp ip protocol socket symbolic name. */
+static int IP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The internet control message protocol (icmp) protocol socket symbolic name. */
+static int ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The internet group management protocol (igmp) protocol socket symbolic name. */
+static int IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The ipip tunnels (older ka9q tunnels use 94) protocol socket symbolic name. */
+static int IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The transmission control protocol (tcp) protocol socket symbolic name. */
+static int TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The exterior gateway protocol (egp) protocol socket symbolic name. */
+static int EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME = EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The pup protocol socket symbolic name. */
+static int PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME = PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The user datagram protocol (udp) protocol socket symbolic name. */
+static int UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The xns idp protocol socket symbolic name. */
+static int IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The datagram congestion control protocol (dccp) protocol socket symbolic name. */
+static int DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The rsvp protocol socket symbolic name. */
+static int RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME = RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The cisco gre tunnels (rfc 1701, 1702) protocol socket symbolic name. */
+static int GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME = GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The ipv6-in-ipv4 tunnelling (ipv6) protocol socket symbolic name. */
+static int IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The encapsulation security payload protocol (esp) protocol socket symbolic name. */
+static int ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME = ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The authentication header (ah) protocol socket symbolic name. */
+static int AH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* AH_PROTOCOL_SOCKET_SYMBOLIC_NAME = AH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The ip option pseudo header for beet (beetph) protocol socket symbolic name. */
+static int BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME = BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The protocol independent multicast (pim) protocol socket symbolic name. */
+static int PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME = PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The compression header protocol (comp) protocol socket symbolic name. */
+static int COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The stream control transport protocol (sctp) protocol socket symbolic name. */
+static int SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME = SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The udp-lite (udplite) (RFC 3828) protocol socket symbolic name. */
+static int UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME = UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The raw ip packets (raw) protocol socket symbolic name. */
+static int RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME = RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
 /* PROTOCOL_SOCKET_SYMBOLIC_NAME_SOURCE */
 #endif

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete files in directory "variable/symbolic_name/"
+
 2014-12-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Exclude local unix domain socket for windows compilation, since it doesn't exist there

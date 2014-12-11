@@ -40,59 +40,163 @@
 // #define AF_INET     PF_INET
 //
 
-/** The xyz protocol family socket symbolic name. */
-static int XYZ_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
-static int* XYZ_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME = XYZ_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
-
 //
-// Supported address families.
+// The address families below were mostly taken from:
 //
 // /usr/src/linux-headers-*-common/include/linux/socket.h
 //
 
-/*??
-#define AF_UNSPEC       0
-#define AF_UNIX         1       // Unix domain sockets
-#define AF_LOCAL        1       // POSIX name for AF_UNIX
-#define AF_INET         2       // Internet IP Protocol
-#define AF_AX25         3       // Amateur Radio AX.25
-#define AF_IPX          4       // Novell IPX
-#define AF_APPLETALK    5       // AppleTalk DDP
-#define AF_NETROM       6       // Amateur Radio NET/ROM
-#define AF_BRIDGE       7       // Multiprotocol bridge
-#define AF_ATMPVC       8       // ATM PVCs
-#define AF_X25          9       // Reserved for X.25 project
-#define AF_INET6        10      // IP version 6
-#define AF_ROSE         11      // Amateur Radio X.25 PLP
-#define AF_DECnet       12      // Reserved for DECnet project
-#define AF_NETBEUI      13      // Reserved for 802.2LLC project
-#define AF_SECURITY     14      // Security callback pseudo AF
-#define AF_KEY          15      // PF_KEY key management API
-#define AF_NETLINK      16
-#define AF_ROUTE        AF_NETLINK // Alias to emulate 4.4BSD
-#define AF_PACKET       17      // Packet family
-#define AF_ASH          18      // Ash
-#define AF_ECONET       19      // Acorn Econet
-#define AF_ATMSVC       20      // ATM SVCs
-#define AF_RDS          21      // RDS sockets
-#define AF_SNA          22      // Linux SNA Project (nutters!)
-#define AF_IRDA         23      // IRDA sockets
-#define AF_PPPOX        24      // PPPoX sockets
-#define AF_WANPIPE      25      // Wanpipe API Sockets
-#define AF_LLC          26      // Linux LLC
-#define AF_CAN          29      // Controller Area Network
-#define AF_TIPC         30      // TIPC sockets
-#define AF_BLUETOOTH    31      // Bluetooth sockets
-#define AF_IUCV         32      // IUCV sockets
-#define AF_RXRPC        33      // RxRPC sockets
-#define AF_ISDN         34      // mISDN sockets
-#define AF_PHONET       35      // Phonet sockets
-#define AF_IEEE802154   36      // IEEE802154 sockets
-#define AF_CAIF         37      // CAIF sockets
-#define AF_ALG          38      // Algorithm sockets
-#define AF_NFC          39      // NFC sockets
-#define AF_MAX          40      // For now..
-*/
+/** The unspec address family socket symbolic name. */
+static int UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The local address family socket symbolic name. */
+static int LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The internet ip protocol version 4 (inet) address family socket symbolic name. */
+static int INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The amateur radio ax.25 (ax25) address family socket symbolic name. */
+static int AX25_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* AX25_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AX25_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The novell ipx address family socket symbolic name. */
+static int IPX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IPX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = IPX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The appletalk ddp address family socket symbolic name. */
+static int APPLETALK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* APPLETALK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = APPLETALK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The amateur radio net/rom (netrom) address family socket symbolic name. */
+static int NETROM_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* NETROM_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = NETROM_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The multiprotocol bridge address family socket symbolic name. */
+static int BRIDGE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* BRIDGE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = BRIDGE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The atmpvc address family socket symbolic name. */
+static int ATMPVC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ATMPVC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ATMPVC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The x.25 project (x25) address family socket symbolic name. */
+static int X25_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* X25_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = X25_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The internet ip protocol version 6 (inet6) address family socket symbolic name. */
+static int INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The amateur radio x.25 plp (rose) address family socket symbolic name. */
+static int ROSE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ROSE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ROSE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The decnet project (decnet) address family socket symbolic name. */
+static int DECNET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* DECNET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = DECNET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The 802.2llc project (netbeui) address family socket symbolic name. */
+static int NETBEUI_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* NETBEUI_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = NETBEUI_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The security callback pseudo address family (security) address family socket symbolic name. */
+static int SECURITY_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* SECURITY_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = SECURITY_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The pf_key key management api (key) address family socket symbolic name. */
+static int KEY_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* KEY_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = KEY_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The netlink address family socket symbolic name. */
+static int NETLINK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* NETLINK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = NETLINK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The packet address family socket symbolic name. */
+static int PACKET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* PACKET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = PACKET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The ash address family socket symbolic name. */
+static int ASH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ASH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ASH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The acorn econet address family socket symbolic name. */
+static int ECONET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ECONET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ECONET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The atmsvc address family socket symbolic name. */
+static int ATMSVC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ATMSVC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ATMSVC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The rds address family socket symbolic name. */
+static int RDS_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RDS_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = RDS_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The linux sna project (sna) address family socket symbolic name. */
+static int SNA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* SNA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = SNA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The irda address family socket symbolic name. */
+static int IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The pppox address family socket symbolic name. */
+static int PPPOX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* PPPOX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = PPPOX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The wanpipe address family socket symbolic name. */
+static int WANPIPE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* WANPIPE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = WANPIPE_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The linux llc address family socket symbolic name. */
+static int LLC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* LLC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = LLC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The controller area network (can) address family socket symbolic name. */
+static int CAN_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* CAN_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = CAN_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The tipc address family socket symbolic name. */
+static int TIPC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* TIPC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = TIPC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The bluetooth address family socket symbolic name. */
+static int BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The iucv address family socket symbolic name. */
+static int IUCV_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IUCV_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = IUCV_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The rxrpc address family socket symbolic name. */
+static int RXRPC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RXRPC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = RXRPC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The isdn address family socket symbolic name. */
+static int ISDN_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ISDN_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ISDN_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The phonet address family socket symbolic name. */
+static int PHONET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* PHONET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = PHONET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The ieee802154 address family socket symbolic name. */
+static int IEEE802154_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* IEEE802154_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = IEEE802154_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The caif address family socket symbolic name. */
+static int CAIF_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* CAIF_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = CAIF_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The algorithm sockets (alg) address family socket symbolic name. */
+static int ALG_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ALG_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = ALG_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The nfc address family socket symbolic name. */
+static int NFC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* NFC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = NFC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_ARRAY;
 
 /* ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_SOURCE */
 #endif
