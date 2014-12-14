@@ -26,7 +26,21 @@
 #ifndef PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#include "../../controller/globaliser/symbolic_name/address_family_socket_symbolic_name_globaliser.c"
+#ifdef __APPLE__
+    #include <termios.h>
+#elif WIN32
+    // The win32 api does not seem to define symbolic names for baudrates.
+    // It does assign standard integer values instead:
+    // http://msdn.microsoft.com/en-us/library/system.io.ports.serialport.baudrate%28v=vs.110%29.aspx?cs-save-lang=1&cs-lang=cpp#code-snippet-1
+    #include "../../../constant/model/cyboi/state/extra_integer_state_cyboi_model.c"
+    #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
+#else
+    #include <termios.h>
+#endif
+
+#include "../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
 
 //
 // The C header file "sys/socket.h" does not actually define
@@ -46,7 +60,12 @@
  */
 void globalise_symbolic_name_socket_protocol_family() {
 
-    //?? TODO
+#ifdef __APPLE__
+    *B0_BAUDRATE_SERIAL_SYMBOLIC_NAME = B0;
+#elif WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
+#else
+#endif
 }
 
 /* PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE */

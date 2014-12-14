@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt file "executor/representer/serialiser/terminal_mode/line_speed_terminal_mode_serialiser.c"
+
 2014-12-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete files in directory "variable/symbolic_name/"

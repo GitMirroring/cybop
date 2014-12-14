@@ -39,7 +39,7 @@
 #include "../controller/globaliser/service_exit_globaliser.c"
 #include "../controller/globaliser/signal_globaliser.c"
 #include "../controller/globaliser/socket_globaliser.c"
-//?? #include "../controller/globaliser/symbolic_name_globaliser.c"
+#include "../controller/globaliser/symbolic_name_globaliser.c"
 #include "../controller/globaliser/thread_globaliser.c"
 #include "../controller/globaliser/thread_identification_globaliser.c"
 
@@ -69,7 +69,7 @@ void globalise() {
     // initialised here.
     //
 
-//??    globalise_symbolic_name();
+    globalise_symbolic_name();
     globalise_conversion();
     globalise_display();
     globalise_integral();

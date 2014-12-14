@@ -39,6 +39,13 @@
 // #define PF_INET     2   /* IP protocol family.  */
 // #define AF_INET     PF_INET
 //
+// CAUTION! They CANNOT be handed over as reference to a function
+// since otherwise, the compiler will show an error like:
+// error: lvalue required as unary ‘&’ operand
+//
+// Therefore, these global variables are defined to hold the
+// original value of the symbolic name and be used instead.
+//
 
 //
 // The well-defined ip protocols below were mostly taken from:
