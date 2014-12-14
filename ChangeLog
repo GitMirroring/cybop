@@ -18,9 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace symbolic names (pre-processor-defined constants) with global integer variables in file "socket_address_socket_starter.c"
+
 2014-12-13  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Adapt file "executor/representer/serialiser/terminal_mode/line_speed_terminal_mode_serialiser.c"
+        * Replace symbolic names with global variables in file "executor/representer/serialiser/terminal_mode/line_speed_terminal_mode_serialiser.c"
 
 2014-12-11  Christian Heller  <christian.heller@tuxtax.de>
 

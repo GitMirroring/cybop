@@ -34,6 +34,7 @@
     #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
 #elif WIN32
     #include "../../../../executor/maintainer/starter/winsock/create_winsock_starter.c"
+    #include "../../../../executor/maintainer/starter/winsock/initialise_winsock_starter.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
 #else

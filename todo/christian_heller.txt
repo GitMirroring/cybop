@@ -14,13 +14,6 @@
 WUI
 ___
 
-        * CONTINUE in directory "controller/globaliser/symbolic_name/"
-        * Replace symbolic names (pre-processor-defined constants) with global integer variables initialised at cyboi startup
-        * Remove direct comparisons with symbolic names in file "socket_address_socket_starter.c"
-            --> should be a reference, but this is NOT possible with symbolic names, therefore define int variables/constants
-        * Fix related mingw compilation error
-        * Define global socket variables in files "socket_type_size.c" and "socket_globaliser.c" OR use "sizeof" locally ??
-
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open sockets in order to close them
         * Provide a dictionary of flags saying if a socket service/port is open or not
@@ -32,6 +25,9 @@ ___
             automatisch ergänzt und brauchen nicht als Argument angegeben zu werden."
             --> leave "connect" in maintainer/starter, even if not a server service
             --> only send/receive should be in communicator
+
+        * Replace symbolic names for socket style
+        * Define global socket variables in files "socket_type_size.c" and "socket_globaliser.c" OR use "sizeof" locally ??
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"
@@ -63,6 +59,7 @@ ___
             the corresponding type may be forwarded between functions as parametre
 
         * Activate ipv6 support in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
+        * Activate function "inet_pton" in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
 
         * Think about how to add socket ports given by a cybol application, if that port is not defined in cyboi
 

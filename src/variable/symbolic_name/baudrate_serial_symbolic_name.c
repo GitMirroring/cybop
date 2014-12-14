@@ -46,6 +46,11 @@
 // Therefore, these global variables are defined to hold the
 // original value of the symbolic name and be used instead.
 //
+// CAUTION! The definition of pure integer constants is NOT possible,
+// since the values of symbolic names DIFFER between operating systems.
+// Therefore, global variables are used and the values of
+// symbolic names assigned at runtime, when cyboi starts up.
+//
 
 //
 // The baudrates below were mostly taken from:

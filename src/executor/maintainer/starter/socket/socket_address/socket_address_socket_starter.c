@@ -37,6 +37,7 @@
     #include "../../../../../executor/maintainer/starter/socket/socket_address/inet6_socket_address_socket_starter.c"
 #endif
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 #ifdef __APPLE__
     #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
@@ -100,7 +101,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) AF_BLUETOOTH);
+                compare_integer_equal((void*) &r, p7, (void*) BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,7 +111,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) AF_INET);
+                compare_integer_equal((void*) &r, p7, (void*) INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -120,7 +121,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) AF_INET6);
+                compare_integer_equal((void*) &r, p7, (void*) INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -133,7 +134,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) AF_IRDA);
+                compare_integer_equal((void*) &r, p7, (void*) IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -143,7 +144,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
             if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                compare_integer_equal((void*) &r, p7, (void*) AF_LOCAL);
+                compare_integer_equal((void*) &r, p7, (void*) LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME);
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

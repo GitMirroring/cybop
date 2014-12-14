@@ -46,94 +46,112 @@
 // Therefore, these global variables are defined to hold the
 // original value of the symbolic name and be used instead.
 //
+// CAUTION! The definition of pure integer constants is NOT possible,
+// since the values of symbolic names DIFFER between operating systems.
+// Therefore, global variables are used and the values of
+// symbolic names assigned at runtime, when cyboi starts up.
+//
 
 //
 // The well-defined ip protocols below were mostly taken from:
 //
 // /usr/src/linux-headers-*-common/include/linux/in.h
+// http://msdn.microsoft.com/en-us/library/windows/desktop/ms740506%28v=vs.85%29.aspx
 //
 
-/** The dummy for tcp ip protocol socket symbolic name. */
+/** The 0 dummy for tcp ip protocol socket symbolic name. */
 static int IP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* IP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The internet control message protocol (icmp) protocol socket symbolic name. */
+/** The 1 internet control message protocol (icmp) protocol socket symbolic name. */
 static int ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The internet group management protocol (igmp) protocol socket symbolic name. */
+/** The 2 internet group management protocol (igmp) protocol socket symbolic name. */
 static int IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The ipip tunnels (older ka9q tunnels use 94) protocol socket symbolic name. */
+/** The 3 bluetooth radio frequency communications (bluetooth rfcomm) protocol socket symbolic name. */
+static int RFCOMM_BTHPROTO_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RFCOMM_BTHPROTO_PROTOCOL_SOCKET_SYMBOLIC_NAME = RFCOMM_BTHPROTO_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The 4 ipip tunnels (older ka9q tunnels use 94) protocol socket symbolic name. */
 static int IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The transmission control protocol (tcp) protocol socket symbolic name. */
+/** The 6 transmission control protocol (tcp) protocol socket symbolic name. */
 static int TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The exterior gateway protocol (egp) protocol socket symbolic name. */
+/** The 8 exterior gateway protocol (egp) protocol socket symbolic name. */
 static int EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME = EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The pup protocol socket symbolic name. */
+/** The 12 pup protocol socket symbolic name. */
 static int PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME = PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The user datagram protocol (udp) protocol socket symbolic name. */
+/** The 17 user datagram protocol (udp) protocol socket symbolic name. */
 static int UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The xns idp protocol socket symbolic name. */
+/** The 22 xns idp protocol socket symbolic name. */
 static int IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The datagram congestion control protocol (dccp) protocol socket symbolic name. */
+/** The 33 datagram congestion control protocol (dccp) protocol socket symbolic name. */
 static int DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The rsvp protocol socket symbolic name. */
-static int RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
-static int* RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME = RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
-
-/** The cisco gre tunnels (rfc 1701, 1702) protocol socket symbolic name. */
-static int GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
-static int* GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME = GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
-
-/** The ipv6-in-ipv4 tunnelling (ipv6) protocol socket symbolic name. */
+/** The 41 ipv6-in-ipv4 tunnelling (ipv6) protocol socket symbolic name. */
 static int IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The encapsulation security payload protocol (esp) protocol socket symbolic name. */
+/** The 46 rsvp protocol socket symbolic name. */
+static int RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME = RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The 47 cisco gre tunnels (rfc 1701, 1702) protocol socket symbolic name. */
+static int GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME = GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The 50 encapsulation security payload protocol (esp) protocol socket symbolic name. */
 static int ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME = ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The authentication header (ah) protocol socket symbolic name. */
+/** The 51 authentication header (ah) protocol socket symbolic name. */
 static int AH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* AH_PROTOCOL_SOCKET_SYMBOLIC_NAME = AH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The ip option pseudo header for beet (beetph) protocol socket symbolic name. */
+/** The 58 internet control message protocol version 6 (icmpv6) protocol socket symbolic name. */
+static int ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The 94 ip option pseudo header for beet (beetph) protocol socket symbolic name. */
 static int BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME = BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The protocol independent multicast (pim) protocol socket symbolic name. */
+/** The 103 protocol independent multicast (pim) protocol socket symbolic name. */
 static int PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME = PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The compression header protocol (comp) protocol socket symbolic name. */
+/** The 108 compression header protocol (comp) protocol socket symbolic name. */
 static int COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The stream control transport protocol (sctp) protocol socket symbolic name. */
+/** The 113 pgm for reliable multicast (rm) protocol socket symbolic name. */
+static int RM_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
+static int* RM_PROTOCOL_SOCKET_SYMBOLIC_NAME = RM_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
+
+/** The 132 stream control transport protocol (sctp) protocol socket symbolic name. */
 static int SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME = SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The udp-lite (udplite) (RFC 3828) protocol socket symbolic name. */
+/** The 136 udp-lite (udplite) (RFC 3828) protocol socket symbolic name. */
 static int UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME = UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 
-/** The raw ip packets (raw) protocol socket symbolic name. */
+/** The 255 raw ip packets (raw) protocol socket symbolic name. */
 static int RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY[1];
 static int* RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME = RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME_ARRAY;
 

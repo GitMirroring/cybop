@@ -47,6 +47,9 @@
 #include "../../../../../executor/maintainer/starter/socket/protocol_socket_starter.c"
 #include "../../../../../executor/maintainer/starter/socket/style_socket_starter.c"
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
+#include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
+#include "../../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
 
 /**
  * Starts up socket in client mode.
@@ -70,16 +73,16 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     // The protocol family (socket namespace).
     // By default, its value is set to: PF_INET6
-    int pf = PF_INET6;
+    int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
     // The address family (namespace).
     // By default, its value is set to: AF_INET6
-    int af = AF_INET6;
+    int af = *UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
     // The communication style.
     // By default, its value is set to: SOCK_STREAM
     int st = SOCK_STREAM;
     // The protocol.
     // By default, its value is set to: IPPROTO_TCP
-    int p = IPPROTO_TCP;
+    int p = *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME;
     // The socket address data, size.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
     int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
