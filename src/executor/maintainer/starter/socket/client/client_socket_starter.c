@@ -72,16 +72,12 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client.");
 
     // The protocol family (socket namespace).
-    // By default, its value is set to: PF_INET6
     int pf = *UNSPEC_PROTOCOL_FAMILY_SOCKET_SYMBOLIC_NAME;
     // The address family (namespace).
-    // By default, its value is set to: AF_INET6
     int af = *UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
     // The communication style.
-    // By default, its value is set to: SOCK_STREAM
     int st = SOCK_STREAM;
     // The protocol.
-    // By default, its value is set to: IPPROTO_TCP
     int p = *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME;
     // The socket address data, size.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;

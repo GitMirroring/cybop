@@ -43,6 +43,7 @@
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Converts communication style string into integer.
@@ -57,22 +58,6 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The style.
-    //
-    // CAUTION! The symbolic names (pre-processor-defined constants)
-    // used below CANNOT be handed over as reference to a function
-    // since otherwise, the compiler will show an error like:
-    // error: lvalue required as unary ‘&’ operand
-    //
-    // Therefore, they are used to assign a value to this local variable,
-    // which then gets copied to the destination parametre.
-    int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise style.
-    // CAUTION! This is IMPORTANT in case none of the values below matches.
-    // Just leaving the zero assigned above might falsify the original value
-    // that was handed over as argument to this function.
-    copy_integer((void*) &s, p0);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -80,9 +65,13 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            s = SOCK_DGRAM;
+            copy_integer(p0, (void*) DGRAM_STYLE_SOCKET_SYMBOLIC_NAME);
         }
     }
+
+    //?? TODO: DCCP
+
+    //?? TODO: PACKET
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -90,7 +79,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            s = SOCK_RAW;
+            copy_integer(p0, (void*) RAW_STYLE_SOCKET_SYMBOLIC_NAME);
         }
     }
 
@@ -100,7 +89,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            s = SOCK_RDM;
+            copy_integer(p0, (void*) RDM_STYLE_SOCKET_SYMBOLIC_NAME);
         }
     }
 
@@ -110,7 +99,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            s = SOCK_SEQPACKET;
+            copy_integer(p0, (void*) SEQPACKET_STYLE_SOCKET_SYMBOLIC_NAME);
         }
     }
 
@@ -120,7 +109,7 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            s = SOCK_STREAM;
+            copy_integer(p0, (void*) STREAM_STYLE_SOCKET_SYMBOLIC_NAME);
         }
     }
 
@@ -128,9 +117,6 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket style. The style is not known.");
     }
-
-    // Assign style.
-    copy_integer(p0, (void*) &s);
 }
 
 /* STYLE_SOCKET_STARTER_SOURCE */

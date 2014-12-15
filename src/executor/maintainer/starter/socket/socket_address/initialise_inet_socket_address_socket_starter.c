@@ -40,6 +40,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
  * Initialise inet socket address.
@@ -72,7 +73,7 @@ void startup_socket_socket_address_inet_initialise(void* p0, void* p1, void* p2)
                 // CAUTION! The "sin_family" field is of type
                 // "sa_family_t", which is actually an "integer",
                 // as well as the "AF_INET" constant.
-                (*a).sin_family = AF_INET;
+                (*a).sin_family = *INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
 
                 // Set host address.
                 //

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "variable/symbolic_name/style_socket_symbolic_name.c"
+
 2014-12-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace symbolic names (pre-processor-defined constants) with global integer variables in file "socket_address_socket_starter.c"

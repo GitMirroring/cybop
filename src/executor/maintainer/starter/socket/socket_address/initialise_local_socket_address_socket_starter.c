@@ -43,6 +43,7 @@
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
  * Initialise local socket address.
@@ -83,7 +84,7 @@ void startup_socket_socket_address_local_initialise(void* p0, void* p1, void* p2
                 //
                 // CAUTION! Use the prefix "AF_" here and NOT "PF_"!
                 // The latter is to be used for socket creation.
-                *family = AF_LOCAL;
+                *family = *LOCAL_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
 
                 // CAUTION! For some strange reason, the socket file name length
                 // is limited to 108 ascii characters in the gnu c library!

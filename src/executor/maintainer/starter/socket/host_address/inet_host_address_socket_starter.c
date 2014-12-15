@@ -53,6 +53,7 @@
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
+#include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
 /**
  * Determines inet host address.
@@ -171,7 +172,7 @@ void startup_socket_host_address_inet(void* p0, void* p1, void* p2) {
             // to network (binary) format, the latter being an integer.
             //
             // CAUTION! The returned value is already in NETWORK byte order.
-            inet_pton(AF_INET, (char*) td, (void*) &n);
+            inet_pton(*INET_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME, (char*) td, (void*) &n);
 #endif
 
             // Assign address.

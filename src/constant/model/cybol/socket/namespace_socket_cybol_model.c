@@ -82,26 +82,5 @@ static int* NS_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI
 static wchar_t* ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL = L"route";
 static int* ROUTE_NAMESPACE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/*?? TODO:
-    PF_ASH          Ash
-    PF_ATMPVC       ATM PVCs
-    PF_ATMSVC       ATM SVCs
-    PF_AX25         Amateur Radio AX.25
-    PF_BRIDGE       Multiprotocol bridge
-    PF_DECnet       Reserved for DECnet project
-    PF_ECONET       Acorn Econet
-    PF_KEY          PF_KEY key management API
-    PF_NETBEUI      Reserved for 802.2LLC project
-    PF_NETLINK, PF_ROUTE routing API
-    PF_NETROM       Amateur radio NetROM
-    PF_PACKET       Packet family
-    PF_PPPOX        PPP over X sockets
-    PF_ROSE         Amateur Radio X.25 PLP
-    PF_SECURITY     Security callback pseudo AF
-    PF_SNA          Linux SNA Project
-    PF_WANPIPE      Wanpipe API sockets
-    PF_X25          Reserved for X.25 project
-*/
-
 /* NAMESPACE_SOCKET_CYBOL_MODEL_CONSTANT_SOURCE */
 #endif
