@@ -30,6 +30,7 @@
 #include "../../controller/globaliser/symbolic_name/baudrate_serial_symbolic_name_globaliser.c"
 #include "../../controller/globaliser/symbolic_name/protocol_family_socket_symbolic_name_globaliser.c"
 #include "../../controller/globaliser/symbolic_name/protocol_socket_symbolic_name_globaliser.c"
+#include "../../controller/globaliser/symbolic_name/style_socket_symbolic_name_globaliser.c"
 
 /**
  * Initialises symbolic name (pre-processor-defined) global variables.
@@ -45,6 +46,7 @@ void globalise_symbolic_name() {
     // address families.
     globalise_symbolic_name_socket_address_family();
     globalise_symbolic_name_socket_protocol_family();
+    globalise_symbolic_name_socket_style();
     globalise_symbolic_name_socket_protocol();
 
     //

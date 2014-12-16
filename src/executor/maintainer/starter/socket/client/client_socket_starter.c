@@ -50,6 +50,7 @@
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 #include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
 #include "../../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
+#include "../../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Starts up socket in client mode.
@@ -76,7 +77,7 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The address family (namespace).
     int af = *UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
     // The communication style.
-    int st = SOCK_STREAM;
+    int st = *STREAM_STYLE_SOCKET_SYMBOLIC_NAME;
     // The protocol.
     int p = *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME;
     // The socket address data, size.

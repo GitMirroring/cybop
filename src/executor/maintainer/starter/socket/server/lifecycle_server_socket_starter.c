@@ -53,6 +53,7 @@
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 #include "../../../../../variable/symbolic_name/protocol_family_socket_symbolic_name.c"
 #include "../../../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
+#include "../../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 
 /**
  * Starts up server socket lifecycle.
@@ -80,7 +81,7 @@ void startup_socket_server_lifecycle(void* p0, void* p1, void* p2, void* p3, voi
     // The address family (namespace).
     int af = *UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME;
     // The communication style.
-    int st = SOCK_STREAM;
+    int st = *STREAM_STYLE_SOCKET_SYMBOLIC_NAME;
     // The protocol.
     int p = *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME;
     // The socket address data, size.
@@ -112,12 +113,11 @@ sleep(2);
     free(ad);
 
     // The comparison result.
-//??    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-//??    compare_integer_equal((void*) &r, (void*) &st, (void*) &SOCK_STREAM);
+    compare_integer_equal((void*) &r, (void*) &st, (void*) STREAM_STYLE_SOCKET_SYMBOLIC_NAME);
 
-//??    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-    if (st == SOCK_STREAM) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 fwprintf(stdout, L"TEST: startup socket server lifecycle listen s: %i \n", *((int*) p0));
 sleep(2);

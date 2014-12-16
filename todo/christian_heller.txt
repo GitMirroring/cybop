@@ -14,7 +14,6 @@
 WUI
 ___
 
-        * Replace symbolic names for socket style
         * Define global socket variables in files "socket_type_size.c" and "socket_globaliser.c" OR use "sizeof" locally ??
 
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"

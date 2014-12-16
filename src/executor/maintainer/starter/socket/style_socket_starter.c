@@ -65,13 +65,29 @@ void startup_socket_style(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            copy_integer(p0, (void*) DGRAM_STYLE_SOCKET_SYMBOLIC_NAME);
+            copy_integer(p0, (void*) DATAGRAM_STYLE_SOCKET_SYMBOLIC_NAME);
         }
     }
 
-    //?? TODO: DCCP
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //?? TODO: PACKET
+        compare_all_array((void*) &r, p1, (void*) DCCP_STYLE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) DCCP_STYLE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) DCCP_STYLE_SOCKET_SYMBOLIC_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) PACKET_STYLE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) PACKET_STYLE_SOCKET_CYBOL_MODEL_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            copy_integer(p0, (void*) PACKET_STYLE_SOCKET_SYMBOLIC_NAME);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

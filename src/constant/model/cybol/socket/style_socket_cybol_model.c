@@ -34,6 +34,14 @@
 static wchar_t* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL = L"datagram";
 static int* DATAGRAM_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The dccp style socket cybol model. */
+static wchar_t* DCCP_STYLE_SOCKET_CYBOL_MODEL = L"dccp";
+static int* DCCP_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The packet style socket cybol model. */
+static wchar_t* PACKET_STYLE_SOCKET_CYBOL_MODEL = L"packet";
+static int* PACKET_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The raw style socket cybol model. */
 static wchar_t* RAW_STYLE_SOCKET_CYBOL_MODEL = L"raw";
 static int* RAW_STYLE_SOCKET_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
