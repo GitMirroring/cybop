@@ -52,9 +52,9 @@
  * @param p3 the source socket
  * @param p4 the source count
  */
-void receive_raw_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_socket_raw(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from raw socket.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket raw.");
     log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"The raw socket functionality is NOT implemented yet.");
 }
 

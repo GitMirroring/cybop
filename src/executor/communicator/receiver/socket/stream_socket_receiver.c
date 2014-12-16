@@ -56,7 +56,8 @@
  *           (the client socket to accept, receive data from and attach as parametre to the
  *           cyboi signal generated later, so that this server may reply to the correct client)
  */
-void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
+void receive_socket_stream(void* p0, void* p1, void* p2, void* p3) {
+
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* ps = (int*) p3;
@@ -73,7 +74,7 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
 
                     void** b = (void**) p0;
 
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive stream socket.");
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket stream.");
 
                     // The temporary size_t variable.
                     //
@@ -130,41 +131,41 @@ void receive_stream_socket(void* p0, void* p1, void* p2, void* p3) {
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket argument is not a valid file descriptor.");
 #ifdef __APPLE__
                         } else if (errno == ENOTSOCK) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The descriptor socket is not a socket.");
-                            
+
                         } else if (errno == EWOULDBLOCK) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The read operation would block even though nonblocking mode has been set on the socket.");
-                            
+
                         } else if (errno == ENOTCONN) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket was never connected.");
 #elif WIN32
                                 //Not needed
 #elif GNU_LINUX_OPERATING_SYSTEM
                         } else if (errno == ENOTSOCK) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The descriptor socket is not a socket.");
-                            
+
                         } else if (errno == EWOULDBLOCK) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The read operation would block even though nonblocking mode has been set on the socket.");
-                            
+
                         } else if (errno == ENOTCONN) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket was never connected.");
 #else
                         } else if (errno == ENOTSOCK) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The descriptor socket is not a socket.");
-                            
+
                         } else if (errno == EWOULDBLOCK) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The read operation would block even though nonblocking mode has been set on the socket.");
-                            
+
                         } else if (errno == ENOTCONN) {
-                            
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive stream socket. The socket was never connected.");
 #endif
                         } else if (errno == EINTR) {

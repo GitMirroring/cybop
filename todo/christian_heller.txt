@@ -14,10 +14,6 @@
 WUI
 ___
 
-        * Uncomment function call "shutdown_socket" in file "controller/manager.c"
-        * Use a new function looping all open sockets in order to close them
-        * Provide a dictionary of flags saying if a socket service/port is open or not
-
         * Reactivate send/receive functionality: hint from "wolf_-_c_von_a_bis_z" for UDP connexion:
             "Sollten Sie bei einer UDP-Verbindung die connect()-Funktion verwenden,
             können Sie auch die Funktionen send/recv (statt sendto/recvfrom) verwenden.
@@ -25,6 +21,11 @@ ___
             automatisch ergänzt und brauchen nicht als Argument angegeben zu werden."
             --> leave "connect" in maintainer/starter, even if not a server service
             --> only send/receive should be in communicator
+
+        * Create variables like "enable", "irq", "thread" dynamically PER SERVICE in internal memory and NOT as global fixed variables, since it is not predictable, how many socket services will be used at runtime
+        * Uncomment function call "shutdown_socket" in file "controller/manager.c"
+        * Use a new function looping all open sockets in order to close them
+        * Provide a dictionary of flags saying if a socket service/port is open or not
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"

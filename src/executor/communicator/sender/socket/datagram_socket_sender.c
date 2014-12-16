@@ -39,7 +39,7 @@
 #include "../../../executor/comparator/all/array_all_comparator.c"
 
 /**
- * Sends a byte array stream to the datagram socket.
+ * Sends a byte array via datagram socket.
  *
  * @param p0 the destination receiver socket address (pointer reference)
  * @param p1 the destination receiver socket address size
@@ -47,7 +47,7 @@
  * @param p3 the source data
  * @param p4 the source count
  */
-void send_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void send_socket_datagram(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -67,7 +67,7 @@ void send_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                         struct sockaddr** a = (struct sockaddr**) p0;
 
-                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send datagram socket.");
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket datagram.");
 
                         // Initialise error number.
                         // It is a global variable/ function and other operations

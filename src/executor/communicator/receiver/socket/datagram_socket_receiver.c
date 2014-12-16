@@ -56,7 +56,8 @@
  * @param p4 the source count (original socket address of this system size)
  * @param p5 the original socket of this system
  */
-void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void receive_socket_datagram(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* os = (int*) p5;
@@ -73,7 +74,7 @@ void receive_datagram_socket(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                     void** b = (void**) p0;
 
-                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive from datagram socket.");
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket datagram.");
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
