@@ -27,13 +27,13 @@
 #define ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
 #ifdef __APPLE__
-    #include <termios.h>
+    #include <sys/socket.h>
 #elif WIN32
     #include <winsock.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
+    #include <sys/socket.h>
 #else
-    #include <termios.h>
+    #include <sys/socket.h>
 #endif
 
 #include "../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
@@ -107,9 +107,9 @@ void globalise_symbolic_name_socket_address_family() {
     *IPX_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_IPX; // 6 Novell IPX; CAUTION! The id is DIFFERENT from Linux.
     *APPLETALK_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_APPLETALK; // 16 AppleTalk DDP; CAUTION! The id is DIFFERENT from Linux.
     *NETBIOS_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_NETBIOS; // 17 NETBIOS supported on 32-bit versions of Windows; CAUTION! It does NOT exist for Linux.
-    *INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_INET6; // 23 IP version 6; CAUTION! The id is DIFFERENT from Linux.
-    *IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_IRDA; // 26 IRDA sockets; CAUTION! The id is DIFFERENT from Linux.
-    *BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_BTH; // 32 Bluetooth sockets; CAUTION! The id is DIFFERENT from Linux.
+//??    *INET6_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_INET6; // 23 IP version 6; CAUTION! The id is DIFFERENT from Linux.
+//??    *IRDA_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_IRDA; // 26 IRDA sockets; CAUTION! The id is DIFFERENT from Linux.
+//??    *BLUETOOTH_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_BTH; // 32 Bluetooth sockets; CAUTION! The id is DIFFERENT from Linux.
 #elif GNU_LINUX_OPERATING_SYSTEM
     *UNSPEC_ADDRESS_FAMILY_SOCKET_SYMBOLIC_NAME = AF_UNSPEC; // 0
     // CAUTION! An ALTERNATIVE name for AF_LOCAL with the same ID 1 would be:

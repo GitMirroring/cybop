@@ -36,6 +36,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/communicator/receiver/win32_display/callback_message_win32_display_receiver.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/display_type_size.c"
 
 /**
  * Registers the window class.
@@ -59,7 +60,7 @@ void startup_win32_display_register(void* p0, void* p1) {
 
             WNDCLASSEX wc; // = {0};
 
-            wc.cbSize = (UINT) sizeof (WNDCLASSEX);
+            wc.cbSize = (UINT) *WNDCLASSEX_DISPLAY_TYPE_SIZE;
             wc.style = (UINT) 0; // CS_HREDRAW | CS_VREDRAW;
             wc.lpfnWndProc = (WNDPROC) receive_win32_display_message_callback;
             wc.cbClsExtra = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

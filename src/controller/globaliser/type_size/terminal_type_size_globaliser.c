@@ -23,26 +23,34 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PROCESS_GLOBALISER_SOURCE
-#define PROCESS_GLOBALISER_SOURCE
+#ifndef TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE
+#define TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include <sys/types.h>
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/type_size/process_type_size.c"
-
-#ifdef _MSC_VER
-#include "../../windows/cyboi_win_mapper.h"
+#ifdef __APPLE__
+    #include <termios.h>
+#elif WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
+    #include <termios.h>
 #else
-#include <unistd.h>
+    #include <termios.h>
 #endif
 
-/**
- * Initialises process global variables.
- */
-void globalise_process() {
+#include "../../../variable/type_size/terminal_type_size.c"
 
-    *IDENTIFICATION_PROCESS_TYPE_SIZE = sizeof (pid_t);
+/**
+ * Initialises terminal type size global variables.
+ */
+void globalise_type_size_terminal() {
+
+#ifdef __APPLE__
+    *TERMIOS_TERMINAL_TYPE_SIZE = sizeof (struct termios);
+#elif WIN32
+#elif GNU_LINUX_OPERATING_SYSTEM
+    *TERMIOS_TERMINAL_TYPE_SIZE = sizeof (struct termios);
+#else
+    *TERMIOS_TERMINAL_TYPE_SIZE = sizeof (struct termios);
+#endif
 }
 
-/* PROCESS_GLOBALISER_SOURCE */
+/* TERMINAL_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

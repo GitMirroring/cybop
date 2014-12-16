@@ -14,8 +14,6 @@
 WUI
 ___
 
-        * Define global socket variables in files "socket_type_size.c" and "socket_globaliser.c" OR use "sizeof" locally ??
-
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open sockets in order to close them
         * Provide a dictionary of flags saying if a socket service/port is open or not
@@ -100,6 +98,8 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
         * Windows Data Types:
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
+        * Remove directory "src/windows/"
 
 Shell Commands
 ______________

@@ -23,22 +23,24 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef THREAD_GLOBALISER_SOURCE
-#define THREAD_GLOBALISER_SOURCE
+#ifndef DISPLAY_TYPE_SIZE_SOURCE
+#define DISPLAY_TYPE_SIZE_SOURCE
 
-#include <pthread.h>
+//
+// The global variables.
+//
+// CAUTION! This is just the variable definition.
+// Initialisation happens in directory "controller/globaliser/".
+//
 
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/type_size/thread_type_size.c"
+#ifdef __APPLE__
+#elif WIN32
+    /** The window class extended display type size. */
+    static int WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY[1];
+    static int* WNDCLASSEX_DISPLAY_TYPE_SIZE = WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY;
+#elif GNU_LINUX_OPERATING_SYSTEM
+#else
+#endif
 
-/**
- * Initialises thread global variables.
- */
-void globalise_thread() {
-
-    *THREAD_TYPE_SIZE = sizeof (pthread_t);
-    *MUTEX_THREAD_TYPE_SIZE = sizeof (pthread_mutex_t);
-}
-
-/* THREAD_GLOBALISER_SOURCE */
+/* DISPLAY_TYPE_SIZE_SOURCE */
 #endif

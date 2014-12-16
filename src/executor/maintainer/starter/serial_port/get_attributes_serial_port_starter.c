@@ -26,7 +26,6 @@
 #ifndef GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 #define GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE
 
-
 #include <stdio.h>
 
 #ifdef __APPLE__
@@ -67,6 +66,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/maintainer/starter/serial_port/set_attributes_serial_port_starter.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/terminal_type_size.c"
 
 /**
  * Gets the serial port attributes.
@@ -91,7 +91,7 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
         // entire collection of attributes of a serial port.
         // It is used with the functions "tcgetattr" and
         // "tcsetattr" to get and set the attributes.
-        void* a = malloc(sizeof (struct termios));
+        void* a = malloc(*TERMIOS_TERMINAL_TYPE_SIZE);
 
         if (a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

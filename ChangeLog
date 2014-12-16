@@ -21,6 +21,9 @@
 2014-12-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace symbolic names for socket style
+        * Reorganise some files into directory "controller/globaliser/type_size/"
+        * Define global socket variables in files "variable/type_size/socket_type_size.c" and "controller/globaliser/type_size/socket_globaliser.c"
+        * Remove "sizeof" operand at various places and use global type size variables instead
 
 2014-12-15  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -37,7 +37,6 @@
 #include "../../../../executor/lifeguard/interrupter/thread_interrupter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/x_window_system_type_size.c"
 
 /**
  * Shuts down the x window system.

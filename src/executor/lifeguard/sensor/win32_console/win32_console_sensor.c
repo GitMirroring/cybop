@@ -38,6 +38,7 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/integral_type_size.c"
 
 /**
  * Senses win32 console messages.
@@ -84,7 +85,7 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         //Changed Benno Schilling 05.02.2014
         //VLA's (variable length arrays) are supported by c99, but not by the visual studio compiler
         //INPUT_RECORD i[is];
-        INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * sizeof (DWORD));
+        INPUT_RECORD* i = (INPUT_RECORD*) malloc(is * *DOUBLE_WORD_INTEGRAL_TYPE_SIZE);
 #else
         INPUT_RECORD i[is];
 #endif

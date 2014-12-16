@@ -23,19 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_TYPE_SIZE_SOURCE
-#define X_WINDOW_SYSTEM_TYPE_SIZE_SOURCE
+#ifndef THREAD_TYPE_SIZE_GLOBALISER_SOURCE
+#define THREAD_TYPE_SIZE_GLOBALISER_SOURCE
 
-//
-// The global variables.
-//
-// CAUTION! This is just the variable definition.
-// Initialisation happens in directory "controller/globaliser/".
-//
+#include <pthread.h>
 
-/** The XGCValues x window system type size. */
-static int XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE_ARRAY[1];
-static int* XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE = XGC_VALUES_X_WINDOW_SYSTEM_TYPE_SIZE_ARRAY;
+#include "../../../variable/type_size/thread_type_size.c"
 
-/* X_WINDOW_SYSTEM_TYPE_SIZE_SOURCE */
+/**
+ * Initialises thread type size global variables.
+ */
+void globalise_type_size_thread() {
+
+    *THREAD_TYPE_SIZE = sizeof (pthread_t);
+    *MUTEX_THREAD_TYPE_SIZE = sizeof (pthread_mutex_t);
+}
+
+/* THREAD_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

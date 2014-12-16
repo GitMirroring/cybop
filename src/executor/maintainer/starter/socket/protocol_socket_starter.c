@@ -100,7 +100,10 @@ void startup_socket_protocol(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+//?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
+#ifndef WIN32
             p = IPPROTO_ICMPV6;
+#endif
         }
     }
 

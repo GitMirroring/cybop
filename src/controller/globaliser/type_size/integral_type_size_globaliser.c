@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef INTEGRAL_GLOBALISER_SOURCE
-#define INTEGRAL_GLOBALISER_SOURCE
+#ifndef INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE
+#define INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include "../../variable/type_size/integral_type_size.c"
+#include "../../../variable/type_size/integral_type_size.c"
 
 /**
- * Initialises integral global variables.
+ * Initialises integral type size global variables.
  */
-void globalise_integral() {
+void globalise_type_size_integral() {
 
     //
     // CAUTION! The glibc manual states that the data type of the result
@@ -67,7 +67,11 @@ void globalise_integral() {
     *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (signed long long int);
 //??    *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = sizeof (unsigned long long int);
     *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = sizeof (wchar_t);
+
+#ifdef WIN32
+    *DOUBLE_WORD_INTEGRAL_TYPE_SIZE = sizeof (DWORD);
+#endif
 }
 
-/* INTEGRAL_GLOBALISER_SOURCE */
+/* INTEGRAL_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

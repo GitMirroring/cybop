@@ -27,13 +27,13 @@
 #define PROTOCOL_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
 #ifdef __APPLE__
-    #include <termios.h>
+    #include <netinet/in.h>
 #elif WIN32
     #include <winsock.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
+    #include <netinet/in.h>
 #else
-    #include <termios.h>
+    #include <netinet/in.h>
 #endif
 
 #include "../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
@@ -79,7 +79,7 @@ void globalise_symbolic_name_socket_protocol() {
 //??    *RFCOMM_BTHPROTO_PROTOCOL_SOCKET_SYMBOLIC_NAME = BTHPROTO_RFCOMM; // 3 Bluetooth Radio Frequency Communications (Bluetooth RFCOMM)
     *TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_TCP; // 6 Transmission Control Protocol (TCP)
     *UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDP; // 17 User Datagram Protocol (UDP)
-    *ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMPV6; // 58 Internet Control Message Protocol Version 6 (ICMPv6)
+//??    *ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMPV6; // 58 Internet Control Message Protocol Version 6 (ICMPv6)
 //??    *RM_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RM; // 113 PGM protocol for reliable multicast (RM)
 #elif GNU_LINUX_OPERATING_SYSTEM
     *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IP; // 0 Dummy protocol for TCP

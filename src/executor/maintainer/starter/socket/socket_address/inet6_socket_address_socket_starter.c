@@ -86,7 +86,7 @@ void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3,
             //
             // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
             // because values are casted to int* internally again.
-            size_t has = (size_t) sizeof (ha);
+            size_t has = (size_t) *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE;
             // Initialise array elements.
             //
             // CAUTION! Initialising with zero values is essential,
@@ -104,7 +104,7 @@ void startup_socket_socket_address_inet6(void* p0, void* p1, void* p2, void* p3,
             startup_socket_host_address_inet6((void*) &ha, p2, p3);
 
             // Initialise socket address size.
-            copy_integer(as, (void*) INTERNET_PROTOCOL_6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+            copy_integer(p1, (void*) IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
             // The temporary size_t variable.
             //
             // CAUTION! It IS NECESSARY because on 64 Bit machines,

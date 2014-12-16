@@ -249,5 +249,22 @@ static int* SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE = SIGNED_LONG_LONG_INTEG
 static int WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY[1];
 static int* WIDE_CHARACTER_INTEGRAL_TYPE_SIZE = WIDE_CHARACTER_INTEGRAL_TYPE_SIZE_ARRAY;
 
+#ifdef WIN32
+
+/**
+ * The double word integral type size.
+ *
+ * It is a 32-bit unsigned integer. See comment at "unsigned long int".
+ *
+ * This type is declared in IntSafe.h as follows:
+ * typedef unsigned long DWORD;
+ *
+ * http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+ */
+static int DOUBLE_WORD_INTEGRAL_TYPE_SIZE_ARRAY[1];
+static int* DOUBLE_WORD_INTEGRAL_TYPE_SIZE = DOUBLE_WORD_INTEGRAL_TYPE_SIZE_ARRAY;
+
+#endif
+
 /* INTEGRAL_TYPE_SIZE_SOURCE */
 #endif

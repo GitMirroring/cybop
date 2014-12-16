@@ -61,26 +61,7 @@ void startup_socket_socket_address_local(void* p0, void* p1, void* p2, void* p3)
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address local.");
 
             // Initialise address size.
-            //
-            // CAUTION! The following line CANNOT be used:
-            // *as = sizeof (struct sockaddr_un);
-            // because the compiler brings the error
-            // "invalid application of 'sizeof' to incomplete type 'struct sockaddr_un'".
-            // The reason is the "sun_path" field of the "sockaddr_un" structure,
-            // which is a character array whose size is unknown at compilation time.
-            //
-            // The size of the "sun_path" character array is therefore set
-            // to the fixed size of 108.
-            // The number "108" is the limit as set by the gnu c library!
-            // Its documentation called it a "magic number" and does not
-            // know why this limit exists.
-            //
-            // With the known type "short int" of the "sun_family" field and
-            // a fixed size "108" of the "sun_path" field, the overall size of
-            // the "sockaddr_un" structure can be calculated as sum.
-            copy_integer(as, (void*) SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE);
-            calculate_integer_add(as, (void*) NUMBER_108_INTEGER_STATE_CYBOI_MODEL);
-
+            copy_integer(p1, (void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
             // The temporary size_t variable.
             //
             // CAUTION! It IS NECESSARY because on 64 Bit machines,

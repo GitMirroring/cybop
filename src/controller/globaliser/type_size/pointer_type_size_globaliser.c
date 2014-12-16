@@ -23,21 +23,18 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef REAL_GLOBALISER_SOURCE
-#define REAL_GLOBALISER_SOURCE
+#ifndef POINTER_TYPE_SIZE_GLOBALISER_SOURCE
+#define POINTER_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/type_size/real_type_size.c"
+#include "../../../variable/type_size/pointer_type_size.c"
 
 /**
- * Initialises real global variables.
+ * Initialises pointer type size global variables.
  */
-void globalise_real() {
+void globalise_type_size_pointer() {
 
-//??    *FLOAT_REAL_TYPE_SIZE = sizeof (float);
-    *DOUBLE_REAL_TYPE_SIZE = sizeof (double);
-//??    *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof (long double);
+    *POINTER_TYPE_SIZE = sizeof (void*);
 }
 
-/* REAL_GLOBALISER_SOURCE */
+/* POINTER_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

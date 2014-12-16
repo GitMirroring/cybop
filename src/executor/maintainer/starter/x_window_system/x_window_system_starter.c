@@ -37,7 +37,6 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/x_window_system_type_size.c"
 
 //
 // The X.Org Foundation formed by X.Org and freedesktop.org

@@ -23,22 +23,20 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SIGNAL_GLOBALISER_SOURCE
-#define SIGNAL_GLOBALISER_SOURCE
+#ifndef REAL_TYPE_SIZE_GLOBALISER_SOURCE
+#define REAL_TYPE_SIZE_GLOBALISER_SOURCE
 
-#include <signal.h>
-
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/type_size/signal_type_size.c"
+#include "../../../variable/type_size/real_type_size.c"
 
 /**
- * Initialises signal global variables.
+ * Initialises real type size global variables.
  */
-void globalise_signal() {
+void globalise_type_size_real() {
 
-    *ATOMIC_SIGNAL_TYPE_SIZE = sizeof (sig_atomic_t);
-    *VOLATILE_ATOMIC_SIGNAL_TYPE_SIZE = sizeof (volatile sig_atomic_t);
+//??    *FLOAT_REAL_TYPE_SIZE = sizeof (float);
+    *DOUBLE_REAL_TYPE_SIZE = sizeof (double);
+//??    *LONG_DOUBLE_REAL_TYPE_SIZE = sizeof (long double);
 }
 
-/* SIGNAL_GLOBALISER_SOURCE */
+/* REAL_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

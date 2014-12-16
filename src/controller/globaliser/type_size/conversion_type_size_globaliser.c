@@ -23,18 +23,17 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CONVERSION_GLOBALISER_SOURCE
-#define CONVERSION_GLOBALISER_SOURCE
+#ifndef CONVERSION_TYPE_SIZE_GLOBALISER_SOURCE
+#define CONVERSION_TYPE_SIZE_GLOBALISER_SOURCE
 
 #include <wchar.h>
 
-#include "../../variable/type_size/conversion_type_size.c"
-#include "../../variable/type_size/integral_type_size.c"
+#include "../../../variable/type_size/conversion_type_size.c"
 
 /**
- * Initialises conversion global variables.
+ * Initialises conversion type size global variables.
  */
-void globalise_conversion() {
+void globalise_type_size_conversion() {
 
     // CAUTION! Do NOT use "struct mbstate_t" but ONLY "mbstate_t".
     // Otherwise, the compiler brings the error:
@@ -42,5 +41,5 @@ void globalise_conversion() {
     *MULTIBYTE_CHARACTER_STATE_CONVERSION_TYPE_SIZE = sizeof (mbstate_t);
 }
 
-/* CONVERSION_GLOBALISER_SOURCE */
+/* CONVERSION_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

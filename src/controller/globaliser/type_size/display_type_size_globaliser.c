@@ -23,34 +23,30 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DISPLAY_GLOBALISER_SOURCE
-#define DISPLAY_GLOBALISER_SOURCE
+#ifndef DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
+#define DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
 
 #ifdef __APPLE__
-    //?? Add Cocoa support
 #elif WIN32
-    //?? Add WIN32 support
+    #include <windows.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../controller/globaliser/x_window_system_globaliser.c"
 #else
-    #include "../../controller/globaliser/x_window_system_globaliser.c"
 #endif
 
+#include "../../../variable/type_size/display_type_size.c"
+
 /**
- * Initialises display global variables.
+ * Initialises display type size global variables.
  */
-void globalise_display() {
+void globalise_type_size_display() {
 
 #ifdef __APPLE__
-    //?? Add Cocoa support
 #elif WIN32
-    //?? Add WIN32 support
+    *WNDCLASSEX_DISPLAY_TYPE_SIZE = sizeof (WNDCLASSEX);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    globalise_x_window_system();
 #else
-    globalise_x_window_system();
 #endif
 }
 
-/* DISPLAY_GLOBALISER_SOURCE */
+/* DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE */
 #endif

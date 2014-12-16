@@ -36,6 +36,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/maintainer/starter/unix_terminal/set_attributes_unix_terminal_starter.c"
 #include "../../../../logger/logger.c"
+#include "../../../../variable/type_size/terminal_type_size.c"
 
 /**
  * Gets the unix terminal attributes.
@@ -57,7 +58,7 @@ void startup_unix_terminal_attributes_get(void* p0, void* p1) {
         // entire collection of attributes of a serial port.
         // It is used with the functions "tcgetattr" and
         // "tcsetattr" to get and set the attributes.
-        void* a = malloc(sizeof (struct termios));
+        void* a = malloc(*TERMIOS_TERMINAL_TYPE_SIZE);
 
         if (a != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

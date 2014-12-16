@@ -27,13 +27,13 @@
 #define STYLE_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
 #ifdef __APPLE__
-    #include <termios.h>
+    #include <sys/socket.h>
 #elif WIN32
     #include <winsock.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
+    #include <sys/socket.h>
 #else
-    #include <termios.h>
+    #include <sys/socket.h>
 #endif
 
 #include "../../../variable/symbolic_name/style_socket_symbolic_name.c"

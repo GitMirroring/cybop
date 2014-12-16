@@ -27,21 +27,13 @@
 #define GLOBALISER_SOURCE
 
 #include "../controller/globaliser/compound_globaliser.c"
-#include "../controller/globaliser/conversion_globaliser.c"
-#include "../controller/globaliser/display_globaliser.c"
-#include "../controller/globaliser/integral_globaliser.c"
 #include "../controller/globaliser/log_globaliser.c"
-#include "../controller/globaliser/pointer_globaliser.c"
-#include "../controller/globaliser/process_globaliser.c"
-#include "../controller/globaliser/real_globaliser.c"
 #include "../controller/globaliser/reallocation_factor_globaliser.c"
 #include "../controller/globaliser/reference_counter_globaliser.c"
 #include "../controller/globaliser/service_exit_globaliser.c"
-#include "../controller/globaliser/signal_globaliser.c"
-#include "../controller/globaliser/socket_globaliser.c"
 #include "../controller/globaliser/symbolic_name_globaliser.c"
-#include "../controller/globaliser/thread_globaliser.c"
 #include "../controller/globaliser/thread_identification_globaliser.c"
+#include "../controller/globaliser/type_size_globaliser.c"
 
 /**
  * Allocates and initialises global variables.
@@ -70,19 +62,11 @@ void globalise() {
     //
 
     globalise_symbolic_name();
-    globalise_conversion();
-    globalise_display();
-    globalise_integral();
+    globalise_type_size();
     globalise_log();
-    globalise_pointer();
-    globalise_process();
-    globalise_real();
     globalise_reallocation_factor();
     globalise_reference_counter();
     globalise_service_exit();
-    globalise_signal();
-    globalise_socket();
-    globalise_thread();
     globalise_thread_identification();
 
     //

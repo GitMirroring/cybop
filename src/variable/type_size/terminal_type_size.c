@@ -23,19 +23,19 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef POINTER_GLOBALISER_SOURCE
-#define POINTER_GLOBALISER_SOURCE
+#ifndef TERMINAL_TYPE_SIZE_SOURCE
+#define TERMINAL_TYPE_SIZE_SOURCE
 
-#include "../../variable/type_size/integral_type_size.c"
-#include "../../variable/type_size/pointer_type_size.c"
+//
+// The global variables.
+//
+// CAUTION! This is just the variable definition.
+// Initialisation happens in directory "controller/globaliser/".
+//
 
-/**
- * Initialises pointer global variables.
- */
-void globalise_pointer() {
+/** The termios terminal type size. */
+static int TERMIOS_TERMINAL_TYPE_SIZE_ARRAY[1];
+static int* TERMIOS_TERMINAL_TYPE_SIZE = TERMIOS_TERMINAL_TYPE_SIZE_ARRAY;
 
-    *POINTER_TYPE_SIZE = sizeof (void*);
-}
-
-/* POINTER_GLOBALISER_SOURCE */
+/* TERMINAL_TYPE_SIZE_SOURCE */
 #endif
