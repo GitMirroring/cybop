@@ -82,7 +82,13 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
                     // See further below!
                     *s = socket(*pf, *st, *pr);
 
-                    if (*s < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                    if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket create.");
+
+                    } else {
+
+                        // An error occured.
 
                         if (errno == EPROTONOSUPPORT) {
 

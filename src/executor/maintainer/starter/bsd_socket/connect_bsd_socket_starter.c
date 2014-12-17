@@ -82,7 +82,13 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 // to the request before it returns.
                 int r = connect(*s, ad, sl);
 
-                if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket connect.");
+
+                } else {
+
+                    // An error occured.
 
                     if (errno == EBADF) {
 

@@ -70,7 +70,13 @@ void startup_winsock_initialise() {
     //
     int e = WSAStartup(v, &d);
 
-    if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup winsock initialise.");
+
+    } else {
+
+        // If the return value is NOT zero, then an error occured.
 
         // CAUTION! The WSAStartup function directly returns the
         // extended error code in the return value for this function.

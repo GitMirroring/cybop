@@ -78,12 +78,14 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
 
                     if (ws != INVALID_SOCKET) {
 
-                        // No error occured.
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup winsock create.");
 
                         // Cast winsock SOCKET to destination int.
                         *s = (int) ws;
 
                     } else {
+
+                        // If the return value IS invalid, then an error occured.
 
                         // Get the calling thread's last-error code.
                         //

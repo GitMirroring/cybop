@@ -60,8 +60,13 @@ void shutdown_winsock_close(void* p0) {
         //
         int r = closesocket(ws);
 
-        // If the return value is zero, then an error occured.
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully shutdown winsock close.");
+
+        } else {
+
+            // If the return value is NOT zero, then an error occured.
 
             // Get the calling thread's last-error code.
             //

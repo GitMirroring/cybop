@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare bsd_socket/winsock function "recv"
+
 2014-12-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace symbolic names for socket style

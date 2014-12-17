@@ -64,7 +64,13 @@ void startup_winsock_listen(void* p0, void* p1) {
             //
             int r = listen(ws, *c);
 
-            if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup winsock listen.");
+
+            } else {
+
+                // If the return value is NOT zero, then an error occured.
 
                 // Get the calling thread's last-error code.
                 //

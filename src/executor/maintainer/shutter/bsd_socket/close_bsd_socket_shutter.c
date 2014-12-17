@@ -69,7 +69,11 @@ void shutdown_bsd_socket_close(void* p0) {
         // to specify a timeout period.
         int r = close(*s);
 
-        if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully shutdown bsd socket close.");
+
+        } else {
 
             if (errno == EBADF) {
 

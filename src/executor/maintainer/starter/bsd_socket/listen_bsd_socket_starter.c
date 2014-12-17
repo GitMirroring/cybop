@@ -66,7 +66,13 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
             // pending client connexion requests.
             int r = listen(*s, *c);
 
-            if (r < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket listen.");
+
+            } else {
+
+                // An error occured.
 
                 if (errno == EBADF) {
 

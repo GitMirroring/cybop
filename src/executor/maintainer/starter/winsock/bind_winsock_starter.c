@@ -67,7 +67,13 @@ void startup_winsock_bind(void* p0, void* p1, void* p2) {
                 //
                 int r = bind(ws, ad, *as);
 
-                if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup winsock bind.");
+
+                } else {
+
+                    // If the return value is NOT zero, then an error occured.
 
                     // Get the calling thread's last-error code.
                     //
