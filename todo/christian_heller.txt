@@ -240,9 +240,11 @@ ______
 Memory
 ______
 
-        * Optimise memory management
         * Use bit fields in cyboi to optimise used memory, e.g. for boolean values not an int with 1 Byte = 8 Bit, but just 1 Bit defined like this:
             uint8_t used:1;
+
+        * Minimise defragmentation, e.g. by using a memory pool with sections marked by boundary tags
+        * Optimise memory management, e.g. by searching free memory using the "next fit" instead of "first fit" algorithm
 
 Project
 _______
