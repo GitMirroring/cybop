@@ -110,6 +110,20 @@ ______________
             How to use pipes in cyboi?
             Can one store output in knowledge tree to hand over as input to next command?)
 
+        * Implement command shell with special prompt
+        * Add directory "executor/representer/deserialiser/command_shell/"
+        * Parse cybol operations with arguments similar to classic shell commands
+        * Example command line:
+            command/list-directory-contents -all inline logicvalue/boolean "true"
+        * Example command line (create a node named "test" and copy a text into it):
+            memorise/create -name inline text/plain "test" -format inline meta/format "text/plain" -element inline text/plain "part"
+            modify/overwrite -destination inline path/knowledge ".test" -source inline text/plain "World" -type inline meta/format text/plain
+
+        * Provide chaining, e.g. using the "&&" sequence
+        * Provide pipelining, e.g. using a defined standard cybop tree node like ".pipe";
+            bring error message if someone wants to create an application node with this name;
+            or use capital letters ".PIPE" for such invisible system-relevant tree nodes
+
 Datetime
 ________
 
@@ -223,6 +237,13 @@ ______
 
         * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
 
+Memory
+______
+
+        * Optimise memory management
+        * Use bit fields in cyboi to optimise used memory, e.g. for boolean values not an int with 1 Byte = 8 Bit, but just 1 Bit defined like this:
+            uint8_t used:1;
+
 Project
 _______
 
@@ -285,6 +306,8 @@ _______
 
 CYBOL
 _____
+
+        * Possibly use C syntax with {} instead of XML syntax with "", in order to make CYBOP trees easier serialisable
 
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
