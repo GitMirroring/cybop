@@ -78,6 +78,8 @@ ___
             if "stretch" is "horizontal", then use order: north, south, west, east, centre;
             if "stretch" is "vertical", then use order: west, east, north, south, centre
 
+        * Inspect and learn from GTK+ C library
+
         * Where and how to free colours?
             see file "context_x_window_system_serialiser.c"
             The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
@@ -222,6 +224,10 @@ _________
         * Use pointer "ptrdiff_t" and object size "size_t" data types, see:
             http://www.gnu.org/s/hello/manual/libc/Important-Data-Types.html
 
+        * Think through Lambda expressions of functional programming languages, which return newly formed collections of elements
+        * Provide new container functions returning a collection as extract, following some filter/search criteria
+        * Do container search depending on given cybol knowledge path similar to jQuery or XPath?
+
 Executor
 ________
 
@@ -314,11 +320,23 @@ CYBOL
 _____
 
         * Possibly use C syntax with {} instead of XML syntax with "", in order to make CYBOP trees easier serialisable
+        * Provide some prototype example files with various syntax studies
 
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
         * See desktop links of any OS as example
         * Alternatively, use relative paths from current file as is done in html files
+
+Architecture
+____________
+
+        * Qt signals & slots help avoid multiple inheritance and loosely couple objects
+        * Provide arguments on how this can be achieved using cybol knowledge paths
+
+        * Use something like "Futures" known from Scala functional programming language and Play framework
+        * Move long-lasting operations into an own thread, using a cybol operation
+        * Keep a "future" as handle to that operation/thread/its results
+        * Call long-lasting operation early in cybol, so that other operations may be processed meanwhile
 
 Super
 _____
