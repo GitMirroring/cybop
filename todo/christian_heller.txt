@@ -15,13 +15,7 @@ WUI
 ___
 
         * Continue with adding 16 error messages to winsock/receive (bsd receive already complete)
-        * Reactivate send/receive functionality: hint from "wolf_-_c_von_a_bis_z" for UDP connexion:
-            "Sollten Sie bei einer UDP-Verbindung die connect()-Funktion verwenden,
-            können Sie auch die Funktionen send/recv (statt sendto/recvfrom) verwenden.
-            In diesem Fall werden die fehlenden Informationen zur Adresse
-            automatisch ergänzt und brauchen nicht als Argument angegeben zu werden."
-            --> leave "connect" in maintainer/starter, even if not a server service
-            --> only send/receive should be in communicator
+        * Reactivate socket send/receive functionality
 
         * Create variables like "enable", "irq", "thread" dynamically PER SERVICE in internal memory and NOT as global fixed variables, since it is not predictable, how many socket services will be used at runtime
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
@@ -64,6 +58,12 @@ ___
 
         * Possibly use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue;
             see glibc documentation "16.9.5.3 Socket Data Options"
+
+Signal
+______
+
+        * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"
+        * Move signal retrieval function call from "controller/checker/signal_checker.c" to new signal receiver
 
 GUI
 ___

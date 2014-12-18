@@ -26,29 +26,9 @@
 #ifndef SOCKET_SENDER_SOURCE
 #define SOCKET_SENDER_SOURCE
 
-//?? TEST for test file; DELETE later!
-#include <sys/stat.h>
-#include <fcntl.h>
-//?? TEST END
-
-/*??
-#include <netinet/in.h>
-#include <sys/socket.h>
-*/
-
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cybol/communication_mode_cybol_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/datagram_socket_sender.c"
-#include "../../../../executor/communicator/sender/raw_socket_sender.c"
-#include "../../../../executor/communicator/sender/stream_socket_sender.c"
-#include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/type_size/socket_type_size.c"
 
 /**
  * Sends a message via socket.
@@ -66,50 +46,56 @@
  */
 void send_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-//?? --- START TEST ---
-    // The log file name.
-    char* n = "http_response";
-    // The log file status flags.
-    int status = O_TRUNC | O_CREAT | O_WRONLY;
-    // The log file.
-    int f = open(n, status);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket.");
 
-    if (f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The data index to start the transfer at.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The number of bytes transferred.
+    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-        // The file owner.
-        int o = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // Initialise data index to start the transfer at.
+    copy_pointer((void*) &i, (void*) &p1);
 
-        // The file group.
-        int g = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Set file owner.
-        chown(n, o, g);
-
-        // The file access rights.
-        //?? TODO: When trying to cross-compile cyboi for windows,
-        //?? the two S_IRGRP and S_IWGRP were not recognised by mingw.
-        int r = S_IRUSR | S_IWUSR; //?? | S_IRGRP | S_IWGRP;
-
-        // Set file access rights.
-        chmod(n, r);
-
-        // Log html to output.
-        write(f, p13, *((int*) p14));
-
-    } else {
-
-        // CAUTION! DO NOT use logging functionality here!
-        // The logger will not work before these global variables are set.
-        log_write(stdout, L"Error: Could not open socket sending http_response file. A file error occured.\n");
+        // CAUTION! If the loop count handed over as parametre is NULL,
+        // then the break flag will NEVER be set to true, because the loop
+        // variable comparison does (correctly) not consider null values.
+        // Therefore, in this case, the break flag is set to true already here.
+        // Initialising the break flag with true will NOT work either, since it:
+        // a) will be left untouched if a comparison operand is null;
+        // b) would have to be reset to true in each loop cycle.
+        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
-//?? --- END TEST ---
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket.");
+    // CAUTION! The send operation does not necessarily
+    // handle all the bytes handed over to it, because
+    // its major focus is handling the network buffers.
+    // In general, it returns when the associated
+    // network buffers have been filled.
+    // It then returns the number of handled bytes.
+    //
+    // The "send" operation therefore has to be
+    // CALLED AGAIN AND AGAIN, in a loop, until
+    // the complete message has been transmitted!
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //?? TODO: Distinguish between stream/datagram/raw socket here. Nothing more.
+        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-    // Send message via socket in server mode.
-    send_stream_socket((void*) *s, p13, p14, (void*) &sa, (void*) &sas, p9, p10);
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            break;
+        }
+
+        send_socket_buffer(p0, i, p2, (void*) &n);
+
+        // Increment byte array index.
+        calculate_pointer_add((void*) &i, (void*) &n);
+        // Decrement byte array count.
+        calculate_integer_subtract(p2, (void*) &n);
+    }
 }
 
 /* SOCKET_SENDER_SOURCE */

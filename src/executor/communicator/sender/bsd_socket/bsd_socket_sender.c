@@ -23,34 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef STREAM_SOCKET_SENDER_SOURCE
-#define STREAM_SOCKET_SENDER_SOURCE
+#ifndef BSD_SOCKET_SENDER_SOURCE
+#define BSD_SOCKET_SENDER_SOURCE
 
-#include <sys/socket.h>
-#include <errno.h>
-#include <stdio.h>
-
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/model/cybol/communication_mode_cybol_model.c"
-#include "../../../constant/model/cybol/http_request_cybol_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
- * Sends data via stream socket by doing one single transfer.
+ * Sends buffer data via bsd socket.
  *
- * @param p0 the destination communication partner socket
+ * @param p0 the destination socket
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the number of bytes transferred
  */
-void send_socket_stream_buffer(void* p0, void* p1, void* p2, void* p3) {
+void send_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -69,7 +57,7 @@ void send_socket_stream_buffer(void* p0, void* p1, void* p2, void* p3) {
 
                     int* d = (int*) p0;
 
-                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket stream buffer.");
+                    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send bsd socket.");
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
@@ -110,6 +98,8 @@ void send_socket_stream_buffer(void* p0, void* p1, void* p2, void* p3) {
                     // The function returns the number of bytes transmitted
                     // or -1 on failure.
                     *n = send(*d, p1, *sc, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+                    //?? TODO: Print OK log message.
 
                     if (*n < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -182,66 +172,5 @@ void send_socket_stream_buffer(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/**
- * Sends data to stream socket in server mode.
- *
- * @param p0 the destination communication partner socket
- * @param p1 the source data
- * @param p2 the source count
- */
-void send_socket_stream(void* p0, void* p1, void* p2) {
-
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket stream.");
-
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The data index to start the transfer at.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The number of bytes transferred.
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    // Initialise data index to start the transfer at.
-    copy_pointer((void*) &i, (void*) &p1);
-
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    // CAUTION! The send operation does not necessarily
-    // handle all the bytes handed over to it, because
-    // its major focus is handling the network buffers.
-    // In general, it returns when the associated
-    // network buffers have been filled.
-    // It then returns the number of handled bytes.
-    //
-    // The "send" operation therefore has to be
-    // CALLED AGAIN AND AGAIN, in a loop, until
-    // the complete message has been transmitted!
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        send_socket_stream_buffer(p0, i, p2, (void*) &n);
-
-        // Increment byte array index.
-        calculate_pointer_add((void*) &i, (void*) &n);
-        // Decrement byte array count.
-        calculate_integer_subtract(p2, (void*) &n);
-    }
-}
-
-/* STREAM_SOCKET_SENDER_SOURCE */
+/* BSD_SOCKET_SENDER_SOURCE */
 #endif
