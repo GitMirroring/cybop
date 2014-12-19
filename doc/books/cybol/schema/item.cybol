@@ -1,5 +1,7 @@
 <model>
-    <part name="data" channel="inline" encoding="utf-8" language="text/cybol" format="text/ascii" model=""/>
-    <part name="count" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model=""/>
-    <part name="size" channel="inline" encoding="utf-8" language="text/cybol" format="number/integer" model=""/>
+
+    <part name="data" channel="inline" format="text/ascii" model=""/>
+    <part name="count" channel="inline" format="number/integer" model=""/>
+    <part name="size" channel="inline" format="number/integer" model=""/>
+
 </model>
