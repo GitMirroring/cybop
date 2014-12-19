@@ -26,12 +26,14 @@
 #ifndef WINSOCK_SENDER_SOURCE
 #define WINSOCK_SENDER_SOURCE
 
+#include <winsock.h>
+
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../logger/logger.c"
 
 /**
- * Sends buffer data via winsock.
+ * Sends source data via winsock.
  *
  * @param p0 the destination socket
  * @param p1 the source data
@@ -46,45 +48,24 @@ void send_winsock(void* p0, void* p1, void* p2, void* p3) {
 
         if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* sc = (int*) p2;
+            int* c = (int*) p2;
 
             if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                // This test is necessary, because the parametre
-                // is handed over to a glibc function.
+                // CAUTION! The winsock function "send" expects
+                // a char* instead of void* buffer.
+                char* d = (char*) p1;
 
                 if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* d = (int*) p0;
+                    int* s = (int*) p0;
 
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send winsock.");
 
-                    // Initialise error number.
-                    // It is a global variable/ function and other operations
-                    // may have set some value that is not wanted here.
-                    //
-                    // CAUTION! Initialise the error number BEFORE calling the procedure
-                    // that might cause an error.
-                    copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    // Cast int to winsock SOCKET.
+                    SOCKET ws = (SOCKET) *s;
 
                     //
-                    // CAUTION! Locking does NOT seem to be necessary here.
-                    //
-                    // One might think that a deadlock may occur if this system
-                    // sends a message to itself. However, this could ONLY occur if
-                    // the socket of this system got LOCKED when a message is sent
-                    // AND ALSO when a message is received. Once the lock got set by
-                    // the "send" procedure, the "receive" procedure would wait
-                    // endlessly for an unlock, since the "send" in turn would wait
-                    // for the "receive" procedure to finish.
-                    //
-                    // But all this is not a problem and cannot happen, since the
-                    // "receive" operation creates a new socket with the address
-                    // data of the communication partner, whenever data are received.
-                    // Therefore, sender- and receiver socket cannot happen to be identical.
-                    // As a consequence, socket locking using a mutex is NOT necessary here!
-                    //
-
                     // Send message to destination socket.
                     //
                     // If the flags argument (fourth one) is zero, then one can
@@ -97,28 +78,134 @@ void send_winsock(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // The function returns the number of bytes transmitted
                     // or -1 on failure.
-                    *n = send(*d, p1, *sc, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    //
+                    // http://msdn.microsoft.com/en-us/library/windows/desktop/ms740149%28v=vs.85%29.aspx
+                    //
+                    *n = send(ws, d, *c, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                    //?? TODO: Handle errors!
+                    if (*n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully sent winsock.");
+
+                    } else if (*n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. No data could be sent. Possibly, the connexion has been gracefully closed.");
+
+                    } else {
+
+                        // An error occured.
+
+                        // Get the calling thread's last-error code.
+                        //
+                        // CAUTION! This function is the winsock substitute
+                        // for the Windows "GetLastError" function.
+                        int e = WSAGetLastError();
+
+                        if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else if (e == TODO) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. TODO");
+
+                        } else {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. An unknown error occured.");
+                        }
+
+                        // Cast int to DWORD (unsigned int 32-Bit).
+                        DWORD dw = (DWORD) e;
+
+                        log_windows_system_error((void*) &dw);
+                    }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The socket of this system is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. The destination socket is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The source data is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. The source data is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The source count is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. The source count is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The number of transferred bytes is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send winsock. The number of bytes transferred is null.");
     }
 }
 
