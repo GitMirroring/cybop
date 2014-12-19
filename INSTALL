@@ -365,3 +365,35 @@ svn copy https://christian@svn.savannah.nongnu.org/cybop/trunk https://christian
 It shows the following error:
 
 svn: OPTIONS of 'https://christian@svn.savannah.nongnu.org/cybop': SSL handshake failed: SSL error: An unexpected TLS packet was received. (https://svn.savannah.nongnu.org)
+
+Instructions for new Developers
+_______________________________
+
+Get login at https://savannah.nongnu.org/projects/cybop/
+
+Send login to <christian.heller@tuxtax.de> in order to be
+    entered to project and to be given necessary access rights
+
+Register at Mailing List <cybop-developers@nongnu.org>
+    https://lists.nongnu.org/mailman/listinfo/cybop-developers
+
+Generate SSH key on your computer
+
+Go to your personal profile on:
+    https://savannah.nongnu.org/
+
+Upload SSH key of your computer (or many keys of all your computers)
+
+Study source code SVN checkout (member NOT anonymous command):
+    https://savannah.nongnu.org/svn/?group=cybop
+
+Check out source code directory "trunk" from SVN:
+    cd /home/projects/cybop
+    svn co svn+ssh://<membername>@svn.savannah.nongnu.org/cybop/trunk .
+CAUTION! Mind the SPACE and DOT at the end, after "trunk"
+Possibly use svn client like "kdesvn" or "Tortoise"
+
+Compile cyboi
+
+Run a cybol example of your choice
+
