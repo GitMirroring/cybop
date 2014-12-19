@@ -319,8 +319,26 @@ _______
 CYBOL
 _____
 
-        * Possibly use C syntax with {} instead of XML syntax with "", in order to make CYBOP trees easier serialisable
-        * Provide some prototype example files with various syntax studies
+        * Implement JSON de-/serialiser, in order to make application trees easier serialisable
+        * See directory "doc/books/cybol/syntax"
+        * Encode binary data (e.g. x-ray images in the electronic health record of a patient) into text using Base64
+        * Add the following comment into cyboi source code:
+
+        //
+        // Translation to plain text.
+        //
+        // CAUTION! This is necessary to store or send binary data through
+        // certain systems that are designed to deal with textual data only:
+        // https://en.wikipedia.org/wiki/Binary_file
+        //
+        // The Base64 binary-to-text (ASCII format) encoding schemes are used here:
+        // https://en.wikipedia.org/wiki/Base64
+        //
+        // The encoding characters used by Base64 are: A–Z, a–z, 0–9, +, /, =
+        // They also appear in Extended Binary Coded Decimals Interchange Code (EBCDIC)
+        // and may therefore be used for data exchange with non-ASCII platforms as well:
+        // https://de.wikipedia.org/wiki/Base64
+        //
 
         * Simplify relative paths in cybol applications not expecting "examples/"
             as parent directory but using that of the application as working directory
