@@ -28,6 +28,7 @@
 
 #include <sys/socket.h>
 #include <errno.h>
+#include <stddef.h> // size_t
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

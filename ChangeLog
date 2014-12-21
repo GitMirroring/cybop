@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue socket sender
+
 2014-12-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide example syntax files in XML, JSON, self-defined "short" notation in new directory "doc/books/cybol/syntax/"

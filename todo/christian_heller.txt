@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Continue with adding 16 error messages to winsock/receive (bsd receive already complete)
+        * Continue socket sender and distinguish between server socket read from internal memory and client socket handed over as  parametre
         * Reactivate socket send/receive functionality
 
         * Create variables like "enable", "irq", "thread" dynamically PER SERVICE in internal memory and NOT as global fixed variables, since it is not predictable, how many socket services will be used at runtime

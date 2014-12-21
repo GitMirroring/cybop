@@ -26,9 +26,9 @@
 #ifndef BUFFER_SOCKET_SENDER_SOURCE
 #define BUFFER_SOCKET_SENDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 #ifdef __APPLE__
     #include "../../../../executor/communicator/sender/bsd_socket/bsd_socket_sender.c"

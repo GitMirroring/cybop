@@ -28,74 +28,97 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/communicator/sender/socket/message_socket_sender.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Sends a message via socket.
+ * Sends data via socket.
  *
- * @param p11 the message type
- * @param p12 the message type count
- * @param p13 the message model
- * @param p14 the message model count
- * @param p15 the message properties
- * @param p16 the message properties count
- * @param p17 the knowledge memory
- * @param p18 the knowledge memory count
- * @param p19 the language
- * @param p20 the language count
+ * @param p0 the source model data
+ * @param p1 the source model count
+ * @param p2 the source properties data
+ * @param p3 the source properties count
+ * @param p4 the knowledge memory part
+ * @param p5 the format
+ * @param p6 the language indentation
+ * @param p7 the language
+ * @param p8 the encoding
+ * @param p9 the internal memory data
  */
 void send_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket.");
 
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The data index to start the transfer at.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The number of bytes transferred.
-    int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The message data, count.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int mc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Initialise data index to start the transfer at.
-    copy_pointer((void*) &i, (void*) &p1);
+    // The serialised wide character item.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised wide character item data, count.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Allocate serialised wide character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    // CAUTION! Use standard (non-wide) character data here,
+    // since the source is handed over as utf-8 encoded multibyte characters
+    // and will be forwarded as such to the terminal.
+    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
+    // Serialise source knowledge model into serialised wide character item.
+    serialise(s, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
 
-    // CAUTION! The send operation does not necessarily
-    // handle all the bytes handed over to it, because
-    // its major focus is handling the network buffers.
-    // In general, it returns when the associated
-    // network buffers have been filled.
-    // It then returns the number of handled bytes.
-    //
-    // The "send" operation therefore has to be
-    // CALLED AGAIN AND AGAIN, in a loop, until
-    // the complete message has been transmitted!
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Get serialised wide character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Encode serialised wide character item data into encoded character item.
+    encode(e, sd, sc, p8);
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Add null termination character.
+    // CAUTION! Appending a wide character null termination to the
+    // serialised wide character item above does NOT make sense,
+    // since it WON'T get converted into an ascii character null
+    // termination of the resulting multibyte character sequence.
+    // The encode function above only converts the actual characters
+    // whose COUNT is given, but NOT a null termination character.
+    // Therefore, the null termination is only added here, as ascii character.
+    append_item_element(e, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-            break;
-        }
+    // Get encoded character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        send_socket_buffer(p0, i, p2, (void*) &n);
+    // Write encoded item data to terminal.
+    send_terminal_file(ed, ec, p9);
+    // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
+//??    send_socket_channel((void*) &s, (void*) &md, (void*) &mc);
 
-        // Increment byte array index.
-        calculate_pointer_add((void*) &i, (void*) &n);
-        // Decrement byte array count.
-        calculate_integer_subtract(p2, (void*) &n);
-    }
+    // Deallocate serialised wide character item.
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded character item.
+    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SOCKET_SENDER_SOURCE */

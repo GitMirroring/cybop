@@ -26,9 +26,15 @@
 #ifndef BSD_SOCKET_SENDER_SOURCE
 #define BSD_SOCKET_SENDER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include <sys/socket.h> // send
+#include <errno.h> // errno
+#include <stddef.h> // size_t
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Sends buffer data via bsd socket.
@@ -60,12 +66,28 @@ void send_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
                     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send bsd socket.");
 
                     // Initialise error number.
-                    // It is a global variable/ function and other operations
+                    // It is a global variable/function and other operations
                     // may have set some value that is not wanted here.
                     //
-                    // CAUTION! Initialise the error number BEFORE calling the procedure
-                    // that might cause an error.
-                    copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    // CAUTION! Initialise the error number BEFORE calling
+                    // the procedure that might cause an error.
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                    // The source count as size_t.
+                    //
+                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                    // the "size_t" type has a size of 8 Byte,
+                    // whereas the "int" type has the usual size of 4 Byte.
+                    // When trying to cast between the two, memory errors
+                    // will occur and the valgrind memcheck tool report:
+                    // "Invalid read of size 8".
+                    //
+                    // CAUTION! Initialise temporary size_t variable with final int value
+                    // JUST BEFORE handing that over to the glibc function requiring it.
+                    //
+                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                    // because values are casted to int* internally again.
+                    size_t st = (size_t) *sc;
 
                     // Send message to destination socket.
                     //
@@ -79,78 +101,76 @@ void send_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
                     //
                     // The function returns the number of bytes transmitted
                     // or -1 on failure.
-                    *n = send(*d, p1, *sc, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    *n = send(*d, p1, st, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-                    //?? TODO: Print OK log message.
+                    if (*n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                    if (*n < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully sent bsd socket.");
+
+                    } else if (*n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. No data could be sent.");
+
+                    } else {
+
+                        // An error occured.
 
                         if (errno == EBADF) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The socket argument is not a valid file descriptor.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == EINTR) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The operation was interrupted by a signal before any data was sent.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The operation was interrupted by a signal before any data was sent.");
 
                         } else if (errno == ENOTSOCK) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The descriptor socket is not a socket.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EMSGSIZE) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
 
                         } else if (errno == EWOULDBLOCK) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. Nonblocking mode has been set on the socket, and the write operation would block.");
-
-                            //?? TODO: DELETE the following comment block OR the log message above!
-
-                            // CAUTION! Do NOT log the following error:
-                            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send to stream socket. Nonblocking mode has been set on the socket, and the write operation would block.");
-                            //
-                            // The reason is that the socket is non-blocking,
-                            // so that the "accept" procedure returns always,
-                            // even if no connection was established,
-                            // which would unnecessarily fill up the log file.
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. Nonblocking mode has been set on the socket, and the write operation would block.");
 
                         } else if (errno == ENOBUFS) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. There is not enough internal buffer space available.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. There is not enough internal buffer space available.");
 
                         } else if (errno == ENOTCONN) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. You never connected this socket.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. You never connected this socket.");
 
                         } else if (errno == EPIPE) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. An unknown error occured.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. An unknown error occured.");
                         }
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The socket of this system is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The destination socket is null.");
                 }
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The source data is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The source data is null.");
             }
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The source count is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The source count is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send stream socket server mode single transfer. The number of transferred bytes is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The number of transferred bytes is null.");
     }
 }
 
