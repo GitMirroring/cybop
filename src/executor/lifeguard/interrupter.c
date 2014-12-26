@@ -88,17 +88,44 @@ void interrupt(void* p0, void* p1) {
             // CAUTION! The order of function calls is IMPORTANT!
 
             // Reset enable flag.
-            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Interrupt sensing thread.
-            interrupt_thread((void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
+            interrupt_thread((void*) SERIAL_THREAD, (void*) SERIAL_EXIT);
 
             // Reset handler.
             // CAUTION! Assign NULL to the internal memory.
             // It is ESSENTIAL, since cyboi tests for null pointers.
             // Otherwise, wild pointers would lead to memory corruption.
-            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! The order of function calls is IMPORTANT!
+
+            // Reset enable flag.
+            copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // Interrupt sensing thread.
+            interrupt_thread((void*) SOCKET_THREAD, (void*) SOCKET_EXIT);
+
+            // Reset handler.
+            // CAUTION! Assign NULL to the internal memory.
+            // It is ESSENTIAL, since cyboi tests for null pointers.
+            // Otherwise, wild pointers would lead to memory corruption.
+            copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            calculate_integer_add((void*) &i, (void*) HANDLER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 
@@ -122,33 +149,6 @@ void interrupt(void* p0, void* p1) {
             // It is ESSENTIAL, since cyboi tests for null pointers.
             // Otherwise, wild pointers would lead to memory corruption.
             copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // CAUTION! The order of function calls is IMPORTANT!
-
-            // Reset enable flag.
-            copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-            copy_integer(e, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Interrupt sensing thread.
-            interrupt_thread((void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
-
-            // Reset handler.
-            // CAUTION! Assign NULL to the internal memory.
-            // It is ESSENTIAL, since cyboi tests for null pointers.
-            // Otherwise, wild pointers would lead to memory corruption.
-            copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) HANDLER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p0, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         }
     }
 

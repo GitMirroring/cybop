@@ -44,25 +44,21 @@
  */
 static pthread_t DEFAULT_THREAD;
 
-/** The cyboi service thread. */
-static pthread_t CYBOI_SERVICE_THREAD_ARRAY[1];
-static pthread_t* CYBOI_SERVICE_THREAD = CYBOI_SERVICE_THREAD_ARRAY;
-
 /** The display thread. */
 static pthread_t DISPLAY_THREAD_ARRAY[1];
 static pthread_t* DISPLAY_THREAD = DISPLAY_THREAD_ARRAY;
 
-/** The serial port thread. */
-static pthread_t SERIAL_PORT_THREAD_ARRAY[1];
-static pthread_t* SERIAL_PORT_THREAD = SERIAL_PORT_THREAD_ARRAY;
+/** The serial thread. */
+static pthread_t SERIAL_THREAD_ARRAY[1];
+static pthread_t* SERIAL_THREAD = SERIAL_THREAD_ARRAY;
+
+/** The socket service thread. */
+static pthread_t SOCKET_THREAD_ARRAY[1];
+static pthread_t* SOCKET_THREAD = SOCKET_THREAD_ARRAY;
 
 /** The terminal thread. */
 static pthread_t TERMINAL_THREAD_ARRAY[1];
 static pthread_t* TERMINAL_THREAD = TERMINAL_THREAD_ARRAY;
-
-/** The www service thread. */
-static pthread_t WWW_SERVICE_THREAD_ARRAY[1];
-static pthread_t* WWW_SERVICE_THREAD = WWW_SERVICE_THREAD_ARRAY;
 
 /* THREAD_IDENTIFICATION_SOURCE */
 #endif

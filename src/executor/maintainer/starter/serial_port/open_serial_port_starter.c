@@ -64,7 +64,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
     void* spd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get serial port file descriptor item.
-    copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // Only create new serial port resources if none exist.
     if (sp == *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -83,7 +83,7 @@ void startup_serial_port_open(void* p0, void* p1, void* p2) {
         // ALWAYS and not only if opened successfully below.
         // Otherwise, in case of an error, the shutdown function
         // freeing it may not find it leading to a memory leak.
-        copy_array_forward(p0, (void*) &sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p0, (void*) &sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Get serial port file descriptor item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!

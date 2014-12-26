@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Cleanup various variable names for socket and serial port
+
 2014-12-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue socket sender

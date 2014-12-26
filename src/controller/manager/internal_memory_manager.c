@@ -66,10 +66,10 @@
  * @param p9 the display interrupt request flag (pointer reference)
  * @param p10 the display mutex (pointer reference)
  * @param p11 the display sleep time (pointer reference)
- * @param p12 the serial port enable flag (pointer reference)
- * @param p13 the serial port interrupt request flag (pointer reference)
- * @param p14 the serial port mutex (pointer reference)
- * @param p15 the serial port sleep time (pointer reference)
+ * @param p12 the serial enable flag (pointer reference)
+ * @param p13 the serial interrupt request flag (pointer reference)
+ * @param p14 the serial mutex (pointer reference)
+ * @param p15 the serial sleep time (pointer reference)
  * @param p16 the terminal enable flag (pointer reference)
  * @param p17 the terminal interrupt request flag (pointer reference)
  * @param p18 the terminal mutex (pointer reference)
@@ -157,14 +157,14 @@ void startup_internal_memory(void* p0, void* p1, void* p2, void* p3,
     // Set display sleep time.
     copy_array_forward(p0, p11, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-    // Set serial port enable flag.
-    copy_array_forward(p0, p12, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set serial port interrupt request flag.
-    copy_array_forward(p0, p13, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set serial port mutex.
-    copy_array_forward(p0, p14, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    // Set serial port sleep time.
-    copy_array_forward(p0, p15, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set serial enable flag.
+    copy_array_forward(p0, p12, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set serial interrupt request flag.
+    copy_array_forward(p0, p13, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set serial mutex.
+    copy_array_forward(p0, p14, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) MUTEX_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Set serial sleep time.
+    copy_array_forward(p0, p15, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) SLEEP_TIME_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Set socket service interrupt request flag.
     copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);

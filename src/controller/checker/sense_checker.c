@@ -126,88 +126,109 @@
 /**
  * Senses an interrupt request.
  *
- * @param p0 the cyboi service enable flag
- * @param p1 the cyboi service interrupt request
- * @param p2 the display enable flag
- * @param p3 the display interrupt request
- * @param p4 the serial port enable flag
- * @param p5 the serial port interrupt request
+ * @param p0 the display enable flag
+ * @param p1 the display interrupt request
+ * @param p2 the serial port enable flag
+ * @param p3 the serial port interrupt request
+ * @param p4 the socket enable flag
+ * @param p5 the socket interrupt request
  * @param p6 the terminal enable flag
  * @param p7 the terminal interrupt request
- * @param p8 the www service enable flag
- * @param p9 the www service interrupt request
- * @param p10 the break flag
- * @param p11 the internal memory data
- * @param p12 the sleep time
+ * @param p8 the break flag
+ * @param p9 the internal memory data
+ * @param p10 the sleep time
  */
-void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void check_sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
-    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* b = (int*) p10;
+        int* b = (int*) p8;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense.");
 
 //?? fwprintf(stdout, L"TEST check sense b: %i\n", *((int*) b));
 
         // The results.
-        int c = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        int so = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
         int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        int w = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Check if flags have been set within a sensing thread,
         // running in parallel to this main thread.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Initialise results.
-            logify_boolean_or((void*) &c, p0);
-            logify_boolean_or((void*) &d, p2);
-            logify_boolean_or((void*) &s, p4);
+            logify_boolean_or((void*) &d, p0);
+            logify_boolean_or((void*) &s, p2);
+            logify_boolean_or((void*) &so, p4);
             logify_boolean_or((void*) &t, p6);
-            logify_boolean_or((void*) &w, p8);
 
             // Check if both, enabled flag AND interrupt request are TRUE.
-            logify_boolean_and((void*) &c, p1);
-            logify_boolean_and((void*) &d, p3);
-            logify_boolean_and((void*) &s, p5);
+            logify_boolean_and((void*) &d, p1);
+            logify_boolean_and((void*) &s, p3);
+            logify_boolean_and((void*) &so, p5);
             logify_boolean_and((void*) &t, p7);
-            logify_boolean_and((void*) &w, p9);
 
-            if (c || d || s || t || w) {
+            if (d || s || so || t) {
 
                 // Set break flag.
-                copy_integer(p10, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
 
-        // Check display for input.
+        // Test display for input.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_unequal((void*) &d, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Test if enabled.
+            compare_integer_unequal((void*) &d, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                sense_display(p3, p10, p11);
+                sense_display(p1, p8, p9);
             }
         }
 
-        // Check terminal for input.
+        // Test serial for input.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // Test if enabled.
+            compare_integer_unequal((void*) &s, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??                sense_serial(p3, p8, p9);
+            }
+        }
+
+        // Test socket for input.
+        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Test if enabled.
+            compare_integer_unequal((void*) &so, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (so != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??                sense_socket(p5, p8, p9);
+            }
+        }
+
+        // Test terminal for input.
+        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Test if enabled.
             compare_integer_unequal((void*) &t, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (t != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                sense_terminal(p7, p10, p11);
+                sense_terminal(p7, p8, p9);
             }
         }
 
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Sleep for some time.
-            sleep_nano(p12);
+            sleep_nano(p10);
         }
 
     } else {

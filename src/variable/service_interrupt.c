@@ -33,25 +33,21 @@
 // Initialisation happens in directory "controller/globaliser/".
 //
 
-/** The cyboi service exit flag. */
-static int CYBOI_SERVICE_EXIT_ARRAY[1];
-static int* CYBOI_SERVICE_EXIT = CYBOI_SERVICE_EXIT_ARRAY;
-
 /** The display exit flag. */
 static int DISPLAY_EXIT_ARRAY[1];
 static int* DISPLAY_EXIT = DISPLAY_EXIT_ARRAY;
 
-/** The serial port exit flag. */
-static int SERIAL_PORT_EXIT_ARRAY[1];
-static int* SERIAL_PORT_EXIT = SERIAL_PORT_EXIT_ARRAY;
+/** The serial exit flag. */
+static int SERIAL_EXIT_ARRAY[1];
+static int* SERIAL_EXIT = SERIAL_EXIT_ARRAY;
+
+/** The socket exit flag. */
+static int SOCKET_EXIT_ARRAY[1];
+static int* SOCKET_EXIT = SOCKET_EXIT_ARRAY;
 
 /** The terminal exit flag. */
 static int TERMINAL_EXIT_ARRAY[1];
 static int* TERMINAL_EXIT = TERMINAL_EXIT_ARRAY;
-
-/** The www service exit flag. */
-static int WWW_SERVICE_EXIT_ARRAY[1];
-static int* WWW_SERVICE_EXIT = WWW_SERVICE_EXIT_ARRAY;
 
 /* SERVICE_INTERRUPT_SOURCE */
 #endif

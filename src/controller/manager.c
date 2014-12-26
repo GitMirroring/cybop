@@ -94,15 +94,15 @@ void manage(void* p0) {
     // The display enable flag.
     int display_enable_array[1];
     int* display_enable = display_enable_array;
-    // The serial port enable flag.
-    int serial_port_enable_array[1];
-    int* serial_port_enable = serial_port_enable_array;
+    // The serial enable flag.
+    int serial_enable_array[1];
+    int* serial_enable = serial_enable_array;
+    // The socket enable flag.
+    int socket_enable_array[1];
+    int* socket_enable = socket_enable_array;
     // The terminal enable flag.
     int terminal_enable_array[1];
     int* terminal_enable = terminal_enable_array;
-    // The www service enable flag.
-    int www_service_enable_array[1];
-    int* www_service_enable = www_service_enable_array;
 
     //
     // Explanation concerning interrupt request flags:
@@ -174,41 +174,41 @@ void manage(void* p0) {
     // The display interrupt request flag.
     volatile sig_atomic_t display_irq_array[1];
     volatile sig_atomic_t* display_irq = display_irq_array;
-    // The serial port interrupt request flag.
-    volatile sig_atomic_t serial_port_irq_array[1];
-    volatile sig_atomic_t* serial_port_irq = serial_port_irq_array;
+    // The serial interrupt request flag.
+    volatile sig_atomic_t serial_irq_array[1];
+    volatile sig_atomic_t* serial_irq = serial_irq_array;
+    // The socket interrupt request flag.
+    volatile sig_atomic_t socket_irq_array[1];
+    volatile sig_atomic_t* socket_irq = socket_irq_array;
     // The terminal interrupt request flag.
     volatile sig_atomic_t terminal_irq_array[1];
     volatile sig_atomic_t* terminal_irq = terminal_irq_array;
-    // The www service interrupt request flag.
-    volatile sig_atomic_t www_service_irq_array[1];
-    volatile sig_atomic_t* www_service_irq = www_service_irq_array;
 
     // The display mutex.
     pthread_mutex_t display_mutex_array[1];
     pthread_mutex_t* display_mutex = display_mutex_array;
-    // The serial port mutex.
-    pthread_mutex_t serial_port_mutex_array[1];
-    pthread_mutex_t* serial_port_mutex = serial_port_mutex_array;
+    // The serial mutex.
+    pthread_mutex_t serial_mutex_array[1];
+    pthread_mutex_t* serial_mutex = serial_mutex_array;
+    // The socket mutex.
+    pthread_mutex_t socket_mutex_array[1];
+    pthread_mutex_t* socket_mutex = socket_mutex_array;
     // The terminal mutex.
     pthread_mutex_t terminal_mutex_array[1];
     pthread_mutex_t* terminal_mutex = terminal_mutex_array;
-    // The www service mutex.
-    pthread_mutex_t www_service_mutex_array[1];
-    pthread_mutex_t* www_service_mutex = www_service_mutex_array;
 
     // The display sleep time.
     int display_sleep_time_array[1];
     int* display_sleep_time = display_sleep_time_array;
-    // The serial port sleep time.
-    int serial_port_sleep_time_array[1];
-    int* serial_port_sleep_time = serial_port_sleep_time_array;
+    // The serial sleep time.
+    int serial_sleep_time_array[1];
+    int* serial_sleep_time = serial_sleep_time_array;
+    // The socket sleep time.
+    int socket_sleep_time_array[1];
+    int* socket_sleep_time = socket_sleep_time_array;
     // The terminal sleep time.
     int terminal_sleep_time_array[1];
     int* terminal_sleep_time = terminal_sleep_time_array;
-    // The www service sleep time.
-    int www_service_sleep_time_array[1];
-    int* www_service_sleep_time = www_service_sleep_time_array;
 
     //
     // Variable allocation.
@@ -257,21 +257,21 @@ void manage(void* p0) {
 
     // Initialise display enable flag.
     copy_integer((void*) display_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise serial port enable flag.
-    copy_integer((void*) serial_port_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise serial enable flag.
+    copy_integer((void*) serial_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise socket enable flag.
+    copy_integer((void*) socket_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise terminal enable flag.
     copy_integer((void*) terminal_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise www service enable flag.
-    copy_integer((void*) www_service_enable, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Initialise display interrupt request flag.
     copy_integer((void*) display_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise serial port interrupt request flag.
-    copy_integer((void*) serial_port_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise serial interrupt request flag.
+    copy_integer((void*) serial_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Initialise socket interrupt request flag.
+    copy_integer((void*) socket_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
     // Initialise terminal interrupt request flag.
     copy_integer((void*) terminal_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-    // Initialise www service interrupt request flag.
-    copy_integer((void*) www_service_irq, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // In the following mutex initialisation functions, the second parametre
@@ -281,21 +281,21 @@ void manage(void* p0) {
 
     // Initialise display mutex.
     pthread_mutex_init(display_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Initialise serial port mutex.
-    pthread_mutex_init(serial_port_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Initialise serial mutex.
+    pthread_mutex_init(serial_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
+    // Initialise socket mutex.
+    pthread_mutex_init(socket_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Initialise terminal mutex.
     pthread_mutex_init(terminal_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
-    // Initialise www service mutex.
-    pthread_mutex_init(www_service_mutex, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     // Initialise display sleep time.
     copy_integer((void*) display_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-    // Initialise serial port sleep time.
-    copy_integer((void*) serial_port_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
+    // Initialise serial sleep time.
+    copy_integer((void*) serial_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
+    // Initialise socket sleep time.
+    copy_integer((void*) socket_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
     // Initialise terminal sleep time.
     copy_integer((void*) terminal_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
-    // Initialise www service sleep time.
-    copy_integer((void*) www_service_sleep_time, (void*) NUMBER_100000000_INTEGER_STATE_CYBOI_MODEL);
 
     //
     // System startup.
@@ -322,9 +322,9 @@ void manage(void* p0) {
     startup_internal_memory(i, (void*) &k, (void*) &s, (void*) &signal_memory_sleep_time,
         (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL,
         (void*) &display_enable, (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time,
-        (void*) &serial_port_enable, (void*) &serial_port_irq, (void*) &serial_port_mutex, (void*) &serial_port_sleep_time,
+        (void*) &serial_enable, (void*) &serial_irq, (void*) &serial_mutex, (void*) &serial_sleep_time,
         (void*) &terminal_enable, (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
-        (void*) &www_service_enable, (void*) &www_service_irq, (void*) &www_service_mutex, (void*) &www_service_sleep_time);
+        (void*) &socket_enable, (void*) &socket_irq, (void*) &socket_mutex, (void*) &socket_sleep_time);
 
     // Start up system signal handler.
     startup_system_signal_handler();
@@ -348,11 +348,11 @@ void manage(void* p0) {
     // Shutdown display.
     shutdown_display(i, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT);
     // Shutdown serial port.
-    shutdown_serial_port(i, (void*) SERIAL_PORT_THREAD, (void*) SERIAL_PORT_EXIT);
+    shutdown_serial_port(i, (void*) SERIAL_THREAD, (void*) SERIAL_EXIT);
+    // Shutdown socket.
+//??    shutdown_socket(i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) SOCKET_THREAD, (void*) SOCKET_EXIT);
     // Shutdown terminal.
     shutdown_terminal(i, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
-    // Shutdown socket.
-//??    shutdown_socket(i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) WWW_SERVICE_THREAD, (void*) WWW_SERVICE_EXIT);
 
     //
     // Variable finalisation.
@@ -366,12 +366,12 @@ void manage(void* p0) {
 
     // Destroy display mutex.
     pthread_mutex_destroy(display_mutex);
-    // Destroy serial port mutex.
-    pthread_mutex_destroy(serial_port_mutex);
+    // Destroy serial mutex.
+    pthread_mutex_destroy(serial_mutex);
+    // Destroy socket mutex.
+    pthread_mutex_destroy(socket_mutex);
     // Destroy terminal mutex.
     pthread_mutex_destroy(terminal_mutex);
-    // Destroy www service mutex.
-    pthread_mutex_destroy(www_service_mutex);
 
     //
     // Variable deallocation.

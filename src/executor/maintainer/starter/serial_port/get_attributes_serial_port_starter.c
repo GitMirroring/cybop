@@ -109,7 +109,7 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
             if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Set original attributes internals.
-                copy_array_forward(p2, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                copy_array_forward(p2, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 startup_serial_port_attributes_set(p0, a, p1);
 

@@ -102,14 +102,14 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
         BOOL b = PeekConsoleInputW(h, i, is, &ic);
 
         free(i);
-        // If the return value is zero, then an error occured.
+
         if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // CAUTION! Setting a mutex is NOT necessary here,
             // since this is the main thread and no other threads
             // are writing to the interrupt request variable.
 
-            if (ic > (DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            if (ic > ((DWORD) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
 
                 // Set console interrupt request to indicate
                 // that a message has been received via console,
@@ -121,6 +121,8 @@ void sense_win32_console(void* p0, void* p1, void* p2) {
             }
 
         } else {
+
+            // An error occured.
 
             // Get the calling thread's last-error code.
             DWORD e = GetLastError();

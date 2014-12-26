@@ -50,44 +50,43 @@ void check_wait(void* p0, void* p1) {
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The cyboi service enable flag and interrupt request.
-    void* ce = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ci = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The display enable flag and interrupt request.
     void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serial port enable flag and interrupt request.
+    // The serial enable flag and interrupt request.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The socket enable flag and interrupt request.
+    void* soe = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* soi = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terminal enable flag and interrupt request.
     void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The www service enable flag and interrupt request.
-    void* we = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* wi = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! For reasons of efficiency, the following values
     // are retrieved here and NOT inside the loop below.
+    //
 
     // Get display enable flag and interrupt request.
     copy_array_forward((void*) &de, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &di, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Get serial port enable flag and interrupt request.
-    copy_array_forward((void*) &se, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &si, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_PORT_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get serial enable flag and interrupt request.
+    copy_array_forward((void*) &se, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &si, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Get socket enable flag and interrupt request.
+    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &soe, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &soi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     // Get terminal enable flag and interrupt request.
     copy_array_forward((void*) &te, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ti, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-    // Get www service enable flag and interrupt request.
-    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &we, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &wi, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check wait.");
@@ -107,23 +106,22 @@ void check_wait(void* p0, void* p1) {
         }
 
         // Sense interrupt request or sleep.
-        check_sense(ce, ci, de, di, se, si, te, ti, we, wi, (void*) &b, p0, p1);
+        check_sense(de, di, se, si, soe, soi, te, ti, (void*) &b, p0, p1);
     }
 
 /*??
-fwprintf(stdout, L"TEST wait *cyboi_service_irq: %i\n", *((int*) ci));
 fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) di));
-fwprintf(stdout, L"TEST wait *serial_port_irq: %i\n", *((int*) si));
+fwprintf(stdout, L"TEST wait *serial_irq: %i\n", *((int*) si));
+fwprintf(stdout, L"TEST wait *socket_irq: %i\n", *((int*) soi));
 fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) ti));
-fwprintf(stdout, L"TEST wait *www_service_irq: %i\n", *((int*) wi));
 */
 
     // The sleep loop above is left as soon as at least one of the
     // interrupt variables is set to a value other than false (zero).
     // This may happen if some user action is noted in one of the
-    // receive threads, e.g. terminal, display, tcp socket.
+    // receive threads, e.g. terminal, display, socket.
     // In this case, probably a signal was placed in the signal memory and
-    // the corresponding interrupt variable set to true (one).
+    // the corresponding interrupt variable set to "true".
 }
 
 /* WAIT_CHECKER_SOURCE */

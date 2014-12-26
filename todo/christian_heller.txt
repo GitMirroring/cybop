@@ -498,7 +498,7 @@ _______________
             (5) Windows
             Is there a way to suspend the active thread for 1.6 msec?
             I mean I cannot use sleep, instead I would like to use something like the linux's usleep.
-            There is no way you can suspend anything in Windows with that accuracy.
+            ==> There is no way you can suspend anything in Windows with that accuracy.
             Even if you just release the thread and immediately put it in the active queue
             again by means of Sleep(0), it may easily take 50 mS or more before the thread
             gets the control back because there may be more threads waiting in the queue.
@@ -538,47 +538,47 @@ _______________
             There is no platform-independent way to sleep in milliseconds (or in any unit).
             You might find something in boost (e.g. boost::thread::sleep()) or some other library.
             If you really have protability issue, try using "select". It will work on POSIX systems.
-            (C++ Example)
-            Es geht auch so (auf verschiedenen Unix-Derivaten)
-            C++:
+            Es geht auch so (auf verschiedenen Unix-Derivaten), C++ Example:
 
             #define TRUE          1
             #define NONE          0                    (oder auch NULL)
             #define ERRINTR(e)   ((e) == EINTR)
+
             int inputWait(msec)
             int msec;       /*  I:  time to wait [msec] */
                                     /* ret: <0 if any error */
             /* procedure waits msec */
             {
-            struct timeval tv;  /* help variable */
-            int errno2;     /* help variable */
-            int ret;        /* return variable */
-            ret = 0;
-            if (msec >= 1000)
-                {
-                tv.tv_sec = msec / 1000;
-                tv.tv_usec = (msec % 1000)  * 1000;
+                struct timeval tv;  /* help variable */
+                int errno2;     /* help variable */
+                int ret;        /* return variable */
+                ret = 0;
+
+                if (msec >= 1000) {
+                    tv.tv_sec = msec / 1000;
+                    tv.tv_usec = (msec % 1000)  * 1000;
+                } else {
+                    tv.tv_sec = 0;
+                    tv.tv_usec = msec * 1000;
                 }
-            else
-                {
-                tv.tv_sec = 0;
-                tv.tv_usec = msec * 1000;
+
+                while (TRUE) {
+                    /* do looping while interrupt by signal catching */
+                    if (select(0, NONE, NONE, NONE, &tv) < 0) {
+                        errno2 = errno;
+                        XBUG(DBG_SELECT) {
+
+                            fprintf(dbgfile,">>>inputWait(): INTR at select(), errno=%d\n",errno); fflush(dbgfile);
+                        }
+                        if (! ERRINTR(errno2)) {
+                            break;
+                        }
+                        /* else: EINTR => return looping */
+                    } else {
+                        break;
+                    }
                 }
-            while (TRUE)
-                {
-                /* do looping while interrupt by signal catching */
-                if (select(0,NONE,NONE,NONE,&tv) < 0)
-                {
-                errno2 = errno;
-                XBUG(DBG_SELECT) { fprintf(dbgfile,">>>inputWait(): INTR at select(), errno=%d\n",errno); fflush(dbgfile); }
-                if (! ERRINTR(errno2))
-                    break;
-                /* else: EINTR => return looping */
-                }
-                else
-                break;
-                }
-            return(ret);
+                return(ret);
             }
 
             Der Aufruf select() macht ein blockierendes Warten, bis die Zeitscheibe abgelaufen ist, also analog sleep().
