@@ -14,13 +14,18 @@
 WUI
 ___
 
+        * Use constants of file "input_output_state_cyboi_name.c"
+        * Create array structure for each i/o service at startup
+        * Adapt file "server_socket_starter.c" to new constants
+        * Test for null to find out whether or not a service exists and is to be tested for signals and destroyed at shutdown
+        * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
+
         * Continue socket sender and distinguish between server socket read from internal memory and client socket handed over as  parametre
         * Reactivate socket send/receive functionality
 
         * Create variables like "enable", "irq", "thread" dynamically PER SERVICE in internal memory and NOT as global fixed variables, since it is not predictable, how many socket services will be used at runtime
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
-        * Use a new function looping all open sockets in order to close them
-        * Provide a dictionary of flags saying if a socket service/port is open or not
+        * Use a new function looping all open/enabled/NOT_NULL sockets in internal memory, in order to close them
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"

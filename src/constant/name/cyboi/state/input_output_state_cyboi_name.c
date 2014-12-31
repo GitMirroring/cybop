@@ -1,0 +1,88 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef INPUT_OUTPUT_STATE_CYBOI_NAME_CONSTANT_SOURCE
+#define INPUT_OUTPUT_STATE_CYBOI_NAME_CONSTANT_SOURCE
+
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
+//
+// CAUTION! There are currently not more than ?? entries.
+// If extending the number of indices to greater than that,
+// the INTERNAL MEMORY base segment size HAS TO BE adapted as well.
+//
+
+//
+// General.
+//
+
+static int* ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
+static int* MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SLEEP_TIME_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Serial port.
+//
+
+static int* FILE_DESCRIPTOR_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ORIGINAL_ATTRIBUTES_SERIAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Terminal.
+//
+
+static int* INPUT_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* OUTPUT_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* ORIGINAL_ATTRIBUTES_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INPUT_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* OUTPUT_MODE_TERMINAL_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Display.
+//
+
+static int* EVENT_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* WINDOW_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+static int* CONNEXION_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_32_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SCREEN_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* GRAPHIC_CONTEXT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* FONT_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* COLOUR_MAP_XCB_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_36_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+static int* DEVICE_CONTEXT_WIN32_DISPLAY_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_37_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
+// Socket.
+//
+
+static int* SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME = NUMBER_40_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* INPUT_OUTPUT_STATE_CYBOI_NAME_CONSTANT_SOURCE */
+#endif

@@ -130,6 +130,7 @@ void sense(void* p0, void* p1, void* p2) {
 
             // CAUTION! The order of function calls is IMPORTANT!
 
+/*??
             // Set handler.
             copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             calculate_integer_add((void*) &i, (void*) HANDLER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -143,6 +144,7 @@ void sense(void* p0, void* p1, void* p2) {
             calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
             copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
             copy_integer(e, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+*/
         }
     }
 

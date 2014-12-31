@@ -215,20 +215,26 @@ void manage(void* p0) {
     //
 
     // Allocate internal memory data.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! The internal memory has a pre-defined count/size,
     // given by the constant INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT.
     allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
     // Allocate knowledge memory part.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_part((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Allocate signal memory item.
+    //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     // CAUTION! It is given an initial size of 1024, in order
     // to avoid steady reallocation, for better performance.
+    //
     // CAUTION! The signal memory should be a simple array only.
     // If it was a part, rubbish (garbage) collection would become effective
     // and manipulate the references count of child parts when removing them,

@@ -26,10 +26,18 @@
 #ifndef STATE_CYBOI_MODEL_CONSTANT_SOURCE
 #define STATE_CYBOI_MODEL_CONSTANT_SOURCE
 
+#include "../../../../constant/model/cyboi/state/extra_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The internal memory cyboi model count. */
-static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/**
+ * The internal memory cyboi model count.
+ *
+ * CAUTION! The total number of possible socket ports/services alone is: 65536
+ * Therefore, the internal memory size has to be greater than that.
+ * Also, before the socket base, there are some other input/output values,
+ * e.g. for serial port, terminal, display etc. which have to be taken into account.
+ */
+static int* INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT = NUMBER_100000_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The item cyboi model count. */
 static int* ITEM_STATE_CYBOI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;

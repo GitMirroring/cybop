@@ -35,7 +35,6 @@
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/representer/deserialiser/socket_base/socket_base_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -64,11 +63,14 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The socket.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+    //?? TODO: "deserialise_socket_base" was removed; use ONE socket base instead!
     // Get internal memory base from port.
-    deserialise_socket_base((void*) &i, p11);
+//??    deserialise_socket_base((void*) &i, p11);
+//??    copy_integer(p0, (void*) SSH_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+/*??
         // Calculate internal memory index.
         calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get socket.
@@ -95,6 +97,7 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The socket already exists in internal memory.");
         }
+*/
 
     } else {
 

@@ -18,9 +18,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2014-12-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add file "input_output_state_cyboi_name.c"
+
 2014-12-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Cleanup various variable names for socket and serial port
+        * Remove socket base deserialiser since only one socket base is used for internal memory in the future
 
 2014-12-21  Christian Heller  <christian.heller@tuxtax.de>
 
