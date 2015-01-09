@@ -14,7 +14,8 @@
 WUI
 ___
 
-        * Test io entry of server socket i/o for null to find out whether or not a service is to be checked for signals
+        * Test io entry of server socket i/o for null to find out whether or not a service is to be checked for signals,
+            in files "wait_checker.c" and "sense_checker.c"
 
         * Clean up "internal_memory_manager" by deleting i/o parametres
         * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
