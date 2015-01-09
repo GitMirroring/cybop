@@ -325,3 +325,15 @@ Only the server socket number gets stored in internal memory,
 in order to be able to use it for communication
 all other things (address, port etc.) are set inside the socket
 
+Allocation
+__________
+
+The size of array, item, part is NOT predictable at allocation time,
+since it depends on the given type of contained elements.
+Therefore, they may NOT be treated like a compound (e.g. datetime, duration)
+and special allocation functions have been defined for them.
+
+The size of complex, datetime, duration, fraction, io_entry is fixed,
+which is why they may be treated as compounds and do NOT require
+special allocation functions.
+

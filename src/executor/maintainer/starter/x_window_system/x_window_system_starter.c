@@ -107,14 +107,26 @@ fwprintf(stdout, L"TEST startup x window system s: %i\n", s);
                     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
                     // Allocate window.
+                    //
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
+                    //
                     // CAUTION! The xcb_window_t type is defined as follows:
                     // typedef uint32_t xcb_window_t;
                     allocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
                     // Allocate graphic context.
+                    //
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
+                    //
                     // CAUTION! The xcb_gcontext_t type is defined as follows:
                     // typedef uint32_t xcb_gcontext_t;
                     allocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
                     // Allocate font.
+                    //
+                    // CAUTION! Due to memory allocation handling, the size MUST NOT
+                    // be negative or zero, but have at least a value of ONE.
+                    //
                     // CAUTION! The xcb_font_t type is defined as follows:
                     // typedef uint32_t xcb_font_t;
                     allocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

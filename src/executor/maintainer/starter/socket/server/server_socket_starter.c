@@ -30,6 +30,8 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
@@ -59,49 +61,59 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server.");
 
     // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The socket.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
-    //?? TODO: "deserialise_socket_base" was removed; use ONE socket base instead!
-    // Get internal memory base from port.
-//??    deserialise_socket_base((void*) &i, p11);
-//??    copy_integer(p0, (void*) SSH_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Calculate internal memory index using given port.
+    calculate_integer_add((void*) &i, p11);
 
-    if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (i > *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
-/*??
+        // The given port is valid.
+
+        // The socket io entry.
+        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         // Calculate internal memory index.
-        calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        // Get socket.
-        copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        calculate_integer_add((void*) &i, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get socket io entry.
+        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-        if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            // Only create socket if not existent.
+            // Allocate io entry.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
 
-            // Allocate socket.
-            allocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            // The socket.
+            int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Startup server socket.
             startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
-            // Store socket in internal memory.
+            // Store socket in io entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
             // But the internal array's count and size are CONSTANT.
-            copy_array_forward(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            set_io_entry_element(io, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            // Store io entry in internal memory.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the internal array's count and size are CONSTANT.
+            copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The socket already exists in internal memory.");
         }
-*/
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The internal memory base is zero.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket server. The internal memory base is wrong, due to an invalid port.");
     }
 }
 

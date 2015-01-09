@@ -26,7 +26,6 @@
 #ifndef GLOBALISER_SOURCE
 #define GLOBALISER_SOURCE
 
-#include "../controller/globaliser/compound_globaliser.c"
 #include "../controller/globaliser/log_globaliser.c"
 #include "../controller/globaliser/reallocation_factor_globaliser.c"
 #include "../controller/globaliser/reference_counter_globaliser.c"
@@ -44,7 +43,6 @@ void globalise() {
     // CAUTION! DO NOT use array functionality here!
     // The array functions use the logger which in turn depends on global
     // log variables set here. So this would cause circular references.
-    // Instead, use malloc, free and similar functions directly!
     //
 
     //
@@ -68,15 +66,6 @@ void globalise() {
     globalise_reference_counter();
     globalise_service_exit();
     globalise_thread_identification();
-
-    //
-    // CAUTION! The order of above function calls is arbitrary,
-    // since most use the "sizeof" function and are independent
-    // from each other.
-    // However, the "globalise_compound" function depends upon
-    // other type sizes, so that it can only be called as LAST.
-    //
-    globalise_compound();
 }
 
 /* GLOBALISER_SOURCE */

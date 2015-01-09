@@ -60,92 +60,65 @@
  */
 void startup_socket_socket_address_inet(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* as = (int*) p1;
+        void** ad = (void**) p0;
 
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address inet.");
 
-            void** ad = (void**) p0;
+        // The host address.
+        struct in_addr ha;
+        // The host address size.
+        //
+        // CAUTION! It IS NECESSARY because on 64 Bit machines,
+        // the "size_t" type has a size of 8 Byte,
+        // whereas the "int" type has the usual size of 4 Byte.
+        // When trying to cast between the two, memory errors
+        // will occur and the valgrind memcheck tool report:
+        // "Invalid read of size 8".
+        //
+        // CAUTION! Initialise temporary size_t variable with final int value
+        // JUST BEFORE handing that over to the glibc function requiring it.
+        //
+        // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+        // because values are casted to int* internally again.
+        size_t has = (size_t) *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE;
+        // Initialise array elements.
+        //
+        // CAUTION! Initialising with zero values is essential,
+        // since cyboi frequently tests variables for null pointer values.
+        // Otherwise, unpredictable pre-existing values might reside in memory.
+        //
+        // Whether the values will be interpreted as
+        // zero integer or zero float or null pointer or
+        // something else, depends on the programming
+        // context, i.e. where the array got allocated.
+        memset((void*) &ha, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, has);
+        // Get host address.
+        // CAUTION! The returned host address
+        // is already in network byte order.
+        startup_socket_host_address_inet((void*) &ha, p2, p3);
 
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket socket address inet.");
-
-            // The host address.
-            struct in_addr ha;
-            // The host address size.
-            //
-            // CAUTION! It IS NECESSARY because on 64 Bit machines,
-            // the "size_t" type has a size of 8 Byte,
-            // whereas the "int" type has the usual size of 4 Byte.
-            // When trying to cast between the two, memory errors
-            // will occur and the valgrind memcheck tool report:
-            // "Invalid read of size 8".
-            //
-            // CAUTION! Initialise temporary size_t variable with final int value
-            // JUST BEFORE handing that over to the glibc function requiring it.
-            //
-            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-            // because values are casted to int* internally again.
-            size_t has = (size_t) *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE;
-            // Initialise array elements.
-            //
-            // CAUTION! Initialising with zero values is essential,
-            // since cyboi frequently tests variables for null pointer values.
-            // Otherwise, unpredictable pre-existing values might reside in memory.
-            //
-            // Whether the values will be interpreted as
-            // zero integer or zero float or null pointer or
-            // something else, depends on the programming
-            // context, i.e. where the array got allocated.
-            memset((void*) &ha, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, has);
-            // Get host address.
-            // CAUTION! The returned host address
-            // is already in network byte order.
-            startup_socket_host_address_inet((void*) &ha, p2, p3);
-
-            // Initialise socket address size.
-            copy_integer(p1, (void*) IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
-            // The temporary size_t variable.
-            //
-            // CAUTION! It IS NECESSARY because on 64 Bit machines,
-            // the "size_t" type has a size of 8 Byte,
-            // whereas the "int" type has the usual size of 4 Byte.
-            // When trying to cast between the two, memory errors
-            // will occur and the valgrind memcheck tool report:
-            // "Invalid read of size 8".
-            //
-            // CAUTION! Initialise temporary size_t variable with final int value
-            // JUST BEFORE handing that over to the glibc function requiring it.
-            //
-            // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-            // because values are casted to int* internally again.
-            size_t tas = (size_t) *as;
-            // Allocate socket address.
-            *ad = malloc(tas);
-            // Initialise array elements.
-            //
-            // CAUTION! Initialising with zero values is essential,
-            // since cyboi frequently tests variables for null pointer values.
-            // Otherwise, unpredictable old values might reside in memory.
-            //
-            // Whether the values will be interpreted as
-            // zero integer or zero float or null pointer or
-            // something else, depends on the programming
-            // context, i.e. where the array got allocated.
-            memset(*ad, *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, tas);
-            // Initialise socket address.
-            // CAUTION! The forwarded host address
-            // is already in network byte order.
-            startup_socket_socket_address_inet_initialise(*ad, (void*) &ha, p4);
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet. The address data is null.");
-        }
+        // Allocate socket address.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_array(p0, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IPV4_SOCKET_ADDRESS_STATE_CYBOI_TYPE);
+        // Initialise socket address size.
+        //
+        // CAUTION! For the allocation above, the size gets determined inside
+        // the "allocate_array" function, so that it is not needed as argument.
+        // However, socket functions DO REQUIRE the socket address size
+        // as argument, so that it has to be assigned here explicitly.
+        copy_integer(p1, (void*) IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+        // Initialise socket address.
+        // CAUTION! The forwarded host address
+        // is already in network byte order.
+        startup_socket_socket_address_inet_initialise(*ad, (void*) &ha, p4);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet. The address size is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup socket socket address inet. The address data is null.");
     }
 }
 

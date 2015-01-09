@@ -30,6 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
@@ -50,35 +52,45 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server.");
 
     // The internal memory index.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The socket.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
-    //?? TODO: "deserialise_socket_base" was removed; use ONE socket base instead!
-    // Get internal memory base from port.
-//??    deserialise_socket_base((void*) &i, p3);
-//??    copy_integer(p0, (void*) SSH_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Calculate internal memory index using given port.
+    calculate_integer_add((void*) &i, p3);
 
-    if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (i > *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
-/*??
+        // The given port is valid.
+
+        // The socket io entry.
+        void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         // Calculate internal memory index.
-        calculate_integer_add((void*) &i, (void*) SOCKET_NUMBER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-        // Get socket.
-        copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        calculate_integer_add((void*) &i, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get socket io entry.
+        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
-        if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Only deallocate socket resources if a socket exists.
 
-            // Interrupt terminal service thread.
+            // Interrupt socket service thread.
             interrupt_thread(p1, p2);
+
+            // The socket.
+            int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // Store socket in io entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the internal array's count and size are CONSTANT.
+            get_io_entry_element((void*) &s, io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Close server socket.
             shutdown_socket_close((void*) &s);
 
-            // Deallocate socket.
-            deallocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            // Deallocate io entry.
+            deallocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
 
             // Reset values.
             // CAUTION! Assign NULL to the internal memory.
@@ -90,11 +102,10 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
 
             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket server. There is no socket running at the given base internal.");
         }
-*/
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket server. The internal memory base is zero.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket server. The internal memory base is wrong, due to an invalid port.");
     }
 }
 

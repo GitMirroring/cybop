@@ -57,6 +57,9 @@ void startup_win32_console_mode_get(void* p0, void* p1, void* p2, void* p3) {
         void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Allocate mode.
+        //
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
         allocate_array((void*) &m, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         if (m != *NULL_POINTER_STATE_CYBOI_MODEL) {

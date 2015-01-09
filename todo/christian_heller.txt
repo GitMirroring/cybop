@@ -14,10 +14,9 @@
 WUI
 ___
 
-        * Use constants of file "input_output_state_cyboi_name.c"
-        * Create array structure for each i/o service at startup
-        * Adapt file "server_socket_starter.c" to new constants
-        * Test for null to find out whether or not a service exists and is to be tested for signals and destroyed at shutdown
+        * Test io entry of server socket i/o for null to find out whether or not a service is to be checked for signals
+
+        * Clean up "internal_memory_manager" by deleting i/o parametres
         * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
 
         * Continue socket sender and distinguish between server socket read from internal memory and client socket handed over as  parametre
@@ -72,6 +71,8 @@ ______
 
 GUI
 ___
+
+        * Create io entry array structure for display i/o at startup and destroy at shutdown
 
         * Think through design of gui using cybol (box model, layout manager, look'n'feel)
         * Use css box model with relative positioning also for tui, gui etc.?
@@ -179,6 +180,8 @@ _____
 TUI
 ___
 
+        * Create io entry array structure for terminal i/o at startup and destroy at shutdown
+
         * Provide more keyboard input keys like "tabulator", "backspace" etc. in file "keyboard_state_cybol_name.c"
 
         * Check if having to use &= or |= instead of just = everywhere flags are set,
@@ -198,6 +201,8 @@ ___
 
 Serial Port
 ___________
+
+        * Create io entry array structure for serial port i/o at startup and destroy at shutdown
 
         * Check if having to use &= or |= instead of just = everywhere flags are set,
             e.g. in file "set_attributes_serial_port_starter.c",

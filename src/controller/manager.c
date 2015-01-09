@@ -323,7 +323,6 @@ void manage(void* p0) {
     // CAUTION! ONLY ONE parametre can be handed over to threads!
     // Therefore, the knowledge memory and signal memory NEED TO BE ADDED
     // to the internal memory, in order to be forwardable to threads.
-
     startup_internal_memory(i, (void*) &k, (void*) &s, (void*) &signal_memory_sleep_time,
         (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL,
         (void*) &display_enable, (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time,

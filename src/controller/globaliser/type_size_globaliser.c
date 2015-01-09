@@ -26,6 +26,7 @@
 #ifndef TYPE_SIZE_GLOBALISER_SOURCE
 #define TYPE_SIZE_GLOBALISER_SOURCE
 
+#include "../../controller/globaliser/type_size/compound_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/conversion_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/display_type_size_globaliser.c"
 #include "../../controller/globaliser/type_size/integral_type_size_globaliser.c"
@@ -61,6 +62,15 @@ void globalise_type_size() {
     globalise_type_size_socket();
     globalise_type_size_terminal();
     globalise_type_size_thread();
+
+    //
+    // CAUTION! The order of above function calls is arbitrary,
+    // since most use the "sizeof" function and are independent
+    // from each other.
+    // However, the "globalise_type_size_compound" function depends upon
+    // other type sizes, so that it can only be called AS LAST.
+    //
+    globalise_type_size_compound();
 }
 
 /* TYPE_SIZE_GLOBALISER_SOURCE */

@@ -83,6 +83,14 @@ void determine_size(void* p0, void* p1) {
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
 
         //
+        // input output
+        //
+
+        } else if (*t == *IO_ENTRY_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) IO_ENTRY_COMPOUND_TYPE_SIZE);
+
+        //
         // logicvalue
         //
 
@@ -125,6 +133,22 @@ void determine_size(void* p0, void* p1) {
         } else if (*t == *POINTER_STATE_CYBOI_TYPE) {
 
             copy_integer(p0, (void*) POINTER_TYPE_SIZE);
+
+        //
+        // socket address
+        //
+
+        } else if (*t == *IPV4_SOCKET_ADDRESS_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+
+        } else if (*t == *IPV6_SOCKET_ADDRESS_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
+
+        } else if (*t == *LOCAL_SOCKET_ADDRESS_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
 
         //
         // text

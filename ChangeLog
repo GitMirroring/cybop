@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace direct "malloc" with "allocate_array" in socket address socket starter files
+        * Create io entry array structure for server socket i/o at startup and destroy at shutdown
+
 2014-12-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add file "input_output_state_cyboi_name.c"
