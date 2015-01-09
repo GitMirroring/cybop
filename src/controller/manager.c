@@ -321,7 +321,6 @@ void manage(void* p0) {
     // Therefore, such values are initialised with the well-defined *NULL_POINTER_STATE_CYBOI_MODEL.
     //
     // CAUTION! ONLY ONE parametre can be handed over to threads!
-    // For example, the tcp socket is running in an own thread.
     // Therefore, the knowledge memory and signal memory NEED TO BE ADDED
     // to the internal memory, in order to be forwardable to threads.
 
