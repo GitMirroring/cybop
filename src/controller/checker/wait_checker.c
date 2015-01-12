@@ -34,6 +34,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../controller/checker/OLD_sense_checker.c"
 #include "../../controller/checker/sense_checker.c"
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
@@ -50,9 +51,6 @@ void check_wait(void* p0, void* p1) {
 
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The enable flag and interrupt request.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* irq = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     //?? TODO: ------------- All following variables are old and to be DELETED soon.
     // The display enable flag and interrupt request.
@@ -104,8 +102,6 @@ void check_wait(void* p0, void* p1) {
     // CAUTION! Using this single break flag is easier than
     // querying all possible interrupt request flags below.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -115,13 +111,10 @@ void check_wait(void* p0, void* p1) {
         }
 
         // Sense interrupt request or sleep.
-//??        check_sense(e, irq, p0, (void) &j, (void*) &b);
+        check_sense((void*) &b, p0, p1);
 
         //?? TODO: DELETE in the future.
-        check_sense_old(de, di, se, si, soe, soi, te, ti, (void*) &b, p0, p1);
-
-        // Increment loop variable.
-        j++;
+        check_sense_OLD(de, di, se, si, soe, soi, te, ti, (void*) &b, p0, p1);
     }
 
 /*??

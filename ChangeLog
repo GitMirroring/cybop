@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create new files checking for service interrupts in controller
+        * Prepare elimination of sensing threads
+
 2015-01-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace direct "malloc" with "allocate_array" in socket address socket starter files

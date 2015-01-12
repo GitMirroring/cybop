@@ -39,7 +39,7 @@
 /**
  * Starts up socket in either client or server mode.
  *
- * @param p0 the internal memory data (pointer reference)
+ * @param p0 the internal memory data
  * @param p1 the family data (namespace)
  * @param p2 the family count
  * @param p3 the style data (communication type)

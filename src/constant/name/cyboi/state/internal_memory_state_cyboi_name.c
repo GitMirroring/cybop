@@ -48,13 +48,25 @@ static int* KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_0_INTEGER
 static int* SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 static int* SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The serial port. */
+/**
+ * The serial port.
+ *
+ * The total number of possible socket services (ports) is: 1
+ */
 static int* SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_100_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The terminal. */
+/**
+ * The terminal.
+ *
+ * The total number of possible socket services (ports) is: 1
+ */
 static int* TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The display. */
+/**
+ * The display.
+ *
+ * The total number of possible socket services (ports) is: 1
+ */
 static int* DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_300_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -68,7 +80,7 @@ static int* DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_300_INTEGER_STATE_
  * another service, then that socket number has to be
  * stored in the corresponding CYBOL application.
  *
- * The total number of possible socket ports/services is: 65536
+ * The total number of possible socket services (ports) is: 65536
  */
 static int* SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME = NUMBER_400_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

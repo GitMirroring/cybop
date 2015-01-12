@@ -42,7 +42,7 @@
 /**
  * Starts up server socket.
  *
- * @param p0 the internal memory data (pointer reference)
+ * @param p0 the internal memory data
  * @param p1 the family data (namespace)
  * @param p2 the family count
  * @param p3 the style data (communication type)
@@ -73,8 +73,6 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The socket io entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Calculate internal memory index.
-        calculate_integer_add((void*) &i, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get socket io entry.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
