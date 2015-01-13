@@ -41,7 +41,7 @@
  *
  * @param p0 the internal memory data
  * @param p1 the input output base
- * @param p2 the service identification (e.g. socket port)
+ * @param p2 the service id (e.g. socket port)
  * @param p3 the handler part (pointer reference)
  */
 void sense_channel(void* p0, void* p1, void* p2, void* p3) {

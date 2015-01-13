@@ -38,6 +38,14 @@
 static wchar_t* CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The identification (id) startup maintenance logic cybol name.
+ *
+ * For a socket this is the port.
+ */
+static wchar_t* IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"id";
+static int* IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // Serial interface
 //
@@ -73,10 +81,6 @@ static int* MODE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_IN
 /** The namespace (family) socket startup maintenance logic cybol name. */
 static wchar_t* NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"namespace";
 static int* NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The port socket startup maintenance logic cybol name. */
-static wchar_t* PORT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"port";
-static int* PORT_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The protocol socket startup maintenance logic cybol name. */
 static wchar_t* PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME = L"protocol";

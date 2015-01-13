@@ -21,6 +21,7 @@
 2015-01-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure lifeguard sensor functions to use unified code for all channels in new file "channel_sensor.c"
+        * Provide service id (e.g. socket port) for all channels
 
 2015-01-12  Christian Heller  <christian.heller@tuxtax.de>
 

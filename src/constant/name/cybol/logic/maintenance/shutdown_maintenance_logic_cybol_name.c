@@ -38,6 +38,14 @@
 static wchar_t* CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The identification (id) shutdown maintenance logic cybol name.
+ *
+ * For a socket this is the port.
+ */
+static wchar_t* IDENTIFICATION_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"id";
+static int* IDENTIFICATION_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // Socket
 //
@@ -45,10 +53,6 @@ static int* CHANNEL_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEG
 /** The mode socket shutdown maintenance logic cybol name. */
 static wchar_t* MODE_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"mode";
 static int* MODE_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The port socket shutdown maintenance logic cybol name. */
-static wchar_t* PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"port";
-static int* PORT_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The (network) service socket shutdown maintenance logic cybol name. */
 static wchar_t* SERVICE_SOCKET_SHUTDOWN_MAINTENANCE_LOGIC_CYBOL_NAME = L"service";

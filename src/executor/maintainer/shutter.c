@@ -49,7 +49,7 @@
  * (/usr/include/i386-linux-gnu/sys/socket.h:232:12).
  *
  * @param p0 the internal memory data
- * @param p1 the socket port
+ * @param p1 the service id, e.g. socket port
  * @param p2 the client socket
  * @param p3 the mode data
  * @param p4 the mode count

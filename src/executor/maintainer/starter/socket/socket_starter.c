@@ -38,17 +38,17 @@
  * Starts up the socket.
  *
  * @param p0 the internal memory data
- * @param p1 the family data (namespace)
- * @param p2 the family count
- * @param p3 the style data (communication type)
- * @param p4 the style count
- * @param p5 the protocol data
- * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
+ * @param p1 the service id, e.g. socket port
+ * @param p2 the family data (namespace)
+ * @param p3 the family count
+ * @param p4 the style data (communication type)
+ * @param p5 the style count
+ * @param p6 the protocol data
+ * @param p7 the protocol count
+ * @param p8 the filename data
+ * @param p9 the filename count
+ * @param p10 the host address data
+ * @param p11 the host address count
  * @param p12 the connexions (number of possible pending client requests)
  * @param p13 the client socket
  * @param p14 the mode data
@@ -65,7 +65,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
 
     // Copy port.
     // CAUTION! It will NOT be copied, if its value is a NULL pointer.
-    copy_integer((void*) &p, p11);
+    copy_integer((void*) &p, p1);
 
     if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -77,7 +77,7 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     }
 
     // Startup socket in either client or server mode.
-    startup_socket_mode(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, (void*) &p, p12, p13, p14, p15);
+    startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &p, p12, p13, p14, p15);
 }
 
 /* SOCKET_STARTER_SOURCE */

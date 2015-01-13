@@ -38,6 +38,7 @@
 #include "../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #include "../../executor/lifeguard/channel_sensor.c"
 #include "../../executor/lifeguard/message_sensor.c"
+#include "../../executor/representer/deserialiser/network_service/network_service_deserialiser.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
 
@@ -66,15 +67,17 @@ void sense_unix_terminal(void* p0);
  * Senses a message on the given channel.
  *
  * @param p0 the internal memory data
- * @param p1 the service identification (e.g. socket port)
+ * @param p1 the service id (e.g. socket port)
  * @param p2 the handler part (pointer reference)
- * @param p3 the channel
+ * @param p3 the network service data
+ * @param p4 the network service count
+ * @param p5 the channel
  */
-void sense(void* p0, void* p1, void* p2, void* p3) {
+void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-//?? fwprintf(stdout, L"TEST sense channel p3: %i\n", *((int*) p3));
+//?? fwprintf(stdout, L"TEST sense channel p5: %i\n", *((int*) p5));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -85,7 +88,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -105,7 +108,7 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -125,17 +128,33 @@ void sense(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
+            // The port.
+            int p = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            // Copy port (which is the service id).
+            // CAUTION! It will NOT be copied, if its value is a NULL pointer.
+            copy_integer((void*) &p, p1);
+
+            if (p == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // A direct port was NOT given as parametre.
+                // Therefore, determine port from service name.
+
+                // Deserialise port from network service name.
+                deserialise_network_service((void*) &p, p3, p4);
+            }
+
+            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &p, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

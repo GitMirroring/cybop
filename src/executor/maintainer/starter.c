@@ -56,20 +56,20 @@
  * The value of unneeded parametres may just be set to NULL.
  *
  * @param p0 the internal memory data
- * @param p1 the serial filename data
- * @param p2 the serial filename count
- * @param p3 the serial baudrate
- * @param p4 the socket family data (namespace)
- * @param p5 the socket family count
- * @param p6 the socket style data (communication type)
- * @param p7 the socket style count
- * @param p8 the socket protocol data
- * @param p9 the socket protocol count
- * @param p10 the socket filename data
- * @param p11 the socket filename count
- * @param p12 the socket host address data
- * @param p13 the socket host address count
- * @param p14 the socket port
+ * @param p1 the service id, e.g. socket port
+ * @param p2 the serial filename data
+ * @param p3 the serial filename count
+ * @param p4 the serial baudrate
+ * @param p5 the socket family data (namespace)
+ * @param p6 the socket family count
+ * @param p7 the socket style data (communication type)
+ * @param p8 the socket style count
+ * @param p9 the socket protocol data
+ * @param p10 the socket protocol count
+ * @param p11 the socket filename data
+ * @param p12 the socket filename count
+ * @param p13 the socket host address data
+ * @param p14 the socket host address count
  * @param p15 the socket connexions (number of possible pending client requests)
  * @param p16 the socket client socket
  * @param p17 the socket mode data
@@ -101,7 +101,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_serial_port(p0, p1, p2, p3);
+            startup_serial_port(p0, p2, p3, p4);
         }
     }
 
@@ -111,7 +111,7 @@ void startup_service(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_socket(p0, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
+            startup_socket(p0, p1, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20);
         }
     }
 
