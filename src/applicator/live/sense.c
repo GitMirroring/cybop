@@ -42,8 +42,9 @@
  *
  * In order to sense interrupt requests of various devices, special mechanisms
  * for interrupt detection have to be started. To these mechanisms belong:
+ * - serial
  * - terminal
- * - x window system
+ * - display
  * - socket
  *
  * All of them have their own internal signal/ action/ event/ interrupt waiting loops
@@ -55,6 +56,7 @@
  *
  * Expected parametres:
  * - channel (required): the channel via which to receive the message (terminal, www, x-window-system etc.)
+ * - identification (required): the service identification if having multiple terminals/displays etc., e.g. socket port
  * - handler (optional): the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to
  *
  * Constraints:
@@ -70,27 +72,39 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3) {
 
     // The channel part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The handler part.
     void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The channel part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The identification part model item data.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
     get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get identification part.
+    get_part_knowledge((void*) &i, p0, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get handler part.
     get_part_knowledge((void*) &h, p0, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get identification part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get channel part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get identification part model item data.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    sense(p3, (void*) &h, cmd);
+    sense(p3, imd, (void*) &h, cmd);
 }
 
 /* SENSE_SOURCE */

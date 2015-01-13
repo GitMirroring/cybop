@@ -131,7 +131,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 //
                 // CAUTION! Hand over element as POINTER REFERENCE,
                 // since a pointer is copied here.
-                copy_pointer((void*) &e, p1);
+                copy_pointer((void*) e, p1);
             }
         }
 

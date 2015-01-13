@@ -31,14 +31,16 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The channel sense life logic cybol name. */
-static wchar_t CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
-static wchar_t* CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME = CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The handler sense life logic cybol name. */
-static wchar_t HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_ARRAY[] = {L'h', L'a', L'n', L'd', L'l', L'e', L'r'};
-static wchar_t* HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME = HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME = L"handler";
 static int* HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The identification sense life logic cybol name. */
+static wchar_t* IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME = L"identification";
+static int* IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SENSE_LIFE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

@@ -33,9 +33,10 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../executor/lifeguard/sensor/serial_port/serial_port_sensor.c"
-//?? #include "../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+#include "../../executor/lifeguard/channel_sensor.c"
 #include "../../executor/lifeguard/message_sensor.c"
 #include "../../logger/logger.c"
 #include "../../variable/thread_identification.c"
@@ -60,20 +61,20 @@
 
 void sense_serial_port(void* p0);
 void sense_unix_terminal(void* p0);
-void sense_socket(void* p0);
 
 /**
  * Senses a message on the given channel.
  *
  * @param p0 the internal memory data
- * @param p1 the handler part (pointer reference)
- * @param p2 the channel
+ * @param p1 the service identification (e.g. socket port)
+ * @param p2 the handler part (pointer reference)
+ * @param p3 the channel
  */
-void sense(void* p0, void* p1, void* p2) {
+void sense(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-//?? fwprintf(stdout, L"TEST sense channel p2: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST sense channel p3: %i\n", *((int*) p3));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -84,14 +85,14 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! The order of function calls is IMPORTANT!
 
             // Set handler.
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // CAUTION! A sensing thread is NOT necessary,
             // since input gets sensed in the main thread.
@@ -104,14 +105,14 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! The order of function calls is IMPORTANT!
 
             // Set handler.
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // Run sensing thread.
             sense_message(p0, (void*) SERIAL_THREAD, &sense_serial_port);
@@ -124,40 +125,24 @@ void sense(void* p0, void* p1, void* p2) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! The order of function calls is IMPORTANT!
-
-/*??
-            // Set handler.
-            copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) HANDLER_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
-            // Run sensing thread.
-//??            sense_message(p0, (void*) SOCKET_THREAD, (void*) &sense_socket);
-
-            // Set enable flag.
-            copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-            copy_integer(e, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-*/
+            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, p1, p2);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p2, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p3, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! The order of function calls is IMPORTANT!
 
             // Set handler.
-            copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 #ifdef __APPLE__
             // Run sensing thread ONLY for unix terminal.

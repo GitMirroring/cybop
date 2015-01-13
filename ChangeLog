@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure lifeguard sensor functions to use unified code for all channels in new file "channel_sensor.c"
+
 2015-01-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create new files checking for service interrupts in controller

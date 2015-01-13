@@ -14,6 +14,7 @@
 WUI
 ___
 
+        * Activate socket sensing
         * Test new service checker functions in files "wait_checker.c" etc.
         * Start with terminal, comment out terminal sensing thread, test
         * Eliminate terminal sensing thread
@@ -28,6 +29,9 @@ ___
         * Create variables like "enable", "irq", "thread" dynamically PER SERVICE in internal memory and NOT as global fixed variables, since it is not predictable, how many socket services will be used at runtime
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open/enabled/NOT_NULL sockets in internal memory, in order to close them
+
+        * Verify in file "manager.c" if internal memory should be handed over as pointer reference argument to any other functions, in order to properly assign pointers into it
+        * Verify pointer handling (reference usage) in files "io_entry_setter.c" etc.
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"
