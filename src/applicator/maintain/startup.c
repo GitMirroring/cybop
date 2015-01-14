@@ -54,7 +54,7 @@
  * - service (optional): the network service, e.g. http; either port or service may be specified; port has higher priority; useful only if channel is "socket"
  * - mode (required): the communication mode, e.g. server
  * - socket (optional): the client socket which is an integer number defined in cybol (needed only if mode is "client")
- * - connexions (optional): the number of possible pending client requests
+ * - connexions (optional): the number of possible pending client requests (needed only if mode is "server")
  *
  * Constraints:
  *

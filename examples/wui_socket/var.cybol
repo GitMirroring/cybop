@@ -15,6 +15,6 @@
     -->
     <part name="path" channel="inline" format="path/knowledge" model=""/>
 
-    <part name="socket" channel="inline" format="number/integer" model="0"/>
+    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
 
 </model>

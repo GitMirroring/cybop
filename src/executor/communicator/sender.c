@@ -27,20 +27,15 @@
 #define SENDER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/communicator/sender/display/display_sender.c"
 #include "../../executor/communicator/sender/file/file_sender.c"
 #include "../../executor/communicator/sender/inline/inline_sender.c"
 #include "../../executor/communicator/sender/serial_port/serial_port_sender.c"
 #include "../../executor/communicator/sender/signal/signal_sender.c"
-//?? #include "../../executor/communicator/sender/socket/socket_sender.c"
+#include "../../executor/communicator/sender/socket/socket_sender.c"
 #include "../../executor/communicator/sender/terminal/terminal_sender.c"
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Sends the source via the given channel.
@@ -62,7 +57,7 @@
  * @param p5 the knowledge memory part
  * @param p6 the internal memory data
  * @param p7 the format
- * @param p8 the language indentation
+ * @param p8 the indentation flag
  * @param p9 the language
  * @param p10 the encoding
  * @param p11 the source part (pointer reference)
@@ -110,16 +105,6 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p15, (void*) SIGNAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            send_signal(p6, p11);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
         compare_integer_equal((void*) &r, p15, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -130,11 +115,11 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p15, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p15, (void*) SIGNAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_terminal(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p12, p13);
+            send_signal(p6, p11);
         }
     }
 
@@ -144,7 +129,23 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            send_socket(p0, p1, p1, p2, p3, p4, p5, p7, p8, p11, p12);
+            // The destination socket item data.
+            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+            // Get destination socket item data.
+            copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+            send_socket(s, p1, p2, p3, p4, p5, p7, p8, p9, p10);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p15, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            send_terminal(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p12, p13);
         }
     }
 

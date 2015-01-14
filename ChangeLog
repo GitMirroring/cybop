@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update send functionality for socket
+
 2015-01-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure lifeguard sensor functions to use unified code for all channels in new file "channel_sensor.c"
