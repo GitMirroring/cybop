@@ -43,9 +43,10 @@
         <property name="id" channel="inline" format="number/integer" model="80"/>
         <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".logic.handler"/>
+        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.client_connexion_socket"/>
     </part>
 
-    <part name="startup_client_socket" channel="inline" format="maintain/startup" model="">
+    <part name="startup_server_connexion_socket" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <property name="style" channel="inline" format="text/plain" model="stream"/>
@@ -55,7 +56,7 @@
         <property name="id" channel="inline" format="number/integer" model="80"/>
         <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="mode" channel="inline" format="text/plain" model="client"/>
-        <property name="socket" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <property name="socket" channel="inline" format="path/knowledge" model=".app.var.server_connexion_socket"/>
     </part>
     <part name="send_message" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -64,7 +65,7 @@
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="Hello, World!"/>
         <!-- The receiver is the client socket. -->
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_connexion_socket"/>
     </part>
 
 </model>

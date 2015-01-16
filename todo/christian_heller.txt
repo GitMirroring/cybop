@@ -14,14 +14,23 @@
 WUI
 ___
 
-        * Verify receive functionality for socket
-        * Test message sending in cybol example "wui_socket"
-        * Activate socket sensing
-        * Test new service checker functions in files "wait_checker.c" etc.
+        * Think through whether or not "encoding" should be provided as property for socket send/receive, since not always http is used;
+            problem: conversion into wide characters internally, whilst bytes should remain as they are if an http attachment like jpeg or pdf is transmitted
+        * Eliminate property "encoding" for "send" operations in cybol example application "wui_socket"
+        * Read property "sender" for cybol operation "live/sense" in applicator
+        * Activate socket sensing in checker:
+            possibly use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue;
+            see glibc documentation "16.9.5.3 Socket Data Options"
+        * Test message sending in cybol example application "wui_socket"
 
+        * Remove internal memory as parametre from file "deserialiser.c"
+        * Rename "message" into "sender" in receive operations and all cybol files (which use "message" as filename in receive from file)
+        * AFTERWARDS, Rename "model" into "message" in receive operations and all cybol files (which use "message" as filename in receive from file)
+
+        * Test new service checker functions in files "wait_checker.c" etc.
         * Start with terminal, comment out terminal sensing thread, test
         * Eliminate terminal sensing thread
-        * Repeat for other io channels (serial, display, socket)
+        * Repeat for other io channels (display, serial)
 
         * Clean up "internal_memory_manager" by deleting i/o parametres
         * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
@@ -67,11 +76,6 @@ ___
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
-
-        * Think about how to add socket ports given by a cybol application, if that port is not defined in cyboi
-
-        * Possibly use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue;
-            see glibc documentation "16.9.5.3 Socket Data Options"
 
 Signal
 ______

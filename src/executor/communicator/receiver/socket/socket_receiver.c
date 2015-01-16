@@ -31,113 +31,90 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/communicator/receiver/socket/buffer_socket_receiver.c"
+#include "../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Receives message via socket.
  *
  * @param p0 the destination model item
- * @param p3 the destination properties item
- * @param p3 the source socket
- * @param p9 the language
- * @param p11 the knowledge memory
+ * @param p1 the destination properties item
+ * @param p2 the source socket
+ * @param p3 the knowledge memory part
+ * @param p4 the format
+ * @param p5 the language
  */
-void receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket.");
 
-    // The encoded item.
-    // CAUTION! Its size has to be GREATER than zero, e.g. 1024!
+    // The buffer data, count, size.
+    // CAUTION! Its size has to be GREATER than zero.
     // Otherwise, there will be no place for the data to be received.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int es = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-    // The buffer.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int es = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    // A peek into the apacha http server showed values like 512 or 2048.
+    // So, the value of 1024 used here is probably acceptable.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    // The serialised character item.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised character item data, count.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate encoded data.
+    // Allocate buffer data.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &ed, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate serialised character item.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Loop until all bytes have been received.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Receive data until buffer is filled.
-        receive_socket_buffer((void*) &ed, (void*) &ec, (void*) &es, p6);
+        receive_socket_buffer(bd, (void*) &bc, (void*) &bs, socket);
 
-        // Append buffer to destination data.
-        append_item_element(i, b);
+        if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+            // Append buffer to destination data.
+            append_item_element(s, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        } else {
+
+            // No more data have been received.
+            break;
+        }
     }
 
-    // Deserialise serialised wide character array into destination knowledge model.
-    // The http request's parametres are written into the destination compound model.
-    deserialise(p0, p1, p2, p3, p4, p5, ed, (void*) &ec, p9, p10);
+    // Get serialised character item data, count.
+    //
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Deallocate encoded data.
-    deallocate_array((void*) &ed, (void*) &ec, (void*) &es, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deserialise serialised character array into destination item.
+    //
+    // CAUTION! Any meta data like an http request's headers
+    // are written into the destination item as well.
+    deserialise(p0, p1, sd, sc, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5);
 
-    //?? TODO: The destination compound model content needs to be RESET every time since
-    //?? otherwise, new commands are just added to the "action" part entry, for example.
-    //?? Instead, all values should be replaced!
-
-    /** The index parametre. */
-    static wchar_t INDEX_PARAMETRE_ARRAY[] = {L'i', L'n', L'd', L'e', L'x'};
-    static wchar_t* INDEX_PARAMETRE = INDEX_PARAMETRE_ARRAY;
-    static int* INDEX_PARAMETRE_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-    // Get default index command, since the given command is null.
-    // INDEX_PARAMETRE, INDEX_PARAMETRE_COUNT,
-
-/*??
-    // The url basename.
-    wchar_t* url_basename = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    int url_basename_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Create url basename.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &url_basename, (void*) &url_basename_count, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Get url base name.
-    receive_socket_url(msg, &msg_count, &url_basename, &url_basename_count);
-
-    // The parametre.
-    wchar_t* param = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    int param_count = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // Create paramater.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &param, (void*) &param_count, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Get parametres.
-    receive_socket_parametre(msg, &msg_count, &param, &param_count);
-
-    // The firefox web browser makes a second request
-    // to determine the favicon.
-    char firefox_request[] = "favicon.ico";
-    wchar_t* p_firefox_request = &firefox_request[*NUMBER_0_INTEGER_STATE_CYBOI_MODEL];
-    int firefox_request_count = *NUMBER_11_INTEGER_STATE_CYBOI_MODEL;
-
-    // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-    compare_all_array((void*) &r, (void*) url_basename, (void*) &url_basename_count, (void*) p_firefox_request, (void*) &firefox_request_count);
-
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-        // Close partner socket, since the request was just intended to retrieve the icon.
-        close(*ps);
-
-    } else {
-
-        // query string handling
-        set_signals_for_all_parametres((void*) param, (void*) &param_count, p0);
-
-        //?? The OLD solution created a signal here from a cybol knowledge template.
-        //?? This is NOW easier, since the commands already exist in the knowledge tree
-        //?? and only have to be referenced from here.
-    }
-*/
+    // Deallocate buffer data.
+    deallocate_array((void*) &bd, (void*) &bc, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate serialised character item.
+    deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SOCKET_RECEIVER_SOURCE */

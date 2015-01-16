@@ -27,20 +27,17 @@
 #define RECEIVER_SOURCE
 
 #include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/communicator/receiver/display/display_receiver.c"
 #include "../../executor/communicator/receiver/file/file_receiver.c"
 #include "../../executor/communicator/receiver/inline/inline_receiver.c"
 #include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
-//?? #include "../../executor/communicator/receiver/socket/socket_receiver.c"
+#include "../../executor/communicator/receiver/socket/socket_receiver.c"
 #include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../logger/logger.c"
-#include "../../variable/thread_identification.c"
 
 /**
  * Receives via the given channel into the destination.
@@ -58,7 +55,7 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source model data
+ * @param p2 the source model data (e.g. a filename or socket number)
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
@@ -120,21 +117,21 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            receive_terminal(p0, p1, p2, p3, p6, p7, p10, p11);
+            receive_socket(p0, p1, p2, p6, p10, p11);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p13, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            receive_socket(p0, p1, p1, p2, p3, p6, p7, p10, p11);
+            receive_terminal(p0, p1, p2, p3, p6, p7, p10, p11);
         }
     }
 

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update receive functionality for socket
+
 2015-01-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update send functionality for socket

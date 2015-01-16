@@ -88,7 +88,7 @@ void send_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // and will be forwarded as such to the terminal.
     allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Serialise source knowledge model into serialised wide character item.
+    // Serialise source model into serialised wide character item.
     serialise(s, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8);
 
     // Get serialised wide character item data, count.

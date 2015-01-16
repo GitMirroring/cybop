@@ -1,10 +1,7 @@
 <model>
 
     <!--
-        The request is used in file "logic/handler.cybol".
-        CAUTION! TODO: Use character and NOT wide_character as model here??
-        "text/ascii" instead of "text/plain"??
-        The http message body may be encoded and has to be read as plain characters.
+        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
     -->
     <part name="request" channel="inline" format="text/ascii" model=""/>
 
@@ -15,6 +12,7 @@
     -->
     <part name="path" channel="inline" format="path/knowledge" model=""/>
 
-    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <part name="server_connexion_socket" channel="inline" format="number/integer" model="0"/>
+    <part name="client_connexion_socket" channel="inline" format="number/integer" model="0"/>
 
 </model>

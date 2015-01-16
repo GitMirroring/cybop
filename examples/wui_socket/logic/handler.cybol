@@ -9,7 +9,8 @@
         <property name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app.var.request"/>
-        <property name="socket" channel="inline" format="number/integer" model=".app.var.socket"/>
+        <!-- ??TODO: Rename "message" into "sender" as soon as implemented in cyboi. -->
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.client_connexion_socket"/>
     </part>
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->

@@ -56,7 +56,6 @@
  * - model (required): the model to be filled with the data received
  * - minimum (optional): the minimum number of bytes to be received in one call of the read function
  * - maximum (optional): the maximum number of bytes to be received in one call of the read function
- * - style (optional, only if channel is www, cyboi or similar): the style of socket communication
  *
  * Constraints:
  * - binary (optional): the flag indicating whether or not the file should be read in binary mode, i.e. WITHOUT altering any characters or line end cr+lf; the default is text mode

@@ -4,10 +4,11 @@
 
     <part name="send_index" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="knowledge/path" model=".app.wui.index"/>
-        <property name="socket" channel="inline" format="number/integer" model=".app.var.socket"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_connexion_socket"/>
     </part>
 
     <part name="exit_programme" channel="inline" format="live/exit" model=""/>
