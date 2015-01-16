@@ -7,7 +7,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary.command"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".temporary.command"/>
     </part>
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <part name="append_path" channel="inline" format="modify/overwrite" model="">

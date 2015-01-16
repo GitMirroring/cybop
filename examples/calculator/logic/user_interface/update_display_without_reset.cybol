@@ -28,5 +28,5 @@
         since otherwise, new input numbers will be appended to the existing display content,
         which would lead to a not-wanted prefix and false results.
     -->
-   
+
 </model>

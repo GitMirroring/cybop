@@ -59,8 +59,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="time_output_3/model.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".counter.model"/>
+        <property name="sender" channel="inline" format="text/plain" model="time_output_3/model.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".counter.model"/>
     </part>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">

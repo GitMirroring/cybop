@@ -13,8 +13,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="shell_script_clean_result_directory/app.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="sender" channel="inline" format="text/plain" model="shell_script_clean_result_directory/app.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
     </part>
 
     <part name="show_message" channel="inline" format="command/echo" model="">

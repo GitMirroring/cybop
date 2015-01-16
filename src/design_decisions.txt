@@ -337,3 +337,12 @@ The size of complex, datetime, duration, fraction, io_entry is fixed,
 which is why they may be treated as compounds and do NOT require
 special allocation functions.
 
+Encoding
+________
+
+Encoding is NOT used for socket communication (send/receive),
+since most often, protocols like http are used,
+which may have a binary attachment that has to be
+transmitted BYTE-wise, whilst encoding/decoding
+always converts into wide characters.
+

@@ -1,4 +1,5 @@
 <model>
+
     <part name="create_application" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="counter"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -48,8 +49,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="counter/model.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".counter.model"/>
+        <property name="sender" channel="inline" format="text/plain" model="counter/model.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".counter.model"/>
     </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">

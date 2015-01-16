@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-16  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Eliminate property "encoding" for socket send/receive operations
+        * Rename property "message" into "sender" and "model" into "message" for receive operations
+        * Adapt cybol example applications
+
 2015-01-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update receive functionality for socket

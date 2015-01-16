@@ -11,8 +11,8 @@
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "type" property. -->
-        <property name="message" channel="inline" format="text/plain" model="addition_static_model/domain.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".domain"/>
+        <property name="sender" channel="inline" format="text/plain" model="addition_static_model/domain.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".domain"/>
     </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree_1" channel="inline" format="communicate/send" model="">

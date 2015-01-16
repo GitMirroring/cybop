@@ -9,8 +9,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="iso-8859-15"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="character_encoding/iso-8859-15.txt"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".text"/>
+        <property name="sender" channel="inline" format="text/plain" model="character_encoding/iso-8859-15.txt"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".text"/>
     </part>
     <!--
         Since printing on console does not display

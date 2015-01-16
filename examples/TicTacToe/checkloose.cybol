@@ -424,9 +424,9 @@
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.playerloose"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".app.playerturn"/> 
+        <property name="false" channel="inline" format="path/knowledge" model=".app.playerturn"/>
     </part>
 
 
-  
-</model>    
+
+</model>

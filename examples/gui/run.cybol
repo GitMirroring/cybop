@@ -5,8 +5,8 @@
         <property name="element" channel="inline" format="text/plain" model="part"/>
     </part>
     <part name="initialise_app" channel="inline" format="communicate/receive" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
-        <property name="message" channel="inline" format="text/plain" model="gui/app.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="sender" channel="inline" format="text/plain" model="gui/app.cybol"/>
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>

@@ -9,8 +9,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui_control/app.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="sender" channel="inline" format="text/plain" model="tui_control/app.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
     </part>
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">

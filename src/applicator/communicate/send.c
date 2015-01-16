@@ -49,13 +49,10 @@
  * - format (required): the format into which to serialise the message before sending (e.g. element/part, number/integer)
  * - message (required): the source message to be sent to another system
  * - receiver (optional): the destination receiving the message
- * - mode (optional, only if channel is http): the mode of communication
- * - namespace (optional, only if channel is http): the namespace of the socket
- * - style (optional, only if channel is http): the style of communication
  * - area (optional, only if type is tui or gui): the user interface area to be repainted
  * - clear (optional, only if type is terminal or tui): the flag indicating whether or not to clear the screen before painting a user interface
  * - newline (optional, only if channel is terminal): the flag indicating whether or not to add a new line after having printed the message on screen
- * - null_termination (optional, only if channel is serial-port): the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)
+ * - null-termination (optional, only if channel is serial-port): the flag indicating whether or not to add an ascii null termination character '\0' at the end of the (multibyte) message (after encoding)
  *
  * Constraints:
  * - indentation (optional): the flag indicating whether or not the generated message is to be pretty-formatted (e.g. indented html tags)

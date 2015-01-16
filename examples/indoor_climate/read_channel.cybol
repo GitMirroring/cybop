@@ -5,7 +5,7 @@
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.device_channel"/>
-        <property name="null_termination" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="null-termination" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">

@@ -52,12 +52,9 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
     </part>
-    <part name="wui" channel="inline" format="operation/plain" model="send">
+    <part name="wui" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.wui.http_response"/>
-        <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
-        <property name="style" channel="inline" format="text/plain" model="stream"/>
-        <property name="mode" channel="inline" format="text/plain" model="server"/>
     </part>
 -->
 </model>

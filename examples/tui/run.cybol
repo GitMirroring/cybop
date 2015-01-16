@@ -29,40 +29,40 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui/temporary.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary"/>
+        <property name="sender" channel="inline" format="text/plain" model="tui/temporary.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".temporary"/>
     </part>
     <part name="initialise_logic" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui/logic.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".logic"/>
+        <property name="sender" channel="inline" format="text/plain" model="tui/logic.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".logic"/>
     </part>
     <part name="initialise_tui" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui/tui.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".tui"/>
+        <property name="sender" channel="inline" format="text/plain" model="tui/tui.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".tui"/>
     </part>
     <part name="initialise_actions" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui/actions.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".actions"/>
+        <property name="sender" channel="inline" format="text/plain" model="tui/actions.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".actions"/>
     </part>
     <part name="initialise_handler" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="tui/handler.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".handler"/>
+        <property name="sender" channel="inline" format="text/plain" model="tui/handler.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".handler"/>
     </part>
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

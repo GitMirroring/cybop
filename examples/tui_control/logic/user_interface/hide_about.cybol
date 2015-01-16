@@ -1,4 +1,5 @@
 <model>
+
     <part name="send" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -7,8 +8,10 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+
     <part name="sense" channel="inline" format="live/sense" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_main"/>
     </part>
+
 </model>

@@ -11,8 +11,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="text/plain" model="0"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="sender" channel="inline" format="text/plain" model="0"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
     </part>
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

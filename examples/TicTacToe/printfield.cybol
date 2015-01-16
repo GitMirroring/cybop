@@ -173,4 +173,4 @@
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
-</model> 
+</model>

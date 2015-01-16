@@ -77,6 +77,11 @@ void receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
+    // CAUTION! Do NOT use WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.
+    // The data transmitted via socket are treated as byte data
+    // and have to be converted inside the cybol application,
+    // by explicitly calling the corresponding "convert" operation.
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Loop until all bytes have been received.

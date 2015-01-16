@@ -14,33 +14,24 @@
 WUI
 ___
 
-        * Think through whether or not "encoding" should be provided as property for socket send/receive, since not always http is used;
-            problem: conversion into wide characters internally, whilst bytes should remain as they are if an http attachment like jpeg or pdf is transmitted
-        * Eliminate property "encoding" for "send" operations in cybol example application "wui_socket"
-        * Read property "sender" for cybol operation "live/sense" in applicator
+        * Remove internal memory as parametre from file "deserialiser.c"
+
+        * Read property "sender" for cybol operation "live/sense" in applicator OR where else to accept and assign the received client socket?
         * Activate socket sensing in checker:
             possibly use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue;
             see glibc documentation "16.9.5.3 Socket Data Options"
-        * Test message sending in cybol example application "wui_socket"
-
-        * Remove internal memory as parametre from file "deserialiser.c"
-        * Rename "message" into "sender" in receive operations and all cybol files (which use "message" as filename in receive from file)
-        * AFTERWARDS, Rename "model" into "message" in receive operations and all cybol files (which use "message" as filename in receive from file)
+        * Test cybol example application "wui_socket"
 
         * Test new service checker functions in files "wait_checker.c" etc.
         * Start with terminal, comment out terminal sensing thread, test
-        * Eliminate terminal sensing thread
+        * Eliminate terminal sensing thread ?? ONLY possible if peaking ahead is possible (or writing back bytes, as is done for terminal)
         * Repeat for other io channels (display, serial)
 
         * Clean up "internal_memory_manager" by deleting i/o parametres
         * Clean up file "internal_memory_state_cyboi_name.c" after having replaced constants with those defined in file "input_output_state_cyboi_name.c"
 
-        * Continue socket sender and distinguish between server socket read from internal memory and client socket handed over as  parametre
-        * Reactivate socket send/receive functionality
-
-        * Create variables like "enable", "irq", "thread" dynamically PER SERVICE in internal memory and NOT as global fixed variables, since it is not predictable, how many socket services will be used at runtime
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
-        * Use a new function looping all open/enabled/NOT_NULL sockets in internal memory, in order to close them
+        * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
 
         * Verify in file "manager.c" if internal memory should be handed over as pointer reference argument to any other functions, in order to properly assign pointers into it
         * Verify pointer handling (reference usage) in files "io_entry_setter.c" etc.

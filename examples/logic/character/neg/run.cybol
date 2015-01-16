@@ -8,7 +8,7 @@
     <!-- create Terminal -->
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part> 
+    </part>
 
 
     <!-- include data -->
@@ -17,8 +17,8 @@
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="logic/character/neg/data.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="sender" channel="inline" format="text/plain" model="logic/character/neg/data.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
     </part>
 
     <!-- Calculate -->

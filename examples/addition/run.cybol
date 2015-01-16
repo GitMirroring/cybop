@@ -11,8 +11,8 @@
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
-        <property name="message" channel="inline" format="text/plain" model="1,1,1"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="sender" channel="inline" format="text/plain" model="1,1,1"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
     </part>
     <!--
         CAUTION! The "result" integer vector has to be initialised BEFORE this operation.

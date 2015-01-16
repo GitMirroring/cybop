@@ -10,7 +10,7 @@
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
     </part>
 
 

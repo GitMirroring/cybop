@@ -5,8 +5,9 @@
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".settings.device_channel"/>
-        <property name="null_termination" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="crlf_termination" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="null-termination" channel="inline" format="logicvalue/boolean" model="false"/>
+        <!-- The following property is not implemented in cyboi yet. -->
+        <property name="crlf-termination" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
         <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>

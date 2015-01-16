@@ -1,4 +1,5 @@
 <model>
+
 <!--
     <part name="interrupt_terminal" channel="inline" format="live/interrupt" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -30,5 +31,7 @@
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </model>
