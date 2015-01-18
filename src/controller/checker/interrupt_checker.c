@@ -100,6 +100,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 //?? fwprintf(stdout, L"TEST detected serial irq: %i\n", *((int*) *irq));
         }
 
+/*??
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Detected socket interrupt.");
@@ -119,6 +120,7 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
 //?? fwprintf(stdout, L"TEST detected www service irq: %i\n", *((int*) *irq));
         }
+*/
 
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
