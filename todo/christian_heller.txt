@@ -14,12 +14,12 @@
 WUI
 ___
 
-        * Remove internal memory as parametre from file "deserialiser.c"
-
-        * Read property "sender" for cybol operation "live/sense" in applicator OR where else to accept and assign the received client socket?
+        * See UML AD for signal checker flow
+        * Merge functions "check_sense" + "check_sense_OLD"
         * Activate socket sensing in checker:
             possibly use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue;
             see glibc documentation "16.9.5.3 Socket Data Options"
+        * Assign sender (accepted client socket) in sensor
         * Test cybol example application "wui_socket"
 
         * Test new service checker functions in files "wait_checker.c" etc.

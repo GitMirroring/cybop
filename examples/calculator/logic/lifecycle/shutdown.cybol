@@ -21,7 +21,7 @@
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
     <part name="destroy_app" channel="inline" format="memorise/destroy" model="">
-        <property name="name" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app"/>
     </part>
 -->
     <part name="clean_tui" channel="inline" format="communicate/send" model="">

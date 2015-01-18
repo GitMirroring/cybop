@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Read property "sender" for cybol operation "live/sense" in applicator
+        * Create uml activity diagram (ad) for signal checker/sensor flow
+
 2015-01-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Eliminate property "encoding" for socket send/receive operations
