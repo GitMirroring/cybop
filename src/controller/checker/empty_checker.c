@@ -45,12 +45,10 @@
  * and queries interrupts instead.
  *
  * @param p0 the internal memory data
- * @param p1 the knowledge memory part
- * @param p2 the signal memory item
- * @param p3 the signal memory sleep time
- * @param p4 the shutdown flag
+ * @param p1 the signal memory item
+ * @param p2 the signal memory sleep time
  */
-void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_empty(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
@@ -64,8 +62,6 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
     pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal part representing the interrupt request handler.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The direct execution flag.
-    int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
 //?? fwprintf(stdout, L"TEST check empty: %i\n", irq);
 
@@ -83,18 +79,31 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // - interrupt request (to be reset below)
     // - mutex (to be blocked while resetting the interrupt request below)
     // - handler (the signal to be forwarded to the "handle" function below)
-    check_interrupt((void*) &irq, (void*) &mt, (void*) &s, p0);
+    check_interrupt((void*) &irq, (void*) &s, (void*) &mt, p0);
 
     // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
     // because otherwise, the "else" branch below would not always be reached.
     if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
-        // Handle signal.
+        // Add part model (signal) to signal memory.
         //
-        // CAUTION! The "handle" function has to be called DIRECTLY
-        // (with direct execution flag set) here!
-        // For reasons, see the comment block above!
-        handle(s, p0, p1, p2, (void*) &x, p4);
+        // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
+        // The signal memory just holds references to knowledge memory parts (signals),
+        // but only the knowledge memory may care about rubbish (garbage) collection.
+        //
+        // Example:
+        // Assume there are two signals in the signal memory.
+        // The second references a logic part that is to be destroyed by the first.
+        // If reference counting from rubbish (garbage) collection were used,
+        // then the logic part serving as second signal could not be deallocated
+        // as long as it is still referenced from the signal memory item.
+        //
+        // But probably, there is a reason the first signal wants to destroy the
+        // second and consequently, the second should not be executed anymore.
+        // After destruction, the second signal just points to null, which is ignored.
+        // Hence, rubbish (garbage) collection would only disturb here
+        // and should be left to the knowledge memory.
+        append_item_element(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Lock mutex.
         pthread_mutex_lock(mt);
@@ -164,7 +173,7 @@ void check_empty(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // No interrupt request was detected, so that the cyboi system
         // can be sent to sleep now, in order to save cpu time.
 
-        check_wait(p0, p3);
+        check_wait(p0, p2);
     }
 }
 

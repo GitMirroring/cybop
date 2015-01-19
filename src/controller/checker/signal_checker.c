@@ -100,7 +100,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // No signal is available in the signal memory.
         // Query interrupt flags for requests.
 
-        check_empty(p0, p1, p2, p3, p4);
+        check_empty(p0, p2, p3);
     }
 
     //

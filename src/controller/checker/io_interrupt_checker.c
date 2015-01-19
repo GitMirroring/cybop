@@ -23,31 +23,34 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IO_SENSE_CHECKER_SOURCE
-#define IO_SENSE_CHECKER_SOURCE
+#ifndef IO_INTERRUPT_CHECKER_SOURCE
+#define IO_INTERRUPT_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../controller/checker/io_entry_sense_checker.c"
+#include "../../controller/checker/io_entry_interrupt_checker.c"
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/modifier/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
 /**
- * Senses an input output.
+ * Checks input output for data.
  *
- * @param p0 the sense result
- * @param p1 the internal memory
- * @param p2 the input output base
- * @param p3 the loop count
+ * @param p0 the comparison result
+ * @param p1 the interrupt (pointer reference)
+ * @param p2 the mutex (pointer reference)
+ * @param p3 the handler (pointer reference)
+ * @param p4 the internal memory data
+ * @param p5 the input output base
+ * @param p6 the loop count
  */
-void check_sense_io(void* p0, void* p1, void* p2, void* p3) {
+void check_interrupt_io(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense io.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check interrupt io.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -57,9 +60,9 @@ void check_sense_io(void* p0, void* p1, void* p2, void* p3) {
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index using given input output base.
-    calculate_integer_add((void*) &i, p2);
+    calculate_integer_add((void*) &i, p5);
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p6 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -73,19 +76,19 @@ void check_sense_io(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p6);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        check_sense_io_entry(p0, p1, (void*) &i, (void*) &j, (void*) &b);
+        check_interrupt_io_entry(p0, p1, p2, p3, p4, (void*) &i, (void*) &j, (void*) &b);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* IO_SENSE_CHECKER_SOURCE */
+/* IO_INTERRUPT_CHECKER_SOURCE */
 #endif

@@ -28,12 +28,12 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../controller/checker/io_interrupt_checker.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../logger/logger.c"
 
@@ -49,18 +49,42 @@
  * The "handler" is an operation encapsulated as part, which is
  * to be forwarded as signal to be processed normally in the system.
  *
- * @param p0 the interrupt (pointer reference)
- * @param p1 the mutex (pointer reference)
- * @param p2 the handler (pointer reference)
+ * @param p0 the interrupt request
+ * @param p1 the handler (pointer reference)
+ * @param p2 the mutex
  * @param p3 the internal memory data
  */
 void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check interrupt.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??        check_interrupt_io((void*) &r, p0, p1, p2, p3, (void*) DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??        check_interrupt_io((void*) &r, p0, p1, p2, p3, (void*) SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??        check_interrupt_io((void*) &r, p0, p1, p2, p3, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??        check_interrupt_io((void*) &r, p0, p1, p2, p3, (void*) TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    }
+
+    //?? TODO: The following comparisons are OLD and to be deleted in the future.
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** irq = (void**) p0;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for interrupt requests.");
 
         // The internal memory index.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -82,8 +106,8 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
             // Get interrupt request, mutex, handler.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
 //?? fwprintf(stdout, L"TEST detected display irq: %i\n", *((int*) *irq));
         }
@@ -94,8 +118,8 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
             // Get interrupt request, mutex, handler.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
 //?? fwprintf(stdout, L"TEST detected serial irq: %i\n", *((int*) *irq));
         }
@@ -128,20 +152,20 @@ void check_interrupt(void* p0, void* p1, void* p2, void* p3) {
 
             // Get interrupt request, mutex, handler.
             copy_array_forward(p0, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p1, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+            copy_array_forward(p2, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
 //?? fwprintf(stdout, L"TEST detected terminal irq: %i\n", *((int*) *irq));
         }
 
         if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. No interrupt request was detected.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check interrupt. No interrupt request was detected.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check for interrupt requests. The interrupt request is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check interrupt. The interrupt request is null.");
     }
 }
 
