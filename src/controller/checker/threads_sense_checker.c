@@ -52,7 +52,7 @@
  * @param p7 the terminal interrupt request
  * @param p8 the break flag
  */
-void check_sense_threads(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void check_sense_threads(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense threads.");
 

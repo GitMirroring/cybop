@@ -125,10 +125,12 @@ void check_wait(void* p0, void* p1) {
         }
     }
 
-fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) di));
-fwprintf(stdout, L"TEST wait *serial_irq: %i\n", *((int*) si));
-fwprintf(stdout, L"TEST wait *socket_irq: %i\n", *((int*) soi));
-fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) ti));
+/*??
+    fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) di));
+    fwprintf(stdout, L"TEST wait *serial_irq: %i\n", *((int*) si));
+    fwprintf(stdout, L"TEST wait *socket_irq: %i\n", *((int*) soi));
+    fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) ti));
+*/
 
     // The sleep loop above is left as soon as at least one of the
     // interrupt variables is set to a value other than false (zero).
