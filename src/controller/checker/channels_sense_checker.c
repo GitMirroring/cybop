@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef OLD_SENSE_CHECKER_SOURCE
-#define OLD_SENSE_CHECKER_SOURCE
+#ifndef CHANNELS_SENSE_CHECKER_SOURCE
+#define CHANNELS_SENSE_CHECKER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -43,7 +43,10 @@
 #include "../../logger/logger.c"
 
 /**
- * Senses an interrupt request.
+ * Senses interrupt request at the given channels.
+ *
+ * This is the NEW solution avoiding threads,
+ * in order to be more platform-independent.
  *
  * @param p0 the display enable flag
  * @param p1 the display interrupt request
@@ -55,46 +58,14 @@
  * @param p7 the terminal interrupt request
  * @param p8 the break flag
  * @param p9 the internal memory data
- * @param p10 the sleep time
  */
-void check_sense_OLD(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void check_sense_channels(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* b = (int*) p8;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense OLD.");
-
-//?? fwprintf(stdout, L"TEST check sense b: %i\n", *((int*) b));
-
-        // The results.
-        int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        int so = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        // Check if flags have been set within a sensing thread,
-        // running in parallel to this main thread.
-        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Initialise results.
-            logify_boolean_or((void*) &d, p0);
-            logify_boolean_or((void*) &s, p2);
-            logify_boolean_or((void*) &so, p4);
-            logify_boolean_or((void*) &t, p6);
-
-            // Check if both, enabled flag AND interrupt request are TRUE.
-            logify_boolean_and((void*) &d, p1);
-            logify_boolean_and((void*) &s, p3);
-            logify_boolean_and((void*) &so, p5);
-            logify_boolean_and((void*) &t, p7);
-
-            if (d || s || so || t) {
-
-                // Set break flag.
-                copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
-        }
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense channels.");
 
         // Test display for input.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -144,17 +115,11 @@ void check_sense_OLD(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             }
         }
 
-        if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Sleep for some time.
-            sleep_nano(p10);
-        }
-
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense OLD. The break flag is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not check sense channels. The break flag is null.");
     }
 }
 
-/* OLD_SENSE_CHECKER_SOURCE */
+/* CHANNELS_SENSE_CHECKER_SOURCE */
 #endif

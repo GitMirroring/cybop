@@ -14,8 +14,7 @@
 WUI
 ___
 
-        * See UML AD for signal checker flow
-        * Merge functions "check_sense" + "check_sense_OLD"
+        * See UML AD for signal/irq/sensing checker flow
         * Activate socket sensing in checker:
             possibly use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue;
             see glibc documentation "16.9.5.3 Socket Data Options"

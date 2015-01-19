@@ -34,8 +34,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/checker/OLD_sense_checker.c"
-#include "../../controller/checker/sense_checker.c"
+#include "../../controller/checker/channels_sense_checker.c"
+#include "../../controller/checker/threads_sense_checker.c"
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
@@ -52,7 +52,7 @@ void check_wait(void* p0, void* p1) {
     // The internal memory index.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    //?? TODO: ------------- All following variables are old and to be DELETED soon.
+    //?? TODO: ------------- All following variables may be DELETED later.
     // The display enable flag and interrupt request.
     void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -105,24 +105,30 @@ void check_wait(void* p0, void* p1) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        // Check if flags have been set within a sensing thread,
+        // running in parallel to this main thread.
+        //
+        //?? TODO: DELETE in the future.
+        check_sense_threads(de, di, se, si, soe, soi, te, ti, (void*) &b);
+
+        // Senses interrupt request at the given channels.
+        check_sense_channels(de, di, se, si, soe, soi, te, ti, (void*) &b, p0);
+
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
+
+        } else {
+
+            // Sleep for some time.
+            sleep_nano(p1);
         }
-
-        // Sense interrupt request or sleep.
-        check_sense((void*) &b, p0, p1);
-
-        //?? TODO: DELETE in the future.
-        check_sense_OLD(de, di, se, si, soe, soi, te, ti, (void*) &b, p0, p1);
     }
 
-/*??
 fwprintf(stdout, L"TEST wait *display_irq: %i\n", *((int*) di));
 fwprintf(stdout, L"TEST wait *serial_irq: %i\n", *((int*) si));
 fwprintf(stdout, L"TEST wait *socket_irq: %i\n", *((int*) soi));
 fwprintf(stdout, L"TEST wait *terminal_irq: %i\n", *((int*) ti));
-*/
 
     // The sleep loop above is left as soon as at least one of the
     // interrupt variables is set to a value other than false (zero).
