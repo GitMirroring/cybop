@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-19  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue signal/irq/sensing checker
+
 2015-01-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Read property "sender" for cybol operation "live/sense" in applicator
