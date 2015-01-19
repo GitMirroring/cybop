@@ -42,19 +42,44 @@
  * This is the OLD solution using thread,
  * which causes problems when porting to other platforms.
  *
- * @param p0 the display enable flag
- * @param p1 the display interrupt request
- * @param p2 the serial port enable flag
- * @param p3 the serial port interrupt request
- * @param p4 the socket enable flag
- * @param p5 the socket interrupt request
- * @param p6 the terminal enable flag
- * @param p7 the terminal interrupt request
- * @param p8 the break flag
+ * @param p0 the break flag
+ * @param p1 the internal memory data
  */
-void check_sense_threads(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void check_sense_threads(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense threads.");
+
+    // The display enable flag and interrupt request.
+    void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serial enable flag and interrupt request.
+    void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The socket enable flag and interrupt request.
+    void* soe = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* soi = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The terminal enable flag and interrupt request.
+    void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get display enable flag and interrupt request.
+    copy_array_forward((void*) &de, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &di, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get serial enable flag and interrupt request.
+    copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &si, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+/*??
+    // Get socket enable flag and interrupt request.
+    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &soe, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &soi, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+*/
+    // Get terminal enable flag and interrupt request.
+    copy_array_forward((void*) &te, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ti, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // The results.
     int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -63,21 +88,21 @@ void check_sense_threads(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise results.
-    logify_boolean_or((void*) &d, p0);
-    logify_boolean_or((void*) &s, p2);
-    logify_boolean_or((void*) &so, p4);
-    logify_boolean_or((void*) &t, p6);
+    logify_boolean_or((void*) &d, de);
+    logify_boolean_or((void*) &s, se);
+    logify_boolean_or((void*) &so, soe);
+    logify_boolean_or((void*) &t, te);
 
     // Check if both, enabled flag AND interrupt request are TRUE.
-    logify_boolean_and((void*) &d, p1);
-    logify_boolean_and((void*) &s, p3);
-    logify_boolean_and((void*) &so, p5);
-    logify_boolean_and((void*) &t, p7);
+    logify_boolean_and((void*) &d, di);
+    logify_boolean_and((void*) &s, si);
+    logify_boolean_and((void*) &so, soi);
+    logify_boolean_and((void*) &t, ti);
 
     if (d || s || so || t) {
 
         // Set break flag.
-        copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

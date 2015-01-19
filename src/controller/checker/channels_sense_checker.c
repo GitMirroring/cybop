@@ -29,17 +29,12 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/lifeguard/sensor/display/display_sensor.c"
 #include "../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
-#include "../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../executor/logifier/boolean/or_boolean_logifier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
-#include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
 
 /**
@@ -48,24 +43,48 @@
  * This is the NEW solution avoiding threads,
  * in order to be more platform-independent.
  *
- * @param p0 the display enable flag
- * @param p1 the display interrupt request
- * @param p2 the serial port enable flag
- * @param p3 the serial port interrupt request
- * @param p4 the socket enable flag
- * @param p5 the socket interrupt request
- * @param p6 the terminal enable flag
- * @param p7 the terminal interrupt request
- * @param p8 the break flag
- * @param p9 the internal memory data
+ * @param p0 the break flag
+ * @param p1 the internal memory data
  */
-void check_sense_channels(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void check_sense_channels(void* p0, void* p1) {
 
-    if (p8 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* b = (int*) p8;
+        int* b = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense channels.");
+
+        // The display enable flag and interrupt request.
+        void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* di = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The serial enable flag and interrupt request.
+        void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The socket enable flag and interrupt request.
+        void* soe = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* soi = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The terminal enable flag and interrupt request.
+        void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+        // Get display enable flag and interrupt request.
+        copy_array_forward((void*) &de, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &di, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        // Get serial enable flag and interrupt request.
+        copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &si, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+/*??
+        // Get socket enable flag and interrupt request.
+        copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &soe, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &soi, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+*/
+        // Get terminal enable flag and interrupt request.
+        copy_array_forward((void*) &te, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &ti, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         // The results.
         int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -74,20 +93,20 @@ void check_sense_channels(void* p0, void* p1, void* p2, void* p3, void* p4, void
         int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Initialise results.
-        logify_boolean_or((void*) &d, p0);
-        logify_boolean_or((void*) &s, p2);
-        logify_boolean_or((void*) &so, p4);
-        logify_boolean_or((void*) &t, p6);
+        logify_boolean_or((void*) &d, de);
+        logify_boolean_or((void*) &s, se);
+        logify_boolean_or((void*) &so, soe);
+        logify_boolean_or((void*) &t, te);
 
         // Test display for input.
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Test if enabled.
-            compare_integer_unequal((void*) &d, p0, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_integer_unequal((void*) &d, de, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (d != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                sense_display(p1, p8, p9);
+                sense_display(di, p0, p1);
             }
         }
 
@@ -95,11 +114,11 @@ void check_sense_channels(void* p0, void* p1, void* p2, void* p3, void* p4, void
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Test if enabled.
-            compare_integer_unequal((void*) &s, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_integer_unequal((void*) &s, se, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (s != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??                sense_serial(p3, p8, p9);
+//??                sense_serial(si, p0, p1);
             }
         }
 
@@ -107,11 +126,11 @@ void check_sense_channels(void* p0, void* p1, void* p2, void* p3, void* p4, void
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Test if enabled.
-            compare_integer_unequal((void*) &so, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_integer_unequal((void*) &so, soe, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (so != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??                sense_socket(p5, p8, p9);
+//??                sense_socket(soi, p0, p1);
             }
         }
 
@@ -119,18 +138,18 @@ void check_sense_channels(void* p0, void* p1, void* p2, void* p3, void* p4, void
         if (*b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Test if enabled.
-            compare_integer_unequal((void*) &t, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_integer_unequal((void*) &t, te, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (t != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                sense_terminal(p7, p8, p9);
+                sense_terminal(ti, p0, p1);
             }
         }
 
         if (*b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Set break flag.
-            copy_integer(p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {
