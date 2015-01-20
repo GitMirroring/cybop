@@ -82,8 +82,9 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
             // One can accept further connexions with the original
             // server socket by calling "accept" again.
             //
-            // The address returns information about the name of the
-            // client socket that initiated the connexion.
+            // CAUTION! If addr (second argument) and/or addrlen (third argument)
+            // are equal to NULL, then no information about the remote address
+            // of the accepted client socket is returned.
             //
             // CAUTION! The socket was made non-blocking at startup.
             //

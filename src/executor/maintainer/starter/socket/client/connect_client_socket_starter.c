@@ -51,6 +51,9 @@ void startup_socket_client_connect(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client connect.");
 
+fwprintf(stdout, L"TEST: startup socket client connect s: %i \n", *((int*) p0));
+sleep(2);
+
 #ifdef __APPLE__
     startup_bsd_socket_connect(p0, p1, p2);
 #elif WIN32

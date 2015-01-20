@@ -88,6 +88,8 @@ void send_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST: send socket p0: %i \n", *((int*) p0));
+
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     send_socket_message(p0, (void*) &sd, sc);
 

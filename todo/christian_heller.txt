@@ -14,10 +14,11 @@
 WUI
 ___
 
+        * Test cybol example application "wui_socket"
+
         * Verify correctness of pointer copying in "accessor/io_entry_getter.c" and "accessor/io_entry_setter.c"
 
         * Set non-blocking mode for socket at startup
-        * Test if socket function "accept" works without address argument (currently set to NULL) in socket sensor
 
         * Extend function "check_wait" by call of function "check_sender"; all function calls in this order:
             check_io_threads
@@ -27,11 +28,13 @@ ___
         * Add int array client socket "senders" to EACH io entry (one for each channel, created in cybol app)
         * Assign sender (accepted client socket) in sensor
         * Use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue; see glibc documentation "16.9.5.3 Socket Data Options"
-        * Test cybol example application "wui_socket"
 
         * When and where to close a client socket that was accepted by the server socket?
             it is stored as int number in the cybol application;
             possibly close client socket by default in cybol application, right after having sent a reply
+        * Attach timeout and other meta data as properties to a client socket number?
+            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
+            is the client socket usable as unique id?
 
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them

@@ -110,6 +110,11 @@ void receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST: receive socket serialised character data sc: %i \n", sc);
+fwprintf(stdout, L"TEST: receive socket serialised character data *sc: %i \n", *((int*) sc));
+fwprintf(stdout, L"TEST: receive socket serialised character data sd: %s \n", sd);
+sleep(2);
+
     // Deserialise serialised character array into destination item.
     //
     // CAUTION! Any meta data like an http request's headers

@@ -61,7 +61,7 @@ void sense_winsock_accept(void* p0, void* p1, void* p2) {
             //
             // CAUTION! If addr (second argument) and/or addrlen (third argument)
             // are equal to NULL, then no information about the remote address
-            // of the accepted socket is returned.
+            // of the accepted client socket is returned.
             //
             // http://msdn.microsoft.com/en-us/library/windows/desktop/ms737526%28v=vs.85%29.aspx
             //
