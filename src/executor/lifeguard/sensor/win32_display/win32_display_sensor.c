@@ -36,9 +36,8 @@
  * Senses win32 display messages.
  *
  * @param p0 the interrupt request
- * @param p1 the break flag
  */
-void sense_win32_display(void* p0, void* p1) {
+void sense_win32_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
 
@@ -88,9 +87,6 @@ void sense_win32_display(void* p0, void* p1) {
         // that a message has been received via display,
         // which may now be processed in the main thread of this system.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        // Set break flag.
-        copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

@@ -1,9 +1,15 @@
 <model>
 
     <!--
+        The client request as received on the server.
         CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
     -->
     <part name="request" channel="inline" format="text/ascii" model=""/>
+    <!--
+        The server response as received on the client.
+        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
+    -->
+    <part name="response" channel="inline" format="text/ascii" model=""/>
 
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".

@@ -39,10 +39,9 @@
  * Senses x window system messages.
  *
  * @param p0 the interrupt request
- * @param p1 the break flag
- * @param p2 the internal memory data
+ * @param p1 the internal memory data
  */
-void sense_x_window_system(void* p0, void* p1, void* p2) {
+void sense_x_window_system(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system.");
 
@@ -50,7 +49,7 @@ void sense_x_window_system(void* p0, void* p1, void* p2) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get connexion.
-    copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,7 +84,7 @@ void sense_x_window_system(void* p0, void* p1, void* p2) {
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Store event in internal memory.
-            copy_array_forward(p2, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p1, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // CAUTION! Setting a mutex is NOT necessary here,
             // since this is the main thread and no other threads
@@ -95,9 +94,6 @@ void sense_x_window_system(void* p0, void* p1, void* p2) {
             // that a message has been received via display,
             // which may now be processed in the main thread of this system.
             copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            // Set break flag.
-            copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
 
     } else {

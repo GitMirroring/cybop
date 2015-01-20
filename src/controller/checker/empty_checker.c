@@ -35,7 +35,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/checker/interrupt_checker.c"
+#include "../../controller/checker/irq/irq_checker.c"
 #include "../../controller/checker/wait_checker.c"
 #include "../../controller/handler.c"
 #include "../../logger/logger.c"
@@ -53,15 +53,17 @@ void check_empty(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check empty.");
 
     // The interrupt.
+    volatile sig_atomic_t irq = (volatile sig_atomic_t) *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The signal part representing the interrupt request handler.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? TODO: Delete the following OLD solution.
     // CAUTION! It CANNOT be handed over as parametre, since it
     // is not always only the signal memory interrupt request.
     // Other input channels' interrupts may be assigned as well below.
-    volatile sig_atomic_t* irq = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The mutex.
+    volatile sig_atomic_t* irqOLD = (volatile sig_atomic_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+    //?? TODO: Delete the following OLD solution.
     // CAUTION! It CANNOT be handed over as parametre (like the interrupt).
-    pthread_mutex_t* mt = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal part representing the interrupt request handler.
-    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    pthread_mutex_t* mtOLD = (pthread_mutex_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
 //?? fwprintf(stdout, L"TEST check empty: %i\n", irq);
 
@@ -79,11 +81,14 @@ void check_empty(void* p0, void* p1, void* p2) {
     // - interrupt request (to be reset below)
     // - mutex (to be blocked while resetting the interrupt request below)
     // - handler (the signal to be forwarded to the "handle" function below)
-    check_interrupt((void*) &irq, (void*) &s, (void*) &mt, p0);
+    check_irq((void*) &irq, (void*) &s, p0, (void*) &irqOLD, (void*) &mtOLD);
 
-    // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
-    // because otherwise, the "else" branch below would not always be reached.
-    if ((irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irq) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+    if ((irq != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) ||
+
+        //?? TODO: The following comparison is OLD and will be deleted in the future.
+        // CAUTION! These conditions HAVE TO BE connected by a boolean AND operator,
+        // because otherwise, the "else" branch below would not always be reached.
+        ((irqOLD != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irqOLD) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
         // Add part model (signal) to signal memory.
         //
@@ -106,7 +111,7 @@ void check_empty(void* p0, void* p1, void* p2) {
         append_item_element(p1, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Lock mutex.
-        pthread_mutex_lock(mt);
+        pthread_mutex_lock(mtOLD);
 
         // Reset interrupt.
         //
@@ -158,10 +163,10 @@ void check_empty(void* p0, void* p1, void* p2) {
         // CAUTION! Avoid using the "copy_integer" function,
         // since the irq is atomic and casting it to int
         // might possibly falsify its behaviour.
-        *irq = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        *irqOLD = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Unlock mutex.
-        pthread_mutex_unlock(mt);
+        pthread_mutex_unlock(mtOLD);
 
         // CAUTION! An interrupt request was detected and the corresponding data received.
         // It is therefore VERY likely that new signals have been generated while handling the data.

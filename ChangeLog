@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Restructure files in directory "controller/checker/"
+        * Continue socket sensor
+
 2015-01-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise signal/irq handling in checker

@@ -23,16 +23,16 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef THREADS_SENSE_CHECKER_SOURCE
-#define THREADS_SENSE_CHECKER_SOURCE
+#ifndef THREADS_IO_CHECKER_SOURCE
+#define THREADS_IO_CHECKER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../executor/modifier/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/logifier/boolean/and_boolean_logifier.c"
+#include "../../../executor/logifier/boolean/or_boolean_logifier.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../logger/logger.c"
 
 /**
  * Check if flags have been set within a sensing thread.
@@ -45,9 +45,9 @@
  * @param p0 the break flag
  * @param p1 the internal memory data
  */
-void check_sense_threads(void* p0, void* p1) {
+void check_io_threads(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check sense threads.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io threads.");
 
     // The display enable flag and interrupt request.
     void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -55,9 +55,6 @@ void check_sense_threads(void* p0, void* p1) {
     // The serial enable flag and interrupt request.
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* si = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The socket enable flag and interrupt request.
-    void* soe = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* soi = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terminal enable flag and interrupt request.
     void* te = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* ti = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -68,15 +65,6 @@ void check_sense_threads(void* p0, void* p1) {
     // Get serial enable flag and interrupt request.
     copy_array_forward((void*) &se, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &si, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-/*??
-    // Get socket enable flag and interrupt request.
-    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) ENABLE_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &soe, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-    copy_integer((void*) &i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    calculate_integer_add((void*) &i, (void*) INTERRUPT_REQUEST_INDEX_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &soi, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
-*/
     // Get terminal enable flag and interrupt request.
     copy_array_forward((void*) &te, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ENABLE_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &ti, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INTERRUPT_REQUEST_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
@@ -84,27 +72,24 @@ void check_sense_threads(void* p0, void* p1) {
     // The results.
     int d = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int s = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    int so = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int t = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise results.
     logify_boolean_or((void*) &d, de);
     logify_boolean_or((void*) &s, se);
-    logify_boolean_or((void*) &so, soe);
     logify_boolean_or((void*) &t, te);
 
     // Check if both, enabled flag AND interrupt request are TRUE.
     logify_boolean_and((void*) &d, di);
     logify_boolean_and((void*) &s, si);
-    logify_boolean_and((void*) &so, soi);
     logify_boolean_and((void*) &t, ti);
 
-    if (d || s || so || t) {
+    if (d || s || t) {
 
         // Set break flag.
         copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* THREADS_SENSE_CHECKER_SOURCE */
+/* THREADS_IO_CHECKER_SOURCE */
 #endif

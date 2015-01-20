@@ -43,8 +43,9 @@
  * @param p1 the input output base
  * @param p2 the service id (e.g. socket port)
  * @param p3 the handler part (pointer reference)
+ * @param p4 the sender data
  */
-void sense_channel(void* p0, void* p1, void* p2, void* p3) {
+void sense_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense channel.");
 
@@ -68,9 +69,8 @@ void sense_channel(void* p0, void* p1, void* p2, void* p3) {
 
         // Set handler into io entry.
         set_io_entry_element(io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-        // CAUTION! A sensing thread is NOT necessary,
-        // since input gets sensed in the main thread.
+        // Set sender into io entry.
+        set_io_entry_element(io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Set enable flag into io entry.
         set_io_entry_element(io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);

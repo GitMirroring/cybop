@@ -23,24 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef WINSOCK_SENSOR_SOURCE
-#define WINSOCK_SENSOR_SOURCE
+#ifndef ACCEPT_WINSOCK_SENSOR_SOURCE
+#define ACCEPT_WINSOCK_SENSOR_SOURCE
 
 /**
- * Senses winsock.
+ * Accepts data on the given winsock.
  *
- * @param p0 the interrupt
- * @param p1 the mutex
- * @param p2 the sleep time
- * @param p3 the communication partner-connected socket
- * @param p4 the communication partner-connected socket address
- * @param p5 the communication partner-connected socket address size
- * @param p6 the original socket of this system
+ * @param p0 the interrupt request
+ * @param p1 the sender client socket
+ * @param p2 the server socket
  */
-void sense_winsock(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void sense_winsock_accept(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense winsock accept.");
 
     //?? TODO
 }
 
-/* WINSOCK_SENSOR_SOURCE */
+/* ACCEPT_WINSOCK_SENSOR_SOURCE */
 #endif

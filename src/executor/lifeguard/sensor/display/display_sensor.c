@@ -44,21 +44,20 @@
  * Senses display messages.
  *
  * @param p0 the interrupt request
- * @param p1 the break flag
- * @param p2 the internal memory data
+ * @param p1 the internal memory data
  */
-void sense_display(void* p0, void* p1, void* p2) {
+void sense_display(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense display.");
 
 #ifdef __APPLE__
     //?? Add cocoa support for apple
 #elif WIN32
-    sense_win32_display(p0, p1);
+    sense_win32_display(p0);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    sense_x_window_system(p0, p1, p2);
+    sense_x_window_system(p0, p1);
 #else
-    sense_x_window_system(p0, p1, p2);
+    sense_x_window_system(p0, p1);
 #endif
 }
 

@@ -32,8 +32,8 @@
 /**
  * The internal memory cyboi model count.
  *
- * CAUTION! The total number of possible socket ports/services alone is: 65536
- * Therefore, the internal memory size has to be greater than that.
+ * CAUTION! The total number of possible socket ports/services alone is: 65,536
+ * Therefore, the internal memory size has to be greater than that, currently 100,000.
  * Also, before the socket base, there are some other input/output values,
  * e.g. for serial port, terminal, display etc. which have to be taken into account.
  */

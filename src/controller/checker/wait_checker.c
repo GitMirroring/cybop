@@ -34,8 +34,8 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/checker/channels_sense_checker.c"
-#include "../../controller/checker/threads_sense_checker.c"
+#include "../../controller/checker/io/io_checker.c"
+#include "../../controller/checker/io/threads_io_checker.c"
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/integer_copier.c"
@@ -148,10 +148,10 @@ void check_wait(void* p0, void* p1) {
 
         // Check if flags have been set within a sensing thread,
         // running in parallel to this main thread.
-        check_sense_threads((void*) &b, p0);
+        check_io_threads((void*) &b, p0);
 
         // Senses interrupt request at the given channels.
-        check_sense_channels((void*) &b, p0);
+        check_io((void*) &b, p0);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

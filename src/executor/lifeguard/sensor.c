@@ -69,15 +69,16 @@ void sense_unix_terminal(void* p0);
  * @param p0 the internal memory data
  * @param p1 the service id (e.g. socket port)
  * @param p2 the handler part (pointer reference)
- * @param p3 the network service data
- * @param p4 the network service count
- * @param p5 the channel
+ * @param p3 the sender data
+ * @param p4 the network service data
+ * @param p5 the network service count
+ * @param p6 the channel
  */
-void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-fwprintf(stdout, L"TEST sense channel p5: %i\n", *((int*) p5));
+fwprintf(stdout, L"TEST sense channel p6: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -88,7 +89,7 @@ fwprintf(stdout, L"TEST sense channel p5: %i\n", *((int*) p5));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p6, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -108,7 +109,7 @@ fwprintf(stdout, L"TEST sense channel p5: %i\n", *((int*) p5));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p6, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -128,7 +129,7 @@ fwprintf(stdout, L"TEST sense channel p5: %i\n", *((int*) p5));
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p6, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -145,16 +146,16 @@ fwprintf(stdout, L"TEST sense channel p5: %i\n", *((int*) p5));
                 // Therefore, determine port from service name.
 
                 // Deserialise port from network service name.
-                deserialise_network_service((void*) &p, p3, p4);
+                deserialise_network_service((void*) &p, p4, p5);
             }
 
-            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &p, p2);
+            sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &p, p2, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p6, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef IO_ENTRY_INTERRUPT_CHECKER_SOURCE
-#define IO_ENTRY_INTERRUPT_CHECKER_SOURCE
+#ifndef ELEMENT_IRQ_CHECKER_SOURCE
+#define ELEMENT_IRQ_CHECKER_SOURCE
 
-#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/getter/io_entry_getter.c"
-#include "../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/integer_copier.c"
-#include "../../logger/logger.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/modifier/copier/array_copier.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../logger/logger.c"
 
 /**
  * Checks input output entry data.
@@ -45,17 +45,16 @@
  * @param p0 the comparison result
  * @param p1 the interrupt request
  * @param p2 the handler (pointer reference)
- * @param p3 the mutex
- * @param p4 the internal memory data
- * @param p5 the internal memory index (already initialised with input output base)
- * @param p6 the io entry index
- * @param p7 the break flag
+ * @param p3 the internal memory data
+ * @param p4 the internal memory index (already initialised with input output base)
+ * @param p5 the io entry index
+ * @param p6 the break flag
  */
-void check_interrupt_io_entry(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! Do NOT log messages here, since checking runs in an endless loop.
     // Otherwise, the log file would be filled up with useless entries.
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check interrupt io entry.");
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq element.");
 
     // The internal memory index.
     int idx = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -63,11 +62,11 @@ void check_interrupt_io_entry(void* p0, void* p1, void* p2, void* p3, void* p4, 
     void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Calculate internal memory index.
+    calculate_integer_add((void*) &idx, p4);
     calculate_integer_add((void*) &idx, p5);
-    calculate_integer_add((void*) &idx, p6);
 
     // Get io entry.
-    copy_array_forward((void*) &io, p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
+    copy_array_forward((void*) &io, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -87,16 +86,14 @@ void check_interrupt_io_entry(void* p0, void* p1, void* p2, void* p3, void* p4, 
             get_io_entry_element(p1, io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get handler from io entry.
             get_io_entry_element(p2, io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get mutex from io entry.
-            get_io_entry_element(p3, io, (void*) MUTEX_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Set comparison result to the same value as the interrupt request.
             copy_integer(p0, p1);
             // Set break flag to the same value as the interrupt request.
-            copy_integer(p7, p1);
+            copy_integer(p6, p1);
         }
     }
 }
 
-/* IO_ENTRY_INTERRUPT_CHECKER_SOURCE */
+/* ELEMENT_IRQ_CHECKER_SOURCE */
 #endif
