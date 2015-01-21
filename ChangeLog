@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-21  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add new cybol example applications "socket_server" and "socket_client"
+        * Correct pointer copying in files "accessor/getter/io_entry_getter.c" and "accessor/setter/io_entry_setter.c"
+
 2015-01-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Restructure files in directory "controller/checker/"
@@ -26,7 +31,6 @@
 2015-01-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise signal/irq handling in checker
-        * Merge obsolete files "sense_checker.c", "io_sense_checker.c", "io_entry_sense_checker.c" into "interrupt_checker.c"
 
 2015-01-18  Christian Heller  <christian.heller@tuxtax.de>
 

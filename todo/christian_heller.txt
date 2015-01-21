@@ -14,10 +14,7 @@
 WUI
 ___
 
-        * Test cybol example application "wui_socket"
-
-        * Verify correctness of pointer copying in "accessor/io_entry_getter.c" and "accessor/io_entry_setter.c"
-
+        * Make cybol example applications "socket_server" and "socket_client" work
         * Set non-blocking mode for socket at startup
 
         * Extend function "check_wait" by call of function "check_sender"; all function calls in this order:
@@ -39,7 +36,7 @@ ___
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
 
-        * Verify in file "manager.c" if internal memory should be handed over as pointer reference argument to any other functions, in order to properly assign pointers into it
+        * Verify in file "manager.c" if internal memory should be handed over as pointer REFERENCE argument to any other functions, in order to properly assign pointers into it
         * Verify pointer handling (reference usage) in files "io_entry_setter.c" etc.
 
         * Study "libcurl3" library for URL transfer
@@ -383,6 +380,11 @@ ____________
         * Move long-lasting operations into an own thread, using a cybol operation
         * Keep a "future" as handle to that operation/thread/its results
         * Call long-lasting operation early in cybol, so that other operations may be processed meanwhile
+
+Cosmetics
+_________
+
+        * Rename "internal memory" into "system memory"
 
 Super
 _____

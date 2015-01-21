@@ -1,0 +1,6 @@
+<model>
+
+    <part name="respond" channel="inline" format="path/knowledge" model=".app.logic.send_response"/>
+    <part name="exit" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+
+</model>

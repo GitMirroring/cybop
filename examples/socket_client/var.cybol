@@ -1,0 +1,11 @@
+<model>
+
+    <!--
+        The server response as received on the client.
+        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
+    -->
+    <part name="response" channel="inline" format="text/plain" model=""/>
+
+    <part name="server_socket" channel="inline" format="number/integer" model="0"/>
+
+</model>

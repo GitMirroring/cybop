@@ -86,6 +86,11 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
             // are equal to NULL, then no information about the remote address
             // of the accepted client socket is returned.
             //
+            // Therefore, the following source code is NOT necessary:
+            //     struct sockaddr_in ad;
+            //     socklen_t as = sizeof (ad);
+            //     *c = accept(*s, (struct sockaddr*) &ad, &as);
+            //
             // CAUTION! The socket was made non-blocking at startup.
             //
             *c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
@@ -103,23 +108,26 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
 
                 // An error occured.
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept error: %i \n", *c);
+    fwprintf(stdout, L"TEST: sense bsd socket accept error *c: %i \n", *c);
 
                 if (errno == EBADF) {
 
+    fwprintf(stdout, L"TEST: sense bsd socket accept error EBADF: %i \n", errno);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense bsd socket accept. The socket argument is not a valid file descriptor.");
 
                 } else if (errno == ENOTSOCK) {
 
+    fwprintf(stdout, L"TEST: sense bsd socket accept error ENOTSOCK: %i \n", errno);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense bsd socket accept. The descriptor socket argument is not a socket.");
 
                 } else if (errno == EOPNOTSUPP) {
 
+    fwprintf(stdout, L"TEST: sense bsd socket accept error EOPNOTSUPP: %i \n", errno);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense bsd socket accept. The descriptor socket does not support this operation.");
 
                 } else if (errno == EWOULDBLOCK) {
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept error EWOULDBLOCK: %i \n", *c);
+    fwprintf(stdout, L"TEST: sense bsd socket accept error EWOULDBLOCK: %i \n", errno);
 
                     // CAUTION! Do NOT log the following error!
                     // The reason is that the socket is non-blocking,
@@ -130,6 +138,7 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
 
                 } else {
 
+    fwprintf(stdout, L"TEST: sense bsd socket accept error UNKNOWN: %i \n", errno);
                     log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense bsd socket accept. An unknown error occured.");
                 }
             }

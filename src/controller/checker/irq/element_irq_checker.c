@@ -76,16 +76,16 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         int e = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Get enable flag from io entry.
-        get_io_entry_element((void*) &e, io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &e, (void*) &io, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The enable flag is set.
 
             // Get interrupt request from io entry.
-            get_io_entry_element(p1, io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element(p1, (void*) &io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get handler from io entry.
-            get_io_entry_element(p2, io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element(p2, (void*) &io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Set comparison result to the same value as the interrupt request.
             copy_integer(p0, p1);

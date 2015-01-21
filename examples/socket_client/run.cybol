@@ -1,0 +1,97 @@
+<model>
+
+    <part name="create_app" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="text/plain" model="app"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+    </part>
+
+    <part name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="sender" channel="inline" format="text/plain" model="socket_client/app.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+    </part>
+
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_socket_client.txt"/>
+    </part>
+
+    <part name="startup_socket" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+        <property name="style" channel="inline" format="text/plain" model="stream"/>
+        <property name="protocol" channel="inline" format="text/plain" model="tcp"/>
+<!--
+        <property name="address" channel="inline" format="text/plain" model="localhost"/>
+-->
+        <property name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
+        <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
+        <property name="id" channel="inline" format="number/integer" model="1971"/>
+        <property name="service" channel="inline" format="text/plain" model="http"/>
+        <property name="mode" channel="inline" format="text/plain" model="client"/>
+        <property name="socket" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+    </part>
+
+    <part name="send_message_respond" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="text/plain"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="respond"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+    </part>
+    <part name="receive_message" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="text/plain"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.response"/>
+        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+    </part>
+    <part name="send_message_exit" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="text/plain"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="exit"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+    </part>
+
+    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</model>
+
+<!--
+    This example demonstrates the client side of a socket communication.
+-->
+
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->

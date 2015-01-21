@@ -63,6 +63,9 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The internal memory index.
     int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
+    fwprintf(stdout, L"TEST: startup socket server io index: %i \n", i);
+    fwprintf(stdout, L"TEST: startup socket server port p11: %i \n", *((int*) p11));
+
     // Calculate internal memory index using given port.
     calculate_integer_add((void*) &i, p11);
 
@@ -72,6 +75,8 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         // The socket io entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    fwprintf(stdout, L"TEST: startup socket server io index with port: %i \n", i);
 
         // Get socket io entry.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
@@ -90,12 +95,21 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             // Startup server socket.
             startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
+    fwprintf(stdout, L"TEST: startup socket server after lifecycle s: %i \n", s);
+
             // Store socket in io entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
             // But the internal array's count and size are CONSTANT.
-            set_io_entry_element(io, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            set_io_entry_element((void*) &io, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+    //?? TEST BEGIN
+            int TEST_s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // Get server socket from io entry.
+            get_io_entry_element((void*) &TEST_s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+    fwprintf(stdout, L"TEST: startup socket server TEST_s: %i \n", TEST_s);
+    //?? TEST END
 
             // Store io entry in internal memory.
             //

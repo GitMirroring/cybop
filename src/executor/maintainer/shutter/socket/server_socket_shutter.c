@@ -84,7 +84,7 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
             // But the internal array's count and size are CONSTANT.
-            get_io_entry_element((void*) &s, io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element((void*) &s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Close server socket.
             shutdown_socket_close((void*) &s);

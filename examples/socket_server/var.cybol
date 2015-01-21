@@ -1,0 +1,18 @@
+<model>
+
+    <!--
+        The client request as received on the server.
+        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
+    -->
+    <part name="request" channel="inline" format="text/plain" model=""/>
+
+    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
+
+    <!--
+        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
+        A knowledge path is treated like a character array anyway.
+        So, text fragments may be added to it in the "handler.cybol" file.
+    -->
+    <part name="path" channel="inline" format="text/plain" model=""/>
+
+</model>

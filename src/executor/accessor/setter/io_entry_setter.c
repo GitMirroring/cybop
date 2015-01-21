@@ -42,8 +42,8 @@
 /**
  * Sets the destination io entry's element at the given index.
  *
- * @param p0 the destination
- * @param p1 the source element
+ * @param p0 the destination io entry (pointer reference)
+ * @param p1 the source element (pointer reference only if pointer is retrieved)
  * @param p2 the source index
  */
 void set_io_entry_element(void* p0, void* p1, void* p2) {
@@ -56,7 +56,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise element pointer.
-    copy_pointer((void*) &e, (void*) &p0);
+    copy_pointer((void*) &e, p0);
 
     if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -135,7 +135,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 //
                 // CAUTION! Hand over element as POINTER REFERENCE,
                 // since a pointer is copied here.
-                copy_pointer((void*) e, p1);
+                copy_pointer(e, p1);
             }
         }
 

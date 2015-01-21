@@ -1,0 +1,5 @@
+<model>
+
+    <part name="var" channel="file" format="element/part" model="socket_client/var.cybol"/>
+
+</model>
