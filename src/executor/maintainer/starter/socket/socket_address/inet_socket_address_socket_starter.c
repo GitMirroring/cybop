@@ -113,7 +113,7 @@ void startup_socket_socket_address_inet(void* p0, void* p1, void* p2, void* p3, 
         copy_integer(p1, (void*) IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE);
         // Initialise socket address.
         // CAUTION! The forwarded host address
-        // is already in network byte order.
+        // is already in NETWORK byte order.
         startup_socket_socket_address_inet_initialise(*ad, (void*) &ha, p4);
 
     } else {

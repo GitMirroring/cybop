@@ -1,5 +1,18 @@
 <model>
 
+    <part name="print_TEST" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="ACCEPTED CLIENT REQUEST"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+
+
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <part name="reset_request" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.var.request"/>

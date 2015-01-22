@@ -99,7 +99,7 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense bsd socket accept successful.");
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept c: %i \n", *c);
+    fwprintf(stdout, L"TEST: sense bsd socket accept success *c: %i \n", *c);
 
                 // Set interrupt request.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -107,8 +107,6 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
             } else {
 
                 // An error occured.
-
-    fwprintf(stdout, L"TEST: sense bsd socket accept error *c: %i \n", *c);
 
                 if (errno == EBADF) {
 

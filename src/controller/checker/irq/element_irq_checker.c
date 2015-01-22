@@ -34,6 +34,7 @@
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/accessor/getter/io_entry_getter.c"
+#include "../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
@@ -42,7 +43,7 @@
 /**
  * Checks input output entry data.
  *
- * @param p0 the comparison result
+ * @param p0 the result
  * @param p1 the interrupt request
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data
@@ -82,15 +83,32 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
             // The enable flag is set.
 
-            // Get interrupt request from io entry.
-            get_io_entry_element(p1, (void*) &io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get handler from io entry.
-            get_io_entry_element(p2, (void*) &io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // The interrupt request.
+            int i = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // Set comparison result to the same value as the interrupt request.
-            copy_integer(p0, p1);
-            // Set break flag to the same value as the interrupt request.
-            copy_integer(p6, p1);
+            // Get interrupt request from io entry.
+            get_io_entry_element((void*) &i, (void*) &io, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            if (i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The interrupt request is set.
+
+                // Reset interrupt request in io entry.
+                set_io_entry_element((void*) &io, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+                // Get handler from io entry.
+                get_io_entry_element(p2, (void*) &io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+fwprintf(stdout, L"TEST check irq element idx: %i\n", idx);
+fwprintf(stdout, L"TEST check irq element handler *p2: %i\n", *((void**) p2));
+
+                // Set result.
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                // Set interrupt request.
+                copy_integer(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                // Set break flag.
+                copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
         }
     }
 }

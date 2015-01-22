@@ -73,37 +73,55 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket bind successful r: %i \n", r);
+
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket bind.");
 
                 } else {
 
                     // An error occured.
 
+    fwprintf(stdout, L"TEST: startup bsd socket bind error errno: %i \n", errno);
+
                     if (errno == EBADF) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket bind error EBADF: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The socket argument is not a valid file descriptor.");
 
                     } else if (errno == ENOTSOCK) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket bind error ENOTSOCK: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The descriptor socket is not a socket.");
 
                     } else if (errno == EADDRNOTAVAIL) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket bind error EADDRNOTAVAIL: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The specified address is not available on this machine.");
 
                     } else if (errno == EADDRINUSE) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket bind error EADDRINUSE: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The specified address is already used by some other socket.");
 
                     } else if (errno == EINVAL) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket bind error EINVAL: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The socket socket already has an address.");
 
                     } else if (errno == EACCES) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket bind error EACCES: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. The permission to access the requested address is missing. (In the internet domain, only the super-user is allowed to specify a port number in the range 0 through IPPORT_RESERVED minus one; see the section called 'Internet Ports'.");
 
                     } else {
+
+    fwprintf(stdout, L"TEST: startup bsd socket bind error UNKNOWN: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket bind. An unknown error occured while binding the socket to the address.");
                     }

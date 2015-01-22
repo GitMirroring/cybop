@@ -76,13 +76,21 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 // If nonblocking mode is necessary, then using a thread
                 // is considered to be a more simple and clean solution here.
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect *as: %i \n", *as);
+    fwprintf(stdout, L"TEST: startup bsd socket connect ad: %i \n", ad);
+    fwprintf(stdout, L"TEST: startup bsd socket connect *s: %i \n", *s);
+
                 // Make connexion with server.
                 //
                 // This function call waits until the server responds
                 // to the request before it returns.
                 int r = connect(*s, ad, sl);
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect r: %i \n", r);
+
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect successful r: %i \n", r);
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket connect.");
 
@@ -90,51 +98,77 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
 
                     // An error occured.
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error errorno: %i \n", errno);
+
                     if (errno == EBADF) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EBADF: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The argument socket is not a valid file descriptor.");
 
                     } else if (errno == ENOTSOCK) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error ENOTSOCK: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The argument socket is not a socket.");
 
                     } else if (errno == EADDRNOTAVAIL) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EADDRNOTAVAIL: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The specified address is not available on the remote machine.");
 
                     } else if (errno == EAFNOSUPPORT) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EAFNOSUPPORT: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The namespace of the address is not supported by this socket.");
 
                     } else if (errno == EISCONN) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EISCONN: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The socket is already connected.");
 
                     } else if (errno == ETIMEDOUT) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error ETIMEDOUT: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The attempt to establish the connexion timed out.");
 
                     } else if (errno == ECONNREFUSED) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect error ECONNREFUSED: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The server has actively refused to establish the connexion.");
 
                     } else if (errno == ENETUNREACH) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error ENETUNREACH: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The network of the given address is not reachable from this host.");
 
                     } else if (errno == EADDRINUSE) {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EADDRINUSE: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The socket address of the given address is already in use.");
 
                     } else if (errno == EINPROGRESS) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EINPROGRESS: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The socket is non-blocking and the connexion could not be established immediately. You can determine when the connexion is completely established with select; see Waiting for I/O. Another connect call on the same socket, before the connexion is completely established, will fail with EALREADY.");
 
                     } else if (errno == EALREADY) {
 
+    fwprintf(stdout, L"TEST: startup bsd socket connect error EALREADY: %i \n", errno);
+
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. The socket is non-blocking and already has a pending connexion in progress (see EINPROGRESS above).");
 
                     } else {
+
+    fwprintf(stdout, L"TEST: startup bsd socket connect error UNKNOWN: %i \n", errno);
 
                         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup bsd socket connect. An unknown error occured while connecting the socket.");
                     }

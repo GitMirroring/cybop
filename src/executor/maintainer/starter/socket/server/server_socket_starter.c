@@ -104,13 +104,6 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             // But the internal array's count and size are CONSTANT.
             set_io_entry_element((void*) &io, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    //?? TEST BEGIN
-            int TEST_s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-            // Get server socket from io entry.
-            get_io_entry_element((void*) &TEST_s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST: startup socket server TEST_s: %i \n", TEST_s);
-    //?? TEST END
-
             // Store io entry in internal memory.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,

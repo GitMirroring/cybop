@@ -2,6 +2,6 @@
 
     <part name="var" channel="file" format="element/part" model="socket_server/var.cybol"/>
     <part name="logic" channel="file" format="element/part" model="socket_server/logic.cybol"/>
-    <part name="actions" channel="file" format="text/cybol" model="socket_server/actions.cybol"/>
+    <part name="actions" channel="file" format="element/part" model="socket_server/actions.cybol"/>
 
 </model>

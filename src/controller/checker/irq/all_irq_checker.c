@@ -41,7 +41,7 @@
  * Checks input output for data.
  *
  * @param p0 the comparison result
- * @param p1 the interrupt (pointer reference)
+ * @param p1 the interrupt request
  * @param p2 the handler (pointer reference)
  * @param p3 the internal memory data
  * @param p4 the input output base
@@ -50,6 +50,8 @@
 void check_irq_all(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check irq all.");
+
+fwprintf(stdout, L"TEST check irq all loop count *p5: %i\n", *((int*) p5));
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

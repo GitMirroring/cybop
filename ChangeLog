@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug socket communication in cyboi
+        * Make cybol example applications "socket_server" and "socket_client" work
+
 2015-01-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new cybol example applications "socket_server" and "socket_client"

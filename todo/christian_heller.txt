@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Make cybol example applications "socket_server" and "socket_client" work
+        * Exchange data via cybol example applications "socket_server" and "socket_client"; see file "handler.cybol"
         * Set non-blocking mode for socket at startup
 
         * Extend function "check_wait" by call of function "check_sender"; all function calls in this order:

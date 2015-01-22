@@ -75,7 +75,7 @@ void sense_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Set enable flag into io entry.
         set_io_entry_element((void*) &io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST sense channel, all done, sender p4: %i\n", *((int*) p4));
+fwprintf(stdout, L"TEST sense channel handler *p3: %i\n", *((void**) p3));
 
     } else {
 
