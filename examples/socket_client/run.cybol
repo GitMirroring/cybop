@@ -41,23 +41,23 @@
         <property name="socket" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
     </part>
 
-    <part name="send_message_respond" channel="inline" format="communicate/send" model="">
+    <part name="send_request" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="text/plain"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="respond"/>
+        <property name="message" channel="inline" format="text/plain" model="sayhello"/>
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
     </part>
-    <part name="receive_message" channel="inline" format="communicate/receive" model="">
+    <part name="receive_response" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="text/plain"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.response"/>
         <property name="sender" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
     </part>
-    <part name="send_message_exit" channel="inline" format="communicate/send" model="">
+    <part name="send_exit" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="text/plain"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="text/plain" model="exit"/>
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>

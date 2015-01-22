@@ -43,15 +43,15 @@
         <property name="id" channel="inline" format="number/integer" model="1971"/>
         <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="mode" channel="inline" format="text/plain" model="server"/>
-        <property name="connexions" channel="inline" format="number/integer" model="5"/>
+        <property name="connexions" channel="inline" format="number/integer" model="1"/>
     </part>
 
-    <part name="print_TEST" channel="inline" format="communicate/send" model="">
+    <part name="print_message" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="START ACCEPTING CLIENT REQUESTS"/>
+        <property name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="sense_requests" channel="inline" format="live/sense" model="">

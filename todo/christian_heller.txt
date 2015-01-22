@@ -14,7 +14,21 @@
 WUI
 ___
 
-        * Exchange data via cybol example applications "socket_server" and "socket_client"; see file "handler.cybol"
+        * Reflect on encoding/compression/language/format; as constraints below message? order of these? or leave it all to cybol?
+            see e.g. socket_client/run.cybol "communicate/send" operation;
+            model in file "src/data_structure.xmi"
+
+            If one property (e.g. compression) is not specified in cybol,
+            then the byte data are copied 1:1 from source to destination.
+            Encoding is ONLY necessary for character data, but NOT
+            for an image or other byte data.
+            Therefore, this has to be distinguished by an if-else
+            when sending or receiving data.
+
+        * Inspect send/receive using test log messages -- message transfer failes due to missing encoding
+        * Encode/Decode transmitted data into/from ascii byte code
+        * Exchange data via cybol example applications "socket_server" and "socket_client"
+
         * Set non-blocking mode for socket at startup
 
         * Extend function "check_wait" by call of function "check_sender"; all function calls in this order:
@@ -283,6 +297,9 @@ ______
 
 Project
 _______
+
+        * Provide directory "executor/packer/" with "compressor" and "extractor"
+        * Implement these into cybol
 
         * Change datatypes; CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
         * Use integer datatype "unsigned char" (8 Bit) for boolean values;
