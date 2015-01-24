@@ -22,3 +22,29 @@ ____
 Write cybol application --> one to two weeks
 Test
 Search bug, e.g. by adding test log messages --> one day to four weeks
+
+Reflexion
+_________
+
+Reflect nature/human thinking, e.g. on which data filters are used for communication:
+serialisation + encoding + compression + send
+--> difficult, open end, often knot in head, uncertainty if solvable satisfactorily, self-pressure since unclear how much time it will take, write code fragments or paint diagrams on paper
+--> days to weeks
+
+Programming
+___________
+
+Program code, e.g. socket functions
+Test at runtime by executing cybol example applications
+Document design, e.g. as pure text file or diagram
+--> sometimes boring, other times interesting, at least safety how solution looks like, calm since path is clear
+--> days to weeks
+
+Basics
+______
+
+Implement basic things:
+constants, variables, if-else blocks for several executors
+--> simple, no thinking necessary, assembly-line work, annoying, but visible success, may be done in non-silent environment where concentration is difficult, good to fill an hour of time without having to think myself in deeply
+--> some days
+

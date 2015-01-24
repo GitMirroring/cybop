@@ -14,7 +14,12 @@
 WUI
 ___
 
-        * Reflect on encoding/compression/language/format; as constraints below message? order of these? or leave it all to cybol?
+        * Test using text/ascii or text/byte; what is the difference? Can conversion be avoided? Example: leave png image as byte code untouched
+        * SOLUTION for filter problem: if an encoding/language is not known, just copy the byte in the last "if"-block, instead of showing a warning log message;
+            this way, the order compression/encoding/language/format may always be used in sender/receiver
+        * Reflect if compression/encoding or encoding/compression is the right order; are compression algorithms using byte code or also wide character strings?
+        * Is the separation of language + format really necessary? Merge both into one if-else file? If formats are different in languages, then offer one format per language!?
+        * Reflect on compression/encoding/language/format; as constraints below message? order of these? or leave it all to cybol?
             see e.g. socket_client/run.cybol "communicate/send" operation;
             model in file "src/data_structure.xmi"
 
@@ -49,9 +54,6 @@ ___
 
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
-
-        * Verify in file "manager.c" if internal memory should be handed over as pointer REFERENCE argument to any other functions, in order to properly assign pointers into it
-        * Verify pointer handling (reference usage) in files "io_entry_setter.c" etc.
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"
