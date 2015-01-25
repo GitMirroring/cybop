@@ -337,12 +337,55 @@ The size of complex, datetime, duration, fraction, io_entry is fixed,
 which is why they may be treated as compounds and do NOT require
 special allocation functions.
 
-Encoding
-________
+Serialisation/Encoding/Compression/Sending
+__________________________________________
 
-Encoding is NOT used for socket communication (send/receive),
-since most often, protocols like http are used,
-which may have a binary attachment that has to be
-transmitted BYTE-wise, whilst encoding/decoding
-always converts into wide characters.
+TERMINAL:
+
+    <part name="print_terminal_message" channel="inline" format="communicate/send" model="">
+        <property name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
+            <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+            <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+            <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
+HTTP:
+- meta header
+- message
+
+    <part name="send_http_request" channel="inline" format="communicate/send" model="">
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <property name="message" channel="inline" format="text/plain" model="sayhello">
+            <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+            <property name="compression" channel="inline" format="meta/compression" model="application/zip"/>
+            <property name="compression" channel="inline" format="meta/compression" model="application/octet-stream"/> <!-- .arc, .ark, .sue -->
+        </property>
+        <property name="meta" channel="inline" format="path/knowledge" model=".app.var.meta">
+            <property name="format" channel="inline" format="meta/format" model="part/element"/>
+            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        </property>
+        <property name="language|protocol" channel="inline" format="meta/language" model="message/http"/>
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </part>
+
+FTP:
+- stateful control connection
+- maintains current working directory and other flags
+- each transfer requires a secondary connection (different port) through which the data is transferred
+
+    <part name="send_ftp_command" channel="inline" format="communicate/send" model="">
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <property name="message" channel="inline" format="text/plain" model="DELE"/>
+        <property name="language|protocol" channel="inline" format="meta/language" model="message/ftp-control"/>
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </part>
+    <part name="send_ftp_data" channel="inline" format="communicate/send" model="">
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+        <property name="message" channel="inline" format="text/plain" model="somefile.bla"/>
+        <property name="language|protocol" channel="inline" format="meta/language" model="message/ftp-data"/>
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </part>
 
