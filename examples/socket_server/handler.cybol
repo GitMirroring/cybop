@@ -1,11 +1,19 @@
 <model>
 
-    <part name="print_accept_message" channel="inline" format="communicate/send" model="">
+    <part name="print_accept" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Accepted client request."/>
+        <property name="message" channel="inline" format="text/plain" model="Accepted client request at socket:"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="print_socket" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
@@ -14,11 +22,12 @@
         <property name="part" channel="inline" format="path/knowledge" model=".app.var.request"/>
     </part>
     <part name="receive_request" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
         <property name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
     </part>
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->

@@ -86,6 +86,12 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
                     // the procedure that might cause an error.
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST: receive socket buffer *ss: %i \n", *ss);
+fwprintf(stdout, L"TEST: receive socket buffer st: %i \n", st);
+fwprintf(stdout, L"TEST: receive socket buffer *s: %i \n", *s);
+fwprintf(stdout, L"TEST: receive socket buffer *c: %i \n", *c);
+fwprintf(stdout, L"TEST: receive socket buffer p0: %i \n", p0);
+
                     // Receive message.
                     //
                     // If the flags argument (fourth one) is zero, then one can
@@ -97,9 +103,13 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
 
                     if (*c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+                        fwprintf(stdout, L"TEST receive bsd socket success *c: %i\n", *c);
+
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received bsd socket.");
 
                     } else if (*c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket no data *c: %i\n", *c);
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. No data could be sensed.");
 
@@ -109,25 +119,37 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
 
                         if (errno == EBADF) {
 
+                        fwprintf(stdout, L"TEST receive bsd socket error EBADF: %i\n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == ENOTSOCK) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error ENOTSOCK: %i\n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EWOULDBLOCK) {
 
+                        fwprintf(stdout, L"TEST receive bsd socket error EWOULDBLOCK: %i\n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The read operation would block even though nonblocking mode has been set on the socket.");
 
                         } else if (errno == EINTR) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error EINTR: %i\n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The operation was interrupted by a signal before any data was received.");
 
                         } else if (errno == ENOTCONN) {
 
+                        fwprintf(stdout, L"TEST receive bsd socket error ENOTCONN: %i\n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The socket was never connected.");
 
                         } else {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error UNKNOWN: %i\n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. An unknown error occured.");
                         }

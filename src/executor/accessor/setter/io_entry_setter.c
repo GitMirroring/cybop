@@ -162,7 +162,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
 
                 // Copy element to destination.
-                copy_integer(e, p1);
+                copy_pointer(e, p1);
             }
         }
 
@@ -187,7 +187,7 @@ void set_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
-                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // sender
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
 
                 //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
                 calculate_pointer_add((void*) &e, (void*) MUTEX_THREAD_TYPE_SIZE); // mutex

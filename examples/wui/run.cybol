@@ -13,6 +13,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".wui"/>
     </part>
     <part name="generate_html" channel="inline" format="communicate/send" model="">
+        <property name="receiver" channel="inline" format="text/plain" model="wui.html"/>
         <property name="message" channel="inline" format="path/knowledge" model=".wui.index"/>
         <property name="language" channel="inline" format="meta/language" model="text/html">
             <constraint name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -20,7 +21,6 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="receiver" channel="inline" format="text/plain" model="wui.html"/>
     </part>
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>

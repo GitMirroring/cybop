@@ -344,10 +344,10 @@ TERMINAL:
 
     <part name="print_terminal_message" channel="inline" format="communicate/send" model="">
         <property name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
-            <property name="language" channel="inline" format="meta/language" model="message/cli"/>
             <property name="format" channel="inline" format="meta/format" model="text/plain"/>
             <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
             <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
 
@@ -357,17 +357,13 @@ HTTP:
 
     <part name="send_http_request" channel="inline" format="communicate/send" model="">
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="sayhello">
-            <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-            <property name="compression" channel="inline" format="meta/compression" model="application/zip"/>
-            <property name="compression" channel="inline" format="meta/compression" model="application/octet-stream"/> <!-- .arc, .ark, .sue -->
-        </property>
-        <property name="meta" channel="inline" format="path/knowledge" model=".app.var.meta">
-            <property name="format" channel="inline" format="meta/format" model="part/element"/>
-            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        </property>
-        <property name="language|protocol" channel="inline" format="meta/language" model="message/http"/>
+        <property name="message" channel="inline" format="text/plain" model="sayhello"/>
+        <property name="metadata" channel="inline" format="path/knowledge" model=".app.var.metadata"/>
+        <property name="compression" channel="inline" format="meta/compression" model="application/zip"/>
+        <property name="compression" channel="inline" format="meta/compression" model="application/octet-stream"/> <!-- .arc, .ark, .sue -->
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="language" channel="inline" format="meta/language" model="message/http"/>
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
     </part>
 
@@ -379,13 +375,33 @@ FTP:
     <part name="send_ftp_command" channel="inline" format="communicate/send" model="">
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
         <property name="message" channel="inline" format="text/plain" model="DELE"/>
-        <property name="language|protocol" channel="inline" format="meta/language" model="message/ftp-control"/>
+        <property name="language" channel="inline" format="meta/language" model="message/ftp-control"/>
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
     </part>
     <part name="send_ftp_data" channel="inline" format="communicate/send" model="">
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
         <property name="message" channel="inline" format="text/plain" model="somefile.bla"/>
-        <property name="language|protocol" channel="inline" format="meta/language" model="message/ftp-data"/>
+        <property name="language" channel="inline" format="meta/language" model="message/ftp-data"/>
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
     </part>
+
+Q: Should the send/receive operations be held simple, without properties for
+serialisation/encoding/compression?
+
+A1: NOT possible. Besides a sender or receiver at least a channel AND language have to be given.
+
+A2: NOT useful. An encoding is neccessary for text (not byte) data.
+Requiring the user to encode in cybol before calling "send" is tedious and unconvenient.
+The same counts for compression. If channel and language have to be given anyway,
+why not specifying the encoding and compression AT ONCE? Both are OPTIONAL anyway and not always needed.
+
+==> Therefore, all of these properties are processed inside send/received.
+The encoding must only be considered for text-, not for byte data.
+
+Q: Is the separation of language + format really necessary?
+Merge both into one if-else file?
+If formats are different in languages, then offer one format per language?
+
+The separation of language + format IS NECESSARY, since html and others
+are destination languages and need element/part and simple data types as format.
 

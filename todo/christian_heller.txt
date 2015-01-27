@@ -14,11 +14,15 @@
 WUI
 ___
 
-        * Test using text/ascii or text/byte; what is the difference? Can conversion be avoided? Example: leave png image as byte code untouched
+        * Check why server does not send reply (data from client received successfully)
+        * How to handle "http" if only one language e.g. "html" may be specified in "send"?
+            --> convert data into desired format before and send that as bytes.
+        * Merge general sender functionality into directory "basic" (also used by socket, file etc.)
+
+        * Assign already converted source pointer to destination pointer, if encoding is not needed; do NOT copy src to dest array, for reasons of efficiency
         * SOLUTION for filter problem: if an encoding/language is not known, just copy the byte in the last "if"-block, instead of showing a warning log message;
-            this way, the order compression/encoding/language/format may always be used in sender/receiver
+            this way, the order compression/encoding/language/format may always be used in sender/receiver;
         * Reflect if compression/encoding or encoding/compression is the right order; are compression algorithms using byte code or also wide character strings?
-        * Is the separation of language + format really necessary? Merge both into one if-else file? If formats are different in languages, then offer one format per language!?
         * Reflect on compression/encoding/language/format; as constraints below message? order of these? or leave it all to cybol?
             see e.g. socket_client/run.cybol "communicate/send" operation;
             model in file "src/data_structure.xmi"

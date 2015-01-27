@@ -3,11 +3,15 @@
     <part name="handler" channel="file" format="element/part" model="socket_server/handler.cybol"/>
 
     <part name="send_response" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="This is just a test response. All went fine!"/>
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <property name="message" channel="inline" format="text/plain" model="This is just a test response. All went fine!"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+<!--
+        <property name="language" channel="inline" format="meta/language" model="text/html"/>
+-->
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
     </part>
 
     <part name="exit_programme" channel="inline" format="live/exit" model=""/>

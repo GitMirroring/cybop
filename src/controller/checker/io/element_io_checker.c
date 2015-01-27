@@ -86,31 +86,33 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
 
             // The enable flag is set.
 
-            // The sender client socket.
-            int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The server socket.
             int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // The sender client socket.
+            void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The interrupt request.
             int i = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // Get sender client socket from io entry.
-            get_io_entry_element((void*) &c, (void*) &io, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get server socket from io entry.
             get_io_entry_element((void*) &s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Set sender client socket into io entry.
+            get_io_entry_element((void*) &c, (void*) &io, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST: check io element c: %i \n", c);
     fwprintf(stdout, L"TEST: check io element s: %i \n", s);
+    fwprintf(stdout, L"TEST: check io element c pre: %i \n", *((int*) c));
 
             // Sense data on server socket.
-            sense_socket((void*) &i, (void*) &c, (void*) &s);
+            sense_socket((void*) &i, c, (void*) &s);
 
             if (i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+    fwprintf(stdout, L"TEST: check io element c post: %i \n", *((int*) c));
 
                 // Set interrupt request into io entry.
                 set_io_entry_element((void*) &io, (void*) &i, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
                 // Set result.
-                copy_integer(p0, (void*) &i);
+                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
     }

@@ -132,7 +132,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3) {
     // Get sender part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    sense(p3, imd, (void*) &h, smd, semd, semc, cmd);
+    sense(p3, imd, (void*) &h, (void*) &smd, semd, semc, cmd);
 }
 
 /* SENSE_SOURCE */

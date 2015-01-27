@@ -43,7 +43,7 @@
  * @param p1 the input output base
  * @param p2 the service id (e.g. socket port)
  * @param p3 the handler part (pointer reference)
- * @param p4 the sender data
+ * @param p4 the sender data (pointer reference)
  */
 void sense_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
@@ -71,7 +71,6 @@ void sense_channel(void* p0, void* p1, void* p2, void* p3, void* p4) {
         set_io_entry_element((void*) &io, p3, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
         // Set sender into io entry.
         set_io_entry_element((void*) &io, p4, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
         // Set enable flag into io entry.
         set_io_entry_element((void*) &io, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 

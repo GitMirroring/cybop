@@ -58,7 +58,10 @@ void globalise_type_size_compound() {
           *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // enable
         + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // interrupt
         + *POINTER_TYPE_SIZE // handler
-        + *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE // sender
+        // CAUTION! The sender HAS TO BE a pointer, since it is
+        // allocated as model in cybol and needs to be manipulated
+        // in cyboi. A simple integer value would be lost.
+        + *POINTER_TYPE_SIZE // sender
 
         //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
         + *MUTEX_THREAD_TYPE_SIZE // mutex

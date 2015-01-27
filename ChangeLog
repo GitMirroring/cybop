@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug socket communication
+
 2015-01-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug socket communication in cyboi

@@ -69,7 +69,7 @@ void sense_unix_terminal(void* p0);
  * @param p0 the internal memory data
  * @param p1 the service id (e.g. socket port)
  * @param p2 the handler part (pointer reference)
- * @param p3 the sender data
+ * @param p3 the sender data (pointer reference)
  * @param p4 the network service data
  * @param p5 the network service count
  * @param p6 the channel

@@ -28,15 +28,12 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/socket/buffer_socket_receiver.c"
-#include "../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../executor/communicator/receiver/socket/message_socket_receiver.c"
+#include "../../../../executor/converter/decoder.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
@@ -50,81 +47,67 @@
  * @param p3 the knowledge memory part
  * @param p4 the format
  * @param p5 the language
+ * @param p6 the encoding
  */
-void receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void receive_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket.");
 
-    // The buffer data, count, size.
-    // CAUTION! Its size has to be GREATER than zero.
-    // Otherwise, there will be no place for the data to be received.
-    // A peek into the apacha http server showed values like 512 or 2048.
-    // So, the value of 1024 used here is probably acceptable.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-    // The serialised character item.
+    // The encoded message item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised message item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serialised character item data, count.
+    // The encoded message item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised message item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate buffer data.
+    // Allocate encoded message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate serialised character item.
-    //
+    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate serialised message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    //
-    // CAUTION! Do NOT use WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.
-    // The data transmitted via socket are treated as byte data
-    // and have to be converted inside the cybol application,
-    // by explicitly calling the corresponding "convert" operation.
-    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Loop until all bytes have been received.
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Receive byte data via channel.
+    receive_socket_message(e, p2);
 
-        // Receive data until buffer is filled.
-        receive_socket_buffer(bd, (void*) &bc, (void*) &bs, socket);
+    // Get encoded message item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST: receive socket ec: %i \n", ec);
+fwprintf(stdout, L"TEST: receive socket *ec: %i \n", *((int*) ec));
+fwprintf(stdout, L"TEST: receive socket ed: %s \n", ed);
 
-            // Append buffer to destination data.
-            append_item_element(s, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    // Decode data via encoding.
+    decode(s, ed, ec, p6);
 
-        } else {
-
-            // No more data have been received.
-            break;
-        }
-    }
-
-    // Get serialised character item data, count.
-    //
+    // Get serialised message item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST: receive socket serialised character data sc: %i \n", sc);
-fwprintf(stdout, L"TEST: receive socket serialised character data *sc: %i \n", *((int*) sc));
-fwprintf(stdout, L"TEST: receive socket serialised character data sd: %s \n", sd);
-sleep(2);
+fwprintf(stdout, L"TEST receive socket sc: %i\n", sc);
+fwprintf(stdout, L"TEST receive socket *sc: %i\n", *((int*) sc));
+fwprintf(stdout, L"TEST receive socket sd: %i\n", sd);
 
-    // Deserialise serialised character array into destination item.
-    //
-    // CAUTION! Any meta data like an http request's headers
-    // are written into the destination item as well.
+    // Deserialise data via type (language).
     deserialise(p0, p1, sd, sc, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p4, p5);
 
-    // Deallocate buffer data.
-    deallocate_array((void*) &bd, (void*) &bc, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate serialised character item.
-    deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded message item.
+    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate serialised message item.
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SOCKET_RECEIVER_SOURCE */

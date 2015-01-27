@@ -55,48 +55,65 @@
  * @param p6 the format
  * @param p7 the indentation flag
  * @param p8 the language
+ * @param p9 the encoding
  */
-void send_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void send_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket.");
 
-    // The serialised character item.
+    // The serialised wide character item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serialised character item data, count.
+    // The encoded character item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised wide character item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate serialised character item.
-    //
+    // Allocate serialised wide character array.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    //
-    // CAUTION! Do NOT use WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE.
-    // The data transmitted via socket are treated as byte data
-    // and have to be converted inside the cybol application,
-    // by explicitly calling the corresponding "convert" operation.
-    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise source model into serialised character item.
     serialise(s, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8);
 
-    // Get serialised character item data, count.
-    //
+    // Get serialised wide character item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
     copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    // Encode serialised wide character array into encoded character array.
+    encode(e, sd, sc, p9);
+
+    // Get encoded character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
 fwprintf(stdout, L"TEST: send socket p0: %i \n", *((int*) p0));
 fwprintf(stdout, L"TEST: send socket *sc: %i \n", *((int*) sc));
 fwprintf(stdout, L"TEST: send socket *sd: %s \n", (char*) sd);
+fwprintf(stdout, L"TEST: send socket *ec: %i \n", *((int*) ec));
+fwprintf(stdout, L"TEST: send socket *ed: %s \n", (char*) ed);
 
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
-    send_socket_message(p0, (void*) &sd, sc);
+    send_socket_message(p0, (void*) &ed, ec);
 
-    // Deallocate serialised character item.
-    deallocate_item((void*) &s, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate serialised wide character item.
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded character item.
+    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SOCKET_SENDER_SOURCE */
