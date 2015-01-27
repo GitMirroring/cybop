@@ -105,9 +105,13 @@ void send_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
 
                     if (*n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST: send bsd socket success *n: %i \n", *n);
+
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully sent bsd socket.");
 
                     } else if (*n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST: send bsd socket no data sent *n: %i \n", *n);
 
                         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. No data could be sent.");
 
@@ -117,37 +121,55 @@ void send_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
 
                         if (errno == EBADF) {
 
+fwprintf(stdout, L"TEST: send bsd socket error EBADF: %i \n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The socket argument is not a valid file descriptor.");
 
                         } else if (errno == EINTR) {
+
+fwprintf(stdout, L"TEST: send bsd socket error EINTR: %i \n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The operation was interrupted by a signal before any data was sent.");
 
                         } else if (errno == ENOTSOCK) {
 
+fwprintf(stdout, L"TEST: send bsd socket error ENOTSOCK: %i \n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The descriptor socket is not a socket.");
 
                         } else if (errno == EMSGSIZE) {
+
+fwprintf(stdout, L"TEST: send bsd socket error EMSGSIZE: %i \n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. The socket type requires that the message be sent atomically, but the message is too large for this to be possible.");
 
                         } else if (errno == EWOULDBLOCK) {
 
+fwprintf(stdout, L"TEST: send bsd socket error EWOULDBLOCK: %i \n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. Nonblocking mode has been set on the socket, and the write operation would block.");
 
                         } else if (errno == ENOBUFS) {
+
+fwprintf(stdout, L"TEST: send bsd socket error ENOBUFS: %i \n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. There is not enough internal buffer space available.");
 
                         } else if (errno == ENOTCONN) {
 
+fwprintf(stdout, L"TEST: send bsd socket error ENOTCONN: %i \n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. You never connected this socket.");
 
                         } else if (errno == EPIPE) {
 
+fwprintf(stdout, L"TEST: send bsd socket error EPIPE: %i \n", errno);
+
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
 
                         } else {
+
+fwprintf(stdout, L"TEST: send bsd socket error UNKNOWN: %i \n", errno);
 
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send bsd socket. An unknown error occured.");
                         }
