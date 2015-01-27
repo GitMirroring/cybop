@@ -14,6 +14,24 @@
 WUI
 ___
 
+        * Rename old "accept" file "sense_socket.c" into "sense_socket_accept.c"
+        * Add new "recv" files "sense_socket.c", "sense_bsd_socket.c", "sense_winsock.c"
+
+        * Use cyboi-internal int array (not part from cybol app) storing list of client sockets
+        * Add client list array to each io entry (one for each channel)
+        * Check all clients in this list for available data "recv" and if so, then store client number in "sender" variable handed over as argument from cybol
+        * Use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue; see glibc documentation "16.9.5.3 Socket Data Options"
+        * Set non-blocking mode for socket at startup
+        * Extend function "check_wait" by call of function "check_sender"; all function calls in this order:
+            check_io_threads
+            check_io (using socket recv)
+            check_sender (using accept)
+        * Set timeout parametre on server socket startup or sense
+        * Close and remove socket from client list when timeout is reached
+        * Close and remove socket from client list on error, e.g. non-respoding client
+        * Close all client sockets on server shutdown, starting from the last, for more efficient removal from client list
+            (if starting from the first, then all following clients would have to be moved one place forward on each removal)
+
         * Check why server does not send reply (data from client received successfully)
         * How to handle "http" if only one language e.g. "html" may be specified in "send"?
             --> convert data into desired format before and send that as bytes.
@@ -28,26 +46,9 @@ ___
             model in file "src/data_structure.xmi"
 
             If one property (e.g. compression) is not specified in cybol,
-            then the byte data are copied 1:1 from source to destination.
-            Encoding is ONLY necessary for character data, but NOT
-            for an image or other byte data.
-            Therefore, this has to be distinguished by an if-else
-            when sending or receiving data.
-
-        * Inspect send/receive using test log messages -- message transfer failes due to missing encoding
-        * Encode/Decode transmitted data into/from ascii byte code
-        * Exchange data via cybol example applications "socket_server" and "socket_client"
-
-        * Set non-blocking mode for socket at startup
-
-        * Extend function "check_wait" by call of function "check_sender"; all function calls in this order:
-            check_io_threads
-            check_io (using socket recv)
-            check_sender (using_accept)
-        * Delegate int array (not a part and not a simple int value) from cybol app, serving as client list, in order to have a handle to be able to respond to the sender
-        * Add int array client socket "senders" to EACH io entry (one for each channel, created in cybol app)
-        * Assign sender (accepted client socket) in sensor
-        * Use "MSG_PEEK" with function "recv" to look at the data but don't remove it from the input queue; see glibc documentation "16.9.5.3 Socket Data Options"
+            then the byte data are copied 1:1 (CAUTION! BETTER: assign pointer instead of copying all) from source to destination.
+            Encoding is ONLY necessary for character data, but NOT for an image or other byte data.
+            Therefore, this has to be distinguished by an if-else when sending or receiving data.
 
         * When and where to close a client socket that was accepted by the server socket?
             it is stored as int number in the cybol application;
@@ -90,6 +91,11 @@ ___
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
+
+Hello, World!
+_____________
+
+        * Create several variants of "Hello, World!" cybol example application to demonstrate ease and slim code
 
 Signal
 ______

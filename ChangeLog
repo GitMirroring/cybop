@@ -21,6 +21,7 @@
 2015-01-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug socket communication
+        * Add files "list_io_checker.c", "clients_io_checker.c", "client_io_checker.c"
 
 2015-01-22  Christian Heller  <christian.heller@tuxtax.de>
 
