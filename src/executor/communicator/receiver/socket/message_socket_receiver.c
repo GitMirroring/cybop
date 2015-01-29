@@ -65,7 +65,7 @@ void receive_socket_message(void* p0, void* p1) {
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Receive data until buffer is filled.
-        receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1);
+        receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
 fwprintf(stdout, L"TEST: receive socket message bc: %i \n", bc);
 

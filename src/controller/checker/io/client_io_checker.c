@@ -28,19 +28,13 @@
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../controller/checker/io/element_io_checker.c"
-#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../../logger/logger.c"
 
 /**
  * Checks open client for available data.
  *
- * @param p0 the interrupt request
+ * @param p0 the destination interrupt request
  * @param p1 the sender client socket
  * @param p2 the client list item data
  * @param p3 the client list item index
@@ -53,12 +47,7 @@ void check_io_client(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward(p1, p2, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
     // Sense data available on already open client socket.
-    // CAUTION! Only peek for data, but do NOT remove them.
- * @param p0 the destination data
- * @param p1 the destination count
- * @param p2 the destination size
- * @param p3 the source socket
-    sense_socket(x, y, z, p1);
+    sense_socket(p0, p1);
 }
 
 /* CLIENT_IO_CHECKER_SOURCE */

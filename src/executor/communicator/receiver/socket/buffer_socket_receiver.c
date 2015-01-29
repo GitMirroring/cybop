@@ -60,22 +60,23 @@
  * Receives socket data until the given buffer is filled.
  *
  * @param p0 the destination buffer data
- * @param p0 the destination buffer count
- * @param p0 the destination buffer size
+ * @param p1 the destination buffer count
+ * @param p2 the destination buffer size
  * @param p3 the source socket
+ * @param p4 the socket options
  */
-void receive_socket_buffer(void* p0, void* p1, void* p2, void* p3) {
+void receive_socket_buffer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket buffer.");
 
 #ifdef __APPLE__
-    receive_bsd_socket(p0, p1, p2, p3);
+    receive_bsd_socket(p0, p1, p2, p3, p4);
 #elif WIN32
-    receive_winsock(p0, p1, p2, p3);
+    receive_winsock(p0, p1, p2, p3, p4);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    receive_bsd_socket(p0, p1, p2, p3);
+    receive_bsd_socket(p0, p1, p2, p3, p4);
 #else
-    receive_bsd_socket(p0, p1, p2, p3);
+    receive_bsd_socket(p0, p1, p2, p3, p4);
 #endif
 }
 

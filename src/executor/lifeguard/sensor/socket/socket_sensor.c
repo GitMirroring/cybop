@@ -28,38 +28,56 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../executor/communicator/receiver/socket/buffer_socket_receiver.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
-    #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
-#elif WIN32
-    #include "../../../../executor/lifeguard/sensor/winsock/accept_winsock_sensor.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
-#else
-    #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
-#endif
-
 /**
- * Senses data on the given server socket.
+ * Senses data available on the given server socket.
  *
- * @param p0 the interrupt request
- * @param p1 the sender client socket
- * @param p2 the server socket
+ * @param p0 the destination interrupt request
+ * @param p1 the source socket
  */
-void sense_socket(void* p0, void* p1, void* p2) {
+void sense_socket(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server listen.");
+    // CAUTION! DO NOT log this function call!
+    // The function runs in an endless loop
+    // that would produce huge log files.
+    // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
 
-#ifdef __APPLE__
-    sense_bsd_socket_accept(p0, p1, p2);
-#elif WIN32
-    sense_winsock_accept(p0, p1, p2);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    sense_bsd_socket_accept(p0, p1, p2);
-#else
-    sense_bsd_socket_accept(p0, p1, p2);
-#endif
+fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
+
+    // The buffer data, count, size.
+    // CAUTION! Its size has to be GREATER than zero.
+    // Otherwise, there will be no place for the data to be received.
+    // A peek into the apacha http server showed values like 512 or 2048.
+    // So, the value of 1024 used here is probably acceptable.
+    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+
+    // Allocate buffer data.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // The socket options.
+    // CAUTION! Look at the data but do NOT remove it from the input queue.
+    int o = MSG_PEEK;
+
+    // Receive data until buffer is filled.
+    receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
+
+    if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
+
+        // Set interrupt request.
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    }
+
+    // Deallocate buffer data.
+    deallocate_array((void*) &bd, (void*) &bc, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SOCKET_SENSOR_SOURCE */

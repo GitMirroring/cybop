@@ -14,9 +14,6 @@
 WUI
 ___
 
-        * Rename old "accept" file "sense_socket.c" into "sense_socket_accept.c"
-        * Add new "recv" files "sense_socket.c", "sense_bsd_socket.c", "sense_winsock.c"
-
         * Use cyboi-internal int array (not part from cybol app) storing list of client sockets
         * Add client list array to each io entry (one for each channel)
         * Check all clients in this list for available data "recv" and if so, then store client number in "sender" variable handed over as argument from cybol

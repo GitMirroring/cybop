@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Distinguish between sensor for accepting new client (file "sense_socket_accept.c") and that testing for data (file "sense_socket.c")
+        * Hand over socket option flags as additional argument to receive function, since it is used for "normal" receive and peaking ahead for available data
+
 2015-01-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug socket communication

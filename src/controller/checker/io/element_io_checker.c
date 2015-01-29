@@ -37,6 +37,7 @@
 #include "../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/lifeguard/sensor/socket/accept_socket_sensor.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../executor/lifeguard/sensor/socket/socket_sensor.c"
@@ -115,7 +116,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
                 // The interrupt request flag is still not set.
 
                 // Sense new client requests (accept) on server socket.
-                sense_socket((void*) &i, c, (void*) &s);
+                sense_socket_accept((void*) &i, c, (void*) &s);
 
                 //?? TODO: Add socket to client list item.
             }
