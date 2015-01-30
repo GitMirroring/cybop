@@ -23,15 +23,16 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CLIENTS_IO_CHECKER_SOURCE
-#define CLIENTS_IO_CHECKER_SOURCE
+#ifndef ALL_CLIENT_CHECKER_SOURCE
+#define ALL_CLIENT_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../controller/checker/io/client_io_checker.c"
+#include "../../../controller/checker/client/element_client_checker.c"
+#include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
 #include "../../../logger/logger.c"
@@ -39,21 +40,22 @@
 /**
  * Checks already open clients for new available data.
  *
- * @param p0 the interrupt request
- * @param p1 the sender client socket
- * @param p2 the client list item data
- * @param p3 the client list item count
+ * @param p0 the destination sender client
+ * @param p1 the source client list data
+ * @param p2 the source client list count
  */
-void check_io_clients(void* p0, void* p1, void* p2, void* p3) {
+void check_client_all(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io clients.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client all.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The client.
+    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -67,7 +69,7 @@ void check_io_clients(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p2);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -77,12 +79,36 @@ void check_io_clients(void* p0, void* p1, void* p2, void* p3) {
         // Test for data available on client socket.
         // CAUTION! This function only PEEKS into data,
         // but does NOT remove them, so that they can be read later.
-        check_io_client(p0, p1, p2, (void*) &j);
+        check_client_element((void*) &c, p1, (void*) &j);
+
+        //
+        // CAUTION! This second comparison IS NECESSARY for two reasons:
+        //
+        // 1 Correct client number
+        //
+        // If data are available on one of the clients,
+        // then that client number has to be preserved
+        // in order to be returned correctly.
+        //
+        // 2 Efficiency
+        //
+        // Once data are available on one of the clients, the other
+        // clients in the list do NOT have to be checked anymore.
+        //
+        compare_integer_greater((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Copy client.
+            copy_integer(p0, (void*) &c);
+
+            break;
+        }
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* CLIENTS_IO_CHECKER_SOURCE */
+/* ALL_CLIENT_CHECKER_SOURCE */
 #endif

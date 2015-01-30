@@ -18,10 +18,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-01-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Extend io_entry structure with "client list" array (one for each channel)
+        * Allocate cyboi-internal integer item at service startup, storing list of clients, e.g. sockets
+        * Structure checker files using new directory "controller/checker/client/"
+        * Check client list for available data and store client number as "sender", handed over as argument from cybol
+
 2015-01-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Distinguish between sensor for accepting new client (file "sense_socket_accept.c") and that testing for data (file "sense_socket.c")
-        * Hand over socket option flags as additional argument to receive function, since it is used for "normal" receive and peaking ahead for available data
+        * Hand over socket option flags as additional argument to receive function, since it is used both for normal receive and for peaking ahead (MSG_PEEK) for available data
 
 2015-01-27  Christian Heller  <christian.heller@tuxtax.de>
 

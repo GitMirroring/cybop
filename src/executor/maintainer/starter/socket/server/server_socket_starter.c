@@ -35,6 +35,7 @@
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
+#include "../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
@@ -83,26 +84,39 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+            // The socket.
+            int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // The client list item.
+            void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
+
             // Allocate io entry.
             //
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
-
-            // The socket.
-            int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
             // Startup server socket.
             startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+            // Allocate client list item.
+            //
+            // CAUTION! Due to memory allocation handling, the size MUST NOT
+            // be negative or zero, but have at least a value of ONE.
+            allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"TEST: startup socket server after lifecycle s: %i \n", s);
+    fwprintf(stdout, L"TEST: startup socket server after lifecycle cl: %i \n", cl);
 
             // Store socket in io entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
-            // But the internal array's count and size are CONSTANT.
+            // But the array's count and size are CONSTANT.
             set_io_entry_element((void*) &io, (void*) &s, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Store client list item in io entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the array's count and size are CONSTANT.
+            set_io_entry_element((void*) &io, (void*) &cl, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Store io entry in internal memory.
             //

@@ -60,17 +60,21 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
     if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
+        // CAUTION! Add offset to each element pointer below.
+        //
+        // Add the type sizes of all elements PRECEDING the current one,
+        // but NOT the type size of the element itself.
+        //
+        // The "calculate_pointer_add" function is needed here,
+        // since the result is a pointer to which the offset is added.
+        //
+
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_integer_equal((void*) &r, p2, (void*) ENABLE_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Add offset to element pointer.
-                // CAUTION! Add the type sizes of all elements PRECEDING
-                // this one, but NOT the type size of this element itself.
-                // CAUTION! The pointer type is needed here, since
-                // the result is a pointer to which the offset is added.
 
                 //
                 // Nothing.
@@ -89,12 +93,6 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Add offset to element pointer.
-                // CAUTION! Add the type sizes of all elements PRECEDING
-                // this one, but NOT the type size of this element itself.
-                // CAUTION! The pointer type is needed here, since
-                // the result is a pointer to which the offset is added.
-
                 //
                 // General.
                 //
@@ -111,12 +109,6 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
             compare_integer_equal((void*) &r, p2, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Add offset to element pointer.
-                // CAUTION! Add the type sizes of all elements PRECEDING
-                // this one, but NOT the type size of this element itself.
-                // CAUTION! The pointer type is needed here, since
-                // the result is a pointer to which the offset is added.
 
                 //
                 // General.
@@ -139,12 +131,6 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Add offset to element pointer.
-                // CAUTION! Add the type sizes of all elements PRECEDING
-                // this one, but NOT the type size of this element itself.
-                // CAUTION! The pointer type is needed here, since
-                // the result is a pointer to which the offset is added.
-
                 //
                 // General.
                 //
@@ -160,15 +146,9 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p2, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            compare_integer_equal((void*) &r, p2, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // Add offset to element pointer.
-                // CAUTION! Add the type sizes of all elements PRECEDING
-                // this one, but NOT the type size of this element itself.
-                // CAUTION! The pointer type is needed here, since
-                // the result is a pointer to which the offset is added.
 
                 //
                 // General.
@@ -178,6 +158,27 @@ void get_io_entry_element(void* p0, void* p1, void* p2) {
                 calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
                 calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
+
+                // Copy element to destination.
+                copy_pointer(p0, e);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_equal((void*) &r, p2, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                //
+                // General.
+                //
+
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // enable
+                calculate_pointer_add((void*) &e, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE); // interrupt
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // handler
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // sender
+                calculate_pointer_add((void*) &e, (void*) POINTER_TYPE_SIZE); // client list
 
                 //?? TODO: Only needed as long as sensing threads are used. Otherwise, these may be DELETED in the future.
                 calculate_pointer_add((void*) &e, (void*) MUTEX_THREAD_TYPE_SIZE); // mutex

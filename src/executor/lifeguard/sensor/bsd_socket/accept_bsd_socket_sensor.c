@@ -34,32 +34,30 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Accepts data on the given bsd socket.
  *
- * @param p0 the interrupt request
- * @param p1 the sender client socket
- * @param p2 the server socket
+ * @param p0 the sender client socket
+ * @param p1 the server socket
  */
-void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
+void sense_bsd_socket_accept(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* s = (int*) p2;
+        int* s = (int*) p1;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* c = (int*) p1;
+            int* c = (int*) p0;
 
             // CAUTION! DO NOT log this function call!
             // The function runs in an endless loop
             // that would produce huge log files.
             // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense bsd socket accept.");
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept *s: %i \n", *((int*) p2));
+    fwprintf(stdout, L"TEST: sense bsd socket accept *s: %i \n", *((int*) p1));
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -100,9 +98,6 @@ void sense_bsd_socket_accept(void* p0, void* p1, void* p2) {
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense bsd socket accept successful.");
 
     fwprintf(stdout, L"TEST: sense bsd socket accept success *c: %i \n", *c);
-
-                // Set interrupt request.
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             } else {
 

@@ -33,14 +33,14 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-//?? #include "../../../controller/checker/io/list_io_checker.c"
+#include "../../../controller/checker/io/accept_io_checker.c"
+#include "../../../controller/checker/io/receive_io_checker.c"
 #include "../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/lifeguard/sensor/socket/accept_socket_sensor.c"
+#include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
-#include "../../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -81,58 +81,36 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
 
         if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            // The enable flag is set.
+
     fwprintf(stdout, L"TEST: check io element io index p2: %i \n", *((int*) p2));
     fwprintf(stdout, L"TEST: check io element port p3: %i \n", *((int*) p3));
 
     fwprintf(stdout, L"TEST: check io element io index with port: %i \n", idx);
 
-            // The enable flag is set.
-
-            // The server socket.
-            int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
             // The client list item.
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The sender client socket.
-            void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-            // The interrupt request.
-            int i = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            // Get server socket from io entry.
-            get_io_entry_element((void*) &s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
             // Get client list item from io entry.
-//??            get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
-            // Get sender client socket from io entry.
-            get_io_entry_element((void*) &c, (void*) &io, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST: check io element s: %i \n", s);
-    fwprintf(stdout, L"TEST: check io element l: %i \n", l);
-    fwprintf(stdout, L"TEST: check io element c pre: %i \n", *((int*) c));
+fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
-            // Sense data (recv) on already open client sockets.
-//??            check_io_list((void*) &i, c, l);
+            compare_integer_equal((void*) &r, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-            if (i == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // The interrupt request flag is still not set.
+                // This is a socket.
+                // CAUTION! Other services do not have to accept clients.
 
-                // Sense new client requests (accept) on server socket.
-                sense_socket_accept((void*) &i, c, (void*) &s);
-
-                //?? TODO: Add socket to client list item.
+                // Check for new client requests.
+                check_io_accept(l, (void*) &io);
             }
 
-            if (i != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // The interrupt request flag is set.
-
-    fwprintf(stdout, L"TEST: check io element c post: %i \n", *((int*) c));
-
-                // Set interrupt request into io entry.
-                set_io_entry_element((void*) &io, (void*) &i, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
-
-                // Set result.
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            // Check for available input/output.
+            check_io_receive((void*) &io, l);
         }
     }
 }

@@ -37,19 +37,18 @@
 /**
  * Accepts data on the given winsock.
  *
- * @param p0 the interrupt request
- * @param p1 the sender client socket
- * @param p2 the server socket
+ * @param p0 the sender client socket
+ * @param p1 the server socket
  */
-void sense_winsock_accept(void* p0, void* p1, void* p2) {
+void sense_winsock_accept(void* p0, void* p1) {
 
-    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* s = (int*) p2;
+        int* s = (int*) p1;
 
-        if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* c = (int*) p1;
+            int* c = (int*) p0;
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense winsock accept.");
 
@@ -75,9 +74,6 @@ void sense_winsock_accept(void* p0, void* p1, void* p2) {
                 *c = (int) wc;
 
     fwprintf(stdout, L"TEST: sense winsock accept c: %i \n", *c);
-
-                // Set interrupt request.
-                copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             } else {
 

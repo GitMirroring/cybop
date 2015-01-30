@@ -35,6 +35,7 @@
 #include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
@@ -76,19 +77,28 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
             // Interrupt socket service thread.
             interrupt_thread(p1, p2);
 
+            // The client list item.
+            void* cl = *NULL_POINTER_STATE_CYBOI_MODEL;
             // The socket.
             int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            // Store socket in io entry.
+            // Get client list from io entry.
             //
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
-            // But the internal array's count and size are CONSTANT.
+            // But the array's count and size are CONSTANT.
+            get_io_entry_element((void*) &cl, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+            // Get socket from io entry.
+            //
+            // CAUTION! Do NOT use "overwrite_array" function here,
+            // since it adapts the array count and size.
+            // But the array's count and size are CONSTANT.
             get_io_entry_element((void*) &s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
             // Close server socket.
             shutdown_socket_close((void*) &s);
-
+            // Deallocate client list item.
+            deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             // Deallocate io entry.
             deallocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
 

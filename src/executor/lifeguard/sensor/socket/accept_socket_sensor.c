@@ -43,22 +43,21 @@
 /**
  * Senses new client requests waiting to get accepted on the given server socket.
  *
- * @param p0 the interrupt request
- * @param p1 the sender client socket
- * @param p2 the server socket
+ * @param p0 the sender client socket
+ * @param p1 the server socket
  */
-void sense_socket_accept(void* p0, void* p1, void* p2) {
+void sense_socket_accept(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket accept.");
 
 #ifdef __APPLE__
-    sense_bsd_socket_accept(p0, p1, p2);
+    sense_bsd_socket_accept(p0, p1);
 #elif WIN32
-    sense_winsock_accept(p0, p1, p2);
+    sense_winsock_accept(p0, p1);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    sense_bsd_socket_accept(p0, p1, p2);
+    sense_bsd_socket_accept(p0, p1);
 #else
-    sense_bsd_socket_accept(p0, p1, p2);
+    sense_bsd_socket_accept(p0, p1);
 #endif
 }
 

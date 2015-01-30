@@ -23,41 +23,40 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef LIST_IO_CHECKER_SOURCE
-#define LIST_IO_CHECKER_SOURCE
+#ifndef LIST_CLIENT_CHECKER_SOURCE
+#define LIST_CLIENT_CHECKER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../controller/checker/io/clients_io_checker.c"
+#include "../../../controller/checker/client/all_client_checker.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**
  * Checks list of already open clients for new available data.
  *
- * @param p0 the interrupt request
- * @param p1 the sender client socket
- * @param p2 the client list item
+ * @param p0 the destination sender client
+ * @param p1 the source client list item
  */
-void check_io_list(void* p0, void* p1, void* p2) {
+void check_client_list(void* p0, void* p1) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io list.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client list.");
 
     // The client list item data, count.
-    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* lc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get client list item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &ld, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &lc, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Test clients for available data.
-    check_io_clients(p0, p1, ld, lc);
+    check_client_all(p0, d, c);
 }
 
-/* LIST_IO_CHECKER_SOURCE */
+/* LIST_CLIENT_CHECKER_SOURCE */
 #endif
