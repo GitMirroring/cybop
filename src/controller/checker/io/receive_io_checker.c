@@ -41,10 +41,11 @@
 /**
  * Checks input output for data.
  *
- * @param p0 the io entry (pointer reference)
- * @param p1 the client list item
+ * @param p0 the io flag
+ * @param p1 the io entry (pointer reference)
+ * @param p2 the client list item
  */
-void check_io_receive(void* p0, void* p1) {
+void check_io_receive(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io receive.");
 
@@ -52,7 +53,7 @@ void check_io_receive(void* p0, void* p1) {
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Sense data on already open clients.
-    check_client_list((void*) &c, p1);
+    check_client_list((void*) &c, p2);
 
     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -65,13 +66,16 @@ fwprintf(stdout, L"TEST: check io receive c: %i \n", c);
         void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get io sender client from io entry.
-        get_io_entry_element((void*) &s, p0, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        get_io_entry_element((void*) &s, p1, (void*) SENDER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
         // Copy client as sender.
         copy_integer(s, (void*) &c);
 
         // Set interrupt request into io entry.
-        set_io_entry_element(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+        set_io_entry_element(p1, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) INTERRUPT_REQUEST_INPUT_OUTPUT_STATE_CYBOI_NAME);
+
+        // Set io flag.
+        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

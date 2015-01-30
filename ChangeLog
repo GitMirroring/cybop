@@ -24,6 +24,7 @@
         * Allocate cyboi-internal integer item at service startup, storing list of clients, e.g. sockets
         * Structure checker files using new directory "controller/checker/client/"
         * Check client list for available data and store client number as "sender", handed over as argument from cybol
+        * Set non-blocking mode for socket at startup
 
 2015-01-29  Christian Heller  <christian.heller@tuxtax.de>
 

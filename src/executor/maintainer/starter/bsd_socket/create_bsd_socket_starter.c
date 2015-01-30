@@ -33,6 +33,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/maintainer/starter/bsd_socket/get_status_bsd_socket_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -90,7 +91,10 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
 
     fwprintf(stdout, L"TEST: startup bsd socket create successful *s: %i \n", *s);
 
-                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket create.");
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket create success.");
+
+                        // Make socket nonblocking.
+                        startup_bsd_socket_status_get(p0);
 
                     } else {
 

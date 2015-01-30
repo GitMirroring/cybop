@@ -66,7 +66,7 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
                 // may have set some value that is not wanted here.
                 //
                 // CAUTION! Initialise the error number BEFORE calling
-                // the procedure that might cause an error.
+                // the function that might cause an error.
                 errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                 int r = bind(*s, ad, sl);

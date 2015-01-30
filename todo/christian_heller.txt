@@ -14,7 +14,9 @@
 WUI
 ___
 
-        * Set non-blocking mode for socket at startup
+        * Check why received data is ".app.actions.sayhelloexit"
+        * Fix cybol example app
+
         * Set timeout parametre on server socket startup or sense
         * Close and remove socket from client list when timeout is reached
         * Close and remove socket from client list on error, e.g. non-respoding client

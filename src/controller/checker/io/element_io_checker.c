@@ -110,7 +110,7 @@ fwprintf(stdout, L"TEST: check io element l: %i \n", l);
             }
 
             // Check for available input/output.
-            check_io_receive((void*) &io, l);
+            check_io_receive(p0, (void*) &io, l);
         }
     }
 }

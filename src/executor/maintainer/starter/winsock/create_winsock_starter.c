@@ -31,6 +31,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/maintainer/starter/winsock/status_winsock_starter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -82,6 +83,9 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
 
                         // Cast winsock SOCKET to destination int.
                         *s = (int) ws;
+
+                        // Make socket nonblocking.
+                        startup_winsock_status(p0);
 
                     } else {
 
