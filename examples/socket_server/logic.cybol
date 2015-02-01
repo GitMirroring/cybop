@@ -4,7 +4,7 @@
 
     <part name="send_response" channel="inline" format="communicate/send" model="">
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="This is just a test response. All went fine!"/>
+        <property name="message" channel="inline" format="text/plain" model="Hello, World!"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
 <!--
         <property name="language" channel="inline" format="meta/language" model="text/html"/>

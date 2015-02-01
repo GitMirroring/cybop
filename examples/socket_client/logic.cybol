@@ -1,0 +1,5 @@
+<model>
+
+    <part name="handler" channel="file" format="element/part" model="socket_client/handler.cybol"/>
+
+</model>

@@ -14,19 +14,12 @@
 WUI
 ___
 
-        * Check why received data is ".app.actions.sayhelloexit"
-        * Fix cybol example app
+        * Investigate asynchronous handling, e.g.:
+            https://msdn.microsoft.com/en-us/library/bew39x2a.aspx
 
-        * Set timeout parametre on server socket startup or sense
-        * Close and remove socket from client list when timeout is reached
-        * Close and remove socket from client list on error, e.g. non-respoding client
-        * Close all client sockets on server shutdown, starting from the last, for more efficient removal from client list
-            (if starting from the first, then all following clients would have to be moved one place forward on each removal)
-
-        * Check why server does not send reply (data from client received successfully)
         * How to handle "http" if only one language e.g. "html" may be specified in "send"?
             --> convert data into desired format before and send that as bytes.
-        * Merge general sender functionality into directory "basic" (also used by socket, file etc.)
+        * Merge general sender functionality into directory "basic"? (also used by socket, file etc.)
 
         * Assign already converted source pointer to destination pointer, if encoding is not needed; do NOT copy src to dest array, for reasons of efficiency
         * SOLUTION for filter problem: if an encoding/language is not known, just copy the byte in the last "if"-block, instead of showing a warning log message;
@@ -47,6 +40,11 @@ ___
         * Attach timeout and other meta data as properties to a client socket number?
             in this case, however, client sockets would have to be single parts and not just numbers in one int array;
             is the client socket usable as unique id?
+        * Set timeout parametre on server socket startup or sense
+        * Close and remove socket from client list when timeout is reached
+        * Close and remove socket from client list on error, e.g. non-respoding client
+        * Close all client sockets on server shutdown, starting from the last, for more efficient removal from client list
+            (if starting from the first, then all following clients would have to be moved one place forward on each removal)
 
         * Uncomment function call "shutdown_socket" in file "controller/manager.c"
         * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
