@@ -14,6 +14,8 @@
 WUI
 ___
 
+        * Complete "socket" cybol example application using blocking sockets
+        * Create a second cybol example application using non-blocking sockets and something like future/session/request_id
         * Investigate asynchronous handling, e.g.:
             https://msdn.microsoft.com/en-us/library/bew39x2a.aspx
 
