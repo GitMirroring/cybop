@@ -29,30 +29,7 @@
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
-    <!--
-        The client socket is needed for sending requests BUT NOT for receiving a response.
-        Instead, a server socket is needed for receiving requests/sending responses.
-        Both are able to send and receive data.
-        However, since sockets are non-blocking within cyboi,
-        errors like "EWOULDBLOCK" (errno 11) might occur
-        if sender and receiver are not immediately available.
-        Therefore, cybol socket applications run peer-to-peer,
-        and represent CLIENT AND SERVER, at the same time.
-    -->
-    <part name="startup_server_socket" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
-        <property name="style" channel="inline" format="text/plain" model="stream"/>
-        <property name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <!-- CAUTION! The SAME ADDRESS as for the client socket below (and not "any") is used here, so that only the server may reply, but not arbitrary clients. -->
-        <property name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
-        <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <property name="id" channel="inline" format="number/integer" model="1971"/>
-        <property name="service" channel="inline" format="text/plain" model="http"/>
-        <property name="mode" channel="inline" format="text/plain" model="server"/>
-        <property name="connexions" channel="inline" format="number/integer" model="1"/>
-    </part>
-    <part name="startup_client_socket" channel="inline" format="maintain/startup" model="">
+    <part name="startup_socket" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <property name="style" channel="inline" format="text/plain" model="stream"/>
@@ -65,42 +42,64 @@
         <property name="id" channel="inline" format="number/integer" model="1971"/>
         <property name="service" channel="inline" format="text/plain" model="http"/>
         <property name="mode" channel="inline" format="text/plain" model="client"/>
+        <property name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="socket" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
     </part>
 
-    <part name="print_message_waiting" channel="inline" format="communicate/send" model="">
+    <part name="print_request" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="message/cli"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="sense_requests" channel="inline" format="live/sense" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <property name="id" channel="inline" format="number/integer" model="1971"/>
-        <property name="service" channel="inline" format="text/plain" model="http"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
-        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
-
-    <part name="print_message_sending" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Sending message ..."/>
+        <property name="message" channel="inline" format="text/plain" model="Sending "hello" message ..."/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="send_request" channel="inline" format="communicate/send" model="">
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="sayhello"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="sayhello"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
     </part>
+
+    <part name="receive_response" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.response"/>
+        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+    </part>
+    <part name="print_response" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.response"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+<!--
+    <part name="print_request_exit" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="Sending "exit" message ..."/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+    <part name="send_request_exit" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="text/plain" model="exit"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.server_socket"/>
+    </part>
+-->
+
+    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
 
 </model>
 

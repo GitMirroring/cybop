@@ -43,8 +43,9 @@
  * @param p1 the protocol family (socket namespace)
  * @param p2 the communication style
  * @param p3 the protocol
+ * @param p4 the blocking flag
  */
-void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
+void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -94,7 +95,7 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3) {
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket create success.");
 
                         // Make socket nonblocking.
-                        startup_bsd_socket_status_get(p0);
+                        startup_bsd_socket_status_get(p0, p4);
 
                     } else {
 

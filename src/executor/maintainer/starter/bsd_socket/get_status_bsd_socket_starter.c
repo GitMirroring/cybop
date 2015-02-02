@@ -40,8 +40,9 @@
  * Get socket status flags.
  *
  * @param p0 the socket
+ * @param p1 the blocking flag
  */
-void startup_bsd_socket_status_get(void* p0) {
+void startup_bsd_socket_status_get(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -74,7 +75,7 @@ fwprintf(stdout, L"TEST: startup bsd socket status get success f: %i \n", f);
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status get success.");
 
-            startup_bsd_socket_status_set(p0, (void*) &f);
+            startup_bsd_socket_status_set(p0, (void*) &f, p1);
 
         } else {
 

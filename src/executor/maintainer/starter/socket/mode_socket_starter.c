@@ -46,17 +46,18 @@
  * @param p4 the style count
  * @param p5 the protocol data
  * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
- * @param p12 the connexions (number of possible pending client requests)
- * @param p13 the client socket
- * @param p14 the mode data
- * @param p15 the mode count
+ * @param x7 the blocking flag
+ * @param p8 the filename data
+ * @param p9 the filename count
+ * @param p10 the host address data
+ * @param p11 the host address count
+ * @param p12 the port
+ * @param p13 the connexions (number of possible pending client requests)
+ * @param p14 the client socket
+ * @param p15 the mode data
+ * @param p16 the mode count
  */
-void startup_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void startup_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket mode.");
 
@@ -65,23 +66,23 @@ void startup_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p14, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p15, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p16, (void*) CLIENT_MODE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Hand over client socket.
             // CAUTION! It does NOT have to be determined from internal memory.
-            startup_socket_client(p13, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+            startup_socket_client(p14, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p14, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p15, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT);
+        compare_all_array((void*) &r, p15, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p16, (void*) SERVER_MODE_SOCKET_CYBOL_MODEL_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            startup_socket_server(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+            startup_socket_server(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
         }
     }
 

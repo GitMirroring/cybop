@@ -41,8 +41,9 @@
  * @param p1 the protocol family (socket namespace)
  * @param p2 the communication style
  * @param p3 the protocol
+ * @param p4 the blocking flag
  */
-void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
+void startup_winsock_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -85,7 +86,7 @@ void startup_winsock_create(void* p0, void* p1, void* p2, void* p3) {
                         *s = (int) ws;
 
                         // Make socket nonblocking.
-                        startup_winsock_status(p0);
+                        startup_winsock_status(p0, p4);
 
                     } else {
 

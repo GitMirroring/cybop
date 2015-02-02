@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add socket "blocking" property to cybol and cyboi
+        * Fix endless loop bug in file "message_socket_receiver.c"
+        * Complete "socket" cybol example application using blocking sockets
+
 2015-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Extend io_entry structure with "client list" array (one for each channel)

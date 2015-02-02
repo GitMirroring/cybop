@@ -50,14 +50,15 @@
  * @param p4 the style count
  * @param p5 the protocol data
  * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
- * @param p12 the connexions (number of possible pending client requests)
+ * @param p7 the blocking flag
+ * @param p8 the filename data
+ * @param p9 the filename count
+ * @param p10 the host address data
+ * @param p11 the host address count
+ * @param p12 the port
+ * @param p13 the connexions (number of possible pending client requests)
  */
-void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server.");
 
@@ -65,10 +66,10 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
     fwprintf(stdout, L"TEST: startup socket server io index: %i \n", i);
-    fwprintf(stdout, L"TEST: startup socket server port p11: %i \n", *((int*) p11));
+    fwprintf(stdout, L"TEST: startup socket server port p12: %i \n", *((int*) p12));
 
     // Calculate internal memory index using given port.
-    calculate_integer_add((void*) &i, p11);
+    calculate_integer_add((void*) &i, p12);
 
     if (i > *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 
@@ -95,7 +96,7 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             // be negative or zero, but have at least a value of ONE.
             allocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
             // Startup server socket.
-            startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+            startup_socket_server_lifecycle((void*) &s, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
             // Allocate client list item.
             //
             // CAUTION! Due to memory allocation handling, the size MUST NOT

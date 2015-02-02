@@ -100,7 +100,7 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // Receive message.
                         //
                         // Normally, "recv" blocks until there is input available to be read.
-                        // However, non-blocking mode is used in cyboi.
+                        // However, non-blocking mode may be enabled in cyboi as well.
                         //
                         // CAUTION! If the flags argument (fourth one) is zero, then one can
                         // just as well use the "read" instead of the "recv" function.
@@ -114,13 +114,13 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                         if (*c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            fwprintf(stdout, L"TEST receive bsd socket success *c: %i\n", *c);
+    fwprintf(stdout, L"TEST receive bsd socket success *c: %i\n", *c);
 
                             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received bsd socket.");
 
                         } else if (*c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                            fwprintf(stdout, L"TEST receive bsd socket no data *c: %i\n", *c);
+    fwprintf(stdout, L"TEST receive bsd socket no data *c: %i\n", *c);
 
                             log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. No data could be sensed.");
 

@@ -31,8 +31,10 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,8 +44,9 @@
  *
  * @param p0 the socket
  * @param p1 the status flags
+ * @param p2 the blocking flag
  */
-void startup_bsd_socket_status_set(void* p0, void* p1) {
+void startup_bsd_socket_status_set(void* p0, void* p1, void* p2) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,13 +58,28 @@ void startup_bsd_socket_status_set(void* p0, void* p1) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status set.");
 
-            // Set non-blocking flag (bit).
-            //
-            // CAUTION! If the O_NONBLOCK flag (a bit) is set,
-            // read/write requests on the socket (file) can return
-            // immediately with a failure status, instead of blocking,
-            // in case no data are immediately available.
-            (*f) |= O_NONBLOCK;
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            compare_integer_unequal((void*) &r, p2, FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Set BLOCKING status by clearing non-blocking flag (bit).
+                (*f) &= ~O_NONBLOCK;
+    fwprintf(stdout, L"TEST startup bsd socket status set blocking *f: %i\n", *f);
+
+            } else {
+
+                // Set NON-BLOCKING status by setting non-blocking flag (bit).
+                //
+                // CAUTION! If the O_NONBLOCK flag (a bit) is set,
+                // read/write requests on the socket (file) can return
+                // immediately with a failure status, instead of blocking,
+                // in case no data are immediately available.
+                (*f) |= O_NONBLOCK;
+    fwprintf(stdout, L"TEST startup bsd socket status set non-blocking *f: %i\n", *f);
+            }
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -90,11 +108,11 @@ void startup_bsd_socket_status_set(void* p0, void* p1) {
             //
             // https://stackoverflow.com/questions/1150635/unix-nonblocking-i-o-o-nonblock-vs-fionbio
             //
-            int r = fcntl(*s, F_SETFL, *f);
+            int e = fcntl(*s, F_SETFL, *f);
 
             // The normal return value from fcntl with F_SETFL is an
             // unspecified value OTHER THAN -1, which indicates an error.
-            if (r != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+            if (e != *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 
     fwprintf(stdout, L"TEST: startup bsd socket status set success *f: %i \n", *f);
 

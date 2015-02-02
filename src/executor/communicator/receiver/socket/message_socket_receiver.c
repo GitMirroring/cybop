@@ -32,6 +32,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/communicator/receiver/socket/buffer_socket_receiver.c"
+#include "../../../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
@@ -54,7 +55,10 @@ void receive_socket_message(void* p0, void* p1) {
     // So, the value of 1024 used here is probably acceptable.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+//??    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_8_INTEGER_STATE_CYBOI_MODEL;
+    // The data available flag.
+    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Allocate buffer data.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -73,17 +77,54 @@ fwprintf(stdout, L"TEST: receive socket message bc: %i \n", bc);
 
             // Append buffer to destination data.
             append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
 
-            // Reset buffer count.
-            // CAUTION! It is NOT necessary to reset the buffer data variable.
-            // It points to the first element/begin of the data array
-            // and elements will get overwritten starting from there.
-            bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        if (bc < bs) {
+
+            // The buffer was NOT filled completely, that is
+            // its size was sufficient and the loop may be left.
+
+            // Exit loop, since no more data are to be received.
+            break;
 
         } else {
 
-            // No more data have been received.
-            break;
+            // The buffer was FILLED COMPLETELY, that is supposedly
+            // there are further data waiting to be received.
+            // Therefore, another loop cycle will be entered.
+
+            // Sense data available on socket.
+            //
+            // CAUTION! This function call IS NECESSARY in order
+            // to avoid an endless loop in some rare cases.
+            // If the count and size are equal, then normally,
+            // further data are waiting to be received.
+            // However, it sometimes happens that the buffer size
+            // exactly matches the whole message's size,
+            // so that the "receive_socket_buffer" function above
+            // would be called again. But since no more data
+            // were available, the loop would run ENDLESSLY.
+            // Therefore, this function "sense_socket" is called
+            // for PEEKING AHEAD for new data.
+            sense_socket((void*) &f, p1);
+
+            if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // There are further data available on the socket.
+
+                // Reset data available flag.
+                f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+                // Reset buffer count.
+                // CAUTION! It is NOT necessary to reset the buffer data variable.
+                // It points to the first element/begin of the data array
+                // and elements will get overwritten starting from there.
+                bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            } else {
+
+                // Exit loop, since no more data are to be received.
+                break;
+            }
         }
     }
 

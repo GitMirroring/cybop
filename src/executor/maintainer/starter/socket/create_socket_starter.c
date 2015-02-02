@@ -48,8 +48,9 @@
  * @param p1 the protocol family (socket namespace)
  * @param p2 the communication style
  * @param p3 the protocol
+ * @param p4 the blocking flag
  */
-void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
+void startup_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket create.");
 
@@ -64,13 +65,13 @@ void startup_socket_create(void* p0, void* p1, void* p2, void* p3) {
 #endif
 
 #ifdef __APPLE__
-    startup_bsd_socket_create(p0, p1, p2, p3);
+    startup_bsd_socket_create(p0, p1, p2, p3, p4);
 #elif WIN32
-    startup_winsock_create(p0, p1, p2, p3);
+    startup_winsock_create(p0, p1, p2, p3, p4);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    startup_bsd_socket_create(p0, p1, p2, p3);
+    startup_bsd_socket_create(p0, p1, p2, p3, p4);
 #else
-    startup_bsd_socket_create(p0, p1, p2, p3);
+    startup_bsd_socket_create(p0, p1, p2, p3, p4);
 #endif
 }
 

@@ -7,6 +7,5 @@
     <part name="response" channel="inline" format="text/plain" model=""/>
 
     <part name="server_socket" channel="inline" format="number/integer" model="0"/>
-    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
 
 </model>

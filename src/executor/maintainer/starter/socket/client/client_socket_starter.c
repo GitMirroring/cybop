@@ -62,13 +62,14 @@
  * @param p4 the style count
  * @param p5 the protocol data
  * @param p6 the protocol count
- * @param p7 the filename data
- * @param p8 the filename count
- * @param p9 the host address data
- * @param p10 the host address count
- * @param p11 the port
+ * @param p7 the blocking flag
+ * @param p8 the filename data
+ * @param p9 the filename count
+ * @param p10 the host address data
+ * @param p11 the host address count
+ * @param p12 the port
  */
-void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket client.");
 
@@ -91,12 +92,12 @@ void startup_socket_client(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // Get socket protocol.
     startup_socket_protocol((void*) &p, p5, p6);
     // Create socket.
-    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p);
+    startup_socket_create(p0, (void*) &pf, (void*) &st, (void*) &p, p7);
     // Allocate and initialise socket address depending on family.
     // CAUTION! Hand over address data as POINTER REFERENCE,
     // since it gets allocated inside the function and
     // has to be preserved as return value.
-    startup_socket_socket_address((void*) &ad, (void*) &as, p7, p8, p9, p10, p11, (void*) &af);
+    startup_socket_socket_address((void*) &ad, (void*) &as, p8, p9, p10, p11, p12, (void*) &af);
     // Connect via socket with server.
     startup_socket_client_connect(p0, ad, (void*) &as);
     // Deallocate socket address.

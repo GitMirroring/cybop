@@ -31,7 +31,9 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -40,8 +42,9 @@
  * In this case, the "nonblocking" mode is set.
  *
  * @param p0 the socket
+ * @param p1 the blocking flag
  */
-void startup_winsock_status(void* p0) {
+void startup_winsock_status(void* p0, void* p1) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -51,7 +54,6 @@ void startup_winsock_status(void* p0) {
 
         // Cast int to winsock SOCKET.
         SOCKET ws = (SOCKET) *s;
-
         // The command.
         //
         // In this case, FIONBIO enables nonblocking mode
@@ -74,7 +76,24 @@ void startup_winsock_status(void* p0) {
         // nonzero     | nonblocking
         // ----------------------------
         //
+        // The default is NON-BLOCKING status by setting non-blocking flag (bit).
+        //
+        // CAUTION! If the O_NONBLOCK flag (a bit) is set,
+        // read/write requests on the socket (file) can return
+        // immediately with a failure status, instead of blocking,
+        // in case no data are immediately available.
+        //
         unsigned long int a = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, p1, FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Set BLOCKING status by clearing non-blocking flag (bit).
+            a = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        }
 
         //
         // Control the i/o mode of the socket.
@@ -92,9 +111,9 @@ void startup_winsock_status(void* p0) {
         //
         // https://stackoverflow.com/questions/3974193/how-to-find-out-if-a-socket-is-already-in-non-blocking-mode-in-windows/3979776#3979776
         //
-        int r = ioctlsocket(ws, c, &a);
+        int rv = ioctlsocket(ws, c, &a);
 
-        if (r == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (rv == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup winsock status success.");
 

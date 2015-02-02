@@ -14,7 +14,9 @@
 WUI
 ___
 
-        * Complete "socket" cybol example application using blocking sockets
+        * Investigate strange behaviour in file "message_socket_receiver.c" when count and size are EQUAL
+        * Test endless loop bug with message size 1024 in file "message_socket_receiver.c"
+
         * Create a second cybol example application using non-blocking sockets and something like future/session/request_id
         * Investigate asynchronous handling, e.g.:
             https://msdn.microsoft.com/en-us/library/bew39x2a.aspx
@@ -82,6 +84,17 @@ ___
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
+
+    <!--
+        The client socket is needed for sending requests BUT NOT for receiving a response.
+        Instead, a server socket is needed for receiving requests/sending responses.
+        Both are able to send and receive data.
+        However, since sockets are non-blocking within cyboi,
+        errors like "EWOULDBLOCK" (errno 11) might occur
+        if sender and receiver are not immediately available.
+        Therefore, cybol socket applications run peer-to-peer,
+        and represent CLIENT AND SERVER, at the same time.
+    -->
 
 Hello, World!
 _____________

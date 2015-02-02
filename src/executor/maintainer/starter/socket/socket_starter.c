@@ -45,18 +45,19 @@
  * @param p5 the style count
  * @param p6 the protocol data
  * @param p7 the protocol count
- * @param p8 the filename data
- * @param p9 the filename count
- * @param p10 the host address data
- * @param p11 the host address count
- * @param p12 the connexions (number of possible pending client requests)
- * @param p13 the client socket
- * @param p14 the mode data
- * @param p15 the mode count
- * @param p16 the network service data
- * @param p17 the network service count
+ * @param p8 the blocking flag
+ * @param p9 the filename data
+ * @param p10 the filename count
+ * @param p11 the host address data
+ * @param p12 the host address count
+ * @param p13 the connexions (number of possible pending client requests)
+ * @param p14 the client socket
+ * @param p15 the mode data
+ * @param p16 the mode count
+ * @param p17 the network service data
+ * @param p18 the network service count
  */
-void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket.");
 
@@ -73,11 +74,11 @@ void startup_socket(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         // Therefore, determine port from service name.
 
         // Deserialise port from network service name.
-        deserialise_network_service((void*) &p, p16, p17);
+        deserialise_network_service((void*) &p, p17, p18);
     }
 
     // Startup socket in either client or server mode.
-    startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, (void*) &p, p12, p13, p14, p15);
+    startup_socket_mode(p0, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, (void*) &p, p13, p14, p15, p16);
 }
 
 /* SOCKET_STARTER_SOURCE */
