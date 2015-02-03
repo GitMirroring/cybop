@@ -68,18 +68,24 @@ void receive_socket_message(void* p0, void* p1) {
     // Loop until all bytes have been received.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST: receive socket message loop bc: %i \n", bc);
+
         // Receive data until buffer is filled.
         receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST: receive socket message bc: %i \n", bc);
+fwprintf(stdout, L"TEST: receive socket message result bc: %i \n", bc);
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST: receive socket message bc > 0: %i \n", bc);
 
             // Append buffer to destination data.
             append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
 
         if (bc < bs) {
+
+fwprintf(stdout, L"TEST: receive socket message bc < bs: %i \n", bc);
 
             // The buffer was NOT filled completely, that is
             // its size was sufficient and the loop may be left.
@@ -88,6 +94,8 @@ fwprintf(stdout, L"TEST: receive socket message bc: %i \n", bc);
             break;
 
         } else {
+
+fwprintf(stdout, L"TEST: receive socket message bc >= bs: %i \n", bc);
 
             // The buffer was FILLED COMPLETELY, that is supposedly
             // there are further data waiting to be received.
@@ -110,6 +118,8 @@ fwprintf(stdout, L"TEST: receive socket message bc: %i \n", bc);
 
             if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST: receive socket message f != false: %i \n", f);
+
                 // There are further data available on the socket.
 
                 // Reset data available flag.
@@ -121,6 +131,8 @@ fwprintf(stdout, L"TEST: receive socket message bc: %i \n", bc);
                 bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             } else {
+
+fwprintf(stdout, L"TEST: receive socket message f == false: %i \n", f);
 
                 // Exit loop, since no more data are to be received.
                 break;

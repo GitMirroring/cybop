@@ -108,8 +108,6 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                         // data are just to be detected, without removing them.
                         // In this case, the flags argument has the value MSG_PEEK.
                         // Otherwise, for normal reading, it may have a value of zero.
-                        //
-                        // CAUTION! A message MUST NOT be longer than the given buffer size!
                         *c = recv(*ss, p0, st, *o);
 
                         if (*c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
