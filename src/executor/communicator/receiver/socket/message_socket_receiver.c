@@ -55,10 +55,11 @@ void receive_socket_message(void* p0, void* p1) {
     // So, the value of 1024 used here is probably acceptable.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-//??    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_8_INTEGER_STATE_CYBOI_MODEL;
-    // The data available flag.
-    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_1024_INTEGER_STATE_CYBOI_MODEL;
+    // The extended count, size.
+    // It is necessary for peeking ahead.
+    int ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int es = bs + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Allocate buffer data.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -68,9 +69,45 @@ void receive_socket_message(void* p0, void* p1) {
     // Loop until all bytes have been received.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: receive socket message loop bc: %i \n", bc);
+fwprintf(stdout, L"TEST: receive socket message loop ec: %i \n", ec);
 
-        // Receive data until buffer is filled.
+        // Sense further data available on socket.
+        //
+        // CAUTION! This function call IS NECESSARY in order
+        // to avoid an endless loop in some rare cases.
+        // There are two possible cases:
+        //
+        // 1 bc < bs
+        //
+        // The buffer was filled PARTLY and the loop may be left.
+        //
+        // 2 bc == bs (bc > bs is not possible)
+        //
+        // The buffer was filled COMPLETELY.
+        // However, it is UNCLEAR, whether or not further data are available.
+        //
+        // 2a Further data available
+        //
+        // The function "receive_socket_buffer" would be
+        // called again in order to process the data.
+        //
+        // 2b No further data
+        //
+        // If the function "receive_socket_buffer" was called again,
+        // it WOULD BLOCK processing, since no more data are available.
+        //
+        // Therefore, the function "sense_socket" is called for PEEKING AHEAD for new data,
+        // without actually reading or removing them from the input queue.
+        // However, also this function WOULD BLOCK if there were no further data available.
+        // This can be avoided if reading at least ONE BYTE MORE than
+        // used later in the function "receive_socket_buffer".
+        //
+        // The efficiency disadvantage is that all data are read TWICE,
+        // once within "sense" and another time within "receive".
+        //
+        sense_socket((void*) &ec, p1, (void*) &es);
+
+        // Receive data into buffer with given size.
         receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
 fwprintf(stdout, L"TEST: receive socket message result bc: %i \n", bc);
@@ -83,60 +120,32 @@ fwprintf(stdout, L"TEST: receive socket message bc > 0: %i \n", bc);
             append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
 
-        if (bc < bs) {
+        if (ec > bs) {
 
-fwprintf(stdout, L"TEST: receive socket message bc < bs: %i \n", bc);
+fwprintf(stdout, L"TEST: receive socket message ec > bs: %i \n", ec);
 
-            // The buffer was NOT filled completely, that is
-            // its size was sufficient and the loop may be left.
+            // There are further data available on the socket.
+            // Therefore, another loop cycle will be entered.
 
-            // Exit loop, since no more data are to be received.
-            break;
+            // Reset extended count.
+            ec = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+            // Reset buffer count.
+            // CAUTION! It is NOT necessary to reset the buffer data variable.
+            // It points to the first element/begin of the data array
+            // and elements will get overwritten starting from there.
+            bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         } else {
 
-fwprintf(stdout, L"TEST: receive socket message bc >= bs: %i \n", bc);
+fwprintf(stdout, L"TEST: receive socket message ec <= bs: %i \n", ec);
 
-            // The buffer was FILLED COMPLETELY, that is supposedly
-            // there are further data waiting to be received.
-            // Therefore, another loop cycle will be entered.
+            // The buffer completely or not, which is not relevant.
+            // However, its size was sufficient.
+            // No more data are available.
+            // The loop may be left.
 
-            // Sense data available on socket.
-            //
-            // CAUTION! This function call IS NECESSARY in order
-            // to avoid an endless loop in some rare cases.
-            // If the count and size are equal, then normally,
-            // further data are waiting to be received.
-            // However, it sometimes happens that the buffer size
-            // exactly matches the whole message's size,
-            // so that the "receive_socket_buffer" function above
-            // would be called again. But since no more data
-            // were available, the loop would run ENDLESSLY.
-            // Therefore, this function "sense_socket" is called
-            // for PEEKING AHEAD for new data.
-            sense_socket((void*) &f, p1);
-
-            if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST: receive socket message f != false: %i \n", f);
-
-                // There are further data available on the socket.
-
-                // Reset data available flag.
-                f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-                // Reset buffer count.
-                // CAUTION! It is NOT necessary to reset the buffer data variable.
-                // It points to the first element/begin of the data array
-                // and elements will get overwritten starting from there.
-                bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-            } else {
-
-fwprintf(stdout, L"TEST: receive socket message f == false: %i \n", f);
-
-                // Exit loop, since no more data are to be received.
-                break;
-            }
+            // Exit loop, since no more data are to be received.
+            break;
         }
     }
 

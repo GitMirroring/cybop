@@ -59,119 +59,120 @@ void receive_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                 int* s = (int*) p2;
 
-                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* c = (int*) p1;
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive bsd socket.");
 
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    // Cast int to size_t.
+                    //
+                    // CAUTION! It IS NECESSARY because on 64 Bit machines,
+                    // the "size_t" type has a size of 8 Byte,
+                    // whereas the "int" type has the usual size of 4 Byte.
+                    // When trying to cast between the two, memory errors
+                    // will occur and the valgrind memcheck tool report:
+                    // "Invalid read of size 8".
+                    //
+                    // CAUTION! Initialise temporary size_t variable with final int value
+                    // JUST BEFORE handing that over to the glibc function requiring it.
+                    //
+                    // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
+                    // because values are casted to int* internally again.
+                    size_t st = (size_t) *s;
 
-                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive bsd socket.");
+                    // Initialise error number.
+                    // It is a global variable/function and other operations
+                    // may have set some value that is not wanted here.
+                    //
+                    // CAUTION! Initialise the error number BEFORE calling
+                    // the procedure that might cause an error.
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-                        // Cast int to size_t.
-                        //
-                        // CAUTION! It IS NECESSARY because on 64 Bit machines,
-                        // the "size_t" type has a size of 8 Byte,
-                        // whereas the "int" type has the usual size of 4 Byte.
-                        // When trying to cast between the two, memory errors
-                        // will occur and the valgrind memcheck tool report:
-                        // "Invalid read of size 8".
-                        //
-                        // CAUTION! Initialise temporary size_t variable with final int value
-                        // JUST BEFORE handing that over to the glibc function requiring it.
-                        //
-                        // CAUTION! Do NOT use cyboi-internal copy functions to achieve that,
-                        // because values are casted to int* internally again.
-                        size_t st = (size_t) *s;
+fwprintf(stdout, L"TEST: receive socket buffer *ss: %i \n", *ss);
+fwprintf(stdout, L"TEST: receive socket buffer st: %i \n", st);
+fwprintf(stdout, L"TEST: receive socket buffer *s: %i \n", *s);
+fwprintf(stdout, L"TEST: receive socket buffer p1: %i \n", *((int*) p1));
+fwprintf(stdout, L"TEST: receive socket buffer p0: %i \n", p0);
 
-                        // Initialise error number.
-                        // It is a global variable/function and other operations
-                        // may have set some value that is not wanted here.
-                        //
-                        // CAUTION! Initialise the error number BEFORE calling
-                        // the procedure that might cause an error.
-                        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+                    // Receive message.
+                    //
+                    // Normally, "recv" blocks until there is input available to be read.
+                    // However, non-blocking mode may be enabled in cyboi as well.
+                    //
+                    // CAUTION! If the flags argument (fourth one) is zero, then one can
+                    // just as well use the "read" instead of the "recv" function.
+                    // However, the "recv" function is used here since sometimes,
+                    // data are just to be detected, without removing them.
+                    // In this case, the flags argument has the value MSG_PEEK.
+                    // Otherwise, for normal reading, it may have a value of zero.
+                    int c = recv(*ss, p0, st, *o);
 
-    fwprintf(stdout, L"TEST: receive socket buffer *ss: %i \n", *ss);
-    fwprintf(stdout, L"TEST: receive socket buffer st: %i \n", st);
-    fwprintf(stdout, L"TEST: receive socket buffer *s: %i \n", *s);
-    fwprintf(stdout, L"TEST: receive socket buffer *c: %i \n", *c);
-    fwprintf(stdout, L"TEST: receive socket buffer p0: %i \n", p0);
+                    if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        // Receive message.
-                        //
-                        // Normally, "recv" blocks until there is input available to be read.
-                        // However, non-blocking mode may be enabled in cyboi as well.
-                        //
-                        // CAUTION! If the flags argument (fourth one) is zero, then one can
-                        // just as well use the "read" instead of the "recv" function.
-                        // However, the "recv" function is used here since sometimes,
-                        // data are just to be detected, without removing them.
-                        // In this case, the flags argument has the value MSG_PEEK.
-                        // Otherwise, for normal reading, it may have a value of zero.
-                        *c = recv(*ss, p0, st, *o);
+fwprintf(stdout, L"TEST receive bsd socket success c: %i\n", c);
 
-                        if (*c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received bsd socket.");
 
-    fwprintf(stdout, L"TEST receive bsd socket success *c: %i\n", *c);
+                        // Copy destination count.
+                        // CAUTION! Copy value only if >= zero.
+                        // Otherwise (with negative value), buffer deallocation will fail.
+                        copy_integer(p1, (void*) &c);
 
-                            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received bsd socket.");
+                    } else if (c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        } else if (*c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+fwprintf(stdout, L"TEST receive bsd socket no data c: %i\n", c);
 
-    fwprintf(stdout, L"TEST receive bsd socket no data *c: %i\n", *c);
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. No data could be sensed.");
 
-                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. No data could be sensed.");
-
-                        } else {
-
-                            // An error occured.
-
-                            if (errno == EBADF) {
-
-                            fwprintf(stdout, L"TEST receive bsd socket error EBADF: %i\n", errno);
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The socket argument is not a valid file descriptor.");
-
-                            } else if (errno == ENOTSOCK) {
-
-                            fwprintf(stdout, L"TEST receive bsd socket error ENOTSOCK: %i\n", errno);
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The descriptor socket is not a socket.");
-
-                            } else if (errno == EWOULDBLOCK) {
-
-                            fwprintf(stdout, L"TEST receive bsd socket error EWOULDBLOCK: %i\n", errno);
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The read operation would block even though nonblocking mode has been set on the socket.");
-
-                            } else if (errno == EINTR) {
-
-                            fwprintf(stdout, L"TEST receive bsd socket error EINTR: %i\n", errno);
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The operation was interrupted by a signal before any data was received.");
-
-                            } else if (errno == ENOTCONN) {
-
-                            fwprintf(stdout, L"TEST receive bsd socket error ENOTCONN: %i\n", errno);
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The socket was never connected.");
-
-                            } else {
-
-                            fwprintf(stdout, L"TEST receive bsd socket error UNKNOWN: %i\n", errno);
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. An unknown error occured.");
-                            }
-                        }
+                        // Copy destination count.
+                        // CAUTION! Copy value only if >= zero.
+                        // Otherwise (with negative value), buffer deallocation will fail.
+                        copy_integer(p1, (void*) &c);
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The destination data is null.");
+                        // An error occured.
+
+                        if (errno == EBADF) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error EBADF: %i\n", errno);
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The socket argument is not a valid file descriptor.");
+
+                        } else if (errno == ENOTSOCK) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error ENOTSOCK: %i\n", errno);
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The descriptor socket is not a socket.");
+
+                        } else if (errno == EWOULDBLOCK) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error EWOULDBLOCK: %i\n", errno);
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The read operation would block even though nonblocking mode has been set on the socket.");
+
+                        } else if (errno == EINTR) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error EINTR: %i\n", errno);
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The operation was interrupted by a signal before any data was received.");
+
+                        } else if (errno == ENOTCONN) {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error ENOTCONN: %i\n", errno);
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The socket was never connected.");
+
+                        } else {
+
+                        fwprintf(stdout, L"TEST receive bsd socket error UNKNOWN: %i\n", errno);
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. An unknown error occured.");
+                        }
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The destination count is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive bsd socket. The destination data is null.");
                 }
 
             } else {

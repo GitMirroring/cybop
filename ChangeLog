@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise endless loop in file "message_socket_receiver.c" to peek ahead for further data
+
 2015-02-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add socket "blocking" property to cybol and cyboi

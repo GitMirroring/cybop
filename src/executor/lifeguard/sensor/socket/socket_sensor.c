@@ -34,10 +34,11 @@
 /**
  * Senses data available on the given server socket.
  *
- * @param p0 the destination interrupt request
+ * @param p0 the destination buffer count
  * @param p1 the source socket
+ * @param p2 the source buffer size
  */
-void sense_socket(void* p0, void* p1) {
+void sense_socket(void* p0, void* p1, void* p2) {
 
     // CAUTION! DO NOT log this function call!
     // The function runs in an endless loop
@@ -53,7 +54,10 @@ fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
     // So, the value of 1024 used here is probably acceptable.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int bs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+    int bs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+    // Set interrupt request.
+    copy_integer((void*) &bs, p2);
 
     // Allocate buffer data.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -73,7 +77,7 @@ fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
 
         // Set interrupt request.
-        copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        copy_integer(p0, (void*) &bc);
     }
 
     // Deallocate buffer data.

@@ -47,7 +47,9 @@ void check_client_element(void* p0, void* p1, void* p2) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check client element.");
 
     // The data available flag.
-    int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // CAUTION! It is actually the data count being returned.
+    // Any value greater than zero means that data are available.
+    int f = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The client.
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
@@ -55,9 +57,11 @@ void check_client_element(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &c, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Sense data available on already open client.
-    sense_socket((void*) &f, (void*) &c);
+    // CAUTION! It suffices to detect at least one byte,
+    // which is why number 1 is forwarded as buffer size argument.
+    sense_socket((void*) &f, (void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
-    if (f != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (f > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // There are data available on the client.
 
