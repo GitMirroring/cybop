@@ -14,6 +14,24 @@
 WUI
 ___
 
+        * Set non-blocking flag also for accepted client sockets; see:
+            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+        * cherokee webserver adds a null termination '\0' at the end (file "socket.c", function "cherokee_socket_bufread"):
+            ret = cherokee_buffer_ensure_size (buf, buf->len + count + 2);
+            if (unlikely(ret < ret_ok))
+                return ret;
+            starting = buf->buf + buf->len;
+            ret = cherokee_socket_read (socket, starting, count, pcnt_read);
+            if (*pcnt_read > 0) {
+                buf->len += *pcnt_read;
+                buf->buf[buf->len] = '\0';
+            }
+        * Why does cherokee use this peeking with "EINTR"? (file "socket.c", function "cherokee_socket_test_read"):
+            do {
+                re = recv (socket->socket, &tmp, 1, MSG_PEEK);
+            } while ((re == -1) && (errno == EINTR));
+        * cherokee seems to use threads to wait for new data on socket, e.g. in file "connection.c", function "cherokee_connection_linger_read"
+
         * Investigate strange behaviour in file "message_socket_receiver.c" when count and size are EQUAL
         * Test endless loop bug with message size 1024 in file "message_socket_receiver.c"
 
