@@ -26,7 +26,7 @@
 
         * Add socket "blocking" property to cybol and cyboi
         * Fix endless loop bug in file "message_socket_receiver.c"
-        * Complete "socket" cybol example application using blocking sockets
+        * Complete "socket" cybol example application using non-blocking server and blocking client
 
 2015-01-30  Christian Heller  <christian.heller@tuxtax.de>
 

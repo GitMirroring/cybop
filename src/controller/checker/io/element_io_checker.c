@@ -103,7 +103,19 @@ fwprintf(stdout, L"TEST: check io element l: %i \n", l);
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // This is a socket.
-                // CAUTION! Other services do not have to accept clients.
+                // CAUTION! Other services do NOT have to accept clients.
+
+                //
+                // When using a blocking socket, the programme will wait here.
+                //
+                // CAUTION! Changing the order of "accept" and "receive" can NOT avoid this.
+                // Even comparing with the returned io flag, in order to
+                // call "accept" only if no input/output data are available
+                // does NOT help, since already in the next loop cycle
+                // "accept" will block anyway.
+                // In other words, when running cyboi as socket server,
+                // it makes sense only together with NON-blocking mode.
+                //
 
                 // Check for new client requests.
                 check_io_accept(l, (void*) &io);

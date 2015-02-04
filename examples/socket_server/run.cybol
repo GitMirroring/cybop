@@ -48,11 +48,11 @@
             cyboi will run a "busy waiting" endless loop,
             and be able to process other signals/events.
             Otherwise, if blocking, the operating system will care
-            about waiting for new data on the server socket
+            about waiting for new client requests in socket "accept"
             and meanwhile block any other message processing in cyboi.
             You may try out either here: "true" for blocking; "false" for non-blocking.
         -->
-        <property name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <property name="connexions" channel="inline" format="number/integer" model="1"/>
     </part>
 

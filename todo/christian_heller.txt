@@ -14,15 +14,20 @@
 WUI
 ___
 
-        * Set non-blocking flag also for accepted client sockets; see:
-            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+        * When and where to close a client socket that was accepted by the server socket?
+            it is stored as int number in the cybol application;
+            possibly close client socket by default in cybol application, right after having sent a reply
+        * Attach timeout and other meta data as properties to a client socket number?
+            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
+            is the client socket usable as unique id?
+        * Set timeout parametre on server socket startup or sense
+        * Close and remove socket from client list when timeout is reached
+        * Close and remove socket from client list on error, e.g. non-respoding client
+        * Close all client sockets on server shutdown, starting from the last, for more efficient removal from client list
+            (if starting from the first, then all following clients would have to be moved one place forward on each removal)
 
-        * Investigate strange behaviour in file "message_socket_receiver.c" when count and size are EQUAL
-        * Test endless loop bug with message size 1024 in file "message_socket_receiver.c"
-
-        * Create a second cybol example application using non-blocking sockets and something like future/session/request_id
-        * Investigate asynchronous handling, e.g.:
-            https://msdn.microsoft.com/en-us/library/bew39x2a.aspx
+        * Uncomment function call "shutdown_socket" in file "controller/manager.c"
+        * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
 
         * How to handle "http" if only one language e.g. "html" may be specified in "send"?
             --> convert data into desired format before and send that as bytes.
@@ -40,21 +45,6 @@ ___
             then the byte data are copied 1:1 (CAUTION! BETTER: assign pointer instead of copying all) from source to destination.
             Encoding is ONLY necessary for character data, but NOT for an image or other byte data.
             Therefore, this has to be distinguished by an if-else when sending or receiving data.
-
-        * When and where to close a client socket that was accepted by the server socket?
-            it is stored as int number in the cybol application;
-            possibly close client socket by default in cybol application, right after having sent a reply
-        * Attach timeout and other meta data as properties to a client socket number?
-            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
-            is the client socket usable as unique id?
-        * Set timeout parametre on server socket startup or sense
-        * Close and remove socket from client list when timeout is reached
-        * Close and remove socket from client list on error, e.g. non-respoding client
-        * Close all client sockets on server shutdown, starting from the last, for more efficient removal from client list
-            (if starting from the first, then all following clients would have to be moved one place forward on each removal)
-
-        * Uncomment function call "shutdown_socket" in file "controller/manager.c"
-        * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"
@@ -88,16 +78,16 @@ ___
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
 
-    <!--
-        The client socket is needed for sending requests BUT NOT for receiving a response.
-        Instead, a server socket is needed for receiving requests/sending responses.
-        Both are able to send and receive data.
-        However, since sockets are non-blocking within cyboi,
-        errors like "EWOULDBLOCK" (errno 11) might occur
-        if sender and receiver are not immediately available.
-        Therefore, cybol socket applications run peer-to-peer,
-        and represent CLIENT AND SERVER, at the same time.
-    -->
+        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
+            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+
+        * Provide mechanism for asynchronous handling in cybol (not cyboi);
+            elsewhere mostly used together with callback functions, e.g. in JavaScript, C#;
+            assign a unique integer id which is sent within request;
+            increment int id starting from zero to int max and then restarting at zero;
+            evaluate response to find int id and execute corresponding logic operation;
+            create part with int id and operation knowledge path as model and add to callback list;
+            delete int id part after execution
 
 Hello, World!
 _____________
