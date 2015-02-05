@@ -22,6 +22,7 @@
 
         * Search function calls "deallocate_array" and hand over NULL as "count" argument
         * Rename cybol example application "TicTacToe" into "tictactoe"
+        * Rename cybol example application "wui_socket" into "www_server"
 
 2015-02-04  Christian Heller  <christian.heller@tuxtax.de>
 

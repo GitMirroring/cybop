@@ -1,0 +1,9 @@
+<model>
+
+    <part name="actions" channel="file" format="text/cybol" model="www_server/wui/actions.cybol"/>
+    <part name="index" channel="file" format="element/part" model="www_server/wui/index.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="html"/>
+    </part>
+    <!-- Further html files may follow here ... -->
+
+</model>

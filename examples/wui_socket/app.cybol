@@ -1,7 +1,0 @@
-<model>
-
-    <part name="wui" channel="file" format="element/part" model="wui_socket/wui.cybol"/>
-    <part name="logic" channel="file" format="element/part" model="wui_socket/logic.cybol"/>
-    <part name="var" channel="file" format="element/part" model="wui_socket/var.cybol"/>
-
-</model>

@@ -1,6 +1,6 @@
 <model>
 
-    <part name="handler" channel="file" format="text/cybol" model="wui_socket/logic/handler.cybol"/>
+    <part name="handler" channel="file" format="text/cybol" model="www_server/logic/handler.cybol"/>
 
     <part name="send_index" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
