@@ -116,7 +116,10 @@ void test_pointer_return() {
     fwprintf(stdout, L"r: %ls\n", (wchar_t*) r);
 
     // Destroy character array.
-    deallocate_array((void*) &cs, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &cs, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -180,7 +183,10 @@ void test_character_array_single_element() {
     }
 
     // Destroy character array.
-    deallocate_array((void*) &c, (void*) &cs, (void*) &cs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &cs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -244,7 +250,10 @@ void test_character_array_multiple_elements() {
     log_write((void*) stdout, (wchar_t*) r);
 
     // Destroy destination array.
-    deallocate_array((void*) &d, (void*) &ns, (void*) &ns, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ns, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -311,9 +320,12 @@ void test_integer_array() {
     fwprintf(stdout, L"post result2: %i\n", *result2);
 
     // Deallocate test knowledge model.
-    deallocate_array((void*) &m, (void*) mc, (void*) ms, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &mc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &ms, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) ms, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &mc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &ms, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -373,7 +385,10 @@ void test_pointer_array() {
     //
 
     // Destroy pointer array.
-    deallocate_array((void*) &p, (void*) &ps, (void*) &ps, (void*) POINTER_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &p, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ps, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /**
@@ -423,7 +438,10 @@ void test_pointer_array_with_null_values() {
     fwprintf(stdout, L"NULL_POINTER_STATE_CYBOI_MODEL: %i \n", NULL_POINTER_STATE_CYBOI_MODEL);
     fwprintf(stdout, L"*NULL_POINTER_STATE_CYBOI_MODEL: %i \n", *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    deallocate_array((void*) &a, (void*) &as, (void*) &as, (void*) POINTER_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &as, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /**

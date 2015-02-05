@@ -104,7 +104,10 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
 //??    receive_inline(pm, pd, cd, (void*) &cc, (void*) URI_TEXT_STATE_CYBOL_FORMAT);
 
     // Deallocate character data.
-    deallocate_array((void*) &cd, (void*) &cc, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &cd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Add uri part to destination item.
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.

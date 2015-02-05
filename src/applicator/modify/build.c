@@ -110,7 +110,10 @@ void apply_build(void* p0, void* p1, void* p2) {
     overwrite_array(*resm, int_string, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, &int_string_count, &temp_index, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *resmc, *resms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Destroy int_string array.
-    deallocate_array((void*) &int_string, (void*) &int_string_size, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &int_string, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &int_string_size, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 */
 }
 

@@ -110,7 +110,10 @@ void deallocate_part(void* p0) {
             deallocate_item((void*) &r, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
             // Deallocate part.
-            deallocate_array(p0, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
             // Decrement part reference counter.
             // CAUTION! This is ONLY needed for debugging.

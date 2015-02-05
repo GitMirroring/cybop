@@ -14,22 +14,6 @@
 WUI
 ___
 
-        * Search function calls "deallocate_array" and hand over ZERO as "count" argument, where applicable, with the following comment (see bottom of file "manager.c"):
-            // Deallocate internal memory data.
-            // CAUTION! The number zero may be forwarded as "count" argument,
-            // since it is only used for looping parts, in order to
-            // decrement the rubbish (garbage) collection counter.
-            // However, the parts within internal memory should NOT be
-            // considered for that, only those in knowledge memory.
-            deallocate_array((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
-
-        * Attach timeout and other meta data as properties to a client socket number?
-            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
-            is the client socket usable as unique id?
-        * Set timeout parametre on server socket startup or sense
-        * Close and remove socket from client list when timeout is reached
-        * Close and remove socket from client list on error, e.g. non-respoding client
-
         * How to handle "http" if only one language e.g. "html" may be specified in "send"?
             --> convert data into desired format before and send that as bytes.
         * Merge general sender functionality into directory "basic"? (also used by socket, file etc.)
@@ -75,6 +59,13 @@ ___
         * Call percent encoding serialiser for each single part of the url and only in the end utf-8 encode for the complete url
         * Figure out where to use char or wchar_t when deserialising character references and percent encodings;
             the corresponding type may be forwarded between functions as parametre
+
+        * Attach timeout and other meta data as properties to a client socket number?
+            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
+            is the client socket usable as unique id?
+        * Set timeout parametre on server socket startup or sense
+        * Close and remove socket from client list when timeout is reached
+        * Close and remove socket from client list on error, e.g. non-respoding client
 
         * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
         * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"

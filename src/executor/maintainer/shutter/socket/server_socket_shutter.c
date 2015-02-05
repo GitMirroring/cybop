@@ -104,7 +104,10 @@ fwprintf(stdout, L"TEST shutdown socket server io: %i\n", io);
             // Close server socket.
             shutdown_socket_close((void*) &s);
             // Deallocate io entry.
-            deallocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            deallocate_array((void*) &io, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
 
             // Reset values.
             //

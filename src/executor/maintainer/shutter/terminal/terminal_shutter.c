@@ -86,9 +86,13 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
 #else
         shutdown_unix_terminal(ip, op, p0);
 #endif
+
         // Deallocate input- and output array.
-        deallocate_array((void*) &ip, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_array((void*) &op, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        deallocate_array((void*) &ip, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_array((void*) &op, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Reset terminal values.
         // CAUTION! Assign NULL to the internal memory.

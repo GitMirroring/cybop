@@ -67,12 +67,25 @@ void deallocate_item(void* p0, void* p1) {
         // are needed for data deallocation.
         // If they got destroyed before the data,
         // then data deallocation would not work.
+        //
+        // CAUTION! The second argument "count" IS NEEDED for
+        // looping elements of type PART, in order to
+        // decrement the rubbish (garbage) collection counter.
         deallocate_array((void*) &d, c, s, p1);
-        deallocate_array((void*) &c, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-        deallocate_array((void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        deallocate_array((void*) &c, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         // Deallocate item.
-        deallocate_array(p0, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        deallocate_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) ITEM_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 
         // Decrement item reference counter.
         // CAUTION! This is ONLY needed for debugging.

@@ -86,7 +86,10 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
         // Destroy font.
         if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            deallocate_array((void*) &f, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            deallocate_array((void*) &f, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         } else {
 
@@ -101,7 +104,11 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
             xcb_gcontext_t gct = *((int*) gc);
             xcb_destroy_??((xcb_connection_t*) c, gct);
 */
-            deallocate_array((void*) &gc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            deallocate_array((void*) &gc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         } else {
 
@@ -114,7 +121,11 @@ void shutdown_x_window_system(void* p0, void* p1, void* p2) {
             // Use xcb type.
             xcb_window_t wt = *((int*) w);
             xcb_destroy_window((xcb_connection_t*) c, wt);
-            deallocate_array((void*) &w, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+            // CAUTION! The second argument "count" is NULL,
+            // since it is only needed for looping elements of type PART,
+            // in order to decrement the rubbish (garbage) collection counter.
+            deallocate_array((void*) &w, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
         } else {
 

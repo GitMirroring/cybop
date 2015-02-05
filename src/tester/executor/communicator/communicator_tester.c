@@ -275,7 +275,10 @@ void test_wide_character_output() {
 //??    log_write((void*) stdout, (wchar_t*) ts, t);
 
     // Destroy terminated control sequences.
-    deallocate_array((void*) &ts, (void*) &tsc, (void*) &tss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &ts, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &tss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // UTF-8 still allows you to use C1 control characters such as CSI, even
     // though UTF-8 also uses bytes in the range 0x80-0x9F. It is important to
@@ -367,7 +370,10 @@ void test_communicator_file_read() {
         j++;
     }
 
-    deallocate_array((void*) &a, (void*) &ac, (void*) &as, (void*) &CHARACTER_ARRAY);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &as, (void*) &CHARACTER_ARRAY);
 */
 }
 

@@ -116,8 +116,12 @@ void test_array_setter() {
     fwprintf(stdout, L"d string 3: %ls\n", (wchar_t*) d);
 
     // Deallocate destination array.
-    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
+
 /**
  * Tests the size_determiner.
  */

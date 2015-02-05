@@ -68,7 +68,10 @@ void test_converter_serialise_integer_vector() {
     fwprintf(stdout, L"Encoded character array size: %i\n", ds);
 
     // Deallocate destination character vector.
-    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 /**
  * Tests the encode integer function.
@@ -100,7 +103,10 @@ void test_converter_serialise_integer() {
     fwprintf(stdout, L"Test: Destination character array size: %i\n", ds);
 
     // Deallocate destination character array.
-    deallocate_array((void*) &dd, (void*) &dc, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &dd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 

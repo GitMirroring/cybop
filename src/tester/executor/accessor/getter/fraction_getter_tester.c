@@ -99,13 +99,18 @@ void test_compound_fraction() {
     fwprintf(stdout, L"TEST post sd: %i\n", sd);
 
     // Deallocate source fraction.
-    deallocate_array((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_array((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 }
-void test_fraction_getter(){
-    //@todo: Write tests.
-     fwprintf(stdout, L"TODO: Write tests.\n");
-}
-/** FRACTION_GETTER_TESTER*/
-#endif
 
+void test_fraction_getter() {
+
+    //@todo: Write tests.
+    fwprintf(stdout, L"TODO: Write tests.\n");
+}
+
+/* FRACTION_GETTER_TESTER */
+#endif

@@ -77,8 +77,12 @@ void test_converter_integer_to_wide_character_conversion() {
     fwprintf(stdout, L"TEST t: %ls\n", (wchar_t*) d);
 
     // Deallocate test wide character data.
-    deallocate_array((void*) &d, (void*) &c, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
+
 /*
  * Start converter tests
  */

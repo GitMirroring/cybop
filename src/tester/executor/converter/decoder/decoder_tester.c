@@ -129,7 +129,10 @@ void test_converter_deserialise_cybol_integer_vector() {
     fwprintf(stdout, L"Integer 2: %i\n", *i2);
 
     // Deallocate integer vector.
-    deallocate_array((void*) &d, (void*) &dc, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /*

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Search function calls "deallocate_array" and hand over NULL as "count" argument
+
 2015-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise endless loop in file "message_socket_receiver.c" to peek ahead for further data

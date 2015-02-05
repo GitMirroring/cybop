@@ -65,7 +65,10 @@ void help(void* p0) {
     log_write(p0, m);
 
     // Deallocate message.
-    deallocate_array((void*) &m, (void*) &mc, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* HELPER_SOURCE */

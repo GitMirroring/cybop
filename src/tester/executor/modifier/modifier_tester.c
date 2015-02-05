@@ -296,7 +296,10 @@ void test_modifier_array() {
     fwprintf(stdout, L"TEST c: %i\n", c);
     fwprintf(stdout, L"TEST s: %i\n", s);
 
-    deallocate_array((void*) &w, (void*) &c, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &w, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /**

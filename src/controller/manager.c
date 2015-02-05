@@ -379,12 +379,14 @@ void manage(void* p0) {
     // so that this root part is not deallocated automatically.
     deallocate_part((void*) &k);
     // Deallocate internal memory data.
-    // CAUTION! The number zero may be forwarded as "count" argument,
-    // since it is only used for looping parts, in order to
-    // decrement the rubbish (garbage) collection counter.
-    // However, the parts within internal memory should NOT be
+    //
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    //
+    // CAUTION! The parts within internal memory should NOT be
     // considered for that, only those in knowledge memory.
-    deallocate_array((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    deallocate_array((void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /* MANAGER_SOURCE */

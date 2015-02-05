@@ -81,7 +81,10 @@ fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
     }
 
     // Deallocate buffer data.
-    deallocate_array((void*) &bd, (void*) &bc, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The second argument "count" is NULL,
+    // since it is only needed for looping elements of type PART,
+    // in order to decrement the rubbish (garbage) collection counter.
+    deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SOCKET_SENSOR_SOURCE */
