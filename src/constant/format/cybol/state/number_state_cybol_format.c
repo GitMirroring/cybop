@@ -62,6 +62,12 @@
  * Byte number (integral data type).
  *
  * This is a CYBOL extension.
+ *
+ * CAUTION! This format represents numbers in the range 0..255.
+ * It is NOT to be mixed up with "text/ascii" representing
+ * a text string of characters.
+ * Numbers in an array ARE separated by comma;
+ * text characters of a string are NOT.
  */
 static wchar_t BYTE_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'b', L'y', L't', L'e'};
 static wchar_t* BYTE_NUMBER_STATE_CYBOL_FORMAT = BYTE_NUMBER_STATE_CYBOL_FORMAT_ARRAY;

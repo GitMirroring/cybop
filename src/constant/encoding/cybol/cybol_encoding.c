@@ -44,8 +44,7 @@
  *
  * American Standard Code for Information Interchange (ASCII).
  */
-static wchar_t ASCII_CYBOL_ENCODING_ARRAY[] = {L'a', L's', L'c', L'i', L'i'};
-static wchar_t* ASCII_CYBOL_ENCODING = ASCII_CYBOL_ENCODING_ARRAY;
+static wchar_t* ASCII_CYBOL_ENCODING = L"ascii";
 static int* ASCII_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
@@ -53,8 +52,7 @@ static int* ASCII_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRA
  *
  * Big-5 or Big5: Traditional Chinese (Taiwan, Hong Kong, Macau).
  */
-static wchar_t BIG_5_CYBOL_ENCODING_ARRAY[] = {L'b', L'i', L'g', L'-', L'5'};
-static wchar_t* BIG_5_CYBOL_ENCODING = BIG_5_CYBOL_ENCODING_ARRAY;
+static wchar_t* BIG_5_CYBOL_ENCODING = L"big-5";
 static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
@@ -62,8 +60,7 @@ static int* BIG_5_CYBOL_ENCODING_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRA
  *
  * Extended Binary Coded Decimal Interchange Code (EBCDIC).
  */
-static wchar_t EBCDIC_CYBOL_ENCODING_ARRAY[] = {L'e', L'b', L'c', L'd', L'i', L'c'};
-static wchar_t* EBCDIC_CYBOL_ENCODING = EBCDIC_CYBOL_ENCODING_ARRAY;
+static wchar_t* EBCDIC_CYBOL_ENCODING = L"ebcdic";
 static int* EBCDIC_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
@@ -71,8 +68,7 @@ static int* EBCDIC_CYBOL_ENCODING_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARR
  *
  * Guobiao code (GB): Simplified Chinese (Mainland China, South East).
  */
-static wchar_t GB_CYBOL_ENCODING_ARRAY[] = {L'g', L'b'};
-static wchar_t* GB_CYBOL_ENCODING = GB_CYBOL_ENCODING_ARRAY;
+static wchar_t* GB_CYBOL_ENCODING = L"gb";
 static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
@@ -81,14 +77,12 @@ static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
  * It is used when no encoding is to be applied.
  * In this case, source data are just copied to the destination.
  */
-static wchar_t NONE_CYBOL_ENCODING_ARRAY[] = {L'n', L'o', L'n', L'e'};
-static wchar_t* NONE_CYBOL_ENCODING = NONE_CYBOL_ENCODING_ARRAY;
+static wchar_t* NONE_CYBOL_ENCODING = L"none";
 static int* NONE_CYBOL_ENCODING_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The html coded cybol encoding. */
 /*??
-static wchar_t HTML_CODED_CYBOL_ENCODING_ARRAY[] = {L'h', L't', L'm', L'l', L' ', L'c', L'o', L'd', L'e', L'd'};
-static wchar_t* HTML_CODED_CYBOL_ENCODING = HTML_CODED_CYBOL_ENCODING_ARRAY;
+static wchar_t* HTML_CODED_CYBOL_ENCODING = L"html coded";
 static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 
@@ -97,8 +91,7 @@ static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  *
  * Shift JIS for Japanese (Microsoft Code page 932).
  */
-static wchar_t SHIFT_JIS_CYBOL_ENCODING_ARRAY[] = {L's', L'h', L'i', L'f', L't', L'-', L'j', L'i', L's'};
-static wchar_t* SHIFT_JIS_CYBOL_ENCODING = SHIFT_JIS_CYBOL_ENCODING_ARRAY;
+static wchar_t* SHIFT_JIS_CYBOL_ENCODING = L"shift-jis";
 static int* SHIFT_JIS_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
@@ -113,8 +106,7 @@ static int* SHIFT_JIS_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_
  * Plane 14 (E0000–EFFFF): Supplementary Special-purpose Plane (SSP)
  * Plane 15 (F0000–FFFFF) and Plane 16 (100000–10FFFF): Private Use Area (PUA)
  */
-static wchar_t UNIVERSAL_CYBOL_ENCODING_ARRAY[] = {L'u', L'n', L'i', L'v', L'e', L'r', L's', L'a', L'l'};
-static wchar_t* UNIVERSAL_CYBOL_ENCODING = UNIVERSAL_CYBOL_ENCODING_ARRAY;
+static wchar_t* UNIVERSAL_CYBOL_ENCODING = L"universal";
 static int* UNIVERSAL_CYBOL_ENCODING_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOL_ENCODING_CONSTANT_SOURCE */

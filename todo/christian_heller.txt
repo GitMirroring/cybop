@@ -14,22 +14,32 @@
 WUI
 ___
 
-        * How to handle "http" if only one language e.g. "html" may be specified in "send"?
-            --> convert data into desired format before and send that as bytes.
-        * Merge general sender functionality into directory "basic"? (also used by socket, file etc.)
-
-        * Assign already converted source pointer to destination pointer, if encoding is not needed; do NOT copy src to dest array, for reasons of efficiency
-        * SOLUTION for filter problem: if an encoding/language is not known, just copy the byte in the last "if"-block, instead of showing a warning log message;
-            this way, the order compression/encoding/language/format may always be used in sender/receiver;
-        * Reflect if compression/encoding or encoding/compression is the right order; are compression algorithms using byte code or also wide character strings?
-        * Reflect on compression/encoding/language/format; as constraints below message? order of these? or leave it all to cybol?
+        * Continue file "handler.cybol"
+        * Optimise file "socket_receiver.c"; use if-else to AVOID decoding AND deserialisation of text/ascii
+        * Use encoding "none" in cybol example application "www_server"; text/ascii is correct, number/byte is wrong
+        * Reflect on filter pipeline compression/encoding/language/format
             see e.g. socket_client/run.cybol "communicate/send" operation;
-            model in file "src/data_structure.xmi"
-
+            model in file "src/data_structure.xmi";
             If one property (e.g. compression) is not specified in cybol,
             then the byte data are copied 1:1 (CAUTION! BETTER: assign pointer instead of copying all) from source to destination.
             Encoding is ONLY necessary for character data, but NOT for an image or other byte data.
             Therefore, this has to be distinguished by an if-else when sending or receiving data.
+        * Merge/Unify general receiver/sender functionality into directory "basic"? (also used by socket, file etc.)
+        * Reflect if compression/encoding or encoding/compression is the right order; are compresson algorithms using byte code or also wide character strings?
+
+        * How to handle "http" if only one language e.g. "html" may be specified in "send"?
+            --> convert data into desired format before and send that as bytes.
+
+        * Reactivate http parser; example message:
+
+GET /?action=index HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (X11; Linux i686; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.4.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: de,en-US;q=0.7,en;q=0.3
+Accept-Encoding: gzip, deflate
+DNT: 1
+Connection: keep-alive
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"

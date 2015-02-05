@@ -405,3 +405,9 @@ If formats are different in languages, then offer one format per language?
 The separation of language + format IS NECESSARY, since html and others
 are destination languages and need element/part and simple data types as format.
 
+Encoding
+________
+
+Use format "text/ascii" for data that are to be read byte-wise.
+Do NOT use format "number/byte", since that will deserialise
+text into comma-separated byte values.

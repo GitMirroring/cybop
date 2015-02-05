@@ -83,10 +83,11 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
 
             // The enable flag is set.
 
+/*??
     fwprintf(stdout, L"TEST: check io element io index p2: %i \n", *((int*) p2));
     fwprintf(stdout, L"TEST: check io element port p3: %i \n", *((int*) p3));
-
     fwprintf(stdout, L"TEST: check io element io index with port: %i \n", idx);
+*/
 
             // The client list item.
             void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -96,7 +97,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
             // Get client list item from io entry.
             get_io_entry_element((void*) &l, (void*) &io, (void*) CLIENT_LIST_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST: check io element l: %i \n", l);
+//?? fwprintf(stdout, L"TEST: check io element l: %i \n", l);
 
             compare_integer_equal((void*) &r, p2, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 

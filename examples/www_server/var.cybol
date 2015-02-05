@@ -3,22 +3,19 @@
     <!--
         The client request as received on the server.
         CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
+        CAUTION! The format "number/byte" is NOT applicable, since it
+        deserialises into an array of comma-separated numbers,
+        whilst "text/ascii" represents a text string of characters.
     -->
     <part name="request" channel="inline" format="text/ascii" model=""/>
-    <!--
-        The server response as received on the client.
-        CAUTION! Use "text/ascii" and NOT "text/plain" (wide_character) here.
-    -->
-    <part name="response" channel="inline" format="text/ascii" model=""/>
+
+    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
 
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-    <part name="path" channel="inline" format="path/knowledge" model=""/>
-
-    <part name="server_connexion_socket" channel="inline" format="number/integer" model="0"/>
-    <part name="client_connexion_socket" channel="inline" format="number/integer" model="0"/>
+    <part name="path" channel="inline" format="text/plain" model=""/>
 
 </model>

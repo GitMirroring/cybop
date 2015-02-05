@@ -114,7 +114,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
                 copy_array_forward(p4, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST check irq display irq: %i\n", *((int*) *irq));
+//??    fwprintf(stdout, L"TEST check irq display irq: %i\n", *((int*) *irq));
             }
 
             if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
@@ -126,7 +126,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
                 copy_array_forward(p4, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST check irq serial irq: %i\n", *((int*) *irq));
+//??    fwprintf(stdout, L"TEST check irq serial irq: %i\n", *((int*) *irq));
             }
 
             //?? Socket already removed due to NEW solution above.
@@ -140,7 +140,7 @@ void check_irq(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) HANDLER_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
                 copy_array_forward(p4, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    fwprintf(stdout, L"TEST check irq terminal irq: %i\n", *((int*) *irq));
+//??    fwprintf(stdout, L"TEST check irq terminal irq: %i\n", *((int*) *irq));
             }
 
             if ((*irq == *NULL_POINTER_STATE_CYBOI_MODEL) || ((*irq != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) *irq) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {

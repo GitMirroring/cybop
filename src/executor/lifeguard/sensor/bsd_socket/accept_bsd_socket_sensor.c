@@ -57,7 +57,7 @@ void sense_bsd_socket_accept(void* p0, void* p1) {
             // that would produce huge log files.
             // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense bsd socket accept.");
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept *s: %i \n", *((int*) p1));
+//??    fwprintf(stdout, L"TEST: sense bsd socket accept *s: %i \n", *((int*) p1));
 
             // Initialise error number.
             // It is a global variable/ function and other operations
@@ -120,7 +120,7 @@ void sense_bsd_socket_accept(void* p0, void* p1) {
 
                 } else if (errno == EWOULDBLOCK) {
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept error EWOULDBLOCK: %i \n", errno);
+//??    fwprintf(stdout, L"TEST: sense bsd socket accept error EWOULDBLOCK: %i \n", errno);
 
                     // CAUTION! Do NOT log the following error!
                     // The reason is that the socket is non-blocking,

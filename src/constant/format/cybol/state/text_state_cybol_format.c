@@ -61,6 +61,12 @@
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  *
  * It is used for single-byte-characters in CYBOL.
+ *
+ * CAUTION! This format represents a text string of characters.
+ * It is NOT to be mixed up with "number/byte" representing
+ * numbers in the range 0..255.
+ * Numbers in an array ARE separated by comma;
+ * text characters of a string are NOT.
  */
 static wchar_t* ASCII_TEXT_STATE_CYBOL_FORMAT = L"text/ascii";
 static int* ASCII_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
