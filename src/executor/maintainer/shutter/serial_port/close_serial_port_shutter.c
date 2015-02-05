@@ -26,6 +26,7 @@
 #ifndef CLOSE_SERIAL_PORT_SHUTTER_SOURCE
 #define CLOSE_SERIAL_PORT_SHUTTER_SOURCE
 
+#include <errno.h>
 #include <stdio.h>
 
 #ifdef __APPLE__
@@ -65,7 +66,7 @@ void shutdown_serial_port_close(void* p0) {
         //
         // CAUTION! Initialise the error number BEFORE calling
         // the function that might cause an error.
-        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         int e = -1;
         // Close file descriptor.

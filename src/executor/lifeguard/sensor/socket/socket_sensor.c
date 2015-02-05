@@ -56,7 +56,7 @@ fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
     int bc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int bs = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Set interrupt request.
+    // Initialise buffer size.
     copy_integer((void*) &bs, p2);
 
     // Allocate buffer data.
@@ -76,7 +76,7 @@ fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
 fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
 
-        // Set interrupt request.
+        // Copy destination buffer count.
         copy_integer(p0, (void*) &bc);
     }
 

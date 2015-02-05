@@ -14,20 +14,21 @@
 WUI
 ___
 
-        * When and where to close a client socket that was accepted by the server socket?
-            it is stored as int number in the cybol application;
-            possibly close client socket by default in cybol application, right after having sent a reply
+        * Search function calls "deallocate_array" and hand over ZERO as "count" argument, where applicable, with the following comment (see bottom of file "manager.c"):
+            // Deallocate internal memory data.
+            // CAUTION! The number zero may be forwarded as "count" argument,
+            // since it is only used for looping parts, in order to
+            // decrement the rubbish (garbage) collection counter.
+            // However, the parts within internal memory should NOT be
+            // considered for that, only those in knowledge memory.
+            deallocate_array((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+
         * Attach timeout and other meta data as properties to a client socket number?
             in this case, however, client sockets would have to be single parts and not just numbers in one int array;
             is the client socket usable as unique id?
         * Set timeout parametre on server socket startup or sense
         * Close and remove socket from client list when timeout is reached
         * Close and remove socket from client list on error, e.g. non-respoding client
-        * Close all client sockets on server shutdown, starting from the last, for more efficient removal from client list
-            (if starting from the first, then all following clients would have to be moved one place forward on each removal)
-
-        * Uncomment function call "shutdown_socket" in file "controller/manager.c"
-        * Use a new function looping all open/enabled/NOT_NULL services (not only sockets) in internal memory, in order to close them
 
         * How to handle "http" if only one language e.g. "html" may be specified in "send"?
             --> convert data into desired format before and send that as bytes.
@@ -411,6 +412,7 @@ Cosmetics
 _________
 
         * Rename "internal memory" into "system memory"
+        * Rename looping files to either (1) plural + singular, e.g. shutdown_services + shutdown service or (2) container + element, e.g. shutdown_list + shutdown_element
 
 Super
 _____

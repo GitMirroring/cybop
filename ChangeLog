@@ -21,6 +21,9 @@
 2015-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise endless loop in file "message_socket_receiver.c" to peek ahead for further data
+        * Extend socket shutter by closing a server socket's clients in list on shutdown
+        * Add new file "controller/manager/shutdown_manager.c" looping all services at shutdown
+        * Activate socket shutdown functionality
 
 2015-02-02  Christian Heller  <christian.heller@tuxtax.de>
 

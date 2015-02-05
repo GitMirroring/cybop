@@ -48,3 +48,18 @@ constants, variables, if-else blocks for several executors
 --> simple, no thinking necessary, assembly-line work, annoying, but visible success, may be done in non-silent environment where concentration is difficult, good to fill an hour of time without having to think myself in deeply
 --> some days
 
+Open Problems
+_____________
+
+hard time, since it is unclear if they will be solvable satisfyingly at all
+e.g. peeking for available data at a blocking socket
+if buffer size and count are equal, the next loop cycle will block at the "recv" call
+
+Clever Way
+__________
+
+sometimes, I know/feel that a problem is solvable
+but thinking about how best to implement it, breaks my head
+takes time to code and try out several designs
+a lot of creating/moving/deleting new source code files
+

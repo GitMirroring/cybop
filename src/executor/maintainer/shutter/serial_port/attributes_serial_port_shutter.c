@@ -26,6 +26,7 @@
 #ifndef ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE
 #define ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE
 
+#include <errno.h>
 #include <stdio.h>
 
 #ifdef __APPLE__
@@ -77,7 +78,7 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
             //
             // CAUTION! Initialise the error number BEFORE calling
             // the function that might cause an error.
-            copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Reset serial port to original attributes.
             //

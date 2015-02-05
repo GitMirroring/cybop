@@ -37,6 +37,7 @@
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../controller/manager/internal_memory_manager.c"
+#include "../controller/manager/shutdown_manager.c"
 #include "../controller/manager/system_signal_handler_manager.c"
 #include "../controller/initialiser.c"
 #include "../executor/maintainer/shutter/display/display_shutter.c"
@@ -343,20 +344,7 @@ void manage(void* p0) {
     //
     // System shutdown.
     //
-
-    // The following calls of "shutdown" procedures are just to be sure,
-    // in case a cybol application developer has forgotten to call the
-    // corresponding service shutdown operation in cybol logic templates.
-    // The "interrupt" procedures are called within the "shutdown" procedures.
-
-    // Shutdown display.
-    shutdown_display(i, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT);
-    // Shutdown serial port.
-    shutdown_serial_port(i, (void*) SERIAL_THREAD, (void*) SERIAL_EXIT);
-    // Shutdown socket.
-//??    shutdown_socket(i, (void*) HTTP_BASE_SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) SOCKET_THREAD, (void*) SOCKET_EXIT);
-    // Shutdown terminal.
-    shutdown_terminal(i, (void*) TERMINAL_THREAD, (void*) TERMINAL_EXIT);
+    manage_shutdown(i);
 
     //
     // Variable finalisation.
@@ -365,7 +353,7 @@ void manage(void* p0) {
     // CAUTION! Do NOT REMOVE any internal memory internals!
     // The internals have a fixed position within the internal memory.
     // Removing them would shift all entries by one position and
-    // thus make all entries invalid, since they could not be found
+    // thus make ALL entries invalid, since they could not be found
     // at their original index anymore.
 
     // Destroy display mutex.
@@ -391,7 +379,12 @@ void manage(void* p0) {
     // so that this root part is not deallocated automatically.
     deallocate_part((void*) &k);
     // Deallocate internal memory data.
-    deallocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    // CAUTION! The number zero may be forwarded as "count" argument,
+    // since it is only used for looping parts, in order to
+    // decrement the rubbish (garbage) collection counter.
+    // However, the parts within internal memory should NOT be
+    // considered for that, only those in knowledge memory.
+    deallocate_array((void*) &i, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /* MANAGER_SOURCE */

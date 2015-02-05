@@ -57,135 +57,136 @@ void receive_winsock(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                 int* s = (int*) p2;
 
-                if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    int* c = (int*) p1;
+                    // CAUTION! The winsock function "recv" expects
+                    // a char* instead of void* buffer.
+                    char* d = (char*) p0;
 
-                    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive winsock.");
 
-                        // CAUTION! The winsock function "recv" expects
-                        // a char* instead of void* buffer.
-                        char* d = (char*) p0;
+                    // Cast int to winsock SOCKET.
+                    SOCKET ws = (SOCKET) *ss;
 
-                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive winsock.");
+                    //
+                    // Receive message.
+                    //
+                    // If the flags argument (fourth one) is zero, then one can
+                    // just as well use the "read" instead of the "recv" procedure.
+                    // Normally, "recv" blocks until there is input available to be read.
+                    //
+                    // CAUTION! A message MUST NOT be longer than the given buffer size!
+                    //
+                    // http://msdn.microsoft.com/en-us/library/windows/desktop/ms740121%28v=vs.85%29.aspx
+                    //
+                    int c = recv(ws, d, *s, *o);
 
-                        // Cast int to winsock SOCKET.
-                        SOCKET ws = (SOCKET) *ss;
+                    if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        //
-                        // Receive message.
-                        //
-                        // If the flags argument (fourth one) is zero, then one can
-                        // just as well use the "read" instead of the "recv" procedure.
-                        // Normally, "recv" blocks until there is input available to be read.
-                        //
-                        // CAUTION! A message MUST NOT be longer than the given buffer size!
-                        //
-                        // http://msdn.microsoft.com/en-us/library/windows/desktop/ms740121%28v=vs.85%29.aspx
-                        //
-                        *c = recv(ws, d, *s, *o);
+                        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received winsock.");
 
-                        if (*c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        // Copy destination count.
+                        // CAUTION! Copy value only if >= zero.
+                        // Otherwise (with negative value), buffer deallocation will fail.
+                        copy_integer(p1, (void*) &c);
 
-                            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully received winsock.");
+                    } else if (c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        } else if (*c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. No data could be sensed. Possibly, the connexion has been gracefully closed.");
 
-                            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. No data could be sensed. Possibly, the connexion has been gracefully closed.");
-
-                        } else {
-
-                            // An error occured.
-
-                            // Get the calling thread's last-error code.
-                            //
-                            // CAUTION! This function is the winsock substitute
-                            // for the Windows "GetLastError" function.
-                            int e = WSAGetLastError();
-
-                            if (e == WSANOTINITIALISED) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. A successful WSAStartup call must occur before using this function.");
-
-                            } else if (e == WSAENETDOWN) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The network subsystem has failed.");
-
-                            } else if (e == WSAEFAULT) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The buf parameter is not completely contained in a valid part of the user address space.");
-
-                            } else if (e == WSAENOTCONN) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket is not connected.");
-
-                            } else if (e == WSAEINTR) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The (blocking) call was canceled through WSACancelBlockingCall.");
-
-                            } else if (e == WSAEINPROGRESS) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
-
-                            } else if (e == WSAENETRESET) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. For a connection-oriented socket, this error indicates that the connection has been broken due to keep-alive activity that detected a failure while the operation was in progress. For a datagram socket, this error indicates that the time to live has expired.");
-
-                            } else if (e == WSAENOTSOCK) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The descriptor is not a socket.");
-
-                            } else if (e == WSAEOPNOTSUPP) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. MSG_OOB was specified, but the socket is not stream-style such as type SOCK_STREAM, OOB data is not supported in the communication domain associated with this socket, or the socket is unidirectional and supports only send operations.");
-
-                            } else if (e == WSAESHUTDOWN) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket has been shut down; it is not possible to receive on a socket after shutdown has been invoked with how set to SD_RECEIVE or SD_BOTH.");
-
-                            } else if (e == WSAEWOULDBLOCK) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket is marked as nonblocking and the receive operation would block.");
-
-                            } else if (e == WSAEMSGSIZE) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The message was too large to fit into the specified buffer and was truncated.");
-
-                            } else if (e == WSAEINVAL) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket has not been bound with bind, or an unknown flag was specified, or MSG_OOB was specified for a socket with SO_OOBINLINE enabled or (for byte stream sockets only) len was zero or negative.");
-
-                            } else if (e == WSAECONNABORTED) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The virtual circuit was terminated due to a time-out or other failure. The application should close the socket as it is no longer usable.");
-
-                            } else if (e == WSAETIMEDOUT) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The connection has been dropped because of a network failure or because the peer system failed to respond.");
-
-                            } else if (e == WSAECONNRESET) {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The virtual circuit was reset by the remote side executing a hard or abortive close. The application should close the socket as it is no longer usable. On a UDP-datagram socket, this error would indicate that a previous send operation resulted in an ICMP 'Port Unreachable' message.");
-
-                            } else {
-
-                                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. An unknown error occured.");
-                            }
-
-                            // Cast int to DWORD (unsigned int 32-Bit).
-                            DWORD dw = (DWORD) e;
-
-                            log_windows_system_error((void*) &dw);
-                        }
+                        // Copy destination count.
+                        // CAUTION! Copy value only if >= zero.
+                        // Otherwise (with negative value), buffer deallocation will fail.
+                        copy_integer(p1, (void*) &c);
 
                     } else {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The destination data is null.");
+                        // An error occured.
+
+                        // Get the calling thread's last-error code.
+                        //
+                        // CAUTION! This function is the winsock substitute
+                        // for the Windows "GetLastError" function.
+                        int e = WSAGetLastError();
+
+                        if (e == WSANOTINITIALISED) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. A successful WSAStartup call must occur before using this function.");
+
+                        } else if (e == WSAENETDOWN) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The network subsystem has failed.");
+
+                        } else if (e == WSAEFAULT) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The buf parameter is not completely contained in a valid part of the user address space.");
+
+                        } else if (e == WSAENOTCONN) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket is not connected.");
+
+                        } else if (e == WSAEINTR) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The (blocking) call was canceled through WSACancelBlockingCall.");
+
+                        } else if (e == WSAEINPROGRESS) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. A blocking Windows Sockets 1.1 call is in progress, or the service provider is still processing a callback function.");
+
+                        } else if (e == WSAENETRESET) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. For a connection-oriented socket, this error indicates that the connection has been broken due to keep-alive activity that detected a failure while the operation was in progress. For a datagram socket, this error indicates that the time to live has expired.");
+
+                        } else if (e == WSAENOTSOCK) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The descriptor is not a socket.");
+
+                        } else if (e == WSAEOPNOTSUPP) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. MSG_OOB was specified, but the socket is not stream-style such as type SOCK_STREAM, OOB data is not supported in the communication domain associated with this socket, or the socket is unidirectional and supports only send operations.");
+
+                        } else if (e == WSAESHUTDOWN) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket has been shut down; it is not possible to receive on a socket after shutdown has been invoked with how set to SD_RECEIVE or SD_BOTH.");
+
+                        } else if (e == WSAEWOULDBLOCK) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket is marked as nonblocking and the receive operation would block.");
+
+                        } else if (e == WSAEMSGSIZE) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The message was too large to fit into the specified buffer and was truncated.");
+
+                        } else if (e == WSAEINVAL) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The socket has not been bound with bind, or an unknown flag was specified, or MSG_OOB was specified for a socket with SO_OOBINLINE enabled or (for byte stream sockets only) len was zero or negative.");
+
+                        } else if (e == WSAECONNABORTED) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The virtual circuit was terminated due to a time-out or other failure. The application should close the socket as it is no longer usable.");
+
+                        } else if (e == WSAETIMEDOUT) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The connection has been dropped because of a network failure or because the peer system failed to respond.");
+
+                        } else if (e == WSAECONNRESET) {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The virtual circuit was reset by the remote side executing a hard or abortive close. The application should close the socket as it is no longer usable. On a UDP-datagram socket, this error would indicate that a previous send operation resulted in an ICMP 'Port Unreachable' message.");
+
+                        } else {
+
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. An unknown error occured.");
+                        }
+
+                        // Cast int to DWORD (unsigned int 32-Bit).
+                        DWORD dw = (DWORD) e;
+
+                        log_windows_system_error((void*) &dw);
                     }
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The destination count is null.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive winsock. The destination data is null.");
                 }
 
             } else {

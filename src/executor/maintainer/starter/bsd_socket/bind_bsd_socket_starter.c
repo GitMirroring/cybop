@@ -73,15 +73,13 @@ void startup_bsd_socket_bind(void* p0, void* p1, void* p2) {
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket bind successful r: %i \n", r);
+    fwprintf(stdout, L"TEST: startup bsd socket bind success r: %i \n", r);
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket bind.");
 
                 } else {
 
                     // An error occured.
-
-    fwprintf(stdout, L"TEST: startup bsd socket bind error errno: %i \n", errno);
 
                     if (errno == EBADF) {
 

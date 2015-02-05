@@ -34,6 +34,7 @@
 #include "../../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
+#include "../../../../executor/maintainer/shutter/socket/list_server_socket_shutter.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
@@ -65,12 +66,12 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
         // The socket io entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Calculate internal memory index.
-        calculate_integer_add((void*) &i, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME);
         // Get socket io entry.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST shutdown socket server io: %i\n", io);
 
             // Only deallocate socket resources if a socket exists.
 
@@ -95,14 +96,18 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
             // But the array's count and size are CONSTANT.
             get_io_entry_element((void*) &s, (void*) &io, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-            // Close server socket.
-            shutdown_socket_close((void*) &s);
+            // Shutdown client list.
+            shutdown_socket_server_list(cl);
+
             // Deallocate client list item.
             deallocate_item((void*) &cl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+            // Close server socket.
+            shutdown_socket_close((void*) &s);
             // Deallocate io entry.
             deallocate_array((void*) &io, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) IO_ENTRY_STATE_CYBOI_TYPE);
 
             // Reset values.
+            //
             // CAUTION! Assign NULL to the internal memory.
             // It is ESSENTIAL, since cyboi tests for null pointers.
             // Otherwise, wild pointers would lead to memory corruption.
@@ -110,7 +115,9 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
 
         } else {
 
-            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket server. There is no socket running at the given base internal.");
+            // CAUTION! Do NOT log message for reasons of efficiency.
+            // A socket service, for example, may exist for 65536 ports.
+            // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown socket server. There is no socket running at the given base internal.");
         }
 
     } else {
