@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BUFFER_SOCKET_SENDER_SOURCE
-#define BUFFER_SOCKET_SENDER_SOURCE
+#ifndef BUFFER_SOCKET_WRITER_SOURCE
+#define BUFFER_SOCKET_WRITER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #ifdef __APPLE__
-    #include "../../../../executor/communicator/sender/bsd_socket/bsd_socket_sender.c"
+    #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
 #elif WIN32
-    #include "../../../../executor/communicator/sender/winsock/winsock_sender.c"
+    #include "../../../../executor/streamer/writer/winsock/winsock_writer.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/sender/bsd_socket/bsd_socket_sender.c"
+    #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
 #else
-    #include "../../../../executor/communicator/sender/bsd_socket/bsd_socket_sender.c"
+    #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
 #endif
 
 //
@@ -57,27 +57,27 @@
 //
 
 /**
- * Sends buffer data via socket.
+ * Writes buffer data via socket.
  *
  * @param p0 the destination socket
  * @param p1 the source data
  * @param p2 the source count
  * @param p3 the number of bytes transferred
  */
-void send_socket_buffer(void* p0, void* p1, void* p2, void* p3) {
+void write_socket_buffer(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket buffer.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write socket buffer.");
 
 #ifdef __APPLE__
-    send_bsd_socket(p0, p1, p2, p3);
+    write_bsd_socket(p0, p1, p2, p3);
 #elif WIN32
-    send_winsock(p0, p1, p2, p3);
+    write_winsock(p0, p1, p2, p3);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    send_bsd_socket(p0, p1, p2, p3);
+    write_bsd_socket(p0, p1, p2, p3);
 #else
-    send_bsd_socket(p0, p1, p2, p3);
+    write_bsd_socket(p0, p1, p2, p3);
 #endif
 }
 
-/* BUFFER_SOCKET_SENDER_SOURCE */
+/* BUFFER_SOCKET_WRITER_SOURCE */
 #endif

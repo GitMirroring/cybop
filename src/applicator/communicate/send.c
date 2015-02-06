@@ -29,7 +29,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/communication/send_communication_logic_cybol_name.c"
-#include "../../executor/communicator/sender.c"
+#include "../../executor/communicator/OLD_sender.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
@@ -216,7 +216,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     // Get indentation flag part model item data.
     copy_array_forward((void*) &limd, lim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    send_data(rm, mmd, mmc, mpd, mpc, p2, p3, fmd, limd, lmd, emd, (void*) &m, clmd, nlmd, ntmd, cmd);
+    OLD_send_data(rm, mmd, mmc, mpd, mpc, p2, p3, fmd, limd, lmd, emd, (void*) &m, clmd, nlmd, ntmd, cmd);
 }
 
 /* SEND_SOURCE */

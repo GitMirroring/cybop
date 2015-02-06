@@ -23,15 +23,12 @@
     </part>
     <part name="receive_request" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="none"/>
-<!--
         <property name="language" channel="inline" format="meta/language" model="message/http-request"/>
--->
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
 <!--
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
--->
         <property name="format" channel="inline" format="meta/format" model="text/ascii"/>
+-->
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
         <property name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </part>

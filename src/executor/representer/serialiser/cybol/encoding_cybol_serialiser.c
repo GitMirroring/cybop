@@ -81,16 +81,6 @@ void serialise_cybol_encoding(void* p0, void* p1) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) NONE_CYBOI_ENCODING);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) NONE_CYBOL_ENCODING, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NONE_CYBOL_ENCODING_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
     //
     // ISO-8859
     //

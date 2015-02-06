@@ -21,6 +21,8 @@
 2015-02-06  Christian Heller  <christian.heller@tuxtax.de>
 
         * Reflect on design of input/output filter chain (device|compression|encoding|language+format|knowledge)
+        * Add new directory "executor/streamer/" for reading/writing low level data from/to a device
+        * Make communicator the central input/output point calling pipeline functions
 
 2015-02-05  Christian Heller  <christian.heller@tuxtax.de>
 

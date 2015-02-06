@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MESSAGE_SOCKET_SENDER_SOURCE
-#define MESSAGE_SOCKET_SENDER_SOURCE
+#ifndef SOCKET_WRITER_SOURCE
+#define SOCKET_WRITER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,22 +33,22 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
-#include "../../../../executor/communicator/sender/socket/buffer_socket_sender.c"
+#include "../../../../executor/streamer/writer/socket/buffer_socket_writer.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Sends a message via socket.
+ * Writes a message via socket.
  *
  * @param p0 the destination socket
  * @param p1 the source data (pointer reference)
  * @param p2 the source count
  */
-void send_socket_message(void* p0, void* p1, void* p2) {
+void write_socket(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send socket message.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write socket.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -83,7 +83,7 @@ void send_socket_message(void* p0, void* p1, void* p2) {
             break;
         }
 
-        send_socket_buffer(p0, pos, (void*) &rem, (void*) &n);
+        write_socket_buffer(p0, pos, (void*) &rem, (void*) &n);
 
         if (n <= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -102,5 +102,5 @@ void send_socket_message(void* p0, void* p1, void* p2) {
     }
 }
 
-/* MESSAGE_SOCKET_SENDER_SOURCE */
+/* SOCKET_WRITER_SOURCE */
 #endif

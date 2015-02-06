@@ -26,32 +26,30 @@
 #ifndef RECEIVER_SOURCE
 #define RECEIVER_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/communicator/receiver/display/display_receiver.c"
-#include "../../executor/communicator/receiver/file/file_receiver.c"
-#include "../../executor/communicator/receiver/inline/inline_receiver.c"
-#include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
-#include "../../executor/communicator/receiver/socket/socket_receiver.c"
-#include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
-#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/communicator/receiver/decode_receiver.c"
+#include "../../executor/communicator/receiver/deserialise_receiver.c"
+//?? #include "../../executor/communicator/receiver/extract_receiver.c"
+#include "../../executor/communicator/receiver/read_receiver.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
- * Receives via the given channel into the destination.
+ * Receives a message via the given channel.
  *
  * CAUTION! Do NOT rename this function to "receive",
  * as that name is already used by low-level socket functionality.
  *
- * CAUTION! Do NOT rename this function to "read",
- * as that name is already used for glibc library's input.
- *
- * CAUTION! Some file formats (like the German xDT format for
- * medical data exchange or HTTP requests/ responses) contain both,
- * the model AND the properties, in one file. To cover these cases,
- * the model AND properties are processed TOGETHER, in just one function.
+ * Use the "receive" filter pipeline in the following order:
+ * - read: mandatory, in order to have some data
+ * - extract: optional, if compression is given
+ * - decode: optional, if encoding is given
+ * - deserialise: mandatory, in order to correctly interpret data
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -70,75 +68,61 @@
  */
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The compressed message item.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded message item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised message item.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The argument data, count.
+    // CAUTION! This is just helper variables,
+    // to be used for forwarding the correct argument.
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    //
+    // CAUTION! These items have to get allocated HERE
+    // and NOT within the functions called below.
+    // Otherwise, they would be deallocated before being used.
+    //
 
-        compare_integer_equal((void*) &r, p13, (void*) DISPLAY_CYBOI_CHANNEL);
+    // Allocate compressed message item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded message item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate serialised message item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Read compressed message from device.
+    receive_read((void*) &ad, (void*) &ac, c, p2, p3, p4, p5, p7, p8, p9, p13);
+    // Extract compressed message.
+//??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
+    // Decode encoded message.
+    receive_decode((void*) &ad, (void*) &ac, s, ad, ac, p12);
+    // Deserialise serialised message.
+    //
+    // CAUTION! The source argument data may be of either
+    // type "char" or type "wchar_t", which is IRRELEVANT.
+    // The latter applies when a character encoding had been given.
+    // The function "deserialise" knows how to handle it,
+    // depending on the given language.
+    //
+    receive_deserialise(p0, p1, ad, ac, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11);
 
-            receive_display(p0, p1, p2, p3, p6, p7, p10, p11);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) FILE_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            receive_file(p0, p1, p2, p3, p4, p5, p6, p10, p11, p12);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) INLINE_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            receive_inline(p0, p1, p2, p3, p10, p11);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            receive_serial_port(p0, p1, p8, p9, p7);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            receive_socket(p0, p1, p2, p6, p10, p11, p12);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p13, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            receive_terminal(p0, p1, p2, p3, p6, p7, p10, p11);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive. The channel is unknown.");
-    }
+    // Deallocate compressed message item.
+    deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded message item.
+    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate serialised message item.
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* RECEIVER_SOURCE */

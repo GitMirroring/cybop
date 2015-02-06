@@ -23,21 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BUFFER_SOCKET_RECEIVER_SOURCE
-#define BUFFER_SOCKET_RECEIVER_SOURCE
+#ifndef BUFFER_SOCKET_READER_SOURCE
+#define BUFFER_SOCKET_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 #ifdef __APPLE__
-    #include "../../../../executor/communicator/receiver/bsd_socket/bsd_socket_receiver.c"
+    #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
 #elif WIN32
-    #include "../../../../executor/communicator/receiver/winsock/winsock_receiver.c"
+    #include "../../../../executor/streamer/reader/winsock/winsock_reader.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/receiver/bsd_socket/bsd_socket_receiver.c"
+    #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
 #else
-    #include "../../../../executor/communicator/receiver/bsd_socket/bsd_socket_receiver.c"
+    #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
 #endif
 
 //
@@ -57,7 +57,7 @@
 //
 
 /**
- * Receives socket data until the given buffer is filled.
+ * Reads socket data until the given buffer is filled.
  *
  * @param p0 the destination buffer data
  * @param p1 the destination buffer count
@@ -65,20 +65,20 @@
  * @param p3 the source socket
  * @param p4 the socket options
  */
-void receive_socket_buffer(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_socket_buffer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket buffer.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket buffer.");
 
 #ifdef __APPLE__
-    receive_bsd_socket(p0, p1, p2, p3, p4);
+    read_bsd_socket(p0, p1, p2, p3, p4);
 #elif WIN32
-    receive_winsock(p0, p1, p2, p3, p4);
+    read_winsock(p0, p1, p2, p3, p4);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    receive_bsd_socket(p0, p1, p2, p3, p4);
+    read_bsd_socket(p0, p1, p2, p3, p4);
 #else
-    receive_bsd_socket(p0, p1, p2, p3, p4);
+    read_bsd_socket(p0, p1, p2, p3, p4);
 #endif
 }
 
-/* BUFFER_SOCKET_RECEIVER_SOURCE */
+/* BUFFER_SOCKET_READER_SOURCE */
 #endif

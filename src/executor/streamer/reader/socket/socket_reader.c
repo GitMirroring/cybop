@@ -23,15 +23,15 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MESSAGE_SOCKET_RECEIVER_SOURCE
-#define MESSAGE_SOCKET_RECEIVER_SOURCE
+#ifndef SOCKET_READER_SOURCE
+#define SOCKET_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/socket/buffer_socket_receiver.c"
+#include "../../../../executor/streamer/reader/socket/buffer_socket_reader.c"
 #include "../../../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
@@ -39,18 +39,18 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Receives message via socket.
+ * Reads data via socket.
  *
  * @param p0 the destination item
  * @param p1 the source socket
  */
-void receive_socket_message(void* p0, void* p1) {
+void read_socket(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive socket message.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket.");
 
     // The buffer data, count, size.
     // CAUTION! Its size has to be GREATER than zero.
-    // Otherwise, there will be no place for the data to be received.
+    // Otherwise, there will be no place for the data to be read.
     // A peek into the apacha http server showed values like 512 or 2048.
     // So, the value of 1024 used here is probably acceptable.
     void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -66,10 +66,10 @@ void receive_socket_message(void* p0, void* p1) {
     // be negative or zero, but have at least a value of ONE.
     allocate_array((void*) &bd, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Loop until all bytes have been received.
+    // Loop until all bytes have been read.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: receive socket message loop ec: %i \n", ec);
+fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
 
         // Sense further data available on socket.
         //
@@ -88,33 +88,33 @@ fwprintf(stdout, L"TEST: receive socket message loop ec: %i \n", ec);
         //
         // 2a Further data available
         //
-        // The function "receive_socket_buffer" would be
+        // The function "read_socket_buffer" would be
         // called again in order to process the data.
         //
         // 2b No further data
         //
-        // If the function "receive_socket_buffer" was called again,
+        // If the function "read_socket_buffer" was called again,
         // it WOULD BLOCK processing, since no more data are available.
         //
         // Therefore, the function "sense_socket" is called for PEEKING AHEAD for new data,
         // without actually reading or removing them from the input queue.
         // However, also this function WOULD BLOCK if there were no further data available.
         // This can be avoided if reading at least ONE BYTE MORE than
-        // used later in the function "receive_socket_buffer".
+        // used later in the function "read_socket_buffer".
         //
         // The efficiency disadvantage is that all data are read TWICE,
-        // once within "sense" and another time within "receive".
+        // once within "sense" and another time within "read".
         //
         sense_socket((void*) &ec, p1, (void*) &es);
 
-        // Receive data into buffer with given size.
-        receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Read data into buffer with given size.
+        read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST: receive socket message result bc: %i \n", bc);
+fwprintf(stdout, L"TEST: read socket result bc: %i \n", bc);
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: receive socket message bc > 0: %i \n", bc);
+fwprintf(stdout, L"TEST: read socket bc > 0: %i \n", bc);
 
             // Append buffer to destination data.
             append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -122,7 +122,7 @@ fwprintf(stdout, L"TEST: receive socket message bc > 0: %i \n", bc);
 
         if (ec > bs) {
 
-fwprintf(stdout, L"TEST: receive socket message ec > bs: %i \n", ec);
+fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
 
             // There are further data available on the socket.
             // Therefore, another loop cycle will be entered.
@@ -137,14 +137,14 @@ fwprintf(stdout, L"TEST: receive socket message ec > bs: %i \n", ec);
 
         } else {
 
-fwprintf(stdout, L"TEST: receive socket message ec <= bs: %i \n", ec);
+fwprintf(stdout, L"TEST: read socket ec <= bs: %i \n", ec);
 
             // The buffer completely or not, which is not relevant.
             // However, its size was sufficient.
             // No more data are available.
             // The loop may be left.
 
-            // Exit loop, since no more data are to be received.
+            // Exit loop, since no more data are to be read.
             break;
         }
     }
@@ -156,5 +156,5 @@ fwprintf(stdout, L"TEST: receive socket message ec <= bs: %i \n", ec);
     deallocate_array((void*) &bd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &bs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-/* MESSAGE_SOCKET_RECEIVER_SOURCE */
+/* SOCKET_READER_SOURCE */
 #endif

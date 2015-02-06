@@ -63,3 +63,13 @@ but thinking about how best to implement it, breaks my head
 takes time to code and try out several designs
 a lot of creating/moving/deleting new source code files
 
+Investigate
+___________
+
+- e.g. reflect design of input/output filter pipeline (executor/communicator/)
+- read about HTTP header fields (charset, encoding, transfer-encoding etc.)
+- investigate compression algorithms
+- reflect about how (in which order) to combine all of these into a pipeline, when some are optional
+- draw UML activity diagram (programme flow chart) showing this
+- about 1 day of thinking (but many ideas had been collected previously, written into "todo" file)
+

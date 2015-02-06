@@ -14,15 +14,8 @@
 WUI
 ___
 
-        * Implement filter chain at first testwise for file "socket_receiver.c";
-            use if-else to AVOID decoding AND deserialisation of text/ascii; see diagram "data_structure_serialisation.png"
-        * Decode only if (1) encoding != null AND if (2) language is a text language (check this via if-else in special file returning "true" if text language)
-            (it does NOT matter that the input for the deserialiser is once char and another time wchar_t, since each deserialiser expects just one of these two)
-        * Use encoding property with value "none" OR nothing (NULL in cyboi)?; see cybol example application "www_server"; text/ascii is correct, number/byte is wrong
-        * Loop "extract" as long as pipe-separated filters are given, e.g. "tar|gzip|base64"
-        * Unify general communicator functionality; move special code into file "device_??_receiver.c", where ?? is xcb, socket, file etc.; leave general code in file "receiver.c"
+        * Complete new communicator sender files
         * Continue file "handler.cybol"
-
         * Reactivate http parser
         * Read about header fields in specification:
             http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.2
@@ -117,6 +110,11 @@ Connection: keep-alive
             https://de.wikipedia.org/wiki/Content_Negotiation
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
+
+        * Loop "extract" in input/output pipeline, as long as filters are given, e.g. "tar|gzip|base64", see file "extract_receiver.c"
+        * Implement filter chain for other i/o channels (socket already done)
+        * Unify general communicator functionality
+        * Move special code into "executor/streamer/"
 
 Hello, World!
 _____________

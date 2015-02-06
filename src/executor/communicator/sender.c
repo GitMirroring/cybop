@@ -26,15 +26,24 @@
 #ifndef SENDER_SOURCE
 #define SENDER_SOURCE
 
-#include "../../constant/channel/cyboi/cyboi_channel.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../executor/communicator/sender/display/display_sender.c"
-#include "../../executor/communicator/sender/file/file_sender.c"
-#include "../../executor/communicator/sender/inline/inline_sender.c"
-#include "../../executor/communicator/sender/serial_port/serial_port_sender.c"
-#include "../../executor/communicator/sender/signal/signal_sender.c"
-#include "../../executor/communicator/sender/socket/socket_sender.c"
-#include "../../executor/communicator/sender/terminal/terminal_sender.c"
+#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+//?? #include "../../executor/communicator/sender/compress_sender.c"
+//?? #include "../../executor/communicator/sender/encode_sender.c"
+//?? #include "../../executor/communicator/sender/serialise_sender.c"
+//?? #include "../../executor/communicator/sender/write_sender.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../executor/modifier/appender/item_appender.c"
+#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/representer/serialiser.c"
 #include "../../logger/logger.c"
 
 /**
@@ -42,9 +51,6 @@
  *
  * CAUTION! Do NOT rename this function to "send",
  * as that name is already used by low-level socket functionality.
- *
- * CAUTION! Do NOT rename this function to "write",
- * as that name is already used for glibc library's output.
  *
  * CAUTION! The properties are handed over as well,
  * since the model might also contain meta data.
@@ -70,89 +76,71 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The serialised wide character item.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The compressed character item.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The serialised wide character item data, count.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The encoded character item data, count.
+    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Allocate serialised wide character array.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate encoded character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate compressed character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-        compare_integer_equal((void*) &r, p15, (void*) DISPLAY_CYBOI_CHANNEL);
+/*??
+    // Serialise source model into serialised character item.
+    serialise(s, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Get serialised wide character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-            send_display(p1, p2, p3, p4, p5, p7, p9, p6);
-        }
-    }
+    // Encode serialised wide character array into encoded character array.
+    encode(e, sd, sc, p9);
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Get encoded character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        compare_integer_equal((void*) &r, p15, (void*) FILE_CYBOI_CHANNEL);
+fwprintf(stdout, L"TEST: send socket p0: %i \n", *((int*) p0));
+fwprintf(stdout, L"TEST: send socket *sc: %i \n", *((int*) sc));
+fwprintf(stdout, L"TEST: send socket *sd: %s \n", (char*) sd);
+fwprintf(stdout, L"TEST: send socket *ec: %i \n", *((int*) ec));
+fwprintf(stdout, L"TEST: send socket *ed: %s \n", (char*) ed);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Write message to device.
+    // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
+    // The pointer is used inside to count sent data due to socket buffer limit.
+    write_data(p0, (void*) &ed, ec, p6, p11, p15);
+*/
 
-            send_file(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p15, (void*) INLINE_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            send_inline(p0, p1, p2, p3, p4, p5, p7, p8, p9, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p15, (void*) SERIAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            send_serial_port(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p15, (void*) SIGNAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            send_signal(p6, p11);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p15, (void*) SOCKET_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The destination socket item data.
-            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-            // Get destination socket item data.
-            copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            send_socket(s, p1, p2, p3, p4, p5, p7, p8, p9, p10);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p15, (void*) TERMINAL_CYBOI_CHANNEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            send_terminal(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p12, p13);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send. The channel is unknown.");
-    }
+    // Deallocate serialised wide character item.
+    deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate encoded character item.
+    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate compressed character item.
+    deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* SENDER_SOURCE */

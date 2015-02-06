@@ -28,7 +28,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/socket/buffer_socket_receiver.c"
+#include "../../../../executor/streamer/reader/socket/buffer_socket_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -68,8 +68,8 @@ fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
     // CAUTION! Look at the data but do NOT remove it from the input queue.
     int o = MSG_PEEK;
 
-    // Receive data until buffer is filled.
-    receive_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
+    // Read data until buffer is filled.
+    read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);
 
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

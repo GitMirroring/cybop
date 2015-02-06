@@ -72,21 +72,6 @@ static wchar_t* GB_CYBOL_ENCODING = L"gb";
 static int* GB_CYBOL_ENCODING_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*
- * The none cybol encoding.
- *
- * It is used when no encoding is to be applied.
- * In this case, source data are just copied to the destination.
- */
-static wchar_t* NONE_CYBOL_ENCODING = L"none";
-static int* NONE_CYBOL_ENCODING_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The html coded cybol encoding. */
-/*??
-static wchar_t* HTML_CODED_CYBOL_ENCODING = L"html coded";
-static int* HTML_CODED_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-*/
-
-/*
  * The shift-jis cybol encoding.
  *
  * Shift JIS for Japanese (Microsoft Code page 932).
