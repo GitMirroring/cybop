@@ -14,23 +14,34 @@
 WUI
 ___
 
+        * Implement filter chain at first testwise for file "socket_receiver.c";
+            use if-else to AVOID decoding AND deserialisation of text/ascii; see diagram "data_structure_serialisation.png"
+        * Decode only if (1) encoding != null AND if (2) language is a text language (check this via if-else in special file returning "true" if text language)
+            (it does NOT matter that the input for the deserialiser is once char and another time wchar_t, since each deserialiser expects just one of these two)
+        * Use encoding property with value "none" OR nothing (NULL in cyboi)?; see cybol example application "www_server"; text/ascii is correct, number/byte is wrong
+        * Loop "extract" as long as pipe-separated filters are given, e.g. "tar|gzip|base64"
+        * Unify general communicator functionality; move special code into file "device_??_receiver.c", where ?? is xcb, socket, file etc.; leave general code in file "receiver.c"
         * Continue file "handler.cybol"
-        * Optimise file "socket_receiver.c"; use if-else to AVOID decoding AND deserialisation of text/ascii
-        * Use encoding "none" in cybol example application "www_server"; text/ascii is correct, number/byte is wrong
-        * Reflect on filter pipeline compression/encoding/language/format
-            see e.g. socket_client/run.cybol "communicate/send" operation;
-            model in file "src/data_structure.xmi";
-            If one property (e.g. compression) is not specified in cybol,
-            then the byte data are copied 1:1 (CAUTION! BETTER: assign pointer instead of copying all) from source to destination.
-            Encoding is ONLY necessary for character data, but NOT for an image or other byte data.
-            Therefore, this has to be distinguished by an if-else when sending or receiving data.
-        * Merge/Unify general receiver/sender functionality into directory "basic"? (also used by socket, file etc.)
-        * Reflect if compression/encoding or encoding/compression is the right order; are compresson algorithms using byte code or also wide character strings?
 
-        * How to handle "http" if only one language e.g. "html" may be specified in "send"?
-            --> convert data into desired format before and send that as bytes.
-
-        * Reactivate http parser; example message:
+        * Reactivate http parser
+        * Read about header fields in specification:
+            http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.2
+        * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);
+            the HTTP header field "Content-Transfer-Encoding" (7bit, quoted-printable, base64, 8bit, binary)
+            binary-to-text encoding scheme should thereby be made usable TOGETHER with the original encoding,
+            as specified within the "Content-Type" header field --> no more difference between encoding header fields, all are CHAINABLE
+            https://en.wikipedia.org/wiki/MIME#Content-Transfer-Encoding
+            see also file "design_decisions.txt":
+                The text "decode" HAS TO BE treated differently from other "extract" byte encodings
+                (e.g. base64, gzip compression), because its result is always "wchar_t",
+                whilst other decodings deliver "char".
+                Therefore, the following chaining is NOT possible:
+                encoding="utf-8,gzip"
+                The following, on the other hand, IS POSSIBLE:
+                encoding="utf-8" compression="tar|gzip|base64"
+        * Consider multipart messages:
+            https://en.wikipedia.org/wiki/MIME#Multipart_messages
+        * Example HTTP message:
 
 GET /?action=index HTTP/1.1
 Host: localhost
@@ -40,6 +51,17 @@ Accept-Language: de,en-US;q=0.7,en;q=0.3
 Accept-Encoding: gzip, deflate
 DNT: 1
 Connection: keep-alive
+
+        * Insert the following comment into http deserialiser cyboi source code:
+            //
+            // Since RFC 2822, conforming message header names
+            // and values should be ASCII characters;
+            // values that contain non-ASCII data should use
+            // the MIME encoded-word syntax (RFC 2047)
+            // instead of a literal string.
+            //
+            // https://en.wikipedia.org/wiki/MIME#Encoded-Word
+            //
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"
@@ -91,10 +113,23 @@ Connection: keep-alive
             create part with int id and operation knowledge path as model and add to callback list;
             delete int id part after execution
 
+        * Implement content negotiation:
+            https://de.wikipedia.org/wiki/Content_Negotiation
+        * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
+            https://de.wikipedia.org/wiki/Internet_Media_Type
+
 Hello, World!
 _____________
 
         * Create several variants of "Hello, World!" cybol example application to demonstrate ease and slim code
+
+        * Emphasise that:
+            It is NOT the task of a programming language to provide the simplest possible solution for an output a la "Hello, World!".
+            Any language following this path is actually a Domain Specific Language (DSL) for the domain of printing "Hello, World!".
+            On the contrary, a programming language should be as flexible and uniform as possible, in other words a General Purpose Language (GPL).
+            Of course, DSL may ease programming in certain application areas.
+            But if the aim is to create a schema and language capable of representing knowledge in general, then a GPL should be the result.
+            CYBOL is such a GPL and reaches its flexibility by following the principles of human thinking: discrimination (discrete part models), composition (parts are containers), categorisation (inheritance of part properties).
 
 Signal
 ______
@@ -294,6 +329,9 @@ ______
 
         * Debug memory error when logging with "debug" log level (all other levels work fine)
             see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
+        * Check if error is caused by decrementing rubbish (garbage) collection references
+            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
+        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
 
         * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
 
@@ -309,10 +347,12 @@ ______
 Project
 _______
 
+        * Remove unneeded properties from cyboi scheme (part structure): language (at runtime uninteresting), encoding (at runtime always wchar_t);
+            CAUTION! Do NOT remove "format", since "type" is not enough for serialisation into e.g. model_diagram files with runtime tree
         * Provide directory "executor/packer/" with "compressor" and "extractor"
         * Implement these into cybol
 
-        * Change datatypes; CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
+        * Change datatypes; really ??; CAUTION! some have already been switched to "long long int", e.g. in "datetime_getter.c" etc.
         * Use integer datatype "unsigned char" (8 Bit) for boolean values;
             search for constants FALSE_BOOLEAN_STATE_CYBOI_MODEL and TRUE_BOOLEAN_STATE_CYBOI_MODEL;
             CAUTION! it IS NECESSARY to adapt ALL compare/copy functions, since otherwise, memory errors will occur (see valgrind) when dereferencing a value of 1 Byte to 4 Byte and vice versa;

@@ -411,3 +411,43 @@ ________
 Use format "text/ascii" for data that are to be read byte-wise.
 Do NOT use format "number/byte", since that will deserialise
 text into comma-separated byte values.
+
+Language and Format
+___________________
+
+language AND format are both necessary for deserialisation
+e.g. a date may be represented differently, depending on the language
+- XDT: 31.12.2015 (German format)
+- CYBOL: 2015-12-31 (ISO format)
+therefore, at first the language is determined, and only
+afterwards the corresponding format deserialised
+
+however, the deserialisers for many languages reuse
+format deserialisers of the CYBOL language, e.g. for
+deserialising integer numbers, since their format is mostly clear
+
+Why is it NOT possible to always call "decode" before "deserialise"?
+--> there are languages like HTTP that may contain byte code (e.g. an image)
+and deserialising it would destroy data semantics
+
+Why is it NOT possible to always call "deserialise" before "decode"?
+--> if the source is given in a text language like XML, then that
+has an encoding (e.g. ASCII or UTF-8 with many bytes representing one character)
+ignoring the encoding and deserialising byte-by-byte would lead to wrong results
+
+Therefore, an alternative solution considering both problems had to be found.
+- text languages first HAVE TO BE decoded, in order to correctly identify characters and then deserialise them
+- byte languages do NOT have to be decoded at all and may be deserialised directly
+
+that means deserialiers for text languages have "wchar_t" as source input
+and deserialisers for any other (byte) languages have "char" as source input
+the output of a deserialiser is always a model
+
+The text "decode" HAS TO BE treated differently from other "extract" byte encodings
+(e.g. base64, gzip compression), because its result is always "wchar_t",
+whilst other decodings deliver "char".
+Therefore, the following chaining is NOT possible:
+encoding="utf-8,gzip"
+The following, on the other hand, IS POSSIBLE:
+encoding="utf-8" compression="tar|gzip|base64"
+

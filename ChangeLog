@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Reflect on design of input/output filter chain (device|compression|encoding|language+format|knowledge)
+
 2015-02-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Search function calls "deallocate_array" and hand over NULL as "count" argument

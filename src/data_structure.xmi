@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI verified="false" xmi.version="1.2" timestamp="2015-01-24T23:04:51" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
+<XMI verified="false" xmi.version="1.2" timestamp="2015-02-06T15:20:22" xmlns:UML="http://schema.omg.org/spec/UML/1.3">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller http://umbrello.kde.org</XMI.exporter>
@@ -13,6 +13,9 @@
    <UML:Namespace.ownedElement>
     <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="folder" name="folder"/>
     <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="datatype" name="datatype"/>
+    <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="constructor" name="constructor"/>
+    <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="friend" name="friend"/>
+    <UML:Stereotype visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="virtual" name="virtual"/>
     <UML:Model stereotype="folder" visibility="public" isSpecification="false" namespace="m1" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Logical View" name="Logical View">
      <UML:Namespace.ownedElement>
       <UML:Package stereotype="folder" visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="Datatypes" name="Datatypes">
@@ -33,6 +36,9 @@
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" elementReference="jskHO9cM7DJc" isRoot="false" xmi.id="yvIYaudLiyEY" name="int*"/>
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" elementReference="LFypursD6b8q" isRoot="false" xmi.id="4f2sGEXCAoji" name="void*"/>
         <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="LFypursD6b8q" name="undef"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="5nUOeKLh2a0P" name="boolean"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="6wkUibMKTJXx" name="byte"/>
+        <UML:DataType stereotype="datatype" visibility="public" isSpecification="false" namespace="Datatypes" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="T7SFiionVIA8" name="String"/>
        </UML:Namespace.ownedElement>
       </UML:Package>
       <UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="RUu7dGBrJvUC" name="part">
@@ -139,7 +145,7 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="0" showpubliconly="0" showstereotype="0" name="data_structure_cyboi" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="586" canvaswidth="662" localid="" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="rtBHrl7hdK9k" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" textcolor="#000000" isopen="0" showpackage="1" showpubliconly="0" showstereotype="1" name="data_structure_cyboi" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" canvasheight="586" canvaswidth="662" localid="" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="rtBHrl7hdK9k" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" textcolor="none" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="20" showattsigs="601" y="20" showattributes="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" width="118" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="RUu7dGBrJvUC" showscope="1" height="157" showopsigs="601"/>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" textcolor="none" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="220" showattsigs="601" y="70" showattributes="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" width="86" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="8MeugsIa6ZvE" showscope="1" height="67" showopsigs="601"/>
@@ -152,131 +158,202 @@
         <associations>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="RUu7dGBrJvUC" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="gUivOVje2gQ3" widgetbid="8MeugsIa6ZvE" totalcountb="2" type="510" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="138" starty="100"/>
+           <startpoint startx="140" starty="100"/>
            <endpoint endx="220" endy="100"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="140" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="74eyYrCyC9Ps" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="200" y="80" text="9" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="2l0JnFxc3ovL" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="170" y="110" text="item" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="48" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="rqtJHOMLeeFG" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="140" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="IM3sPlSK0DV8" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="200" y="80" text="9" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="JEXaq52hyzqJ" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="170" y="110" text="item" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="48" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="tvx8NLFeu7rZ" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="8MeugsIa6ZvE" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="dL0zmHa9HjpJ" widgetbid="zwvCQYas2Szd" totalcountb="2" type="510" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="306" starty="100"/>
+           <startpoint startx="310" starty="100"/>
            <endpoint endx="390" endy="100"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="310" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Z7QlGpbHYbYJ" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="370" y="80" text="3" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="oTvsHqBU6nJy" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="340" y="110" text="array" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="52" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="CFepur3zvhvU" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="310" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="ZjrXwKdDYAnM" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="370" y="80" text="3" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Dn4ClsT1vPC4" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="340" y="110" text="array" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="52" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="I3yDBnkR9oJZ" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="zwvCQYas2Szd" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="gQ4OzJSCH2mO" widgetbid="j8V04zDCJp4z" totalcountb="2" type="512" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="439" starty="100"/>
+           <startpoint startx="440" starty="100"/>
            <endpoint endx="510" endy="100"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="440" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="FtUmT25HW17l" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="490" y="80" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="pGFt3WpiplGr" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="460" y="110" text="value" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="53" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="eKva2r2ZyQIF" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="440" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="0PeZYPvlBzvw" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="490" y="80" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="pPxlo8nz5HHm" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="460" y="110" text="value" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="53" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="CxTKjkrGUioQ" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="j8V04zDCJp4z" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="WNO13o2TTaFO" widgetbid="5Ks67bUnc6QZ" totalcountb="2" type="510" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="559" starty="100"/>
+           <startpoint startx="560" starty="100"/>
            <endpoint endx="620" endy="100"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="560" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="KlIomNZZenTh" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="600" y="80" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="HGN61dvdtJCb" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="580" y="110" text="bit" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="35" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="cIQaignvZHh0" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="560" y="80" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="vHT6GP06mwpY" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="600" y="80" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="4aV7pmtruvKg" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="580" y="110" text="bit" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="35" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="182VoouoEYNk" height="19"/>
          </assocwidget>
         </associations>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="20" showattribassocs="1" snapy="20" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="0" showpubliconly="0" showstereotype="0" name="data_structure_serialisation" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="580" canvaswidth="980" localid="-1" snapcsgrid="1" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="ObXzVz70lyIL" documentation="" showscope="1" snapgrid="1" showatts="1" type="6">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="20" showattribassocs="1" snapy="20" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="data_structure_serialisation" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" canvasheight="760" canvaswidth="1359" localid="-1" snapcsgrid="1" showgrid="1" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="ObXzVz70lyIL" documentation="" showscope="1" snapgrid="1" showatts="1" type="6">
         <widgets>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="560" y="160" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="yR8EltiMaOq0" postcondition="" documentation="" activitytype="0" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="360" y="160" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="receive" xmi.id="U8grghDHCClB" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-40" y="160" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="decode" xmi.id="KlvG4G32hCER" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-240" y="160" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="deserialise" xmi.id="5wneIdenmIeQ" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-240" y="260" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="serialise" xmi.id="zrgA4RJMAEcE" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="360" y="260" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="send" xmi.id="0CSkS48Stoav" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-360" y="260" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="tHO6saaWpiKF" postcondition="" documentation="" activitytype="0" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-360" y="160" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="JDcglHgvhONj" postcondition="" documentation="" activitytype="2" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="560" y="260" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="WncJLYWFnsLf" postcondition="" documentation="" activitytype="2" height="40" precondition=""/>
-         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-160" y="360" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodestate="" width="140" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="LPqzxoDr4f4I" objectnodename="wide character data" documentation="" height="60"/>
-         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="40" y="360" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodestate="" width="140" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="gwFpDUPGbuKO" objectnodename="byte data" documentation="" height="60"/>
-         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-360" y="360" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodestate="" width="160" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="CfTgDzcWPSVK" objectnodename="cyboi knowledge tree" documentation="" height="60"/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-40" y="260" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="encode" xmi.id="hKSww5inuJtx" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="240" y="360" font="Sans Serif,10,-1,5,50,0,0,0,0,0" objectnodestate="" width="140" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="gwFpDUPGbuKO" objectnodename="compressed data" documentation="" height="60"/>
-         <notewidget width="120" x="-240" noteType="0" usesdiagramusefillcolor="0" y="40" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="60" linecolor="#ff0000" xmi.id="O5IgsTbC6Rom" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="representer"/>
-         <notewidget width="140" x="-60" noteType="0" usesdiagramusefillcolor="0" y="40" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="60" linecolor="#ff0000" xmi.id="O5IgsTbC6Rom" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="converter"/>
-         <notewidget width="140" x="340" noteType="0" usesdiagramusefillcolor="0" y="40" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="60" linecolor="#ff0000" xmi.id="O5IgsTbC6Rom" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="communicator"/>
-         <notewidget width="140" x="140" noteType="0" usesdiagramusefillcolor="0" y="40" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="60" linecolor="#ff0000" xmi.id="3xYFAYGqDuRn" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="packer"/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="160" y="260" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="compress" xmi.id="oAfVBnEt4jle" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="160" y="160" font="Sans Serif,10,-1,5,50,0,0,0,0,0" width="100" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="extract" xmi.id="kv6jdM6eHftS" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
-         <notewidget width="460" x="-380" noteType="0" usesdiagramusefillcolor="0" y="-160" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="120" linecolor="none" xmi.id="B7GO1i9ospJ1" textcolor="#000000" usefillcolor="1" linewidth="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" text="If one property (e.g. compression) is not specified in cybol,&#xa;then the byte data are copied 1:1 from source to destination.&#xa;Encoding is ONLY necessary for character data, but NOT&#xa;for an image or other byte data.&#xa;Therefore, this has to be distinguished by an if-else&#xa;when sending or receiving data."/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1160" y="-120" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="yR8EltiMaOq0" postcondition="" documentation="" activitytype="0" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1200" y="-40" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="receive" xmi.id="U8grghDHCClB" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1200" y="320" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="decode" xmi.id="KlvG4G32hCER" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1200" y="420" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="deserialise" xmi.id="5wneIdenmIeQ" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-800" y="420" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="serialise" xmi.id="zrgA4RJMAEcE" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-800" y="-40" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="send" xmi.id="0CSkS48Stoav" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-760" y="500" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="tHO6saaWpiKF" postcondition="" documentation="" activitytype="0" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1160" y="500" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="JDcglHgvhONj" postcondition="" documentation="" activitytype="2" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-760" y="-120" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="40" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="" xmi.id="WncJLYWFnsLf" postcondition="" documentation="" activitytype="2" height="40" precondition=""/>
+         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-1000" y="360" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" objectnodestate="" width="160" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="LPqzxoDr4f4I" objectnodename="wide character data" documentation="" height="60"/>
+         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-1000" y="180" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" objectnodestate="" width="160" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="gwFpDUPGbuKO" objectnodename="encoded data" documentation="" height="60"/>
+         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-1000" y="480" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" objectnodestate="" width="160" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="CfTgDzcWPSVK" objectnodename="cyboi knowledge tree" documentation="" height="60"/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-800" y="240" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="encode" xmi.id="hKSww5inuJtx" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-1000" y="0" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" objectnodestate="" width="160" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="gwFpDUPGbuKO" objectnodename="compressed data" documentation="" height="60"/>
+         <notewidget width="160" x="-600" noteType="0" usesdiagramusefillcolor="0" y="420" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="40" linecolor="#ff0000" xmi.id="O5IgsTbC6Rom" textcolor="#000000" usefillcolor="1" linewidth="0" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" text="representer"/>
+         <notewidget width="160" x="-600" noteType="0" usesdiagramusefillcolor="0" y="240" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="120" linecolor="#ff0000" xmi.id="O5IgsTbC6Rom" textcolor="#000000" usefillcolor="1" linewidth="0" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" text="converter"/>
+         <notewidget width="160" x="-600" noteType="0" usesdiagramusefillcolor="0" y="-40" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="40" linecolor="#ff0000" xmi.id="O5IgsTbC6Rom" textcolor="#000000" usefillcolor="1" linewidth="0" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" text="communicator"/>
+         <notewidget width="160" x="-600" noteType="0" usesdiagramusefillcolor="0" y="60" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffffc0" height="120" linecolor="#ff0000" xmi.id="3xYFAYGqDuRn" textcolor="#000000" usefillcolor="1" linewidth="0" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" text="packer"/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-800" y="60" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="compress" xmi.id="oAfVBnEt4jle" postcondition="" documentation="" activitytype="1" height="40" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1200" y="140" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="120" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" activityname="extract" xmi.id="kv6jdM6eHftS" postcondition="" documentation="" activitytype="1" height="40" precondition="compression filter > 0"/>
+         <objectnodewidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" objectnodetype="1" x="-1000" y="-120" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" objectnodestate="" width="160" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="IbexUdnZ7mSR" objectnodename="device" documentation="" height="60"/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1180" showstereotype="1" y="220" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="60" isinstance="0" usefillcolor="1" fillcolor="#ffff00" activityname="" xmi.id="XJa00lYoNjit" postcondition="" documentation="" activitytype="4" height="60" precondition=""/>
+         <activitywidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1180" showstereotype="1" y="40" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="60" isinstance="0" usefillcolor="1" fillcolor="#ffff00" activityname="" xmi.id="nfWnPuJzFOtA" postcondition="" documentation="" activitytype="4" height="60" precondition=""/>
+         <notewidget width="80" showstereotype="1" x="-1320" noteType="0" usesdiagramusefillcolor="0" y="140" usesdiagramfillcolor="0" isinstance="0" fillcolor="#ffff00" height="40" linecolor="none" xmi.id="MOrvB1XDQTkb" textcolor="#000000" usefillcolor="1" linewidth="0" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" text="loop"/>
+         <activitywidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-780" showstereotype="1" y="320" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="60" isinstance="0" usefillcolor="1" fillcolor="#ffff00" activityname="" xmi.id="lycfgZWpl0ii" postcondition="" documentation="" activitytype="4" height="60" precondition=""/>
+         <activitywidget linecolor="none" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-780" showstereotype="1" y="140" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" width="60" isinstance="0" usefillcolor="1" fillcolor="#ffff00" activityname="" xmi.id="DXfeA0ZWMOPY" postcondition="" documentation="" activitytype="4" height="60" precondition=""/>
         </widgets>
         <messages/>
         <associations>
          <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="1" widgetbid="WncJLYWFnsLf" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="0CSkS48Stoav" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="460" starty="280"/>
-           <endpoint endx="560" endy="280"/>
+           <startpoint startx="-740" starty="-40"/>
+           <endpoint endx="-740" endy="-80"/>
           </linepath>
          </assocwidget>
          <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="1" widgetbid="5wneIdenmIeQ" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="KlvG4G32hCER" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="-40" starty="180"/>
-           <endpoint endx="-140" endy="180"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="1" widgetbid="hKSww5inuJtx" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="zrgA4RJMAEcE" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
-          <linepath>
-           <startpoint startx="-140" starty="280"/>
-           <endpoint endx="-40" endy="280"/>
+           <startpoint startx="-1140" starty="360"/>
+           <endpoint endx="-1140" endy="420"/>
           </linepath>
          </assocwidget>
          <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="1" widgetbid="U8grghDHCClB" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="yR8EltiMaOq0" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="560" starty="180"/>
-           <endpoint endx="460" endy="180"/>
+           <startpoint startx="-1140" starty="-80"/>
+           <endpoint endx="-1140" endy="-40"/>
           </linepath>
          </assocwidget>
          <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="zrgA4RJMAEcE" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="tHO6saaWpiKF" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="-320" starty="280"/>
-           <endpoint endx="-240" endy="280"/>
+           <startpoint startx="-740" starty="500"/>
+           <endpoint endx="-740" endy="460"/>
           </linepath>
          </assocwidget>
          <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="JDcglHgvhONj" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="5wneIdenmIeQ" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="-240" starty="180"/>
-           <endpoint endx="-320" endy="180"/>
-          </linepath>
-         </assocwidget>
-         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="oAfVBnEt4jle" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="hKSww5inuJtx" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
-          <linepath>
-           <startpoint startx="60" starty="280"/>
-           <endpoint endx="160" endy="280"/>
+           <startpoint startx="-1140" starty="460"/>
+           <endpoint endx="-1140" endy="500"/>
           </linepath>
          </assocwidget>
          <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="0CSkS48Stoav" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="oAfVBnEt4jle" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="260" starty="280"/>
-           <endpoint endx="360" endy="280"/>
+           <startpoint startx="-740" starty="60"/>
+           <endpoint endx="-740" endy="0"/>
           </linepath>
          </assocwidget>
-         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="kv6jdM6eHftS" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="U8grghDHCClB" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="1" widgetbid="XJa00lYoNjit" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="kv6jdM6eHftS" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="360" starty="180"/>
-           <endpoint endx="260" endy="180"/>
+           <startpoint startx="-1140" starty="180"/>
+           <endpoint endx="-1140" endy="220"/>
           </linepath>
          </assocwidget>
-         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="KlvG4G32hCER" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="kv6jdM6eHftS" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="KlvG4G32hCER" indexb="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="XJa00lYoNjit" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
           <linepath>
-           <startpoint startx="160" starty="180"/>
-           <endpoint endx="60" endy="180"/>
+           <startpoint startx="-1140" starty="280"/>
+           <endpoint endx="-1140" endy="320"/>
+          </linepath>
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1300" showstereotype="1" y="280" text="[encoding != null]" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" pretext="" role="703" width="140" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="R1TOlev5bGTI" height="20"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="64" widgetbid="nfWnPuJzFOtA" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="U8grghDHCClB" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-1140" starty="0"/>
+           <endpoint endx="-1140" endy="40"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="kv6jdM6eHftS" indexb="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="nfWnPuJzFOtA" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-1140" starty="100"/>
+           <endpoint endx="-1140" endy="140"/>
+          </linepath>
+          <floatingtext linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" x="-1320" showstereotype="1" y="100" text="[compression != null]" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" pretext="" role="703" width="160" isinstance="0" posttext="" usefillcolor="1" fillcolor="#ffff00" xmi.id="LxKQikCWNhHk" height="20"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="63" widgetbid="XJa00lYoNjit" indexb="2" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="3" widgetaid="nfWnPuJzFOtA" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-1120" starty="80"/>
+           <endpoint endx="-1120" endy="240"/>
+           <point x="-1041" y="79"/>
+           <point x="-1041" y="239"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="5wneIdenmIeQ" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="240" totalcounta="3" totalcountb="2" widgetaid="XJa00lYoNjit" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-1120" starty="280"/>
+           <endpoint endx="-1080" endy="440"/>
+           <point x="-1039" y="280"/>
+           <point x="-1039" y="439"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="63" widgetbid="kv6jdM6eHftS" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="MOrvB1XDQTkb" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="513">
+          <linepath>
+           <startpoint startx="-1240" starty="160"/>
+           <endpoint endx="-1200" endy="160"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="lycfgZWpl0ii" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="32" totalcounta="2" totalcountb="2" widgetaid="zrgA4RJMAEcE" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-740" starty="420"/>
+           <endpoint endx="-740" endy="380"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="hKSww5inuJtx" indexb="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="lycfgZWpl0ii" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-740" starty="320"/>
+           <endpoint endx="-740" endy="280"/>
+          </linepath>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="#000000" usesdiagramusefillcolor="1" x="-900" showstereotype="1" y="300" text="[encoding != null]" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" pretext="" role="703" width="140" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="YItIGayR5d5F" height="20"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="0" widgetbid="DXfeA0ZWMOPY" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="hKSww5inuJtx" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-740" starty="240"/>
+           <endpoint endx="-740" endy="200"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="#ff0000" indexa="1" usesdiagramfillcolor="0" widgetbid="oAfVBnEt4jle" indexb="1" linewidth="0" textcolor="#000000" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="2" widgetaid="DXfeA0ZWMOPY" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="#ffff00" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-740" starty="140"/>
+           <endpoint endx="-740" endy="100"/>
+          </linepath>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="#000000" usesdiagramusefillcolor="1" x="-920" showstereotype="1" y="120" text="[compression != null]" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" pretext="" role="703" width="160" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="cdV0dH59XyRn" height="20"/>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="1" usesdiagramfillcolor="192" widgetbid="DXfeA0ZWMOPY" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="2" totalcountb="3" widgetaid="lycfgZWpl0ii" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-720" starty="340"/>
+           <endpoint endx="-720" endy="200"/>
+           <point x="-641" y="341"/>
+           <point x="-641" y="200"/>
+          </linepath>
+         </assocwidget>
+         <assocwidget roleBdoc="" linecolor="none" indexa="2" usesdiagramfillcolor="192" widgetbid="0CSkS48Stoav" indexb="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="0" totalcounta="3" totalcountb="2" widgetaid="DXfeA0ZWMOPY" roleAdoc="" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" changeabilityB="900" documentation="" type="515">
+          <linepath>
+           <startpoint startx="-720" starty="160"/>
+           <endpoint endx="-680" endy="-20"/>
+           <point x="-641" y="160"/>
+           <point x="-641" y="-20"/>
           </linepath>
          </assocwidget>
         </associations>
        </diagram>
-       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="data_structure_cybol" font="Sans Serif,10,-1,5,50,0,0,0,0,0" canvasheight="221,500000005" canvaswidth="862" localid="" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffffc0" zoom="100" xmi.id="er9VD94lc5eo" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
+       <diagram showopsig="1" linecolor="#ff0000" snapx="10" showattribassocs="1" snapy="10" linewidth="0" showattsig="1" textcolor="#000000" isopen="1" showpackage="1" showpubliconly="0" showstereotype="1" name="data_structure_cybol" font="DejaVu Sans,9,-1,0,50,0,0,0,0,0" canvasheight="221.500000005" canvaswidth="862" localid="" snapcsgrid="0" showgrid="0" showops="1" griddotcolor="#d3d3d3" backgroundcolor="#ffffff" usefillcolor="1" fillcolor="#ffff00" zoom="100" xmi.id="er9VD94lc5eo" documentation="" showscope="1" snapgrid="1" showatts="1" type="1">
         <widgets>
          <classwidget linecolor="#ff0000" usesdiagramfillcolor="0" linewidth="none" showoperations="1" textcolor="none" usesdiagramusefillcolor="0" showpubliconly="1" showpackage="0" x="20" showattsigs="601" y="30" showattributes="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" width="109" isinstance="0" usefillcolor="1" fillcolor="#ffffc0" xmi.id="K56AdBVnqiVC" showscope="1" height="97" showopsigs="601"/>
          <classwidget linecolor="none" usesdiagramfillcolor="1" linewidth="none" showoperations="1" textcolor="none" usesdiagramusefillcolor="1" showpubliconly="1" showpackage="1" x="240" showattsigs="601" showstereotype="1" y="30" showattributes="1" font="Sans Serif,10,-1,5,75,0,0,0,0,0" width="75" isinstance="0" usefillcolor="1" fillcolor="none" xmi.id="Nm4IxonjMTz5" showscope="1" height="52" showopsigs="601"/>
@@ -289,60 +366,60 @@
         <associations>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="Nm4IxonjMTz5" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="rD7mfoVt4w3r" widgetbid="sCySqZB61plN" totalcountb="2" type="510" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="315" starty="60"/>
+           <startpoint startx="320" starty="60"/>
            <endpoint endx="390" endy="60"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="310" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="BsFpdgUtwszy" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="370" showstereotype="1" y="40" text="2" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="VtbPClyClTj0" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="340" showstereotype="1" y="70" text="string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="55" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="zzVXFCXXxpLh" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="310" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="WlSGhFnlpIqf" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="370" showstereotype="1" y="40" text="2" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="3jUvemcMz7Ij" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="340" showstereotype="1" y="70" text="string" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="55" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="kEVwkqgg79kO" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="sCySqZB61plN" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="xGmtE0w36yix" widgetbid="h0edzNJKALc5" totalcountb="2" type="512" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="443" starty="60"/>
+           <startpoint startx="440" starty="60"/>
            <endpoint endx="520" endy="60"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="440" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="AWB6O84u1eHE" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="500" showstereotype="1" y="40" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="NFO8h56LJbsN" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="450" showstereotype="1" y="70" text="character" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="80" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="eGVZ4qFFgU2I" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="440" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="4eHru7UxoytS" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="500" showstereotype="1" y="40" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="jTpia5RV2nW8" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="450" showstereotype="1" y="70" text="character" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="80" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="vwN368PcrrrY" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="h0edzNJKALc5" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="G4vK2bHTkc9x" widgetbid="9QpWrobjyX9m" totalcountb="2" type="501" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
            <startpoint startx="600" starty="60"/>
            <endpoint endx="690" endy="60"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="590" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="fsPfUgtsuFyb" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="670" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="K3udcmz0uZ4T" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="620" showstereotype="1" y="70" text="unicode" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="69" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="P7a4bcMj9XqX" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="590" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="a81O5sqoLdWv" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="670" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="hvPjivpZpVJZ" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="620" showstereotype="1" y="70" text="unicode" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="69" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="tvikkXGoBVg6" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="9QpWrobjyX9m" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="2" xmi.id="ZKgJwqGQzEiW" widgetbid="5Ks67bUnc6QZ" totalcountb="2" type="510" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="753" starty="60"/>
+           <startpoint startx="750" starty="60"/>
            <endpoint endx="820" endy="60"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="750" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="s4CkH8JbBDDm" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="790" showstereotype="1" y="40" text="32" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="24" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="0CmsjoLtCYC5" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="780" showstereotype="1" y="70" text="bit" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="35" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="AODJv1oYrCDM" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="750" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Ap1WQVP7Rmo7" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="790" showstereotype="1" y="40" text="32" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="24" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="gdfV7y4AWQMY" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="780" showstereotype="1" y="70" text="bit" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="35" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="3XMC20Ic8I0D" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" linecolor="none" indexb="1" usesdiagramfillcolor="1" widgetbid="K56AdBVnqiVC" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" totalcounta="2" totalcountb="2" widgetaid="K56AdBVnqiVC" visibilityA="0" visibilityB="0" usefillcolor="1" fillcolor="none" changeabilityA="900" xmi.id="yxnkHiHf2OTc" changeabilityB="900" type="501">
           <linepath>
-           <startpoint startx="70" starty="127"/>
-           <endpoint endx="129" endy="80"/>
+           <startpoint startx="70" starty="130"/>
+           <endpoint endx="130" endy="110"/>
            <point x="70" y="210"/>
            <point x="240" y="210"/>
            <point x="240" y="110"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="30" showstereotype="1" y="130" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="35kFJv1H7l9r" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="130" showstereotype="1" y="90" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="ZSkj1voWuPv5" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="140" showstereotype="1" y="120" text="properties" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="84" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="XzdPBpl1rvm9" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="30" showstereotype="1" y="130" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="FxSejHkPsPuz" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="130" showstereotype="1" y="90" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="15" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Lx7pLUMk5VHy" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="140" showstereotype="1" y="120" text="properties" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="84" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Qd9Xv7k3wkZL" height="19"/>
          </assocwidget>
          <assocwidget indexa="1" indexb="1" usesdiagramusefillcolor="1" widgetaid="K56AdBVnqiVC" usesdiagramfillcolor="1" fillcolor="none" linecolor="none" totalcounta="3" xmi.id="fA8Cl0HnZc67" widgetbid="Nm4IxonjMTz5" totalcountb="2" type="510" textcolor="none" usefillcolor="1" linewidth="none">
           <linepath>
-           <startpoint startx="129" starty="60"/>
+           <startpoint startx="130" starty="60"/>
            <endpoint endx="240" endy="60"/>
           </linepath>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="140" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="rrSwaZl71Uq0" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="210" showstereotype="1" y="40" text="7" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="PcXH1SKE7OGg" height="19"/>
-          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="170" showstereotype="1" y="70" text="attribute" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="74" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="Cg64ZqDduvqB" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="140" showstereotype="1" y="40" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="701" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="ZHdQeVP0SXpm" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="210" showstereotype="1" y="40" text="7" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="" role="702" width="16" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="zBU4el0Fi1mQ" height="19"/>
+          <floatingtext linecolor="none" usesdiagramfillcolor="1" linewidth="none" textcolor="none" usesdiagramusefillcolor="1" x="170" showstereotype="1" y="70" text="attribute" font="Sans Serif,10,-1,5,50,0,0,0,0,0" pretext="+" role="710" width="74" isinstance="0" posttext="" usefillcolor="1" fillcolor="none" xmi.id="cz1XjZsxWIZF" height="19"/>
          </assocwidget>
         </associations>
        </diagram>
@@ -365,7 +442,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="ObXzVz70lyIL" uniqueid="B7GO1i9ospJ1" documentation=""/>
+  <docsettings viewid="ObXzVz70lyIL" uniqueid="cdV0dH59XyRn" documentation=""/>
   <listview>
    <listitem open="1" type="800" id="Views">
     <listitem open="1" type="821" id="Component View"/>
@@ -384,6 +461,8 @@
      <listitem open="0" type="809" id="ObXzVz70lyIL" label="data_structure_serialisation"/>
      <listitem open="0" type="830" id="Datatypes">
       <listitem open="1" type="829" id="Mc1xwBif1QuP"/>
+      <listitem open="1" type="829" id="5nUOeKLh2a0P"/>
+      <listitem open="1" type="829" id="6wkUibMKTJXx"/>
       <listitem open="1" type="829" id="aURZQbSHUdXM"/>
       <listitem open="1" type="829" id="II9ntg7EI69C"/>
       <listitem open="1" type="829" id="ZWjhj1HHThqu"/>
@@ -392,6 +471,7 @@
       <listitem open="1" type="829" id="NkIqR6ihPsSG"/>
       <listitem open="1" type="829" id="HpsHGmenJOU0"/>
       <listitem open="1" type="829" id="wGHL7S3jFWcO"/>
+      <listitem open="1" type="829" id="T7SFiionVIA8"/>
       <listitem open="0" type="829" id="LFypursD6b8q"/>
       <listitem open="1" type="829" id="WXSpec1tRrAh"/>
       <listitem open="1" type="829" id="G5mdvEtRmKEQ"/>
@@ -431,7 +511,2019 @@
    </listitem>
   </listview>
   <codegeneration>
-   <codegenerator language="C++"/>
+   <codegenerator language="Java">
+    <codedocument package="-1" fileExt=".xml" id="ANTDOC" fileName="build" writeOutCode="false">
+     <textblocks>
+      <codeblockwithcomments tag="xmlDecl" text="&lt;?xml version=&quot;1.0&quot;?>">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <xmlelementblock tag="projectDecl" nodeName="project" canDelete="false">
+       <header>
+        <codecomment tag="" text="Java ANT build document"/>
+       </header>
+       <textblocks/>
+      </xmlelementblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+    </codedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="RUu7dGBrJvUC" id="RUu7dGBrJvUC" fileName="part" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="import java.util.*;&amp;#010;import item;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="RUu7dGBrJvUC" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Part&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks>
+          <ccfdeclarationcodeblock tag="tblock_0" parent_id="4pgmYtL0hnId" indentLevel="1" text="public int_ references;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_0" parent_id="fKZmrTypPt1q" indentLevel="1" text="public wchar_t_ name;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_1" parent_id="oCt7ONR6WZUi" indentLevel="1" text="public int_ channel;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_2" parent_id="DQj23gdAMdJQ" indentLevel="1" text="public int_ encoding;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_3" parent_id="2JZozcH6iZkf" indentLevel="1" text="public int_ language;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_4" parent_id="xIGdlcksCpEv" indentLevel="1" text="public int_ format;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_5" parent_id="l5wAzxyMVekY" indentLevel="1" text="public int_ type;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_6" parent_id="HlH3FzoismVa" indentLevel="1" text="public void_ model;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_7" parent_id="lEy3W5AHB6P8" indentLevel="1" text="public void_ properties;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Part ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks>
+              <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="4pgmYtL0hnId" indentLevel="1" classfield_id="4pgmYtL0hnId" text="return references;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of references&amp;#010;&amp;#010;@return the value of references"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_9" accessType="1" parent_id="4pgmYtL0hnId" indentLevel="1" classfield_id="4pgmYtL0hnId" text="references = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of references&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_10" accessType="0" parent_id="fKZmrTypPt1q" indentLevel="1" classfield_id="fKZmrTypPt1q" text="return name;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of name&amp;#010;&amp;#010;@return the value of name"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_11" accessType="1" parent_id="fKZmrTypPt1q" indentLevel="1" classfield_id="fKZmrTypPt1q" text="name = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of name&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_12" accessType="0" parent_id="oCt7ONR6WZUi" indentLevel="1" classfield_id="oCt7ONR6WZUi" text="return channel;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of channel&amp;#010;&amp;#010;@return the value of channel"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_13" accessType="1" parent_id="oCt7ONR6WZUi" indentLevel="1" classfield_id="oCt7ONR6WZUi" text="channel = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of channel&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_14" accessType="0" parent_id="DQj23gdAMdJQ" indentLevel="1" classfield_id="DQj23gdAMdJQ" text="return encoding;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of encoding&amp;#010;&amp;#010;@return the value of encoding"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_15" accessType="1" parent_id="DQj23gdAMdJQ" indentLevel="1" classfield_id="DQj23gdAMdJQ" text="encoding = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of encoding&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_16" accessType="0" parent_id="2JZozcH6iZkf" indentLevel="1" classfield_id="2JZozcH6iZkf" text="return language;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of language&amp;#010;&amp;#010;@return the value of language"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_17" accessType="1" parent_id="2JZozcH6iZkf" indentLevel="1" classfield_id="2JZozcH6iZkf" text="language = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of language&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_18" accessType="0" parent_id="xIGdlcksCpEv" indentLevel="1" classfield_id="xIGdlcksCpEv" text="return format;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of format&amp;#010;&amp;#010;@return the value of format"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_19" accessType="1" parent_id="xIGdlcksCpEv" indentLevel="1" classfield_id="xIGdlcksCpEv" text="format = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of format&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_20" accessType="0" parent_id="l5wAzxyMVekY" indentLevel="1" classfield_id="l5wAzxyMVekY" text="return type;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of type&amp;#010;&amp;#010;@return the value of type"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_21" accessType="1" parent_id="l5wAzxyMVekY" indentLevel="1" classfield_id="l5wAzxyMVekY" text="type = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of type&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_22" accessType="0" parent_id="HlH3FzoismVa" indentLevel="1" classfield_id="HlH3FzoismVa" text="return model;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of model&amp;#010;&amp;#010;@return the value of model"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_23" accessType="1" parent_id="HlH3FzoismVa" indentLevel="1" classfield_id="HlH3FzoismVa" text="model = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of model&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_24" accessType="0" parent_id="lEy3W5AHB6P8" indentLevel="1" classfield_id="lEy3W5AHB6P8" text="return properties;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of properties&amp;#010;&amp;#010;@return the value of properties"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_25" accessType="1" parent_id="lEy3W5AHB6P8" indentLevel="1" classfield_id="lEy3W5AHB6P8" text="properties = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of properties&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+             </textblocks>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="4pgmYtL0hnId" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="tblock_0" parent_id="4pgmYtL0hnId" indentLevel="1" text="public int_ references;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="4pgmYtL0hnId" indentLevel="1" classfield_id="4pgmYtL0hnId" text="return references;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of references&amp;#010;&amp;#010;@return the value of references"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_9" accessType="1" parent_id="4pgmYtL0hnId" indentLevel="1" classfield_id="4pgmYtL0hnId" text="references = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of references&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="fKZmrTypPt1q" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_0" parent_id="fKZmrTypPt1q" indentLevel="1" text="public wchar_t_ name;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_10" accessType="0" parent_id="fKZmrTypPt1q" indentLevel="1" classfield_id="fKZmrTypPt1q" text="return name;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of name&amp;#010;&amp;#010;@return the value of name"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_11" accessType="1" parent_id="fKZmrTypPt1q" indentLevel="1" classfield_id="fKZmrTypPt1q" text="name = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of name&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="oCt7ONR6WZUi" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_1" parent_id="oCt7ONR6WZUi" indentLevel="1" text="public int_ channel;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_12" accessType="0" parent_id="oCt7ONR6WZUi" indentLevel="1" classfield_id="oCt7ONR6WZUi" text="return channel;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of channel&amp;#010;&amp;#010;@return the value of channel"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_13" accessType="1" parent_id="oCt7ONR6WZUi" indentLevel="1" classfield_id="oCt7ONR6WZUi" text="channel = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of channel&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="DQj23gdAMdJQ" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_2" parent_id="DQj23gdAMdJQ" indentLevel="1" text="public int_ encoding;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_14" accessType="0" parent_id="DQj23gdAMdJQ" indentLevel="1" classfield_id="DQj23gdAMdJQ" text="return encoding;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of encoding&amp;#010;&amp;#010;@return the value of encoding"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_15" accessType="1" parent_id="DQj23gdAMdJQ" indentLevel="1" classfield_id="DQj23gdAMdJQ" text="encoding = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of encoding&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="2JZozcH6iZkf" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_3" parent_id="2JZozcH6iZkf" indentLevel="1" text="public int_ language;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_16" accessType="0" parent_id="2JZozcH6iZkf" indentLevel="1" classfield_id="2JZozcH6iZkf" text="return language;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of language&amp;#010;&amp;#010;@return the value of language"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_17" accessType="1" parent_id="2JZozcH6iZkf" indentLevel="1" classfield_id="2JZozcH6iZkf" text="language = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of language&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="xIGdlcksCpEv" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_4" parent_id="xIGdlcksCpEv" indentLevel="1" text="public int_ format;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_18" accessType="0" parent_id="xIGdlcksCpEv" indentLevel="1" classfield_id="xIGdlcksCpEv" text="return format;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of format&amp;#010;&amp;#010;@return the value of format"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_19" accessType="1" parent_id="xIGdlcksCpEv" indentLevel="1" classfield_id="xIGdlcksCpEv" text="format = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of format&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="l5wAzxyMVekY" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_5" parent_id="l5wAzxyMVekY" indentLevel="1" text="public int_ type;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_20" accessType="0" parent_id="l5wAzxyMVekY" indentLevel="1" classfield_id="l5wAzxyMVekY" text="return type;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of type&amp;#010;&amp;#010;@return the value of type"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_21" accessType="1" parent_id="l5wAzxyMVekY" indentLevel="1" classfield_id="l5wAzxyMVekY" text="type = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of type&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="HlH3FzoismVa" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_6" parent_id="HlH3FzoismVa" indentLevel="1" text="public void_ model;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_22" accessType="0" parent_id="HlH3FzoismVa" indentLevel="1" classfield_id="HlH3FzoismVa" text="return model;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of model&amp;#010;&amp;#010;@return the value of model"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_23" accessType="1" parent_id="HlH3FzoismVa" indentLevel="1" classfield_id="HlH3FzoismVa" text="model = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of model&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="lEy3W5AHB6P8" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_7" parent_id="lEy3W5AHB6P8" indentLevel="1" text="public void_ properties;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_24" accessType="0" parent_id="lEy3W5AHB6P8" indentLevel="1" classfield_id="lEy3W5AHB6P8" text="return properties;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of properties&amp;#010;&amp;#010;@return the value of properties"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_25" accessType="1" parent_id="lEy3W5AHB6P8" indentLevel="1" classfield_id="lEy3W5AHB6P8" text="properties = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of properties&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="gUivOVje2gQ3" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="gUivOVje2gQ3" indentLevel="1" text="public List itemVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="return itemVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of itemVector&amp;#010;&amp;#010;@return the value of itemVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="itemVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of itemVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="itemVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type item to the List itemVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="if (itemVector.size() >= 9) {&amp;#010;    itemVector.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeitem from itemVector, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type item from the List itemVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="return (List) itemVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of itemVector&amp;#010;&amp;#010;@return List of itemVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="8MeugsIa6ZvE" id="8MeugsIa6ZvE" fileName="item" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="import java.util.*;&amp;#010;import array;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="8MeugsIa6ZvE" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Item&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks>
+          <ccfdeclarationcodeblock tag="tblock_0" parent_id="koLtsl1t9UO9" indentLevel="1" text="public void_ data;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_0" parent_id="eRPamik4odCf" indentLevel="1" text="public int_ count;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_1" parent_id="jESqioyKGLu0" indentLevel="1" text="public int_ size;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Item ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks>
+              <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="koLtsl1t9UO9" indentLevel="1" classfield_id="koLtsl1t9UO9" text="return data;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of data&amp;#010;&amp;#010;@return the value of data"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_4" accessType="1" parent_id="koLtsl1t9UO9" indentLevel="1" classfield_id="koLtsl1t9UO9" text="data = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of data&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_5" accessType="0" parent_id="eRPamik4odCf" indentLevel="1" classfield_id="eRPamik4odCf" text="return count;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of count&amp;#010;&amp;#010;@return the value of count"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_6" accessType="1" parent_id="eRPamik4odCf" indentLevel="1" classfield_id="eRPamik4odCf" text="count = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of count&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_7" accessType="0" parent_id="jESqioyKGLu0" indentLevel="1" classfield_id="jESqioyKGLu0" text="return size;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of size&amp;#010;&amp;#010;@return the value of size"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_8" accessType="1" parent_id="jESqioyKGLu0" indentLevel="1" classfield_id="jESqioyKGLu0" text="size = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of size&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+             </textblocks>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="koLtsl1t9UO9" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="tblock_0" parent_id="koLtsl1t9UO9" indentLevel="1" text="public void_ data;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="koLtsl1t9UO9" indentLevel="1" classfield_id="koLtsl1t9UO9" text="return data;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of data&amp;#010;&amp;#010;@return the value of data"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_4" accessType="1" parent_id="koLtsl1t9UO9" indentLevel="1" classfield_id="koLtsl1t9UO9" text="data = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of data&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="eRPamik4odCf" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_0" parent_id="eRPamik4odCf" indentLevel="1" text="public int_ count;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_5" accessType="0" parent_id="eRPamik4odCf" indentLevel="1" classfield_id="eRPamik4odCf" text="return count;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of count&amp;#010;&amp;#010;@return the value of count"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_6" accessType="1" parent_id="eRPamik4odCf" indentLevel="1" classfield_id="eRPamik4odCf" text="count = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of count&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="jESqioyKGLu0" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_1" parent_id="jESqioyKGLu0" indentLevel="1" text="public int_ size;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_7" accessType="0" parent_id="jESqioyKGLu0" indentLevel="1" classfield_id="jESqioyKGLu0" text="return size;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of size&amp;#010;&amp;#010;@return the value of size"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_8" accessType="1" parent_id="jESqioyKGLu0" indentLevel="1" classfield_id="jESqioyKGLu0" text="size = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of size&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="dL0zmHa9HjpJ" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="dL0zmHa9HjpJ" indentLevel="1" text="public List arrayVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="return arrayVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of arrayVector&amp;#010;&amp;#010;@return the value of arrayVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="arrayVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of arrayVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="arrayVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type array to the List arrayVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="if (arrayVector.size() >= 3) {&amp;#010;    arrayVector.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removearray from arrayVector, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type array from the List arrayVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="return (List) arrayVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of arrayVector&amp;#010;&amp;#010;@return List of arrayVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="gUivOVje2gQ3" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="gUivOVje2gQ3" indentLevel="1" text="public part  = new part ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type part to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removepart from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type part from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="gUivOVje2gQ3" writeOutText="false" indentLevel="1" classfield_id="gUivOVje2gQ3" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="zwvCQYas2Szd" id="zwvCQYas2Szd" fileName="array" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="&amp;#010;import value;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="zwvCQYas2Szd" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Array&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks/>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Array ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="dL0zmHa9HjpJ" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="dL0zmHa9HjpJ" indentLevel="1" text="public item  = new item ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type item to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeitem from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type item from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="dL0zmHa9HjpJ" writeOutText="false" indentLevel="1" classfield_id="dL0zmHa9HjpJ" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="j8V04zDCJp4z" id="j8V04zDCJp4z" fileName="value" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="import java.util.*;&amp;#010;import bit;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="j8V04zDCJp4z" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Value&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks/>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Value ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="WNO13o2TTaFO" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="WNO13o2TTaFO" indentLevel="1" text="public List bitVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="return bitVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of bitVector&amp;#010;&amp;#010;@return the value of bitVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="bitVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of bitVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="bitVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type bit to the List bitVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="bitVector.remove(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type bit from the List bitVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="return (List) bitVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of bitVector&amp;#010;&amp;#010;@return List of bitVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="K56AdBVnqiVC" id="K56AdBVnqiVC" fileName="tag" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="import java.util.*;&amp;#010;import attribute;&amp;#010;import ;&amp;#010;import ;&amp;#010;import ;&amp;#010;import ;&amp;#010;import tag;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="K56AdBVnqiVC" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Tag&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks>
+          <ccfdeclarationcodeblock tag="tblock_0" parent_id="pd1Yl7ObNImJ" indentLevel="1" text="public void name;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_0" parent_id="VzMLfN2F5R5T" indentLevel="1" text="public void channel;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_1" parent_id="Z0WFcBKPmJxX" indentLevel="1" text="public void format;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_2" parent_id="oRkrqoIQopdO" indentLevel="1" text="public void model;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_3" parent_id="yxnkHiHf2OTc" indentLevel="1" text="public tag properties;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Tag ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks>
+              <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="pd1Yl7ObNImJ" indentLevel="1" classfield_id="pd1Yl7ObNImJ" text="return name;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of name&amp;#010;&amp;#010;@return the value of name"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_6" accessType="1" parent_id="pd1Yl7ObNImJ" indentLevel="1" classfield_id="pd1Yl7ObNImJ" text="name = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of name&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_7" accessType="0" parent_id="VzMLfN2F5R5T" indentLevel="1" classfield_id="VzMLfN2F5R5T" text="return channel;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of channel&amp;#010;&amp;#010;@return the value of channel"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_8" accessType="1" parent_id="VzMLfN2F5R5T" indentLevel="1" classfield_id="VzMLfN2F5R5T" text="channel = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of channel&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_9" accessType="0" parent_id="Z0WFcBKPmJxX" indentLevel="1" classfield_id="Z0WFcBKPmJxX" text="return format;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of format&amp;#010;&amp;#010;@return the value of format"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_10" accessType="1" parent_id="Z0WFcBKPmJxX" indentLevel="1" classfield_id="Z0WFcBKPmJxX" text="format = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of format&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_11" accessType="0" parent_id="oRkrqoIQopdO" indentLevel="1" classfield_id="oRkrqoIQopdO" text="return model;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of model&amp;#010;&amp;#010;@return the value of model"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_12" accessType="1" parent_id="oRkrqoIQopdO" indentLevel="1" classfield_id="oRkrqoIQopdO" text="model = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of model&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_13" accessType="0" parent_id="yxnkHiHf2OTc" indentLevel="1" classfield_id="yxnkHiHf2OTc" text="return properties;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of properties&amp;#010;&amp;#010;@return the value of properties"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_14" accessType="1" parent_id="yxnkHiHf2OTc" indentLevel="1" classfield_id="yxnkHiHf2OTc" text="properties = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of properties&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+             </textblocks>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="pd1Yl7ObNImJ" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="tblock_0" parent_id="pd1Yl7ObNImJ" indentLevel="1" text="public void name;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="pd1Yl7ObNImJ" indentLevel="1" classfield_id="pd1Yl7ObNImJ" text="return name;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of name&amp;#010;&amp;#010;@return the value of name"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_6" accessType="1" parent_id="pd1Yl7ObNImJ" indentLevel="1" classfield_id="pd1Yl7ObNImJ" text="name = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of name&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="VzMLfN2F5R5T" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_0" parent_id="VzMLfN2F5R5T" indentLevel="1" text="public void channel;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_7" accessType="0" parent_id="VzMLfN2F5R5T" indentLevel="1" classfield_id="VzMLfN2F5R5T" text="return channel;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of channel&amp;#010;&amp;#010;@return the value of channel"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_8" accessType="1" parent_id="VzMLfN2F5R5T" indentLevel="1" classfield_id="VzMLfN2F5R5T" text="channel = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of channel&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="Z0WFcBKPmJxX" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_1" parent_id="Z0WFcBKPmJxX" indentLevel="1" text="public void format;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_9" accessType="0" parent_id="Z0WFcBKPmJxX" indentLevel="1" classfield_id="Z0WFcBKPmJxX" text="return format;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of format&amp;#010;&amp;#010;@return the value of format"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_10" accessType="1" parent_id="Z0WFcBKPmJxX" indentLevel="1" classfield_id="Z0WFcBKPmJxX" text="format = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of format&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="oRkrqoIQopdO" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_2" parent_id="oRkrqoIQopdO" indentLevel="1" text="public void model;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_11" accessType="0" parent_id="oRkrqoIQopdO" indentLevel="1" classfield_id="oRkrqoIQopdO" text="return model;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of model&amp;#010;&amp;#010;@return the value of model"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_12" accessType="1" parent_id="oRkrqoIQopdO" indentLevel="1" classfield_id="oRkrqoIQopdO" text="model = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of model&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="yxnkHiHf2OTc" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_3" parent_id="yxnkHiHf2OTc" indentLevel="1" text="public tag properties;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_13" accessType="0" parent_id="yxnkHiHf2OTc" indentLevel="1" classfield_id="yxnkHiHf2OTc" text="return properties;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of properties&amp;#010;&amp;#010;@return the value of properties"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_14" accessType="1" parent_id="yxnkHiHf2OTc" indentLevel="1" classfield_id="yxnkHiHf2OTc" text="properties = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of properties&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="RisZ3UfDuUjj" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="RisZ3UfDuUjj" indentLevel="1" text="public List attributeVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="return attributeVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of attributeVector&amp;#010;&amp;#010;@return the value of attributeVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="attributeVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of attributeVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="attributeVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type attribute to the List attributeVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="if (attributeVector.size() >= 7) {&amp;#010;    attributeVector.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeattribute from attributeVector, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type attribute from the List attributeVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="return (List) attributeVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of attributeVector&amp;#010;&amp;#010;@return List of attributeVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="fA8Cl0HnZc67" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="fA8Cl0HnZc67" indentLevel="1" text="public List attributeVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="return attributeVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of attributeVector&amp;#010;&amp;#010;@return the value of attributeVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="attributeVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of attributeVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="attributeVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type attribute to the List attributeVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="if (attributeVector.size() >= 7) {&amp;#010;    attributeVector.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeattribute from attributeVector, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type attribute from the List attributeVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="return (List) attributeVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of attributeVector&amp;#010;&amp;#010;@return List of attributeVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="Nm4IxonjMTz5" id="Nm4IxonjMTz5" fileName="attribute" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="import java.util.*;&amp;#010;import string;&amp;#010;import ;&amp;#010;import ;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="Nm4IxonjMTz5" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Attribute&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks>
+          <ccfdeclarationcodeblock tag="tblock_0" parent_id="qdQ78u6t2bDD" indentLevel="1" text="public void value;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+          <ccfdeclarationcodeblock tag="_0" parent_id="TTyOiOZc9oI7" indentLevel="1" text="public void name;" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1"/>
+           </header>
+          </ccfdeclarationcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Attribute ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks>
+              <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="qdQ78u6t2bDD" indentLevel="1" classfield_id="qdQ78u6t2bDD" text="return value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of value&amp;#010;&amp;#010;@return the value of value"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_4" accessType="1" parent_id="qdQ78u6t2bDD" indentLevel="1" classfield_id="qdQ78u6t2bDD" text="value = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of value&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_5" accessType="0" parent_id="TTyOiOZc9oI7" indentLevel="1" classfield_id="TTyOiOZc9oI7" text="return name;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Get the value of name&amp;#010;&amp;#010;@return the value of name"/>
+               </header>
+              </codeaccessormethod>
+              <codeaccessormethod tag="hblock_tag_6" accessType="1" parent_id="TTyOiOZc9oI7" indentLevel="1" classfield_id="TTyOiOZc9oI7" text="name = value;" canDelete="false">
+               <header>
+                <javacodedocumentation tag="" indentLevel="1" text="Set the value of name&amp;#010;&amp;#010;"/>
+               </header>
+              </codeaccessormethod>
+             </textblocks>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="qdQ78u6t2bDD" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="tblock_0" parent_id="qdQ78u6t2bDD" indentLevel="1" text="public void value;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_0" accessType="0" parent_id="qdQ78u6t2bDD" indentLevel="1" classfield_id="qdQ78u6t2bDD" text="return value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of value&amp;#010;&amp;#010;@return the value of value"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_4" accessType="1" parent_id="qdQ78u6t2bDD" indentLevel="1" classfield_id="qdQ78u6t2bDD" text="value = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of value&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="-1" listClassName="" field_type="0" parent_id="TTyOiOZc9oI7" writeOutMethods="true" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock tag="_0" parent_id="TTyOiOZc9oI7" indentLevel="1" text="public void name;" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod tag="hblock_tag_5" accessType="0" parent_id="TTyOiOZc9oI7" indentLevel="1" classfield_id="TTyOiOZc9oI7" text="return name;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of name&amp;#010;&amp;#010;@return the value of name"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod tag="hblock_tag_6" accessType="1" parent_id="TTyOiOZc9oI7" indentLevel="1" classfield_id="TTyOiOZc9oI7" text="name = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of name&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="RisZ3UfDuUjj" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="RisZ3UfDuUjj" indentLevel="1" text="public tag  = new tag ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type tag to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removetag from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type tag from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="RisZ3UfDuUjj" writeOutText="false" indentLevel="1" classfield_id="RisZ3UfDuUjj" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="rD7mfoVt4w3r" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="rD7mfoVt4w3r" indentLevel="1" text="public List stringVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="return stringVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of stringVector&amp;#010;&amp;#010;@return the value of stringVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="stringVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of stringVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="stringVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type string to the List stringVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="if (stringVector.size() >= 2) {&amp;#010;    stringVector.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeString from stringVector, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type string from the List stringVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="return (List) stringVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of stringVector&amp;#010;&amp;#010;@return List of stringVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="fA8Cl0HnZc67" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="fA8Cl0HnZc67" indentLevel="1" text="public tag  = new tag ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type tag to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removetag from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type tag from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="fA8Cl0HnZc67" writeOutText="false" indentLevel="1" classfield_id="fA8Cl0HnZc67" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="sCySqZB61plN" id="sCySqZB61plN" fileName="string" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="&amp;#010;import character;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="sCySqZB61plN" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class String&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks/>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public String ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="rD7mfoVt4w3r" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="rD7mfoVt4w3r" indentLevel="1" text="public attribute  = new attribute ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type attribute to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeattribute from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type attribute from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="rD7mfoVt4w3r" writeOutText="false" indentLevel="1" classfield_id="rD7mfoVt4w3r" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="h0edzNJKALc5" id="h0edzNJKALc5" fileName="character" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="&amp;#010;import integer;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="h0edzNJKALc5" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Character&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks/>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Character ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="1" listClassName="" field_type="3" parent_id="G4vK2bHTkc9x" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="G4vK2bHTkc9x" indentLevel="1" text="public integer unicode = new integer ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="return unicode;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of unicode&amp;#010;&amp;#010;@return the value of unicode"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="unicode = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of unicode&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="unicode.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type integer to the List unicode&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="if (unicode.size() >= 1) {&amp;#010;    unicode.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeinteger from unicode, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type integer from the List unicode&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="return (List) unicode;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of unicode&amp;#010;&amp;#010;@return List of unicode"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="9QpWrobjyX9m" id="9QpWrobjyX9m" fileName="integer" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" text="import java.util.*;&amp;#010;import bit;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="9QpWrobjyX9m" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Integer&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks/>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Integer ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="0" listClassName="" field_type="3" parent_id="G4vK2bHTkc9x" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="G4vK2bHTkc9x" indentLevel="1" text="public character  = new character ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type character to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removecharacter from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type character from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="G4vK2bHTkc9x" writeOutText="false" indentLevel="1" classfield_id="G4vK2bHTkc9x" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="1" listClassName="" field_type="4" parent_id="ZKgJwqGQzEiW" writeOutMethods="false" initialValue=" new Vector( )">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="0" tag="" parent_id="ZKgJwqGQzEiW" indentLevel="1" text="public List bitVector =  new Vector( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="0" tag="" accessType="0" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="return bitVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of bitVector&amp;#010;&amp;#010;@return the value of bitVector"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="1" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="bitVector = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of bitVector&amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="2" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="bitVector.add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type bit to the List bitVector&amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="3" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="if (bitVector.size() >= 32) {&amp;#010;    bitVector.remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removebit from bitVector, minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type bit from the List bitVector&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="0" tag="" accessType="4" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="return (List) bitVector;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of bitVector&amp;#010;&amp;#010;@return List of bitVector"/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+    <classifiercodedocument package="Logical View" fileExt=".java" parent_class="5Ks67bUnc6QZ" id="5Ks67bUnc6QZ" fileName="bit" writeOutCode="true">
+     <textblocks>
+      <codeblockwithcomments tag="packages" text="package Logical View;&amp;#010;">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <codeblockwithcomments tag="imports" writeOutText="false">
+       <header>
+        <codecomment tag="" writeOutText="false"/>
+       </header>
+      </codeblockwithcomments>
+      <javaclassdeclarationblock tag="ClassDeclBlock" parent_id="5Ks67bUnc6QZ" canDelete="false">
+       <header>
+        <javacodedocumentation tag="" text="Class Bit&amp;#010;"/>
+       </header>
+       <textblocks>
+        <hierarchicalcodeblock tag="fieldsDecl" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Fields"/>
+         </header>
+         <textblocks/>
+        </hierarchicalcodeblock>
+        <hierarchicalcodeblock tag="methodsBlock" indentLevel="1" canDelete="false">
+         <header>
+          <codecomment tag="" indentLevel="1" text="Methods"/>
+         </header>
+         <textblocks>
+          <hierarchicalcodeblock tag="constructorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Constructors"/>
+           </header>
+           <textblocks>
+            <codeblockwithcomments tag="emptyconstructor" indentLevel="1" text="public Bit ( ) { }">
+             <header>
+              <codecomment tag="" indentLevel="1" text="Empty Constructor"/>
+             </header>
+            </codeblockwithcomments>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="accessorMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Accessor Methods"/>
+           </header>
+           <textblocks>
+            <hierarchicalcodeblock tag="staticAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+            <hierarchicalcodeblock tag="regularAccessorMethods" indentLevel="1" canDelete="false">
+             <header>
+              <codecomment tag="" writeOutText="false" indentLevel="1"/>
+             </header>
+             <textblocks/>
+            </hierarchicalcodeblock>
+           </textblocks>
+          </hierarchicalcodeblock>
+          <hierarchicalcodeblock tag="operationMethods" indentLevel="1" canDelete="false">
+           <header>
+            <codecomment tag="" indentLevel="1" text="Operations"/>
+           </header>
+           <textblocks/>
+          </hierarchicalcodeblock>
+         </textblocks>
+        </hierarchicalcodeblock>
+       </textblocks>
+      </javaclassdeclarationblock>
+     </textblocks>
+     <header>
+      <codecomment tag=""/>
+     </header>
+     <classfields>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="ZKgJwqGQzEiW" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="ZKgJwqGQzEiW" indentLevel="1" text="public integer  = new integer ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type integer to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removeinteger from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type integer from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="ZKgJwqGQzEiW" writeOutText="false" indentLevel="1" classfield_id="ZKgJwqGQzEiW" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+      <codeclassfield role_id="0" listClassName="" field_type="4" parent_id="WNO13o2TTaFO" writeOutMethods="false" initialValue="">
+       <header>
+        <codecomment tag=""/>
+       </header>
+       <ccfdeclarationcodeblock role_id="1" tag="" parent_id="WNO13o2TTaFO" indentLevel="1" text="public value  = new value ( );" canDelete="false">
+        <header>
+         <codecomment tag="" indentLevel="1"/>
+        </header>
+       </ccfdeclarationcodeblock>
+       <codeaccessormethod role_id="1" tag="" accessType="0" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="return ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the value of &amp;#010;&amp;#010;@return the value of "/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="1" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text=" = value;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Set the value of &amp;#010;&amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="2" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text=".add(value);" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Add an object of type value to the List &amp;#010;&amp;#010;@return void"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="3" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="if (.size() >= 1) {&amp;#010;    .remove(value);&amp;#010;} else {&amp;#010;    System.err.println(&quot;ERROR: Cant removevalue from , minimum number of items reached.&quot;);&amp;#010;}&amp;#010;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Remove an object of type value from the List &amp;#010;"/>
+        </header>
+       </codeaccessormethod>
+       <codeaccessormethod role_id="1" tag="" accessType="4" parent_id="WNO13o2TTaFO" writeOutText="false" indentLevel="1" classfield_id="WNO13o2TTaFO" text="return (List) ;" canDelete="false">
+        <header>
+         <javacodedocumentation tag="" indentLevel="1" text="Get the list of &amp;#010;&amp;#010;@return List of "/>
+        </header>
+       </codeaccessormethod>
+      </codeclassfield>
+     </classfields>
+    </classifiercodedocument>
+   </codegenerator>
   </codegeneration>
  </XMI.extensions>
 </XMI>
