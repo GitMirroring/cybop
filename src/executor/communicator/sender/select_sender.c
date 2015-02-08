@@ -23,46 +23,44 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DESERIALISE_RECEIVER_SOURCE
-#define DESERIALISE_RECEIVER_SOURCE
+#ifndef SELECT_SENDER_SOURCE
+#define SELECT_SENDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/representer/deserialiser.c"
+#include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Deserialise source into destination.
+ * Selects a suitable source buffer into destination.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
- * @param p4 the knowledge memory part
- * @param p5 the internal memory data
- * @param p6 the event type data
- * @param p7 the event type count
- * @param p8 the button mask
- * @param p9 the mouse x coordinate
- * @param p10 the mouse y coordinate
- * @param p11 the format
- * @param p12 the language
+ * @param p0 the destination buffer (pointer reference)
+ * @param p1 the source char buffer (pointer reference)
+ * @param p2 the source wchar_t buffer (pointer reference)
+ * @param p3 the encoding
  */
-void receive_deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+void send_select(void* p0, void* p1, void* p2, void* p3) {
 
-    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send select.");
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deserialise.");
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Deserialise message.
-        deserialise(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+        // An encoding WAS given.
+        // That is, wide characters are to be converted into a byte form.
+
+        // Use "wchar_t" buffer.
+        copy_pointer(p0, p2);
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive deserialise. The language is null.");
+        // An encoding was NOT given.
+        // That is, simple bytes are used.
+
+        // Use "char" buffer.
+        copy_pointer(p0, p1);
     }
 }
 
-/* DESERIALISE_RECEIVER_SOURCE */
+/* SELECT_SENDER_SOURCE */
 #endif

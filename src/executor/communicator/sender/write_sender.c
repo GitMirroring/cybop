@@ -29,56 +29,31 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/streamer/reader.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../executor/streamer/writer.c"
 #include "../../../logger/logger.c"
 
 /**
- * Reads compressed message from device.
+ * Writes source to destination.
  *
- * @param p0 the destination item data (pointer reference)
- * @param p1 the destination item count (pointer reference)
- * @param p2 the buffer item
- * @param p3 the source model data (e.g. a filename or socket number)
- * @param p4 the source model count
- * @param p5 the source properties data
- * @param p6 the source properties count
- * @param p7 the internal memory data
- * @param p8 the minimum number of bytes to be received in one call of the read function
- * @param p9 the maximum number of bytes to be received in one call of the read function
- * @param p10 the channel
+ * @param p0 the destination item
+ * @param p1 the source data (pointer reference)
+ * @param p2 the source count
+ * @param p3 the internal memory data
+ * @param p4 the source part (pointer reference), e.g. a signal
+ * @param p5 the channel
  */
-void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void send_write(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p10 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send write.");
 
-        // The item data, count.
-        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-        // Read compressed message from device.
-        read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10);
-
-        // Get compressed message item data, count.
-        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-        // Inside the structure, arrays may have been reallocated,
-        // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &d, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        // Assign argument data, count.
-        copy_pointer(p0, (void*) &d);
-        copy_pointer(p1, (void*) &c);
-
-fwprintf(stdout, L"TEST: receive read *c: %i \n", *((int*) c));
-fwprintf(stdout, L"TEST: receive read d: %s \n", d);
+        // Write message.
+        write_data(p0, p1, p2, p3, p4, p5);
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive read. The channel is null.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not send write. The channel is null.");
     }
 }
 

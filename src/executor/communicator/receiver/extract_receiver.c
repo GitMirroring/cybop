@@ -29,13 +29,15 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-//?? #include "../../../executor/packer/extracto|??er.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+//?? #include "../../../executor/packer/extractor.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 
 /**
- * Extracts compressed message.
+ * Extracts source into destination.
  *
  * @param p0 the destination item data (pointer reference)
  * @param p1 the destination item count (pointer reference)
@@ -54,17 +56,17 @@ void receive_extract(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5)
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Extract compressed message.
+        // Extract message.
         extract(p2, p3, p4, p5);
 
-        // Get compressed message item data, count.
+        // Get item data, count.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &d, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        // Assign argument data, count.
+        // Assign destination data, count.
         copy_pointer(p0, (void*) &d);
         copy_pointer(p1, (void*) &c);
 

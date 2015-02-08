@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Complete new communicator sender files
+        * Add new streamer- and communicator files for other channels than socket
         * Continue file "handler.cybol"
         * Reactivate http parser
         * Read about header fields in specification:

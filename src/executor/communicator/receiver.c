@@ -101,17 +101,17 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Read compressed message from device.
+    // Read message.
     receive_read((void*) &ad, (void*) &ac, c, p2, p3, p4, p5, p7, p8, p9, p13);
-    // Extract compressed message.
+    // Extract message.
 //??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
-    // Decode encoded message.
+    // Decode message.
     receive_decode((void*) &ad, (void*) &ac, s, ad, ac, p12);
-    // Deserialise serialised message.
+    // Deserialise message.
     //
     // CAUTION! The source argument data may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
-    // The latter applies when a character encoding had been given.
+    // The latter applies when a character encoding has been given.
     // The function "deserialise" knows how to handle it,
     // depending on the given language.
     //

@@ -26,24 +26,19 @@
 #ifndef SENDER_SOURCE
 #define SENDER_SOURCE
 
-#include "../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 //?? #include "../../executor/communicator/sender/compress_sender.c"
-//?? #include "../../executor/communicator/sender/encode_sender.c"
-//?? #include "../../executor/communicator/sender/serialise_sender.c"
-//?? #include "../../executor/communicator/sender/write_sender.c"
+#include "../../executor/communicator/sender/encode_sender.c"
+#include "../../executor/communicator/sender/select_sender.c"
+#include "../../executor/communicator/sender/serialise_sender.c"
+#include "../../executor/communicator/sender/write_sender.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../executor/modifier/appender/item_appender.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/representer/serialiser.c"
 #include "../../logger/logger.c"
 
 /**
@@ -82,14 +77,23 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The compressed character item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The serialised wide character item data, count.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded character item data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer.
+    // CAUTION! This is just a helper variable,
+    // to be used for forwarding the correct argument.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The argument data, count.
+    // CAUTION! This is just helper variables,
+    // to be used for forwarding the correct argument.
+    void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ac = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate serialised wide character array.
+    //
+    // CAUTION! These items have to get allocated HERE
+    // and NOT within the functions called below.
+    // Otherwise, they would be deallocated before being used.
+    //
+
+    // Allocate serialised wide character item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -102,38 +106,31 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-/*??
-    // Serialise source model into serialised character item.
-    serialise(s, p1, p2, p3, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p6, p7, p8);
-
-    // Get serialised wide character item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sc, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-    // Encode serialised wide character array into encoded character array.
-    encode(e, sd, sc, p9);
-
-    // Get encoded character item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST: send socket p0: %i \n", *((int*) p0));
-fwprintf(stdout, L"TEST: send socket *sc: %i \n", *((int*) sc));
-fwprintf(stdout, L"TEST: send socket *sd: %s \n", (char*) sd);
-fwprintf(stdout, L"TEST: send socket *ec: %i \n", *((int*) ec));
-fwprintf(stdout, L"TEST: send socket *ed: %s \n", (char*) ed);
-
-    // Write message to device.
+    // Select buffer.
+    // CAUTION! This is important because some models are serialised
+    // into "char" (e.g. HTTP due to possible attachments in byte code),
+    // but other models into "wchar_t" (e.g. HTML).
+    // This may be found out by using the given "encoding" parametre.
+    // If a model got serialised into "wchar_t", then that yet
+    // has to get text-encoded below, into a byte format.
+    send_select((void*) &b, (void*) &e, (void*) &s, p10);
+    // Serialise message.
+    //
+    // CAUTION! The buffer argument may be of either
+    // type "char" or type "wchar_t", which is IRRELEVANT.
+    // The latter applies when a character encoding has been given.
+    // The function "serialise" knows how to handle it,
+    // depending on the given language.
+    //
+    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p12, p13, p7, p8, p9);
+    // Encode message.
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10);
+    // Compress message.
+//??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
+    // Write message.
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
-    write_data(p0, (void*) &ed, ec, p6, p11, p15);
-*/
+    send_write(p0, (void*) &ad, ac, p6, p11, p15);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
