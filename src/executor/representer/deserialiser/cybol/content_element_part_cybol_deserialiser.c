@@ -308,7 +308,12 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         deserialise_cybol_channel(pc, scmd, scmc);
         // Fill part encoding item.
 //??        deserialise_cybol_encoding(pe, semd, semc);
-        overwrite_item_element(pe, (void*) UTF_8_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // CAUTION! Do NOT enable the following line, which sets an encoding.
+        // The default encoding HAS TO BE "null" since otherwise,
+        // wrong conversions will occur in "communicator/receiver/" and applications not run.
+        //?? TODO: Further, this line can be deleted in the future (language + encoding, possibly also format).
+        //?? The do not have to be kept in the runtime model, only for receiving serialised data.
+//??        overwrite_item_element(pe, (void*) UTF_8_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part language item.
 //??        deserialise_cybol_language(pl, slmd, slmc);
         overwrite_item_element(pl, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);

@@ -18,10 +18,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete new communicator files for channel "inline"
+        * Fix bug in file "content_element_part_cybol_deserialiser.c" where "utf-8" was assigned as default encoding, while it should be "null"
+
 2015-02-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new directory "executor/packer/" with "compressor" and "extractor"
-        * Complete new communicator files for socket
+        * Complete new communicator files for channel "socket"
 
 2015-02-06  Christian Heller  <christian.heller@tuxtax.de>
 

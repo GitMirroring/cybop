@@ -35,6 +35,7 @@
 #include "../../executor/communicator/receiver/deserialise_receiver.c"
 //?? #include "../../executor/communicator/receiver/extract_receiver.c"
 #include "../../executor/communicator/receiver/read_receiver.c"
+#include "../../executor/communicator/receiver/select_receiver.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../logger/logger.c"
@@ -76,6 +77,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serialised message item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The buffer.
+    // CAUTION! This is just a helper variable,
+    // to be used for forwarding the correct argument.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The argument data, count.
     // CAUTION! This is just helper variables,
     // to be used for forwarding the correct argument.
@@ -101,19 +106,35 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    // Initialise buffer.
+    //
+    // CAUTION! The "char" buffer is used by default.
+    // It applies to all channels except "inline".
+    b = c;
+
+    // Select buffer.
+    //
+    // CAUTION! This is important for models which are already
+    // available as "wchar_t", i.e. those given via channel "inline".
+    // These do NOT have to get decoded below.
+    //
+    // CAUTION! Using the given "encoding" parametre is NOT helpful, since:
+    // - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
+    // - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
+    // Therefore, the correct buffer gets selected via CHANNEL here.
+    //
+    receive_select((void*) &b, (void*) &s, p13);
     // Read message.
-    receive_read((void*) &ad, (void*) &ac, c, p2, p3, p4, p5, p7, p8, p9, p13);
+    receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p7, p8, p9, p13);
     // Extract message.
 //??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
     // Decode message.
     receive_decode((void*) &ad, (void*) &ac, s, ad, ac, p12);
     // Deserialise message.
     //
-    // CAUTION! The source argument data may be of either
+    // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
-    // The latter applies when a character encoding has been given.
-    // The function "deserialise" knows how to handle it,
-    // depending on the given language.
+    // This function knows how to handle it, depending on the given language.
     //
     receive_deserialise(p0, p1, ad, ac, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11);
 

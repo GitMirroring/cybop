@@ -26,9 +26,11 @@
 #ifndef SELECT_SENDER_SOURCE
 #define SELECT_SENDER_SOURCE
 
+#include "../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 
@@ -37,28 +39,24 @@
  *
  * @param p0 the destination buffer (pointer reference)
  * @param p1 the source char buffer (pointer reference)
- * @param p2 the source wchar_t buffer (pointer reference)
- * @param p3 the encoding
+ * @param p2 the language
  */
-void send_select(void* p0, void* p1, void* p2, void* p3) {
+void send_select(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send select.");
 
-    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // An encoding WAS given.
-        // That is, wide characters are to be converted into a byte form.
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Use "wchar_t" buffer.
-        copy_pointer(p0, p2);
+        compare_integer_equal((void*) &r, p2, (void*) HTTP_RESPONSE_MESSAGE_STATE_CYBOI_LANGUAGE);
 
-    } else {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // An encoding was NOT given.
-        // That is, simple bytes are used.
-
-        // Use "char" buffer.
-        copy_pointer(p0, p1);
+            // Use "char" buffer.
+            copy_pointer(p0, p1);
+        }
     }
 }
 

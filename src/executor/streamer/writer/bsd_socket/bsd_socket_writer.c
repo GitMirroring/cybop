@@ -89,7 +89,7 @@ void write_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
                     // because values are casted to int* internally again.
                     size_t st = (size_t) *sc;
 
-                    // Send message to destination socket.
+                    // Write message to destination socket.
                     //
                     // If the flags argument (fourth one) is zero, then one can
                     // just as well use the "write" instead of the "send" procedure.
@@ -165,7 +165,7 @@ fwprintf(stdout, L"TEST: write bsd socket error ENOTCONN: %i \n", errno);
 
 fwprintf(stdout, L"TEST: write bsd socket error EPIPE: %i \n", errno);
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write bsd socket. This socket was connected but the connection is now broken. In this case, send generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then send fails with EPIPE.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write bsd socket. This socket was connected but the connection is now broken. In this case, write generates a SIGPIPE signal first; if that signal is ignored or blocked, or if its handler returns, then write fails with EPIPE.");
 
                         } else {
 

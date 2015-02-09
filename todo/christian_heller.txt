@@ -14,6 +14,10 @@
 WUI
 ___
 
+        * Verify bug in file "content_element_part_cybol_deserialiser.c" where "utf-8" was assigned as default encoding, while it should be "null"
+            --> also happens at "communicator/sender.c"?
+            --> "tui_control" cybol app does not run
+
         * Add new streamer- and communicator files for other channels than socket
         * Continue file "handler.cybol"
         * Reactivate http parser

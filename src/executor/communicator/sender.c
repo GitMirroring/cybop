@@ -106,21 +106,31 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+    // Initialise buffer.
+    //
+    // CAUTION! The "wchar_t" buffer is used by default.
+    // It applies to languages like e.g. "text/cybol", "text/html" etc.
+    // Also, text given via "inline" channel is processed as wide characters.
+    // Therefore, setting the buffer to "wchar_t" by default IS IMPORTANT.
+    b = s;
+
     // Select buffer.
-    // CAUTION! This is important because some models are serialised
-    // into "char" (e.g. HTTP due to possible attachments in byte code),
-    // but other models into "wchar_t" (e.g. HTML).
-    // This may be found out by using the given "encoding" parametre.
-    // If a model got serialised into "wchar_t", then that yet
-    // has to get text-encoded below, into a byte format.
-    send_select((void*) &b, (void*) &e, (void*) &s, p10);
+    //
+    // CAUTION! There are cases, in which a pure "char" byte buffer is needed,
+    // e.g. for "message/http" due to possible attachments in form of byte code.
+    // Such models are serialised directly into "char" byte code.
+    //
+    // CAUTION! Using the given "encoding" parametre is NOT helpful, since:
+    // - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
+    // - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
+    // Therefore, the correct buffer gets selected via LANGUAGE here.
+    //
+    send_select((void*) &b, (void*) &e, p9);
     // Serialise message.
     //
     // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
-    // The latter applies when a character encoding has been given.
-    // The function "serialise" knows how to handle it,
-    // depending on the given language.
+    // This function knows how to handle it, depending on the given language.
     //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p12, p13, p7, p8, p9);
     // Encode message.

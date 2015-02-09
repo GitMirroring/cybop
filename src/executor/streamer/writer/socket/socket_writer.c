@@ -64,7 +64,7 @@ void write_socket(void* p0, void* p1, void* p2) {
     copy_pointer((void*) &pos, p1);
     copy_integer((void*) &rem, p2);
 
-    // CAUTION! The send operation does not necessarily
+    // CAUTION! The write operation does not necessarily
     // handle all the bytes handed over to it, because
     // its major focus is handling the network buffers.
     // In general, it returns when the associated

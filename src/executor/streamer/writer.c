@@ -30,9 +30,10 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 //?? #include "../../executor/streamer/writer/display/display_writer.c"
 //?? #include "../../executor/streamer/writer/file/file_writer.c"
-//?? #include "../../executor/streamer/writer/inline/inline_writer.c"
+#include "../../executor/streamer/writer/inline/inline_writer.c"
 //?? #include "../../executor/streamer/writer/serial_port/serial_port_writer.c"
 //?? #include "../../executor/streamer/writer/signal/signal_writer.c"
 #include "../../executor/streamer/writer/socket/socket_writer.c"
@@ -54,90 +55,99 @@
  */
 void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        void** d = (void**) p1;
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write.");
 
-        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            write_display(p1, p2, p3, p4, p5, p7, p9, p6);
+            compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+    //??            write_display(p1, p2, p3, p4, p5, p7, p9, p6);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) FILE_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p5, (void*) FILE_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            write_file(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p6);
+    //??            write_file(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p6);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            write_inline(p0, p1, p2, p3, p4, p5, p7, p8, p9, p6);
+                write_inline(p0, *d, p2);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p5, (void*) SERIAL_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            write_serial_port(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    //??            write_serial_port(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SIGNAL_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p5, (void*) SIGNAL_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            write_signal(p6, p11);
+    //??            write_signal(p6, p11);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p5, (void*) SOCKET_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The destination socket item data.
-            void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+                // The destination socket item data.
+                void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-            // Get destination socket item data.
-            copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                // Get destination socket item data.
+                copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-            write_socket(s, p1, p2);
+                write_socket(s, p1, p2);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
+            compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            write_terminal(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p12, p13);
+    //??            write_terminal(p1, p2, p3, p4, p5, p7, p8, p9, p10, p6, p12, p13);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write. The channel is unknown.");
+            log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write. The channel is unknown.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write. The source data is null.");
     }
 }
 

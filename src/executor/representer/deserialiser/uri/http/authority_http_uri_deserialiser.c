@@ -31,7 +31,6 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
-#include "../../../../../executor/communicator/receiver/inline/inline_receiver.c"
 #include "../../../../../executor/modifier/appender/part_allocator_item_appender.c"
 #include "../../../../../executor/searcher/selector/uri/http/authority_http_uri_selector.c"
 #include "../../../../../logger/logger.c"

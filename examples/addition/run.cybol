@@ -1,4 +1,5 @@
 <model>
+
     <part name="create_result" channel="inline" format="memorise/create" model="">
         <property name="name" channel="inline" format="text/plain" model="result"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -14,15 +15,7 @@
         <property name="sender" channel="inline" format="text/plain" model="1,1,1"/>
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
     </part>
-    <!--
-        CAUTION! The "result" integer vector has to be initialised BEFORE this operation.
-        If result- and operand vectors had different sizes, they would NOT be added.
-    -->
-    <part name="add_operand" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="number/integer" model="1,2,3"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+
     <!-- Write knowledge tree into file. -->
     <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -32,6 +25,17 @@
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="receiver" channel="inline" format="text/plain" model="test_addition.txt"/>
     </part>
+
+    <!--
+        CAUTION! The "result" integer vector has to be initialised BEFORE this operation.
+        If result- and operand vectors had different sizes, they would NOT be added.
+    -->
+    <part name="add_operand" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <property name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+
     <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </part>
@@ -43,7 +47,9 @@
         <property name="message" channel="inline" format="path/knowledge" model=".result"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
+
     <part name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </model>
 
 <!--

@@ -70,8 +70,8 @@ void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         copy_pointer(p0, (void*) &d);
         copy_pointer(p1, (void*) &c);
 
-fwprintf(stdout, L"TEST: receive decode *c: %i \n", *((int*) c));
-fwprintf(stdout, L"TEST: receive decode d: %s \n", d);
+//?? fwprintf(stdout, L"TEST: receive decode *c: %i \n", *((int*) c));
+//?? fwprintf(stdout, L"TEST: receive decode d: %s \n", d);
 
     } else {
 

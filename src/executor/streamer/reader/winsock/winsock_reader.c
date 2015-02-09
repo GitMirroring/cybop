@@ -147,11 +147,11 @@ void read_winsock(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                         } else if (e == WSAESHUTDOWN) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read winsock. The socket has been shut down; it is not possible to receive on a socket after shutdown has been invoked with how set to SD_RECEIVE or SD_BOTH.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read winsock. The socket has been shut down; it is not possible to read on a socket after shutdown has been invoked with how set to SD_RECEIVE or SD_BOTH.");
 
                         } else if (e == WSAEWOULDBLOCK) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read winsock. The socket is marked as nonblocking and the receive operation would block.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read winsock. The socket is marked as nonblocking and the read operation would block.");
 
                         } else if (e == WSAEMSGSIZE) {
 

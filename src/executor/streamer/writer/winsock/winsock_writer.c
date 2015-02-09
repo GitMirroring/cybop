@@ -68,7 +68,7 @@ void write_winsock(void* p0, void* p1, void* p2, void* p3) {
                     SOCKET ws = (SOCKET) *s;
 
                     //
-                    // Send message to destination socket.
+                    // Write message to destination socket.
                     //
                     // If the flags argument (fourth one) is zero, then one can
                     // just as well use the "write" instead of the "send" procedure.
@@ -149,7 +149,7 @@ void write_winsock(void* p0, void* p1, void* p2, void* p3) {
 
                         } else if (e == WSAESHUTDOWN) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write winsock. The socket has been shut down; it is not possible to send on a socket after shutdown has been invoked with how set to SD_SEND or SD_BOTH.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write winsock. The socket has been shut down; it is not possible to write on a socket after shutdown has been invoked with how set to SD_SEND or SD_BOTH.");
 
                         } else if (e == WSAEWOULDBLOCK) {
 
