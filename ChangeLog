@@ -21,7 +21,7 @@
 2015-02-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete new communicator files for channel "inline"
-        * Fix bug in file "content_element_part_cybol_deserialiser.c" where "utf-8" was assigned as default encoding, while it should be "null"
+        * Assign default encoding "utf-8" for channel "file", but NOT for channel "inline", in file "content_element_part_cybol_deserialiser.c"
 
 2015-02-08  Christian Heller  <christian.heller@tuxtax.de>
 
