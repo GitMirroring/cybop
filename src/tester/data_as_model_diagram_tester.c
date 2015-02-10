@@ -28,13 +28,13 @@
 
 #include <wchar.h>
 
-#include "../executor/communicator/sender/file/stream_file_sender.c"
+#include "../executor/streamer/writer/file/stream_file_writer.c"
+#include "../logger/logger.c"
+
 #ifdef WIN32
 #else
     #include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
 #endif
-
-#include "../logger/logger.c"
 
 /**
  * Writes the data as model diagram into a file with the given name.
@@ -104,7 +104,7 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Write multibyte character stream to file system.
-    send_file_stream(p0, (void*) &fc, bd, bc);
+    write_file_stream(p0, (void*) &fc, bd, bc);
 
     // Deallocate model diagram item.
     deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
