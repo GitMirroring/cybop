@@ -11,10 +11,64 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+TMP TODO
+________
+
+ * @param p9 the internal memory data
+ * @param p10 the null termination flag
+ * @param p11 the lineending flag
+ */
+void write_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+
+    // Serialise source knowledge model into serialised wide character array.
+    serialise(s, p0, p1, p2, p3, p4, p9, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7);
+
+    // Compare lineending flag.
+    compare_integer_unequal((void*) &r, p11, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Add lineending character.
+        append_item_element(s, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
+
+    // Encode serialised wide character array into encoded character array.
+    encode(e, sd, sc, p8);
+
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Compare null termination flag.
+    compare_integer_unequal((void*) &r, p10, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Add null termination character.
+        // CAUTION! Appending a wide character null termination to the
+        // serialised wide character item above does NOT make sense,
+        // since it WON'T get converted into an ascii character null
+        // termination of the resulting multibyte character sequence.
+        // The encode function above only converts the actual characters
+        // whose count is given, but NOT a null termination character.
+        // Therefore, the null termination is only added here, as ascii character.
+        append_item_element(e, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
+
+    // Write encoded array to serial port.
+    write_serial_port_file(ed, ec, p9);
+}
+
 WUI
 ___
 
-        * Adapt streamer- and communicator files for remaining channels
+        * Complete new communicator- and streamer files for channel "serial_port"
+            --> Add files "termination_sender.c" and "lineend_sender.c"
+        * Complete new communicator- and streamer files for channel "terminal"
+        * Complete new communicator- and streamer files for channel "display"
+        * Complete new communicator- and streamer files for channel "signal"
+        * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"
+        * Move signal retrieval function call from "controller/checker/signal_checker.c" to new signal receiver
+
         * Continue file "handler.cybol"
         * Reactivate http parser
         * Read about header fields in specification:
@@ -128,12 +182,6 @@ _____________
             Of course, DSL may ease programming in certain application areas.
             But if the aim is to create a schema and language capable of representing knowledge in general, then a GPL should be the result.
             CYBOL is such a GPL and reaches its flexibility by following the principles of human thinking: discrimination (discrete part models), composition (parts are containers), categorisation (inheritance of part properties).
-
-Signal
-______
-
-        * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"
-        * Move signal retrieval function call from "controller/checker/signal_checker.c" to new signal receiver
 
 GUI
 ___

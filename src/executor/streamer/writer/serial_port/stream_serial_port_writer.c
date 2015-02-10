@@ -26,35 +26,37 @@
 #ifndef STREAM_SERIAL_PORT_WRITER_SOURCE
 #define STREAM_SERIAL_PORT_WRITER_SOURCE
 
+/*??
 #include <errno.h>
 #include <stdio.h>
-#ifndef _MSC_VER
-#include <unistd.h>
-#endif
-#include <wchar.h>
+
 #ifdef WIN32
     #include <windows.h>
- 
-    int fsync (int fd)
-    {
+
+    int fsync(int fd) {
+
         return (FlushFileBuffers ((HANDLE) _get_osfhandle (fd))) ? 0 : -1;
     }
 #endif
+*/
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/streamer/writer/serial_port/elements_stream_serial_port_writer.c"
+#include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/streamer/writer/serial_port/write_serial_port_writer.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Writes the source to the serial port output.
+ * Writes source to the serial port.
  *
- * @param p0 the destination file descriptor data
+ * @param p0 the destination file descriptor
  * @param p1 the source data
  * @param p2 the source count
  */
@@ -62,19 +64,24 @@ void write_serial_port_stream(void* p0, void* p1, void* p2) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* d = (int*) p0;
+        int* f = (int*) p0;
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write serial port stream.");
 
-        // The break flag.
-        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-        // The data index to start the transfer at.
-        void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The source data position.
+        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The source count remaining.
+        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // The number of bytes transferred.
         int n = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The break flag.
+        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // Initialise data index to start the transfer at.
-        copy_pointer((void*) &i, (void*) &p1);
+        // Copy source data position.
+        // This is the index to start the transfer at.
+        copy_pointer((void*) &d, (void*) &p1);
+        // Copy source count remaining.
+        copy_integer((void*) &c, p2);
 
         if (p2 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -94,49 +101,49 @@ void write_serial_port_stream(void* p0, void* p1, void* p2) {
         // in a loop, until the complete message has been transmitted!
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_smaller_or_equal((void*) &b, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            compare_integer_smaller_or_equal((void*) &b, (void*) &c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 break;
             }
 
-            write_serial_port_stream_elements(p0, i, p2, (void*) &n);
+            write_serial_port_write(p0, d, (void*) &c, (void*) &n);
 
-            // Increment byte array index.
-            calculate_pointer_add((void*) &i, (void*) &n);
-            // Decrement byte array count.
-            calculate_integer_subtract(p2, (void*) &n);
+            // Increment source data position.
+            calculate_pointer_add((void*) &d, (void*) &n);
+            // Decrement source count remaining.
+            calculate_integer_subtract((void*) &c, (void*) &n);
         }
 
+/*?? TODO:
         // Initialise error number.
-        // It is a global variable/ function and other operations
+        // It is a global variable/function and other operations
         // may have set some value that is not wanted here.
         //
         // CAUTION! Initialise the error number BEFORE calling
         // the procedure that might cause an error.
-        copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
         // Make sure all data associated with the open file
         // is written to the device associated with the descriptor.
         // The function call does not return unless all actions have finished.
         //
         // CAUTION! The glibc "write" function is called within
-        // the "write_serial_port_stream_elements" function.
+        // the "write_serial_port_write" function.
         // Once "write" returns, the data is enqueued to be written
         // and can be read back right away, but it is not necessarily
         // written out to permanent storage immediately. Therefore,
         // the "fsync" function is called here in order to make sure
         // the data has been permanently stored before continuing.
         //
-        // It is more efficient for the system to batch up
-        // consecutive writes and do them all at once when
-        // convenient. Normally, they will always be written
-        // to disk within a minute or less.
+        // It is more efficient for the system to batch up consecutive
+        // writes and do them all at once when convenient. Normally,
+        // they will always be written to disk within a minute or less.
         //
         // One can use the "O_FSYNC" open mode to make write
         // always store the data to disk before returning.
-/*?? TODO int e = fsync(*d);
+        int e = fsync(*f);
 
         // Test error value.
         // The return value of the "fsync" function is zero
@@ -160,7 +167,7 @@ void write_serial_port_stream(void* p0, void* p1, void* p2) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write serial port stream. The serial port output file descriptor is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write serial port stream. The destination file descriptor is null.");
     }
 }
 

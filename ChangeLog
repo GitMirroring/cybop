@@ -21,6 +21,7 @@
 2015-02-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete new communicator- and streamer files for channel "file"
+        * Implement new communicator- and streamer files for channel "serial_port"
 
 2015-02-09  Christian Heller  <christian.heller@tuxtax.de>
 

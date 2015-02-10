@@ -26,47 +26,47 @@
 #ifndef SERIAL_PORT_READER_SOURCE
 #define SERIAL_PORT_READER_SOURCE
 
-#include <errno.h>
-#include <wchar.h>
-
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/streamer/reader/serial_port/file_serial_port_reader.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/streamer/reader/serial_port/stream_serial_port_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads data via serial port.
+ * Reads the destination from serial port.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the minimum number of bytes to be received in one call of the read function
- * @param p3 the maximum number of bytes to be received in one call of the read function
- * @param p4 the internal memory data
+ * @param p0 the destination item
+ * @param p1 the minimum number of bytes to be received in one call of the read function
+ * @param p2 the maximum number of bytes to be received in one call of the read function
+ * @param p3 the internal memory data
  */
-void read_serial_port(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_serial_port(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read serial port.");
 
-    // Read byte data via channel.
-    read_serial_port_file(p0, p2, p3, p4);
+    // The file descriptor item.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The file descriptor item data.
+    void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // CAUTION! The multibyte character sequence is NOT decoded
-    // into a wide character array, since serial port data are mostly
-    // evaluated bytewise within a cybol application.
-    // The "encoding" parametre is therefore obsolete.
+    // Get file descriptor item.
+    copy_array_forward((void*) &f, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FILE_DESCRIPTOR_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get mutex.
+    copy_array_forward((void*) &m, p3, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // CAUTION! The byte data are NOT deserialised into a
-    // cyboi-internal part, since serial port data are mostly
-    // evaluated bytewise within a cybol application.
-    // The "language" and "format" parametres are therefore obsolete.
+    // Get file descriptor item data.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    read_serial_port_stream(p0, fd, m, p1, p2);
 }
 
 /* SERIAL_PORT_READER_SOURCE */

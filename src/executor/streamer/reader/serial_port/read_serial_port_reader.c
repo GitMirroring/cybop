@@ -23,24 +23,25 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_SERIAL_PORT_RECEIVER_SOURCE
-#define CHARACTER_SERIAL_PORT_RECEIVER_SOURCE
+#ifndef READ_SERIAL_PORT_READER_SOURCE
+#define READ_SERIAL_PORT_READER_SOURCE
 
 #include <errno.h>
 #include <limits.h>
-#include <wchar.h>
 
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 #ifdef _MSC_VER
@@ -49,7 +50,7 @@
 #endif
 
 /**
- * Receives a serial port character.
+ * Reads a serial port character.
  *
  * @param p0 the destination item
  * @param p1 the source file descriptor data
@@ -59,7 +60,7 @@
  * @param p5 the character count
  * @param p6 the loop break flag
  */
-void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // The minimum number of bytes to be received in one call of the read function.
     // CAUTION! Set default value. At least one byte has to be received.
@@ -101,7 +102,7 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
 
                 int* f = (int*) p1;
 
-                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive serial port character.");
+                log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read serial port read.");
 
                 if (*f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -135,12 +136,12 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
                     size_t ts = *PRIMITIVE_STATE_CYBOI_MODEL_COUNT;
 
                     // Initialise error number.
-                    // It is a global variable/ function and other operations
+                    // It is a global variable/function and other operations
                     // may have set some value that is not wanted here.
                     //
                     // CAUTION! Initialise the error number BEFORE calling
                     // the function that might cause an error.
-                    copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+                    errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
                     // Lock serial port mutex.
                     //
@@ -188,8 +189,8 @@ void receive_serial_port_character(void* p0, void* p1, void* p2, void* p3, void*
                     // error occurred; otherwise, it is minus one.
                     if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-// fwprintf(stdout, L"TEST receive serial port character c[0]: %i\n", c[0]);
-fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
+// fwprintf(stdout, L"TEST read serial port read character c[0]: %i\n", c[0]);
+fwprintf(stdout, L"TEST read serial port read character c: %i %c\n", c, c);
 
                         // The maximum comparison result.
                         int rmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -267,7 +268,7 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
                     } else if (e == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The number of bytes returned is zero.");
+                        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The number of bytes returned is zero.");
 
                         // Set loop break flag.
                         // CAUTION! If this was not done here,
@@ -278,23 +279,23 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
                         if (errno == EAGAIN) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The O_NONBLOCK flag is set for the file, so that read returned immediately without reading any data.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The O_NONBLOCK flag is set for the file, so that read returned immediately without reading any data.");
 
                         } else if (errno == EBADF) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The file descriptor is not valid, or is not open for reading.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The file descriptor is not valid, or is not open for reading.");
 
                         } else if (errno == EINTR) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The read function was interrupted by a signal while it was waiting for input.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The read function was interrupted by a signal while it was waiting for input.");
 
                         } else if (errno == EIO) {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. A hardware error occured.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. A hardware error occured.");
 
                         } else {
 
-                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. An unknown error occured.");
+                            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. An unknown error occured.");
                         }
 
                         // Set loop break flag.
@@ -305,7 +306,7 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
                 } else {
 
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is zero or negative.");
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The source serial port file descriptor is zero or negative.");
 
                     // Set loop break flag.
                     // CAUTION! If this was not done here,
@@ -315,7 +316,7 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
             } else {
 
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port file descriptor is null.");
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The source serial port file descriptor is null.");
 
                 // Set loop break flag.
                 // CAUTION! If this was not done here,
@@ -325,7 +326,7 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The source serial port mutex is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The source serial port mutex is null.");
 
             // Set loop break flag.
             // CAUTION! If this was not done here,
@@ -335,7 +336,7 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive serial port character. The minimum is greater than the maximum.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read serial port read. The minimum is greater than the maximum.");
 
         // Set loop break flag.
         // CAUTION! If this was not done here,
@@ -344,5 +345,5 @@ fwprintf(stdout, L"TEST receive serial port character c: %i %c\n", c, c);
     }
 }
 
-/* CHARACTER_SERIAL_PORT_RECEIVER_SOURCE */
+/* READ_SERIAL_PORT_READER_SOURCE */
 #endif

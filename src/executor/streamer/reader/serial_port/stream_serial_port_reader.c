@@ -26,21 +26,11 @@
 #ifndef STREAM_SERIAL_PORT_READER_SOURCE
 #define STREAM_SERIAL_PORT_READER_SOURCE
 
-#include <errno.h>
-#include <wchar.h>
-
-#include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/streamer/reader/serial_port/character_serial_port_reader.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../../executor/streamer/reader/serial_port/read_serial_port_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -68,7 +58,7 @@ void read_serial_port_stream(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        read_serial_port_character(p0, p1, p2, p3, p4, (void*) &c, (void*) &b);
+        read_serial_port_read(p0, p1, p2, p3, p4, (void*) &c, (void*) &b);
     }
 }
 

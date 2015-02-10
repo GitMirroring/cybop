@@ -34,7 +34,7 @@
 //?? #include "../../executor/streamer/reader/display/display_reader.c"
 #include "../../executor/streamer/reader/file/file_reader.c"
 #include "../../executor/streamer/reader/inline/inline_reader.c"
-//?? #include "../../executor/streamer/reader/serial_port/serial_port_reader.c"
+#include "../../executor/streamer/reader/serial_port/serial_port_reader.c"
 #include "../../executor/streamer/reader/socket/socket_reader.c"
 //?? #include "../../executor/streamer/reader/terminal/terminal_reader.c"
 #include "../../logger/logger.c"
@@ -99,7 +99,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            read_serial_port(p0, p1, p8, p9, p7);
+            read_serial_port(p0, p7, p8, p6);
         }
     }
 

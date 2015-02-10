@@ -55,7 +55,14 @@
  * CAUTION! Some file formats (like the German xDT format for
  * medical data exchange or HTTP request/response) contain both,
  * the model AND the properties, in one file. To cover these cases,
- * the model AND properties are processed TOGETHER, in just one function.
+ * the model AND properties are handed over as parametre and processed TOGETHER.
+ *
+ * Serial port:
+ *
+ * The multibyte character sequence is NOT decoded into a wide character array,
+ * since serial port data are mostly evaluated bytewise within a cybol application.
+ * For the same reason, the byte data are NOT deserialised into a cyboi-internal part.
+ * Therefore, these parametres are obsolete for serial port:  encoding, language, format.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item

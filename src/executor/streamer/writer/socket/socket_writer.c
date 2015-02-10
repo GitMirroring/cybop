@@ -52,7 +52,7 @@ void write_socket(void* p0, void* p1, void* p2) {
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The data position  and count remaining to start the transfer at.
+    // The data position and count remaining to start the transfer at.
     void* pos = *NULL_POINTER_STATE_CYBOI_MODEL;
     int rem = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The number of bytes transferred.
