@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/receiver/unix_terminal/character_unix_terminal_reader.c"
+#include "../../../../executor/streamer/reader/unix_terminal/character_unix_terminal_reader.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/modifier/overwriter/array_overwriter.c"

@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/unix_terminal/stream_unix_terminal_writer.c"
+#include "../../../../executor/streamer/writer/unix_terminal/stream_unix_terminal_writer.c"
 #include "../../../../logger/logger.c"
 
 /**

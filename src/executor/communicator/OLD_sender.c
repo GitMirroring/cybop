@@ -29,7 +29,6 @@
 #include "../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/communicator/sender/display/display_sender.c"
-#include "../../executor/communicator/sender/file/file_sender.c"
 #include "../../executor/communicator/sender/serial_port/serial_port_sender.c"
 #include "../../executor/communicator/sender/signal/signal_sender.c"
 #include "../../executor/communicator/sender/terminal/terminal_sender.c"
@@ -88,7 +87,7 @@ void OLD_send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            send_file(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p6);
+            send_data(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
         }
     }
 

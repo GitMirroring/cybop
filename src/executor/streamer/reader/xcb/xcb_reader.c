@@ -30,8 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/x_window_system/event_x_window_system_reader.c"
-#include "../../../../executor/communicator/receiver/x_window_system/process_x_window_system_reader.c"
+#include "../../../../executor/streamer/reader/x_window_system/event_x_window_system_reader.c"
+#include "../../../../executor/streamer/reader/x_window_system/process_x_window_system_reader.c"
 #include "../../../../executor/representer/deserialiser.c"
 #include "../../../../logger/logger.c"
 

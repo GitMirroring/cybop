@@ -35,11 +35,11 @@
 #ifdef __APPLE__
     //?? Add cocoa support for Apple
 #elif WIN32
-    #include "../../../../executor/communicator/sender/win32_display/win32_display_writer.c"
+    #include "../../../../executor/streamer/writer/win32_display/win32_display_writer.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_writer.c"
+    #include "../../../../executor/streamer/writer/x_window_system/x_window_system_writer.c"
 #else
-    #include "../../../../executor/communicator/sender/x_window_system/x_window_system_writer.c"
+    #include "../../../../executor/streamer/writer/x_window_system/x_window_system_writer.c"
 #endif
 
 /**

@@ -31,13 +31,13 @@
 #include "../../../../logger/logger.c"
 
 #ifdef __APPLE__
-    #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_reader.c"
+    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
 #elif WIN32
-    #include "../../../../executor/communicator/receiver/win32_console/win32_console_reader.c"
+    #include "../../../../executor/streamer/reader/win32_console/win32_console_reader.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_reader.c"
+    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
 #else
-    #include "../../../../executor/communicator/receiver/unix_terminal/unix_terminal_reader.c"
+    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
 #endif
 
 /**

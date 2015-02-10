@@ -29,9 +29,9 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../executor/communicator/receiver/win32_console/key_process_win32_console_reader.c"
-#include "../../../../executor/communicator/receiver/win32_console/mouse_process_win32_console_reader.c"
-#include "../../../../executor/communicator/receiver/win32_console/window_buffer_size_process_win32_console_reader.c"
+#include "../../../../executor/streamer/reader/win32_console/key_process_win32_console_reader.c"
+#include "../../../../executor/streamer/reader/win32_console/mouse_process_win32_console_reader.c"
+#include "../../../../executor/streamer/reader/win32_console/window_buffer_size_process_win32_console_reader.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -31,7 +31,6 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/communicator/receiver/display/display_receiver.c"
-#include "../../executor/communicator/receiver/file/file_receiver.c"
 #include "../../executor/communicator/receiver/serial_port/serial_port_receiver.c"
 #include "../../executor/communicator/receiver/terminal/terminal_receiver.c"
 #include "../../executor/communicator/receiver.c"
@@ -92,7 +91,7 @@ void OLD_receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            receive_file(p0, p1, p2, p3, p4, p5, p6, p10, p11, p12);
+            receive_data(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
         }
     }
 

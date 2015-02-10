@@ -29,108 +29,178 @@
 #include <stdio.h>
 
 #include "../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
-#include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/terminal/stream_terminal_model.c"
+#include "../../../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
+#include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/receiver/file/stream_file_reader.c"
+#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../../../../executor/converter/decoder.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/representer/deserialiser.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/streamer/reader/file/content_file_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads via file into the destination.
+ * Reads file with the given name.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source model data (file name)
- * @param p3 the source model count
- * @param p4 the source properties data (binary mode etc.)
- * @param p5 the source properties count
- * @param p6 the knowledge memory part
- * @param p7 the format
- * @param p8 the language
- * @param p9 the encoding
+ * @param p0 the destination item
+ * @param p1 the source model data (file name)
+ * @param p2 the source model count
+ * @param p3 the source properties data (binary mode etc.)
+ * @param p4 the source properties count
+ * @param p5 the knowledge memory part
  */
-void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read file.");
 
-    // The encoded message item.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoded message item data, count.
-    void* ed = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ec = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The file.
+    FILE* f = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate encoded message item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Allocate decoded message item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    // Read byte data via channel.
-    read_file_stream(e, p2, p3, p4, p5, p6);
+        compare_all_array((void*) &r, p1, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) STANDARD_INPUT_STREAM_TERMINAL_MODEL_COUNT);
 
-    // Get encoded message item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &ed, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ec, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    // Decode data via encoding.
-    decode(d, ed, ec, p9);
+            // The given string is not a file name, but specifies the "standard_input".
+            f = stdin;
 
-    // Get decoded message item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+            read_file_content(p0, (void*) f);
+        }
+    }
 
-/*??
-fwprintf(stdout, L"\nTEST read file ec: %i\n", *((int*) ec));
-fwprintf(stdout, L"TEST read file encoding: %i\n", *((int*) p9));
-fwprintf(stdout, L"TEST read file dc: %i\n", *((int*) dc));
-*/
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    // Deserialise data via type (language).
-    deserialise(p0, p1, dd, dc, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8);
+        // If the given name does not match the standard input,
+        // then interpret it as file name.
 
-/*??
-//?? TEST BEGIN
-void* testmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* testmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* testpd = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* testpc = *NULL_POINTER_STATE_CYBOI_MODEL;
-copy_array_forward((void*) &testmd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-copy_array_forward((void*) &testmc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-copy_array_forward((void*) &testpd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-copy_array_forward((void*) &testpc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST read file testmc: %i\n", *((int*) testmc));
-//?? fwprintf(stdout, L"TEST read file testmd: %ls\n", (wchar_t*) testmd);
-//?? fwprintf(stdout, L"TEST read file testpc: %i\n", *((int*) testpc));
-fwprintf(stdout, L"TEST read file testpd: %ls\n", (wchar_t*) testpd);
-//?? TEST END
-*/
+        // The terminated file name item.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The terminated file name item data.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The mode item.
+        void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The mode item data.
+        void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The binary mode flag part.
+        void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The binary mode flag part model item.
+        void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The binary mode flag part model item data.
+        void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Deallocate byte message item.
-    deallocate_item((void*) &e, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    // Deallocate decoded message item.
-    deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Get binary mode flag part.
+        get_part_knowledge((void*) &b, p3, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5);
+        // Get binary mode flag part model item.
+        copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+        // Get binary mode flag part model item data.
+        copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        // Allocate terminated file name item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Allocate mode item.
+        // CAUTION! Do NOT use wide characters here.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Encode wide character name into multibyte character array.
+        encode_utf_8(t, p1, p2);
+        // Add null termination character.
+        append_item_element(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Add read only character by default.
+        append_item_element(m, (void*) LATIN_SMALL_LETTER_R_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        if (bmd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* bmdi = (int*) bmd;
+
+            if (*bmdi != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // Add binary mode character.
+                append_item_element(m, (void*) LATIN_SMALL_LETTER_B_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            }
+
+        } else {
+
+            // The "binary" property was not given in the cybol source,
+            // so that the file will be opened in text mode.
+            // This is the default.
+        }
+
+        // Add null termination character by default.
+        append_item_element(m, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        // Get terminated file name item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // Get mode item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        // Open file.
+        //
+        // CAUTION! The file name CANNOT be handed over as is.
+        // CYBOI strings are NOT terminated with the null character '\0'.
+        // Since 'fopen' expects a null terminated string, the termination character
+        // must be added to the string before that is used to open the file.
+        //
+        // CAUTION! The mode string can also include the letter 'b'
+        // either as a last character or as a character between.
+        // This is strictly for compatibility with C89 and has no effect;
+        // the 'b' is ignored on all POSIX conforming systems, including Linux.
+        // Other systems may treat text files and binary files differently.
+        // Since cyboi is also compiled for windows using "mingw",
+        // and mingw replaces "carriage return" when opening a file in text mode,
+        // the 'b' character is added to the mode here.
+        //
+        // http://man7.org/linux/man-pages/man3/fopen.3.html
+        //
+        // Example:
+        //
+        // This problem became obvious when opening xDT German medical data files.
+        // Following the xDT standard, they are to use CR+LF as end of line.
+        // Parsing would not work anymore, if CR characters got replaced
+        // on opening the file.
+        //
+        f = fopen((char*) td, (char*) md);
+
+        if (f != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            read_file_content(p0, (void*) f);
+
+            // Close file.
+            // CAUTION! Check file for null pointer above
+            // in order to avoid a segmentation fault here!
+            fclose(f);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read file. The file descriptor is null.");
+        }
+
+        // Deallocate terminated file name item.
+        deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        // Deallocate mode item.
+        deallocate_item((void*) &m, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    }
 }
 
 /* FILE_READER_SOURCE */

@@ -52,6 +52,11 @@
  * - decode: optional, if encoding is given
  * - deserialise: mandatory, in order to correctly interpret data
  *
+ * CAUTION! Some file formats (like the German xDT format for
+ * medical data exchange or HTTP request/response) contain both,
+ * the model AND the properties, in one file. To cover these cases,
+ * the model AND properties are processed TOGETHER, in just one function.
+ *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the source model data (e.g. a filename or socket number)
@@ -125,7 +130,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     //
     receive_select((void*) &b, (void*) &s, p13);
     // Read message.
-    receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p7, p8, p9, p13);
+    receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
     // Extract message.
 //??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
     // Decode message.

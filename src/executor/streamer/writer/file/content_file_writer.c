@@ -26,16 +26,15 @@
 #ifndef CONTENT_FILE_WRITER_SOURCE
 #define CONTENT_FILE_WRITER_SOURCE
 
-#include <stdio.h>
-
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/file/element_file_writer.c"
 #include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/streamer/writer/file/element_file_writer.c"
 #include "../../../../logger/logger.c"
-#include "../../../../variable/reallocation_factor.c"
 
 /**
  * Writes source into file content.

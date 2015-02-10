@@ -33,11 +33,11 @@
 #ifdef __APPLE__
     //?? Add Cocoa support
 #elif WIN32
-    #include "../../../../executor/communicator/receiver/win32_display/win32_display_reader.c"
+    #include "../../../../executor/streamer/reader/win32_display/win32_display_reader.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/receiver/x_window_system/x_window_system_reader.c"
+    #include "../../../../executor/streamer/reader/x_window_system/x_window_system_reader.c"
 #else
-    #include "../../../../executor/communicator/receiver/x_window_system/x_window_system_reader.c"
+    #include "../../../../executor/streamer/reader/x_window_system/x_window_system_reader.c"
 #endif
 
 /**

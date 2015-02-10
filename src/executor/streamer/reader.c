@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 //?? #include "../../executor/streamer/reader/display/display_reader.c"
-//?? #include "../../executor/streamer/reader/file/file_reader.c"
+#include "../../executor/streamer/reader/file/file_reader.c"
 #include "../../executor/streamer/reader/inline/inline_reader.c"
 //?? #include "../../executor/streamer/reader/serial_port/serial_port_reader.c"
 #include "../../executor/streamer/reader/socket/socket_reader.c"
@@ -50,12 +50,13 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the internal memory data
- * @param p6 the minimum number of bytes to be received in one call of the read function
- * @param p7 the maximum number of bytes to be received in one call of the read function
- * @param p8 the channel
+ * @param p5 the knowledge memory part
+ * @param p6 the internal memory data
+ * @param p7 the minimum number of bytes to be received in one call of the read function
+ * @param p8 the maximum number of bytes to be received in one call of the read function
+ * @param p9 the channel
  */
-void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read.");
 
@@ -64,7 +65,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,17 +75,17 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) FILE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) FILE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            read_file(p0, p1, p2, p3, p4, p5, p6, p10, p11, p12);
+            read_file(p0, p1, p2, p3, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -94,7 +95,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) SERIAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) SERIAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -104,7 +105,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) SOCKET_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) SOCKET_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -114,7 +115,7 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p8, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p9, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

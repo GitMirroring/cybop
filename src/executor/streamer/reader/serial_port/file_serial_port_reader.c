@@ -39,7 +39,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/receiver/serial_port/stream_serial_port_reader.c"
+#include "../../../../executor/streamer/reader/serial_port/stream_serial_port_reader.c"
 #include "../../../../logger/logger.c"
 
 /**

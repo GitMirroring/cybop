@@ -40,7 +40,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/communicator/sender/serial_port/file_serial_port_writer.c"
+#include "../../../../executor/streamer/writer/serial_port/file_serial_port_writer.c"
 #include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
