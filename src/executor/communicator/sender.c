@@ -63,8 +63,8 @@
  * @param p10 the encoding
  * @param p11 the source part (pointer reference)
  * @param p12 the clear flag
- * @param p13 the new line flag
- * @param p14 the null termination flag
+ * @param p13 the newline flag
+ * @param p14 the termination flag
  * @param p15 the channel
  */
 void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
@@ -133,8 +133,15 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // This function knows how to handle it, depending on the given language.
     //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p12, p13, p7, p8, p9);
+
+    //?? TODO: The newline flag causes a newline to be added at the end of each part.
+    //?? The lineending, on the other hand, gets added just once at the end of the whole message.
+    //?? It might be needed for serial port communication.
+    // Add lineending character.
+//??    append_item_element(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
     // Encode message.
-    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10);
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10, p14);
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
     // Write message.

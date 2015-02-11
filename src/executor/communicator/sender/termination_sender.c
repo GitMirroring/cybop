@@ -1,0 +1,72 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef TERMINATION_SENDER_SOURCE
+#define TERMINATION_SENDER_SOURCE
+
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../executor/modifier/appender/item_appender.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Appends a null termination to the destination.
+ *
+ * @param p0 the destination item (of type "char")
+ * @param p1 the termination flag
+ */
+void send_termination(void* p0, void* p1) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send termination.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // CAUTION! If the termination flag is null,
+    // then the result remains UNTOUCHED.
+    compare_integer_unequal((void*) &r, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Add null termination character.
+        //
+        // CAUTION! Appending a wide character null termination to the
+        // serialised wide character item above does NOT make sense,
+        // since it WON'T get converted into an ascii character null
+        // termination of the resulting multibyte character sequence.
+        // The encode function above only converts the actual characters
+        // whose COUNT is given, but NOT a null termination character.
+        // Therefore, the null termination is only added here, as ascii character.
+        append_item_element(p0, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }
+}
+
+/* TERMINATION_SENDER_SOURCE */
+#endif

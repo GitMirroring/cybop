@@ -29,8 +29,11 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/communicator/sender/termination_sender.c"
 #include "../../../executor/converter/encoder.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
@@ -39,14 +42,18 @@
 /**
  * Encodes source into destination.
  *
+ * CAUTION! The termination gets ONLY appended at the end,
+ * if the corresponding flag is set AND an encoding is given.
+ *
  * @param p0 the destination data (pointer reference)
  * @param p1 the destination count (pointer reference)
  * @param p2 the buffer item
  * @param p3 the source data
  * @param p4 the source count
  * @param p5 the encoding
+ * @param p6 the termination flag
  */
-void send_encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void send_encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -55,9 +62,14 @@ void send_encode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         // The item data, count.
         void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Encode message.
         encode(p2, p3, p4, p5);
+
+        // Append termination.
+        send_termination(p2, p6);
 
         // Get item data, count.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
