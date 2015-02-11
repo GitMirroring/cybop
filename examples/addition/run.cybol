@@ -7,7 +7,6 @@
     </part>
     <part name="initialise_result" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="inline"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>

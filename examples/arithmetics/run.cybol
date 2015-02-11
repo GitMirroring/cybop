@@ -8,7 +8,6 @@
     <!-- CAUTION! This initialisation IS NECESSARY since otherwise, the result number would be empty (not zero, just plain empty without space in the array). -->
     <part name="initialise_result" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="inline"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
         <property name="sender" channel="inline" format="text/plain" model="0"/>
