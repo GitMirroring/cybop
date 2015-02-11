@@ -29,45 +29,33 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/streamer/writer/terminal/standard_terminal_writer.c"
+#include "../../../../executor/streamer/writer/terminal/file_terminal_writer.c"
 #include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
  * Writes the source to the terminal.
  *
- * @param p0 the source model data
- * @param p1 the source model count
- * @param p2 the source properties data
- * @param p3 the source properties count
- * @param p4 the knowledge memory part
- * @param p5 the format
- * @param p6 the language indentation
- * @param p7 the language
- * @param p8 the encoding
- * @param p9 the internal memory data
- * @param p10 the clear flag
- * @param p11 the newline flag
+ * @param p0 the source data (null-terminated)
+ * @param p1 the source count
+ * @param p2 the internal memory
  */
-void write_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void write_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write terminal.");
 
 #ifdef __APPLE__
-    // Process all other cases in the standard way.
-    write_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    write_terminal_file(p0, p1, p2);
 #elif WIN32
     // Serialise tui DIRECTLY using win32 console function calls.
     // Therefore, encoding and sending are superfluous.
     // A destination item does NOT need to be handed over,
     // which is why the first parametre is NULL.
-    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
+//??    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
 #elif GNU_LINUX_OPERATING_SYTEM
-    // Process all other cases in the standard way.
-    write_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    write_terminal_file(p0, p1, p2);
 #else
-    // Process all other cases in the standard way.
-    write_terminal_standard(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+    write_terminal_file(p0, p1, p2);
 #endif
 }
 

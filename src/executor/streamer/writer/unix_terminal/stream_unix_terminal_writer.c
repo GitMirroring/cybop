@@ -33,8 +33,6 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -91,7 +89,7 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             // The placeholder %ls would be WRONG here as it expects data
             // of type "wchar_t".
             int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
-            
+
             // Test error value.
             //
             // CAUTION! The macro WEOF is an integer value that is

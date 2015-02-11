@@ -28,78 +28,35 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/streamer/reader/unix_terminal/file_unix_terminal_reader.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/streamer/reader/unix_terminal/stream_unix_terminal_reader.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Reads data via unix terminal.
+ * Reads the destination from unix terminal.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the format
- * @param p3 the language
- * @param p4 the internal memory data
+ * @param p0 the destination item
+ * @param p1 the internal memory data
  */
-void read_unix_terminal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void read_unix_terminal(void* p0, void* p1) {
 
-/*?? TEST ONLY! Commented out, since error occured on computers without path "/Users/markushinkelmann/".
-    FILE* pFile = fopen("/Users/markushinkelmann/log.log","a+");
-    fwprintf(pFile, L"Recive unix terminal");
-    fclose (pFile);
-*/
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal.");
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal.");
+    // The file descriptor.
+    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The mutex.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The decoded message item.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The decoded message item data, count.
-    void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // Get file descriptor.
+    copy_array_forward((void*) &f, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get mutex.
+    copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    // Allocate decoded message item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Read byte data via channel.
-    read_unix_terminal_file(d, p4);
-
-    // CAUTION! The multibyte character sequence is converted to
-    // wide character internally (in glibc function "fgetwc").
-    // Calling the "decode" or "decode_utf_8" function
-    // is therefore NOT necessary here!
-
-    // Get decoded message item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-/*??
-fwprintf(stdout, L"TEST read unix terminal *dc: %i\n", *((int*) dc));
-fwprintf(stdout, L"TEST read unix terminal dd: %ls\n", (wchar_t*) dd);
-*/
-
-    // Deserialise data.
-    deserialise(p0, p1, dd, dc, *NULL_POINTER_STATE_CYBOI_MODEL, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p2, p3);
-
-/*?? TEST only! Delete later.
-void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
-copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST read unix terminal *testc: %i\n", *((int*) testc));
-fwprintf(stdout, L"TEST read unix terminal testd: %ls\n", (wchar_t*) testd);
-*/
-
-    // Deallocate decoded message item.
-    deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    read_unix_terminal_stream(p0, f, m);
 }
 
 /* UNIX_TERMINAL_READER_SOURCE */

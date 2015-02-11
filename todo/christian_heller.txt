@@ -14,7 +14,10 @@
 WUI
 ___
 
-        * Complete new communicator- and streamer files for channel "terminal"
+        * Debug new communicator- and streamer files for channel "terminal"
+            - read_unix_terminal: Debug "tui_control" app; wchar_t used? should be char only
+            - write_terminal: Add null termination to anything sent to unix_terminal (since fwprintf is used and relies on null ending)
+
         * Complete new communicator- and streamer files for channel "display"
         * Complete new communicator- and streamer files for channel "signal"
         * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"

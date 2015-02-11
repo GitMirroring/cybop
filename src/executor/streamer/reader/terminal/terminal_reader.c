@@ -43,33 +43,23 @@
 /**
  * Reads data via terminal.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source root window data
- * @param p3 the source root window count
- * @param p4 the knowledge memory part
- * @param p5 the internal memory data
- * @param p6 the format
- * @param p7 the language
+ * @param p0 the destination item
+ * @param p1 the internal memory data
  */
-void read_terminal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_terminal(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
-/*?? TEST ONLY! Commented out, since error occured on computers without path "/Users/markushinkelmann/".
-    FILE* pFile = fopen("/Users/markushinkelmann/log.log", "a+");
-    fwprintf(pFile, L"TEST post: Recive Data: read_terminal");
-    fclose (pFile);
-*/
-
 #ifdef __APPLE__
-    read_unix_terminal(p0, p1, p6, p7, p5);
+    read_unix_terminal(p0, p1);
 #elif WIN32
-    read_win32_console(p0, p1, p2, p3, p4, p5, p6, p7);
+    //?? CAUTION! Possibly move this functionality into "win32_console_deserialiser".
+    //?? See "write_terminal"!
+//??    read_win32_console(p0, p1);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    read_unix_terminal(p0, p1, p6, p7, p5);
+    read_unix_terminal(p0, p1);
 #else
-    read_unix_terminal(p0, p1, p6, p7, p5);
+    read_unix_terminal(p0, p1);
 #endif
 }
 

@@ -21,6 +21,7 @@
 2015-02-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new file "termination_sender.c" to directory "executor/communicator/sender/"
+        * Complete new communicator- and streamer files for channel "terminal"
 
 2015-02-10  Christian Heller  <christian.heller@tuxtax.de>
 
