@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_WRITER_SOURCE
-#define X_WINDOW_SYSTEM_WRITER_SOURCE
+#ifndef XCB_WRITER_SOURCE
+#define XCB_WRITER_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -36,11 +36,11 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Updates the x window system window.
+ * Updates the xcb window.
  *
  * @param p0 the internal memory data
  */
-void write_x_window_system(void* p0) {
+void write_xcb(void* p0) {
 
     // The mutex.
 //??    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -52,12 +52,12 @@ void write_x_window_system(void* p0) {
     // Get mutex.
 //??    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get connexion.
-    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get window.
     copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST write x window system window c: %i\n", c);
-//?? fwprintf(stdout, L"TEST write x window system window w: %i\n", w);
+//?? fwprintf(stdout, L"TEST write xcb window c: %i\n", c);
+//?? fwprintf(stdout, L"TEST write xcb window w: %i\n", w);
 
     // CAUTION! This test is necessary to avoid a "Segmentation fault"!
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -65,9 +65,9 @@ void write_x_window_system(void* p0) {
         // CAUTION! This test is necessary to avoid a "Segmentation fault"!
         if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write x window system.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write xcb.");
 
-            // Lock x window system mutex.
+            // Lock xcb mutex.
 //??            pthread_mutex_lock((pthread_mutex_t*) mt);
 
 /*??
@@ -93,19 +93,19 @@ void write_x_window_system(void* p0) {
             //?? so that the window does not disappear too fast.
 //??            pause();
 
-            // Unlock x window system mutex.
+            // Unlock xcb mutex.
 //??            pthread_mutex_unlock((pthread_mutex_t*) mt);
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write x window system. The window is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The window is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write x window system. The connexion is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write xcb. The connexion is null.");
     }
 }
 
-/* X_WINDOW_SYSTEM_WRITER_SOURCE */
+/* XCB_WRITER_SOURCE */
 #endif

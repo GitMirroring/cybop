@@ -36,31 +36,11 @@
  * Senses win32 display messages.
  *
  * @param p0 the interrupt request
+ * @param p1 the internal memory data
  */
-void sense_win32_display(void* p0) {
+void sense_win32_display(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
-
-    // The message structure.
     //
-    // It just serves as placeholder here, since
-    // the message is read and removed only later,
-    // in the main thread.
-    MSG msg;
-    // The window.
-    //
-    // CAUTION! It is initialised with null,
-    // so that not only the main window's messages,
-    // but all messages of the thread are received.
-    //
-    // This is important if using a dialogue window
-    // besides the main window, for example.
-    // CYBOI will then have to find out internally,
-    // to which window a message belongs.
-    // It thus has to keep a list of existing windows
-    // in a container structure stored in internal memory.
-    HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // CAUTION! Moving the following code to an own thread in files
     // "win32_display_sensor.c" and "message_win32_display_sensor.c"
     // does NOT work, since the "PeekMessage" function
@@ -71,13 +51,60 @@ void sense_win32_display(void* p0) {
     // (to which all windows belong) would never get recognised.
     // Therefore, this main thread has to check for messages.
     //
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense win32 display.");
+
+    // The event message.
+    //
+    // It just serves as placeholder here, since
+    // the message is read and removed only later,
+    // in the main thread.
+    void* msg = malloc(sizeof (MSG));
+    // The window.
+    //
+    // CAUTION! It is initialised with null,
+    // so that not only the main window's messages,
+    // but all messages of the thread are received.
+    //
+    // This is important if using a dialogue window
+    // besides the main window, for example.
+    // CYBOI will then have to find out internally,
+    // to which window a message belongs.
+    // It thus has to keep a list of existing windows.
+    HWND wnd = (HWND) *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    //
+    // Get message from application's message queue.
+    //
+    // For the last argument, one can choose between:
+    // - PM_NOREMOVE: just peek ahead and leave message in queue;
+    // - PM_REMOVE: finally remove message from queue.
+    //
+    // CAUTION! Since xcb for the x window system under linux does NOT
+    // offer peeking ahead, the message gets removed there and
+    // therefore has to be stored in internal memory.
+    // The win32 functions DO ALLOW peeking ahead.
+    // However, in order to have a UNIFORM HANDLING,
+    // it was decided to REMOVE the message here as well,
+    // just as is done in file "xcb_sensor.c".
+    // The event stored in the internal memory gets processed
+    // later, within the deserialiser.
+    //
+    // Meaning of the return value:
+    // - NONZERO (TRUE): a message IS available;
+    // - ZERO (FALSE): there is NO message available.
+    //
     // CAUTION! The message MUST NOT be removed here,
     // since it has to be read again in a "receive" function,
     // where the actual processing happens.
     // This call here is just made to detect available messages.
-    BOOL b = PeekMessage(&msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_NOREMOVE);
+    //
+    BOOL b = PeekMessage((MSG*) msg, wnd, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (UINT) *NUMBER_0_INTEGER_STATE_CYBOI_MODEL, PM_REMOVE);
 
     if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+        // Store event message in internal memory.
+        copy_array_forward(p1, (void*) &msg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // CAUTION! Setting a mutex is NOT necessary here,
         // since this is the main thread and no other threads

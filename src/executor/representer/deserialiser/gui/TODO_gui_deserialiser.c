@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DISPLAY_RECEIVER_SOURCE
-#define DISPLAY_RECEIVER_SOURCE
+#ifndef DISPLAY_READER_SOURCE
+#define DISPLAY_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,15 +33,15 @@
 #ifdef __APPLE__
     //?? Add Cocoa support
 #elif WIN32
-    #include "../../../../executor/communicator/receiver/win32_display/win32_display_receiver.c"
+    #include "../../../../executor/streamer/reader/win32_display/win32_display_reader.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/communicator/receiver/x_window_system/x_window_system_receiver.c"
+    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
 #else
-    #include "../../../../executor/communicator/receiver/x_window_system/x_window_system_receiver.c"
+    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
 #endif
 
 /**
- * Receives user input to the display.
+ * Reads user input to the display.
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
@@ -52,20 +52,20 @@
  * @param p6 the format
  * @param p7 the language
  */
-void receive_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive display.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read display.");
 
 #ifdef __APPLE__
     //?? Add Cocoa support
 #elif WIN32
-    receive_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
+    read_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    receive_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
+    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
 #else
-    receive_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
+    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
 #endif
 }
 
-/* DISPLAY_RECEIVER_SOURCE */
+/* DISPLAY_READER_SOURCE */
 #endif

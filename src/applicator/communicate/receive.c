@@ -29,7 +29,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/communication/receive_communication_logic_cybol_name.c"
-#include "../../executor/communicator/OLD_receiver.c"
+#include "../../executor/communicator/receiver.c"
 #include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
 #include "../../logger/logger.c"
 
@@ -191,7 +191,7 @@ void apply_receive(void* p0, void* p1, void* p2, void* p3) {
     // Get maximum part model item data.
     copy_array_forward((void*) &mamd, mam, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    OLD_receive_data(mm, mp, smd, smc, spd, spc, p2, p3, mimd, mamd, fmd, lmd, emd, cmd);
+    receive_data(mm, mp, smd, smc, spd, spc, p2, p3, mimd, mamd, fmd, lmd, emd, cmd);
 }
 
 /* RECEIVE_SOURCE */

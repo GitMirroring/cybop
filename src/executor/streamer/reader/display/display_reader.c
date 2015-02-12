@@ -28,43 +28,42 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
-    //?? Add Cocoa support
-#elif WIN32
-    #include "../../../../executor/streamer/reader/win32_display/win32_display_reader.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/reader/x_window_system/x_window_system_reader.c"
-#else
-    #include "../../../../executor/streamer/reader/x_window_system/x_window_system_reader.c"
-#endif
-
 /**
- * Reads user input to the display.
+ * Reads display input event into destination.
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source root window data
- * @param p3 the source root window count
- * @param p4 the knowledge memory part
- * @param p5 the internal memory data
- * @param p6 the format
- * @param p7 the language
+ * @param p0 the destination item
+ * @param p1 the internal memory data
  */
-void read_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void read_display(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read display.");
 
-#ifdef __APPLE__
-    //?? Add Cocoa support
-#elif WIN32
-    read_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    read_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
-#else
-    read_x_window_system(p0, p1, p2, p3, p4, p5, p6, p7);
-#endif
+    // The event.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get event from internal memory.
+    //
+    // CAUTION! The file "wait_checker.c" polls for
+    // events in the main thread and stores a found event
+    // in internal memory, before it can be processed here.
+    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+
+    // Reset event in internal memory.
+    // CAUTION! This IS NECESSARY since otherwise,
+    // the same old event would be processed again and again.
+    copy_array_forward(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+    // Append event to destination item.
+    append_item_element(p0, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* DISPLAY_READER_SOURCE */

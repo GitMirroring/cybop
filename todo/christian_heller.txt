@@ -14,14 +14,15 @@
 WUI
 ___
 
-        * Debug new communicator- and streamer files for channel "terminal"
-            - read_unix_terminal: Debug "tui_control" app; wchar_t used? should be char only
-            - write_terminal: Add null termination to anything sent to unix_terminal (since fwprintf is used and relies on null ending)
+        * Complete new communicator- and streamer files for channel "display" (sender and writer)
 
-        * Complete new communicator- and streamer files for channel "display"
         * Complete new communicator- and streamer files for channel "signal"
         * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"
         * Move signal retrieval function call from "controller/checker/signal_checker.c" to new signal receiver
+
+        * Debug new communicator- and streamer files for channel "terminal"
+            - read_unix_terminal: Debug "tui_control" app; wchar_t used? should be char only
+            - write_terminal: Add null termination to anything sent to unix_terminal (since fwprintf is used and relies on null ending)
 
         * Continue file "handler.cybol"
         * Reactivate http parser
@@ -139,6 +140,8 @@ _____________
 
 GUI
 ___
+
+        * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
 
         * Create io entry array structure for display i/o at startup and destroy at shutdown
 

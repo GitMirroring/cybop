@@ -451,3 +451,19 @@ encoding="utf-8,gzip"
 The following, on the other hand, IS POSSIBLE:
 encoding="utf-8" compression="tar|gzip|base64"
 
+Sensing Threads
+_______________
+
+Are not used anymore, due to different handling and difficulties
+in the various operating systems.
+
+// CAUTION! Moving the following code to an own thread in files
+// "win32_display_sensor.c" and "message_win32_display_sensor.c"
+// does NOT work, since the "PeekMessage" function
+// checks the message queue of the CALLING thread ONLY.
+//
+// If it was called within an external "sensing" thread,
+// then messages of the cyboi main thread
+// (to which all windows belong) would never get recognised.
+// Therefore, this main thread has to check for messages.
+

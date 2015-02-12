@@ -31,6 +31,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/communicator/receiver/deallocate_receiver.c"
 #include "../../executor/communicator/receiver/decode_receiver.c"
 #include "../../executor/communicator/receiver/deserialise_receiver.c"
 //?? #include "../../executor/communicator/receiver/extract_receiver.c"
@@ -83,6 +84,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
+    // The neutral message, e.g. an xcb display event.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The compressed message item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoded message item.
@@ -105,6 +108,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Otherwise, they would be deallocated before being used.
     //
 
+    // Allocate neutral message item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     // Allocate compressed message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
@@ -126,16 +133,19 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // Select buffer.
     //
-    // CAUTION! This is important for models which are already
-    // available as "wchar_t", i.e. those given via channel "inline".
-    // These do NOT have to get decoded below.
+    // CAUTION! This is important for channel:
     //
-    // CAUTION! Using the given "encoding" parametre is NOT helpful, since:
+    // - inline: whose models are already available as wide character,
+    //   and do NOT have to get decoded below, so that wchar_t is used;
+    // - display: which returns an event as message with special structure,
+    //   which is why a simple void* gets used as pointer to that event message.
+    //
+    // CAUTION! Using the "encoding" parametre as criterion is NOT helpful, since:
     // - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
     // - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
     // Therefore, the correct buffer gets selected via CHANNEL here.
     //
-    receive_select((void*) &b, (void*) &s, p13);
+    receive_select((void*) &b, (void*) &n, (void*) &s, p13);
     // Read message.
     receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
     // Extract message.
@@ -149,7 +159,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // This function knows how to handle it, depending on the given language.
     //
     receive_deserialise(p0, p1, ad, ac, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11);
+    // Deallocate display event.
+    receive_deallocate(b, p13);
 
+    // Deallocate neutral message item.
+    deallocate_item((void*) &n, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate compressed message item.
     deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate encoded message item.

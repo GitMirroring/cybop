@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete new communicator- and streamer files for channel "display" (receiver and reader)
+        * Adapt gui/xcb/win32_display sensor
+
 2015-02-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new file "termination_sender.c" to directory "executor/communicator/sender/"

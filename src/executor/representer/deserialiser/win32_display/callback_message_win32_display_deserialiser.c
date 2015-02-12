@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef EVENT_WIN32_DISPLAY_RECEIVER_SOURCE
-#define EVENT_WIN32_DISPLAY_RECEIVER_SOURCE
+#ifndef EVENT_WIN32_DISPLAY_READER_SOURCE
+#define EVENT_WIN32_DISPLAY_READER_SOURCE
 
 #include <windowsx.h>
 
@@ -87,11 +87,11 @@
  * @param p the additional message parametres of type WPARAM
  * @param l the additional message parametres of type LPARAM
  */
-LRESULT CALLBACK receive_win32_display_message_callback(HWND w, UINT m, WPARAM wp, LPARAM lp) {
+LRESULT CALLBACK deserialise_win32_display_message_callback(HWND w, UINT m, WPARAM wp, LPARAM lp) {
 
     LRESULT r = (LRESULT) 0;
 
-fwprintf(stdout, L"TEST receive win32 callback: %i\n", r);
+fwprintf(stdout, L"TEST deserialise win32 callback: %i\n", r);
 
     if (m == WM_PAINT) {
 
@@ -141,5 +141,5 @@ fwprintf(stdout, L"TEST receive win32 callback: %i\n", r);
     return r;
 }
 
-/* EVENT_WIN32_DISPLAY_RECEIVER_SOURCE */
+/* EVENT_WIN32_DISPLAY_READER_SOURCE */
 #endif

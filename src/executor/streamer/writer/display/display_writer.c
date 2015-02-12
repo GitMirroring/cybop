@@ -37,9 +37,9 @@
 #elif WIN32
     #include "../../../../executor/streamer/writer/win32_display/win32_display_writer.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/writer/x_window_system/x_window_system_writer.c"
+    #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
 #else
-    #include "../../../../executor/streamer/writer/x_window_system/x_window_system_writer.c"
+    #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
 #endif
 
 /**
@@ -66,9 +66,9 @@ void write_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 #elif WIN32
     write_win32_display(p7);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    write_x_window_system(p7);
+    write_xcb(p7);
 #else
-    write_x_window_system(p7);
+    write_xcb(p7);
 #endif
 
 }

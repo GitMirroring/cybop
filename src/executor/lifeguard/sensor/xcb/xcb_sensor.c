@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef X_WINDOW_SYSTEM_SENSOR_SOURCE
-#define X_WINDOW_SYSTEM_SENSOR_SOURCE
+#ifndef XCB_SENSOR_SOURCE
+#define XCB_SENSOR_SOURCE
 
 #include <xcb/xcb.h>
 
@@ -36,36 +36,64 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 
 /**
- * Senses x window system messages.
+ * Senses xcb x window system messages.
  *
  * @param p0 the interrupt request
  * @param p1 the internal memory data
  */
-void sense_x_window_system(void* p0, void* p1) {
+void sense_xcb(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense x window system.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense xcb.");
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get connexion.
-    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_X_WINDOW_SYSTEM_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
+        //
         // Get next event available from the server.
         // If none is available, NULL gets returned.
         //
+        // There are two ways to read events:
+        // - blocking: xcb_wait_for_event
+        // - non-blocking: xcb_poll_for_event
+        //
+        // The "xcb_wait_for_event" function blocks until an event
+        // is queued in the x server, then dequeues it from the
+        // queue, then returns it as a newly allocated structure.
+        //
+        // The "xcb_poll_for_event" function dequeues and returns
+        // an event immediately. It returns NULL if no event is
+        // available at the time of the call. If an error occurs,
+        // the parameter error will be filled with the error status.
+        //
+        // Decision:
+        //
+        // Since this is the main thread, it MUST NOT block.
+        // Therefore, the non-blocking "xcb_poll_for_event"
+        // function is used here.
+        //
+        // In cyboi, sensing as well as processing of input happens
+        // in the one single main thread. Formerly, special "sensing"
+        // threads were used together with blocking function calls.
+        //
+        // CAUTION! Whenever an event is queued in the x server,
+        // it gets dequeued from the queue here and is then
+        // returned as a newly allocated structure.
+        // It is cyboi's responsibility to FREE the
+        // returned event structure.
+        //
         // CAUTION! The event gets REMOVED from the queue
         // by the "xcb_poll_for_event" function.
-        // It therefore HAS TO BE STORED temporarily
-        // in internal memory, in order to be able to
-        // process it later on in "executor/receiver/".
+        // The event therefore HAS TO BE STORED temporarily in
+        // internal memory, in order to be able to process it later.
         //
-        // The ideal solution would be a blocking xcb function
-        // running in an own sensing thread in files
-        // "x_window_system_sensor.c" and "message_x_window_system_sensor.c".
-        //
+        // Unfortunately, there is no function or option to just
+        // peek ahead into the event queue for available events,
+        // without removing them.
         // The xcb developers have been asked to add a function like
         // "xcb_test_for_event" that would return on availability
         // of an event WITHOUT ACTUALLY REMOVING the event from the queue.
@@ -78,7 +106,6 @@ void sense_x_window_system(void* p0, void* p1) {
         // http://lists.freedesktop.org/archives/xcb/2013-May/008249.html
         // http://xcb.freedesktop.org/
         //
-        // Therefore, this workaround here in the main thread is necessary.
         void* e = (void*) xcb_poll_for_event((xcb_connection_t*) c);
 
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -98,9 +125,9 @@ void sense_x_window_system(void* p0, void* p1) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense x window system. The connexion is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not sense xcb. The connexion is null.");
     }
 }
 
-/* X_WINDOW_SYSTEM_SENSOR_SOURCE */
+/* XCB_SENSOR_SOURCE */
 #endif

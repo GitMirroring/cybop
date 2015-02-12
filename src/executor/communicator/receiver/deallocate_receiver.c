@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef SELECT_RECEIVER_SOURCE
-#define SELECT_RECEIVER_SOURCE
+#ifndef DEALLOCATE_RECEIVER_SOURCE
+#define DEALLOCATE_RECEIVER_SOURCE
 
 #include "../../../constant/channel/cyboi/cyboi_channel.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -35,42 +35,45 @@
 #include "../../../logger/logger.c"
 
 /**
- * Selects a suitable source buffer into destination.
+ * Deallocates the given buffer.
  *
- * @param p0 the destination buffer (pointer reference)
- * @param p1 the source void* buffer (pointer reference)
- * @param p2 the source wchar_t buffer (pointer reference)
- * @param p3 the channel
+ * This is needed for display events that have been allocated
+ * inside a framework like xcb and have to get deallocated MANUALLY here.
+ *
+ * @param p0 the buffer
+ * @param p1 the channel
  */
-void receive_select(void* p0, void* p1, void* p2, void* p3) {
+void receive_deallocate(void* p0, void* p1) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive select.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive deallocate.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use void* buffer.
-            copy_pointer(p0, p1);
-        }
-    }
+            if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+                // Free buffer.
+                //
+                // CAUTION! Whenever an event that was queued
+                // in the x server gets dequeued from the queue,
+                // it is returned as a newly allocated structure.
+                // It is cyboi's responsibility to FREE the
+                // returned event structure.
+                free(p0);
 
-        compare_integer_equal((void*) &r, p3, (void*) INLINE_CYBOI_CHANNEL);
+            } else {
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Use wchar_t buffer.
-            copy_pointer(p0, p2);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not receive deallocate. The buffer is null.");
+            }
         }
     }
 }
 
-/* SELECT_RECEIVER_SOURCE */
+/* DEALLOCATE_RECEIVER_SOURCE */
 #endif
