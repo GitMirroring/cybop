@@ -14,8 +14,7 @@
 WUI
 ___
 
-        * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"
-        * Move signal retrieval function call from "controller/checker/signal_checker.c" to new signal receiver
+        * Debug files "signal_checker.c" and "signal_reader.c", where signal storage in item does NOT work
 
         * Debug new communicator- and streamer files for channel "terminal"
             - read_unix_terminal: Debug "tui_control" app; wchar_t used? should be char only

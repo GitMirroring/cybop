@@ -38,11 +38,12 @@
  * Selects a suitable source buffer into destination.
  *
  * @param p0 the destination buffer (pointer reference)
- * @param p1 the source void* buffer (pointer reference)
- * @param p2 the source wchar_t buffer (pointer reference)
- * @param p3 the channel
+ * @param p1 the source model buffer (pointer reference)
+ * @param p2 the source void* buffer (pointer reference)
+ * @param p3 the source wchar_t buffer (pointer reference)
+ * @param p4 the channel
  */
-void receive_select(void* p0, void* p1, void* p2, void* p3) {
+void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive select.");
 
@@ -51,23 +52,34 @@ void receive_select(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) SIGNAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use void* buffer.
+            // Use model buffer.
             copy_pointer(p0, p1);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p3, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Use void* buffer.
+            copy_pointer(p0, p2);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Use wchar_t buffer.
-            copy_pointer(p0, p2);
+            copy_pointer(p0, p3);
         }
     }
 }

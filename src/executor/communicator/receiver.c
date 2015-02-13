@@ -67,9 +67,9 @@
  *
  * @param p0 the destination model item
  * @param p1 the destination properties item
- * @param p2 the source model data (e.g. a filename or socket number)
+ * @param p2 the source model data (e.g. the signal memory item, filename or socket number)
  * @param p3 the source model count
- * @param p4 the source properties data
+ * @param p4 the source properties data (e.g. the signal memory index)
  * @param p5 the source properties count
  * @param p6 the knowledge memory part
  * @param p7 the internal memory data
@@ -84,7 +84,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-    // The neutral message, e.g. an xcb display event.
+    // The neutral message item, e.g. an xcb display event.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The compressed message item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -133,19 +133,23 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     // Select buffer.
     //
-    // CAUTION! This is important for channel:
-    //
+    // This is important for channel:
     // - inline: whose models are already available as wide character,
-    //   and do NOT have to get decoded below, so that wchar_t is used;
+    //   and do NOT have to get decoded below, so that wchar_t is used,
+    //   i.e. serialised message item s;
     // - display: which returns an event as message with special structure,
-    //   which is why a simple void* gets used as pointer to that event message.
+    //   which is why a simple void* gets used as pointer to that event message,
+    //   i.e. neutral message item n;
+    // - signal: that retrieves the next signal part from signal memory,
+    //   which does NOT have to be processed further here in any form,
+    //   i.e. can be added to the destination model item p0 DIRECTLY.
     //
     // CAUTION! Using the "encoding" parametre as criterion is NOT helpful, since:
     // - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
     // - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
     // Therefore, the correct buffer gets selected via CHANNEL here.
     //
-    receive_select((void*) &b, (void*) &n, (void*) &s, p13);
+    receive_select((void*) &b, (void*) &p0, (void*) &n, (void*) &s, p13);
     // Read message.
     receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
     // Extract message.

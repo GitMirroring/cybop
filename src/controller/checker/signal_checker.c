@@ -30,10 +30,16 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/checker/empty_checker.c"
 #include "../../controller/checker/found_checker.c"
 #include "../../executor/accessor/getter/item_getter.c"
+#include "../../executor/communicator/receiver.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../logger/logger.c"
 
 /**
@@ -74,26 +80,36 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
 
-    // The signal part.
+    // The signal item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal item data.
+    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory index used to search for a signal.
     int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Get next signal to be processed from position index zero.
-    // CAUTION! The signal memory item's count is checked inside
-    // this function. If it is smaller or equal to the given index
-    // (here: zero), then the signal value s is NOT changed,
-    // i.e. it remains NULL if initialised so before.
-    get_item_element((void*) &s, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Allocate neutral message item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
-//?? fwprintf(stdout, L"\nTEST check signal s: %i\n\n", s);
+    // Receive signal.
+    // It suffices to hand over: destination signal, signal memory item, signal memory index, channel.
+    receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
 
-    if (s != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Get signal item data.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
 
-        check_found(s, p0, p1, p2, (void*) &i, p4);
+fwprintf(stdout, L"\nTEST check signal sd: %i\n\n", sd);
+
+        check_found(sd, p0, p1, p2, (void*) &i, p4);
 
     } else {
 
@@ -103,13 +119,18 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         check_empty(p0, p2, p3);
     }
 
+    // Deallocate signal item.
     //
-    // CAUTION! Do NOT destroy the signal or its parts here!
+    // CAUTION! Do NOT destroy the contained signal or its parts here!
     // A signal represents a logic model stored in the knowledge tree.
     // That knowledge tree and its parts get created at
     // system startup or later and destroyed when processing a
     // corresponding CYBOL operation, or at system shutdown.
     //
+    // The signal item used here was just a container to receive
+    // and hold a pointer to the actual signal and CAN get deallocated.
+    //
+    deallocate_item((void*) &s, (void*) POINTER_STATE_CYBOI_TYPE);
 }
 
 /* SIGNAL_CHECKER_SOURCE */

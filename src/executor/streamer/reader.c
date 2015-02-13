@@ -35,6 +35,7 @@
 #include "../../executor/streamer/reader/file/file_reader.c"
 #include "../../executor/streamer/reader/inline/inline_reader.c"
 #include "../../executor/streamer/reader/serial_port/serial_port_reader.c"
+#include "../../executor/streamer/reader/signal/signal_reader.c"
 #include "../../executor/streamer/reader/socket/socket_reader.c"
 #include "../../executor/streamer/reader/terminal/terminal_reader.c"
 #include "../../logger/logger.c"
@@ -46,9 +47,9 @@
  * as that name is already used for glibc library's input.
  *
  * @param p0 the destination item
- * @param p1 the source model data (e.g. a filename or socket number)
+ * @param p1 the source model data (e.g. the signal memory item, filename or socket number)
  * @param p2 the source model count
- * @param p3 the source properties data
+ * @param p3 the source properties data (e.g. the signal memory index)
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
  * @param p6 the internal memory data
@@ -100,6 +101,16 @@ void read_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             read_serial_port(p0, p7, p8, p6);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p9, (void*) SIGNAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            read_signal(p0, p1, p3);
         }
     }
 
