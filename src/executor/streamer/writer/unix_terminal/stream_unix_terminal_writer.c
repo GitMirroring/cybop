@@ -66,6 +66,8 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write unix terminal stream.");
 
             //
+            // The following remark is OLD from times when sensing threads were used:
+            //
             // CAUTION! Locking does NOT seem to be necessary here.
             // It is assumed that input- and output stream represent
             // independent channels that may be accessed in parallel
@@ -88,6 +90,9 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             // as utf-8 multibyte character sequence of type "char".
             // The placeholder %ls would be WRONG here as it expects data
             // of type "wchar_t".
+            //
+            // CAUTION! The data ought to be null-terminated.
+            //
             int e = fwprintf((FILE*) fs, L"%s", (char*) p1);
 
             // Test error value.
@@ -102,6 +107,7 @@ void write_unix_terminal_stream(void* p0, void* p1, void* p2) {
             // Therefore, this test checks for negative values in general.
             // The WEOF symbol which is declared in wchar.h then does
             // not have to be considered explicitly here anymore.
+            //
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write unix terminal stream. A write error occured.");

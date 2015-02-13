@@ -36,6 +36,7 @@
 #include "../../executor/communicator/sender/encode_sender.c"
 #include "../../executor/communicator/sender/select_sender.c"
 #include "../../executor/communicator/sender/serialise_sender.c"
+#include "../../executor/communicator/sender/termination_sender.c"
 #include "../../executor/communicator/sender/write_sender.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/memoriser/deallocator/item_deallocator.c"
@@ -141,7 +142,9 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 //??    append_item_element(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Encode message.
-    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10, p14);
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10);
+    // Append termination.
+    send_termination((void*) &ad, (void*) &ac, e, p14, p15);
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
     // Write message.

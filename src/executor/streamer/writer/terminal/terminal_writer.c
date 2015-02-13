@@ -48,10 +48,7 @@ void write_terminal(void* p0, void* p1, void* p2) {
     write_terminal_file(p0, p1, p2);
 #elif WIN32
     // Serialise tui DIRECTLY using win32 console function calls.
-    // Therefore, encoding and sending are superfluous.
-    // A destination item does NOT need to be handed over,
-    // which is why the first parametre is NULL.
-//??    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p9, p10, p11, p5, p6, p7);
+    // Therefore, encode and write are superfluous.
 #elif GNU_LINUX_OPERATING_SYTEM
     write_terminal_file(p0, p1, p2);
 #else

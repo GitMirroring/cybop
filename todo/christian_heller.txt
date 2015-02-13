@@ -14,11 +14,9 @@
 WUI
 ___
 
-        * Debug new communicator- and streamer files for channel "terminal"
-            - read_unix_terminal: Debug "tui_control" app; wchar_t used? should be char only
-            - write_terminal: Add null termination to anything sent to unix_terminal (since fwprintf is used and relies on null ending)
+        * Debug "read_unix_terminal": "tui_control" app; wchar_t used? should be char only
 
-        * Continue file "handler.cybol"
+        * Continue with file "handler.cybol" in cybol example application "www_server"
         * Reactivate http parser
         * Read about header fields in specification:
             http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.2
