@@ -28,9 +28,7 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../executor/representer/serialiser.c"
 #include "../../../../logger/logger.c"
-
 
 #ifdef __APPLE__
     //?? Add cocoa support for Apple
@@ -45,32 +43,21 @@
 /**
  * Writes the source to the display.
  *
- * @param p0 the source model data
- * @param p1 the source model count
- * @param p2 the source properties data
- * @param p3 the source properties count
- * @param p4 the knowledge memory part
- * @param p5 the format
- * @param p6 the language
- * @param p7 the internal memory data
+ * @param p0 the internal memory data
  */
-void write_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void write_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write display.");
-
-    // Serialise (draw) source onto window.
-    serialise(*NULL_POINTER_STATE_CYBOI_MODEL, p0, p1, p2, p3, p4, p7, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p6);
 
 #ifdef __APPLE__
     //?? Add cocoa support for Apple
 #elif WIN32
-    write_win32_display(p7);
+    write_win32_display(p0);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    write_xcb(p7);
+    write_xcb(p0);
 #else
-    write_xcb(p7);
+    write_xcb(p0);
 #endif
-
 }
 
 /* DISPLAY_WRITER_SOURCE */

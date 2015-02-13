@@ -14,8 +14,6 @@
 WUI
 ___
 
-        * Complete new communicator- and streamer files for channel "display" (sender and writer)
-
         * Complete new communicator- and streamer files for channel "signal"
         * Create file "executor/communicator/sender/signal/signal_receiver.c" similar to "executor/communicator/sender/signal/signal_sender.c"
         * Move signal retrieval function call from "controller/checker/signal_checker.c" to new signal receiver

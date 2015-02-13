@@ -30,9 +30,12 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,22 +45,15 @@
  */
 void write_xcb(void* p0) {
 
-    // The mutex.
-//??    void* mt = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The window.
     void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get mutex.
-//??    copy_array_forward((void*) &mt, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get connexion.
     copy_array_forward((void*) &c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get window.
     copy_array_forward((void*) &w, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-
-//?? fwprintf(stdout, L"TEST write xcb window c: %i\n", c);
-//?? fwprintf(stdout, L"TEST write xcb window w: %i\n", w);
 
     // CAUTION! This test is necessary to avoid a "Segmentation fault"!
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -66,18 +62,6 @@ void write_xcb(void* p0) {
         if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write xcb.");
-
-            // Lock xcb mutex.
-//??            pthread_mutex_lock((pthread_mutex_t*) mt);
-
-/*??
-            // Request input events (signals) to be put into event queue.
-            XSelectInput((struct _XDisplay*) d, *((int*) w), ExposureMask
-                | KeyPressMask | KeyReleaseMask
-                | ButtonPressMask | ButtonReleaseMask | PointerMotionMask | ButtonMotionMask
-                | Button1MotionMask | Button2MotionMask | Button3MotionMask | Button4MotionMask | Button5MotionMask
-                | EnterWindowMask | LeaveWindowMask);
-*/
 
             // Use xcb type.
             xcb_window_t window = *((int*) w);
@@ -88,13 +72,6 @@ void write_xcb(void* p0) {
             // Make sure all pending requests to the x server are sent.
             // This is similar to "fflush" used for standard terminal output.
             xcb_flush((xcb_connection_t*) c);
-
-            //?? TEST: Hold client until <ctrl>+<c> is pressed,
-            //?? so that the window does not disappear too fast.
-//??            pause();
-
-            // Unlock xcb mutex.
-//??            pthread_mutex_unlock((pthread_mutex_t*) mt);
 
         } else {
 
