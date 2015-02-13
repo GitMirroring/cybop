@@ -100,14 +100,14 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // CAUTION! Do NOT use the "copy_array_forward" function here,
+    // since it returns an array, but not the contained element.
+    get_item_element((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
-
-fwprintf(stdout, L"\nTEST check signal sd: %i\n\n", sd);
 
         check_found(sd, p0, p1, p2, (void*) &i, p4);
 
