@@ -35,7 +35,7 @@
 #include "../../executor/streamer/writer/file/file_writer.c"
 #include "../../executor/streamer/writer/inline/inline_writer.c"
 #include "../../executor/streamer/writer/serial_port/serial_port_writer.c"
-//?? #include "../../executor/streamer/writer/signal/signal_writer.c"
+#include "../../executor/streamer/writer/signal/signal_writer.c"
 #include "../../executor/streamer/writer/socket/socket_writer.c"
 #include "../../executor/streamer/writer/terminal/terminal_writer.c"
 #include "../../logger/logger.c"
@@ -110,7 +110,7 @@ void write_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    //??            write_signal(p6, p11);
+                write_signal(p3, p4);
             }
         }
 

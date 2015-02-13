@@ -21,6 +21,7 @@
 2015-02-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete new communicator- and streamer files for channel "display" (sender and writer)
+        * Complete new communicator- and streamer files for channel "signal" (sender and writer)
 
 2015-02-12  Christian Heller  <christian.heller@tuxtax.de>
 
