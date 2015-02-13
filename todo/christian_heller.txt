@@ -15,6 +15,7 @@ WUI
 ___
 
         * Debug files "signal_checker.c" and "signal_reader.c", where signal storage in item does NOT work
+            --> solution: use (void**) cast once more; see test in file "signal_reader.c"
 
         * Debug new communicator- and streamer files for channel "terminal"
             - read_unix_terminal: Debug "tui_control" app; wchar_t used? should be char only

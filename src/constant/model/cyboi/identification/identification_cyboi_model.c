@@ -43,7 +43,7 @@ static wchar_t* SLOGAN_IDENTIFICATION_CYBOI_MODEL = L"A universal system.";
 static int* SLOGAN_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copyright identification cyboi model. */
-static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2014. Christian Heller.";
+static wchar_t* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL = L"Copyright (C) 1999-2015. Christian Heller.";
 static int* COPYRIGHT_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_42_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The licence identification cyboi model. */
@@ -56,7 +56,7 @@ static wchar_t* LICENCE_IDENTIFICATION_CYBOI_MODEL = L"CYBOI comes with NO WARRA
 static int* LICENCE_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_220_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The help identification cyboi model. */
-static wchar_t* HELP_IDENTIFICATION_CYBOI_MODEL = L"Parametres have to be given!\n" \
+static wchar_t* HELP_IDENTIFICATION_CYBOI_MODEL = L"Arguments have to be given!\n" \
     L"Usage: cyboi ARG [--knowledge=ARG] [--loglevel=ARG] [--logfile=ARG] [--help] [--version] [--test=ARG]\n" \
     L"\tARG\t\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the standard way to use cyboi.\n" \
     L"\t--knowledge=ARG\tStarts cyboi in knowledge mode. Takes ARG as cybol knowledge file. This is the long form.\n" \
@@ -72,7 +72,7 @@ static wchar_t* HELP_IDENTIFICATION_CYBOI_MODEL = L"Parametres have to be given!
     L"\tcyboi --test=all\n" \
     L"\tcyboi --test=calculator\n" \
     L"Report bugs to <cybop-developers@nongnu.org> or <christian.heller@tuxtax.de>.";
-static int* HELP_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_966_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* HELP_IDENTIFICATION_CYBOI_MODEL_COUNT = NUMBER_965_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* IDENTIFICATION_CYBOI_MODEL_CONSTANT_SOURCE */
 #endif
