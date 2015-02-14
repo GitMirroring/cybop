@@ -24,6 +24,7 @@
         * Complete new communicator- and streamer files for channel "signal"
         * Move signal receive functionality from file "controller/checker/signal_checker.c" to "executor/streamer/reader/signal/signal_reader.c"
         * Add null termination to anything sent to terminal, since the function "fwprintf" relies on it
+        * Fix bug that terminal input did not work by using special buffer in file "select_receiver.c"
 
 2015-02-12  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -14,8 +14,6 @@
 WUI
 ___
 
-        * Debug "read_unix_terminal": "tui_control" app; wchar_t used? should be char only
-
         * Continue with file "handler.cybol" in cybol example application "www_server"
         * Reactivate http parser
         * Read about header fields in specification:

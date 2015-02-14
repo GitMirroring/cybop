@@ -128,7 +128,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Initialise buffer.
     //
     // CAUTION! The "char" buffer is used by default.
-    // It applies to all channels except "inline".
+    // It applies to most channels.
     b = c;
 
     // Select buffer.

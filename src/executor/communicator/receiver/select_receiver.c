@@ -50,6 +50,11 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
+    // CAUTION! The comparisons below are sorted alphabetically.
+    // However, for reasons of efficiency, that for the signal
+    // is standing FIRST, since signals are permanently processed.
+    //
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) SIGNAL_CYBOI_CHANNEL);
@@ -80,6 +85,33 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
             // Use wchar_t buffer.
             copy_pointer(p0, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            //
+            // CAUTION! Use wchar_t buffer for most platforms,
+            // since the multibyte character is converted to a
+            // wide character internally in glibc function "fgetwc".
+            //
+            // Use void* buffer for win32, since it uses
+            // a special INPUT_RECORD structure for storage.
+            //
+
+#ifdef __APPLE__
+            copy_pointer(p0, p3);
+#elif WIN32
+            copy_pointer(p0, p2);
+#elif GNU_LINUX_OPERATING_SYSTEM
+            copy_pointer(p0, p3);
+#else
+            copy_pointer(p0, p3);
+#endif
         }
     }
 }

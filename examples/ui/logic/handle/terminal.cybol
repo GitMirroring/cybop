@@ -5,7 +5,7 @@
     </part>
     <part name="receive_command" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <property name="language" channel="inline" format="meta/language" model="message/tui"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.tui.command"/>
     </part>
