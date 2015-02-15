@@ -14,8 +14,9 @@
 WUI
 ___
 
-        * Continue with file "handler.cybol" in cybol example application "www_server"
-        * Reactivate http parser
+        * Continue cybol example application "www_server" file "handler.cybol"
+        * Update file "part_allocator_item_appender.c"
+        * Update http-request deserialiser to new cyboi container structure
         * Read about header fields in specification:
             http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.2
         * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);
@@ -43,17 +44,6 @@ Accept-Language: de,en-US;q=0.7,en;q=0.3
 Accept-Encoding: gzip, deflate
 DNT: 1
 Connection: keep-alive
-
-        * Insert the following comment into http deserialiser cyboi source code:
-            //
-            // Since RFC 2822, conforming message header names
-            // and values should be ASCII characters;
-            // values that contain non-ASCII data should use
-            // the MIME encoded-word syntax (RFC 2047)
-            // instead of a literal string.
-            //
-            // https://en.wikipedia.org/wiki/MIME#Encoded-Word
-            //
 
         * Study "libcurl3" library for URL transfer
         * Adapt cybol example application "wui_socket"

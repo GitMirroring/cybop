@@ -58,8 +58,7 @@
  * A command line interface message.
  * This is a CYBOL extension.
  */
-static wchar_t CLI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'c', L'l', L'i'};
-static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = CLI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/cli";
 static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -68,18 +67,8 @@ static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYB
  * A graphical user interface message.
  * This is a CYBOL extension.
  */
-static wchar_t GUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'g', L'u', L'i'};
-static wchar_t* GUI_MESSAGE_STATE_CYBOL_LANGUAGE = GUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* GUI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/gui";
 static int* GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The message/http cybol language.
- *
- * An HTTP header message.
- */
-static wchar_t HTTP_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p'};
-static wchar_t* HTTP_MESSAGE_STATE_CYBOL_LANGUAGE = HTTP_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
-static int* HTTP_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/http-request cybol language.
@@ -87,8 +76,7 @@ static int* HTTP_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CY
  * An HTTP request message.
  * This is a CYBOL extension.
  */
-static wchar_t HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L'q', L'u', L'e', L's', L't'};
-static wchar_t* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE = HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-request";
 static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -97,15 +85,13 @@ static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_
  * An HTTP response message.
  * This is a CYBOL extension.
  */
-static wchar_t HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'h', L't', L't', L'p', L'-', L'r', L'e', L's', L'p', L'o', L'n', L's', L'e'};
-static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-response";
 static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The message/news cybol language.
  */
-static wchar_t NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L'n', L'e', L'w', L's'};
-static wchar_t* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE = NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/news";
 static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -114,8 +100,7 @@ static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CY
  * A text user interface message.
  * This is a CYBOL extension.
  */
-static wchar_t TUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e', L'/', L't', L'u', L'i'};
-static wchar_t* TUI_MESSAGE_STATE_CYBOL_LANGUAGE = TUI_MESSAGE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* TUI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/tui";
 static int* TUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MESSAGE_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */

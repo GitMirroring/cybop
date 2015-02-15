@@ -26,11 +26,13 @@
 #ifndef HTTP_REQUEST_DESERIALISER_SOURCE
 #define HTTP_REQUEST_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
 #include "../../../../executor/representer/deserialiser/http_request/method_http_request_deserialiser.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -117,6 +119,16 @@
 // Similar comment for HTML4's 17.13.1.
 //
 
+//
+// Since RFC 2822, conforming message header names
+// and values should be ASCII characters;
+// values that contain non-ASCII data should use
+// the MIME encoded-word syntax (RFC 2047)
+// instead of a literal string.
+//
+// https://en.wikipedia.org/wiki/MIME#Encoded-Word
+//
+
 /**
  * Deserialises the http request character data into a model and properties.
  *
@@ -163,7 +175,7 @@ void deserialise_http_request(void* p0, void* p1, void* p2, void* p3) {
     // Copy source count remaining.
     copy_integer((void*) &c, p3);
 
-    // CAUTION! A copy of source count remaining is forwarded here,
+    // CAUTION! A COPY of source count remaining is forwarded here,
     // so that the original source value does not get changed.
     // CAUTION! The source data position does NOT have to be copied,
     // since the parametre that was handed over is already a copy.

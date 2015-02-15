@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Reactivate http-request deserialiser
+
 2015-02-13  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete new communicator- and streamer files for channel "display" (sender and writer)

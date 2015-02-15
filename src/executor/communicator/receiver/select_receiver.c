@@ -37,6 +37,13 @@
 /**
  * Selects a suitable source buffer into destination.
  *
+ * This is important since buffers differ for the various channels.
+ *
+ * CAUTION! Using the "encoding" parametre as criterion is NOT helpful, since:
+ * - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
+ * - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
+ * Therefore, the correct buffer gets selected via CHANNEL here.
+ *
  * @param p0 the destination buffer (pointer reference)
  * @param p1 the source model buffer (pointer reference)
  * @param p2 the source void* buffer (pointer reference)
@@ -52,9 +59,10 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     //
     // CAUTION! The comparisons below are sorted alphabetically.
-    // However, for reasons of efficiency, that for the signal
+    // However, for reasons of EFFICIENCY, that for the SIGNAL
     // is standing FIRST, since signals are permanently processed.
     //
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) SIGNAL_CYBOI_CHANNEL);
@@ -62,6 +70,9 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Use model buffer.
+            // A next signal part retrieved from signal memory,
+            // does NOT have to be processed further here in any form,
+            // i.e. the model can be used DIRECTLY.
             copy_pointer(p0, p1);
         }
     }
@@ -73,6 +84,9 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Use void* buffer.
+            // An event is returned as message with special structure,
+            // which is why a simple void* gets used as pointer to
+            // that event message.
             copy_pointer(p0, p2);
         }
     }
@@ -84,6 +98,8 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Use wchar_t buffer.
+            // All inline models are already available as wide character,
+            // and do NOT have to get decoded below, so that wchar_t is used.
             copy_pointer(p0, p3);
         }
     }
@@ -94,14 +110,12 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            //
-            // CAUTION! Use wchar_t buffer for most platforms,
+            // Use wchar_t buffer for most platforms,
             // since the multibyte character is converted to a
             // wide character internally in glibc function "fgetwc".
             //
             // Use void* buffer for win32, since it uses
             // a special INPUT_RECORD structure for storage.
-            //
 
 #ifdef __APPLE__
             copy_pointer(p0, p3);

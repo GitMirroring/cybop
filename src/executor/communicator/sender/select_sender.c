@@ -37,6 +37,13 @@
 /**
  * Selects a suitable source buffer into destination.
  *
+ * This is important since buffers differ for the various channels.
+ *
+ * CAUTION! Using the "encoding" parametre as criterion is NOT helpful, since:
+ * - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
+ * - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
+ * Therefore, the correct buffer gets selected via LANGUAGE here.
+ *
  * @param p0 the destination buffer (pointer reference)
  * @param p1 the source char buffer (pointer reference)
  * @param p2 the language
@@ -55,6 +62,8 @@ void send_select(void* p0, void* p1, void* p2) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Use "char" buffer.
+            // A pure "char" byte buffer is needed due to
+            // possible attachments in form of byte code.
             copy_pointer(p0, p1);
         }
     }

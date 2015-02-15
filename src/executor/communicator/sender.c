@@ -108,7 +108,6 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     allocate_item((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Initialise buffer.
-    //
     // CAUTION! The "wchar_t" buffer is used by default.
     // It applies to languages like e.g. "text/cybol", "text/html" etc.
     // Also, text given via "inline" channel is processed as wide characters.
@@ -116,31 +115,17 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     b = s;
 
     // Select buffer.
-    //
-    // CAUTION! There are cases, in which a pure "char" byte buffer is needed,
-    // e.g. for "message/http" due to possible attachments in form of byte code.
-    // Such models are serialised directly into "char" byte code.
-    //
-    // CAUTION! Using the given "encoding" parametre is NOT helpful, since:
-    // - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
-    // - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
-    // Therefore, the correct buffer gets selected via LANGUAGE here.
-    //
     send_select((void*) &b, (void*) &e, p9);
     // Serialise message.
-    //
     // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-    //
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p12, p13, p7, p8, p9);
-
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
     //?? The lineending, on the other hand, gets added just once at the end of the whole message.
     //?? It might be needed for serial port communication.
     // Add lineending character.
 //??    append_item_element(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-
     // Encode message.
     send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10);
     // Append termination.

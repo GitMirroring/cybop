@@ -47,13 +47,13 @@
  * with a lot of string processing going on.
  *
  * @param p0 the destination item
- * @param p1 the source name
+ * @param p1 the source name data
  * @param p2 the source name count
- * @param p3 the source type
+ * @param p3 the source type data
  * @param p4 the source type count
- * @param p5 the source model
+ * @param p5 the source model data
  * @param p6 the source model count
- * @param p7 the source properties
+ * @param p7 the source properties data
  * @param p8 the source properties count
  */
 void append_item_allocate_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {

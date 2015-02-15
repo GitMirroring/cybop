@@ -126,29 +126,11 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Initialise buffer.
-    //
     // CAUTION! The "char" buffer is used by default.
     // It applies to most channels.
     b = c;
 
     // Select buffer.
-    //
-    // This is important for channel:
-    // - inline: whose models are already available as wide character,
-    //   and do NOT have to get decoded below, so that wchar_t is used,
-    //   i.e. serialised message item s;
-    // - display: which returns an event as message with special structure,
-    //   which is why a simple void* gets used as pointer to that event message,
-    //   i.e. neutral message item n;
-    // - signal: that retrieves the next signal part from signal memory,
-    //   which does NOT have to be processed further here in any form,
-    //   i.e. can be added to the destination model item p0 DIRECTLY.
-    //
-    // CAUTION! Using the "encoding" parametre as criterion is NOT helpful, since:
-    // - for "inline" channel: it is NULL, but "wchar_t" is needed for sending;
-    // - for "text/html" language: it is NOT NULL, and "char" is needed for sending.
-    // Therefore, the correct buffer gets selected via CHANNEL here.
-    //
     receive_select((void*) &b, (void*) &p0, (void*) &n, (void*) &s, p13);
     // Read message.
     receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
@@ -157,11 +139,9 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Decode message.
     receive_decode((void*) &ad, (void*) &ac, s, ad, ac, p12);
     // Deserialise message.
-    //
-    // CAUTION! The buffer argument may be of either
-    // type "char" or type "wchar_t", which is IRRELEVANT.
+    // CAUTION! The buffer argument may be of e.g.
+    // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-    //
     receive_deserialise(p0, p1, ad, ac, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11);
     // Deallocate display event.
     receive_deallocate(b, p13);

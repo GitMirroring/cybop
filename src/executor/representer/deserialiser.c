@@ -47,32 +47,6 @@
 #include "../../tester/data_as_model_diagram_tester.c"
 #include "../../tester/item_as_model_diagram_tester.c"
 
-//
-// Sometimes, a cybol model represents a type, e.g. when creating a part.
-// Other times, a cybol model represents a colour or other kinds of data.
-// This is indicated by a type with special value, e.g. "text/type".
-// In such cases, the cybol model's character array has to be converted into
-// an integer value, since cyboi processes types in this form internally.
-//
-// Example 1 (see "type" property's "type" and "model" attribute):
-//
-// <part name="create_counter" channel="inline" type="memorise/create" model="">
-//     <property name="name" channel="inline" type="text/plain" model="counter"/>
-//     <property name="type" channel="inline" type="text/type" model="memory/compound"/>
-//     <property name="element" channel="inline" type="text/plain" model="part"/>
-// </part>
-//
-// Example 2 (see "background" property's "type" and "model" attribute):
-//
-// <part name="mc_item" channel="inline" type="text/plain" model="m - Start Midnight Commander (MC)">
-//     <property name="position" channel="inline" type="number/integer" model="1,3,0"/>
-//     <property name="size" channel="inline" type="number/integer" model="68,1,1"/>
-//     <property name="background" channel="inline" type="colour/terminal" model="blue"/>
-//     <property name="foreground" channel="inline" type="colour/terminal" model="white"/>
-//     <property name="bold" channel="inline" type="logicvalue/boolean" model="true"/>
-// </part>
-//
-
 /**
  * Deserialises the source into the destination, according to the given language.
  *
@@ -93,12 +67,6 @@
 void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise.");
-
-    // The functions below are for STATE models only.
-    // CAUTION! CYBOL LOGIC operations have an EMPTY model.
-    // Hence, they do NOT have to be considered here.
-    // They are detected via their "format" xml attribute.
-    // Their parametres were converted from cybol properties.
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -149,9 +117,10 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+fwprintf(stdout, L"TEST deserialise http-request *p3: %i\n", *((int*) p3));
+fwprintf(stdout, L"TEST deserialise http-request p2: %s\n", p2);
             deserialise_http_request(p0, p1, p2, p3);
-
-//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_REQUEST.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
+//?? test_item_as_model_diagram((void*) L"test_www_server_request_http.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
         }
     }
 
@@ -292,7 +261,7 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
             deserialise_uri(p0, p1, p2, p3);
 
-//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
+//?? test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
         }
     }
 
