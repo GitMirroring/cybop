@@ -14,9 +14,10 @@
 WUI
 ___
 
-        * Continue cybol example application "www_server" file "handler.cybol"
-        * Update file "part_allocator_item_appender.c"
         * Update http-request deserialiser to new cyboi container structure
+        * Delete file "part_allocator_item_appender.c" and similar
+        * CAUTION! Test cybol example application "www_server" as root user to have sufficient rights
+        * Continue cybol example application "www_server" file "handler.cybol"
         * Read about header fields in specification:
             http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.2
         * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);

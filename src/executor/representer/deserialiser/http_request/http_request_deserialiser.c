@@ -178,7 +178,8 @@ void deserialise_http_request(void* p0, void* p1, void* p2, void* p3) {
     // CAUTION! A COPY of source count remaining is forwarded here,
     // so that the original source value does not get changed.
     // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
+    // since the parametre argument that was handed over is already a copy
+    // on this function's stack.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     deserialise_http_request_method(p0, p1, (void*) &d, (void*) &c);
