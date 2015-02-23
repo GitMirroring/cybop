@@ -14,8 +14,7 @@
 WUI
 ___
 
-        * Update http-request deserialiser to new cyboi container structure
-        * Delete file "part_allocator_item_appender.c" and similar
+        * Fix http-request uri deserialiser
         * CAUTION! Test cybol example application "www_server" as root user to have sufficient rights
         * Continue cybol example application "www_server" file "handler.cybol"
         * Read about header fields in specification:

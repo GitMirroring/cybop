@@ -26,12 +26,13 @@
 #ifndef PROTOCOL_HTTP_REQUEST_DESERIALISER_SOURCE
 #define PROTOCOL_HTTP_REQUEST_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../../executor/modifier/appender/character_deserialiser_part_allocator_item_appender.c"
+#include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../../executor/searcher/selector/http_request/protocol_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -81,7 +82,7 @@ void deserialise_http_request_protocol(void* p0, void* p1, void* p2, void* p3) {
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_allocate_part_deserialise_character(p1, (void*) PROTOCOL_HTTP_CYBOI_NAME, (void*) PROTOCOL_HTTP_CYBOI_NAME_COUNT, e, (void*) &ec);
+            deserialise_http_request_decode(p1, (void*) PROTOCOL_HTTP_CYBOI_NAME, (void*) PROTOCOL_HTTP_CYBOI_NAME_COUNT, e, (void*) &ec);
 
             break;
 

@@ -26,9 +26,11 @@
 #ifndef BODY_HTTP_REQUEST_DESERIALISER_SOURCE
 #define BODY_HTTP_REQUEST_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
@@ -42,28 +44,37 @@
  */
 void deserialise_http_request_body(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request body.");
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // CAUTION! There is NO NEED to detect the body end with a
-    // function like "select_http_request_body".
-    // ALL of the REMAINING characters represent the body.
-    //
+        void** d = (void**) p2;
 
-    //
-    // The body represents the actual http message content.
-    // Its data are thus added to the destination MODEL,
-    // whilst the destination PROPERTIES contain meta data, i.e. the http headers.
-    //
-    // CAUTION! The body data may be encoded.
-    // Therefore, use the CHARACTER_TEXT_STATE_CYBOI_TYPE type here
-    // (and DO NOT convert to WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE by chance).
-    //
-    // One of the http request header argument/value pairs defines the encoding,
-    // so that the cybol application will have to decode the data,
-    // because here, the corresponding http encoding header is not available.
-    //
-    append_item_element(p0, *((void**) p2), (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request body.");
+
+        //
+        // CAUTION! There is NO NEED to detect the body end with a
+        // function like "select_http_request_body".
+        // ALL of the REMAINING characters represent the body.
+        //
+
+        //
+        // The body represents the actual http message content.
+        // Its data are thus added to the destination MODEL,
+        // whilst the destination PROPERTIES contain meta data, i.e. the http headers.
+        //
+        // CAUTION! The body data may be encoded.
+        // Therefore, use the CHARACTER_TEXT_STATE_CYBOI_TYPE type here
+        // (and DO NOT convert to WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE by chance).
+        //
+        // One of the http request header argument/value pairs defines the encoding,
+        // so that the cybol application will have to decode the data,
+        // because here, the corresponding http encoding header is not available.
+        //
+        append_item_element(p0, *d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    } else {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise http request body. The source data position is null.");
+    }
 }
 
 /* BODY_HTTP_REQUEST_DESERIALISER_SOURCE */

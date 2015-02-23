@@ -26,12 +26,13 @@
 #ifndef AUTHORITY_HTTP_URI_DESERIALISER_SOURCE
 #define AUTHORITY_HTTP_URI_DESERIALISER_SOURCE
 
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"
-#include "../../../../../executor/modifier/appender/part_allocator_item_appender.c"
+#include "../../../../../executor/representer/deserialiser/http_request/append_http_request_deserialiser.c"
 #include "../../../../../executor/searcher/selector/uri/http/authority_http_uri_selector.c"
 #include "../../../../../logger/logger.c"
 
@@ -54,7 +55,7 @@ void deserialise_http_uri_authority_content(void* p0, void* p1, void* p2) {
     // Add authority as full text representation.
     //
 
-    append_item_allocate_part(p0, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME_COUNT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_http_request_append(p0, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME, (void*) AUTHORITY_TEXT_URI_CYBOI_NAME_COUNT, p1, p2);
 
     //
     // Add authority as hierarchy consisting of parts.

@@ -26,11 +26,14 @@
 #ifndef HEADER_ARGUMENT_HTTP_REQUEST_DESERIALISER_SOURCE
 #define HEADER_ARGUMENT_HTTP_REQUEST_DESERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../executor/searcher/selector/http_request/header_argument_http_request_selector.c"
 #include "../../../../logger/logger.c"
 
