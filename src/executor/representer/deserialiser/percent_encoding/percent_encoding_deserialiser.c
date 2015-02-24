@@ -30,8 +30,9 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/percent_encoding/data_percent_encoding_deserialiser.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -103,29 +104,9 @@
 //
 
 //
-// CAUTION! Percent-encoding may be used for all URI, including URL and URN.
-//
-
-//
-// A percent-encoding mechanism is used to represent a data octet in a
-// component when that octet's corresponding character is outside the
-// allowed set or is being used as a delimiter of, or within, the component.
-// A percent-encoded octet is encoded as a character triplet,
-// consisting of the percent character "%" followed by the two
-// hexadecimal digits representing that octet's numeric value.
-//
-// Example:
-//
-// percent-encoding: %20
-// binary octet: 00100000
-// ABNF: %x20
-// US-ASCII: space character (SP)
-//
-
-//
 // RFC 3986 does not determine which character set to use for decoding
-// non-ASCII characters (e.g. Umlauts like �, �, �). Since a two-digit
-// hexadecimal number (which corresponds to eight Bit) is used for url
+// non-ASCII characters (e.g. Umlauts like ä, ö, ü). Since a two-digit
+// hexadecimal number (which corresponds to 2x eight Bit) is used for url
 // encoding, it would be theoretically possible to use an 8 Bit character
 // set (e.g. ISO-8859-1 for Umlauts).
 //
@@ -134,6 +115,10 @@
 // Moreover, some languages (e.g. Chinese) may not be represented using an
 // 8 Bit character set. For this reason, RFC 3629 suggests to represent
 // non-ASCII characters using the UTF-8 character set.
+//
+
+//
+// CAUTION! Percent-encoding may be used for all URI, including URL and URN.
 //
 
 //
@@ -167,7 +152,7 @@ void deserialise_percent_encoding(void* p0, void* p1, void* p2) {
     // CAUTION! A copy of source count remaining is forwarded here,
     // so that the original source value does not get changed.
     // CAUTION! The source data position does NOT have to be copied,
-    // since the parametre that was handed over is already a copy.
+    // since the parametre argument that was handed over is already a copy.
     // A local copy was made anyway, not to risk parametre falsification.
     // Its reference is forwarded, as it gets incremented by sub routines inside.
     deserialise_percent_encoding_data(p0, (void*) &d, (void*) &c);

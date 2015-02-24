@@ -23,19 +23,18 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
-#define VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
+#ifndef CHAR_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
+#define CHAR_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE
 
 #ifdef WIN32
     #include <windows.h>
 #endif
 
 #include <errno.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#include <wchar.h>
 
-#include "../../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
+#include "../../../../../constant/model/character_code/ascii/ascii_character_code_model.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -47,11 +46,11 @@
 #include "../../../../../logger/logger.c"
 
 /**
- * Deserialises the wide character data into an integer value.
+ * Deserialises the character data into an integer value.
  *
- * @param p0 the destination item
- * @param p1 the source wchar_t data
- * @param p2 the source wchar_t count
+ * @param p0 the destination int item
+ * @param p1 the source char data
+ * @param p2 the source char count
  * @param p3 the number base:
  *           0 - tries to automatically identify the correct number base
  *           8 - octal, e.g. 083
@@ -60,13 +59,13 @@
  * @param p4 the prepend flag (false - append value at destination end; true - prepend value at destination beginning)
  * @param p5 the old destination item count (only needed if prepend flag is true, for insertion; may otherwise be null)
  */
-void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_cybol_integer_value_char(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* nb = (int*) p3;
 
-        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer value.");
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol integer value char.");
 
         // The temporary null-terminated string item.
         void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -76,12 +75,12 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // Allocate temporary null-terminated string item.
         // CAUTION! Due to memory allocation handling, the size MUST NOT
         // be negative or zero, but have at least a value of ONE.
-        allocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        allocate_item((void*) &t, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Copy original string to temporary null-terminated string.
-        append_item_element(t, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(t, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Add null termination character.
-        append_item_element(t, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Get temporary null-terminated string item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -94,7 +93,7 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // many sub strings, separated by space characters, then each sub
         // string gets interpreted as integer number.
         // The tail variable in this case points to the remaining sub string.
-        wchar_t* tail = (wchar_t*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        char* tail = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Initialise error number.
         // It is a global variable/ function and other operations
@@ -117,7 +116,7 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         // the value stored in *tailptr is the value of string.
         // This is ideal for cyboi, since a value of zero is assigned
         // internally, in case the given cybol model string is empty.
-        int i = wcstol((wchar_t*) td, &tail, *nb);
+        int i = strtol((char*) td, &tail, *nb);
 
         if (errno == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -141,7 +140,7 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
         }
 
         // Deallocate temporary null-terminated string item.
-        deallocate_item((void*) &t, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     } else {
 
@@ -149,5 +148,5 @@ void deserialise_cybol_integer_value(void* p0, void* p1, void* p2, void* p3, voi
     }
 }
 
-/* VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE */
+/* CHAR_VALUE_INTEGER_CYBOL_DESERIALISER_SOURCE */
 #endif

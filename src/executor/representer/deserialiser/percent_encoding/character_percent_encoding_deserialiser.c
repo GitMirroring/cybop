@@ -28,9 +28,17 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/representer/deserialiser/cybol/integer/char_primitive_value_integer_cybol_deserialiser.c"
+#include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -49,10 +57,6 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
     int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The deserialised integer.
-    int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The deserialised character.
-    wchar_t c = *NULL_UNICODE_CHARACTER_CODE_MODEL;
 
     // Initialise percent encoding character data.
     copy_pointer((void*) &cd, p1);
@@ -99,22 +103,25 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
     // and no more characters were left in the source character data.
     if (cc == *NUMBER_2_INTEGER_STATE_CYBOI_MODEL) {
 
+        // The deserialised integer.
+        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
         // Deserialise percent encoding character data into integer number.
         //
         // CAUTION! Hand over NUMBER BASE 16 as parametre!
         // Following the specification, a percent-encoded character
         // consists of two digits representing a HEXADECIMAL number.
-        deserialise_cybol_integer_value((void*) &i, cd, (void*) &cc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+        deserialise_cybol_integer_value_primitive_char((void*) &i, cd, (void*) &cc, (void*) NUMBER_16_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-        // Cast integer to wide character.
+        // Cast integer to character.
         //
-        // CAUTION! This is ONLY POSSIBLE because the glibc types
+        // CAUTION! The type "char" This is ONLY POSSIBLE because the glibc types
         // "int" and "wchar_t" have a size of 4 Byte each.
         // If this changes one day, something will have to be adapted here.
-        c = (wchar_t) i;
+        unsigned char c = (unsigned char) i;
 
         // Append character to destination.
-        append_item_element(p0, (void*) &c, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     } else {
 

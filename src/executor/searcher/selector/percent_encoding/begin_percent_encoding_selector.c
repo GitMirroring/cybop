@@ -46,41 +46,55 @@
  */
 void select_percent_encoding_begin(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select percent encoding begin.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    //
-    // CAUTION! The comparison result HAS TO BE ZERO, if a detection is to be taking place!
-    // Many "detect" functions are called in a sequence, below.
-    // If the result of one detection function was positive (r == 1),
-    // then that function increments the current position and decrements the remaining count.
-    // In this case, further detection functions following afterwards might detect
-    // further characters and CHANGE the current position and remaining count, and so forth,
-    // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
-    // Therefore, the checks for (r == 0) below avoid another detection,
-    // if the result already has a value unequal zero.
-    //
+        void** d = (void**) p1;
 
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select percent encoding begin.");
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        // CAUTION! Set last flag to "true", so that the pointer is
-        // moved forward and only the actual character code remains.
         //
-        // CAUTION! The data are available as multibyte (NOT wide) character sequence.
-        detect_array((void*) &r, p1, p2, (void*) BEGIN_PERCENT_ENCODING_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        // CAUTION! The comparison result HAS TO BE ZERO, if a detection is to be taking place!
+        // Many "detect" functions are called in a sequence, below.
+        // If the result of one detection function was positive (r == 1),
+        // then that function increments the current position and decrements the remaining count.
+        // In this case, further detection functions following afterwards might detect
+        // further characters and CHANGE the current position and remaining count, and so forth,
+        // which would have the effect of "jumping" over some characters and produce WRONG RESULTS!
+        // Therefore, the checks for (r == 0) below avoid another detection,
+        // if the result already has a value unequal zero.
+        //
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            deserialise_percent_encoding_character(p0, p1, p2);
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // CAUTION! Set last flag to "true", so that the pointer is
+            // moved forward and only the actual character code remains.
+            //
+            // CAUTION! The data are available as multibyte (NOT wide) character sequence.
+            detect_array((void*) &r, p1, p2, (void*) BEGIN_PERCENT_ENCODING_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_PERCENT_ENCODING_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                deserialise_percent_encoding_character(p0, p1, p2);
+            }
         }
-    }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! The data are available as multibyte (NOT wide) character sequence.
-        move_position(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // The current character is NOT within a percent-encoded sequence.
+
+            // Append character to destination as is.
+            append_item_element(p0, *d, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+            // CAUTION! The data are available as multibyte (NOT wide) character sequence.
+            move_position(p1, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+
+    } else {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select percent encoding begin. The source data position is null.");
     }
 }
 

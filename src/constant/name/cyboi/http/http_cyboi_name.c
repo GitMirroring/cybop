@@ -27,6 +27,7 @@
 #define HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -106,13 +107,11 @@ static wchar_t* LOCATION_HTTP_CYBOI_NAME = LOCATION_HTTP_CYBOI_NAME_ARRAY;
 static int* LOCATION_HTTP_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The method http cyboi name. */
-static wchar_t METHOD_HTTP_CYBOI_NAME_ARRAY[] = {L'm', L'e', L't', L'h', L'o', L'd'};
-static wchar_t* METHOD_HTTP_CYBOI_NAME = METHOD_HTTP_CYBOI_NAME_ARRAY;
+static wchar_t* METHOD_HTTP_CYBOI_NAME = L"method";
 static int* METHOD_HTTP_CYBOI_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The protocol http cyboi name. */
-static wchar_t PROTOCOL_HTTP_CYBOI_NAME_ARRAY[] = {L'p', L'r', L'o', L't', L'o', L'c', L'o', L'l'};
-static wchar_t* PROTOCOL_HTTP_CYBOI_NAME = PROTOCOL_HTTP_CYBOI_NAME_ARRAY;
+static wchar_t* PROTOCOL_HTTP_CYBOI_NAME = L"protocol";
 static int* PROTOCOL_HTTP_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The server http cyboi name. */
@@ -133,18 +132,8 @@ static int* STATUS_CODE_HTTP_CYBOI_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MO
  *
  * URI - Uniform Resource Identifier
  */
-static wchar_t URI_HTTP_CYBOI_NAME_ARRAY[] = {L'u', L'r', L'i'};
-static wchar_t* URI_HTTP_CYBOI_NAME = URI_HTTP_CYBOI_NAME_ARRAY;
+static wchar_t* URI_HTTP_CYBOI_NAME = L"uri";
 static int* URI_HTTP_CYBOI_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The uri-text http name.
- *
- * URI - Uniform Resource Identifier
- */
-static wchar_t URI_TEXT_HTTP_CYBOI_NAME_ARRAY[] = {L'u', L'r', L'i', L'-', L't', L'e', L'x', L't'};
-static wchar_t* URI_TEXT_HTTP_CYBOI_NAME = URI_TEXT_HTTP_CYBOI_NAME_ARRAY;
-static int* URI_TEXT_HTTP_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* HTTP_NAME_CONSTANT_SOURCE */
 #endif

@@ -28,9 +28,11 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/searcher/selector/percent_encoding/begin_percent_encoding_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -39,7 +41,7 @@
  *
  * The source multibyte character data are transformed into wide character data.
  *
- * @param p0 the destination wide character item
+ * @param p0 the destination character item
  * @param p1 the source character data position (pointer reference)
  * @param p2 the source character count remaining
  */

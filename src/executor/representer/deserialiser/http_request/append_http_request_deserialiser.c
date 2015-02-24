@@ -39,7 +39,6 @@
 #include "../../../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../../../logger/logger.c"
 
-
 /**
  * Allocates a part using the given model
  * and finally appends it to the destination.

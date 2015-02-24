@@ -39,6 +39,7 @@
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/overwriter/part_overwriter.c"
+#include "../../../../executor/representer/deserialiser/percent_encoding/percent_encoding_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/http_request/decode_http_request_deserialiser.c"
 #include "../../../../executor/searcher/selector/http_request/uri_http_request_selector.c"
 #include "../../../../logger/logger.c"
@@ -46,9 +47,9 @@
 /**
  * Deserialises the http request uri content.
  *
- * The uri is added twice to the destination properties:
- * - as full text representation
- * - as hierarchy consisting of parts
+ * The uri is added as string to the destination model.
+ * In addition, its single elements are added as hierarchy
+ * to the destination properties.
  *
  * @param p0 the destination item
  * @param p1 the source uri data
@@ -58,59 +59,59 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise http request uri content.");
 
-    // The character data, count, size.
-    void* cd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int cc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    int cs = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-
-    // Allocate character data.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &cd, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    //
-    // CAUTION! Percent-encoding may be used for all URI, including URL and URN.
-    //
-
-    // Decode percent-encoded character array into character data.
-//??    deserialise_percent_encoding_vector((void*) &cd, (void*) &cc, (void*) &cs, p1, p2);
-
-    //
-    // Add uri as full text representation.
-    //
-
-    deserialise_http_request_decode(p0, (void*) URI_TEXT_HTTP_CYBOI_NAME, (void*) URI_TEXT_HTTP_CYBOI_NAME_COUNT, cd, (void*) &cc);
-
-    //
-    // Add uri as hierarchy consisting of parts.
-    //
-
     // The uri part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The uri part model, properties.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* pp = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The percent-decoded item.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The percent-decoded item data, count.
+    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ic = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate uri part.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    // Get uri part model, properties.
-    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    // Allocate character item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Fill uri part.
     overwrite_part_element(p, (void*) URI_HTTP_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) URI_HTTP_CYBOI_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-//??    receive_inline(pm, pd, cd, (void*) &cc, (void*) URI_TEXT_STATE_CYBOL_FORMAT);
 
-    // Deallocate character data.
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    deallocate_array((void*) &cd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &cs, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Get uri part model, properties.
+    copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &pp, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+
+//?? fwprintf(stdout, L"TEST deserialise http request uri content pre *p2: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST deserialise http request uri content pre p1: %s\n", (char*) p1);
+
+    // Decode percent-encoded character array into character data.
+    // CAUTION! Percent-encoding may be used for ALL URI, including URL and URN.
+    deserialise_percent_encoding(i, p1, p2);
+
+    // Get character item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &d, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+//?? fwprintf(stdout, L"TEST deserialise http request uri content post *c: %i\n", *((int*) c));
+//?? fwprintf(stdout, L"TEST deserialise http request uri content post d: %s\n", (char*) d);
+
+    // Append uri as is in full text to part model.
+    deserialise_http_request_decode(pm, (void*) URI_TEXT_HTTP_CYBOI_NAME, (void*) URI_TEXT_HTTP_CYBOI_NAME_COUNT, d, c);
+    // Append uri elements as hierarchy of single parts to part properties.
+//??    receive_inline(pp, NULL, cd, (void*) &cc, (void*) URI_TEXT_STATE_CYBOL_FORMAT);
+
+    // Deallocate character item.
+    deallocate_item((void*) &i, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Add uri part to destination item.
     // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.

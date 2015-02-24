@@ -300,6 +300,7 @@ Executor
 ________
 
         * Implement part serialiser called from file "cybol_serialiser.c"
+        * Move de-/serialisers for primitive types out of directory "cybol/" up one level, since they are used not only in cybol, but in many de-/serialisers
 
 Logifier
 ________
