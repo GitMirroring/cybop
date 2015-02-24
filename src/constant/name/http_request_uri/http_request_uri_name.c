@@ -48,9 +48,9 @@ static int* ABSOLUTE_URI_HTTP_REQUEST_URI_NAME_COUNT = NUMBER_3_INTEGER_STATE_CY
  * Therefore, the colon in host:port is looked for.
  *
  * The fact that an absolute uri contains a colon behind the scheme
- * is not a problem, since the absolute uri detection is done first.
- * That is, the authority form detection is done only if the uri
- * is not an absolute uri.
+ * is not a problem, since the absolute uri detection is done ABOVE.
+ * That is, the authority form detection is done ONLY if the uri
+ * is NOT an absolute uri.
  */
 static wchar_t* AUTHORITY_FORM_HTTP_REQUEST_URI_NAME = COLON_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
 static int* AUTHORITY_FORM_HTTP_REQUEST_URI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;

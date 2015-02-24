@@ -79,6 +79,17 @@
 // host: 127.0.0.1:1971
 // connection: Keep-Alive
 //
+// Example with GET method 3:
+//
+// GET /?action=index HTTP/1.1
+// Host: localhost
+// User-Agent: Mozilla/5.0 (X11; Linux i686; rv:31.0) Gecko/20100101 Firefox/31.0 Iceweasel/31.4.0
+// Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+// Accept-Language: de,en-US;q=0.7,en;q=0.3
+// Accept-Encoding: gzip, deflate
+// DNT: 1
+// Connection: keep-alive
+//
 // Example with POST method:
 //
 // POST /wiki/Spezial:Search HTTP/1.1

@@ -71,11 +71,10 @@ void select_http_uri_query_parametre_name(void* p0, void* p1, void* p2, void* p3
             // It serves as delimiter for the parametre name,
             // so that the calling function knows its count (length).
             // The remaining data represent the parametre value,
-            // which was handed over to here and can now be assigned.
-/*?? TODO!
-            assign(p9, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-            assign(p10, p8, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
+            // which can now be assigned.
+            //
+            copy_pointer(p5, p3);
+            copy_integer(p6, p4);
 
             // Set break flag.
             copy_integer(p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

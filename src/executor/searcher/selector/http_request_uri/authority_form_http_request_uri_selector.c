@@ -39,58 +39,6 @@
 /**
  * Selects authority form http request uri.
  *
- * The request uri identifies the resource upon which to apply a request.
- * There are four options to specify a request uri:
- *
- * Request-URI = "*" | absoluteURI | abs_path | authority
- *
- * (1) No resource
- *
- * The asterisk "*" means that the request does not apply to a particular
- * resource, but to the server itself, and is only allowed when the method
- * used does not necessarily apply to a resource. Example:
- *
- * OPTIONS * HTTP/1.1
- *
- * (2) Absolute URI
- *
- * The absoluteURI form is REQUIRED when the request is being made to
- * a proxy. The proxy is requested to forward the request or service it
- * from a valid cache, and return the response. Note that the proxy MAY
- * forward the request on to another proxy or directly to the server
- * specified by the absoluteURI. Example:
- *
- * GET http://www.w3.org/pub/WWW/TheProject.html HTTP/1.1
- *
- * (3) Authority Form
- *
- * The authority form is only used by the CONNECT method. If a client
- * connects to a proxy using the CONNECT method, it has to specify
- * the hostname and, separated by a colon, the port number. Both of them
- * have to be specified. The host:port part is followed by a space and
- * a string specifying the HTTP version number. Example:
- *
- * CONNECT home.netscape.com:443 HTTP/1.0
- * User-agent: Mozilla/1.1N
- * Proxy-authorization: basic aGVsbG86d29ybGQ=
- *
- * (4) Absolute Path
- *
- * The most common form is that used to identify a resource on an
- * origin server or gateway. In this case, the absolute path of the
- * uri MUST be transmitted as the request uri, and the network location
- * of the uri (authority) MUST be transmitted in a Host header field.
- * For example, a client wishing to retrieve the resource above directly
- * from the origin server would create a TCP connection to port 80 of
- * the host "www.w3.org" and send the lines:
- *
- * GET /pub/WWW/TheProject.html HTTP/1.1
- * Host: www.w3.org
- *
- * followed by the remainder of the request.
- * Note that the absolute path cannot be empty; if none is present
- * in the original URI, it MUST be given as "/" (the server root).
- *
  * @param p0 the destination model item
  * @param p1 the destination properties item
  * @param p2 the break flag

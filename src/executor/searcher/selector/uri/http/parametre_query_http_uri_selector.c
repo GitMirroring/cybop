@@ -26,6 +26,7 @@
 #ifndef PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 #define PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -36,7 +37,6 @@
 #include "../../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../../logger/logger.c"
-#include "../../../../../variable/type_size/integral_type_size.c"
 
 //
 // Forward declarations.

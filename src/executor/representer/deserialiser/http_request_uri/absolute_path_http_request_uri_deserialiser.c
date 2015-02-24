@@ -44,6 +44,10 @@
  */
 void deserialise_absolute_path_http_request_uri(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+fwprintf(stdout, L"TEST deserialise absolute path http request uri *p4: %i\n", *((int*) p4));
+fwprintf(stdout, L"TEST deserialise absolute path http request uri *p3: %ls\n", *((void**) p3));
+fwprintf(stdout, L"TEST deserialise absolute path http request uri *p2: %i\n", *((int*) p2));
+
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* r = (int*) p2;
@@ -68,6 +72,8 @@ void deserialise_absolute_path_http_request_uri(void* p0, void* p1, void* p2, vo
         while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_integer_smaller_or_equal((void*) &b, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+fwprintf(stdout, L"TEST deserialise absolute path http request uri b: %i\n", b);
 
             if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -150,6 +150,60 @@
 // http://tools.ietf.org/html/rfc3986
 //
 
+//
+// The request uri identifies the resource upon which to apply a request.
+// There are four options to specify a request uri:
+//
+// Request-URI = "*" | absoluteURI | abs_path | authority
+//
+// (1) No resource
+//
+// The asterisk "*" means that the request does not apply to a particular
+// resource, but to the server itself, and is only allowed when the method
+// used does not necessarily apply to a resource. Example:
+//
+// OPTIONS * HTTP/1.1
+//
+// (2) Absolute URI
+//
+// The absoluteURI form IS REQUIRED when the request is being made to
+// a proxy. The proxy is requested to forward the request or service it
+// from a valid cache, and return the response. Note that the proxy MAY
+// forward the request on to another proxy or directly to the server
+// specified by the absoluteURI. Example:
+//
+// GET http://www.w3.org/pub/WWW/TheProject.html HTTP/1.1
+//
+// (3) Authority Form
+//
+// The authority form is only used by the CONNECT method. If a client
+// connects to a proxy using the CONNECT method, it has to specify
+// the hostname and, separated by a colon, the port number. Both of them
+// have to be specified. The host:port part is followed by a space and
+// a string specifying the HTTP version number. Example:
+//
+// CONNECT home.netscape.com:443 HTTP/1.0
+// User-agent: Mozilla/1.1N
+// Proxy-authorization: basic aGVsbG86d29ybGQ=
+//
+// (4) Absolute Path
+//
+// The most common form is that used to identify a resource on an
+// origin server or gateway. In this case, the absolute path of the
+// uri MUST be transmitted as the request uri, and the network location
+// of the uri (authority) MUST be transmitted in a Host header field.
+// For example, a client wishing to retrieve the resource above directly
+// from the origin server would create a TCP connection to port 80 of
+// the host "www.w3.org" and send the lines:
+//
+// GET /pub/WWW/TheProject.html HTTP/1.1
+// Host: www.w3.org
+//
+// followed by the remainder of the request.
+// Note that the absolute path CANNOT be empty; if none is present
+// in the original URI, it MUST be given as "/" (the server root).
+//
+
 /**
  * Deserialises the wide character uri into a model and properties.
  *
@@ -169,15 +223,31 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise uri.");
 
-    // The source data position.
-    void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source count remaining.
-    int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The no resource source data position and source count remaining.
+    void* nord = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int norc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The absolute uri source data position and source count remaining.
+    void* abud = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int abuc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The authority form source data position and source count remaining.
+    void* aufd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int aufc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The absolute path source data position and source count remaining.
+    void* abpd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int abpc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    // Copy source data position.
-    copy_pointer((void*) &d, (void*) &p2);
-    // Copy source count remaining.
-    copy_integer((void*) &c, p3);
+    // Copy no resource source data position and source count remaining.
+    copy_pointer((void*) &nord, (void*) &p2);
+    copy_integer((void*) &norc, p3);
+    // Copy absolute uri source data position and source count remaining.
+    copy_pointer((void*) &abud, (void*) &p2);
+    copy_integer((void*) &abuc, p3);
+    // Copy authority form source data position and source count remaining.
+    copy_pointer((void*) &aufd, (void*) &p2);
+    copy_integer((void*) &aufc, p3);
+    // Copy absolute path source data position and source count remaining.
+    copy_pointer((void*) &abpd, (void*) &p2);
+    copy_integer((void*) &abpc, p3);
 
     //
     // CAUTION! Do comparisons below IN PARALLEL, because:
@@ -193,9 +263,11 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_no_resource_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+        deserialise_no_resource_http_request_uri(p0, p1, (void*) &r, (void*) &nord, (void*) &norc);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST deserialise uri no resource r: %i\n", r);
 
             // Do nothing, since the http request uri is empty "*",
             // which means that it points to nowhere, i.e. no resource is given.
@@ -204,45 +276,53 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_absolute_uri_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+        deserialise_absolute_uri_http_request_uri(p0, p1, (void*) &r, (void*) &abud, (void*) &abuc);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_uri_scheme(p0, p1, (void*) &d, (void*) &c);
+fwprintf(stdout, L"TEST deserialise uri absolute uri r: %i\n", r);
+
+            deserialise_uri_scheme(p0, p1, (void*) &abud, (void*) &abuc);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_authority_form_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+        deserialise_authority_form_http_request_uri(p0, p1, (void*) &r, (void*) &aufd, (void*) &aufc);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST deserialise uri authority form r: %i\n", r);
 
             // Add scheme as full text string.
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the authority does not contain one.
             deserialise_http_request_append(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
-            deserialise_http_uri_authority_content(p0, (void*) &d, (void*) &c);
+            deserialise_http_uri_authority_content(p0, (void*) &aufd, (void*) &aufc);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        deserialise_absolute_path_http_request_uri(p0, p1, (void*) &r, (void*) &d, (void*) &c);
+        deserialise_absolute_path_http_request_uri(p0, p1, (void*) &r, (void*) &abpd, (void*) &abpc);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST deserialise uri absolute path r: %i\n", r);
 
             // Add scheme as full text string.
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the path does not contain one.
             deserialise_http_request_append(p0, (void*) SCHEME_URI_CYBOI_NAME, (void*) SCHEME_URI_CYBOI_NAME_COUNT, (void*) HTTP_SCHEME_URI_MODEL, (void*) HTTP_SCHEME_URI_MODEL_COUNT);
 
-            deserialise_http_uri_path(p0, p1, (void*) &d, (void*) &c);
+            deserialise_http_uri_path(p0, p1, (void*) &abpd, (void*) &abpc);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST deserialise uri invalid r: %i\n", r);
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise uri. The uri is invalid.");
     }

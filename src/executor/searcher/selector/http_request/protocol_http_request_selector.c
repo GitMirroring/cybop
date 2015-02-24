@@ -83,6 +83,9 @@ void select_http_request_protocol(void* p0, void* p1, void* p2, void* p3, void* 
     // - twice "carriage return" and "line feed"
     // - "carriage return" and "line feed"
     //
+    // Description of header fields in specification:
+    // http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.2
+    //
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
