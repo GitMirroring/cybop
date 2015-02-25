@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Update http-response serialiser
+        * Update http-response serialiser; test html sending via http
         * Continue cybol example application "www_server" file "send_index.cybol"
         * CAUTION! Test cybol example application "www_server" as root user to have sufficient rights
 

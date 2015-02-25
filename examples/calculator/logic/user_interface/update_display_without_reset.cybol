@@ -3,6 +3,7 @@
     <!-- The display HAS TO BE EMPTIED since otherwise, the result is appended to the old operand. -->
     <part name="reset_display" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="serialise_result" channel="inline" format="represent/serialise" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>

@@ -1,6 +1,7 @@
 <model>
     <part name="reset_buffer" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="reset_count" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>

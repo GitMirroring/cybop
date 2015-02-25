@@ -7,6 +7,7 @@
     -->
     <part name="reset_operand" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
     <part name="deserialise_operand" channel="inline" format="represent/deserialise" model="">

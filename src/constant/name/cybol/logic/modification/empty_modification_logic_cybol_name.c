@@ -31,9 +31,16 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The part empty modification logic cybol name. */
-static wchar_t PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_ARRAY[] = {L'p', L'a', L'r', L't'};
-static wchar_t* PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME = PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME = L"part";
 static int* PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The model empty modification logic cybol name. */
+static wchar_t* MODEL_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME = L"model";
+static int* MODEL_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The properties empty modification logic cybol name. */
+static wchar_t* PROPERTIES_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME = L"properties";
+static int* PROPERTIES_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif

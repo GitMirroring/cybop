@@ -2,6 +2,7 @@
     <!-- CAUTION! If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
     <part name="reset_action" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="receive_action" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="display"/>

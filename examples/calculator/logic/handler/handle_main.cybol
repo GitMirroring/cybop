@@ -3,6 +3,7 @@
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
     <part name="reset_command" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="receive_command" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>

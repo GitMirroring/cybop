@@ -3,6 +3,7 @@
 //Zeichen löschen
     <part name="reset_command" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
 //Speichern der Nachricht in Variable

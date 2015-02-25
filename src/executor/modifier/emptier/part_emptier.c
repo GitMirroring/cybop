@@ -46,19 +46,42 @@
  *
  * @param p0 the part
  * @param p1 the type
+ * @param p2 the model flag
+ * @param p3 the properties flag
  */
-void empty_part(void* p0, void* p1) {
+void empty_part(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Empty part.");
 
-    // The part model.
+    // The part model, properties.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get part model.
+    // Get part model, properties.
     copy_array_forward((void*) &m, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &p, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-    // Empty part model.
-    empty_item(m, p1);
+    if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* mf = (int*) p2;
+
+        if (*mf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Empty part model.
+            empty_item(m, p1);
+        }
+    }
+
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* pf = (int*) p3;
+
+        if (*pf != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Empty part properties.
+            empty_item(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+        }
+    }
 }
 
 /* PART_EMPTIER_SOURCE */

@@ -41,6 +41,8 @@
  *
  * Expected parametres:
  * - part (required): the part
+ * - model (optional): the flag indicating whether all children of the MODEL are to be deleted; however, at least ONE of "model" or "properties" HAS TO BE specified
+ * - properties (optional): the flag indicating whether all children of the PROPERTIES are to be deleted; however, at least ONE of "model" or "properties" HAS TO BE specified
  *
  * Constraints:
  *
@@ -52,22 +54,50 @@ void apply_empty(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply empty.");
 
-    // The part.
+    // The part part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type.
-    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The part type data.
-    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The model part.
+    void* mo = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The properties part.
+    void* pr = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get part.
+    // The part part type item.
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The model part model item.
+    void* mom = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The properties part model item.
+    void* prm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The part type item data.
+    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The model model item data.
+    void* momd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The properties model item data.
+    void* prmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get part part.
     get_part_knowledge((void*) &p, p0, (void*) PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PART_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    // Get part type.
+    // Get model part.
+    get_part_knowledge((void*) &mo, p0, (void*) MODEL_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME, (void*) MODEL_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get properties part.
+    get_part_knowledge((void*) &pr, p0, (void*) PROPERTIES_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PROPERTIES_EMPTY_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+
+    // Get part type item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    // Get part type data.
+    // Get model model item.
+    copy_array_forward((void*) &mom, mo, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get properties model item.
+    copy_array_forward((void*) &prm, pr, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get part type item data.
     copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get part type item data.
+    copy_array_forward((void*) &momd, mom, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get part type item data.
+    copy_array_forward((void*) &prmd, prm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Empty part, i.e. remove all of its elements.
-    empty_part(p, ptd);
+    empty_part(p, ptd, momd, prmd);
 }
 
 /* EMPTY_SOURCE */

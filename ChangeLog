@@ -21,6 +21,7 @@
 2015-02-25  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update http-response serialiser
+        * Extend operation "modify/empty" by "model" and "properties" flags indicating what is to be emptied
 
 2015-02-24  Christian Heller  <christian.heller@tuxtax.de>
 

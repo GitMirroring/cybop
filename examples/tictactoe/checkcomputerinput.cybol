@@ -3,6 +3,7 @@
 //Zurücksetzen der Variablen
     <part name="reset_command" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
 //gehe zu setrandom
@@ -341,55 +342,55 @@
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_1"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_2"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_3"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_4"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_5"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_6"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_7"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_8"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
     <part name="if-then-else" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_9"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/> 
+        <property name="false" channel="inline" format="path/knowledge" model=""/>
     </part>
 
 
@@ -461,7 +462,7 @@
     <part name="if-then-else2" channel="inline" format="flow/branch" model="">
         <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
         <property name="true" channel="inline" format="path/knowledge" model=".app.checkloose"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".app.checkcomputerinput"/> 
+        <property name="false" channel="inline" format="path/knowledge" model=".app.checkcomputerinput"/>
     </part>
 
-</model> 
+</model>

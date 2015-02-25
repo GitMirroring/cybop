@@ -20,6 +20,8 @@
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <part name="reset_request" channel="inline" format="modify/empty" model="">
         <property name="part" channel="inline" format="path/knowledge" model=".app.var.request"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="receive_request" channel="inline" format="communicate/receive" model="">
         <property name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>

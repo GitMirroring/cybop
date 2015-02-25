@@ -88,7 +88,7 @@ void serialise_cybol_integer_base_char(void* p0, void* p1, void* p2, void* p3, v
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                            *dc = snprintf(p0, *ds, L"%o", *s);
+                            *dc = snprintf(p0, *ds, "%o", *s);
                         }
                     }
 
@@ -98,7 +98,7 @@ void serialise_cybol_integer_base_char(void* p0, void* p1, void* p2, void* p3, v
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                            *dc = snprintf(p0, *ds, L"%d", *s);
+                            *dc = snprintf(p0, *ds, "%d", *s);
                         }
                     }
 
@@ -108,7 +108,7 @@ void serialise_cybol_integer_base_char(void* p0, void* p1, void* p2, void* p3, v
 
                         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                            *dc = snprintf(p0, *ds, L"%X", *s);
+                            *dc = snprintf(p0, *ds, "%X", *s);
                         }
                     }
 

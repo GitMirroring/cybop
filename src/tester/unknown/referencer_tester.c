@@ -105,7 +105,7 @@ void test_referencer_part() {
 
     // Remove child from parent part.
 //??    remove_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    empty_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    empty_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Test knowledge tree.
     // CAUTION! Since the parent model, properties are of PART_ELEMENT_STATE_CYBOI_TYPE,
