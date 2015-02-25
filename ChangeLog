@@ -18,9 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-02-25  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update http-response serialiser
+
 2015-02-24  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Complete http-request uri deserialiser
+        * Update http-request uri deserialiser
 
 2015-02-23  Christian Heller  <christian.heller@tuxtax.de>
 
