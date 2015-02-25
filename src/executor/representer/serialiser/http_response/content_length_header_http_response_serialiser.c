@@ -26,13 +26,11 @@
 #ifndef CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
 #define CONTENT_LENGTH_HEADER_HTTP_RESPONSE_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../../executor/representer/serialiser/cybol/integer/integer_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/http_response/header_entry_http_response_serialiser.c"
+#include "../../../../executor/representer/serialiser/cybol/integer/char_value_integer_cybol_serialiser.c"
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
@@ -46,7 +44,7 @@ void serialise_http_response_header_content_length(void* p0, void* p1) {
 
     append_item_element(p0, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CONTENT_LENGTH_ENTITY_HEADER_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(p0, (void*) HEADER_ARGUMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_ARGUMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    serialise_cybol_integer(p0, p1, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+    serialise_cybol_integer_value_char(p0, p1, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     append_item_element(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
