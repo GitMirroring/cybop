@@ -1,7 +1,7 @@
 <model>
 
     <part name="request" channel="inline" format="element/part" model=""/>
-
+    <part name="webpage" channel="inline" format="text/plain" model=""/>
     <part name="client_socket" channel="inline" format="number/integer" model="0"/>
 
     <!--
