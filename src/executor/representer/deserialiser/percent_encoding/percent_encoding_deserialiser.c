@@ -131,9 +131,9 @@
 /**
  * Deserialises the percent-encoded character data.
  *
- * @param p0 the destination item
- * @param p1 the source data
- * @param p2 the source count
+ * @param p0 the destination character item
+ * @param p1 the source character data
+ * @param p2 the source character count
  */
 void deserialise_percent_encoding(void* p0, void* p1, void* p2) {
 

@@ -21,6 +21,7 @@
         <property name="source" channel="inline" format="path/knowledge" model=".app.wui.index"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="language" channel="inline" format="meta/language" model="text/html">
+            <!-- DELETE THIS LATER. ONLY FOR TESTING. NOT NEEDED FOR DATA TRANSFER. -->
             <constraint name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </property>
     </part>
@@ -33,13 +34,24 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
         <property name="receiver" channel="inline" format="text/plain" model="test_www_server_wui.html"/>
     </part>
-    <!-- END OF TEST. -->
+    <!-- Write knowledge tree into file. -->
+    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_www_server_pre_send.txt"/>
+    </part>
     <part name="send" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.index">
-            <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <!-- DEBUG HERE: Constraints do only appear when another format, e.g. "text/plain" is used for the property. Probably, a strange pointer problem. Use "valgrind" tool! -->
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage">
+            <constraint name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+            <constraint name="blu" channel="inline" format="meta/encoding" model="utf-8"/>
+            <constraint name="bla" channel="inline" format="meta/encoding" model="utf-8"/>
         </property>
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </part>

@@ -14,9 +14,10 @@
 WUI
 ___
 
-        * Update http-response serialiser; test html sending via http
+        * Debug http-response serialiser, where constraints are not available, although they ARE in the knowledge tree
         * Continue cybol example application "www_server" file "send_index.cybol"
         * CAUTION! Test cybol example application "www_server" as root user to have sufficient rights
+        * Move "language indentation" property retrieval from "send.c" to serialiser, since it is also needed e.g. in "serialise.c"
 
         * Loop "extract" in input/output pipeline, as long as filters are given, e.g. "tar|gzip|base64", see file "extract_receiver.c"
         * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);

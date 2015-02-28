@@ -44,9 +44,9 @@
 /**
  * Deserialises the percent-encoded character.
  *
- * @param p0 the destination item
- * @param p1 the source data position (pointer reference)
- * @param p2 the source count remaining
+ * @param p0 the destination character item
+ * @param p1 the source character data position (pointer reference)
+ * @param p2 the source character count remaining
  */
 void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
 
@@ -115,9 +115,13 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
 
         // Cast integer to character.
         //
-        // CAUTION! The type "char" This is ONLY POSSIBLE because the glibc types
-        // "int" and "wchar_t" have a size of 4 Byte each.
-        // If this changes one day, something will have to be adapted here.
+        // CAUTION! The type "int" has a size of 4 Byte,
+        // whilst the type "char" has only a size of 1 Byte.
+        // This means, that information loss is possible.
+        // However, the integer number deserialised above
+        // should lie in the ASCII range, as defined by
+        // the percent encoding specification.
+        //
         unsigned char c = (unsigned char) i;
 
         // Append character to destination.

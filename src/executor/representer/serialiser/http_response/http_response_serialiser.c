@@ -71,6 +71,9 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Get encoding part model item data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST serialise http response *p4: %i\n", *((int*) p4));
+//?? fwprintf(stdout, L"TEST serialise http response *emd: %i\n", *((int*) emd));
+
     // Allocate body item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
@@ -82,6 +85,9 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // determined, since it has to be given as header value in http.
     //
     encode(b, p1, p2, emd);
+
+fwprintf(stdout, L"TEST serialise http response *p2: %i\n", *((int*) p2));
+fwprintf(stdout, L"TEST serialise http response p1: %i\n", (wchar_t*) p1);
 
     // Get body item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -99,6 +105,8 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     append_item_element(p0, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Serialise header.
+    // CAUTION! The body count is handed over as argument,
+    // since it gets generated into the "Content-Length:" header.
     serialise_http_response_header(p0, p3, p4, bc);
 
     // Serialise separator.
@@ -129,6 +137,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
     copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
 fwprintf(stdout, L"TEST serialise http response *testc: %i\n", *((int*) testc));
 fwprintf(stdout, L"TEST serialise http response testd: %s\n", (char*) testd);
 }

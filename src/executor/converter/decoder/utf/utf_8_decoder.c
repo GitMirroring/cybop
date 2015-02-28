@@ -258,8 +258,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
                 // because values are casted to int* internally again.
                 if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    size_t tds = *((int*) ds);
-                    size_t tsc = *sc;
+                    size_t tds = (size_t) *((int*) ds);
+                    size_t tsc = (size_t) *sc;
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations
@@ -287,8 +287,8 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 #ifdef __APPLE__
                     n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 #elif WIN32
-                    int len = MultiByteToWideChar (65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, 0);
-                    n =  MultiByteToWideChar (65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, len);
+                    int len = MultiByteToWideChar(65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, 0);
+                    n =  MultiByteToWideChar(65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, len);
 #elif GNU_LINUX_OPERATING_SYSTEM
                     n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 #else
@@ -304,12 +304,12 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
                         if (errno == EILSEQ) {
 
-                            fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
+fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The input string contains an invalid multibyte sequence.");
 
                         } else {
 
-                            fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
+fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An unknown error occured.");
                         }
                     }

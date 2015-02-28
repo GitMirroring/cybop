@@ -110,6 +110,12 @@
 
 <!--
     This example demonstrates the client side of a socket communication.
+
+    CAUTION! The reserved service ports 0..1023 can sometimes only be
+    used when running the cybol application as "root" user (Administrator).
+
+    The "nmap" tool may be used to find out about active service ports, e.g.:
+    nmap localhost
 -->
 
 <!--

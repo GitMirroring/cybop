@@ -265,8 +265,8 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                 // because values are casted to int* internally again.
                 if (ds != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                    size_t tds = *((int*) ds);
-                    size_t tsc = *sc;
+                    size_t tds = (size_t) *((int*) ds);
+                    size_t tsc = (size_t) *sc;
 
                     // Initialise error number.
                     // It is a global variable/ function and other operations

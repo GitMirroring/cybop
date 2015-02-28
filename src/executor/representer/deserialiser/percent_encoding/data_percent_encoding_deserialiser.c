@@ -39,8 +39,6 @@
 /**
  * Deserialises percent-encoded character data.
  *
- * The source multibyte character data are transformed into wide character data.
- *
  * @param p0 the destination character item
  * @param p1 the source character data position (pointer reference)
  * @param p2 the source character count remaining

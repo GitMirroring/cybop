@@ -79,6 +79,8 @@ void reallocate_item(void* p0, void* p1, void* p2) {
 
     } else {
 
+fwprintf(stdout, L"TEST Could not reallocate item. The data is null. This should NEVER happen. d: %i\n", d);
+
         // Reasons might be:
         // - given size is zero
         // - given size is negative
