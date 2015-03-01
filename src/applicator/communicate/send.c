@@ -198,28 +198,10 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     // Get null termination part model item data.
     copy_array_forward((void*) &ntmd, ntm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    //
-    // Constraints.
-    //
+//?? fwprintf(stdout, L"TEST apply send *mmc: %i\n", *((int*) mmc));
+//?? fwprintf(stdout, L"TEST apply send *mpc: %i\n", *((int*) mpc));
 
-    // The indentation flag part.
-    void* li = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The indentation flag part model item.
-    void* lim = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The indentation flag part model item data.
-    void* limd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get indentation flag part.
-    get_part_knowledge((void*) &li, lpd, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, lpc, p2);
-    // Get indentation flag part model item.
-    copy_array_forward((void*) &lim, li, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get indentation flag part model item data.
-    copy_array_forward((void*) &limd, lim, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST apply send *mmc: %i\n", *((int*) mmc));
-fwprintf(stdout, L"TEST apply send *mpc: %i\n", *((int*) mpc));
-
-    send_data(rm, mmd, mmc, mpd, mpc, p2, p3, fmd, limd, lmd, emd, (void*) &m, clmd, nlmd, ntmd, cmd);
+    send_data(rm, mmd, mmc, mpd, mpc, p2, p3, fmd, lpd, lpc, lmd, emd, (void*) &m, clmd, nlmd, ntmd, cmd);
 }
 
 /* SEND_SOURCE */

@@ -15,7 +15,6 @@
         <property name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
     </part>
 
-
     <part name="serialise_index" channel="inline" format="represent/serialise" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.command"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.var.commandPC"/>

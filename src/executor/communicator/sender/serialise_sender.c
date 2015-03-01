@@ -53,12 +53,13 @@
  * @param p9 the clear flag
  * @param p10 the newline flag
  * @param p11 the format
- * @param p12 the indentation flag
- * @param p13 the language
+ * @param p12 the language properties data
+ * @param p13 the language properties count
+ * @param p14 the language
  */
-void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
-    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p14 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send serialise.");
 
@@ -67,7 +68,7 @@ void send_serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Serialise message.
-        serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+        serialise(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
 
         // Get item data, count.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!

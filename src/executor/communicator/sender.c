@@ -59,16 +59,17 @@
  * @param p5 the knowledge memory part
  * @param p6 the internal memory data
  * @param p7 the format
- * @param p8 the indentation flag
- * @param p9 the language
- * @param p10 the encoding
- * @param p11 the source part (pointer reference)
- * @param p12 the clear flag
- * @param p13 the newline flag
- * @param p14 the termination flag
- * @param p15 the channel
+ * @param p8 the language properties data
+ * @param p9 the language properties count
+ * @param p10 the language
+ * @param p11 the encoding
+ * @param p12 the source part (pointer reference)
+ * @param p13 the clear flag
+ * @param p14 the newline flag
+ * @param p15 the termination flag
+ * @param p16 the channel
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
@@ -115,27 +116,27 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     b = s;
 
     // Select buffer.
-    send_select((void*) &b, (void*) &e, p9);
+    send_select((void*) &b, (void*) &e, p10);
     // Serialise message.
     // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p12, p13, p7, p8, p9);
+    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p13, p14, p7, p8, p9, p10);
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
     //?? The lineending, on the other hand, gets added just once at the end of the whole message.
     //?? It might be needed for serial port communication.
     // Add lineending character.
 //??    append_item_element(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Encode message.
-    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p10);
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p11);
     // Append termination.
-    send_termination((void*) &ad, (void*) &ac, e, p14, p15);
+    send_termination((void*) &ad, (void*) &ac, e, p15, p16);
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
     // Write message.
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
-    send_write(p0, (void*) &ad, ac, p6, p11, p15);
+    send_write(p0, (void*) &ad, ac, p6, p12, p16);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
