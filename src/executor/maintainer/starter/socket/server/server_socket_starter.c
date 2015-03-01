@@ -65,8 +65,8 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The internal memory index.
     int i = *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME;
 
-    fwprintf(stdout, L"TEST: startup socket server io index: %i \n", i);
-    fwprintf(stdout, L"TEST: startup socket server port p12: %i \n", *((int*) p12));
+//?? fwprintf(stdout, L"TEST: startup socket server io index: %i \n", i);
+//?? fwprintf(stdout, L"TEST: startup socket server port p12: %i \n", *((int*) p12));
 
     // Calculate internal memory index using given port.
     calculate_integer_add((void*) &i, p12);
@@ -78,7 +78,7 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
         // The socket io entry.
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST: startup socket server io index with port: %i \n", i);
+//?? fwprintf(stdout, L"TEST: startup socket server io index with port: %i \n", i);
 
         // Get socket io entry.
         copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
@@ -103,8 +103,8 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             // be negative or zero, but have at least a value of ONE.
             allocate_item((void*) &cl, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-    fwprintf(stdout, L"TEST: startup socket server after lifecycle s: %i \n", s);
-    fwprintf(stdout, L"TEST: startup socket server after lifecycle cl: %i \n", cl);
+//?? fwprintf(stdout, L"TEST: startup socket server after lifecycle s: %i \n", s);
+//?? fwprintf(stdout, L"TEST: startup socket server after lifecycle cl: %i \n", cl);
 
             // Store socket in io entry.
             //

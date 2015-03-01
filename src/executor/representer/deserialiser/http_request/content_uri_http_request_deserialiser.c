@@ -120,8 +120,8 @@ void deserialise_http_request_uri_content(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST deserialise http request uri content *pmc: %i\n", *((int*) pmc));
-fwprintf(stdout, L"TEST deserialise http request uri content pmd: %ls\n", (wchar_t*) pmd);
+//?? fwprintf(stdout, L"TEST deserialise http request uri content *pmc: %i\n", *((int*) pmc));
+//?? fwprintf(stdout, L"TEST deserialise http request uri content pmd: %ls\n", (wchar_t*) pmd);
 
     // Append uri elements as hierarchy of single parts to part properties.
     deserialise_uri(pp, *NULL_POINTER_STATE_CYBOI_MODEL, pmd, pmc);

@@ -71,9 +71,6 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // Get encoding part model item data.
     copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST serialise http response *p4: %i\n", *((int*) p4));
-//?? fwprintf(stdout, L"TEST serialise http response *emd: %i\n", *((int*) emd));
-
     // Allocate body item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
@@ -86,8 +83,8 @@ fwprintf(stdout, L"TEST serialise http response *p4: %i\n", *((int*) p4));
     //
     encode(b, p1, p2, emd);
 
-fwprintf(stdout, L"TEST serialise http response *p2: %i\n", *((int*) p2));
-fwprintf(stdout, L"TEST serialise http response p1: %i\n", (wchar_t*) p1);
+//?? fwprintf(stdout, L"TEST serialise http response *p2: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST serialise http response p1: %i\n", (wchar_t*) p1);
 
     // Get body item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -131,15 +128,6 @@ fwprintf(stdout, L"TEST serialise http response p1: %i\n", (wchar_t*) p1);
 
     // Deallocate body item.
     deallocate_item((void*) &b, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
-
-    //?? --- TEST ONLY ---
-    void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &testd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &testc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-fwprintf(stdout, L"TEST serialise http response *testc: %i\n", *((int*) testc));
-fwprintf(stdout, L"TEST serialise http response testd: %s\n", (char*) testd);
 }
 
 /* HTTP_RESPONSE_SERIALISER_SOURCE */

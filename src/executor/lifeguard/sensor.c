@@ -78,7 +78,7 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense.");
 
-fwprintf(stdout, L"TEST sense, channel p6: %i\n", *((int*) p6));
+//?? fwprintf(stdout, L"TEST sense, channel p6: %i\n", *((int*) p6));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -149,7 +149,7 @@ fwprintf(stdout, L"TEST sense, channel p6: %i\n", *((int*) p6));
                 deserialise_network_service((void*) &p, p4, p5);
             }
 
-fwprintf(stdout, L"TEST sense, socket port: %i\n", p);
+//?? fwprintf(stdout, L"TEST sense, socket port: %i\n", p);
 
             sense_channel(p0, (void*) SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) &p, p2, p3);
         }

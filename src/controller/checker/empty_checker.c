@@ -91,8 +91,8 @@ void check_empty(void* p0, void* p1, void* p2) {
         // because otherwise, the "else" branch below would not always be reached.
         || ((irqOLD != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) irqOLD) != *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
-fwprintf(stdout, L"TEST check empty found irq: %i\n", irq);
-fwprintf(stdout, L"TEST check empty found s: %i\n", s);
+//?? fwprintf(stdout, L"TEST check empty found irq: %i\n", irq);
+//?? fwprintf(stdout, L"TEST check empty found s: %i\n", s);
 
         // Add part model (signal) to signal memory.
         //

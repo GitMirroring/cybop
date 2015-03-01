@@ -71,7 +71,7 @@ void startup_bsd_socket_status_get(void* p0, void* p1) {
 
         if (f >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: startup bsd socket status get success f: %i \n", f);
+//?? fwprintf(stdout, L"TEST: startup bsd socket status get success f: %i \n", f);
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket status get success.");
 

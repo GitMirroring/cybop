@@ -10,6 +10,15 @@
         -->
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
     </part>
+    <part name="formatting" channel="file" format="text/plain" model="www_server/wui/formatting.css">
+        <!--
+            CAUTION! The necessary "encoding" is added here DIRECTLY,
+            since it does NOT work adding it as constraint at the operation "send".
+            The reason is that the format "path/knowledge" is used there,
+            which points to another (this) part ".app.var.webpage" whose properties are used.
+        -->
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </part>
     <part name="client_socket" channel="inline" format="number/integer" model="0"/>
 
     <!--

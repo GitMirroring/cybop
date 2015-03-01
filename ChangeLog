@@ -20,9 +20,10 @@
 
 2015-03-01  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Move property "language indentation" retrieval from function "apply_send" to serialiser
         * Debug cybol example application "www_server" adding "encoding" for webpage
         * Extend cybol example application "www_server" web user interface
-        * Move property "language indentation" retrieval from function "apply_send" to serialiser
+        * Implement dynamic transfer of file "formatting.css" in cybol example application "www_server"
 
 2015-02-26  Christian Heller  <christian.heller@tuxtax.de>
 

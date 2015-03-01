@@ -87,11 +87,11 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     // the procedure that might cause an error.
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST: read socket buffer *ss: %i \n", *ss);
-fwprintf(stdout, L"TEST: read socket buffer st: %i \n", st);
-fwprintf(stdout, L"TEST: read socket buffer *s: %i \n", *s);
-fwprintf(stdout, L"TEST: read socket buffer p1: %i \n", *((int*) p1));
-fwprintf(stdout, L"TEST: read socket buffer p0: %i \n", p0);
+//?? fwprintf(stdout, L"TEST: read socket buffer *ss: %i \n", *ss);
+//?? fwprintf(stdout, L"TEST: read socket buffer st: %i \n", st);
+//?? fwprintf(stdout, L"TEST: read socket buffer *s: %i \n", *s);
+//?? fwprintf(stdout, L"TEST: read socket buffer p1: %i \n", *((int*) p1));
+//?? fwprintf(stdout, L"TEST: read socket buffer p0: %i \n", p0);
 
                     // Read message.
                     //
@@ -108,7 +108,7 @@ fwprintf(stdout, L"TEST: read socket buffer p0: %i \n", p0);
 
                     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST read bsd socket success c: %i\n", c);
+//?? fwprintf(stdout, L"TEST read bsd socket success c: %i\n", c);
 
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully read bsd socket.");
 

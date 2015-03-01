@@ -267,8 +267,6 @@ void deserialise_uri(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise uri no resource r: %i\n", r);
-
             // Do nothing, since the http request uri is empty "*",
             // which means that it points to nowhere, i.e. no resource is given.
         }
@@ -280,8 +278,6 @@ fwprintf(stdout, L"TEST deserialise uri no resource r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise uri absolute uri r: %i\n", r);
-
             deserialise_uri_scheme(p0, p1, (void*) &abud, (void*) &abuc);
         }
     }
@@ -291,8 +287,6 @@ fwprintf(stdout, L"TEST deserialise uri absolute uri r: %i\n", r);
         deserialise_authority_form_http_request_uri(p0, p1, (void*) &r, (void*) &aufd, (void*) &aufc);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-fwprintf(stdout, L"TEST deserialise uri authority form r: %i\n", r);
 
             // Add scheme as full text string.
             // The scheme is handed over as http request "protocol" header.
@@ -309,8 +303,6 @@ fwprintf(stdout, L"TEST deserialise uri authority form r: %i\n", r);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise uri absolute path r: %i\n", r);
-
             // Add scheme as full text string.
             // The scheme is handed over as http request "protocol" header.
             // Add scheme as uri part here, because the path does not contain one.
@@ -322,7 +314,7 @@ fwprintf(stdout, L"TEST deserialise uri absolute path r: %i\n", r);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise uri invalid r: %i\n", r);
+fwprintf(stdout, L"WARNING: Could not deserialise uri. The uri is invalid.\n");
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise uri. The uri is invalid.");
     }

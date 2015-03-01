@@ -45,7 +45,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
     // that would produce huge log files.
     // log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket.");
 
-fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
+//?? fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
 
     // The buffer data, count, size.
     // CAUTION! Its size has to be GREATER than zero.
@@ -73,7 +73,8 @@ fwprintf(stdout, L"TEST: sense socket *p1: %i \n", *((int*) p1));
 
     if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
+//?? fwprintf(stdout, L"TEST: sense socket success bc: %i \n", bc);
+
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket success.");
 
         // Copy destination buffer count.

@@ -76,9 +76,9 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 // If nonblocking mode is necessary, then using a thread
                 // is considered to be a more simple and clean solution here.
 
-    fwprintf(stdout, L"TEST: startup bsd socket connect *as: %i \n", *as);
-    fwprintf(stdout, L"TEST: startup bsd socket connect ad: %i \n", ad);
-    fwprintf(stdout, L"TEST: startup bsd socket connect *s: %i \n", *s);
+//?? fwprintf(stdout, L"TEST: startup bsd socket connect *as: %i \n", *as);
+//?? fwprintf(stdout, L"TEST: startup bsd socket connect ad: %i \n", ad);
+//?? fwprintf(stdout, L"TEST: startup bsd socket connect *s: %i \n", *s);
 
                 // Make connexion with server.
                 //
@@ -86,11 +86,11 @@ void startup_bsd_socket_connect(void* p0, void* p1, void* p2) {
                 // to the request before it returns.
                 int r = connect(*s, ad, sl);
 
-    fwprintf(stdout, L"TEST: startup bsd socket connect r: %i \n", r);
+//?? fwprintf(stdout, L"TEST: startup bsd socket connect r: %i \n", r);
 
                 if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket connect successful r: %i \n", r);
+//?? fwprintf(stdout, L"TEST: startup bsd socket connect successful r: %i \n", r);
 
                     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket connect.");
 

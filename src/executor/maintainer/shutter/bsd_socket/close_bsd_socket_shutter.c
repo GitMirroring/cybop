@@ -71,7 +71,7 @@ void shutdown_bsd_socket_close(void* p0) {
 
         if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST: shutdown bsd socket close success r: %i \n", r);
+//?? fwprintf(stdout, L"TEST: shutdown bsd socket close success r: %i \n", r);
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully shutdown bsd socket close.");
 

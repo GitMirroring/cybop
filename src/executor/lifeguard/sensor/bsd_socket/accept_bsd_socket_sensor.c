@@ -97,7 +97,7 @@ void sense_bsd_socket_accept(void* p0, void* p1) {
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense bsd socket accept successful.");
 
-    fwprintf(stdout, L"TEST: sense bsd socket accept success *c: %i \n", *c);
+//?? fwprintf(stdout, L"TEST: sense bsd socket accept success *c: %i \n", *c);
 
             } else {
 

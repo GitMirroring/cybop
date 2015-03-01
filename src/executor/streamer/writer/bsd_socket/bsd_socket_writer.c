@@ -105,7 +105,7 @@ void write_bsd_socket(void* p0, void* p1, void* p2, void* p3) {
 
                     if (*n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: write bsd socket success *n: %i \n", *n);
+//?? fwprintf(stdout, L"TEST: write bsd socket success *n: %i \n", *n);
 
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully sent bsd socket.");
 

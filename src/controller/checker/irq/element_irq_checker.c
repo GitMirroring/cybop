@@ -99,8 +99,8 @@ void check_irq_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
                 // Get handler from io entry.
                 get_io_entry_element(p2, (void*) &io, (void*) HANDLER_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST check irq element idx: %i\n", idx);
-fwprintf(stdout, L"TEST check irq element handler *p2: %i\n", *((void**) p2));
+//?? fwprintf(stdout, L"TEST check irq element idx: %i\n", idx);
+//?? fwprintf(stdout, L"TEST check irq element handler *p2: %i\n", *((void**) p2));
 
                 // Set result.
                 copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);

@@ -68,7 +68,7 @@ void startup_bsd_socket_listen(void* p0, void* p1) {
 
             if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket listen successful r: %i \n", r);
+//?? fwprintf(stdout, L"TEST: startup bsd socket listen successful r: %i \n", r);
 
                 log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Successfully startup bsd socket listen.");
 

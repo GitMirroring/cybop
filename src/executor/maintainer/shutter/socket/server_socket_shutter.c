@@ -71,7 +71,7 @@ void shutdown_socket_server(void* p0, void* p1, void* p2, void* p3) {
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST shutdown socket server io: %i\n", io);
+//?? fwprintf(stdout, L"TEST shutdown socket server io: %i\n", io);
 
             // Only deallocate socket resources if a socket exists.
 

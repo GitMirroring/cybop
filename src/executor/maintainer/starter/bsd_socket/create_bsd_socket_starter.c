@@ -73,9 +73,9 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
                     // function that might cause an error.
                     errno = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-    fwprintf(stdout, L"TEST: startup bsd socket create *pf: %i \n", *pf);
-    fwprintf(stdout, L"TEST: startup bsd socket create *st: %i \n", *st);
-    fwprintf(stdout, L"TEST: startup bsd socket create *pr: %i \n", *pr);
+//?? fwprintf(stdout, L"TEST: startup bsd socket create *pf: %i \n", *pf);
+//?? fwprintf(stdout, L"TEST: startup bsd socket create *st: %i \n", *st);
+//?? fwprintf(stdout, L"TEST: startup bsd socket create *pr: %i \n", *pr);
 
                     // Initialise server socket.
                     //
@@ -90,7 +90,7 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
 
                     if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-    fwprintf(stdout, L"TEST: startup bsd socket create successful *s: %i \n", *s);
+//?? fwprintf(stdout, L"TEST: startup bsd socket create successful *s: %i \n", *s);
 
                         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup bsd socket create success.");
 
