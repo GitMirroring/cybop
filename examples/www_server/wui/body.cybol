@@ -1,16 +1,38 @@
 <model>
 
-    <part name="heading" channel="inline" format="text/plain" model="CYBOL WUI Socket Example">
+    <part name="heading" channel="inline" format="text/plain" model="CYBOL WWW Server Example">
         <property name="tag" channel="inline" format="text/plain" model="h1"/>
     </part>
-    <part name="content_1" channel="inline" format="text/plain" model="This is an example web page created from cybol files.">
+
+    <part name="description" channel="inline" format="text/plain" model="This is an example web page created from cybol files.">
         <property name="tag" channel="inline" format="text/plain" model="p"/>
     </part>
-    <part name="content_2" channel="inline" format="text/plain" model="Following is a line break which IS allowed to be serialised as empty tag.">
-        <property name="tag" channel="inline" format="text/plain" model="p"/>
-    </part>
-    <part name="content_3" channel="inline" format="text/plain" model="">
+    <part name="line_break_description" channel="inline" format="text/plain" model="">
         <property name="tag" channel="inline" format="text/plain" model="br"/>
+    </part>
+
+    <part name="content" channel="inline" format="text/plain" model="The content will appear right here.">
+        <property name="tag" channel="inline" format="text/plain" model="p"/>
+        <property name="id" channel="inline" format="text/plain" model="content"/>
+    </part>
+    <part name="line_break_content" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="br"/>
+    </part>
+
+    <part name="world_link" channel="inline" format="text/plain" model="Greet World">
+        <property name="tag" channel="inline" format="text/plain" model="a"/>
+        <property name="href" channel="inline" format="text/plain" model="http://localhost/?action=greet_world"/>
+        <property name="class" channel="inline" format="text/plain" model="button"/>
+    </part>
+    <part name="cybop_link" channel="inline" format="text/plain" model="Greet CYBOP">
+        <property name="tag" channel="inline" format="text/plain" model="a"/>
+        <property name="href" channel="inline" format="text/plain" model="http://localhost/?action=greet_cybop"/>
+        <property name="class" channel="inline" format="text/plain" model="button"/>
+    </part>
+    <part name="exit_link" channel="inline" format="text/plain" model="Exit Programme">
+        <property name="tag" channel="inline" format="text/plain" model="a"/>
+        <property name="href" channel="inline" format="text/plain" model="http://localhost/?action=exit_programme"/>
+        <property name="class" channel="inline" format="text/plain" model="button"/>
     </part>
 
 </model>

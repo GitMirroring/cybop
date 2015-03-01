@@ -15,6 +15,13 @@
         Likewise, binary attachments such as images should NOT get encoded.
     -->
 
+    <!-- CAUTION! If the webpage was not reset here, new text would be added instead of replacing the existing one. -->
+    <part name="reset_webpage" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- CAUTION! Do NOT reset properties since otherwise, they would be lost, e.g. the "encoding" for the http body. -->
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
     <!-- Send html encapsulated as http-response. -->
     <part name="serialise_html" channel="inline" format="represent/serialise" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.webpage"/>

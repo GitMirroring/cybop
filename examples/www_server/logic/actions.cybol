@@ -1,6 +1,8 @@
 <model>
 
-    <part name="index" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
-    <part name="exit" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+    <part name="send_index" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
+    <part name="greet_world" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+    <part name="greet_cybop" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
+    <part name="exit_programme" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
 
 </model>

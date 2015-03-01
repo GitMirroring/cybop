@@ -4,6 +4,8 @@
     <part name="actions" channel="file" format="element/part" model="www_server/logic/actions.cybol"/>
 
     <part name="send_index" channel="file" format="element/part" model="www_server/logic/send_index.cybol"/>
-    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
+    <part name="greet_world" channel="file" format="element/part" model="www_server/logic/greet_world.cybol"/>
+    <part name="greet_cybop" channel="file" format="element/part" model="www_server/logic/greet_cybop.cybol"/>
+    <part name="exit_programme" channel="file" format="element/part" model="www_server/logic/exit_programme.cybol"/>
 
 </model>

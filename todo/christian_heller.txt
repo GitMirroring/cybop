@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Continue cybol example application "www_server" file "send_index.cybol"
+        * Implement transfer of css file into cybol example application "www_server"
         * CAUTION! Test cybol example application "www_server" as root user to have sufficient rights
 
         * Loop "extract" in input/output pipeline, as long as filters are given, e.g. "tar|gzip|base64", see file "extract_receiver.c"
