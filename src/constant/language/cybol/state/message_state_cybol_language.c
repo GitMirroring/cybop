@@ -53,6 +53,15 @@
 //
 
 /**
+ * The message/binary cybol language.
+ *
+ * An arbitrary binary message that does not get interpreted in any way.
+ * This is a CYBOL extension.
+ */
+static wchar_t* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary";
+static int* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The message/cli cybol language.
  *
  * A command line interface message.

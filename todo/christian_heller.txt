@@ -14,6 +14,20 @@
 WUI
 ___
 
+        * Study "libcurl3" library for URL transfer
+
+        * Adapt file "http_request_selector.c" or delete if not needed anymore
+        * Apply byte order conversion from/to network byte order also for message
+        * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (see socket examples in lecture exercise)
+
+        * Complete cybol example application "presence" using HTTP
+            --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
+                answers to following client request were appended to the same model leading to false results
+
+        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
+        * Ensure that non-encoded characters are copied as well in character reference deserialiser
+        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
+
         * Loop "extract" in input/output pipeline, as long as filters are given, e.g. "tar|gzip|base64", see file "extract_receiver.c"
         * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);
             the HTTP header field "Content-Transfer-Encoding" (7bit, quoted-printable, base64, 8bit, binary)
@@ -30,25 +44,6 @@ ___
                 encoding="utf-8" compression="tar|gzip|base64"
         * Consider multipart messages:
             https://en.wikipedia.org/wiki/MIME#Multipart_messages
-
-        * Study "libcurl3" library for URL transfer
-
-        * Adapt file "http_request_selector.c" or delete if not needed anymore
-        * Complete cybol example application "presence" using HTTP
-            --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
-                answers to following client request were appended to the same model leading to false results
-        * Remove model and details content of receiving compound for each new http request;
-            otherwise, new commands are just added to the "action" part entry in "receive_socket.c";
-            this fixes the errors caused by using "append" instead the "replace" function
-            (e.g. html file http response was generated twice as long as wanted;
-            only first action was received and added properly to uri internal model,
-            all following actions were appended but only the first is considered)
-        * Apply byte order conversion from/to network byte order also for message
-        * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (See socket examples in tmp/)
-
-        * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
-        * Ensure that non-encoded characters are copied as well in character reference deserialiser
-        * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
 
         * Attach timeout and other meta data as properties to a client socket number?
             in this case, however, client sockets would have to be single parts and not just numbers in one int array;

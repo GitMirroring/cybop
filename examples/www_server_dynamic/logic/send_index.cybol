@@ -39,7 +39,7 @@
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="text/plain"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_www_server_wui.html"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_www_server_dynamic_wui.html"/>
     </part>
     <part name="send" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>

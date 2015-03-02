@@ -518,7 +518,7 @@ void deserialise_xdt_datetime_ddmmyyyy(void* p0, void* p1, void* p2);
             // When receiving data over some channel, they are mostly
             // decoded back into a multibyte character sequence of type "char".
             // It is true, this double-conversion could be avoided if catching
-            // data with format "text/ascii", e.g. in file "file_receiver.c".
+            // data with format "text/ascii", e.g. in file "file_reader.c".
             // But in order to be able to uniformly process all data,
             // this loss in efficiency is taken.
 

@@ -10,7 +10,7 @@
         -->
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
     </part>
-    <part name="formatting" channel="file" format="text/plain" model="www_server/wui/formatting.css">
+    <part name="formatting" channel="file" format="text/plain" model="www_server_dynamic/wui/formatting.css">
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".

@@ -1,0 +1,6 @@
+<model>
+
+    <part name="var" channel="file" format="element/part" model="www_server_static/var.cybol"/>
+    <part name="handler" channel="file" format="element/part" model="www_server_static/handler.cybol"/>
+
+</model>

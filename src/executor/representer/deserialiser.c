@@ -31,6 +31,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../executor/modifier/appender/item_appender.c"
 #include "../../executor/representer/deserialiser/authority/authority_deserialiser.c"
 #include "../../executor/representer/deserialiser/cybol/cybol_deserialiser.c"
 #include "../../executor/representer/deserialiser/gui/gui_deserialiser.c"
@@ -42,10 +43,6 @@
 #include "../../executor/representer/deserialiser/uri/uri_deserialiser.c"
 #include "../../executor/representer/deserialiser/xdt/xdt_deserialiser.c"
 #include "../../executor/representer/deserialiser/xml/xml_deserialiser.c"
-
-//?? TEMPORARY FOR TESTING! DELETE LATER!
-#include "../../tester/data_as_model_diagram_tester.c"
-#include "../../tester/item_as_model_diagram_tester.c"
 
 /**
  * Deserialises the source into the destination, according to the given language.
@@ -90,6 +87,16 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //
     // message
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p12, (void*) BINARY_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, p2, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

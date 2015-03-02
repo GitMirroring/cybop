@@ -32,6 +32,7 @@
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
+#include "../../executor/modifier/appender/item_appender.c"
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
@@ -88,6 +89,16 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     //
     // message
     //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p12, (void*) BINARY_MESSAGE_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

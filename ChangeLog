@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename cybol example application "www_server" into "www_server_dynamic"
+        * Add new cybol example application "www_server_static" delivering static files to clients
+        * Add new language "message/binary" for arbitrary data
+
 2015-03-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move property "language indentation" retrieval from function "apply_send" to serialiser

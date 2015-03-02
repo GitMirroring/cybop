@@ -1,9 +1,9 @@
 <model>
 
-    <part name="head" channel="file" format="element/part" model="www_server/wui/head.cybol">
+    <part name="head" channel="file" format="element/part" model="www_server_dynamic/wui/head.cybol">
         <property name="tag" channel="inline" format="text/plain" model="head"/>
     </part>
-    <part name="body" channel="file" format="element/part" model="www_server/wui/body.cybol">
+    <part name="body" channel="file" format="element/part" model="www_server_dynamic/wui/body.cybol">
         <property name="tag" channel="inline" format="text/plain" model="body"/>
     </part>
 
