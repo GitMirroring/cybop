@@ -38,6 +38,12 @@
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../logger/logger.c"
 
+//
+// CAUTION! Considering byte order conversion from/to network byte order
+// is NOT necessary here, since the message data already have been
+// serialised properly into single characters before.
+//
+
 /**
  * Reads data via socket.
  *

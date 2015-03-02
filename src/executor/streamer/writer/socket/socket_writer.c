@@ -39,6 +39,12 @@
 #include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
+//
+// CAUTION! Considering byte order conversion from/to network byte order
+// is NOT necessary here, since the message data already have been
+// serialised properly into single characters before.
+//
+
 /**
  * Writes a message via socket.
  *
