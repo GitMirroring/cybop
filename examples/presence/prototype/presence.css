@@ -34,7 +34,7 @@ div#page {
     margin: 20px;
     text-align: left;
     font-family: "DejaVu Sans", "Bitstream Vera Sans", "Nimbus", "Andale", "Courier", "Prestige";
-    font-size: 10px;
+    font-size: 10pt;
     color: #000000;
 }
 
@@ -45,17 +45,17 @@ div#page {
 
 div#page h1 {
     color: #000000;
-    font-size: 14px;
+    font-size: 14pt;
 }
 
 div#page h2 {
     color: #000000;
-    font-size: 12px;
+    font-size: 12pt;
 }
 
 div#page h3 {
     color: #000000;
-    font-size: 10px;
+    font-size: 10pt;
 }
 
 div#page p {
@@ -113,57 +113,67 @@ div#overview .edit {
     width: 200px;
 }
 
-div#legend {
+#navigation {
+    height: 20px;
+    font-size: 10pt;
+}
+
+#navigation .arrow {
+    width: 50px;
+    background-color: #CCCCCC;
+}
+
+div#options {
     float: left;
     margin-left: 50px;
     color: #000000;
 }
 
-div#legend h1 {
+div#options h1 {
     color: #000000;
     font-size: 1.0em;
 }
 
-#login {
+#buttons {
     float: right;
     margin-right: 10px;
     width: 200px;
 }
 
-#login fieldset {
+#buttons fieldset {
     border-width: 1px;
     border-style: solid;
     border-color: #000000;
 }
 
-#login #username-label, #login #password-label {
+#buttons #username-label, #buttons #password-label {
     height: 14px;
     padding: 2px;
-    font-size: 10px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
-#login #username-field, #login #password-field {
+#buttons #username-field, #buttons #password-field {
     height: 14px;
     border-width: 1px;
     border-style: solid;
     border-color: #E0E0E0;
     padding: 2px;
-    font-size: 10px;
+    font-size: 10pt;
 }
 
-#login #remember-field {
-    font-size: 10px;
+#buttons #remember-field {
+    font-size: 10pt;
     color: #E0E0E0;
 }
 
-#login button {
+#buttons button {
     clear: both;
     margin-top: 10px;
     border-width: 1px;
     border-style: solid;
     border-color: #E0E0E0;
-    font-size: 10px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
