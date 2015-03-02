@@ -23,6 +23,8 @@
         * Rename cybol example application "www_server" into "www_server_dynamic"
         * Add new cybol example application "www_server_static" delivering static files to clients
         * Add new language "message/binary" for arbitrary data
+        * Delete file "http_request_selector.c", since HTTP/WebDAV method should get evaluated in cybol application
+        * Continue cybol example application "presence"
 
 2015-03-01  Christian Heller  <christian.heller@tuxtax.de>
 

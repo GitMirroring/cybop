@@ -14,15 +14,10 @@
 WUI
 ___
 
+        * Continue cybol example application "presence"
+        * Use single-click state change and delivery to server, no local storage on client, in order to avoid locking problems with other users
+
         * Study "libcurl3" library for URL transfer
-
-        * Adapt file "http_request_selector.c" or delete if not needed anymore
-        * Apply byte order conversion from/to network byte order also for message
-        * Empty buffer with bzero(buffer, 300) in each socket transfer cycle? (see socket examples in lecture exercise)
-
-        * Complete cybol example application "presence" using HTTP
-            --> "presence" already worked for one client request, but due to the previously missing container function "replace_part",
-                answers to following client request were appended to the same model leading to false results
 
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
