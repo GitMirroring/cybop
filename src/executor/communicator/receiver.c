@@ -134,6 +134,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     receive_select((void*) &b, (void*) &p0, (void*) &n, (void*) &s, p13);
     // Read message.
     receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
+fwprintf(stdout, L"TEST receive data read *ac: %i\n", *((int*) ac));
+fwprintf(stdout, L"TEST receive data read ad: %s\n", (char*) ad);
     // Extract message.
 //??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
     // Decode message.
@@ -143,6 +145,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     receive_deserialise(p0, p1, ad, ac, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11);
+fwprintf(stdout, L"TEST receive data deserialise *ac: %i\n", *((int*) ac));
+fwprintf(stdout, L"TEST receive data deserialise ad: %s\n", (char*) ad);
     // Deallocate display event.
     receive_deallocate(b, p13);
 

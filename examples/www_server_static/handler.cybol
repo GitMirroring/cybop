@@ -73,14 +73,11 @@
     <part name="receive_file" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="language" channel="inline" format="meta/language" model="message/binary"/>
-<!--
         <property name="sender" channel="inline" format="path/knowledge" model=".app.var.path"/>
--->
-        <property name="sender" channel="inline" format="text/plain" model="/home/project/cybop/examples/www_server_static/files/index.html"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
     </part>
 
-    <!-- Write knowledge tree into file. -->
+    <!-- Write data into test file. -->
     <part name="test_file" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="language" channel="inline" format="meta/language" model="message/binary"/>
