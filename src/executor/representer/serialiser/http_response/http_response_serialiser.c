@@ -30,6 +30,7 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/representer/serialiser/http_response/body_http_response_serialiser.c"
 #include "../../../../executor/representer/serialiser/http_response/header_http_response_serialiser.c"
 #include "../../../../executor/representer/serialiser/http_response/protocol_http_response_serialiser.c"
 #include "../../../../executor/representer/serialiser/http_response/status_code_http_response_serialiser.c"
@@ -52,46 +53,31 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response.");
 
-    // The encoding part.
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoding part model item.
-    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The encoding part model item data.
-    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The body item.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The body item data, count.
-    void* bd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* bc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Get encoding part.
-    get_part_knowledge((void*) &e, p3, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5);
-    // Get encoding part model item.
-    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get encoding part model item data.
-    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // The argument data, count.
+    //
+    // CAUTION! This is just helper variables,
+    // to be used for forwarding the correct argument.
+    //
+    // CAUTION! They HAVE TO get initialised with
+    // the source model by default since otherwise,
+    // no data will be written to the destination below,
+    // in case no encoding was given.
+    //
+    void* ad = p1;
+    void* ac = p2;
 
     // Allocate body item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Encode body wide character array into body multibyte character item.
+    // Encode body only if encoding is given.
     //
     // CAUTION! The body has to be encoded FIRST, so that its count can be
-    // determined, since it has to be given as header value in http.
-    //
-    encode(b, p1, p2, emd);
-
-//?? fwprintf(stdout, L"TEST serialise http response *p2: %i\n", *((int*) p2));
-//?? fwprintf(stdout, L"TEST serialise http response p1: %i\n", (wchar_t*) p1);
-
-    // Get body item data, count.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // determined, since it has to be given as http header value below.
+    serialise_http_response_body((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5);
 
     // Serialise protocol.
     serialise_http_response_protocol(p0);
@@ -102,9 +88,11 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     append_item_element(p0, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REQUEST_RESPONSE_LINE_FINAL_ELEMENT_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Serialise header.
+    //
     // CAUTION! The body count is handed over as argument,
     // since it gets generated into the "Content-Length:" header.
-    serialise_http_response_header(p0, p3, p4, bc);
+    //
+    serialise_http_response_header(p0, p3, p4, ac);
 
     // Serialise separator.
     //
@@ -117,14 +105,15 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // then one CR + LF was already added by
     // REQUEST_RESPONSE_LINE_ELEMENT_END_SEPARATOR_HTTP_NAME above.
     //
-    // Therefore, only ONE more CR + LF is to be added here.
+    // Therefore, ONLY ONE more CR + LF is to be added here.
     //
     append_item_element(p0, (void*) HEADER_SEPARATOR_HTTP_NAME, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HEADER_SEPARATOR_HTTP_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Serialise body.
+    //
     // CAUTION! Append body ONLY HERE and NOT before,
     // since it has to stand at the end of the http message.
-    append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, bc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(p0, ad, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, ac, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
     // Deallocate body item.
     deallocate_item((void*) &b, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);

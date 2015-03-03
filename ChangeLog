@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug that http response body was not serialised without encoding
+        * Add favicon to cybol example application "www_server_static"
+
 2015-03-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename cybol example application "www_server" into "www_server_dynamic"

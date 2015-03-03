@@ -17,10 +17,6 @@ ___
         * Continue cybol example application "presence"
         * Use single-click state change and delivery to server, no local storage on client, in order to avoid locking problems with other users
 
-        * Make cybol example application "www_server_static" work with binary data:
-            continue in file "handler.cybol" and use debug test log messages in cyboi file "executor/communicator/receiver.c"
-            data now appear in test file, but not in browser --> verify http_response serialisation
-
         * Study "libcurl3" library for URL transfer
 
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag

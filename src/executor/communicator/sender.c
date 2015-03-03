@@ -122,6 +122,8 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p13, p14, p7, p8, p9, p10);
+//?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
+//?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
     //?? The lineending, on the other hand, gets added just once at the end of the whole message.
     //?? It might be needed for serial port communication.

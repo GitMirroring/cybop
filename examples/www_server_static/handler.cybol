@@ -70,6 +70,10 @@
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
 
+    <part name="reset_request" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
     <part name="receive_file" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="language" channel="inline" format="meta/language" model="message/binary"/>
@@ -78,12 +82,14 @@
     </part>
 
     <!-- Write data into test file. -->
+<!--
     <part name="test_file" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="language" channel="inline" format="meta/language" model="message/binary"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
         <property name="receiver" channel="inline" format="text/plain" model="test_www_server_static_file.txt"/>
     </part>
+-->
 
     <part name="send_file" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
