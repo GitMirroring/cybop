@@ -22,7 +22,7 @@ body {
     min-width: 1000px;
     background-color: #FFFFFF;
     text-align: left;
-    font-family: "Monospace", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", "Lucida Console", "FreeMono", "Nimbus Mono L", "Andale Mono", "Consolas", "Everson Mono", "Courier", "Prestige";
+    font-family: "Bitstream Vera Sans", "DejaVu Sans", "Free Sans", "Latin Modern Sans", "Liberation Sans", "Nimbus Sans L", "Verdana", "Arial", "Sans Serif";
     font-size: 10pt;
     color: #000000;
 }
@@ -30,10 +30,12 @@ body {
 a {
     /* Avoid standard color "blue" of most web browsers. */
     color: #000000;
+    text-decoration: underline;
 }
 
 a:hover {
-    font-weight: bold;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 /*
@@ -56,7 +58,7 @@ a:hover {
  * Values used in overview and choice.
  */
 
-.lecture {
+.teaching {
     background-color: #E6FFCC;
 }
 
@@ -72,11 +74,11 @@ a:hover {
     background-color: #FFCCCC;
 }
 
-.illness {
+.disease {
     background-color: #FFCCCC;
 }
 
-.celebrationday {
+.bankholiday {
     background-color: #E0E0E0;
 }
 
@@ -132,8 +134,16 @@ a:hover {
     float: right;
 }
 
-#choice h1 {
-    font-size: 10pt;
+#choice table {
+    width: 100px;
+    border-spacing: 1px;
+    background-color: #000000;
+    text-align: center;
+}
+
+#choice th {
+    padding: 2px;
+    background-color: #E0E0E0;
 }
 
 /*
