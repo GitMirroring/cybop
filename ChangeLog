@@ -20,7 +20,7 @@
 
 2015-03-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue cybol example application "presence"
+        * Complete cybol example application "presence" prototype
 
 2015-03-03  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -33,7 +33,7 @@
         * Add new cybol example application "www_server_static" delivering static files to clients
         * Add new language "message/binary" for arbitrary data
         * Delete file "http_request_selector.c", since HTTP/WebDAV method should get evaluated in cybol application
-        * Continue cybol example application "presence"
+        * Continue cybol example application "presence" prototype
 
 2015-03-01  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -26,6 +26,7 @@
 #ifndef LOG_FILE_OPTIONALISER_SOURCE
 #define LOG_FILE_OPTIONALISER_SOURCE
 
+#include <sys/stat.h>
 #include <stdio.h>
 
 #include "../../constant/model/character_code/ascii/ascii_character_code_model.c"

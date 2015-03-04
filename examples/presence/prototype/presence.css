@@ -1,9 +1,13 @@
 /*
  * Copyright (C) 2011-2015. Christian Heller.
- *
  * http://www.ba-leipzig.de/
- *
  * @author Christian Heller <christian.heller@ba-leipzig.de>
+ *
+ * Colours:
+ * gray: #E0E0E0
+ * red: #FFCCCC
+ * yellow: #FFFFCC
+ * green: #E6FFCC
  */
 
 /*
@@ -18,30 +22,62 @@ body {
     min-width: 1000px;
     background-color: #FFFFFF;
     text-align: left;
-    font-family: "Monospace", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", "Lucida Console", "FreeMono", "Nimbus Mono L", "Andale Mono", "Consolas", "Everson Mono", "Courier", "Prestige", "Arial";
+    font-family: "Monospace", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", "Lucida Console", "FreeMono", "Nimbus Mono L", "Andale Mono", "Consolas", "Everson Mono", "Courier", "Prestige";
     font-size: 10pt;
     color: #000000;
 }
 
 a {
-    text-decoration: none;
+    /* Avoid standard color "blue" of most web browsers. */
     color: #000000;
-}
-
-a:link {
-}
-
-a:visited {
 }
 
 a:hover {
-    background-color: #E0E0E0;
-    color: #000000;
+    font-weight: bold;
 }
 
-a:active {
+/*
+ * Alignment.
+ */
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+/*
+ * Values used in overview and choice.
+ */
+
+.lecture {
+    background-color: #E6FFCC;
+}
+
+.homeoffice {
     background-color: #FFCCCC;
-    color: #000000;
+}
+
+.businesstrip {
+    background-color: #FFCCCC;
+}
+
+.holiday {
+    background-color: #FFCCCC;
+}
+
+.illness {
+    background-color: #FFCCCC;
+}
+
+.celebrationday {
+    background-color: #E0E0E0;
 }
 
 /*
@@ -50,7 +86,6 @@ a:active {
 
 #header h1 {
     font-size: 14pt;
-    color: #000000;
 }
 
 /*
@@ -58,86 +93,47 @@ a:active {
  */
 
 #navigation {
-    height: 20px;
-    font-size: 10pt;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
-#navigation .arrow {
-    width: 50px;
-    background-color: #CCCCCC;
+#navigation table {
+    width: 800px;
+    border-spacing: 0px;
 }
 
 /*
  * Overview.
  */
 
-#overview img {
-    border-width: 0px;
-    float: left;
-    height: 20px;
-}
-
-#overview .edit {
-    width: 200px;
-}
-
 #overview table {
-    float: left;
-    width: 600px;
+    width: 800px;
     border-spacing: 1px;
     background-color: #000000;
-}
-
-#overview tr {
-    text-align: left;
+    text-align: center;
 }
 
 #overview th {
-    padding: 1px;
+    width: 100px;
+    padding: 2px;
     background-color: #E0E0E0;
 }
 
-#overview td {
-    padding: 1px;
+#overview a {
+    display: block;
+    text-decoration: none;
 }
 
 /*
- * Overview table formattings.
+ * Choice.
  */
 
-.lecture {
-    background-color: #E6FFCC;
+#choice {
+    float: right;
 }
 
-.businesstrip {
-    background-color: #FFCCCC;
-}
-
-.homeoffice {
-    background-color: #FFCCCC;
-}
-
-.holiday {
-    background-color: #FFFFCC;
-}
-
-.illness {
-    background-color: #FFFFFF;
-}
-
-/*
- * Options.
- */
-
-#options {
-    float: left;
-    margin-left: 50px;
-    color: #000000;
-}
-
-#options h1 {
-    color: #000000;
-    font-size: 1.0em;
+#choice h1 {
+    font-size: 10pt;
 }
 
 /*
@@ -211,4 +207,8 @@ a:active {
 #footer img {
     float: left;
     height: 20px;
+}
+
+#footer .text {
+    margin-left: 10px;
 }

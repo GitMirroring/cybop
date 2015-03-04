@@ -19,7 +19,7 @@
     </head>
     <body>
         <!--
-            Die Optionen wurden absichtlich NICHT über Klappkästen (ComboBox) realisiert.
+            Die Auswahlmöglichkeiten wurden absichtlich NICHT über Klappkästen (ComboBox) realisiert.
             Diese würden lokal im Web Browser auf Client-Seite Einstellungen erlauben
             und erst beim Klicken eines Knopfes "Speichern" zum Server übertragen.
             In der Zwischenzeit jedoch könnten andere Anwender die Daten auf
@@ -33,158 +33,169 @@
             Einstellungen ändern. Vertrauen ist also nötig, was aber schon
             im vorher verwendeten Office-Dokument Voraussetzung war.
         -->
-        <div id="page">
-            <div id="header">
-                <img src="ba-leipzig.png" alt="BA Leipzig"/>
-                <h1>Anwesenheit Hauptberufliche Dozenten</h1>
-            </div>
-            <div id="navigation">
-                <a href="?action=go_back" class="arrow">zurück</a><span id="date">Woche</span><a href="?action=go_forward" class="arrow">vor</a>
-            </div>
-            <div id="overview">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Dozent</th>
-                            <th>Montag</th>
-                            <th>Dienstag</th>
-                            <th>Mittwoch</th>
-                            <th>Donnerstag</th>
-                            <th>Freitag</th>
-                            <th>Samstag</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>Prof. Dr. habil. Ulrike Gr&#246;ckel</th>
-                            <td class="lecture">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="lecture">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="lecture">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="lecture">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="lecture">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="lecture">
-                                <a href="">Lehre</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Prof. Dr. habil. Kerry-U. Brauer</th>
-                            <td class="holiday">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="holiday">
-                                <a href="">Lehre</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Prof. Dr.-Ing. Christian Heller</th>
-                            <td class="homeoffice">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="homeoffice">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="homeoffice">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="homeoffice">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="homeoffice">
-                                <a href="">Lehre</a>
-                            </td>
-                            <td class="homeoffice">
-                                <a href="">Lehre</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="options">
-                <h1>Optionen</h1>
-                <table>
-                    <tr>
-                        <td class="lecture">
-                            Lehre/Büro
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="businesstrip">
-                            Dienstreise
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="homeoffice">
-                            Heimarbeit
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="holiday">
-                            Urlaub
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="illness">
-                            Erkrankung
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div id="header">
+            <img src="ba-leipzig.png" alt="Kopf BA Leipzig"/>
+            <h1>Anwesenheit Hauptberufliche Dozenten</h1>
+        </div>
+        <div id="choice">
+            <h1>Auswahl</h1>
+            <table>
+                <tr>
+                    <td class="lecture">
+                        Lehre/Büro
+                    </td>
+                </tr>
+                <tr>
+                    <td class="homeoffice">
+                        Heimarbeit
+                    </td>
+                </tr>
+                <tr>
+                    <td class="businesstrip">
+                        Dienstreise
+                    </td>
+                </tr>
+                <tr>
+                    <td class="holiday">
+                        Urlaub
+                    </td>
+                </tr>
+                <tr>
+                    <td class="illness">
+                        Erkrankung
+                    </td>
+                </tr>
+                <tr>
+                    <td class="celebrationday">
+                        Feiertag
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="navigation">
+            <table>
+                <tr>
+                    <td width="100px" class="left">
+                        <a href="?action=go_back">&lt;&lt; zurück</a>
+                    </td>
+                    <td class="center">
+                        Kalenderwoche 10: 02.03.2015 - 07.03.2015
+                    </td>
+                    <td width="100px" class="right">
+                        <a href="?action=go_forward">vor &gt;&gt;</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="overview">
+            <table>
+                <tr>
+                    <th>Dozent</th>
+                    <th>Montag</th>
+                    <th>Dienstag</th>
+                    <th>Mittwoch</th>
+                    <th>Donnerstag</th>
+                    <th>Freitag</th>
+                    <th>Samstag</th>
+                </tr>
+                <tr>
+                    <th class="left">Prof. Brauer</th>
+                    <td class="holiday">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="holiday">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="holiday">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="holiday">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="holiday">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="holiday">
+                        <a href="">Lehre</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="left">Prof. Gr&#246;ckel</th>
+                    <td class="lecture">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="lecture">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="lecture">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="lecture">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="lecture">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="lecture">
+                        <a href="">Lehre</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="left">Prof. Heller</th>
+                    <td class="homeoffice">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="homeoffice">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="homeoffice">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="homeoffice">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="homeoffice">
+                        <a href="">Lehre</a>
+                    </td>
+                    <td class="homeoffice">
+                        <a href="">Lehre</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
 <!--
-            <div id="buttons">
-                <form action="http://www.ba-leipzig.de/?action=office" method="post" name="loginform" id="headlogin">
-                    <fieldset>
-                        <input type="hidden" name="op" value="login">
-                        <input type="hidden" name="dest" value="/de/">
-                        <div id="username">
-                            <label id="username-label" for="username-field">Benutzername:</label><br/>
-                            <input id="username-field" type="text" name="login_username" value="" maxlength="80"  tabindex="1"/>
-                        </div>
-                        <div id="password">
-                            <label id="password-label" for="password-field">Passwort:</label><br/>
-                            <input id="password-field" type="password" name="login_password" value="" maxlength="80" tabindex="2"/>
-                        </div>
-                        <input id="remember-field" type="checkbox" name="permanent" tabindex="3"/>
-                        <label id="remember-label" for="remember-field">Angemeldet bleiben</label>
-                        <button id="login-button" type="submit" value="login" tabindex="4">
-                            Anmelden
-                        </button><br/>
-                        <button id="save-button" type="submit" value="save" tabindex="4">
-                            Speichern
-                        </button><br/>
-                        <button id="logout-button" type="submit" value="logout" tabindex="4">
-                            Abmelden
-                        </button><br/>
-                    </fieldset>
-                </form>
-            </div>
+        <div id="buttons">
+            <form action="http://www.ba-leipzig.de/?action=office" method="post" name="loginform" id="headlogin">
+                <fieldset>
+                    <input type="hidden" name="op" value="login">
+                    <input type="hidden" name="dest" value="/de/">
+                    <div id="username">
+                        <label id="username-label" for="username-field">Benutzername:</label><br/>
+                        <input id="username-field" type="text" name="login_username" value="" maxlength="80"  tabindex="1"/>
+                    </div>
+                    <div id="password">
+                        <label id="password-label" for="password-field">Passwort:</label><br/>
+                        <input id="password-field" type="password" name="login_password" value="" maxlength="80" tabindex="2"/>
+                    </div>
+                    <input id="remember-field" type="checkbox" name="permanent" tabindex="3"/>
+                    <label id="remember-label" for="remember-field">Angemeldet bleiben</label>
+                    <button id="login-button" type="submit" value="login" tabindex="4">
+                        Anmelden
+                    </button><br/>
+                    <button id="save-button" type="submit" value="save" tabindex="4">
+                        Speichern
+                    </button><br/>
+                    <button id="logout-button" type="submit" value="logout" tabindex="4">
+                        Abmelden
+                    </button><br/>
+                </fieldset>
+            </form>
+        </div>
 -->
-            <div id="footer">
-                <hr noshade size="1"/>
-                <img src="sachsen.png" alt="Wappen Sachsen"/>
-                Copyright (c) 2011-2015. <a href="http://www.ba-leipzig.de/">Staatliche Studienakademie Leipzig</a>. GNU GPL Open Source Software. <a href="http://www.ba-leipzig.de/service/impressum.html">Impressum</a>. <a href="mailto:christian.heller@ba-leipzig.de">Webmaster</a>. Last Update: 2015-03-04
-            </div>
+        <div id="footer">
+            <hr noshade="noshade" size="1"/>
+            <img src="sachsen.png" alt="Wappen Sachsen"/>
+            <span class="text">Copyright (c) 2011-2015. <a href="http://www.ba-leipzig.de/">Staatliche Studienakademie Leipzig</a>. GNU GPL Open Source Software. <a href="http://www.ba-leipzig.de/service/impressum.html">Impressum</a>. <a href="mailto:christian.heller@ba-leipzig.de">Webmaster</a>. Last Update: 2015-03-04</span>
         </div>
     </body>
 </html>
