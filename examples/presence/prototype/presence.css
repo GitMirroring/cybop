@@ -1,117 +1,61 @@
 /*
- * Farben:
- * - Tabellenüberschrift: #E0E0E0
- * - außer Haus: #FFFFFF
- * - auf Dienstreise: #FFCCCC
- * - im Urlaub: #FFFFCC
- * - im Hause: #E6FFCC
+ * Copyright (C) 2011-2015. Christian Heller.
+ *
+ * http://www.ba-leipzig.de/
+ *
+ * @author Christian Heller <christian.heller@ba-leipzig.de>
  */
 
-@media screen {
+/*
+ * General.
+ */
 
 body {
-    background-color: #FFFFFF;
-    margin: 0px;
-    /* Minimum width avoids line feed and display errors in modern browsers. */
-    /*
-        The header image has a width of 1000px. The page uses a margin of 20px.
-        Therefore, use 1050px and not only 1000px here!
-    */
-    width: 1050px;
-}
-
-}
-
-@media print {
-
-body {
-    background-color: #FFFFFF;
-}
-
-}
-
-div#page {
     margin: 20px;
+    /* CAUTION! The header image has a width of 1000px. */
+    width: 1000px;
+    /* Minimum width avoids line feed and display errors in modern browsers. */
+    min-width: 1000px;
+    background-color: #FFFFFF;
     text-align: left;
-    font-family: "DejaVu Sans", "Bitstream Vera Sans", "Nimbus", "Andale", "Courier", "Prestige";
+    font-family: "Monospace", "Bitstream Vera Sans Mono", "DejaVu Sans Mono", "Lucida Console", "FreeMono", "Nimbus Mono L", "Andale Mono", "Consolas", "Everson Mono", "Courier", "Prestige", "Arial";
     font-size: 10pt;
     color: #000000;
 }
 
-* html div#page {
-    /* The workaround for the 3 pixel bug of Internet Explorer up to version 6. */
-    height: 1em;
-}
-
-div#page h1 {
-    color: #000000;
-    font-size: 14pt;
-}
-
-div#page h2 {
-    color: #000000;
-    font-size: 12pt;
-}
-
-div#page h3 {
-    color: #000000;
-    font-size: 10pt;
-}
-
-div#page p {
-    color: #000000;
-}
-
-div#page a {
+a {
     text-decoration: none;
     color: #000000;
 }
 
-div#page a:link {
+a:link {
 }
 
-div#page a:visited {
+a:visited {
 }
 
-div#page a:hover {
+a:hover {
     background-color: #E0E0E0;
     color: #000000;
 }
 
-div#page a:active {
+a:active {
     background-color: #FFCCCC;
     color: #000000;
 }
 
-div#overview table {
-    float: left;
-    width: 600px;
-    border-spacing: 1px;
-    background-color: #000000;
+/*
+ * Header.
+ */
+
+#header h1 {
+    font-size: 14pt;
+    color: #000000;
 }
 
-div#overview tr {
-    text-align: left;
-}
-
-div#overview th {
-    padding: 1px;
-    background-color: #E0E0E0;
-}
-
-div#overview td {
-    padding: 1px;
-}
-
-div#overview img {
-    border-width: 0px;
-    float: left;
-    height: 20px;
-}
-
-div#overview .edit {
-    width: 200px;
-}
+/*
+ * Navigation.
+ */
 
 #navigation {
     height: 20px;
@@ -123,16 +67,82 @@ div#overview .edit {
     background-color: #CCCCCC;
 }
 
-div#options {
+/*
+ * Overview.
+ */
+
+#overview img {
+    border-width: 0px;
+    float: left;
+    height: 20px;
+}
+
+#overview .edit {
+    width: 200px;
+}
+
+#overview table {
+    float: left;
+    width: 600px;
+    border-spacing: 1px;
+    background-color: #000000;
+}
+
+#overview tr {
+    text-align: left;
+}
+
+#overview th {
+    padding: 1px;
+    background-color: #E0E0E0;
+}
+
+#overview td {
+    padding: 1px;
+}
+
+/*
+ * Overview table formattings.
+ */
+
+.lecture {
+    background-color: #E6FFCC;
+}
+
+.businesstrip {
+    background-color: #FFCCCC;
+}
+
+.homeoffice {
+    background-color: #FFCCCC;
+}
+
+.holiday {
+    background-color: #FFFFCC;
+}
+
+.illness {
+    background-color: #FFFFFF;
+}
+
+/*
+ * Options.
+ */
+
+#options {
     float: left;
     margin-left: 50px;
     color: #000000;
 }
 
-div#options h1 {
+#options h1 {
     color: #000000;
     font-size: 1.0em;
 }
+
+/*
+ * Buttons.
+ */
 
 #buttons {
     float: right;
@@ -177,7 +187,11 @@ div#options h1 {
     font-weight: bold;
 }
 
-div#footer {
+/*
+ * Footer.
+ */
+
+#footer {
     /* The "clear" resets the element flow. */
     clear: both;
     padding: 0.1em;
@@ -185,7 +199,7 @@ div#footer {
     font-size: 0.8em;
 }
 
-div#footer hr {
+#footer hr {
     /*
         Both, colour and background colour are set here
         to make old browsers display the colour properly.
@@ -194,23 +208,7 @@ div#footer hr {
     color: #000000;
 }
 
-div#footer img {
+#footer img {
     float: left;
     height: 20px;
-}
-
-.absence {
-    background-color: #FFFFFF;
-}
-
-.businesstrip {
-    background-color: #FFCCCC;
-}
-
-.holiday {
-    background-color: #FFFFCC;
-}
-
-.presence {
-    background-color: #E6FFCC;
 }
