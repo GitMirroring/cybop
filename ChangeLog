@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement cybol example application "presence" web user interface (wui)
+
 2015-03-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete cybol example application "presence" prototype

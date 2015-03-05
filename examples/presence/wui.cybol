@@ -1,0 +1,7 @@
+<model>
+
+    <part name="index" channel="file" format="element/part" model="presence/wui/page/index.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="html"/>
+    </part>
+
+</model>

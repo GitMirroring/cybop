@@ -1,0 +1,8 @@
+<model>
+
+    <part name="data" channel="inline" format="text/plain" model="Dienstreise">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+        <property name="class" channel="inline" format="text/plain" model="businesstrip"/>
+    </part>
+
+</model>

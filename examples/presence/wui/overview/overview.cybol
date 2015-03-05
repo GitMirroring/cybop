@@ -1,0 +1,82 @@
+<model>
+
+    <!-- TODO -->
+
+<!--
+    <table>
+        <tr>
+            <th>Dozent</th>
+            <th>Montag</th>
+            <th>Dienstag</th>
+            <th>Mittwoch</th>
+            <th>Donnerstag</th>
+            <th>Freitag</th>
+            <th>Samstag</th>
+        </tr>
+        <tr>
+            <th class="left">Prof. Brauer</th>
+            <td class="holiday">
+                <a href="http://presence.ba-leipzig.de/?lecturer=brauer&year=2015&week=10&day=1&action=choose_disease">Urlaub</a>
+            </td>
+            <td class="holiday">
+                <a href="">Urlaub</a>
+            </td>
+            <td class="holiday">
+                <a href="">Urlaub</a>
+            </td>
+            <td class="holiday">
+                <a href="">Urlaub</a>
+            </td>
+            <td class="holiday">
+                <a href="">Urlaub</a>
+            </td>
+            <td class="holiday">
+                <a href="">Urlaub</a>
+            </td>
+        </tr>
+        <tr>
+            <th class="left">Prof. Gr&#246;ckel</th>
+            <td class="teaching">
+                <a href="">Lehre</a>
+            </td>
+            <td class="teaching">
+                <a href="">Lehre</a>
+            </td>
+            <td class="teaching">
+                <a href="">Lehre</a>
+            </td>
+            <td class="teaching">
+                <a href="">Lehre</a>
+            </td>
+            <td class="teaching">
+                <a href="">Lehre</a>
+            </td>
+            <td class="teaching">
+                <a href="">Lehre</a>
+            </td>
+        </tr>
+        <tr>
+            <th class="left">Prof. Heller</th>
+            <td class="homeoffice">
+                <a href="">Heimarbeit</a>
+            </td>
+            <td class="homeoffice">
+                <a href="">Heimarbeit</a>
+            </td>
+            <td class="homeoffice">
+                <a href="">Heimarbeit</a>
+            </td>
+            <td class="homeoffice">
+                <a href="">Heimarbeit</a>
+            </td>
+            <td class="homeoffice">
+                <a href="">Heimarbeit</a>
+            </td>
+            <td class="homeoffice">
+                <a href="">Heimarbeit</a>
+            </td>
+        </tr>
+    </table>
+-->
+
+</model>

@@ -1,9 +1,10 @@
 <model>
 
-    <part name="handler" channel="file" format="element/part" model="www_server_dynamic/logic/handler.cybol"/>
-    <part name="actions" channel="file" format="element/part" model="www_server_dynamic/logic/actions.cybol"/>
+    <part name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
+    <part name="handler" channel="file" format="element/part" model="presence/logic/handler.cybol"/>
+    <part name="actions" channel="file" format="element/part" model="presence/logic/actions.cybol"/>
 
-    <part name="send_index" channel="file" format="element/part" model="www_server_dynamic/logic/send_index.cybol"/>
+    <part name="send_index" channel="file" format="element/part" model="presence/logic/send_index.cybol"/>
     <part name="send_css" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
         <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
@@ -20,8 +21,10 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.css"/>
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </part>
-    <part name="greet_world" channel="file" format="element/part" model="www_server_dynamic/logic/greet_world.cybol"/>
-    <part name="greet_cybop" channel="file" format="element/part" model="www_server_dynamic/logic/greet_cybop.cybol"/>
-    <part name="exit_programme" channel="file" format="element/part" model="www_server_dynamic/logic/exit_programme.cybol"/>
+    <part name="greet_world" channel="file" format="element/part" model="presence/logic/greet_world.cybol"/>
+<!--
+    <part name="greet_cybop" channel="file" format="element/part" model="presence/logic/greet_cybop.cybol"/>
+    <part name="exit_programme" channel="file" format="element/part" model="presence/logic/exit_programme.cybol"/>
+-->
 
 </model>

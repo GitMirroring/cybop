@@ -1,0 +1,30 @@
+<model>
+
+    <part name="header" channel="file" format="element/part" model="presence/wui/header/header.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="header"/>
+    </part>
+    <part name="choice" channel="file" format="element/part" model="presence/wui/choice/choice.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="choice"/>
+    </part>
+    <part name="navigation" channel="file" format="element/part" model="presence/wui/navigation/navigation.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="navigation"/>
+    </part>
+    <part name="overview" channel="file" format="element/part" model="presence/wui/overview/overview.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="overview"/>
+    </part>
+<!--
+    <part name="buttons" channel="file" format="element/part" model="presence/wui/buttons/buttons.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="buttons"/>
+    </part>
+-->
+    <part name="footer" channel="file" format="element/part" model="presence/wui/footer/footer.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="div"/>
+        <property name="id" channel="inline" format="text/plain" model="footer"/>
+    </part>
+
+</model>

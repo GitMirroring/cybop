@@ -1,0 +1,7 @@
+<model>
+
+    <part name="data" channel="inline" format="text/plain" model="Auswahl">
+        <property name="tag" channel="inline" format="text/plain" model="th"/>
+    </part>
+
+</model>

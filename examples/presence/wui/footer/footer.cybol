@@ -1,0 +1,16 @@
+<model>
+
+    <part name="rule" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="hr"/>
+    </part>
+    <part name="image" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="img"/>
+        <property name="src" channel="inline" format="text/plain" model="http://localhost/?action=send_heraldic_symbol"/>
+        <property name="alt" channel="inline" format="text/plain" model="Wappen Sachsen"/>
+    </part>
+    <part name="text" channel="file" format="element/part" model="presence/wui/footer/text.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="span"/>
+        <property name="class" channel="inline" format="text/plain" model="text"/>
+    </part>
+
+</model>

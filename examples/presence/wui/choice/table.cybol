@@ -1,0 +1,26 @@
+<model>
+
+    <part name="heading" channel="file" format="element/part" model="presence/wui/choice/heading_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+
+    <part name="teaching" channel="file" format="element/part" model="presence/wui/choice/teaching_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+    <part name="homeoffice" channel="file" format="element/part" model="presence/wui/choice/homeoffice_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+    <part name="businesstrip" channel="file" format="element/part" model="presence/wui/choice/businesstrip_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+    <part name="holiday" channel="file" format="element/part" model="presence/wui/choice/holiday_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+    <part name="disease" channel="file" format="element/part" model="presence/wui/choice/disease_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+    <part name="bankholiday" channel="file" format="element/part" model="presence/wui/choice/bankholiday_row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+
+</model>

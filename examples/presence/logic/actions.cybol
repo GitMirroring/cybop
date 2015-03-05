@@ -1,0 +1,7 @@
+<model>
+
+    <part name="send_index" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
+    <part name="send_css" channel="inline" format="path/knowledge" model=".app.logic.send_css"/>
+    <part name="send_header_image" channel="inline" format="path/knowledge" model=".app.logic.send_header_image"/>
+
+</model>

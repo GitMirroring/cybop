@@ -1,0 +1,13 @@
+<model>
+
+    <part name="image" channel="inline" format="text/plain" model="">
+        <property name="tag" channel="inline" format="text/plain" model="img"/>
+        <property name="src" channel="inline" format="text/plain" model="http://localhost/?action=send_header_image"/>
+        <property name="alt" channel="inline" format="text/plain" model="Kopf BA Leipzig"/>
+    </part>
+
+    <part name="heading" channel="inline" format="text/plain" model="Anwesenheit Hauptberufliche Dozenten">
+        <property name="tag" channel="inline" format="text/plain" model="h1"/>
+    </part>
+
+</model>
