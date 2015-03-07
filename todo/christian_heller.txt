@@ -14,6 +14,12 @@
 WUI
 ___
 
+        * Initialise all variables with null in file "content_element_part_cybol_deserialiser.c"
+        * TODO Later: CAUTION! Do NOT assign any default values here. These may be given and filled in e.g. an external cybol editor tool.
+        * Remove "temporary format item" and "temporary type item" parametres and allocate locally in function
+        * Extend ALL cybol files with attributes "encoding" and "language"; empty value gets interpreted as null; language is necessary for binary data like images
+        * Rename cybol attribute "model" into "sender", in order to become consistent with properties of operation "communicate/receive" (in cyboi and cybol examples)
+
         * Continue cybol example application "presence"
         * Use single-click state change and delivery to server, no local storage on client, in order to avoid locking problems with other users
 

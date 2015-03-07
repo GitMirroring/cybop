@@ -26,6 +26,10 @@
 #ifndef CONTENT_NODE_CYBOL_DESERIALISER_SOURCE
 #define CONTENT_NODE_CYBOL_DESERIALISER_SOURCE
 
+#include "../../../../constant/channel/cybol/cybol_channel.c"
+#include "../../../../constant/encoding/cybol/unicode_cybol_encoding.c"
+#include "../../../../constant/format/cybol/state/text_state_cybol_format.c"
+#include "../../../../constant/language/cybol/state/text_state_cybol_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -58,7 +62,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * Deserialises the cybol part element content.
  *
  * The source properties handed over contain one node each for
- * name, channel, encoding, format, model.
+ * name, channel, encoding, language, format, model.
  *
  * Example:
  *
@@ -92,7 +96,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * ...
  * | #- | wide_character | model [This is the xml tag name.]
  *
- * The temporary type and abstraction items got introduced
+ * The temporary type and format items got introduced
  * only to avoid repeated allocation of a corresponding variable
  * on the heap, in this function.
  * The parametre handed over lies on the stack and is just a pointer
@@ -118,44 +122,39 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
     // The source name, channel, encoding, language, format, model part.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
     void* se = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
     void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source name, channel, encoding, language, format, model part model item.
     void* snm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* scm = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
     void* sem = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* slm = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
     void* sfm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source name, channel, encoding, language, format, model part model item data, count.
+    //?? TODO: Assign default values? Better NOT. This can be done in a cybol editor tool.
     void* snmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* snmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* scmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* scmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-/*??
-    void* semd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* semc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* slmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* slmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
-    void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sfmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* scmd = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) INLINE_CYBOL_CHANNEL;
+    void* scmc = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) INLINE_CYBOL_CHANNEL_COUNT;
+    void* semd = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) UTF_8_UNICODE_CYBOL_ENCODING;
+    void* semc = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) UTF_8_UNICODE_CYBOL_ENCODING_COUNT;
+    // As an exception, a default value is assigned for language,
+    // so that cybol code may be slim and without xml "language" attribute.
+    void* slmd = (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE;
+    void* slmc = (void*) CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT;
+    void* sfmd = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT;
+    void* sfmc = *NULL_POINTER_STATE_CYBOI_MODEL; //?? (void*) PLAIN_TEXT_STATE_CYBOL_FORMAT_COUNT;
     void* smmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source name, channel, encoding, language, format, model part.
     get_name_array((void*) &sn, p3, (void*) NAME_CYBOL_NAME, (void*) NAME_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sc, p3, (void*) CHANNEL_CYBOL_NAME, (void*) CHANNEL_CYBOL_NAME_COUNT, p4);
-/*??
     get_name_array((void*) &se, p3, (void*) ENCODING_CYBOL_NAME, (void*) ENCODING_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sl, p3, (void*) LANGUAGE_CYBOL_NAME, (void*) LANGUAGE_CYBOL_NAME_COUNT, p4);
-*/
     get_name_array((void*) &sf, p3, (void*) FORMAT_CYBOL_NAME, (void*) FORMAT_CYBOL_NAME_COUNT, p4);
     get_name_array((void*) &sm, p3, (void*) MODEL_CYBOL_NAME, (void*) MODEL_CYBOL_NAME_COUNT, p4);
 
@@ -179,10 +178,8 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
     //
     copy_array_forward((void*) &snm, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scm, sc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-/*??
     copy_array_forward((void*) &sem, se, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &slm, sl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-*/
     copy_array_forward((void*) &sfm, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smm, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source name, channel, encoding, language, format, model data, count.
@@ -190,12 +187,10 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
     copy_array_forward((void*) &snmc, snm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmd, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &scmc, scm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-/*??
     copy_array_forward((void*) &semd, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &semc, sem, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &slmd, slm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &slmc, slm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-*/
     copy_array_forward((void*) &sfmd, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sfmc, sfm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smmd, smm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -204,6 +199,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
     // The root flag.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // CAUTION! This test is IMPORTANT!
     // If a source type attribute is NOT given, then this
     // is (hopefully) the cybol ROOT NODE and a part is allocated.
@@ -213,15 +209,22 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
     // However, that flag was only used to call the correct
     // function, but source data were just forwarded to it.
     // Another test (guess) for root node IS necessary here.
-    // If not type is given, then this is a root node.
+    // If no type is given, then this is a root node.
+    //
+    // CAUTION! Do ONLY compare those variables,
+    // for which NO DEFAULT VALUE has been set above.
     //
     // CAUTION! If the cybol developer FORGOT to specify a format,
     // then the "part" type is used here by default, since it
     // does no real harm to create a node with (possibly) wrong type.
     // In the end, the CYBOL DEVELOPER has to care about that.
-    if ((sn == *NULL_POINTER_STATE_CYBOI_MODEL) && (sc == *NULL_POINTER_STATE_CYBOI_MODEL)
-//??        && (se == *NULL_POINTER_STATE_CYBOI_MODEL) && (sl == *NULL_POINTER_STATE_CYBOI_MODEL)
-        && (sf == *NULL_POINTER_STATE_CYBOI_MODEL) && (sm == *NULL_POINTER_STATE_CYBOI_MODEL)) {
+    //
+    if ((sn == *NULL_POINTER_STATE_CYBOI_MODEL)
+        && (sc == *NULL_POINTER_STATE_CYBOI_MODEL)
+        && (se == *NULL_POINTER_STATE_CYBOI_MODEL)
+//??        && (sl == *NULL_POINTER_STATE_CYBOI_MODEL)
+        && (sf == *NULL_POINTER_STATE_CYBOI_MODEL)
+        && (sm == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
         copy_integer((void*) &r, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
@@ -274,10 +277,41 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
+        if (td != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* tdi = (int*) td;
+
+            if (*tdi == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
+
+                // The deserialised type is null.
+
+                //
+                // Assign type "character" by default.
+                //
+                // CAUTION! If the language is e.g. "message/binary",
+                // then NO FORMAT has to be given.
+                // Without format, the deserialised type will be null as well.
+                // But a type IS NECESSARY for allocating the part below.
+                // Therefore, use type "char" in these cases.
+                // (It might be any other type as well.)
+                //
+                // CAUTION! A type IS ESSENTIAL in order to avoid memory leaks.
+                // Logic formats like "live/exit" do not have a counterpart as type.
+                // Also, invalid formats may have been used in a cybol file.
+                // Therefore, for these cases, assign a default type here.
+                //
+                overwrite_item_element(p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            }
+        }
+
 /*??
+fwprintf(stdout, L"TEST content element part cybol deserialiser *slmc: %i\n", *((int*) slmc));
+fwprintf(stdout, L"TEST content element part cybol deserialiser slmd: %i\n", slmd);
+fwprintf(stdout, L"TEST content element part cybol deserialiser *slmd: %ls\n", (wchar_t*) slmd);
+fwprintf(stdout, L"TEST content element part cybol deserialiser sfmc: %i\n", *((int*) sfmc));
 fwprintf(stdout, L"TEST content element part cybol deserialiser sfmd: %i\n", sfmd);
 fwprintf(stdout, L"TEST content element part cybol deserialiser *sfmd: %ls\n", (wchar_t*) sfmd);
-fwprintf(stdout, L"TEST content element part cybol deserialiser sfmc: %i\n", *((int*) sfmc));
 fwprintf(stdout, L"TEST content element part cybol deserialiser fd: %i\n", *((int*) fd));
 fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((int*) td));
 */
@@ -306,43 +340,21 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         overwrite_item_element(pn, snmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part channel item.
         deserialise_cybol_channel(pc, scmd, scmc);
+        // Fill part encoding item.
+        deserialise_cybol_encoding(pe, semd, semc);
         // Fill part language item.
-//??        deserialise_cybol_language(pl, slmd, slmc);
-        overwrite_item_element(pl, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        deserialise_cybol_language(pl, slmd, slmc);
+//??        overwrite_item_element(pl, (void*) CYBOL_TEXT_STATE_CYBOI_LANGUAGE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part format item.
         overwrite_item_element(pf, fd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Fill part type item.
         overwrite_item_element(pt, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
         // Get part channel item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &pcd, pc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-        if (pcd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* pcdi = (int*) pcd;
-
-            if (*pcdi == *FILE_CYBOI_CHANNEL) {
-
-                // Fill part encoding item.
-//??                deserialise_cybol_encoding(pe, semd, semc);
-
-                //
-                // CAUTION! There are currently just TWO channel options
-                // for parts defined in a cybol file:
-                // - inline: leave encoding undefined at value "null";
-                // - file: set encoding to "utf-8".
-                // Since inline models are available as wchar_t, decoding them is NOT necessary.
-                // Data read from a utf-8-encoded cybol file, on the other hand, NEED to be converted.
-                // Set default encoding  ONLY if channel is "file"!
-                // Otherwise, wrong conversions will occur in "communicator/receiver/"
-                // and cybol applications not run.
-                //
-                overwrite_item_element(pe, (void*) UTF_8_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            }
-        }
-
         // Get part encoding item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
@@ -353,6 +365,79 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
         copy_array_forward((void*) &pld, pl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser 1 ped: %i\n", ped);
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser 1 *ped: %i\n", *((int*) ped));
+
+        //?? TODO: Delete this block below in the future.
+        //?? ALL xml attributes should be specified in cybol,
+        //?? also the "encoding". This default here is temporary
+        //?? in order to not have to specify it in each cybol file.
+        //
+        // CAUTION! The default encoding value MUST NOT be assigned
+        // in general and for all parts above, since the function
+        // "receive_data" below tests the encoding for null.
+        // If the language is e.g. "message/binary", then NO encoding
+        // is given, since it does not make sense for images etc.
+        // Therefore, assign standard encoding ONLY for
+        // channel "file" and language "text/cybol".
+        //
+        if (ped != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* pedi = (int*) ped;
+
+            // The default value assigned to an item's "data" element is zero.
+            if (*pedi == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // An encoding was NOT specified.
+
+                if (pcd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    int* pcdi = (int*) pcd;
+
+                    if (*pcdi == *FILE_CYBOI_CHANNEL) {
+
+                        //
+                        // The channel is "file".
+                        //
+                        // CAUTION! There are currently just TWO channel options
+                        // for parts defined in a cybol file:
+                        // - inline: leave encoding undefined at value "null";
+                        // - file: set encoding to "utf-8".
+                        //
+                        // Since inline models are available as wchar_t, decoding them is NOT necessary.
+                        // Data read from a utf-8-encoded cybol file, on the other hand, NEED to be converted.
+                        // Set default encoding  ONLY if channel is "file"!
+                        // Otherwise, wrong conversions will occur in "communicator/receiver/"
+                        // and cybol applications not run.
+                        //
+
+                        if (pld != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                            int* pldi = (int*) pld;
+
+                            if (*pldi == *CYBOL_TEXT_STATE_CYBOI_LANGUAGE) {
+
+                                // This is the standard language "text/cybol".
+
+                                // Assign "utf-8" as default encoding.
+                                overwrite_item_element(pe, (void*) UTF_8_CYBOI_ENCODING, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+                                // Get part encoding item data.
+                                // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+                                // Inside the structure, arrays may have been reallocated,
+                                // with elements pointing to different memory areas now.
+                                copy_array_forward((void*) &ped, pe, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser 2 ped: %i\n", ped);
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser 2 *ped: %i\n", *((int*) ped));
+
         // Fill part model item taken from cybol source part properties.
         // CAUTION! What is the properties in a parsed xml/cybol file,
         // becomes the model in the cyboi-internal knowledge tree.

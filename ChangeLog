@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement cybol example application "presence" wui navigation
+        * Adapt default values in file "content_element_part_cybol_deserialiser.c"
+
 2015-03-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement cybol example application "presence" web user interface (wui)

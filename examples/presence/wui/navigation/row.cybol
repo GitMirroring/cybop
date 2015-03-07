@@ -1,0 +1,20 @@
+<model>
+
+    <part name="backward" channel="file" format="element/part" model="presence/wui/navigation/backward.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+        <property name="width" channel="inline" format="text/plain" model="100px"/>
+        <property name="class" channel="inline" format="text/plain" model="left"/>
+    </part>
+
+    <part name="week" channel="inline" format="text/plain" model="02.03.2015 - 07.03.2015 (Kalenderwoche 10)">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+        <property name="class" channel="inline" format="text/plain" model="center"/>
+    </part>
+
+    <part name="forward" channel="file" format="element/part" model="presence/wui/navigation/forward.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="td"/>
+        <property name="width" channel="inline" format="text/plain" model="100px"/>
+        <property name="class" channel="inline" format="text/plain" model="right"/>
+    </part>
+
+</model>

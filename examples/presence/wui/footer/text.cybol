@@ -1,11 +1,15 @@
 <model>
 
-    <part name="copyright" channel="inline" format="text/plain" model="Copyright (c) 2011-2015."/>
+    <part name="copyright" channel="inline" format="text/plain" model="Copyright (c) 2011-2015.">
+        <property name="tag" channel="inline" format="text/plain" model="span"/>
+    </part>
     <part name="holder" channel="inline" format="text/plain" model="Staatliche Studienakademie Leipzig.">
         <property name="tag" channel="inline" format="text/plain" model="a"/>
         <property name="href" channel="inline" format="text/plain" model="http://www.ba-leipzig.de/"/>
     </part>
-    <part name="licence" channel="inline" format="text/plain" model="GNU GPL Open Source Software."/>
+    <part name="licence" channel="inline" format="text/plain" model="GNU GPL Open Source Software.">
+        <property name="tag" channel="inline" format="text/plain" model="span"/>
+    </part>
     <part name="imprint" channel="inline" format="text/plain" model="Impressum.">
         <property name="tag" channel="inline" format="text/plain" model="a"/>
         <property name="href" channel="inline" format="text/plain" model="http://www.ba-leipzig.de/service/impressum.html"/>
@@ -14,6 +18,8 @@
         <property name="tag" channel="inline" format="text/plain" model="a"/>
         <property name="href" channel="inline" format="text/plain" model="mailto:christian.heller@ba-leipzig.de"/>
     </part>
-    <part name="update" channel="inline" format="text/plain" model="Last Update: 2015-03-04."/>
+    <part name="update" channel="inline" format="text/plain" model="Last Update: 2015-03-04.">
+        <property name="tag" channel="inline" format="text/plain" model="span"/>
+    </part>
 
 </model>

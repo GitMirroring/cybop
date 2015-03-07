@@ -1,9 +1,11 @@
 <model>
 
+    <!-- Application. -->
     <part name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
     <part name="handler" channel="file" format="element/part" model="presence/logic/handler.cybol"/>
     <part name="actions" channel="file" format="element/part" model="presence/logic/actions.cybol"/>
 
+    <!-- Web user interface. -->
     <part name="send_index" channel="file" format="element/part" model="presence/logic/send_index.cybol"/>
     <part name="send_css" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -14,17 +16,40 @@
             It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
             The reason is that the format "path/knowledge" points to another part ".app.var.webpage"
             whose properties are used INSTEAD of those constraints that might be specified here.
-            In order to verify this, one might use the format "text/plain" testwise,
-            with which the constraints are recognised properly.
-            Therefore, the necessary "encoding" is added at the part ".app.var.webpage" DIRECTLY.
+            Therefore, the necessary "encoding" is added to the corresponding part in ".app.var" DIRECTLY.
         -->
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.css"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.css"/>
         <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </part>
-    <part name="greet_world" channel="file" format="element/part" model="presence/logic/greet_world.cybol"/>
-<!--
-    <part name="greet_cybop" channel="file" format="element/part" model="presence/logic/greet_cybop.cybol"/>
-    <part name="exit_programme" channel="file" format="element/part" model="presence/logic/exit_programme.cybol"/>
--->
+    <part name="send_header_image" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.header_image"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </part>
+    <part name="send_heraldic_symbol" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.heraldic_symbol"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </part>
+    <part name="send_icon" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.icon"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </part>
+
+    <!-- Date navigation. -->
+    <part name="go_backward" channel="file" format="element/part" model="presence/logic/go_backward.cybol"/>
+    <part name="go_forward" channel="file" format="element/part" model="presence/logic/go_forward.cybol"/>
+
+    <!-- Overview entry choice. -->
+    <part name="choose_teaching" channel="file" format="element/part" model="presence/logic/choose_teaching.cybol"/>
+    <part name="choose_homeoffice" channel="file" format="element/part" model="presence/logic/choose_homeoffice.cybol"/>
+    <part name="choose_businesstrip" channel="file" format="element/part" model="presence/logic/choose_businesstrip.cybol"/>
+    <part name="choose_holiday" channel="file" format="element/part" model="presence/logic/choose_holiday.cybol"/>
+    <part name="choose_disease" channel="file" format="element/part" model="presence/logic/choose_disease.cybol"/>
+    <part name="choose_bankholiday" channel="file" format="element/part" model="presence/logic/choose_bankholiday.cybol"/>
 
 </model>

@@ -59,8 +59,7 @@
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
-static wchar_t AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {'t', L'e', L'x', L't', L'/', L'a', L'u', L't', L'h', L'o', L'r', L'i', L't', L'y'};
-static wchar_t* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE = AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE = L"text/authority";
 static int* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -74,8 +73,7 @@ static int* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_
  * http://www.kbv.de/ita/4201.html
  * Suffixes: bdt
  */
-static wchar_t BDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'b', L'd', L't'};
-static wchar_t* BDT_TEXT_STATE_CYBOL_LANGUAGE = BDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* BDT_TEXT_STATE_CYBOL_LANGUAGE = L"text/bdt";
 static int* BDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -85,8 +83,7 @@ static int* BDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  * Defined in RFC 2318.
  * Suffixes: css
  */
-static wchar_t CSS_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'c', L's', L's'};
-static wchar_t* CSS_TEXT_STATE_CYBOL_LANGUAGE = CSS_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* CSS_TEXT_STATE_CYBOL_LANGUAGE = L"text/css";
 static int* CSS_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -97,8 +94,7 @@ static int* CSS_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  * Suffixes: cybol
  */
-static wchar_t CYBOL_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'c', L'y', L'b', L'o', L'l'};
-static wchar_t* CYBOL_TEXT_STATE_CYBOL_LANGUAGE = CYBOL_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* CYBOL_TEXT_STATE_CYBOL_LANGUAGE = L"text/cybol";
 static int* CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -112,8 +108,7 @@ static int* CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_10_INTEGER_STATE_CYBO
  * http://www.kbv.de/ita/4201.html
  * Suffixes: gdt
  */
-static wchar_t GDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'g', L'd', L't'};
-static wchar_t* GDT_TEXT_STATE_CYBOL_LANGUAGE = GDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* GDT_TEXT_STATE_CYBOL_LANGUAGE = L"text/gdt";
 static int* GDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -123,8 +118,7 @@ static int* GDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  * Defined in RFC 2854.
  * Suffixes: html, htm, shtml
  */
-static wchar_t HTML_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'h', L't', L'm', L'l'};
-static wchar_t* HTML_TEXT_STATE_CYBOL_LANGUAGE = HTML_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* HTML_TEXT_STATE_CYBOL_LANGUAGE = L"text/html";
 static int* HTML_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -137,8 +131,7 @@ static int* HTML_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_
  * http://hxp.sourceforge.net/
  * Suffixes: hxp (?? only assumed, not verified!)
  */
-static wchar_t HXP_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'h', L'x', L'p'};
-static wchar_t* HXP_TEXT_STATE_CYBOL_LANGUAGE = HXP_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* HXP_TEXT_STATE_CYBOL_LANGUAGE = L"text/hxp";
 static int* HXP_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -152,8 +145,7 @@ static int* HXP_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  * http://www.kbv.de/ita/4201.html
  * Suffixes: ldt
  */
-static wchar_t LDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'l', L'd', L't'};
-static wchar_t* LDT_TEXT_STATE_CYBOL_LANGUAGE = LDT_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* LDT_TEXT_STATE_CYBOL_LANGUAGE = L"text/ldt";
 static int* LDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -163,8 +155,7 @@ static int* LDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_M
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
-static wchar_t MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'm', L'o', L'd', L'e', L'l', L'-', L'd', L'i', L'a', L'g', L'r', L'a', L'm'};
-static wchar_t* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE = MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE = L"text/model-diagram";
 static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -174,15 +165,13 @@ static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_ST
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
-static wchar_t URI_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {'t', L'e', L'x', L't', L'/', L'u', L'r', L'i'};
-static wchar_t* URI_TEXT_STATE_CYBOL_LANGUAGE = URI_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* URI_TEXT_STATE_CYBOL_LANGUAGE = L"text/uri";
 static int* URI_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The text/xdt-field-description cybol language.
  */
-static wchar_t XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'x', L'd', L't', L'-', L'f', L'i', L'e', L'l', L'd', L'-', L'd', L'e', L's', L'c', L'r', L'i', L'p', L't', L'i', L'o', L'n'};
-static wchar_t* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE = XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE = L"text/xdt-field-description";
 static int* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -192,8 +181,7 @@ static int* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_26_IN
  * Defined in RFC 3023.
  * Suffixes: xml
  */
-static wchar_t XML_TEXT_STATE_CYBOL_LANGUAGE_ARRAY[] = {L't', L'e', L'x', L't', L'/', L'x', L'm', L'l'};
-static wchar_t* XML_TEXT_STATE_CYBOL_LANGUAGE = XML_TEXT_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* XML_TEXT_STATE_CYBOL_LANGUAGE = L"text/xml";
 static int* XML_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TEXT_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */

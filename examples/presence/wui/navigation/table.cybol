@@ -1,0 +1,7 @@
+<model>
+
+    <part name="row" channel="file" format="element/part" model="presence/wui/navigation/row.cybol">
+        <property name="tag" channel="inline" format="text/plain" model="tr"/>
+    </part>
+
+</model>
