@@ -302,6 +302,7 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
                 //
                 overwrite_item_element(p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                 copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser *td: %i\n", *((int*) td));
             }
         }
 
@@ -452,6 +453,24 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
         deserialise_cybol_part(pp, p1, p2, p5, p6);
+
+        //?? TEST ONLY:
+        if (pld != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* pldi = (int*) pld;
+
+            if (*pldi == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE) {
+
+fwprintf(stdout, L"TEST content element part cybol deserialiser *smmc: %i\n", *((int*) smmc));
+fwprintf(stdout, L"TEST content element part cybol deserialiser smmd: %s\n", (char*) smmd);
+                void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
+                void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
+                copy_array_forward((void*) &testc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+                copy_array_forward((void*) &testd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+fwprintf(stdout, L"TEST content element part cybol deserialiser *testc: %i\n", *((int*) testc));
+fwprintf(stdout, L"TEST content element part cybol deserialiser testd: %s\n", (char*) testd);
+            }
+        }
 
         // Add part to destination.
         // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.

@@ -134,19 +134,28 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     receive_select((void*) &b, (void*) &p0, (void*) &n, (void*) &s, p13);
     // Read message.
     receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
-//?? fwprintf(stdout, L"TEST receive data read *ac: %i\n", *((int*) ac));
+    if ((p11 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p11) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
+fwprintf(stdout, L"TEST receive data read *ac: %i\n", *((int*) ac));
 //?? fwprintf(stdout, L"TEST receive data read ad: %s\n", (char*) ad);
+fwprintf(stdout, L"TEST receive data read *p12: %i\n", *((int*) p12));
+    }
     // Extract message.
 //??    receive_extract((void*) &ad, (void*) &ac, e, ad, ac, p??);
     // Decode message.
     receive_decode((void*) &ad, (void*) &ac, s, ad, ac, p12);
+    if ((p11 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p11) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
+fwprintf(stdout, L"TEST receive data decode *ac: %i\n", *((int*) ac));
+//?? fwprintf(stdout, L"TEST receive data decode ad: %s\n", (char*) ad);
+    }
     // Deserialise message.
     // CAUTION! The buffer argument may be of e.g.
     // type "char" or type "wchar_t" or type "void*", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
     receive_deserialise(p0, p1, ad, ac, p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p10, p11);
-//?? fwprintf(stdout, L"TEST receive data deserialise *ac: %i\n", *((int*) ac));
+    if ((p11 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p11) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
+fwprintf(stdout, L"TEST receive data deserialise *ac: %i\n", *((int*) ac));
 //?? fwprintf(stdout, L"TEST receive data deserialise ad: %s\n", (char*) ad);
+    }
     // Deallocate display event.
     receive_deallocate(b, p13);
 
