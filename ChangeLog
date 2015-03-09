@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug that images were not transferred in cybol example application "presence", since encoding got assigned in file "content_element_part_cybol_deserialiser.c" but is later tested for null
+
 2015-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement cybol example application "presence" wui navigation

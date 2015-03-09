@@ -48,7 +48,9 @@
  */
 void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //?? TEST ONLY!
+    if ((p5 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p5) != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL)) {
+//??    if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive decode.");
 
