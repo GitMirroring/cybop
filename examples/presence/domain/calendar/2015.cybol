@@ -1,0 +1,8 @@
+<model>
+
+    <part name="10" channel="inline" format="text/plain" model="02.03.2015 - 07.03.2015 (Kalenderwoche 10)"/>
+    <part name="11" channel="inline" format="text/plain" model="09.03.2015 - 14.03.2015 (Kalenderwoche 11)"/>
+    <part name="12" channel="inline" format="text/plain" model="16.03.2015 - 21.03.2015 (Kalenderwoche 12)"/>
+    <part name="13" channel="inline" format="text/plain" model="23.03.2015 - 28.03.2015 (Kalenderwoche 13)"/>
+
+</model>

@@ -1,0 +1,79 @@
+<model>
+
+    destination = .app.wui
+    source = .app.var.overview
+
+
+--
+    update_wui_entry
+        .app.wui.index.body.overview.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day)#class = holiday
+        .app.wui.index.body.overview.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link = Urlaub
+        .app.wui.index.body.overview.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href = assemble_uri [http://presence.ba-leipzig.de/?year=2015&week=10&day=monday&lecturer=heller&action=choose_holiday]
+    save_archive
+        assemble_file_path [presence/archive/ + (.app.var.request#uri#query.year) + (.app.var.request#uri#query.week) + (.app.var.request#uri#query.lecturer) + .cybol]
+        communicate/send to file
+            source = .app.var.overview.lecturer
+
+--
+    on startup do: load_overview
+        determine current date (year-month-day)
+        determine calendar week
+        loop over files in directory year/week/
+        receive (deserialise) each single file
+            part_name = filename
+            destination = .app.var.overview
+            source = filenames found in directory above
+
+--
+    <!-- CAUTION! If the webpage was not reset here, new text would be added instead of replacing the existing one. -->
+    <part name="reset_webpage" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- CAUTION! Do NOT reset properties since otherwise, they would be lost, e.g. the "encoding" for the http body. -->
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </part>
+    <part name="serialise_html" channel="inline" format="represent/serialise" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.wui.index"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
+        <property name="language" channel="inline" format="meta/language" model="text/html">
+            <constraint name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </property>
+    </part>
+
+    <!-- Write html into file. -->
+    <part name="test_html" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <property name="receiver" channel="inline" format="text/plain" model="test_presence_wui.html"/>
+    </part>
+
+    <!-- Send html encapsulated as http-response. -->
+    <part name="send" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <!--
+
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+
+            CAUTION! It does NOT work adding the constraint "encoding" right here.
+            It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
+            The reason is that the format "path/knowledge" points to another part ".app.var.webpage"
+            whose properties are used INSTEAD of those constraints that might be specified here.
+            In order to verify this, one might use the format "text/plain" testwise,
+            with which the constraints are recognised properly.
+            Therefore, the necessary "encoding" is added at the part ".app.var.webpage" DIRECTLY.
+        -->
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </part>
+
+</model>

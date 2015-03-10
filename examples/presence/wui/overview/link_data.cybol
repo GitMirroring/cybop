@@ -2,7 +2,7 @@
 
     <part name="link" channel="inline" format="text/plain" model="--">
         <property name="tag" channel="inline" format="text/plain" model="a"/>
-        <property name="href" channel="inline" format="text/plain" model="http://presence.ba-leipzig.de/?lecturer=brauer&year=2015&week=10&day=1&action=choose_disease"/>
+        <property name="href" channel="inline" format="text/plain" model="http://presence.ba-leipzig.de/?year=2015&week=10&day=monday&lecturer=heller&action=choose_holiday"/>
     </part>
 
 </model>

@@ -1,10 +1,7 @@
 <model>
 
     <part name="var" channel="file" format="element/part" model="presence/var.cybol"/>
-    <part name="lecturers" channel="file" format="element/part" model="presence/lecturers.cybol"/>
-<!--
-    <part name="archive" channel="file" format="element/part" model="presence/archive.cybol"/>
--->
+    <part name="domain" channel="file" format="element/part" model="presence/domain.cybol"/>
     <part name="wui" channel="file" format="element/part" model="presence/wui.cybol"/>
     <part name="logic" channel="file" format="element/part" model="presence/logic.cybol"/>
 

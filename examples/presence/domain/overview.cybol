@@ -1,0 +1,5 @@
+<model>
+
+    <part name="heller" channel="file" format="element/part" model="presence/domain/overview/lecturer.cybol"/>
+
+</model>
