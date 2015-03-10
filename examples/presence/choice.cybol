@@ -1,0 +1,10 @@
+<model>
+
+    <part name="teaching" channel="file" format="element/part" model="presence/choice/teaching.cybol"/>
+    <part name="homeoffice" channel="file" format="element/part" model="presence/choice/homeoffice.cybol"/>
+    <part name="businesstrip" channel="file" format="element/part" model="presence/choice/businesstrip.cybol"/>
+    <part name="holiday" channel="file" format="element/part" model="presence/choice/holiday.cybol"/>
+    <part name="disease" channel="file" format="element/part" model="presence/choice/disease.cybol"/>
+    <part name="bankholiday" channel="file" format="element/part" model="presence/choice/bankholiday.cybol"/>
+
+</model>

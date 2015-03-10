@@ -1,0 +1,6 @@
+<model>
+
+    <part name="label" channel="inline" format="text/plain" model="Heimarbeit"/>
+    <part name="class" channel="inline" format="text/plain" model="homeoffice"/>
+
+</model>

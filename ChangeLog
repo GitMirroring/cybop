@@ -22,7 +22,7 @@
 
         * Fix bug that images were not transferred in cybol example application "presence", since encoding got assigned in file "content_element_part_cybol_deserialiser.c" but is later tested for null
         * Implement cybol example application "presence" wui overview
-        * Prepare cybol example application "presence" lecturers
+        * Prepare cybol example application "presence" lecturers and choice
 
 2015-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
