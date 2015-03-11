@@ -1,0 +1,5 @@
+<model>
+
+    <part name="file" channel="file" format="element/part" model="presence/logic/identify/database/file.cybol"/>
+
+</model>

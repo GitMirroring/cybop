@@ -7,12 +7,12 @@
         Therefore, the result variable HAS TO BE emptied beforehand.
     -->
     <part name="empty" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.choice.number"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.number"/>
         <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.choice.number"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.choice.index"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.number"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.index"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
     </part>

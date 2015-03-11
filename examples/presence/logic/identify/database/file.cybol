@@ -1,0 +1,44 @@
+<model>
+
+    <!-- Assemble filename, e.g. "presence/database/2015/11/heller.cybol". -->
+
+    <part name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="text/plain" model="presence/database/"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="append_year" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.year"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_year_slash" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="text/plain" model="/"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="append_week" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.week"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_week_slash" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="text/plain" model="/"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="append_lecturer_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_suffix" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="source" channel="inline" format="text/plain" model=".cybol"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+</model>

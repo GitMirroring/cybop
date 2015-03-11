@@ -16,7 +16,7 @@ ___
 
         * Steps: (no more domain needed, since state is in wui)
             DONE: at startup: create/wui-choice + wui-lecturers --> .app.wui exists with current overview for each lecturer
-            TODO: at startup and after date change: translate/database_to_wui --> updated wui overview (+ serialise + send via socket)
+            CONTINUE: at startup and after date change: translate/database_to_wui --> updated wui overview (+ serialise + send via socket)
             TODO: at presence change: update_wui (OR "change_wui") --> (+ serialise + send via socket)
 
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"

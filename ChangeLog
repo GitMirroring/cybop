@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare "database-to-wui" translation for cybol example application "presence"
+
 2015-03-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Generate wui tables "choices" and "lecturers" dynamically for cybol example application "presence"

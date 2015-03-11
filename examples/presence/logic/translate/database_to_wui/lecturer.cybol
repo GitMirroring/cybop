@@ -10,34 +10,33 @@
         <property name="element" channel="inline" format="path/knowledge" model=".app.var.name"/>
         <property name="part" channel="inline" format="path/reference" model=".app.var.root"/>
     </part>
-
-    <part name="create_lecturer" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="path/knowledge" model=".app.var.name"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table"/>
+    <part name="identify_database_file" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.database.file"/>
     </part>
 
-    <part name="initialise_lecturer_part" channel="inline" format="communicate/receive" model="">
+    <part name="receive_database" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="presence/wui/lecturers/row.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name)"/>
-    </part>
-    <part name="initialise_lecturer_properties" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/property"/>
-        <property name="sender" channel="inline" format="text/plain" model="presence/wui/lecturers/row_properties.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name)"/>
+        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.db"/>
     </part>
 
-    <part name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).heading"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.lecturers.(.app.var.name)"/>
+    <!-- TODO: assemble link-href and determine weekday-class below. -->
+    <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday.link"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.monday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="overwrite_href" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday.link#href"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.monday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday#class"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.monday"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 

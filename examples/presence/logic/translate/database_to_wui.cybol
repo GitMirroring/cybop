@@ -1,0 +1,6 @@
+<model>
+
+    <part name="lecturer" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/lecturer.cybol"/>
+    <part name="lecturers" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/lecturers.cybol"/>
+
+</model>

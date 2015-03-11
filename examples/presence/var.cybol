@@ -1,7 +1,22 @@
 <model>
 
-    <part name="lecturer" channel="file" format="element/part" model="presence/var/variables.cybol"/>
-    <part name="choice" channel="file" format="element/part" model="presence/var/variables.cybol"/>
+    <!-- The loop parametres. -->
+    <part name="count" channel="inline" format="number/integer" model="0"/>
+    <part name="index" channel="inline" format="number/integer" model="0"/>
+    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!-- The element. -->
+    <part name="root" channel="inline" format="text/plain" model=""/>
+    <part name="number" channel="inline" format="text/plain" model=""/>
+    <part name="name" channel="inline" format="text/plain" model=""/>
+
+    <!-- The database model. -->
+    <part name="file" channel="inline" format="text/plain" model=""/>
+    <part name="db" channel="inline" format="element/part" model=""/>
+
+    <!-- The calendar. -->
+    <part name="year" channel="inline" format="text/plain" model=""/>
+    <part name="week" channel="inline" format="text/plain" model=""/>
 
     <!-- Request-response-cycle. -->
     <part name="request" channel="inline" format="element/part" model=""/>
