@@ -1,0 +1,10 @@
+<model>
+
+    <part name="teaching" channel="inline" format="text/plain" model="Lehre/Büro"/>
+    <part name="homeoffice" channel="inline" format="text/plain" model="Heimarbeit"/>
+    <part name="businesstrip" channel="inline" format="text/plain" model="Dienstreise"/>
+    <part name="holiday" channel="inline" format="text/plain" model="Urlaub"/>
+    <part name="disease" channel="inline" format="text/plain" model="Erkrankung"/>
+    <part name="bankholiday" channel="inline" format="text/plain" model="Feiertag"/>
+
+</model>

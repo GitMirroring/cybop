@@ -4,17 +4,17 @@
         <property name="tag" channel="inline" format="text/plain" model="div"/>
         <property name="id" channel="inline" format="text/plain" model="header"/>
     </part>
-    <part name="choice" channel="file" format="element/part" model="presence/wui/choice/choice.cybol">
+    <part name="choices" channel="file" format="element/part" model="presence/wui/choices/choices.cybol">
         <property name="tag" channel="inline" format="text/plain" model="div"/>
-        <property name="id" channel="inline" format="text/plain" model="choice"/>
+        <property name="id" channel="inline" format="text/plain" model="choices"/>
     </part>
     <part name="navigation" channel="file" format="element/part" model="presence/wui/navigation/navigation.cybol">
         <property name="tag" channel="inline" format="text/plain" model="div"/>
         <property name="id" channel="inline" format="text/plain" model="navigation"/>
     </part>
-    <part name="overview" channel="file" format="element/part" model="presence/wui/overview/overview.cybol">
+    <part name="lecturers" channel="file" format="element/part" model="presence/wui/lecturers/lecturers.cybol">
         <property name="tag" channel="inline" format="text/plain" model="div"/>
-        <property name="id" channel="inline" format="text/plain" model="overview"/>
+        <property name="id" channel="inline" format="text/plain" model="lecturers"/>
     </part>
 <!--
     <part name="buttons" channel="file" format="element/part" model="presence/wui/buttons/buttons.cybol">

@@ -1,7 +1,0 @@
-<model>
-
-    <part name="heading" channel="file" format="element/part" model="presence/wui/overview/heading_row.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="tr"/>
-    </part>
-
-</model>

@@ -1,6 +1,6 @@
 <model>
 
-    <part name="table" channel="file" format="element/part" model="presence/wui/choice/table.cybol">
+    <part name="table" channel="file" format="element/part" model="presence/wui/choices/table.cybol">
         <property name="tag" channel="inline" format="text/plain" model="table"/>
     </part>
 

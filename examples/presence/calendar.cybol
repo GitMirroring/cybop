@@ -1,0 +1,6 @@
+<model>
+
+    <part name="2015" channel="file" format="element/part" model="presence/calendar/2015.cybol"/>
+    <part name="2016" channel="file" format="element/part" model="presence/calendar/2016.cybol"/>
+
+</model>

@@ -1,8 +1,0 @@
-<model>
-
-    <part name="calendar" channel="file" format="element/part" model="presence/domain/calendar.cybol"/>
-    <part name="overview" channel="file" format="element/part" model="presence/domain/overview.cybol"/>
-    <part name="lecturers" channel="file" format="element/part" model="presence/domain/lecturers.cybol"/>
-    <part name="choice" channel="file" format="element/part" model="presence/domain/choice.cybol"/>
-
-</model>

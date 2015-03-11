@@ -1,0 +1,59 @@
+<model>
+
+    <part name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.lecturer.number"/>
+    </part>
+    <part name="identify_lecturer_root" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.lecturer.root"/>
+    </part>
+    <part name="get_lecturer_name" channel="inline" format="access/get-name" model="">
+        <property name="element" channel="inline" format="path/knowledge" model=".app.var.lecturer.name"/>
+        <property name="part" channel="inline" format="path/reference" model=".app.var.lecturer.root"/>
+    </part>
+
+    <part name="create_lecturer" channel="inline" format="memorise/create" model="">
+        <property name="name" channel="inline" format="path/knowledge" model=".app.var.lecturer.name"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="element" channel="inline" format="text/plain" model="part"/>
+        <property name="whole" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table"/>
+    </part>
+
+    <part name="initialise_lecturer_part" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="sender" channel="inline" format="text/plain" model="presence/wui/lecturers/row.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.lecturer.name)"/>
+    </part>
+    <part name="initialise_lecturer_properties" channel="inline" format="communicate/receive" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/property"/>
+        <property name="sender" channel="inline" format="text/plain" model="presence/wui/lecturers/row_properties.cybol"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.lecturer.name)"/>
+    </part>
+
+    <part name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.lecturer.name).heading"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.lecturers.(.app.var.lecturer.name)"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- Loop test. -->
+    <part name="increment_index" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.lecturer.index"/>
+        <property name="operand" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.lecturer.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.lecturer.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".app.var.lecturer.count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+
+</model>

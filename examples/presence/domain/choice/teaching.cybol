@@ -1,6 +1,0 @@
-<model>
-
-    <part name="label" channel="inline" format="text/plain" model="Lehre"/>
-    <part name="class" channel="inline" format="text/plain" model="teaching"/>
-
-</model>

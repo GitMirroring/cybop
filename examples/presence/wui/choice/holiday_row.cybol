@@ -1,8 +1,0 @@
-<model>
-
-    <part name="data" channel="inline" format="text/plain" model="Urlaub">
-        <property name="tag" channel="inline" format="text/plain" model="td"/>
-        <property name="class" channel="inline" format="text/plain" model="holiday"/>
-    </part>
-
-</model>

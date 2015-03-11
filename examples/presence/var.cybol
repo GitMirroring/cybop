@@ -1,5 +1,8 @@
 <model>
 
+    <part name="lecturer" channel="file" format="element/part" model="presence/var/variables.cybol"/>
+    <part name="choice" channel="file" format="element/part" model="presence/var/variables.cybol"/>
+
     <!-- Request-response-cycle. -->
     <part name="request" channel="inline" format="element/part" model=""/>
     <!--

@@ -1,0 +1,6 @@
+<model>
+
+    <part name="choice" channel="file" format="element/part" model="presence/logic/identify/choice.cybol"/>
+    <part name="lecturer" channel="file" format="element/part" model="presence/logic/identify/lecturer.cybol"/>
+
+</model>

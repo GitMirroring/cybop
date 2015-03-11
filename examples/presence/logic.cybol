@@ -1,5 +1,8 @@
 <model>
 
+    <part name="create" channel="file" format="element/part" model="presence/logic/create.cybol"/>
+    <part name="identify" channel="file" format="element/part" model="presence/logic/identify.cybol"/>
+
     <!-- Application. -->
     <part name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
     <part name="handler" channel="file" format="element/part" model="presence/logic/handler.cybol"/>
