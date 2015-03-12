@@ -1,0 +1,12 @@
+<model>
+
+    <part name="scheme" channel="inline" format="text/plain" model="http"/>
+    <part name="scheme_suffix" channel="inline" format="text/plain" model=":"/>
+    <part name="hostname_prefix" channel="inline" format="text/plain" model="//"/>
+    <part name="hostname" channel="inline" format="text/plain" model="localhost"/>
+    <part name="port_prefix" channel="inline" format="text/plain" model=":"/>
+    <part name="port" channel="inline" format="text/plain" model="80"/>
+    <part name="directory" channel="inline" format="text/plain" model="/"/>
+    <part name="parametre_prefix" channel="inline" format="text/plain" model="?"/>
+
+</model>

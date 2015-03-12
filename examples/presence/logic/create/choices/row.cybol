@@ -1,5 +1,9 @@
 <model>
 
+    <part name="reset_element" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.element"/>
+    </part>
+
     <part name="identify_choice_number" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.choice.number"/>
     </part>

@@ -1,20 +1,52 @@
 <model>
 
+    <part name="reset_element" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.element"/>
+    </part>
+
+    <part name="identify_weekday_number" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.weekday.number"/>
+    </part>
+    <part name="identify_weekday_root" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.weekday.root"/>
+    </part>
+    <part name="get_weekday_name" channel="inline" format="access/get-name" model="">
+        <property name="element" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="part" channel="inline" format="path/reference" model=".app.var.root"/>
+    </part>
+
     <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday.link"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.db.monday)"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day).link"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.db.(app.var.day))"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
-    <!-- TODO: assemble link-href. -->
+    <part name="translate_href" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.href"/>
+    </part>
     <part name="overwrite_href" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday.link#href"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day).link#href"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.var.href"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday#class"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.monday"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day)#class"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.(app.var.day)"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- Loop test. -->
+    <part name="increment_index" channel="inline" format="calculate/add" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.index"/>
+        <property name="operand" channel="inline" format="number/integer" model="1"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </part>
+    <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
 </model>

@@ -3,8 +3,10 @@
     <part name="var" channel="file" format="element/part" model="presence/var.cybol"/>
 
     <part name="calendar" channel="file" format="element/part" model="presence/calendar.cybol"/>
+    <part name="weekdays" channel="file" format="element/part" model="presence/weekdays.cybol"/>
     <part name="choices" channel="file" format="element/part" model="presence/choices.cybol"/>
     <part name="lecturers" channel="file" format="element/part" model="presence/lecturers.cybol"/>
+    <part name="communication" channel="file" format="element/part" model="presence/communication.cybol"/>
 
     <part name="wui" channel="file" format="element/part" model="presence/wui.cybol"/>
 

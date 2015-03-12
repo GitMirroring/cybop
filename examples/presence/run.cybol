@@ -14,11 +14,18 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app"/>
     </part>
 
+    <part name="TEST_startup_terminal" channel="inline" format="maintain/startup" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </part>
+
     <part name="create_wui_choices" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.choices.rows"/>
     </part>
     <part name="create_wui_lecturers" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.lecturers.rows"/>
+    </part>
+    <part name="translate_database_to_wui" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.lecturers"/>
     </part>
 
     <!-- Write knowledge tree into file. -->

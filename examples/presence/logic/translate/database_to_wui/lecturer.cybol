@@ -1,5 +1,9 @@
 <model>
 
+    <part name="reset_element" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.element"/>
+    </part>
+
     <part name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.lecturer.number"/>
     </part>
@@ -16,6 +20,14 @@
     </part>
     <part name="identify_database_file" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.database.file"/>
+    </part>
+    <part name="TEST" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="receive_database" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>

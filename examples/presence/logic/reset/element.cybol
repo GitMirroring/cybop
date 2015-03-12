@@ -1,0 +1,47 @@
+<model>
+
+    <!-- Reset element variables. -->
+
+    <!--
+        CAUTION! Do NOT delete this "empty" operation!
+        Some operations below append their result,
+        so that previous results are NOT overwritten.
+        Therefore, the result variable HAS TO BE emptied beforehand.
+    -->
+
+    <!--
+        CAUTION! The "overwrite" operation may NOT be used to reset a value,
+        since it does NOT copy anything, if the source property value is empty.
+    -->
+
+    <part name="empty_number" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.number"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="empty_root" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.root"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="empty_name" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.name"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="empty_day" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="empty_href" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.href"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+</model>

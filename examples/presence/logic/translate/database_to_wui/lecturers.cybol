@@ -1,5 +1,9 @@
 <model>
 
+    <part name="reset_loop" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.loop"/>
+    </part>
+
     <part name="count_lecturers" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".app.var.count"/>
         <property name="part" channel="inline" format="path/knowledge" model=".app.lecturers"/>

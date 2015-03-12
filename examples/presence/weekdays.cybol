@@ -1,0 +1,10 @@
+<model>
+
+    <part name="monday" channel="inline" format="text/plain" model="monday"/>
+    <part name="tuesday" channel="inline" format="text/plain" model="tuesday"/>
+    <part name="wednesday" channel="inline" format="text/plain" model="wednesday"/>
+    <part name="thursday" channel="inline" format="text/plain" model="thursday"/>
+    <part name="friday" channel="inline" format="text/plain" model="friday"/>
+    <part name="saturday" channel="inline" format="text/plain" model="saturday"/>
+
+</model>

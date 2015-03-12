@@ -6,17 +6,15 @@
     <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <!-- The element. -->
-    <part name="root" channel="inline" format="text/plain" model=""/>
     <part name="number" channel="inline" format="text/plain" model=""/>
+    <part name="root" channel="inline" format="text/plain" model=""/>
     <part name="name" channel="inline" format="text/plain" model=""/>
+    <part name="day" channel="inline" format="text/plain" model=""/>
+    <part name="href" channel="inline" format="text/plain" model=""/>
 
     <!-- The database model. -->
     <part name="file" channel="inline" format="text/plain" model=""/>
     <part name="db" channel="inline" format="element/part" model=""/>
-
-    <!-- The wui lecturers. -->
-    <part name="day" channel="inline" format="text/plain" model=""/>
-    <part name="href" channel="inline" format="text/plain" model=""/>
 
     <!-- The calendar. -->
     <part name="year" channel="inline" format="text/plain" model=""/>
