@@ -461,13 +461,13 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
 
             if (*pldi == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE) {
 
-fwprintf(stdout, L"TEST content element part cybol deserialiser *smmc: %i\n", *((int*) smmc));
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser *smmc: %i\n", *((int*) smmc));
 //?? fwprintf(stdout, L"TEST content element part cybol deserialiser smmd: %s\n", (char*) smmd);
                 void* testd = *NULL_POINTER_STATE_CYBOI_MODEL;
                 void* testc = *NULL_POINTER_STATE_CYBOI_MODEL;
                 copy_array_forward((void*) &testc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
                 copy_array_forward((void*) &testd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST content element part cybol deserialiser *testc: %i\n", *((int*) testc));
+//?? fwprintf(stdout, L"TEST content element part cybol deserialiser *testc: %i\n", *((int*) testc));
 //?? fwprintf(stdout, L"TEST content element part cybol deserialiser testd: %s\n", (char*) testd);
             }
         }

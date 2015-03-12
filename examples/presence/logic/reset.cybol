@@ -1,0 +1,5 @@
+<model>
+
+    <part name="loop" channel="file" format="element/part" model="presence/logic/reset/loop.cybol"/>
+
+</model>

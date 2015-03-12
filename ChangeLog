@@ -20,6 +20,7 @@
 
 2015-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Optimise and reset loop variables in cybol example application "presence"
         * Prepare "database-to-wui" translation for cybol example application "presence"
 
 2015-03-11  Christian Heller  <christian.heller@tuxtax.de>
