@@ -14,6 +14,10 @@
     <part name="file" channel="inline" format="text/plain" model=""/>
     <part name="db" channel="inline" format="element/part" model=""/>
 
+    <!-- The wui lecturers. -->
+    <part name="day" channel="inline" format="text/plain" model=""/>
+    <part name="href" channel="inline" format="text/plain" model=""/>
+
     <!-- The calendar. -->
     <part name="year" channel="inline" format="text/plain" model=""/>
     <part name="week" channel="inline" format="text/plain" model=""/>

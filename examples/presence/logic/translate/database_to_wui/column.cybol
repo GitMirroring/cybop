@@ -1,0 +1,20 @@
+<model>
+
+    <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday.link"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.db.monday)"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <!-- TODO: assemble link-href. -->
+    <part name="overwrite_href" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday.link#href"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.href"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).monday#class"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.monday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+</model>

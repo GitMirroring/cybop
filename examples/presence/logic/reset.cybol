@@ -1,5 +1,7 @@
 <model>
 
+    <part name="database" channel="file" format="element/part" model="presence/logic/reset/database.cybol"/>
+    <part name="lecturers" channel="file" format="element/part" model="presence/logic/reset/lecturers.cybol"/>
     <part name="loop" channel="file" format="element/part" model="presence/logic/reset/loop.cybol"/>
 
 </model>

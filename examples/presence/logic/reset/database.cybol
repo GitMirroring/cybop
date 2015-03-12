@@ -1,0 +1,15 @@
+<model>
+
+    <part name="empty_file" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+    <part name="empty_db" channel="inline" format="modify/empty" model="">
+        <property name="part" channel="inline" format="path/knowledge" model=".app.var.db"/>
+        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </part>
+
+</model>

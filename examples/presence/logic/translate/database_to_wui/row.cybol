@@ -1,0 +1,57 @@
+<model>
+
+    <part name="assign_monday" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="source" channel="inline" format="text/plain" model="monday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_monday" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.column"/>
+    </part>
+
+    <part name="assign_tuesday" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="source" channel="inline" format="text/plain" model="tuesday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_tuesday" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.column"/>
+    </part>
+
+    <part name="assign_wednesday" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="source" channel="inline" format="text/plain" model="wednesday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_wednesday" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.column"/>
+    </part>
+
+    <part name="assign_thursday" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="source" channel="inline" format="text/plain" model="thursday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_thursday" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.column"/>
+    </part>
+
+    <part name="assign_friday" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="source" channel="inline" format="text/plain" model="friday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_friday" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.column"/>
+    </part>
+
+    <part name="assign_saturday" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <property name="source" channel="inline" format="text/plain" model="saturday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_saturday" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.column"/>
+    </part>
+
+</model>
