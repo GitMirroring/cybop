@@ -1,5 +1,6 @@
 <model>
 
+    <part name="brunner" channel="inline" format="text/plain" model="Prof. Brunner"/>
     <part name="heller" channel="inline" format="text/plain" model="Prof. Heller"/>
 
 </model>

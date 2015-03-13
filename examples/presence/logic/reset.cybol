@@ -3,6 +3,9 @@
     <part name="loop" channel="file" format="element/part" model="presence/logic/reset/loop.cybol"/>
     <part name="element" channel="file" format="element/part" model="presence/logic/reset/element.cybol"/>
 
+    <part name="loop2" channel="file" format="element/part" model="presence/logic/reset/loop2.cybol"/>
+    <part name="element2" channel="file" format="element/part" model="presence/logic/reset/element2.cybol"/>
+
     <part name="database" channel="file" format="element/part" model="presence/logic/reset/database.cybol"/>
     <part name="lecturers" channel="file" format="element/part" model="presence/logic/reset/lecturers.cybol"/>
 

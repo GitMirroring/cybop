@@ -19,11 +19,15 @@ ___
             TEST: at startup and after date change: translate/database_to_wui --> updated wui overview (+ serialise + send via socket)
             TODO: at presence change: update_wui (OR "change_wui") --> (+ serialise + send via socket)
             Optimise "identify_number" is identical for all
-
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
-
         * Implement cybol example application "presence" logic "update_wui"
         * Add comment "Use single-click state change and delivery to server, no local storage on client, in order to avoid locking problems with other users"
+
+        * Implement "stack memory" using existing "part" structure as known from knowledge memory
+        * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
+        * Deliver element that was added LAST in case many equally named elements exist
+        * Rename "knowledge memory" to "heap memory" ??
 
         * Find solution for send/receive arguments. Test e.g. encoding for null OR for a defined integer value?
             --> Fix bug that encoding IS assigned in file "content_element_part_cybol_deserialiser.c" since new allocated part HAS an encoding item whose data are NOT null

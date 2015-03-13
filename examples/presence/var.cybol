@@ -1,6 +1,6 @@
 <model>
 
-    <!-- The loop parametres. -->
+    <!-- The loop. -->
     <part name="count" channel="inline" format="number/integer" model="0"/>
     <part name="index" channel="inline" format="number/integer" model="0"/>
     <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
@@ -12,8 +12,21 @@
     <part name="day" channel="inline" format="text/plain" model=""/>
     <part name="href" channel="inline" format="text/plain" model=""/>
 
+    <!-- The loop for translate database_to_wui row/column. -->
+    <part name="count2" channel="inline" format="number/integer" model="0"/>
+    <part name="index2" channel="inline" format="number/integer" model="0"/>
+    <part name="break2" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!-- The element for translate database_to_wui row/column. -->
+    <part name="number2" channel="inline" format="text/plain" model=""/>
+    <part name="root2" channel="inline" format="text/plain" model=""/>
+    <part name="name2" channel="inline" format="text/plain" model=""/>
+    <part name="day2" channel="inline" format="text/plain" model=""/>
+    <part name="href2" channel="inline" format="text/plain" model=""/>
+
     <!-- The database model. -->
     <part name="file" channel="inline" format="text/plain" model=""/>
+    <part name="dbday" channel="inline" format="text/plain" model=""/>
     <part name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->
