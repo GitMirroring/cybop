@@ -4,7 +4,7 @@
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.loop2"/>
     </part>
 
-    <part name="count_lecturers" channel="inline" format="access/count" model="">
+    <part name="count_weekdays" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".app.var.count2"/>
         <property name="part" channel="inline" format="path/knowledge" model=".app.weekdays"/>
     </part>

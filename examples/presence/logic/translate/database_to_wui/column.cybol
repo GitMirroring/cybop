@@ -15,56 +15,7 @@
         <property name="part" channel="inline" format="path/reference" model=".app.var.root2"/>
     </part>
 
-    <part name="TEST_value" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.index2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_value" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.number2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_value" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.root2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_value" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.name2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_value" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.day2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_value" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.href2"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-
-    <!-- BEGIN: Optimise this in the future! -->
+    <!-- BEGIN: Optimise this in the future using: ((.path.with.reference)) -->
 
     <part name="overwrite_dbday_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
@@ -76,25 +27,30 @@
         <property name="source" channel="inline" format="path/knowledge" model=".app.var.day2"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
+    <part name="overwrite_dbday_reference_with_actual_model" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.unref"/>
+        <property name="source" channel="inline" format="path/reference" model=".app.var.dbday"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
 
     <!-- END: Optimise this in the future! -->
 
     <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name2).(app.var.day2).link"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.dbday)"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(.app.var.day2).link"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.unref)"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="translate_href" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.href"/>
     </part>
     <part name="overwrite_href" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name2).(app.var.day2).link#href"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(.app.var.day2).link#href"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.var.href2"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name2).(app.var.day2)#class"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.(app.var.day2)"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(.app.var.day2)#class"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.(.app.var.day2)"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 

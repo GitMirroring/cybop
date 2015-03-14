@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete "database-to-wui" uri "href" translation for cybol example application "presence"
+
 2015-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise and reset loop variables in cybol example application "presence"

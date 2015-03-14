@@ -27,6 +27,7 @@
     <!-- The database model. -->
     <part name="file" channel="inline" format="text/plain" model=""/>
     <part name="dbday" channel="inline" format="text/plain" model=""/>
+    <part name="unref" channel="inline" format="text/plain" model=""/>
     <part name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->

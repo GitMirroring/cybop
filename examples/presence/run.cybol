@@ -48,6 +48,13 @@
 <!--
     This application gives an overview of the presence of single employees.
     They may themselves edit their data.
+
+    Start up this application:
+    cd /home/cybop/examples
+    ../src/controller/cyboi presence/run.cybol
+
+    Open up a web browser and type in the following uri:
+    http://localhost/?action=send_index
 -->
 
 <!--

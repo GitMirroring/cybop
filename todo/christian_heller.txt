@@ -16,13 +16,23 @@ ___
 
         * Steps: (no more domain needed, since state is in wui)
             DONE: at startup: create/wui-choice + wui-lecturers --> .app.wui exists with current overview for each lecturer
-            TEST: at startup and after date change: translate/database_to_wui --> updated wui overview (+ serialise + send via socket)
+            DONE: at startup and after date change: translate/database_to_wui --> updated wui overview (+ serialise + send via socket)
+            TODO: translate uri href
             TODO: at presence change: update_wui (OR "change_wui") --> (+ serialise + send via socket)
-            Optimise "identify_number" is identical for all
+        * Optimise "identify_number", since it is identical for all
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
         * Implement cybol example application "presence" logic "update_wui"
         * Add comment "Use single-click state change and delivery to server, no local storage on client, in order to avoid locking problems with other users"
+
+        * Check if knowledge paths may be nested, e.g.:
+            .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
+          written instead as:
+            .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
+        * Provide syntax for accessing model via reference path, e.g.:
+            .app.choices.(.app.var.dbday)
+          written instead with DOUBLE round parentheses representing a path/reference as:
+            .app.choices.((.app.var.db.(.app.var.day2)))
 
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
         * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
