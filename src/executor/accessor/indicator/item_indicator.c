@@ -76,7 +76,7 @@ void indicate_item(void* p0, void* p1, void* p2) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Check for emptiness.
+            // Check for existence.
             //
             // CAUTION! Do NOT merge this function with the one above.
             // The function above passes a pointer REFERENCE and

@@ -2,8 +2,11 @@
 
     <part name="lecturers" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/lecturers.cybol"/>
     <part name="lecturer" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/lecturer.cybol"/>
+
     <part name="row" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/row.cybol"/>
     <part name="column" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/column.cybol"/>
+
     <part name="href" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/href.cybol"/>
+    <part name="action" channel="file" format="element/part" model="presence/logic/translate/database_to_wui/action.cybol"/>
 
 </model>

@@ -28,6 +28,7 @@
 
 #include "../../applicator/access/count.c"
 #include "../../applicator/access/get.c"
+#include "../../applicator/access/get_index.c"
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
@@ -162,6 +163,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_get(p0, p1, p3, (void*) FORMAT_GET_ACCESS_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) GET_INDEX_ACCESS_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_get_index(p0, p1, p3);
         }
     }
 

@@ -9,4 +9,13 @@
     <part name="directory" channel="inline" format="text/plain" model="/"/>
     <part name="parametre_prefix" channel="inline" format="text/plain" model="?"/>
 
+    <part name="parametre_separator" channel="inline" format="text/plain" model="&"/>
+    <part name="parametre_assignment" channel="inline" format="text/plain" model="="/>
+
+    <part name="parametre_year" channel="inline" format="text/plain" model="year"/>
+    <part name="parametre_week" channel="inline" format="text/plain" model="week"/>
+    <part name="parametre_lecturer" channel="inline" format="text/plain" model="lecturer"/>
+    <part name="parametre_day" channel="inline" format="text/plain" model="day"/>
+    <part name="parametre_action" channel="inline" format="text/plain" model="action"/>
+
 </model>

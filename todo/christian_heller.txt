@@ -17,7 +17,7 @@ ___
         * Steps: (no more domain needed, since state is in wui)
             DONE: at startup: create/wui-choice + wui-lecturers --> .app.wui exists with current overview for each lecturer
             DONE: at startup and after date change: translate/database_to_wui --> updated wui overview (+ serialise + send via socket)
-            TODO: translate uri href
+            DONE: translate uri href action
             TODO: at presence change: update_wui (OR "change_wui") --> (+ serialise + send via socket)
         * Optimise "identify_number", since it is identical for all
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.

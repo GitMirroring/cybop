@@ -18,14 +18,19 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement database-to-wui uri href translation for cybol example application "presence"
+        * Add new operation "access/get-index" determining the index of a part within a whole
+
 2015-03-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Complete "database-to-wui" uri "href" translation for cybol example application "presence"
+        * Implement database-to-wui uri href translation for cybol example application "presence"
 
 2015-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise and reset loop variables in cybol example application "presence"
-        * Implement "database-to-wui" translation for cybol example application "presence"
+        * Implement database-to-wui translation for cybol example application "presence"
 
 2015-03-11  Christian Heller  <christian.heller@tuxtax.de>
 

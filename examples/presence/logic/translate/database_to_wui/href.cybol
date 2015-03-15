@@ -2,9 +2,10 @@
 
     <!--
         Example uri:
-        http://presence.ba-leipzig.de/?lecturer=heller&year=2015&week=10&day=monday&action=choose_holiday
+        http://presence.ba-leipzig.de/?year=2015&week=10&lecturer=heller&day=monday&action=holiday
     -->
 
+    <!-- The standard parts. -->
     <part name="overwrite_scheme" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.communication.scheme"/>
@@ -43,6 +44,117 @@
     <part name="append_parametre_prefix" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_prefix"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- The year parametre. -->
+    <part name="append_parametre_year_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_year"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_year_assignment" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_assignment"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_year_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+<!--
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.year"/>
+-->
+        <property name="source" channel="inline" format="text/plain" model="2015"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- The week parametre. -->
+    <part name="append_parametre_week_separator" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_separator"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_week_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_week"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_week_assignment" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_assignment"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_week_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+<!--
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.week"/>
+-->
+        <property name="source" channel="inline" format="text/plain" model="10"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- The lecturer parametre. -->
+    <part name="append_parametre_lecturer_separator" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_separator"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_lecturer_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_lecturer"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_lecturer_assignment" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_assignment"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_lecturer_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.name"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- The day parametre. -->
+    <part name="append_parametre_day_separator" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_separator"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_day_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_day"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_day_assignment" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_assignment"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_day_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.day2"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <!-- The action parametre. -->
+    <part name="append_parametre_action_separator" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_separator"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_action_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_action"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_action_assignment" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_assignment"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_action_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.unref)#next"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
