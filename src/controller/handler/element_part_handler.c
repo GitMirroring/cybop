@@ -72,15 +72,18 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        //
         // The signal is to be executed DIRECTLY,
         // i.e. by calling the corresponding function,
         // WITHOUT adding it to the signal memory.
+        //
 
         // Handle signal.
         handle(s, p4, p5, p6, p7, p8);
 
     } else {
 
+        //
         // The signal is to be executed INDIRECTLY,
         // i.e. by adding it to the signal memory,
         // where it later gets checked and handled.
@@ -94,26 +97,9 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // waiting in the signal memory have the chance
         // to be processed in between, in order to fulfil
         // the response time requirement.
+        //
 
-        // Add signal part to signal memory.
-        //
-        // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
-        // The signal memory just holds references to knowledge memory parts (signals),
-        // but only the knowledge memory may care about rubbish (garbage) collection.
-        //
-        // Example:
-        // Assume there are two signals in the signal memory.
-        // The second references a logic part that is to be destroyed by the first.
-        // If reference counting from rubbish (garbage) collection were used,
-        // then the logic part serving as second signal could not be deallocated
-        // as long as it is still referenced from the signal memory item.
-        //
-        // But probably, there is a reason the first signal wants to destroy the
-        // second and consequently, the second should not be executed anymore.
-        // After destruction, the second signal just points to null, which is ignored.
-        // Hence, rubbish (garbage) collection would only disturb here
-        // and should be left to the knowledge memory.
-        append_item_element(p6, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        write_signal(p4, (void*) &s);
     }
 }
 
