@@ -1,10 +1,10 @@
 <model>
 
-    <!-- Assemble filename, e.g. "presence/database/2015/11/heller.cybol". -->
+    <!-- Assemble filename, e.g. "presence/db/2015/11/heller.cybol". -->
 
     <part name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="text/plain" model="presence/database/"/>
+        <property name="source" channel="inline" format="text/plain" model="presence/db/"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 

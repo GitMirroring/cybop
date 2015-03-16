@@ -1,0 +1,6 @@
+<model>
+
+    <part name="column" channel="file" format="element/part" model="presence/logic/translate/uri_to_wui/column.cybol"/>
+    <part name="href" channel="file" format="element/part" model="presence/logic/translate/uri_to_wui/href.cybol"/>
+
+</model>

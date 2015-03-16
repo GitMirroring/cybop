@@ -20,7 +20,7 @@
 
     <part name="loop_lecturers" channel="inline" format="flow/loop" model="">
         <property name="break" channel="inline" format="path/knowledge" model=".app.var.break"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.lecturer"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.lecturer"/>
     </part>
 
 </model>

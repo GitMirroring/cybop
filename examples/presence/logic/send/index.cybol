@@ -18,7 +18,7 @@
     </part>
 
     <!-- Write html into file. -->
-    <part name="test_html" channel="inline" format="communicate/send" model="">
+    <part name="TEST_html" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>

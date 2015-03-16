@@ -34,8 +34,11 @@ a {
 }
 
 a:hover {
+    font-weight: bold;
+/*
     background-color: #000000;
     color: #FFFFFF;
+*/
 }
 
 /*
@@ -74,7 +77,7 @@ a:hover {
     background-color: #FFCCCC;
 }
 
-.disease {
+.illness {
     background-color: #FFCCCC;
 }
 

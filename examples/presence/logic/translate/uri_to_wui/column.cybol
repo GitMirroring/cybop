@@ -1,0 +1,26 @@
+<model>
+
+    <!--
+        Example uri:
+        http://presence.ba-leipzig.de/?year=2015&week=10&lecturer=heller&day=monday&choice=holiday&action=update
+    -->
+
+    <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.request#uri#query.choice)"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="translate_href" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_wui.href"/>
+    </part>
+    <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day)#class"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.choice"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
+    <part name="send_index" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.send.index"/>
+    </part>
+
+</model>

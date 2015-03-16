@@ -10,9 +10,9 @@
         <property name="next" channel="inline" format="text/plain" model="holiday"/>
     </part>
     <part name="holiday" channel="inline" format="text/plain" model="Urlaub">
-        <property name="next" channel="inline" format="text/plain" model="disease"/>
+        <property name="next" channel="inline" format="text/plain" model="illness"/>
     </part>
-    <part name="disease" channel="inline" format="text/plain" model="Erkrankung">
+    <part name="illness" channel="inline" format="text/plain" model="Erkrankung">
         <property name="next" channel="inline" format="text/plain" model="bankholiday"/>
     </part>
     <part name="bankholiday" channel="inline" format="text/plain" model="Feiertag">

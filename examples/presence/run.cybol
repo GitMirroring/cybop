@@ -1,3 +1,78 @@
+<!--
+    Copyright (C) 1999-2014. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.16.0 2014-03-31
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
+
+<!--
+    This application gives an overview of the presence of single employees.
+    They may themselves edit their data.
+
+    Start up this application:
+    cd /home/cybop/examples
+    ../src/controller/cyboi presence/run.cybol
+
+    Open up a web browser and type in the following uri:
+    http://localhost/?action=send_index
+-->
+
+<!--
+    Software design:
+
+    1 Two-Layer Architecture
+
+    The application architecture does NOT use a three-layer model like:
+        wui - domain - database
+    but instead just a two-layer model as follows:
+        wui - database
+    The introduction of a "domain" layer makes sense
+    ONLY if more than just one view (wui) is used.
+    Otherwise, the efficiency suffers without necessity.
+
+    2 Single-Click State Change
+
+    2.1 Ajax
+
+    One option to change values would be to do it locally
+    on the client, i.e. in the web browser, using JavaScript.
+    This requires too much effort for such a simple application.
+
+    2.2 Buttons
+
+    An alternative would be to store state changes on the server
+    but only write them into the database files,
+    when the user clicks on a "Save" button or the like.
+    This solution would require locking techniques,
+    since many users might access the server in parallel,
+    which is too much effort for such a simple application.
+
+    2.3 Direct Storage
+
+    The implemented architecture manipulates values directly
+    in the web user interface (wui) and stores them in the
+    corresponding database file at once.
+    This might be slightly less efficient, but makes locking superfluous.
+-->
+
 <model>
 
     <part name="create_app" channel="inline" format="memorise/create" model="">
@@ -24,8 +99,8 @@
     <part name="create_wui_lecturers" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.lecturers.rows"/>
     </part>
-    <part name="translate_database_to_wui" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.lecturers"/>
+    <part name="translate_db_to_wui" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.lecturers"/>
     </part>
 
     <!-- Write knowledge tree into file. -->
@@ -38,46 +113,8 @@
         <property name="receiver" channel="inline" format="text/plain" model="test_presence.txt"/>
     </part>
 
-    <part name="startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
+    <part name="startup" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
     </part>
 
 </model>
-
-<!--
-    This application gives an overview of the presence of single employees.
-    They may themselves edit their data.
-
-    Start up this application:
-    cd /home/cybop/examples
-    ../src/controller/cyboi presence/run.cybol
-
-    Open up a web browser and type in the following uri:
-    http://localhost/?action=send_index
--->
-
-<!--
-    Copyright (C) 1999-2014. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.16.0 2014-03-31
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

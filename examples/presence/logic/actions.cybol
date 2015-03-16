@@ -1,22 +1,17 @@
 <model>
 
     <!-- Web user interface. -->
-    <part name="send_index" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
-    <part name="send_css" channel="inline" format="path/knowledge" model=".app.logic.send_css"/>
-    <part name="send_header_image" channel="inline" format="path/knowledge" model=".app.logic.send_header_image"/>
-    <part name="send_heraldic_symbol" channel="inline" format="path/knowledge" model=".app.logic.send_heraldic_symbol"/>
-    <part name="send_icon" channel="inline" format="path/knowledge" model=".app.logic.send_icon"/>
+    <part name="send_index" channel="inline" format="path/knowledge" model=".app.logic.send.index"/>
+    <part name="send_css" channel="inline" format="path/knowledge" model=".app.logic.send.css"/>
+    <part name="send_header_image" channel="inline" format="path/knowledge" model=".app.logic.send.header_image"/>
+    <part name="send_heraldic_symbol" channel="inline" format="path/knowledge" model=".app.logic.send.heraldic_symbol"/>
+    <part name="send_icon" channel="inline" format="path/knowledge" model=".app.logic.send.icon"/>
 
     <!-- Date navigation. -->
     <part name="go_backward" channel="inline" format="path/knowledge" model=".app.logic.go_backward"/>
     <part name="go_forward" channel="inline" format="path/knowledge" model=".app.logic.go_forward"/>
 
     <!-- Overview entry choice. -->
-    <part name="choose_teaching" channel="inline" format="path/knowledge" model=".app.logic.choose_teaching"/>
-    <part name="choose_homeoffice" channel="inline" format="path/knowledge" model=".app.logic.choose_homeoffice"/>
-    <part name="choose_businesstrip" channel="inline" format="path/knowledge" model=".app.logic.choose_businesstrip"/>
-    <part name="choose_holiday" channel="inline" format="path/knowledge" model=".app.logic.choose_holiday"/>
-    <part name="choose_disease" channel="inline" format="path/knowledge" model=".app.logic.choose_disease"/>
-    <part name="choose_bankholiday" channel="inline" format="path/knowledge" model=".app.logic.choose_bankholiday"/>
+    <part name="update" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_wui.column"/>
 
 </model>

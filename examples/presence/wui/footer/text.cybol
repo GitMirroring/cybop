@@ -18,7 +18,7 @@
         <property name="tag" channel="inline" format="text/plain" model="a"/>
         <property name="href" channel="inline" format="text/plain" model="mailto:christian.heller@ba-leipzig.de"/>
     </part>
-    <part name="update" channel="inline" format="text/plain" model="Last Update: 2015-03-04.">
+    <part name="update" channel="inline" format="text/plain" model="Last Update: 2015-03-16.">
         <property name="tag" channel="inline" format="text/plain" model="span"/>
     </part>
 

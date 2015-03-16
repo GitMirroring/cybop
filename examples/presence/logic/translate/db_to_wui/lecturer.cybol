@@ -15,11 +15,11 @@
         <property name="part" channel="inline" format="path/reference" model=".app.var.root"/>
     </part>
 
-    <part name="reset_database" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.database"/>
+    <part name="reset_db" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.db"/>
     </part>
-    <part name="identify_database_file" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.database.file"/>
+    <part name="identify_db_file" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.db.file"/>
     </part>
     <part name="TEST" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -29,7 +29,7 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
         <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
-    <part name="receive_database" channel="inline" format="communicate/receive" model="">
+    <part name="receive_db" channel="inline" format="communicate/receive" model="">
         <property name="channel" channel="inline" format="meta/channel" model="file"/>
         <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -38,12 +38,12 @@
         <property name="message" channel="inline" format="path/knowledge" model=".app.var.db"/>
     </part>
 
-    <!-- CAUTION! This IS necessary, in order to have default values, in case a lecturer's database file is NOT available. -->
+    <!-- CAUTION! This IS necessary, in order to have default values, in case a lecturer's db file is NOT available. -->
     <part name="reset_lecturers_row" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.lecturers.row"/>
     </part>
     <part name="translate_row" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.row"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.row"/>
     </part>
 
     <!-- Loop test. -->

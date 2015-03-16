@@ -16,6 +16,9 @@
     <part name="parametre_week" channel="inline" format="text/plain" model="week"/>
     <part name="parametre_lecturer" channel="inline" format="text/plain" model="lecturer"/>
     <part name="parametre_day" channel="inline" format="text/plain" model="day"/>
+    <part name="parametre_choice" channel="inline" format="text/plain" model="choice"/>
     <part name="parametre_action" channel="inline" format="text/plain" model="action"/>
+
+    <part name="action_update" channel="inline" format="text/plain" model="update"/>
 
 </model>

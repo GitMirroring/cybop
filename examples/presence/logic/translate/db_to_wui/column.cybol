@@ -41,7 +41,7 @@
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="translate_href" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.database_to_wui.href"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.href"/>
     </part>
     <part name="overwrite_href" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name).(.app.var.day2).link#href"/>

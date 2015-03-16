@@ -2,7 +2,7 @@
 
     <!--
         Example uri:
-        http://presence.ba-leipzig.de/?year=2015&week=10&lecturer=heller&day=monday&action=holiday
+        http://presence.ba-leipzig.de/?year=2015&week=10&lecturer=heller&day=monday&choice=holiday&action=update
     -->
 
     <!-- The standard parts. -->
@@ -136,6 +136,28 @@
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
+    <!-- The choice parametre. -->
+    <part name="append_parametre_choice_separator" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_separator"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_choice_name" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_choice"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_choice_assignment" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.parametre_assignment"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="append_parametre_choice_value" channel="inline" format="modify/append" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.unref)#next"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+
     <!-- The action parametre. -->
     <part name="append_parametre_action_separator" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
@@ -154,7 +176,7 @@
     </part>
     <part name="append_parametre_action_value" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.href2"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.unref)#next"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.communication.action_update"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
