@@ -1,5 +1,11 @@
 <model>
 
+    <!-- The logic working universally for the term specified here. -->
+    <part name="reset" channel="inline" format="text/plain" model=""/>
+    <part name="identify_prefix" channel="inline" format="text/plain" model=""/>
+    <part name="identify_source" channel="inline" format="text/plain" model=""/>
+    <part name="identify" channel="inline" format="text/plain" model=""/>
+
     <!-- The creation. -->
     <part name="lecturers" channel="file" format="element/part" model="presence/var/stack.cybol"/>
     <part name="choices" channel="file" format="element/part" model="presence/var/stack.cybol"/>
@@ -7,10 +13,8 @@
     <!-- The translation. -->
     <part name="db_to_wui_lecturer" channel="file" format="element/part" model="presence/var/stack.cybol"/>
     <part name="db_to_wui_column" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <part name="db_to_wui_reset" channel="file" format="element/part" model="presence/var/stack.cybol"/>
     <part name="uri_to_db" channel="file" format="element/part" model="presence/var/stack.cybol"/>
-
-    <!-- The reset logic works universally for the .app.var term specified here. -->
-    <part name="reset" channel="inline" format="text/plain" model=""/>
 
     <!-- The db model. -->
     <part name="file" channel="inline" format="text/plain" model=""/>

@@ -1,6 +1,0 @@
-<model>
-
-    <part name="number" channel="file" format="element/part" model="presence/logic/identify/weekday/number.cybol"/>
-    <part name="root" channel="file" format="element/part" model="presence/logic/identify/weekday/root.cybol"/>
-
-</model>

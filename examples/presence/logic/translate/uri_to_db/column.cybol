@@ -1,14 +1,37 @@
 <model>
 
+    <!-- Reset. -->
+    <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
+    <part name="initialise_reset" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
+        <property name="source" channel="inline" format="text/plain" model="uri_to_db"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
     <part name="reset_element" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
     </part>
 
+    <!-- Identification. -->
+    <part name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
+        <property name="source" channel="inline" format="text/plain" model=".app."/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
+        <property name="source" channel="inline" format="text/plain" model="weekdays"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify"/>
+        <property name="source" channel="inline" format="text/plain" model="uri_to_db"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
     <part name="identify_weekday_number" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.weekday.number"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.number"/>
     </part>
     <part name="identify_weekday_root" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.weekday.root"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.root"/>
     </part>
     <part name="get_weekday_name" channel="inline" format="access/get-name" model="">
         <property name="element" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.element.day"/>
