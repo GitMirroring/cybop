@@ -1,7 +1,7 @@
 <model>
 
     <part name="reset_element" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.element2"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
     </part>
 
     <part name="identify_weekday_number" channel="inline" format="flow/sequence" model="">
@@ -11,37 +11,37 @@
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.weekday.root"/>
     </part>
     <part name="get_weekday_name" channel="inline" format="access/get-name" model="">
-        <property name="element" channel="inline" format="path/knowledge" model=".app.var.day2"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.root2"/>
+        <property name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
+        <property name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_column.element.root"/>
     </part>
 
     <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name2).(.app.var.day2).link"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link"/>
         <property name="source" channel="inline" format="path/knowledge" model=".app.choices.teaching"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="empty_href" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name2).(.app.var.day2).link#href"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link#href"/>
         <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </part>
     <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.name2).(.app.var.day2)#class"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day)#class"/>
         <property name="source" channel="inline" format="text/plain" model="teaching"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <!-- Loop test. -->
     <part name="increment_index" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.index2"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.index"/>
         <property name="operand" channel="inline" format="number/integer" model="1"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.break2"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.index2"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.count2"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.count"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>

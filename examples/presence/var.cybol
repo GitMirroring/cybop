@@ -1,28 +1,16 @@
 <model>
 
-    <!-- The loop. -->
-    <part name="count" channel="inline" format="number/integer" model="0"/>
-    <part name="index" channel="inline" format="number/integer" model="0"/>
-    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <!-- The creation. -->
+    <part name="lecturers" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <part name="choices" channel="file" format="element/part" model="presence/var/stack.cybol"/>
 
-    <!-- The element. -->
-    <part name="number" channel="inline" format="text/plain" model=""/>
-    <part name="root" channel="inline" format="text/plain" model=""/>
-    <part name="name" channel="inline" format="text/plain" model=""/>
-    <part name="day" channel="inline" format="text/plain" model=""/>
-    <part name="href" channel="inline" format="text/plain" model=""/>
+    <!-- The translation. -->
+    <part name="db_to_wui_lecturer" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <part name="db_to_wui_column" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <part name="uri_to_db" channel="file" format="element/part" model="presence/var/stack.cybol"/>
 
-    <!-- The loop for translate db_to_wui row/column. -->
-    <part name="count2" channel="inline" format="number/integer" model="0"/>
-    <part name="index2" channel="inline" format="number/integer" model="0"/>
-    <part name="break2" channel="inline" format="logicvalue/boolean" model="false"/>
-
-    <!-- The element for translate db_to_wui row/column. -->
-    <part name="number2" channel="inline" format="text/plain" model=""/>
-    <part name="root2" channel="inline" format="text/plain" model=""/>
-    <part name="name2" channel="inline" format="text/plain" model=""/>
-    <part name="day2" channel="inline" format="text/plain" model=""/>
-    <part name="href2" channel="inline" format="text/plain" model=""/>
+    <!-- The reset logic works universally for the .app.var term specified here. -->
+    <part name="reset" channel="inline" format="text/plain" model=""/>
 
     <!-- The db model. -->
     <part name="file" channel="inline" format="text/plain" model=""/>

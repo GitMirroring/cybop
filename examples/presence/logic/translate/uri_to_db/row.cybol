@@ -1,0 +1,48 @@
+<model>
+
+    <part name="overwrite_reset" channel="inline" format="modify/overwrite" model="">
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
+        <property name="source" channel="inline" format="text/plain" model="uri_to_db"/>
+        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </part>
+    <part name="reset_loop" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.loop"/>
+    </part>
+    <part name="reset_db" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.db"/>
+    </part>
+
+    <part name="count_weekdays" channel="inline" format="access/count" model="">
+        <property name="count" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.loop.count"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.weekdays"/>
+    </part>
+
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.loop.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.loop.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.loop.count"/>
+        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <property name="selection" channel="inline" format="text/plain" model="all"/>
+    </part>
+
+    <!-- Fill database element. -->
+    <part name="loop_columns" channel="inline" format="flow/loop" model="">
+        <property name="break" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.loop.break"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_db.column"/>
+    </part>
+
+    <!-- Save database element to file. -->
+    <part name="translate_path" channel="inline" format="flow/sequence" model="">
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_db.path"/>
+    </part>
+    <part name="send_db" channel="inline" format="communicate/send" model="">
+        <property name="channel" channel="inline" format="meta/channel" model="file"/>
+        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+        <property name="message" channel="inline" format="path/knowledge" model=".app.db"/>
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.file"/>
+    </part>
+
+</model>

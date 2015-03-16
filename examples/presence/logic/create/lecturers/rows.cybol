@@ -1,25 +1,23 @@
 <model>
 
-    <part name="reset_loop" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.loop"/>
-    </part>
+    <!-- Reset is NOT necessary, since this is executed only ONCE at application startup. -->
 
     <part name="count_lecturers" channel="inline" format="access/count" model="">
-        <property name="count" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <property name="count" channel="inline" format="path/knowledge" model=".app.var.lecturers.loop.count"/>
         <property name="part" channel="inline" format="path/knowledge" model=".app.lecturers"/>
     </part>
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.lecturers.loop.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.lecturers.loop.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".app.var.lecturers.loop.count"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>
 
     <part name="loop_lecturers" channel="inline" format="flow/loop" model="">
-        <property name="break" channel="inline" format="path/knowledge" model=".app.var.break"/>
+        <property name="break" channel="inline" format="path/knowledge" model=".app.var.lecturers.loop.break"/>
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.lecturers.row"/>
     </part>
 

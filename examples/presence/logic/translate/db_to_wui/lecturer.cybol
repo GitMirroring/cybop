@@ -1,7 +1,7 @@
 <model>
 
     <part name="reset_element" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.element"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
     </part>
 
     <part name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
@@ -11,15 +11,15 @@
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.lecturer.root"/>
     </part>
     <part name="get_lecturer_name" channel="inline" format="access/get-name" model="">
-        <property name="element" channel="inline" format="path/knowledge" model=".app.var.name"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.root"/>
+        <property name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.element.name"/>
+        <property name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_lecturer.element.root"/>
     </part>
 
     <part name="reset_db" channel="inline" format="flow/sequence" model="">
         <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.db"/>
     </part>
     <part name="identify_db_file" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.db.file"/>
+        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.path"/>
     </part>
     <part name="TEST" channel="inline" format="communicate/send" model="">
         <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -48,15 +48,15 @@
 
     <!-- Loop test. -->
     <part name="increment_index" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.index"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.index"/>
         <property name="operand" channel="inline" format="number/integer" model="1"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
     </part>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.break"/>
+        <property name="left" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.index"/>
+        <property name="right" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.count"/>
         <property name="type" channel="inline" format="meta/type" model="number/integer"/>
         <property name="selection" channel="inline" format="text/plain" model="all"/>
     </part>

@@ -14,11 +14,8 @@
 WUI
 ___
 
-        * Implement cybol example application "presence" wui-to-db translation
-        * Save archive:
-            assemble_file_path [presence/archive/ + (.app.var.request#uri#query.year) + (.app.var.request#uri#query.week) + (.app.var.request#uri#query.lecturer) + .cybol]
-            communicate/send to file
-                source = .app.var.overview.lecturer
+        * Solve conflict between "translate/db_to_wui/" and "reset/lecturers/" and "weekday"
+        * Complete cybol example application "presence" uri-to-db translation
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"

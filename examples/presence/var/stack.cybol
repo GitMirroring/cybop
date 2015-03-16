@@ -1,0 +1,6 @@
+<model>
+
+    <part name="loop" channel="file" format="element/part" model="presence/var/loop.cybol"/>
+    <part name="element" channel="file" format="element/part" model="presence/var/element.cybol"/>
+
+</model>

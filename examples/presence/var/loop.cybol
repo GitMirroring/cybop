@@ -1,0 +1,7 @@
+<model>
+
+    <part name="count" channel="inline" format="number/integer" model="0"/>
+    <part name="index" channel="inline" format="number/integer" model="0"/>
+    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+
+</model>

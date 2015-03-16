@@ -1,6 +1,7 @@
 <model>
 
     <part name="db_to_wui" channel="file" format="element/part" model="presence/logic/translate/db_to_wui.cybol"/>
+    <part name="uri_to_db" channel="file" format="element/part" model="presence/logic/translate/uri_to_db.cybol"/>
     <part name="uri_to_wui" channel="file" format="element/part" model="presence/logic/translate/uri_to_wui.cybol"/>
 
 </model>

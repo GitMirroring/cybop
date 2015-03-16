@@ -1,8 +1,8 @@
 <model>
 
     <part name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.number2"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.index2"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.weekdays.element.number"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.weekdays.loop.index"/>
         <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <property name="format" channel="inline" format="meta/format" model="number/integer"/>
     </part>

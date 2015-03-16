@@ -1,17 +1,17 @@
 <model>
 
     <part name="overwrite_prefix" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.root"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.lecturers.element.root"/>
         <property name="source" channel="inline" format="text/plain" model=".app.lecturers.["/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_number" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.root"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.number"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.lecturers.element.root"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.var.lecturers.element.number"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_suffix" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.root"/>
+        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.lecturers.element.root"/>
         <property name="source" channel="inline" format="text/plain" model="]"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
