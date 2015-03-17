@@ -12,6 +12,6 @@
     <part name="go_forward" channel="inline" format="path/knowledge" model=".app.logic.go_forward"/>
 
     <!-- Overview entry choice. -->
-    <part name="update" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_wui.column"/>
+    <part name="update" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_all"/>
 
 </model>

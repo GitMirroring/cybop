@@ -38,9 +38,9 @@
         <property name="part" channel="inline" format="path/reference" model=".app.var.uri_to_db.element.root"/>
     </part>
 
-    <part name="overwrite_db" channel="inline" format="modify/overwrite" model="">
+    <part name="overwrite_db_entry" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.db.(.app.var.uri_to_db.element.day)"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.uri_to_db.element.day).(.app.var.request#uri#query.choice)"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.uri_to_db.element.day)#class"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
