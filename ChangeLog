@@ -21,8 +21,8 @@
 2015-03-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement cybol example application "presence" uri-to-wui translation
-        * Optimise cybol example application "presence" source file structure
         * Implement cybol example application "presence" uri-to-db translation
+        * Restructure cybol example application "presence" source files using new directory "domain"
 
 2015-03-15  Christian Heller  <christian.heller@tuxtax.de>
 

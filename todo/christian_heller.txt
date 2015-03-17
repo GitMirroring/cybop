@@ -14,8 +14,6 @@
 WUI
 ___
 
-        * Replace "communication" with "uri"
-        * Move files in root to directory "domain/"
         * Complete cybol example application "presence" uri-to-db translation
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
