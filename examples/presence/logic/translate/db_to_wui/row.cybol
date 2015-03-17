@@ -11,7 +11,7 @@
 
     <part name="count_weekdays" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.count"/>
-        <property name="part" channel="inline" format="path/knowledge" model=".app.weekdays"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.domain.weekdays"/>
     </part>
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->

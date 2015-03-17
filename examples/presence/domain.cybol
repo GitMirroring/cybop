@@ -1,0 +1,12 @@
+<model>
+
+    <part name="calendar" channel="file" format="element/part" model="presence/domain/calendar.cybol"/>
+    <part name="weekdays" channel="file" format="element/part" model="presence/domain/weekdays.cybol"/>
+
+    <part name="lecturers" channel="file" format="element/part" model="presence/domain/lecturers.cybol"/>
+    <part name="choices" channel="file" format="element/part" model="presence/domain/choices.cybol"/>
+
+    <part name="path" channel="file" format="element/part" model="presence/domain/path.cybol"/>
+    <part name="uri" channel="file" format="element/part" model="presence/domain/uri.cybol"/>
+
+</model>

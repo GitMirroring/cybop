@@ -7,7 +7,7 @@
 
     <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.request#uri#query.choice)"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.request#uri#query.choice)"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="translate_href" channel="inline" format="flow/sequence" model="">

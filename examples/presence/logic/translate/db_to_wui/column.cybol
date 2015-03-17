@@ -14,7 +14,7 @@
     <!-- Identification. -->
     <part name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
-        <property name="source" channel="inline" format="text/plain" model=".app."/>
+        <property name="source" channel="inline" format="text/plain" model=".app.domain."/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
@@ -60,7 +60,7 @@
 
     <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.choices.(.app.var.unref)"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.unref)"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="translate_href" channel="inline" format="flow/sequence" model="">

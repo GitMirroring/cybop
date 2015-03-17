@@ -7,24 +7,24 @@
 
     <part name="overwrite_application" channel="inline" format="modify/overwrite" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.application"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.application"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="append_database_separator" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.separator"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.separator"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_database" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.db"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.db"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 
     <part name="append_year_separator" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.separator"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.separator"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_year" channel="inline" format="modify/append" model="">
@@ -38,7 +38,7 @@
 
     <part name="append_week_separator" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.separator"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.separator"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_week" channel="inline" format="modify/append" model="">
@@ -52,7 +52,7 @@
 
     <part name="append_lecturer_separator" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.separator"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.separator"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_lecturer" channel="inline" format="modify/append" model="">
@@ -63,12 +63,12 @@
 
     <part name="append_suffix_separator" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.suffix_separator"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.suffix_separator"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
     <part name="append_file_suffix" channel="inline" format="modify/append" model="">
         <property name="destination" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.path.file_suffix"/>
+        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.path.file_suffix"/>
         <property name="type" channel="inline" format="meta/type" model="text/plain"/>
     </part>
 

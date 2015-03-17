@@ -1,20 +1,14 @@
 <model>
 
-    <!-- The temporary variables. (Later possibly replaced by cybol stack properties.) -->
-    <part name="var" channel="file" format="element/part" model="presence/var.cybol"/>
-
-    <!-- The fixed settings. -->
-    <part name="calendar" channel="file" format="element/part" model="presence/calendar.cybol"/>
-    <part name="weekdays" channel="file" format="element/part" model="presence/weekdays.cybol"/>
-    <part name="choices" channel="file" format="element/part" model="presence/choices.cybol"/>
-    <part name="lecturers" channel="file" format="element/part" model="presence/lecturers.cybol"/>
-    <part name="communication" channel="file" format="element/part" model="presence/communication.cybol"/>
-    <part name="path" channel="file" format="element/part" model="presence/path.cybol"/>
-
     <!-- The logical layers. -->
     <part name="db" channel="file" format="element/part" model="presence/db.cybol"/>
+    <part name="domain" channel="file" format="element/part" model="presence/domain.cybol"/>
     <part name="wui" channel="file" format="element/part" model="presence/wui.cybol"/>
 
+    <!-- The functionality. -->
     <part name="logic" channel="file" format="element/part" model="presence/logic.cybol"/>
+
+    <!-- The temporary variables. (Later possibly replaced by cybol stack properties.) -->
+    <part name="var" channel="file" format="element/part" model="presence/var.cybol"/>
 
 </model>

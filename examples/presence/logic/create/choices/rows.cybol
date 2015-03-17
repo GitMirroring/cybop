@@ -4,7 +4,7 @@
 
     <part name="count_choices" channel="inline" format="access/count" model="">
         <property name="count" channel="inline" format="path/knowledge" model=".app.var.choices.loop.count"/>
-        <property name="part" channel="inline" format="path/knowledge" model=".app.choices"/>
+        <property name="part" channel="inline" format="path/knowledge" model=".app.domain.choices"/>
     </part>
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
