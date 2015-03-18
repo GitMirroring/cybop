@@ -43,9 +43,8 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the tree level
  */
-void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part.");
 
@@ -75,7 +74,7 @@ void serialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4, void
             break;
         }
 
-        serialise_cybol_part_element(p0, p1, (void*) &j, p3, p4, p5);
+        serialise_cybol_part_element(p0, p1, (void*) &j, p3, p4);
 
         // Increment loop variable.
         j++;

@@ -43,9 +43,8 @@
  * @param p2 the source model index
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the tree level
  */
-void serialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part element.");
 
@@ -76,7 +75,7 @@ void serialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* 
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise part element content.
-    serialise_cybol_part_element_content(p0, md, mc, pd, pc, p5, fd);
+    serialise_cybol_part_element_content(p0, md, mc, pd, pc, fd);
 }
 
 /* ELEMENT_PART_CYBOL_SERIALISER_SOURCE */

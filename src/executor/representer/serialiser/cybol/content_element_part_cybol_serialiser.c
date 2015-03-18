@@ -74,10 +74,9 @@
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the tree level
- * @param p6 the format
+ * @param p5 the format
  */
-void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol part element content.");
 
@@ -89,16 +88,27 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // (NOT the mime type format)!
     allocate_part((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
 
-    copy(m);
-    copy(p);
-
-    // CYBOI model elements (e.g. part, int etc.) become one new property (part) node each.
-    serialise_cybol_part_element_content_model(p0, p1, p2);
-    // CYBOI properties (e.g. operation arguments) become one new model (part) node each.
-    serialise_cybol_part_element_content_properties(p3, p4);
-    serialise_cybol();
-
+    allocate_part_for_each_part_detail(name, channel, encoding, language, format, model, properties)
+    // CAUTION! Serialise first, if array; if item, it doesn't matter, since only the array pointer inside the item might change on reallocation.
+    overwrite(new_name_part, source_name);
+    overwrite(new_encoding_part, source_encoding);
+    // Do not use: overwrite(new_model_part, p1, p2);
+    // because the model may be primitive data but also compound element/part.
     serialise_cybol(dest_item, md, mc, pd, pc, tree_level, format);
+    ...
+
+    // The model elements (e.g. part, integer, character etc.) become an xml attribute.
+    add_name_part_to_p-properties
+    add_channel_part_to_p-properties
+    add_encoding_part_to_p-properties
+    add_language_part_to_p-properties
+    add_format_part_to_p-properties
+    add_model_part_to_p-properties
+
+    // The properties (e.g. operation arguments) become an xml tag, each.
+    // Do not use: add_properties_part_containing_child_parts_to_p-model(p3, p4);
+    // It is always a compound part (container).
+    serialise_cybol_part(pp, p3, p4);
 */
 }
 

@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Implement cybol element/part serialisation
+        * Implement cybol element/part serialiser
         * See operation call "send_db" in file "presence/logic/translate/uri_to_db/row.cybol"
         * Complete cybol example application "presence" uri-to-db translation
 
