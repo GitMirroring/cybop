@@ -33,6 +33,11 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"
 #include "../../executor/modifier/appender/item_appender.c"
+// CAUTION! Do NOT include the "content_element_part_cybol_serialiser.c" module.
+// It is true, the "serialise_cybol_part_element_content" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+// Therefore, the "cybol_serialiser.c" module is included here.
 #include "../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../executor/representer/serialiser/gui/initial_gui_serialiser.c"
 // CAUTION! Do NOT include the "content_element_part_html_serialiser.c" module.
@@ -194,7 +199,12 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol(p0, p1, p2, p3, p4, p9);
+            // The tree level.
+            // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+            // since the tree level value gets changed in the following functions!
+            int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+            serialise_cybol_part_element_content(p0, p1, p2, p3, p4, (void*) &l, p9);
         }
     }
 

@@ -94,6 +94,12 @@ ___
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
 
+General CYBOI
+_____________
+
+        * Remove cybol properties "channel", "encoding", "language", "format" from cyboi-internal knowledge model schema
+        * Hand over the desired "format" as argument, when serialising
+
 Hello, World!
 _____________
 

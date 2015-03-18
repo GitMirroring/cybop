@@ -26,12 +26,13 @@
 #ifndef XML_SERIALISER_SOURCE
 #define XML_SERIALISER_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 //?? #include "../../../../executor/converter/processor/xml_processor.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the compound into a xml byte array.
+ * Serialises the compound into an xml byte array.
  *
  * @param p0 the destination xml item
  * @param p1 the source model data
