@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare cybol element/part serialiser
+
 2015-03-16  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement cybol example application "presence" uri-to-wui translation
