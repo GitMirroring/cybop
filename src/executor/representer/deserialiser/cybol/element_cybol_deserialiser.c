@@ -144,11 +144,6 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise cybol element. The format is neither 'part' nor 'property'.");
-    }
-
     // Deallocate temporary format, type, model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

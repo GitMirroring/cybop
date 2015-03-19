@@ -275,7 +275,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_element(p0, p1, p2, p3, p4);
+//??            serialise_cybol_element(p0, p1, p2, p3, p4);
         }
     }
 
@@ -285,7 +285,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p1);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_element(p0, p1, p2, p3, p4);
+//??            serialise_cybol_element(p0, p1, p2, p3, p4);
         }
     }
 

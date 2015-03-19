@@ -49,19 +49,18 @@
 /**
  * Serialises the cybol element (part or property).
  *
- * @param p0 the destination model item
- * @param p1 the destination properties item
- * @param p2 the source data
- * @param p3 the source count
- * @param p4 the format
+ * @param p0 the destination item
+ * @param p1 the source model data
+ * @param p2 the source model count
+ * @param p3 the source properties data
+ * @param p4 the source properties count
+ * @param p5 the format
  */
-void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
 
-    // The temporary format, type, model, properties item.
-    void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The temporary model, properties item.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The temporary model, properties data, count.
@@ -72,20 +71,38 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Allocate temporary format, type, model, properties item.
+    // Allocate temporary model, properties item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     // CAUTION! Initialise integer items with a size of ONE,
     // in order to avoid later reallocation when overwriting
     // the element and to thus increase efficiency.
-    allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-/*??
-    // Serialise source message (cybol file) into temporary model, properties item.
-    serialise_xml_part_element_content(m, p, p2, p3);
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Serialise source model, properties data, count into temporary model.
+            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
+//??            serialise_cybol_part_element_content(m, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Serialise source model, properties data, count into temporary properties.
+            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
+//??            serialise_cybol_part_element_content(p, p1, p2, p3, p4);
+        }
+    }
 
     // Get temporary model, properties data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -96,41 +113,12 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Serialise temporary model, properties data, count into destination item.
+//??    serialise_xml_part_element_content(p0, md, mc, pd, pc);
 
-        compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Serialise temporary model, properties item into cyboi model using temporary type, format.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            serialise_cybol_part_element_content(p0, md, mc, pd, pc, t, f);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p4, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Serialise temporary model, properties item into cyboi model using temporary type, format.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            serialise_cybol_part_element_content(p1, md, mc, pd, pc, t, f);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not serialise cybol element. The format is neither 'part' nor 'property'.");
-    }
-*/
-
-    // Deallocate temporary format, type, model, properties item.
+    // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 }
 
 /* ELEMENT_CYBOL_SERIALISER_SOURCE */
