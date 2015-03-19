@@ -21,6 +21,7 @@
 2015-03-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare cybol element/part serialiser
+        * Clean up serialisers for gui, html, model_diagram, tui by using cybol serialiser functions
 
 2015-03-16  Christian Heller  <christian.heller@tuxtax.de>
 

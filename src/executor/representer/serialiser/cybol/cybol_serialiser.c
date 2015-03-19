@@ -62,7 +62,6 @@
 #include "../../../../executor/representer/serialiser/cybol/fraction_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/language_cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/cybol/type_cybol_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**

@@ -33,14 +33,18 @@
 #include "../../../../constant/name/cybol/xml_cybol_name.c"
 #include "../../../../executor/converter/encoder.c"
 #include "../../../../executor/representer/serialiser/cybol/part_cybol_serialiser.c"
+// CAUTION! Do NOT include the "content_element_part_xml_serialiser.c" module.
+// It is true, the "serialise_xml_part_element_content" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+// Therefore, the "xml_serialiser.c" module is included here.
 #include "../../../../executor/representer/serialiser/xml/xml_serialiser.c"
 
 //
 // Forward declarations.
 //
 
-void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
-void serialise_xml(void* p0, void* p1, void* p2);
+//?? void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Serialises the cybol element (part or property).
@@ -81,7 +85,7 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
 /*??
     // Serialise source message (cybol file) into temporary model, properties item.
-    serialise_xml(m, p, p2, p3);
+    serialise_xml_part_element_content(m, p, p2, p3);
 
     // Get temporary model, properties data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

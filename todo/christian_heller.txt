@@ -98,7 +98,9 @@ General CYBOI
 _____________
 
         * Remove cybol properties "channel", "encoding", "language", "format" from cyboi-internal knowledge model schema
-        * Hand over the desired "format" as argument, when serialising
+        * Investigate if only "type" (NOT "format") should be used internally, since format is only needed for de-/serialisation??
+            ==> NO! The "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value
+            see e.g. "cybol_serialiser.c"
 
 Hello, World!
 _____________
