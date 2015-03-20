@@ -31,8 +31,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The node xml cybol name. */
-static wchar_t NODE_XML_CYBOL_NAME_ARRAY[] = {L'n', L'o', L'd', L'e'};
-static wchar_t* NODE_XML_CYBOL_NAME = NODE_XML_CYBOL_NAME_ARRAY;
+static wchar_t* NODE_XML_CYBOL_NAME = L"node";
 static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -102,13 +101,7 @@ static int* NODE_XML_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY
  * | #- | wide_character_vector | catalogue
  */
 
-#ifdef _MSC_VER
-static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {'\0'};
-#else
-static wchar_t NODE_NAME_XML_CYBOL_NAME_ARRAY[] = {};
-#endif
-
-static wchar_t* NODE_NAME_XML_CYBOL_NAME = NODE_NAME_XML_CYBOL_NAME_ARRAY;
+static wchar_t* NODE_NAME_XML_CYBOL_NAME = L"";
 static int* NODE_NAME_XML_CYBOL_NAME_COUNT = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* XML_CYBOL_NAME_CONSTANT_SOURCE */

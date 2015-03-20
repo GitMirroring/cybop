@@ -26,37 +26,36 @@
 #ifndef ELEMENT_CYBOL_SERIALISER_SOURCE
 #define ELEMENT_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cybol/xml_cybol_name.c"
-#include "../../../../executor/converter/encoder.c"
+#include "../../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/cybol/part_cybol_serialiser.c"
-// CAUTION! Do NOT include the "content_element_part_xml_serialiser.c" module.
-// It is true, the "serialise_xml_part_element_content" function is called from here,
-// but the module dependency hierarchy slightly differs and just goes top-down
-// by module granularity and NOT by call hierarchy.
-// Therefore, the "xml_serialiser.c" module is included here.
-#include "../../../../executor/representer/serialiser/xml/xml_serialiser.c"
-
-//
-// Forward declarations.
-//
-
-//?? void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+#include "../../../../logger/logger.c"
 
 /**
  * Serialises the cybol element (part or property).
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the format
+ * @param p1 the source name data
+ * @param p2 the source name count
+ * @param p3 the source channel data
+ * @param p4 the source encoding data
+ * @param p5 the source language data
+ * @param p6 the source format data
+ * @param p7 the source model data
+ * @param p8 the source model count
+ * @param p9 the source properties data
+ * @param p10 the source properties count
  */
-void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
 
@@ -82,25 +81,25 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Serialise source model, properties data, count into temporary model.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-//??            serialise_cybol_part_element_content(m, p1, p2, p3, p4);
+            serialise_cybol_part_element_content(m, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p5, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Serialise source model, properties data, count into temporary properties.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-//??            serialise_cybol_part_element_content(p, p1, p2, p3, p4);
+            serialise_cybol_part_element_content(p, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
         }
     }
 
@@ -114,7 +113,7 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise temporary model, properties data, count into destination item.
-//??    serialise_xml_part_element_content(p0, md, mc, pd, pc);
+    serialise_xml_part_element_content(p0, md, mc, pd, pc);
 
     // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

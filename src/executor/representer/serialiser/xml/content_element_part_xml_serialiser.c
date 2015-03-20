@@ -23,24 +23,24 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef XML_SERIALISER_SOURCE
-#define XML_SERIALISER_SOURCE
+#ifndef CONTENT_ELEMENT_PART_XML_SERIALISER_SOURCE
+#define CONTENT_ELEMENT_PART_XML_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the compound into an xml byte array.
+ * Serialises the source into the destination.
  *
  * @param p0 the destination xml item
  * @param p1 the source model data
  * @param p2 the source model count
  */
-void serialise_xml(void* p0, void* p1, void* p2) {
+void serialise_xml_part_element_content(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element content.");
 }
 
-/* XML_SERIALISER_SOURCE */
+/* CONTENT_ELEMENT_PART_XML_SERIALISER_SOURCE */
 #endif
