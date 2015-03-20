@@ -29,9 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/html/part_html_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -84,7 +82,7 @@ void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p0, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5);
+        serialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     }
 }
 

@@ -50,12 +50,13 @@
  * @param p4 the source encoding data
  * @param p5 the source language data
  * @param p6 the source format data
- * @param p7 the source model data
- * @param p8 the source model count
- * @param p9 the source properties data
- * @param p10 the source properties count
+ * @param p7 the source type data
+ * @param p8 the source model data
+ * @param p9 the source model count
+ * @param p10 the source properties data
+ * @param p11 the source properties count
  */
-void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise cybol element.");
 
@@ -69,6 +70,8 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+fwprintf(stdout, L"TEST serialise cybol element r: %i\n", r);
 
     // Allocate temporary model, properties item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -87,7 +90,7 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             // Serialise source model, properties data, count into temporary model.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            serialise_cybol_part_element_content(m, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+            serialise_cybol_part_element_content(m, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
         }
     }
 
@@ -99,7 +102,7 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
             // Serialise source model, properties data, count into temporary properties.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            serialise_cybol_part_element_content(p, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+            serialise_cybol_part_element_content(p, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
         }
     }
 
@@ -112,8 +115,11 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+#include "../../../../tester/data_as_model_diagram_tester.c"
+    test_data_as_model_diagram((void*) L"test.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
+
     // Serialise temporary model, properties data, count into destination item.
-    serialise_xml_part_element_content(p0, md, mc, pd, pc);
+//??    serialise_xml_part_element_content(p0, md, mc, pd, pc);
 
     // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

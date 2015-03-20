@@ -54,8 +54,12 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
 #else
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test data as model diagram.");
 
+fwprintf(stdout, L"TEST data as model diagram pre p0: %i\n", p0);
+
     // The destination file name count, size.
     int fc = wcslen((wchar_t*) p0);
+
+fwprintf(stdout, L"TEST data as model diagram post fc: %i\n", fc);
 
     // The model diagram item.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -81,10 +85,14 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &b, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
+fwprintf(stdout, L"TEST data as model diagram content pre: %i\n", fc);
+
     // Serialise model into model diagram item.
     // CAUTION! Do NOT forward NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
     // since the tree level value gets changed in the following functions!
     serialise_model_diagram_part_element_content(d, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+
+fwprintf(stdout, L"TEST data as model diagram content post: %i\n", fc);
 
     // Get model diagram item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -93,8 +101,13 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST data as model diagram dc: %i\n", dc);
+fwprintf(stdout, L"TEST data as model diagram *dc: %i\n", *((int*) dc));
+
     // Encode model diagram into multibyte character stream.
     encode_utf_8(b, dd, dc);
+
+fwprintf(stdout, L"TEST data as model diagram encode post: %i\n", b);
 
     // Get multibyte character stream item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -103,8 +116,13 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST data as model diagram bc: %i\n", bc);
+fwprintf(stdout, L"TEST data as model diagram *bc: %i\n", *((int*) bc));
+
     // Write multibyte character stream to file system.
     write_file_stream(p0, (void*) &fc, bd, bc);
+
+fwprintf(stdout, L"TEST data as model diagram write post fc: %i\n", fc);
 
     // Deallocate model diagram item.
     deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

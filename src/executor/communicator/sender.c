@@ -52,24 +52,27 @@
  * since the model might also contain meta data.
  *
  * @param p0 the destination item
- * @param p1 the source model data
- * @param p2 the source model count
- * @param p3 the source properties data
- * @param p4 the source properties count
- * @param p5 the knowledge memory part
- * @param p6 the internal memory data
- * @param p7 the format
- * @param p8 the language properties data
- * @param p9 the language properties count
- * @param p10 the language
- * @param p11 the encoding
- * @param p12 the source part (pointer reference)
- * @param p13 the clear flag
- * @param p14 the newline flag
- * @param p15 the termination flag
- * @param p16 the channel
+ * @param p1 the source name data
+ * @param p2 the source name count
+ * @param p3 the source channel data
+ * @param p4 the source encoding data
+ * @param p5 the source language data
+ * @param p6 the source language properties data
+ * @param p7 the source language properties count
+ * @param p8 the source format data
+ * @param p9 the source type data
+ * @param p10 the source model data
+ * @param p11 the source model count
+ * @param p12 the source properties data
+ * @param p13 the source properties count
+ * @param p14 the source part (pointer reference)
+ * @param p15 the clear flag
+ * @param p16 the newline flag
+ * @param p17 the termination flag
+ * @param p18 the knowledge memory part
+ * @param p19 the internal memory data
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
@@ -116,12 +119,12 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     b = s;
 
     // Select buffer.
-    send_select((void*) &b, (void*) &e, p10);
+    send_select((void*) &b, (void*) &e, p5);
     // Serialise message.
     // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p13, p14, p7, p8, p9, p10);
+    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19);
 //?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
 //?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
@@ -130,15 +133,15 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Add lineending character.
 //??    append_item_element(b, (void*) WINDOWS_NEWLINE_TEXT_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WINDOWS_NEWLINE_TEXT_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     // Encode message.
-    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p11);
+    send_encode((void*) &ad, (void*) &ac, e, ad, ac, p4);
     // Append termination.
-    send_termination((void*) &ad, (void*) &ac, e, p15, p16);
+    send_termination((void*) &ad, (void*) &ac, e, p17, p3);
     // Compress message.
 //??    send_compress((void*) &ad, (void*) &ac, c, ad, ac, p??);
     // Write message.
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
-    send_write(p0, (void*) &ad, ac, p6, p12, p16);
+    send_write(p0, (void*) &ad, ac, p19, p14, p3);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

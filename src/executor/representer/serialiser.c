@@ -85,16 +85,17 @@
  * @param p6 the source language properties data
  * @param p7 the source language properties count
  * @param p8 the source format data
- * @param p9 the source model data
- * @param p10 the source model count
- * @param p11 the source properties data
- * @param p12 the source properties count
- * @param p13 the clear flag
- * @param p14 the newline flag
- * @param p15 the knowledge memory part
- * @param p16 the internal memory data
+ * @param p9 the source type data
+ * @param p10 the source model data
+ * @param p11 the source model count
+ * @param p12 the source properties data
+ * @param p13 the source properties count
+ * @param p14 the clear flag
+ * @param p15 the newline flag
+ * @param p16 the knowledge memory part
+ * @param p17 the internal memory data
  */
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
 
@@ -117,7 +118,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, p9, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p10, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(p0, p10, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, p11, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 
@@ -127,7 +128,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p9, p10, p11, p12, p15, p16, p13, p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p14, p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 
@@ -137,7 +138,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_initial(p9, p10, p11, p12, p15, p16, p8);
+            serialise_gui_initial(p10, p11, p12, p13, p16, p17, p8);
         }
     }
 
@@ -147,7 +148,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_http_request(p0, p9, p10, p11, p12);
+            serialise_http_request(p0, p10, p11, p12, p13);
         }
     }
 
@@ -157,7 +158,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_http_response(p0, p9, p10, p11, p12, p15);
+            serialise_http_response(p0, p10, p11, p12, p13, p16);
         }
     }
 
@@ -167,7 +168,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p9, p10, p11, p12, p15, p16, p13, p14, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p14, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 
@@ -181,7 +182,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_terminal_mode(p0, p9, p10, p11, p12, p8);
+            serialise_terminal_mode(p0, p10, p11, p12, p13, p8);
         }
     }
 
@@ -195,7 +196,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_authority(p0, p9, p10, p11);
+//??            serialise_authority(p0, p10, p11, p12);
         }
     }
 
@@ -205,7 +206,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xdt(p0, p9, p10, p11, p12, p7);
+//??            serialise_xdt(p0, p10, p11, p12, p13, p7);
         }
     }
 
@@ -215,7 +216,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_part_element_content(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12);
+            serialise_cybol(p0, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13);
         }
     }
 
@@ -225,7 +226,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xdt(p0, p9, p10, p11, p12, p7);
+//??            serialise_xdt(p0, p10, p11, p12, p13, p7);
         }
     }
 
@@ -248,7 +249,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get indentation flag part.
-            get_part_knowledge((void*) &i, p6, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p7, p15);
+            get_part_knowledge((void*) &i, p6, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p7, p16);
             // Get indentation flag part model item.
             copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get indentation flag part model item data.
@@ -259,7 +260,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // Serialise line break.
             serialise_html_break(p0, imd);
             // Append content.
-            serialise_html_part_element_content(p0, p9, p10, p11, p12, imd, (void*) &l, p8);
+            serialise_html_part_element_content(p0, p10, p11, p12, p13, imd, (void*) &l, p8);
         }
     }
 
@@ -269,7 +270,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xdt(p0, p9, p10, p11, p12, p7);
+//??            serialise_xdt(p0, p10, p11, p12, p13, p7);
         }
     }
 
@@ -284,7 +285,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             // since the tree level value gets changed in the following functions!
             int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
-            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p8, p9, p10, p11, p12, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
+            serialise_model_diagram_part_element_content(p0, (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, p8, p10, p11, p12, p13, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l);
         }
     }
 
@@ -294,7 +295,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_uri(p0, p9);
+//??            serialise_uri(p0, p10);
         }
     }
 
@@ -309,7 +310,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             //?? so that compilation takes much too long.
             //?? The xDT de-/serialisation should be moved
             //?? into a library in the future.
-//??            serialise_xdt_field_description(p0, p9);
+//??            serialise_xdt_field_description(p0, p10);
         }
     }
 

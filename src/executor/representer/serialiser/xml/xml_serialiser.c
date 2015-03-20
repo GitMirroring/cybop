@@ -28,18 +28,62 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
+//?? #include "../../../../executor/representer/serialiser/xml/part_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Serialises the compound into an xml byte array.
+ * Serialises the source into the destination, according to the given format.
  *
- * @param p0 the destination xml item
+ * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
+ * @param p3 the indentation flag
+ * @param p4 the tree level
+ * @param p5 the format
  */
-void serialise_xml(void* p0, void* p1, void* p2) {
+void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    //
+    // element
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_xml_part(p0, p1, p2, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+//??            serialise_xml_part(p0, p1, p2, p3, p4);
+        }
+    }
+
+    //
+    // other formats
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Leave processing of other formats to cybol serialiser.
+        serialise_cybol(p0, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
+    }
 }
 
 /* XML_SERIALISER_SOURCE */
