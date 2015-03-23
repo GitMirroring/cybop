@@ -56,12 +56,19 @@
 //
 
 /**
+ * The meta/name state cybol type.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* NAME_META_STATE_CYBOL_FORMAT = L"meta/name";
+static int* NAME_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The meta/channel state cybol type.
  *
  * This is a CYBOL extension.
  */
-static wchar_t CHANNEL_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
-static wchar_t* CHANNEL_META_STATE_CYBOL_FORMAT = CHANNEL_META_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* CHANNEL_META_STATE_CYBOL_FORMAT = L"meta/channel";
 static int* CHANNEL_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -69,8 +76,7 @@ static int* CHANNEL_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t ENCODING_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'e', L'n', L'c', L'o', L'd', L'i', L'n', L'g'};
-static wchar_t* ENCODING_META_STATE_CYBOL_FORMAT = ENCODING_META_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ENCODING_META_STATE_CYBOL_FORMAT = L"meta/encoding";
 static int* ENCODING_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -78,8 +84,7 @@ static int* ENCODING_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * This is a CYBOL extension.
  */
-static wchar_t LANGUAGE_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'l', L'a', L'n', L'g', L'u', L'a', L'g', L'e'};
-static wchar_t* LANGUAGE_META_STATE_CYBOL_FORMAT = LANGUAGE_META_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* LANGUAGE_META_STATE_CYBOL_FORMAT = L"meta/language";
 static int* LANGUAGE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -87,8 +92,7 @@ static int* LANGUAGE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * This is a CYBOL extension.
  */
-static wchar_t FORMAT_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L'f', L'o', L'r', L'm', L'a', L't'};
-static wchar_t* FORMAT_META_STATE_CYBOL_FORMAT = FORMAT_META_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* FORMAT_META_STATE_CYBOL_FORMAT = L"meta/format";
 static int* FORMAT_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -96,9 +100,16 @@ static int* FORMAT_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t TYPE_META_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L't', L'a', L'/', L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_META_STATE_CYBOL_FORMAT = TYPE_META_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* TYPE_META_STATE_CYBOL_FORMAT = L"meta/type";
 static int* TYPE_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The meta/model state cybol type.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MODEL_META_STATE_CYBOL_FORMAT = L"meta/model";
+static int* MODEL_META_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* META_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

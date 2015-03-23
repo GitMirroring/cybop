@@ -31,33 +31,27 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The name cybol name. */
-static wchar_t NAME_CYBOL_NAME_ARRAY[] = {L'n', L'a', L'm', L'e'};
-static wchar_t* NAME_CYBOL_NAME = NAME_CYBOL_NAME_ARRAY;
+static wchar_t* NAME_CYBOL_NAME = L"name";
 static int* NAME_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The channel cybol name. */
-static wchar_t CHANNEL_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
-static wchar_t* CHANNEL_CYBOL_NAME = CHANNEL_CYBOL_NAME_ARRAY;
+static wchar_t* CHANNEL_CYBOL_NAME = L"channel";
 static int* CHANNEL_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The encoding cybol name. */
-static wchar_t ENCODING_CYBOL_NAME_ARRAY[] = {L'e', L'n', L'c', L'o', L'd', L'i', L'n', L'g'};
-static wchar_t* ENCODING_CYBOL_NAME = ENCODING_CYBOL_NAME_ARRAY;
+static wchar_t* ENCODING_CYBOL_NAME = L"encoding";
 static int* ENCODING_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The language cybol name. */
-static wchar_t LANGUAGE_CYBOL_NAME_ARRAY[] = {L'l', L'a', L'n', L'g', L'u', L'a', L'g', L'e'};
-static wchar_t* LANGUAGE_CYBOL_NAME = LANGUAGE_CYBOL_NAME_ARRAY;
+static wchar_t* LANGUAGE_CYBOL_NAME = L"language";
 static int* LANGUAGE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The format cybol name. */
-static wchar_t FORMAT_CYBOL_NAME_ARRAY[] = {L'f', L'o', L'r', L'm', L'a', L't'};
-static wchar_t* FORMAT_CYBOL_NAME = FORMAT_CYBOL_NAME_ARRAY;
+static wchar_t* FORMAT_CYBOL_NAME = L"format";
 static int* FORMAT_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model cybol name. */
-static wchar_t MODEL_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
-static wchar_t* MODEL_CYBOL_NAME = MODEL_CYBOL_NAME_ARRAY;
+static wchar_t* MODEL_CYBOL_NAME = L"model";
 static int* MODEL_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOL_NAME_CONSTANT_SOURCE */
