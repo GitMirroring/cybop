@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement xml serialiser based upon html serialiser
+
 2015-03-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue cybol element/part serialiser
