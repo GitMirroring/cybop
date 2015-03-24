@@ -46,8 +46,9 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the empty flag
+ * @param p6 the void flag
  */
-void serialise_xml_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_xml_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml begin tag.");
 
@@ -62,7 +63,10 @@ void serialise_xml_begin_tag(void* p0, void* p1, void* p2, void* p3, void* p4, v
     serialise_xml_attributes(p0, p3, p4);
 
     // Initialise comparison result.
-    copy_integer((void*) &r, p5);
+    logify_boolean_or((void*) &r, p5);
+
+    // Check if content is empty AND element is allowed to be void.
+    logify_boolean_and((void*) &r, p6);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

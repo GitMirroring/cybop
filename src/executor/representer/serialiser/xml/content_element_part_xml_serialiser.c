@@ -39,7 +39,6 @@
 #include "../../../../executor/representer/serialiser/xml/end_tag_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/filled_element_part_xml_serialiser.c"
 #include "../../../../executor/representer/serialiser/xml/indentation_xml_serialiser.c"
-#include "../../../../executor/representer/serialiser/xml/void_element_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -52,9 +51,10 @@
  * @param p4 the source properties count
  * @param p5 the indentation flag
  * @param p6 the indentation level
- * @param p7 the format
+ * @param p7 the void flag
+ * @param p8 the format
  */
-void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element content.");
 
@@ -107,19 +107,19 @@ void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Serialise indentation.
     serialise_xml_indentation(p0, p5, p6);
     // Append begin tag.
-    serialise_xml_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e, (void*) &v);
+    serialise_xml_begin_tag(p0, tmd, tmc, p3, p4, (void*) &e, p7);
     // Serialise line break.
     serialise_xml_break(p0, p5);
 
     if (e != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The content IS empty.
-        serialise_xml_part_element_empty(p0, tmd, tmc, p5, p6, (void*) &v);
+        serialise_xml_part_element_empty(p0, tmd, tmc, p5, p6, p7);
 
     } else {
 
         // The content is NOT empty.
-        serialise_xml_part_element_filled(p0, p1, p2, tmd, tmc, pmd, p5, p6, p7);
+        serialise_xml_part_element_filled(p0, p1, p2, tmd, tmc, pmd, p5, p6, p7, p8);
     }
 }
 

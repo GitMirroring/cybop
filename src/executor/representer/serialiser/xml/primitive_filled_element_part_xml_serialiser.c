@@ -40,7 +40,7 @@
 // Forward declarations.
 //
 
-void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Serialises the primitive filled part element into xml.
@@ -50,10 +50,11 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
  * @param p2 the source model count
  * @param p3 the indentation flag
  * @param p4 the indentation level
- * @param p5 the format
- * @param p6 the preformatted data
+ * @param p5 the void flag
+ * @param p6 the format
+ * @param p7 the preformatted data
  */
-void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element filled primitive.");
 
@@ -67,7 +68,7 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     // then the preformatted property may NOT be given
     // so that the corresponding flag is NULL.
     // Or, the flag IS given, but was set to FALSE.
-    if ((p6 == *NULL_POINTER_STATE_CYBOI_MODEL) || ((p6 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p6) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
+    if ((p7 == *NULL_POINTER_STATE_CYBOI_MODEL) || ((p7 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p7) == *FALSE_BOOLEAN_STATE_CYBOI_MODEL))) {
 
         // This is a primitive value, NOT a compound element.
         // Further, this is NOT a preformatted element.
@@ -111,7 +112,7 @@ void serialise_xml_part_element_filled_primitive(void* p0, void* p1, void* p2, v
     allocate_item((void*) &r, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Serialise primitive value, e.g. a date, number or arbitrary text.
-    serialise_xml(r, p1, p2, p3, p4, p5);
+    serialise_xml(r, p1, p2, p3, p4, p5, p6);
 
     // Get numeric character reference item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

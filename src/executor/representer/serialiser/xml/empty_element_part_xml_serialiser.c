@@ -69,7 +69,7 @@ void serialise_xml_part_element_empty(void* p0, void* p1, void* p2, void* p3, vo
 
     } else {
 
-        // This element is NOT allowed to be void, following the xml specification.
+        // This element is NOT allowed to be void.
         // It therefore has to be represented with opening and closing tag.
         //
         // Example:

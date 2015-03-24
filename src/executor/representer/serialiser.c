@@ -67,10 +67,7 @@
 //
 // CAUTION! The xml serialiser is used e.g. in the cybol serialiser.
 // Therefore, do NOT delete this include, even if the xml serialiser
-// is not called directly below.
-//
-//?? TODO: The xml serialiser is not (yet) used here directly,
-//?? but will in the future, for general xml files with suffix .xml.
+// is possibly not called directly below.
 #include "../../executor/representer/serialiser/xml/xml_serialiser.c"
 
 /**

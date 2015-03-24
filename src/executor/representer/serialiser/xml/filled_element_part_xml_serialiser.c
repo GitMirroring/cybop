@@ -41,7 +41,7 @@
 // Forward declarations.
 //
 
-void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Serialises the filled part element into xml.
@@ -54,9 +54,10 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
  * @param p5 the preformatted data
  * @param p6 the indentation flag
  * @param p7 the indentation level
- * @param p8 the format
+ * @param p8 the void flag
+ * @param p9 the format
  */
-void serialise_xml_part_element_filled(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_xml_part_element_filled(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part element filled.");
 
@@ -72,7 +73,7 @@ void serialise_xml_part_element_filled(void* p0, void* p1, void* p2, void* p3, v
     // Test if this part is of type "element/part".
     // In this case, it is a compound part containing child parts
     // and not just primitive data like text or a number.
-    compare_integer_equal((void*) &c, p8, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+    compare_integer_equal((void*) &c, p9, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
     // Initialise new indentation level with current one.
     copy_integer((void*) &l, p7);
     // Increment new indentation level by one.
@@ -80,11 +81,11 @@ void serialise_xml_part_element_filled(void* p0, void* p1, void* p2, void* p3, v
 
     if (c == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        serialise_xml_part_element_filled_primitive(p0, p1, p2, p6, (void*) &l, p8, p5);
+        serialise_xml_part_element_filled_primitive(p0, p1, p2, p6, (void*) &l, p8, p9, p5);
 
     } else {
 
-        serialise_xml(p0, p1, p2, p6, (void*) &l, p8);
+        serialise_xml(p0, p1, p2, p6, (void*) &l, p8, p9);
     }
 
     // Serialise indentation.

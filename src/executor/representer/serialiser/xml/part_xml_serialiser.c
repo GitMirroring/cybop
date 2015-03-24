@@ -43,8 +43,9 @@
  * @param p2 the source model count
  * @param p3 the indentation flag
  * @param p4 the indentation level
+ * @param p5 the void flag
  */
-void serialise_xml_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_xml_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise xml part.");
 
@@ -74,7 +75,7 @@ void serialise_xml_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        serialise_xml_part_element(p0, p1, (void*) &j, p3, p4);
+        serialise_xml_part_element(p0, p1, (void*) &j, p3, p4, p5);
 
         // Increment loop variable.
         j++;
