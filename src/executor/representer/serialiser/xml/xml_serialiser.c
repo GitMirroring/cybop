@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
-//?? #include "../../../../executor/representer/serialiser/xml/part_xml_serialiser.c"
+#include "../../../../executor/representer/serialiser/xml/part_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -61,7 +61,7 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xml_part(p0, p1, p2, p3, p4);
+            serialise_xml_part(p0, p1, p2, p3, p4);
         }
     }
 
@@ -71,7 +71,7 @@ void serialise_xml(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-//??            serialise_xml_part(p0, p1, p2, p3, p4);
+            serialise_xml_part(p0, p1, p2, p3, p4);
         }
     }
 

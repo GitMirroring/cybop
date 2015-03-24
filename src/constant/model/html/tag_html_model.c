@@ -30,6 +30,11 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+//
+// These constants represent empty (void) elements,
+// following the html specification.
+//
+
 /**
  * The area tag html model.
  *
