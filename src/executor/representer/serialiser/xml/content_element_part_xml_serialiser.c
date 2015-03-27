@@ -93,13 +93,12 @@ void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // Get preformatted part model item data.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    // TEST: This block is NOT necessary and for testing only.
-    // The generated xml file will contain an error message for each nameless tag.
+    // Assign default tag name for each nameless tag,
+    // for which no "tag" property has been specified.
     if ((tmd == *NULL_POINTER_STATE_CYBOI_MODEL) || (tmc == *NULL_POINTER_STATE_CYBOI_MODEL)) {
 
-        tmd = (void*) L"ERROR_MISSING_TAG_NAME";
-        int* tmc_tmp = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-        tmc = (void*) tmc_tmp;
+        tmd = (void*) NODE_XML_CYBOL_NAME;
+        tmc = (void*) NODE_XML_CYBOL_NAME_COUNT;
     }
 
     // Test if source model count is empty.

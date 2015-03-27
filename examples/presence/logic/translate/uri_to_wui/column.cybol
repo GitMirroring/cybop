@@ -2,7 +2,7 @@
 
     <!--
         Example uri:
-        http://presence.ba-leipzig.de/?year=2015&week=10&lecturer=heller&day=monday&choice=holiday&action=update
+        http://presence.ba-leipzig.de/?year=2015&week=11&lecturer=heller&day=monday&choice=holiday&action=update
     -->
 
     <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">

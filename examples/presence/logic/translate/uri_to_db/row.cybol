@@ -61,9 +61,9 @@
         <property name="format" channel="inline" format="meta/format" model="element/part"/>
         <property name="message" channel="inline" format="path/knowledge" model=".app.db"/>
 <!--
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.file"/>
--->
         <property name="receiver" channel="inline" format="text/plain" model="test_presence_db.txt"/>
+-->
+        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.file"/>
     </part>
 
 </model>

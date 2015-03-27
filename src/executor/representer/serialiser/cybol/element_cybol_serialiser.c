@@ -40,6 +40,12 @@
 #include "../../../../executor/representer/serialiser/cybol/part_cybol_serialiser.c"
 #include "../../../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+
+void serialise_xml_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8);
+
 /**
  * Serialises the cybol element (part or property).
  *
@@ -71,8 +77,6 @@ void serialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-fwprintf(stdout, L"TEST serialise cybol element r: %i\n", r);
-
     // Allocate temporary model, properties item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
@@ -82,29 +86,8 @@ fwprintf(stdout, L"TEST serialise cybol element r: %i\n", r);
     allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Serialise source model, properties data, count into temporary model.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            serialise_cybol_part_element_content(m, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) PROPERTY_ELEMENT_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Serialise source model, properties data, count into temporary properties.
-            // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
-            serialise_cybol_part_element_content(p, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
-        }
-    }
+    serialise_cybol_part(m, p8, p9);
+    serialise_cybol_part(p, p10, p11);
 
     // Get temporary model, properties data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -115,11 +98,17 @@ fwprintf(stdout, L"TEST serialise cybol element r: %i\n", r);
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-#include "../../../../tester/data_as_model_diagram_tester.c"
-    test_data_as_model_diagram((void*) L"test.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
+//?? #include "../../../../tester/data_as_model_diagram_tester.c"
+//??    test_data_as_model_diagram((void*) L"test.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
+
+    // The indentation level.
+    //
+    // CAUTION! Do NOT forward the NUMBER_0_INTEGER_STATE_CYBOI_MODEL constant directly,
+    // since the indentation level value gets changed in the following functions!
+    int l = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Serialise temporary model, properties data, count into destination item.
-//??    serialise_xml_part_element_content(p0, md, mc, pd, pc);
+    serialise_xml_part_element_content(p0, md, mc, pd, pc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &l, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
     // Deallocate temporary model, properties item.
     deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);

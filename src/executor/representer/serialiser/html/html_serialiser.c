@@ -41,7 +41,7 @@
  * @param p1 the source model data
  * @param p2 the source model count
  * @param p3 the indentation flag
- * @param p4 the tree level
+ * @param p4 the indentation level
  * @param p5 the format
  */
 void serialise_html(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {

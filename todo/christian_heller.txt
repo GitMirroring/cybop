@@ -14,10 +14,8 @@
 WUI
 ___
 
-        * Continue cybol element/part serialiser by initialising all destination part nodes
-
-        * See operation call "send_db" in file "presence/logic/translate/uri_to_db/row.cybol"
-        * Complete cybol example application "presence" uri-to-db translation
+        * Create non-existing directories before writing persistent data to file in cybol example application "presence"
+        * Configure date dynamically in cybol example application "presence"
 
         * Debug socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.

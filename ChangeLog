@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-03-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue cybol element/part serialiser by initialising destination nodes properly
+        * Complete cybol example application "presence" uri-to-db translation
+
 2015-03-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement xml serialiser based upon html serialiser
