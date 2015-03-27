@@ -1,92 +1,92 @@
-<model>
-    <part name="create_temporary" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="temporary"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_logic" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="logic"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_tui" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="tui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_actions" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="actions"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_handler" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="handler"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_temporary" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="tui/temporary.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".temporary"/>
-    </part>
-    <part name="initialise_logic" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="tui/logic.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".logic"/>
-    </part>
-    <part name="initialise_tui" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="tui/tui.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui"/>
-    </part>
-    <part name="initialise_actions" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="tui/actions.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".actions"/>
-    </part>
-    <part name="initialise_handler" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="tui/handler.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".handler"/>
-    </part>
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="send_terminal" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
-        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="set_cursor" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
-    </part>
-    <part name="sense_commands" channel="inline" format="live/sense" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".handler"/>
-    </part>
-</model>
+<node>
+    <node name="create_temporary" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="temporary"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_logic" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="logic"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_tui" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="tui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_actions" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="actions"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_handler" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="handler"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_temporary" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="tui/temporary.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".temporary"/>
+    </node>
+    <node name="initialise_logic" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="tui/logic.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".logic"/>
+    </node>
+    <node name="initialise_tui" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="tui/tui.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".tui"/>
+    </node>
+    <node name="initialise_actions" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="tui/actions.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".actions"/>
+    </node>
+    <node name="initialise_handler" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="tui/handler.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".handler"/>
+    </node>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="send_terminal" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="set_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
+    </node>
+    <node name="sense_commands" channel="inline" format="live/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="handler" channel="inline" format="path/knowledge" model=".handler"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

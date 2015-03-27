@@ -1,19 +1,19 @@
-<model>
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="simulate_first_case" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="true" channel="file" format="element/part" model="shell_output_branch/model_a.cybol"/>
-        <property name="false" channel="file" format="element/part" model="shell_output_branch/model_b.cybol"/>
-    </part>
-    <part name="simulate_second_case" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="true" channel="file" format="element/part" model="shell_output_branch/model_a.cybol"/>
-        <property name="false" channel="file" format="element/part" model="shell_output_branch/model_b.cybol"/>
-    </part>
-    <part name="shutdown" channel="inline" format="live/exit" model=""/>
-</model>
+<node>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="simulate_first_case" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="true" channel="file" format="element/part" model="shell_output_branch/model_a.cybol"/>
+        <node name="false" channel="file" format="element/part" model="shell_output_branch/model_b.cybol"/>
+    </node>
+    <node name="simulate_second_case" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="true" channel="file" format="element/part" model="shell_output_branch/model_a.cybol"/>
+        <node name="false" channel="file" format="element/part" model="shell_output_branch/model_b.cybol"/>
+    </node>
+    <node name="shutdown" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     This example prints the famous "Hello, World!" string on the shell (standard output device).

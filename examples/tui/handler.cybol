@@ -1,55 +1,55 @@
-<model>
+<node>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
-    <part name="reset_command" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".temporary.command"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="receive_command" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".temporary.command"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="receive_command" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".temporary.command"/>
-    </part>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".temporary.command"/>
+    </node>
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
-    <part name="append_path" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
-        <property name="source" channel="inline" format="text/plain" model=".actions."/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_command" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".temporary.command"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
+        <node name="source" channel="inline" format="text/plain" model=".actions."/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_command" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".temporary.path"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".temporary.command"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
         not find all resources anymore, if they meanwhile have been manipulated by the other signal.
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
-    <part name="send_command" channel="inline" format="flow/sequence" model="">
+    <node name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <property name="model" channel="inline" format="path/knowledge" model=".temporary.path"/>
-    </part>
-    <part name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
-    </part>
-    <part name="send_tui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
-        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="set_cursor" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
-    </part>
-</model>
+        <node name="model" channel="inline" format="path/knowledge" model=".temporary.path"/>
+    </node>
+    <node name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="sleep 0.8"/>
+    </node>
+    <node name="send_tui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".tui.window"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="set_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".tui.cursor"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

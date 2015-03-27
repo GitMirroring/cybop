@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="var" channel="file" format="element/part" model="www_server_dynamic/var.cybol"/>
-    <part name="wui" channel="file" format="element/part" model="www_server_dynamic/wui.cybol"/>
-    <part name="logic" channel="file" format="element/part" model="www_server_dynamic/logic.cybol"/>
+    <node name="var" channel="file" format="element/part" model="www_server_dynamic/var.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="www_server_dynamic/wui.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="www_server_dynamic/logic.cybol"/>
 
-</model>
+</node>

@@ -1,13 +1,13 @@
-<model>
+<node>
 
-    <part name="handler" channel="file" format="element/part" model="www_server_dynamic/logic/handler.cybol"/>
-    <part name="actions" channel="file" format="element/part" model="www_server_dynamic/logic/actions.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="www_server_dynamic/logic/handler.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="www_server_dynamic/logic/actions.cybol"/>
 
-    <part name="send_index" channel="file" format="element/part" model="www_server_dynamic/logic/send_index.cybol"/>
-    <part name="send_css" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+    <node name="send_index" channel="file" format="element/part" model="www_server_dynamic/logic/send_index.cybol"/>
+    <node name="send_css" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
             CAUTION! It does NOT work adding the constraint "encoding" right here.
             It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
@@ -17,11 +17,11 @@
             with which the constraints are recognised properly.
             Therefore, the necessary "encoding" is added at the part ".app.var.webpage" DIRECTLY.
         -->
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.css"/>
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
-    <part name="greet_world" channel="file" format="element/part" model="www_server_dynamic/logic/greet_world.cybol"/>
-    <part name="greet_cybop" channel="file" format="element/part" model="www_server_dynamic/logic/greet_cybop.cybol"/>
-    <part name="exit_programme" channel="file" format="element/part" model="www_server_dynamic/logic/exit_programme.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.css"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
+    <node name="greet_world" channel="file" format="element/part" model="www_server_dynamic/logic/greet_world.cybol"/>
+    <node name="greet_cybop" channel="file" format="element/part" model="www_server_dynamic/logic/greet_cybop.cybol"/>
+    <node name="exit_programme" channel="file" format="element/part" model="www_server_dynamic/logic/exit_programme.cybol"/>
 
-</model>
+</node>

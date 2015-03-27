@@ -1,13 +1,13 @@
-<model>
+<node>
 
-    <part name="set_navigation_destination" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.navigation"/>
-        <property name="source" channel="inline" format="text/plain" model="#next"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="set_navigation_destination" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.navigation"/>
+        <node name="source" channel="inline" format="text/plain" model="#next"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-    <part name="update_tui" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update"/>
-    </part>
+    <node name="update_tui" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update"/>
+    </node>
 
-</model>
+</node>

@@ -1,6 +1,6 @@
-<model>
-    <part name="font_size" channel="file" format="cybol" model="document_generator/styles/title/font_size.cybol"/>
-</model>
+<node>
+    <node name="font_size" channel="file" format="cybol" model="document_generator/styles/title/font_size.cybol"/>
+</node>
 
 <!--
     $RCSfile: paragraph.cybol,v $

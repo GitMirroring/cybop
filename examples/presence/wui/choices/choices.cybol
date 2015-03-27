@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="table" channel="file" format="element/part" model="presence/wui/choices/table.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="table"/>
-    </part>
+    <node name="table" channel="file" format="element/part" model="presence/wui/choices/table.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="table"/>
+    </node>
 
-</model>
+</node>

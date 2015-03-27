@@ -1,26 +1,26 @@
-<model>
+<node>
 
     <!--
         Example uri:
         http://presence.ba-leipzig.de/?year=2015&week=11&lecturer=heller&day=monday&choice=holiday&action=update
     -->
 
-    <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.request#uri#query.choice)"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="translate_href" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_wui.href"/>
-    </part>
-    <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day)#class"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.choice"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="overwrite_link" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.request#uri#query.choice)"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="translate_href" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_wui.href"/>
+    </node>
+    <node name="overwrite_class" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day)#class"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.choice"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-    <part name="send_index" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.send.index"/>
-    </part>
+    <node name="send_index" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.send.index"/>
+    </node>
 
-</model>
+</node>

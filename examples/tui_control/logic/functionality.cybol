@@ -1,11 +1,11 @@
-<model>
-    <part name="start_mc" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="mc"/>
-    </part>
-    <part name="start_dosemu" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="xdosemu"/>
+<node>
+    <node name="start_mc" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="mc"/>
+    </node>
+    <node name="start_dosemu" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="xdosemu"/>
 <!--
-        <property name="programme" channel="inline" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
+        <node name="programme" channel="inline" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
 -->
-    </part>
-</model>
+    </node>
+</node>

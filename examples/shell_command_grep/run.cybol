@@ -1,13 +1,13 @@
-<model>
+<node>
 
-    <part name="grep" channel="inline" format="command/grep" model="">
-        <property name="pattern" channel="inline" format="text/plain" model="test"/>
-        <property name="file" channel="inline" format="text/plain" model="shell_command_grep/grep.txt"/>
-    </part>
+    <node name="grep" channel="inline" format="command/grep" model="">
+        <node name="pattern" channel="inline" format="text/plain" model="test"/>
+        <node name="file" channel="inline" format="text/plain" model="shell_command_grep/grep.txt"/>
+    </node>
 
-    <part name="exit" channel="inline" format="live/exit" model=""/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This example executes a shell command.

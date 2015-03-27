@@ -1,6 +1,6 @@
-<model>
+<node>
 
-    <part name="loop" channel="file" format="element/part" model="presence/logic/reset/stack/loop.cybol"/>
-    <part name="element" channel="file" format="element/part" model="presence/logic/reset/stack/element.cybol"/>
+    <node name="loop" channel="file" format="element/part" model="presence/logic/reset/stack/loop.cybol"/>
+    <node name="element" channel="file" format="element/part" model="presence/logic/reset/stack/element.cybol"/>
 
-</model>
+</node>

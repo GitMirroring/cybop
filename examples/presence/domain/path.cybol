@@ -1,14 +1,14 @@
-<model>
+<node>
 
     <!-- The directory names. -->
-    <part name="application" channel="inline" format="text/plain" model="presence"/>
-    <part name="db" channel="inline" format="text/plain" model="db"/>
+    <node name="application" channel="inline" format="text/plain" model="presence"/>
+    <node name="db" channel="inline" format="text/plain" model="db"/>
 
     <!-- The separators. -->
-    <part name="separator" channel="inline" format="text/plain" model="/"/>
-    <part name="suffix_separator" channel="inline" format="text/plain" model="."/>
+    <node name="separator" channel="inline" format="text/plain" model="/"/>
+    <node name="suffix_separator" channel="inline" format="text/plain" model="."/>
 
     <!-- The suffixes. -->
-    <part name="file_suffix" channel="inline" format="text/plain" model="cybol"/>
+    <node name="file_suffix" channel="inline" format="text/plain" model="cybol"/>
 
-</model>
+</node>

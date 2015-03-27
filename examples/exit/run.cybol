@@ -1,6 +1,6 @@
-<model>
-    <part name="message" channel="inline" format="live/exit" model=""/>
-</model>
+<node>
+    <node name="message" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     This example contains just one "exit" operation.

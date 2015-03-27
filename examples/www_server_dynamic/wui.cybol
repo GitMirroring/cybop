@@ -1,9 +1,9 @@
-<model>
+<node>
 
-    <part name="index" channel="file" format="element/part" model="www_server_dynamic/wui/index.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="html"/>
-    </part>
+    <node name="index" channel="file" format="element/part" model="www_server_dynamic/wui/index.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+    </node>
 
     <!-- Further html files may follow here ... -->
 
-</model>
+</node>

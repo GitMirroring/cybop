@@ -1,7 +1,7 @@
-<model>
-    <part name="terminal" channel="file" format="element/part" model="ui/logic/handle/terminal.cybol"/>
-    <part name="display" channel="file" format="element/part" model="ui/logic/handle/display.cybol"/>
-</model>
+<node>
+    <node name="terminal" channel="file" format="element/part" model="ui/logic/handle/terminal.cybol"/>
+    <node name="display" channel="file" format="element/part" model="ui/logic/handle/display.cybol"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

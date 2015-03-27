@@ -1,50 +1,50 @@
-<model>
-    <part name="create_settings" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="settings"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_settings" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="indoor_climate/settings.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings"/>
-    </part>
+<node>
+    <node name="create_settings" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="settings"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_settings" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="indoor_climate/settings.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".settings"/>
+    </node>
     <!-- Test knowledge tree by writing it into a file. -->
 <!--
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_indoor_climate.txt"/>
-    </part>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".settings"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_indoor_climate.txt"/>
+    </node>
 -->
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="startup_serial_port" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-        <property name="filename" channel="inline" format="path/knowledge" model=".settings.device_filename"/>
-        <property name="baudrate" channel="inline" format="path/knowledge" model=".settings.device_baudrate"/>
-    </part>
-    <part name="read_temperature" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="indoor_climate/read_temperature.cybol"/>
-    </part>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="startup_serial_port" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <node name="filename" channel="inline" format="path/knowledge" model=".settings.device_filename"/>
+        <node name="baudrate" channel="inline" format="path/knowledge" model=".settings.device_baudrate"/>
+    </node>
+    <node name="read_temperature" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="indoor_climate/read_temperature.cybol"/>
+    </node>
 <!--
-    <part name="read_status" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="indoor_climate/read_status.cybol"/>
-    </part>
+    <node name="read_status" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="indoor_climate/read_status.cybol"/>
+    </node>
 -->
     <!-- This call MIGHT BE OPTIONAL, since all services are shutdown implicitly in the "live/exit" operation. -->
-    <part name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
-        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-    </part>
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
-</model>
+    <node name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
+        <node name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+    </node>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.

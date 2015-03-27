@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="determine_klaus_path" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.determine_klaus_path"/>
-    </part>
+    <node name="determine_klaus_path" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.determine_klaus_path"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Anzahl der enthaltenen Verzeichnisse und Dateien:"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Anzahl der enthaltenen Verzeichnisse und Dateien:"/>
+    </node>
 
 <!--
     # Counts the directories and files contained within the given sub directory.
@@ -20,37 +20,37 @@
     n=$(ls -a home/klaus$j | wc -l);
 -->
 
-    <part name="show_number" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="path/knowledge" model=".app.counted_files"/>
-    </part>
+    <node name="show_number" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="path/knowledge" model=".app.counted_files"/>
+    </node>
 
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_branch_criterion" channel="inline" format="compare/equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.criterion"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.counted_files"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.standard_files"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="compare_branch_criterion" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.criterion"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.counted_files"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.standard_files"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="remove_empty_home_directory" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".app.criterion"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directory"/>
-    </part>
+    <node name="remove_empty_home_directory" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.criterion"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directory"/>
+    </node>
 
-    <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.index"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
 
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_loop_index" channel="inline" format="compare/greater" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="compare_loop_index" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-</model>
+</node>

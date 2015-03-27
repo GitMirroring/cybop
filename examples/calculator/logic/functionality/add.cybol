@@ -1,35 +1,35 @@
-<model>
+<node>
 
     <!--
         CAUTION! Do NOT assign an initial value like zero, but empty array instead.
         Otherwise, many numbers will appear in the value, so that the calculation
         cannot happen due to different dimension of the two operand arrays.
     -->
-    <part name="reset_operand" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="reset_operand" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    </part>
+    <node name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    </node>
 
-    <part name="execute_stored_operation" channel="inline" format="flow/sequence" model="">
+    <node name="execute_stored_operation" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
-    </part>
+        <node name="model" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+    </node>
 
-    <part name="store_operation" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="store_operation" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+        <node name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-    <part name="update_display" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display"/>
-    </part>
+    <node name="update_display" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_display"/>
+    </node>
 
-</model>
+</node>

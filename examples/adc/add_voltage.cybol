@@ -1,12 +1,12 @@
-<model>
-    <part name="cast_voltage" channel="inline" format="cast/double" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.adc_summand"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="add_voltage" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.adc"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.adc_summand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-</model>
+<node>
+    <node name="cast_voltage" channel="inline" format="cast/double" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.adc_summand"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="add_voltage" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.adc"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.adc_summand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+</node>

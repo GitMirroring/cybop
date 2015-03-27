@@ -1,11 +1,11 @@
-<model>
+<node>
 
-    <part name="remove" channel="inline" format="command/remove" model="">
-        <property name="path" channel="inline" format="text/plain" model=".app.klaus_path"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="remove" channel="inline" format="command/remove" model="">
+        <node name="path" channel="inline" format="text/plain" model=".app.klaus_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-</model>
+</node>

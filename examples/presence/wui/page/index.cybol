@@ -1,10 +1,10 @@
-<model>
+<node>
 
-    <part name="head" channel="file" format="element/part" model="presence/wui/page/head.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="head"/>
-    </part>
-    <part name="body" channel="file" format="element/part" model="presence/wui/page/body.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="body"/>
-    </part>
+    <node name="head" channel="file" format="element/part" model="presence/wui/page/head.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="head"/>
+    </node>
+    <node name="body" channel="file" format="element/part" model="presence/wui/page/body.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="body"/>
+    </node>
 
-</model>
+</node>

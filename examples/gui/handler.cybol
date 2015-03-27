@@ -1,16 +1,16 @@
-<model>
+<node>
     <!-- CAUTION! If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
-    <part name="reset_action" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.gui.action"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="receive_action" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.gui.action"/>
-        <property name="sender" channel="inline" format="path/knowledge" model=".app.gui.window"/>
-    </part>
+    <node name="reset_action" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="receive_action" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.gui.window"/>
+    </node>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
@@ -20,10 +20,10 @@
         CAUTION! Use path/reference format here, since the action is just
         a string pointing to the actual model to be executed.
     -->
-    <part name="execute_action" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/reference" model=".app.gui.action"/>
-    </part>
-</model>
+    <node name="execute_action" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/reference" model=".app.gui.action"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

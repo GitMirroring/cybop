@@ -1,9 +1,9 @@
-<model>
-    <part name="startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <property name="message" channel="file" format="element/part" model="programme_execution/startup.cybol"/>
-    </part>
-</model>
+<node>
+    <node name="startup" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="signal"/>
+        <node name="message" channel="file" format="element/part" model="programme_execution/startup.cybol"/>
+    </node>
+</node>
 
 <!--
     This example executes a program.

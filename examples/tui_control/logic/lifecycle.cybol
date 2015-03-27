@@ -1,4 +1,4 @@
-<model>
-    <part name="startup" channel="file" format="element/part" model="tui_control/logic/lifecycle/startup.cybol"/>
-    <part name="shutdown" channel="file" format="element/part" model="tui_control/logic/lifecycle/shutdown.cybol"/>
-</model>
+<node>
+    <node name="startup" channel="file" format="element/part" model="tui_control/logic/lifecycle/startup.cybol"/>
+    <node name="shutdown" channel="file" format="element/part" model="tui_control/logic/lifecycle/shutdown.cybol"/>
+</node>

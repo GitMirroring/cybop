@@ -1,14 +1,14 @@
-<model>
-    <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
-    <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
-    <part name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
-    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.exit"/>
-    <part name="w" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
-    <part name="c" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
-    <part name="e" channel="inline" format="path/knowledge" model=".app.logic.exit"/>
-</model>
+<node>
+    <node name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+    <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
+    <node name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+    <node name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
+    <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.exit"/>
+    <node name="w" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+    <node name="c" channel="inline" format="path/knowledge" model=".app.logic.greet_cybop"/>
+    <node name="e" channel="inline" format="path/knowledge" model=".app.logic.exit"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

@@ -1,12 +1,12 @@
-<model>
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="startup" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="shell_output_sequence/model.cybol"/>
-    </part>
-    <part name="shutdown" channel="inline" format="live/exit" model=""/>
-</model>
+<node>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="startup" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="shell_output_sequence/model.cybol"/>
+    </node>
+    <node name="shutdown" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     This example prints the famous "Hello, World!" string on the shell (standard output device).

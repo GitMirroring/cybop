@@ -1,13 +1,13 @@
-<model>
+<node>
 
-    <part name="overwrite_content" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.content"/>
-        <property name="source" channel="inline" format="text/plain" model="Hello, World!"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="overwrite_content" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.content"/>
+        <node name="source" channel="inline" format="text/plain" model="Hello, World!"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-    <part name="send_index" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
-    </part>
+    <node name="send_index" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.send_index"/>
+    </node>
 
-</model>
+</node>

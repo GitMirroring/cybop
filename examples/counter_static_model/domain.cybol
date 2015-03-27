@@ -1,9 +1,9 @@
-<model>
-    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-    <part name="count" channel="inline" format="number/integer" model="1"/>
-    <part name="maximum" channel="inline" format="number/integer" model="10"/>
-    <part name="model" channel="file" format="element/part" model="counter_static_model/model.cybol"/>
-</model>
+<node>
+    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="count" channel="inline" format="number/integer" model="1"/>
+    <node name="maximum" channel="inline" format="number/integer" model="10"/>
+    <node name="model" channel="file" format="element/part" model="counter_static_model/model.cybol"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

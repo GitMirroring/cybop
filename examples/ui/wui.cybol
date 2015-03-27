@@ -1,9 +1,9 @@
-<model>
-    <part name="index" channel="file" format="element/part" model="ui/wui/index.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="html"/>
-    </part>
+<node>
+    <node name="index" channel="file" format="element/part" model="ui/wui/index.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+    </node>
     <!-- Further html files may follow here. -->
-</model>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

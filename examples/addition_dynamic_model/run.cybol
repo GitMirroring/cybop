@@ -1,68 +1,68 @@
-<model>
-    <part name="create_summand_1" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="summand_1"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_summand_2" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="summand_2"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_sum" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="sum"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_summand_1" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".summand_1"/>
-        <property name="source" channel="inline" format="number/integer" model="2"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="initialise_summand_2" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".summand_2"/>
-        <property name="source" channel="inline" format="number/integer" model="3"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="initialise_sum" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".sum"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="add_operand_1" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".sum"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".summand_1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="add_operand_2" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".sum"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".summand_2"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+<node>
+    <node name="create_summand_1" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="summand_1"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_summand_2" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="summand_2"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_sum" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="sum"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_summand_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".summand_1"/>
+        <node name="source" channel="inline" format="number/integer" model="2"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="initialise_summand_2" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".summand_2"/>
+        <node name="source" channel="inline" format="number/integer" model="3"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="initialise_sum" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="add_operand_1" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".summand_1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="add_operand_2" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".summand_2"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
     <!-- Write knowledge tree into file. -->
 <!--
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".sum"/>
-        <property name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_DYNAMIC_SUM.txt"/>
-    </part>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_DYNAMIC_SUM.txt"/>
+    </node>
 -->
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="print_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".sum"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
-</model>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="print_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     This example creates and initialises three integer values dynamically.

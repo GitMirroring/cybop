@@ -1,16 +1,16 @@
-<model>
-    <part name="string" channel="inline" format="text/plain" model="Hello, World!">
-        <property name="position" channel="inline" format="number/integer" model="5,2"/>
-        <property name="size" channel="inline" format="number/integer" model="60,4"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="green"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="cursor" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="0,8"/>
-    </part>
+<node>
+    <node name="string" channel="inline" format="text/plain" model="Hello, World!">
+        <node name="position" channel="inline" format="number/integer" model="5,2"/>
+        <node name="size" channel="inline" format="number/integer" model="60,4"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="green"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="cursor" channel="inline" format="text/plain" model="">
+        <node name="position" channel="inline" format="number/integer" model="0,8"/>
+    </node>
     <!-- Further windows and dialogues may follow here. -->
-</model>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

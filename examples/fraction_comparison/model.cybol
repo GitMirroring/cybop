@@ -1,8 +1,8 @@
-<model>
-    <part name="result" channel="inline" format="logicvalue/boolean" model="false"/>
-    <part name="left" channel="inline" format="number/fraction-vulgar" model="3,2"/>
-    <part name="right" channel="inline" format="number/fraction-vulgar" model="6,4"/>
-</model>
+<node>
+    <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="left" channel="inline" format="number/fraction-vulgar" model="3,2"/>
+    <node name="right" channel="inline" format="number/fraction-vulgar" model="6,4"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

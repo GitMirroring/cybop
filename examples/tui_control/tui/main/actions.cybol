@@ -1,13 +1,13 @@
-<model>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_next"/>
-    <part name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_previous"/>
-    <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_next"/>
-    <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_previous"/>
-    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.enter"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
-    <part name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.start_mc"/>
-    <part name="d" channel="inline" format="path/knowledge" model=".app.logic.functionality.start_dosemu"/>
-    <part name="x" channel="inline" format="path/knowledge" model=".app.logic.functionality.show_x_window"/>
-    <part name="a" channel="inline" format="path/knowledge" model=".app.logic.user_interface.show_about"/>
-    <part name="e" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
-</model>
+<node>
+    <node name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_next"/>
+    <node name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_previous"/>
+    <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_next"/>
+    <node name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_previous"/>
+    <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.user_interface.enter"/>
+    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
+    <node name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.start_mc"/>
+    <node name="d" channel="inline" format="path/knowledge" model=".app.logic.functionality.start_dosemu"/>
+    <node name="x" channel="inline" format="path/knowledge" model=".app.logic.functionality.show_x_window"/>
+    <node name="a" channel="inline" format="path/knowledge" model=".app.logic.user_interface.show_about"/>
+    <node name="e" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
+</node>

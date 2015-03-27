@@ -1,18 +1,18 @@
-<model>
+<node>
 
     <!-- Comment TODO -->
-    <part name="ddmmyyyyddmmyyyy" channel="inline" format="duration/ddmmyyyyddmmyyyy" model=""/>
+    <node name="ddmmyyyyddmmyyyy" channel="inline" format="duration/ddmmyyyyddmmyyyy" model=""/>
 
-    <part name="hhmmhhmm" channel="inline" format="duration/hhmmhhmm" model=""/>
+    <node name="hhmmhhmm" channel="inline" format="duration/hhmmhhmm" model=""/>
 
-    <part name="iso" channel="inline" format="duration/iso" model=""/>
+    <node name="iso" channel="inline" format="duration/iso" model=""/>
 
-    <part name="jd" channel="inline" format="duration/jd" model=""/>
+    <node name="jd" channel="inline" format="duration/jd" model=""/>
 
-    <part name="julian" channel="inline" format="duration/julian" model=""/>
+    <node name="julian" channel="inline" format="duration/julian" model=""/>
 
-    <part name="si" channel="inline" format="duration/si" model=""/>
+    <node name="si" channel="inline" format="duration/si" model=""/>
 
-    <part name="yyyy" channel="inline" format="duration/yyyy" model=""/>
+    <node name="yyyy" channel="inline" format="duration/yyyy" model=""/>
 
-</model>
+</node>

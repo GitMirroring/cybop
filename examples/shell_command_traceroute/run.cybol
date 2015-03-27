@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="ping" channel="inline" format="command/traceroute" model="">
-        <property name="host" channel="inline" format="text/plain" model="www.google.com"/>
-    </part>
+    <node name="ping" channel="inline" format="command/traceroute" model="">
+        <node name="host" channel="inline" format="text/plain" model="www.google.com"/>
+    </node>
 
-    <part name="exit" channel="inline" format="live/exit" model=""/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This example executes a shell command.

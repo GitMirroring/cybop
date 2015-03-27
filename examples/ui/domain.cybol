@@ -1,8 +1,8 @@
-<model>
-    <part name="world" channel="inline" format="text/plain" model="Hello, World!"/>
-    <part name="cybop" channel="inline" format="text/plain" model="Hello, CYBOP!"/>
-    <part name="greeting" channel="inline" format="text/plain" model=""/>
-</model>
+<node>
+    <node name="world" channel="inline" format="text/plain" model="Hello, World!"/>
+    <node name="cybop" channel="inline" format="text/plain" model="Hello, CYBOP!"/>
+    <node name="greeting" channel="inline" format="text/plain" model=""/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

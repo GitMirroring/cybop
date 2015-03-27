@@ -1,62 +1,62 @@
-<model>
+<node>
 
 <!--
-    <part name="cli" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Hello, World!"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="cli" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Hello, World!"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 -->
-    <part name="tui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
-        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="tui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 <!--
-    <part name="gui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="language" channel="inline" format="meta/language" model="message/gui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.gui"/>
-    </part>
+    <node name="gui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="language" channel="inline" format="meta/language" model="message/gui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.gui"/>
+    </node>
 -->
 <!--
-    <part name="scene" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="display"/>
-        <property name="language" channel="inline" format="meta/language" model="message/scene"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.scene"/>
-    </part>
+    <node name="scene" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="display"/>
+        <node name="language" channel="inline" format="meta/language" model="message/scene"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.scene"/>
+    </node>
 -->
-    <part name="wui" channel="inline" format="represent/serialise" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.wui.index"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
+    <node name="wui" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.wui.index"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
-        <property name="language" channel="inline" format="meta/language" model="text/html">
-            <constraint name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
-        </property>
-    </part>
+        <node name="language" channel="inline" format="meta/language" model="text/html">
+            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+    </node>
     <!-- Write html into file. -->
-    <part name="test_html" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_ui_wui.html"/>
-    </part>
+    <node name="test_html" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_ui_wui.html"/>
+    </node>
 <!--
-    <part name="send" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+    <node name="send" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
             CAUTION! It does NOT work adding the constraint "encoding" right here.
             It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
@@ -66,9 +66,9 @@
             with which the constraints are recognised properly.
             Therefore, the necessary "encoding" is added at the part ".app.var.webpage" DIRECTLY.
         -->
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
 -->
 
-</model>
+</node>

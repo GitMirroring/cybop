@@ -1,9 +1,9 @@
-<model>
-    <part name="result" channel="inline" format="number/integer" model="13"/>
-    <part name="operand" channel="inline" format="number/integer" model="7"/>
-    <part name="operation" channel="inline" format="logify/nor" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.result"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
-    <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-</model>
+<node>
+    <node name="result" channel="inline" format="number/integer" model="13"/>
+    <node name="operand" channel="inline" format="number/integer" model="7"/>
+    <node name="operation" channel="inline" format="logify/nor" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.result"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.operand"/>
+    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+</node>

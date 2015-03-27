@@ -1,27 +1,27 @@
-<model>
-    <part name="cast_high_byte" channel="inline" format="cast/integer" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
-    </part>
-    <part name="cast_low_byte" channel="inline" format="cast/integer" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
-    </part>
-    <part name="add_high_byte" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="calculate_high_byte" channel="inline" format="calculate/multiply" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_byte_value"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="add_low_byte" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-</model>
+<node>
+    <node name="cast_high_byte" channel="inline" format="cast/integer" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+    </node>
+    <node name="cast_low_byte" channel="inline" format="cast/integer" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+    </node>
+    <node name="add_high_byte" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="calculate_high_byte" channel="inline" format="calculate/multiply" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_byte_value"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="add_low_byte" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+</node>

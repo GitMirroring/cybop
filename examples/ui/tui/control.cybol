@@ -1,25 +1,25 @@
-<model>
-    <part name="world" channel="inline" format="text/plain" model="Greet World">
-        <property name="position" channel="inline" format="number/integer" model="2,0"/>
-        <property name="size" channel="inline" format="number/integer" model="20,3"/>
-        <property name="background" channel="inline" format="colour/terminal" model="black"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+<node>
+    <node name="world" channel="inline" format="text/plain" model="Greet World">
+        <node name="position" channel="inline" format="number/integer" model="2,0"/>
+        <node name="size" channel="inline" format="number/integer" model="20,3"/>
+        <node name="background" channel="inline" format="colour/terminal" model="black"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
-        <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="border" channel="inline" format="text/plain" model="ascii"/>
-    </part>
-    <part name="cybop" channel="inline" format="text/plain" model="Greet CYBOP">
-        <property name="position" channel="inline" format="number/integer" model="25,0"/>
-        <property name="size" channel="inline" format="number/integer" model="20,3"/>
-        <property name="background" channel="inline" format="colour/terminal" model="black"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="black"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="border" channel="inline" format="text/plain" model="ascii"/>
+    </node>
+    <node name="cybop" channel="inline" format="text/plain" model="Greet CYBOP">
+        <node name="position" channel="inline" format="number/integer" model="25,0"/>
+        <node name="size" channel="inline" format="number/integer" model="20,3"/>
+        <node name="background" channel="inline" format="colour/terminal" model="black"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <!-- This property is evaluated by win32 console only. -->
-        <property name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="border" channel="inline" format="text/plain" model="ascii"/>
-    </part>
-</model>
+        <node name="intense" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="border" channel="inline" format="text/plain" model="ascii"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

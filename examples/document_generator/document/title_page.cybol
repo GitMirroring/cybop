@@ -1,17 +1,17 @@
-<model>
-    <part name="title" channel="inline" format="string" model="CYBOP Document Generation">
-        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.title"/>
-    </part>
-    <part name="sub_title" channel="inline" format="string" model="An Example Document">
-        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.sub_title"/>
-    </part>
-    <part name="author" channel="inline" format="string" model="Christian Heller">
-        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.author"/>
-    </part>
-    <part name="date" channel="inline" format="string" model="2005-11-19">
-        <property name="type" channel="inline" format="knowledge" model="document_generator.styles.date"/>
-    </part>
-</model>
+<node>
+    <node name="title" channel="inline" format="string" model="CYBOP Document Generation">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.title"/>
+    </node>
+    <node name="sub_title" channel="inline" format="string" model="An Example Document">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.sub_title"/>
+    </node>
+    <node name="author" channel="inline" format="string" model="Christian Heller">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.author"/>
+    </node>
+    <node name="date" channel="inline" format="string" model="2005-11-19">
+        <node name="type" channel="inline" format="knowledge" model="document_generator.styles.date"/>
+    </node>
+</node>
 
 <!--
     $RCSfile: title_page.cybol,v $

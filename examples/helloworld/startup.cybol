@@ -1,48 +1,48 @@
-<model>
+<node>
     <!-- Since the "whole" property is not given the greeting model is added to the knowledge memory root. -->
-    <part name="create_greeting" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="greeting"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_greeting" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="helloworld/greeting.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".greeting"/>
-    </part>
+    <node name="create_greeting" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="greeting"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_greeting" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="helloworld/greeting.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".greeting"/>
+    </node>
     <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".greeting"/>
-        <property name="receiver" channel="inline" format="text/plain" model="TEST_HELLO_WORLD.txt"/>
-    </part>
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="print_greeting" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".greeting.string"/>
-        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="set_cursor" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".greeting.cursor"/>
-    </part>
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
-</model>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".greeting"/>
+        <node name="receiver" channel="inline" format="text/plain" model="TEST_HELLO_WORLD.txt"/>
+    </node>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="print_greeting" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".greeting.string"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="set_cursor" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".greeting.cursor"/>
+    </node>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

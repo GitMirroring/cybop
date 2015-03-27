@@ -1,13 +1,13 @@
-<model>
-    <part name="node1" channel="file" format="element/part" model="index_usage/node1.cybol"/>
-    <part name="node2" channel="inline" format="text/plain" model="node2">
-        <property name="a" channel="inline" format="text/plain" model="a"/>
-        <property name="b" channel="inline" format="text/plain" model="b"/>
-        <property name="c" channel="file" format="element/part" model="index_usage/c.cybol"/>
-    </part>
-    <part name="node3" channel="inline" format="text/plain" model="node3"/>
-    <part name="reference" channel="inline" format="path/knowledge" model=".test.node2#c.node1#b"/>
-</model>
+<node>
+    <node name="node1" channel="file" format="element/part" model="index_usage/node1.cybol"/>
+    <node name="node2" channel="inline" format="text/plain" model="node2">
+        <node name="a" channel="inline" format="text/plain" model="a"/>
+        <node name="b" channel="inline" format="text/plain" model="b"/>
+        <node name="c" channel="file" format="element/part" model="index_usage/c.cybol"/>
+    </node>
+    <node name="node3" channel="inline" format="text/plain" model="node3"/>
+    <node name="reference" channel="inline" format="path/knowledge" model=".test.node2#c.node1#b"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

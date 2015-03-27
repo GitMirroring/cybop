@@ -1,12 +1,12 @@
-<model>
-    <part name="node1" channel="inline" format="text/plain" model="node1">
-        <property name="a" channel="inline" format="text/plain" model="a"/>
-        <property name="b" channel="inline" format="text/plain" model="b"/>
-        <property name="c" channel="inline" format="text/plain" model="c"/>
-    </part>
-    <part name="node2" channel="inline" format="text/plain" model="node2"/>
-    <part name="node3" channel="inline" format="text/plain" model="node3"/>
-</model>
+<node>
+    <node name="node1" channel="inline" format="text/plain" model="node1">
+        <node name="a" channel="inline" format="text/plain" model="a"/>
+        <node name="b" channel="inline" format="text/plain" model="b"/>
+        <node name="c" channel="inline" format="text/plain" model="c"/>
+    </node>
+    <node name="node2" channel="inline" format="text/plain" model="node2"/>
+    <node name="node3" channel="inline" format="text/plain" model="node3"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

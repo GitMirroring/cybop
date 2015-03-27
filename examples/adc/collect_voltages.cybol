@@ -1,32 +1,32 @@
-<model>
-    <part name="reset_voltage" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="adc/reset_voltage.cybol"/>
-    </part>
-    <part name="read_voltage" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="adc/read_channel.cybol"/>
-    </part>
-    <part name="compare_voltage" channel="inline" format="compare/greater" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="right" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-    <part name="branch_voltage" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
-        <property name="true" channel="file" format="element/part" model="adc/add_voltage.cybol"/>
-        <property name="false" channel="file" format="element/part" model="adc/report_voltage_failure.cybol"/>
-    </part>
-    <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.adc_count"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.adc_break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".settings.adc_count"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".settings.adc_maximum_count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-</model>
+<node>
+    <node name="reset_voltage" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="adc/reset_voltage.cybol"/>
+    </node>
+    <node name="read_voltage" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="adc/read_channel.cybol"/>
+    </node>
+    <node name="compare_voltage" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="right" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="branch_voltage" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_criterion"/>
+        <node name="true" channel="file" format="element/part" model="adc/add_voltage.cybol"/>
+        <node name="false" channel="file" format="element/part" model="adc/report_voltage_failure.cybol"/>
+    </node>
+    <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.adc_count"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.adc_break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".settings.adc_count"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".settings.adc_maximum_count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+</node>

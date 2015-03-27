@@ -1,65 +1,65 @@
-<model>
+<node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Starte Anwendung zum Bereinigen des Archivs."/>
-    </part>
-    <part name="create_app" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="app"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_app" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="shell_script_clean_result_directory/app.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Starte Anwendung zum Bereinigen des Archivs."/>
+    </node>
+    <node name="create_app" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="app"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="shell_script_clean_result_directory/app.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Datei ohne interaktive Rückfrage gelesen und später gelöscht werden kann."/>
-    </part>
-    <part name="set_archive_rights" channel="inline" format="command/change-permission" model="">
-        <property name="path" channel="inline" format="path/knowledge" model=".app.archive"/>
-        <property name="user" channel="inline" format="text/plain" model="rw-"/>
-        <property name="group" channel="inline" format="text/plain" model="rw-"/>
-        <property name="other" channel="inline" format="text/plain" model="rw-"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Datei ohne interaktive Rückfrage gelesen und später gelöscht werden kann."/>
+    </node>
+    <node name="set_archive_rights" channel="inline" format="command/change-permission" model="">
+        <node name="path" channel="inline" format="path/knowledge" model=".app.archive"/>
+        <node name="user" channel="inline" format="text/plain" model="rw-"/>
+        <node name="group" channel="inline" format="text/plain" model="rw-"/>
+        <node name="other" channel="inline" format="text/plain" model="rw-"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Entpacke Inhalt des komprimierten Ergebnisverzeichnisses."/>
-    </part>
-    <part name="extract_archive" channel="inline" format="command/tape-archiver" model="">
-        <property name="source" channel="inline" format="path/knowledge" model=".app.archive"/>
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.extraction_path"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="gzip" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Entpacke Inhalt des komprimierten Ergebnisverzeichnisses."/>
+    </node>
+    <node name="extract_archive" channel="inline" format="command/tape-archiver" model="">
+        <node name="source" channel="inline" format="path/knowledge" model=".app.archive"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.extraction_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="gzip" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Unterverzeichnisse und Dateien ohne interaktive Rückfrage bearbeitet werden können."/>
-    </part>
-    <part name="set_content_rights" channel="inline" format="command/change-permission" model="">
-        <property name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
-        <property name="user" channel="inline" format="text/plain" model="rwx"/>
-        <property name="group" channel="inline" format="text/plain" model="rwx"/>
-        <property name="other" channel="inline" format="text/plain" model="rwx"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Unterverzeichnisse und Dateien ohne interaktive Rückfrage bearbeitet werden können."/>
+    </node>
+    <node name="set_content_rights" channel="inline" format="command/change-permission" model="">
+        <node name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
+        <node name="user" channel="inline" format="text/plain" model="rwx"/>
+        <node name="group" channel="inline" format="text/plain" model="rwx"/>
+        <node name="other" channel="inline" format="text/plain" model="rwx"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
 
 <!--
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Entferne störendes und unnötiges Ausführbarkeitsrecht für alle Dateien."/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Entferne störendes und unnötiges Ausführbarkeitsrecht für alle Dateien."/>
+    </node>
     # The search is recursive by default.
     # Parameters: -type d means "directory"; -type f means "file".
     # CAUTION! Put "export" in quotation marks, because it would
@@ -67,88 +67,88 @@
     find "export" -type f -exec chmod a-x {} \;
 -->
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Verschiebe Unterverzeichnis auf die aktuelle Ebene und benenne es um in 'home'."/>
-    </part>
-    <part name="move_sub_directory" channel="inline" format="command/move" model="">
-        <property name="source" channel="inline" format="path/knowledge" model=".app.klausur_path"/>
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.home_path"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Verschiebe Unterverzeichnis auf die aktuelle Ebene und benenne es um in 'home'."/>
+    </node>
+    <node name="move_sub_directory" channel="inline" format="command/move" model="">
+        <node name="source" channel="inline" format="path/knowledge" model=".app.klausur_path"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.home_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche verbliebenen, nicht benötigten Inhalt rekursiv."/>
-    </part>
-    <part name="remove_remaining_directory" channel="inline" format="command/remove" model="">
-        <property name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche verbliebenen, nicht benötigten Inhalt rekursiv."/>
+    </node>
+    <node name="remove_remaining_directory" channel="inline" format="command/remove" model="">
+        <node name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Klausur user login Dateien."/>
-    </part>
-    <part name="remove_unneeded_files" channel="inline" format="command/remove" model="">
-        <property name="path" channel="inline" format="path/knowledge" model=".app.klausuruser_files"/>
-        <property name="force" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Klausur user login Dateien."/>
+    </node>
+    <node name="remove_unneeded_files" channel="inline" format="command/remove" model="">
+        <node name="path" channel="inline" format="path/knowledge" model=".app.klausuruser_files"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Verzeichnisse rekursiv."/>
-    </part>
-    <part name="remove_hidden_directories" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_directories"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Verzeichnisse rekursiv."/>
+    </node>
+    <node name="remove_hidden_directories" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_directories"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse rekursiv."/>
-    </part>
-    <part name="remove_directories" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_directories"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse rekursiv."/>
+    </node>
+    <node name="remove_directories" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_directories"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Dateien."/>
-    </part>
-    <part name="remove_hidden_files" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_files"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Dateien."/>
+    </node>
+    <node name="remove_hidden_files" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_files"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Dateien (backup files)."/>
-    </part>
-    <part name="remove_files" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_files"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Dateien (backup files)."/>
+    </node>
+    <node name="remove_files" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_files"/>
+    </node>
 
-    <part name="show_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse."/>
-    </part>
-    <part name="remove_empty_home_directories" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directories"/>
-    </part>
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse."/>
+    </node>
+    <node name="remove_empty_home_directories" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directories"/>
+    </node>
 
 <!--
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test.txt"/>
-    </part>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test.txt"/>
+    </node>
 -->
 
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This application cleans the result directory of an examination

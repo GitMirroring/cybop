@@ -1,6 +1,6 @@
-<model>
-    <part name="exit" channel="inline" format="live/exit" model=""/>
-</model>
+<node>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

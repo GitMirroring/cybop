@@ -1,59 +1,59 @@
-<model>
+<node>
 
     <!-- Tuesday, 5th November 2013, 23:28:30 UT corresponds to JD 2456602.47813 -->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="05112013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="05112013"/>
 
     <!-- Thursday, 6th April 2000 UT corresponds to JD 2451641 -->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06042000"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06042000"/>
 
     <!-- Saturday, 1st January 2000 UT corresponds to JD 2451545 -->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="01012000"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="01012000"/>
 
     <!-- Sunday, 31st December 1600 UT corresponds to JD 2305813 -->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="31121600"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="31121600"/>
 
     <!-- NON-leap year 2013. -->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06012013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06022013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06032013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06042013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06052013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06062013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06072013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06082013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06092013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06102013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06112013"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06122013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06012013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06022013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06032013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06042013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06052013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06062013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06072013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06082013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06092013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06102013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06112013"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06122013"/>
 
     <!-- Leap year 2012. -->
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06012012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06022012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06032012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06042012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06052012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06062012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06072012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06082012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06092012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06102012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06112012"/>
-    <part name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06122012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06012012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06022012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06032012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06042012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06052012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06062012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06072012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06082012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06092012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06102012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06112012"/>
+    <node name="ddmmyyyy" channel="inline" format="datetime/ddmmyyyy" model="06122012"/>
 
 <!-- -------------------------------------------------------------------------------- -->
 
     <!-- 1st January 2008 14 h CET corresponds to JD 2 454 467.04167 -->
 <!--
-    <part name="jd" channel="inline" format="datetime/jd" model="2454467.04167"/>
+    <node name="jd" channel="inline" format="datetime/jd" model="2454467.04167"/>
 -->
 
 <!--
-    <part name="julian" channel="inline" format="datetime/julian" model=""/>
+    <node name="julian" channel="inline" format="datetime/julian" model=""/>
 -->
 
     <!-- 1st January 2008 14 h CET corresponds to MJD 54 466.54167 -->
 <!--
-    <part name="mjd" channel="inline" format="datetime/mjd" model="54466.54167"/>
+    <node name="mjd" channel="inline" format="datetime/mjd" model="54466.54167"/>
 -->
 
     <!--
@@ -61,27 +61,27 @@
         Example: 1st January 2008 0 h UT corresponds to TJD 14 466.0
     -->
 <!--
-    <part name="tjd" channel="inline" format="datetime/tjd" model="54466.54167"/>
+    <node name="tjd" channel="inline" format="datetime/tjd" model="54466.54167"/>
 -->
 
 <!--
-    <part name="mmyy" channel="inline" format="datetime/mmyy" model="1013"/>
+    <node name="mmyy" channel="inline" format="datetime/mmyy" model="1013"/>
 -->
 
 <!--
-    <part name="posix" channel="inline" format="datetime/posix" model=""/>
+    <node name="posix" channel="inline" format="datetime/posix" model=""/>
 -->
 
 <!--
-    <part name="qyyyy" channel="inline" format="datetime/qyyyy" model="32013"/>
+    <node name="qyyyy" channel="inline" format="datetime/qyyyy" model="32013"/>
 -->
 
 <!--
-    <part name="tai" channel="inline" format="datetime/tai" model=""/>
+    <node name="tai" channel="inline" format="datetime/tai" model=""/>
 
-    <part name="ti" channel="inline" format="datetime/ti" model=""/>
+    <node name="ti" channel="inline" format="datetime/ti" model=""/>
 
-    <part name="utc" channel="inline" format="datetime/utc" model="1971-04-06T10:06"/>
+    <node name="utc" channel="inline" format="datetime/utc" model="1971-04-06T10:06"/>
 -->
 
-</model>
+</node>

@@ -1,43 +1,43 @@
-<model>
-    <part name="create_application" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="domain"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_model" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="counter_static_model/domain.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".domain"/>
-    </part>
+<node>
+    <node name="create_application" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="domain"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_model" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter_static_model/domain.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+    </node>
     <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".domain"/>
-        <property name="receiver" channel="inline" format="text/plain" model="TEST_COUNTER_STATIC_MODEL.txt"/>
-    </part>
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+        <node name="receiver" channel="inline" format="text/plain" model="TEST_COUNTER_STATIC_MODEL.txt"/>
+    </node>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".domain.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".domain.count"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".domain.maximum"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-    <part name="print_numbers" channel="inline" format="flow/loop" model="">
-        <property name="break" channel="inline" format="path/knowledge" model=".domain.break"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".domain.model"/>
-    </part>
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
-</model>
+    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".domain.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".domain.count"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".domain.maximum"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="print_numbers" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="path/knowledge" model=".domain.break"/>
+        <node name="model" channel="inline" format="path/knowledge" model=".domain.model"/>
+    </node>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     This example uses a loop to print the numbers 1 to 10 to screen.

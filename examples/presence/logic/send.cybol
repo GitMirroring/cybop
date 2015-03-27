@@ -1,11 +1,11 @@
-<model>
+<node>
 
-    <part name="index" channel="file" format="element/part" model="presence/logic/send/index.cybol"/>
+    <node name="index" channel="file" format="element/part" model="presence/logic/send/index.cybol"/>
 
-    <part name="css" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+    <node name="css" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <!--
             CAUTION! It does NOT work adding the constraint "encoding" right here.
             It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
@@ -13,29 +13,29 @@
             whose properties are used INSTEAD of those constraints that might be specified here.
             Therefore, the necessary "encoding" is added to the corresponding part in ".app.var" DIRECTLY.
         -->
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.css"/>
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.css"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
 
-    <part name="header_image" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.header_image"/>
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
+    <node name="header_image" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.header_image"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
 
-    <part name="heraldic_symbol" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.heraldic_symbol"/>
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
+    <node name="heraldic_symbol" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.heraldic_symbol"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
 
-    <part name="icon" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.wui.icon"/>
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
+    <node name="icon" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.icon"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
 
-</model>
+</node>

@@ -1,25 +1,25 @@
-<model>
-    <part name="send_request" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings.device_channel"/>
-        <property name="null-termination" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+<node>
+    <node name="send_request" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".settings.device_channel"/>
+        <node name="null-termination" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".settings.voltage_maximum_count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-    <part name="read_voltage" channel="inline" format="flow/loop" model="">
-        <property name="break" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
-        <property name="model" channel="file" format="element/part" model="indoor_climate/read_voltage.cybol"/>
-    </part>
-</model>
+    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".settings.voltage_maximum_count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="read_voltage" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
+        <node name="model" channel="file" format="element/part" model="indoor_climate/read_voltage.cybol"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.

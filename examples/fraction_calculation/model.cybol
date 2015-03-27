@@ -1,7 +1,7 @@
-<model>
-    <part name="result" channel="inline" format="number/fraction-vulgar" model="2,4"/>
-    <part name="operand" channel="inline" format="number/fraction-vulgar" model="1,4"/>
-</model>
+<node>
+    <node name="result" channel="inline" format="number/fraction-vulgar" model="2,4"/>
+    <node name="operand" channel="inline" format="number/fraction-vulgar" model="1,4"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

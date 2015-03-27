@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="row" channel="file" format="element/part" model="presence/logic/translate/uri_to_db/row.cybol"/>
-    <part name="column" channel="file" format="element/part" model="presence/logic/translate/uri_to_db/column.cybol"/>
-    <part name="path" channel="file" format="element/part" model="presence/logic/translate/uri_to_db/path.cybol"/>
+    <node name="row" channel="file" format="element/part" model="presence/logic/translate/uri_to_db/row.cybol"/>
+    <node name="column" channel="file" format="element/part" model="presence/logic/translate/uri_to_db/column.cybol"/>
+    <node name="path" channel="file" format="element/part" model="presence/logic/translate/uri_to_db/path.cybol"/>
 
-</model>
+</node>

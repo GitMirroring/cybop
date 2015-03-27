@@ -1,19 +1,19 @@
-<model>
+<node>
 
-    <part name="handler" channel="file" format="element/part" model="socket_server/handler.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="socket_server/handler.cybol"/>
 
-    <part name="send_response" channel="inline" format="communicate/send" model="">
-        <property name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-        <property name="message" channel="inline" format="text/plain" model="Hello, World!"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
+    <node name="send_response" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/plain" model="Hello, World!"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
 <!--
-        <property name="language" channel="inline" format="meta/language" model="text/html"/>
+        <node name="language" channel="inline" format="meta/language" model="text/html"/>
 -->
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-    </part>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+    </node>
 
-    <part name="exit_programme" channel="inline" format="live/exit" model=""/>
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>

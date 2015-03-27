@@ -1,24 +1,24 @@
-<model>
-    <part name="execute_shell_script" channel="inline" format="run/run" model="">
-        <property name="programme" channel="file" format="text/plain" model="time_output_3/sleep_timer.sh"/>
-    </part>
-    <part name="print_time" channel="inline" format="run/run" model="">
-        <property name="programme" channel="inline" format="text/plain" model="date +%X"/>
-    </part>
-    <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".counter.count"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+<node>
+    <node name="execute_shell_script" channel="inline" format="run/run" model="">
+        <node name="programme" channel="file" format="text/plain" model="time_output_3/sleep_timer.sh"/>
+    </node>
+    <node name="print_time" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="date +%X"/>
+    </node>
+    <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".counter.count"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".counter.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".counter.count"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".counter.maximum"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-</model>
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".counter.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".counter.count"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".counter.maximum"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

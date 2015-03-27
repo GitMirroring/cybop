@@ -1,15 +1,15 @@
-<model>
+<node>
 
-    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
 
-    <part name="request" channel="inline" format="element/part" model=""/>
+    <node name="request" channel="inline" format="element/part" model=""/>
 
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-    <part name="path" channel="inline" format="path/knowledge" model=""/>
-    <part name="file" channel="inline" format="text/ascii" model=""/>
+    <node name="path" channel="inline" format="path/knowledge" model=""/>
+    <node name="file" channel="inline" format="text/ascii" model=""/>
 
-</model>
+</node>

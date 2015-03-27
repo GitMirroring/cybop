@@ -1,47 +1,47 @@
-<model>
-    <part name="create_model" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="model"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_model" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="text/plain" model="complex/compare/equal/model.cybol"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".model"/>
-    </part>
-    <part name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="compare_equal" channel="inline" format="compare/equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".model.result"/>
-    <property name="left" channel="inline" format="path/knowledge" model=".model.left"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".model.right"/>
-    <property name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
-    <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+<node>
+    <node name="create_model" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="model"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_model" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="complex/compare/equal/model.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".model"/>
+    </node>
+    <node name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="compare_equal" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".model.result"/>
+    <node name="left" channel="inline" format="path/knowledge" model=".model.left"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".model.right"/>
+    <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
+    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="print_equal" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Compare (equal): (1.0 + i 2) == (3 + i 4.12345) = false:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_equal_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".model.result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="print_equal" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Compare (equal): (1.0 + i 2) == (3 + i 4.12345) = false:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_equal_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".model.result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
-</model>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

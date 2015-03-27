@@ -1,432 +1,432 @@
-<model>
+<node>
 
-    <part name="print_random_number_1" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="print_random_number_1" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
 //Rücksetzen der Flags
-    <part name="reset_player_field_1" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_2" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_2" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_3" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_3" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_4" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_4" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_5" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_5" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_6" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_6" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_7" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_7" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_8" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_8" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_player_field_9" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_player_field_9" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Check PC Win
-    <part name="flag_empty_1" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_1" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_2" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_2" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_3" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_3" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_4" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_4" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_5" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_5" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_6" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_6" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_7" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_7" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_8" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_8" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-    <part name="flag_empty_9" channel="inline" format="compare/equal" model="">
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
-        <property name="right" channel="inline" format="text/plain" model="O"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="flag_empty_9" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
+        <node name="right" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
 
 
 //Wingame Flag rücksetzen
-    <part name="wingame" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="wingame" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 1-2-3
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 4-5-6
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 7-8-9
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 1-5-9
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 3-5-7
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 1-4-7
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 2-5-8
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 //Empty-Field Flag rücksetzen
-    <part name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 
 //Verknüpfung Feld-Belegung 3-6-9
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/and" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="flag_selected_9" channel="inline" format="logify/or" model="">
-        <property name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
 
 //Spiel weiter oder geh zur Gewinnbenachrichtigung
-    <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".app.playerloose"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".app.playerturn"/>
-    </part>
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.wingame"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.playerloose"/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.playerturn"/>
+    </node>
 
 
 
-</model>
+</node>

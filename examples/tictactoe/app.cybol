@@ -1,27 +1,27 @@
-<model>
+<node>
 
-    <part name="var" channel="file" format="element/part" model="tictactoe/var.cybol"/>
+    <node name="var" channel="file" format="element/part" model="tictactoe/var.cybol"/>
 
-    <part name="checkdraw" channel="file" format="element/part" model="tictactoe/checkdraw.cybol"/>
-    <part name="computerinput" channel="file" format="element/part" model="tictactoe/computerinput.cybol"/>
-    <part name="checkcomputerinput" channel="file" format="element/part" model="tictactoe/checkcomputerinput.cybol"/>
-    <part name="setrandom" channel="file" format="element/part" model="tictactoe/setrandom.cybol"/>
-    <part name="checkloose" channel="file" format="element/part" model="tictactoe/checkloose.cybol"/>
-    <part name="playerloose" channel="file" format="element/part" model="tictactoe/playerloose.cybol"/>
-    <part name="playerwin" channel="file" format="element/part" model="tictactoe/playerwin.cybol"/>
-    <part name="checkplayerinput" channel="file" format="element/part" model="tictactoe/checkplayerinput.cybol"/>
-    <part name="playerinput" channel="file" format="element/part" model="tictactoe/playerinput.cybol"/>
-    <part name="setfields" channel="file" format="element/part" model="tictactoe/setfields.cybol"/>
-    <part name="checkwin" channel="file" format="element/part" model="tictactoe/checkwin.cybol"/>
-    <part name="draw" channel="file" format="element/part" model="tictactoe/draw.cybol"/>
-    <part name="computerturn" channel="file" format="element/part" model="tictactoe/computerturn.cybol"/>
-    <part name="playerturn" channel="file" format="element/part" model="tictactoe/playerturn.cybol"/>
-    <part name="startgame" channel="file" format="element/part" model="tictactoe/startgame.cybol"/>
-    <part name="printfield" channel="file" format="element/part" model="tictactoe/printfield.cybol"/>
-    <part name="checknewgame" channel="file" format="element/part" model="tictactoe/checknewgame.cybol"/>
-    <part name="inputnewgame" channel="file" format="element/part" model="tictactoe/inputnewgame.cybol"/>
-    <part name="initialising" channel="file" format="element/part" model="tictactoe/initialising.cybol"/>
+    <node name="checkdraw" channel="file" format="element/part" model="tictactoe/checkdraw.cybol"/>
+    <node name="computerinput" channel="file" format="element/part" model="tictactoe/computerinput.cybol"/>
+    <node name="checkcomputerinput" channel="file" format="element/part" model="tictactoe/checkcomputerinput.cybol"/>
+    <node name="setrandom" channel="file" format="element/part" model="tictactoe/setrandom.cybol"/>
+    <node name="checkloose" channel="file" format="element/part" model="tictactoe/checkloose.cybol"/>
+    <node name="playerloose" channel="file" format="element/part" model="tictactoe/playerloose.cybol"/>
+    <node name="playerwin" channel="file" format="element/part" model="tictactoe/playerwin.cybol"/>
+    <node name="checkplayerinput" channel="file" format="element/part" model="tictactoe/checkplayerinput.cybol"/>
+    <node name="playerinput" channel="file" format="element/part" model="tictactoe/playerinput.cybol"/>
+    <node name="setfields" channel="file" format="element/part" model="tictactoe/setfields.cybol"/>
+    <node name="checkwin" channel="file" format="element/part" model="tictactoe/checkwin.cybol"/>
+    <node name="draw" channel="file" format="element/part" model="tictactoe/draw.cybol"/>
+    <node name="computerturn" channel="file" format="element/part" model="tictactoe/computerturn.cybol"/>
+    <node name="playerturn" channel="file" format="element/part" model="tictactoe/playerturn.cybol"/>
+    <node name="startgame" channel="file" format="element/part" model="tictactoe/startgame.cybol"/>
+    <node name="printfield" channel="file" format="element/part" model="tictactoe/printfield.cybol"/>
+    <node name="checknewgame" channel="file" format="element/part" model="tictactoe/checknewgame.cybol"/>
+    <node name="inputnewgame" channel="file" format="element/part" model="tictactoe/inputnewgame.cybol"/>
+    <node name="initialising" channel="file" format="element/part" model="tictactoe/initialising.cybol"/>
 
-    <part name="exit" channel="file" format="element/part" model="tictactoe/exit.cybol"/>
+    <node name="exit" channel="file" format="element/part" model="tictactoe/exit.cybol"/>
 
-</model>
+</node>

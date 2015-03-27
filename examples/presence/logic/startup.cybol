@@ -1,39 +1,39 @@
-<model>
+<node>
 
     <!-- This is needed for printing messages on terminal. -->
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="startup_socket" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <property name="namespace" channel="inline" format="text/plain" model="ipv4"/>
-        <property name="style" channel="inline" format="text/plain" model="stream"/>
-        <property name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <property name="address" channel="inline" format="text/plain" model="any"/>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="startup_socket" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+        <node name="style" channel="inline" format="text/plain" model="stream"/>
+        <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+        <node name="address" channel="inline" format="text/plain" model="any"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <property name="id" channel="inline" format="number/integer" model="80"/>
-        <property name="service" channel="inline" format="text/plain" model="http"/>
-        <property name="mode" channel="inline" format="text/plain" model="server"/>
-        <property name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="connexions" channel="inline" format="number/integer" model="1"/>
-    </part>
+        <node name="id" channel="inline" format="number/integer" model="80"/>
+        <node name="service" channel="inline" format="text/plain" model="http"/>
+        <node name="mode" channel="inline" format="text/plain" model="server"/>
+        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="connexions" channel="inline" format="number/integer" model="1"/>
+    </node>
 
-    <part name="print_message" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="print_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Waiting for client requests ..."/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="sense_requests" channel="inline" format="live/sense" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="socket"/>
+    <node name="sense_requests" channel="inline" format="live/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
-        <property name="id" channel="inline" format="number/integer" model="80"/>
-        <property name="service" channel="inline" format="text/plain" model="http"/>
-        <property name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
-        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-    </part>
+        <node name="id" channel="inline" format="number/integer" model="80"/>
+        <node name="service" channel="inline" format="text/plain" model="http"/>
+        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
 
-</model>
+</node>

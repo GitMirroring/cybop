@@ -1,24 +1,24 @@
-<model>
+<node>
 
-    <part name="index" channel="file" format="element/part" model="presence/wui/page/index.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="html"/>
-    </part>
+    <node name="index" channel="file" format="element/part" model="presence/wui/page/index.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+    </node>
 
-    <part name="css" channel="file" format="text/plain" model="presence/wui/page/presence.css">
+    <node name="css" channel="file" format="text/plain" model="presence/wui/page/presence.css">
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".
             The reason is that the format "path/knowledge" is used there,
             which points to another (this) part ".app.var.webpage" whose properties are used.
         -->
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    </part>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </node>
 
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
-    <part name="header_image" channel="file" language="message/binary" model="presence/wui/header/ba-leipzig.png"/>
+    <node name="header_image" channel="file" language="message/binary" model="presence/wui/header/ba-leipzig.png"/>
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
-    <part name="heraldic_symbol" channel="file" language="message/binary" model="presence/wui/footer/sachsen.png"/>
+    <node name="heraldic_symbol" channel="file" language="message/binary" model="presence/wui/footer/sachsen.png"/>
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
-    <part name="icon" channel="file" language="message/binary" model="presence/wui/page/favicon.png"/>
+    <node name="icon" channel="file" language="message/binary" model="presence/wui/page/favicon.png"/>
 
-</model>
+</node>

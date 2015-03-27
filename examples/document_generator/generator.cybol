@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<model>
-    <part name="body" channel="file" format="cybol" model="document/body.cybol">
-        <property name="font_size" channel="file" format="cybol" model="document/meta/font_size.cybol"/>
-        <property name="paper_size" channel="inline" format="string" model="dina4"/>
-        <property name="page_style" channel="inline" format="string" model="twoside"/>
-        <property name="type" channel="inline" format="string" model="book"/>
-    </part>
-</model>
+<node>
+    <node name="body" channel="file" format="cybol" model="document/body.cybol">
+        <node name="font_size" channel="file" format="cybol" model="document/meta/font_size.cybol"/>
+        <node name="paper_size" channel="inline" format="string" model="dina4"/>
+        <node name="page_style" channel="inline" format="string" model="twoside"/>
+        <node name="type" channel="inline" format="string" model="book"/>
+    </node>
+</node>
 
 <!--
     $RCSfile: generator.cybol,v $

@@ -1,6 +1,6 @@
-<model>
-    <part name="background" channel="inline" format="colour/terminal" model="green"/>
-    <part name="foreground" channel="inline" format="colour/terminal" model="white"/>
-    <part name="border" channel="inline" format="text/plain" model="ascii"/>
-    <part name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-</model>
+<node>
+    <node name="background" channel="inline" format="colour/terminal" model="green"/>
+    <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    <node name="border" channel="inline" format="text/plain" model="ascii"/>
+    <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

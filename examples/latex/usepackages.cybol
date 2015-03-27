@@ -28,17 +28,17 @@
     Christian Heller <christian.heller@tuxtax.de>
 -->
 
-<model>
-    <part name="usepackage_$0" channel="inline" abstraction="string" model="">
-        <property name="paper_format" channel="inline" abstraction="string" model="a4"/>
-        <property name="font" channel="inline" abstraction="string" model="times"/>
-    </part>
-    <part name="usepackage_$1" channel="inline" abstraction="string" model="tocbibind">
-        <property name="section" channel="inline" abstraction="string" model="section"/>
-        <property name="font" channel="inline" abstraction="string" model="nottoc"/>
-        <property name="font" channel="inline" abstraction="string" model="numbib"/>
-        <property name="font" channel="inline" abstraction="string" model="numindex"/>
-    </part>
-    <part name="usepackage_$2" channel="inline" abstraction="string" model="makeidx"/>
-    <part name="usepackage_$3" channel="inline" abstraction="string" model="wrapfig"/>
-</model>
+<node>
+    <node name="usepackage_$0" channel="inline" abstraction="string" model="">
+        <node name="paper_format" channel="inline" abstraction="string" model="a4"/>
+        <node name="font" channel="inline" abstraction="string" model="times"/>
+    </node>
+    <node name="usepackage_$1" channel="inline" abstraction="string" model="tocbibind">
+        <node name="section" channel="inline" abstraction="string" model="section"/>
+        <node name="font" channel="inline" abstraction="string" model="nottoc"/>
+        <node name="font" channel="inline" abstraction="string" model="numbib"/>
+        <node name="font" channel="inline" abstraction="string" model="numindex"/>
+    </node>
+    <node name="usepackage_$2" channel="inline" abstraction="string" model="makeidx"/>
+    <node name="usepackage_$3" channel="inline" abstraction="string" model="wrapfig"/>
+</node>

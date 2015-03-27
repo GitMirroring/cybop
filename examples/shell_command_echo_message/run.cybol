@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="echo_message" channel="inline" format="command/echo" model="">
-        <property name="message" channel="inline" format="text/plain" model="hello, this is an echo over standard output"/>
-    </part>
+    <node name="echo_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="hello, this is an echo over standard output"/>
+    </node>
 
-    <part name="exit" channel="inline" format="live/exit" model=""/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This example executes a shell command.

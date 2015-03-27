@@ -1,11 +1,11 @@
-<model>
+<node>
 
-    <part name="lecturers" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/lecturers.cybol"/>
-    <part name="lecturer" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/lecturer.cybol"/>
-    <part name="path" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/path.cybol"/>
+    <node name="lecturers" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/lecturers.cybol"/>
+    <node name="lecturer" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/lecturer.cybol"/>
+    <node name="path" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/path.cybol"/>
 
-    <part name="row" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/row.cybol"/>
-    <part name="column" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/column.cybol"/>
-    <part name="href" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/href.cybol"/>
+    <node name="row" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/row.cybol"/>
+    <node name="column" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/column.cybol"/>
+    <node name="href" channel="file" format="element/part" model="presence/logic/translate/db_to_wui/href.cybol"/>
 
-</model>
+</node>

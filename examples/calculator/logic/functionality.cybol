@@ -1,18 +1,18 @@
-<model>
+<node>
 
-    <part name="reset" channel="file" format="element/part" model="calculator/logic/functionality/reset.cybol"/>
+    <node name="reset" channel="file" format="element/part" model="calculator/logic/functionality/reset.cybol"/>
 
-    <part name="equals" channel="file" format="element/part" model="calculator/logic/functionality/equals.cybol"/>
-    <part name="add" channel="file" format="element/part" model="calculator/logic/functionality/add.cybol"/>
-    <part name="divide" channel="file" format="element/part" model="calculator/logic/functionality/divide.cybol"/>
-    <part name="subtract" channel="file" format="element/part" model="calculator/logic/functionality/subtract.cybol"/>
-    <part name="multiply" channel="file" format="element/part" model="calculator/logic/functionality/multiply.cybol"/>
-    <part name="modulo" channel="file" format="element/part" model="calculator/logic/functionality/modulo.cybol"/>
-	<part name="negate" channel="file" format="element/part" model="calculator/logic/functionality/negate.cybol"/>
+    <node name="equals" channel="file" format="element/part" model="calculator/logic/functionality/equals.cybol"/>
+    <node name="add" channel="file" format="element/part" model="calculator/logic/functionality/add.cybol"/>
+    <node name="divide" channel="file" format="element/part" model="calculator/logic/functionality/divide.cybol"/>
+    <node name="subtract" channel="file" format="element/part" model="calculator/logic/functionality/subtract.cybol"/>
+    <node name="multiply" channel="file" format="element/part" model="calculator/logic/functionality/multiply.cybol"/>
+    <node name="modulo" channel="file" format="element/part" model="calculator/logic/functionality/modulo.cybol"/>
+	<node name="negate" channel="file" format="element/part" model="calculator/logic/functionality/negate.cybol"/>
 <!--
     TODO: square, squareroot
 -->
 
-    <part name="calculate" channel="file" format="element/part" model="calculator/logic/functionality/calculate.cybol"/>
+    <node name="calculate" channel="file" format="element/part" model="calculator/logic/functionality/calculate.cybol"/>
 
-</model>
+</node>

@@ -1,12 +1,12 @@
-<model>
-    <part name="domain" channel="file" format="element/part" model="ui/domain.cybol"/>
-    <part name="cli" channel="file" format="element/part" model="ui/cli.cybol"/>
-    <part name="tui" channel="file" format="element/part" model="ui/tui.cybol"/>
-    <part name="gui" channel="file" format="element/part" model="ui/gui.cybol"/>
-    <part name="scene" channel="file" format="element/part" model="ui/scene.cybol"/>
-    <part name="wui" channel="file" format="element/part" model="ui/wui.cybol"/>
-    <part name="logic" channel="file" format="element/part" model="ui/logic.cybol"/>
-</model>
+<node>
+    <node name="domain" channel="file" format="element/part" model="ui/domain.cybol"/>
+    <node name="cli" channel="file" format="element/part" model="ui/cli.cybol"/>
+    <node name="tui" channel="file" format="element/part" model="ui/tui.cybol"/>
+    <node name="gui" channel="file" format="element/part" model="ui/gui.cybol"/>
+    <node name="scene" channel="file" format="element/part" model="ui/scene.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="ui/wui.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="ui/logic.cybol"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

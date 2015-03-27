@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="var" channel="file" format="element/part" model="socket_server/var.cybol"/>
-    <part name="logic" channel="file" format="element/part" model="socket_server/logic.cybol"/>
-    <part name="actions" channel="file" format="element/part" model="socket_server/actions.cybol"/>
+    <node name="var" channel="file" format="element/part" model="socket_server/var.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="socket_server/logic.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="socket_server/actions.cybol"/>
 
-</model>
+</node>

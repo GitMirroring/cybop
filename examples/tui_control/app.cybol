@@ -1,7 +1,7 @@
-<model>
-    <part name="appinfo" channel="file" format="element/part" model="tui_control/appinfo.cybol"/>
-    <part name="logic" channel="file" format="element/part" model="tui_control/logic.cybol"/>
-    <part name="settings" channel="file" format="element/part" model="tui_control/settings.cybol"/>
-    <part name="tmp" channel="file" format="element/part" model="tui_control/tmp.cybol"/>
-    <part name="tui" channel="file" format="element/part" model="tui_control/tui.cybol"/>
-</model>
+<node>
+    <node name="appinfo" channel="file" format="element/part" model="tui_control/appinfo.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="tui_control/logic.cybol"/>
+    <node name="settings" channel="file" format="element/part" model="tui_control/settings.cybol"/>
+    <node name="tmp" channel="file" format="element/part" model="tui_control/tmp.cybol"/>
+    <node name="tui" channel="file" format="element/part" model="tui_control/tui.cybol"/>
+</node>

@@ -1,35 +1,35 @@
-<model>
+<node>
 
-    <part name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_up"/>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
-    <part name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>
-    <part name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
+    <node name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_up"/>
+    <node name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
+    <node name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>
+    <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
 
-    <part name="enter" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset"/>
+    <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
+    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset"/>
 
-    <part name="a" channel="inline" format="path/knowledge" model=".app.logic.user_interface.show_about"/>
-    <part name="e" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
+    <node name="a" channel="inline" format="path/knowledge" model=".app.logic.user_interface.show_about"/>
+    <node name="e" channel="inline" format="path/knowledge" model=".app.logic.lifecycle.shutdown"/>
 
-    <part name="0" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="1" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="2" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="3" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="4" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="5" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="6" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="7" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="8" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
-    <part name="9" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="0" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="1" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="2" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="3" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="4" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="5" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="6" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="7" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="8" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
+    <node name="9" channel="inline" format="path/knowledge" model=".app.logic.user_interface.display_command"/>
 
-    <part name="=" channel="inline" format="path/knowledge" model=".app.logic.functionality.equals"/>
-    <part name="+" channel="inline" format="path/knowledge" model=".app.logic.functionality.add"/>
-    <part name="-" channel="inline" format="path/knowledge" model=".app.logic.functionality.subtract"/>
-    <part name="*" channel="inline" format="path/knowledge" model=".app.logic.functionality.multiply"/>
-    <part name="/" channel="inline" format="path/knowledge" model=".app.logic.functionality.divide"/>
-    <part name="s" channel="inline" format="path/knowledge" model=".app.logic.functionality.square"/>
-    <part name="r" channel="inline" format="path/knowledge" model=".app.logic.functionality.squareroot"/>
-    <part name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.modulo"/>
-    <part name="n" channel="inline" format="path/knowledge" model=".app.logic.functionality.negate"/>
+    <node name="=" channel="inline" format="path/knowledge" model=".app.logic.functionality.equals"/>
+    <node name="+" channel="inline" format="path/knowledge" model=".app.logic.functionality.add"/>
+    <node name="-" channel="inline" format="path/knowledge" model=".app.logic.functionality.subtract"/>
+    <node name="*" channel="inline" format="path/knowledge" model=".app.logic.functionality.multiply"/>
+    <node name="/" channel="inline" format="path/knowledge" model=".app.logic.functionality.divide"/>
+    <node name="s" channel="inline" format="path/knowledge" model=".app.logic.functionality.square"/>
+    <node name="r" channel="inline" format="path/knowledge" model=".app.logic.functionality.squareroot"/>
+    <node name="m" channel="inline" format="path/knowledge" model=".app.logic.functionality.modulo"/>
+    <node name="n" channel="inline" format="path/knowledge" model=".app.logic.functionality.negate"/>
 
-</model>
+</node>

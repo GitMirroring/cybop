@@ -1,6 +1,6 @@
-<model>
+<node>
 
-    <part name="number" channel="file" format="element/part" model="presence/logic/identify/number.cybol"/>
-    <part name="root" channel="file" format="element/part" model="presence/logic/identify/root.cybol"/>
+    <node name="number" channel="file" format="element/part" model="presence/logic/identify/number.cybol"/>
+    <node name="root" channel="file" format="element/part" model="presence/logic/identify/root.cybol"/>
 
-</model>
+</node>

@@ -1,4 +1,4 @@
-<model>
+<node>
 
     <!--
         Example uri:
@@ -6,172 +6,172 @@
     -->
 
     <!-- The standard parts. -->
-    <part name="overwrite_scheme" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_scheme_suffix" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme_suffix"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_hostname_prefix" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname_prefix"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_hostname" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_port_prefix" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port_prefix"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_port" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_directory" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.directory"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_prefix" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_prefix"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="overwrite_scheme" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_scheme_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme_suffix"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_hostname_prefix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname_prefix"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_hostname" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_port_prefix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port_prefix"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_port" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_directory" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.directory"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_prefix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_prefix"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- The year parametre. -->
-    <part name="append_parametre_year_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_year"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_year_assignment" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_year_value" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.year"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_parametre_year_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_year"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_year_assignment" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_year_value" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.year"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- The week parametre. -->
-    <part name="append_parametre_week_separator" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_week_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_week"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_week_assignment" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_week_value" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.week"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_parametre_week_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_week_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_week"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_week_assignment" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_week_value" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.week"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- The lecturer parametre. -->
-    <part name="append_parametre_lecturer_separator" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_lecturer_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_lecturer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_lecturer_assignment" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_lecturer_value" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.lecturer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_parametre_lecturer_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_lecturer_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_lecturer"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_lecturer_assignment" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_lecturer_value" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.lecturer"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- The day parametre. -->
-    <part name="append_parametre_day_separator" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_day_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_day"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_day_assignment" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_day_value" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.day"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_parametre_day_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_day_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_day"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_day_assignment" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_day_value" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#query.day"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- The choice parametre. -->
-    <part name="append_parametre_choice_separator" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_choice_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_choice"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_choice_assignment" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_choice_value" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.request#uri#query.choice)#next"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_parametre_choice_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_choice_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_choice"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_choice_assignment" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_choice_value" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.request#uri#query.choice)#next"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- The action parametre. -->
-    <part name="append_parametre_action_separator" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_action_name" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_action"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_action_assignment" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_parametre_action_value" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.action_update"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_parametre_action_separator" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_action_name" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_action"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_action_assignment" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_parametre_action_value" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.request#uri#query.lecturer).(.app.var.request#uri#query.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.action_update"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-</model>
+</node>

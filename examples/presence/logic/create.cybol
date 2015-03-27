@@ -1,6 +1,6 @@
-<model>
+<node>
 
-    <part name="choices" channel="file" format="element/part" model="presence/logic/create/choices.cybol"/>
-    <part name="lecturers" channel="file" format="element/part" model="presence/logic/create/lecturers.cybol"/>
+    <node name="choices" channel="file" format="element/part" model="presence/logic/create/choices.cybol"/>
+    <node name="lecturers" channel="file" format="element/part" model="presence/logic/create/lecturers.cybol"/>
 
-</model>
+</node>

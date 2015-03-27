@@ -1,50 +1,50 @@
-<model>
+<node>
 
     <!-- The logic working universally for the term specified here. -->
-    <part name="reset" channel="inline" format="text/plain" model=""/>
-    <part name="identify_prefix" channel="inline" format="text/plain" model=""/>
-    <part name="identify_source" channel="inline" format="text/plain" model=""/>
-    <part name="identify" channel="inline" format="text/plain" model=""/>
+    <node name="reset" channel="inline" format="text/plain" model=""/>
+    <node name="identify_prefix" channel="inline" format="text/plain" model=""/>
+    <node name="identify_source" channel="inline" format="text/plain" model=""/>
+    <node name="identify" channel="inline" format="text/plain" model=""/>
 
     <!-- The creation. -->
-    <part name="lecturers" channel="file" format="element/part" model="presence/var/stack.cybol"/>
-    <part name="choices" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <node name="lecturers" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <node name="choices" channel="file" format="element/part" model="presence/var/stack.cybol"/>
 
     <!-- The translation. -->
-    <part name="db_to_wui_lecturer" channel="file" format="element/part" model="presence/var/stack.cybol"/>
-    <part name="db_to_wui_column" channel="file" format="element/part" model="presence/var/stack.cybol"/>
-    <part name="db_to_wui_reset" channel="file" format="element/part" model="presence/var/stack.cybol"/>
-    <part name="uri_to_db" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <node name="db_to_wui_lecturer" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <node name="db_to_wui_column" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <node name="db_to_wui_reset" channel="file" format="element/part" model="presence/var/stack.cybol"/>
+    <node name="uri_to_db" channel="file" format="element/part" model="presence/var/stack.cybol"/>
 
     <!-- The db model. -->
-    <part name="file" channel="inline" format="text/plain" model=""/>
-    <part name="dbday" channel="inline" format="text/plain" model=""/>
-    <part name="unref" channel="inline" format="text/plain" model=""/>
-    <part name="db" channel="inline" format="element/part" model=""/>
+    <node name="file" channel="inline" format="text/plain" model=""/>
+    <node name="dbday" channel="inline" format="text/plain" model=""/>
+    <node name="unref" channel="inline" format="text/plain" model=""/>
+    <node name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->
-    <part name="year" channel="inline" format="text/plain" model=""/>
-    <part name="week" channel="inline" format="text/plain" model=""/>
+    <node name="year" channel="inline" format="text/plain" model=""/>
+    <node name="week" channel="inline" format="text/plain" model=""/>
 
     <!-- Request-response-cycle. -->
-    <part name="request" channel="inline" format="element/part" model=""/>
+    <node name="request" channel="inline" format="element/part" model=""/>
     <!--
         CAUTION! The path format is "path/knowledge" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-    <part name="path" channel="inline" format="path/knowledge" model=""/>
-    <part name="client_socket" channel="inline" format="number/integer" model="0"/>
+    <node name="path" channel="inline" format="path/knowledge" model=""/>
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
 
     <!-- The serialised webpage. -->
-    <part name="webpage" channel="inline" format="text/plain" model="">
+    <node name="webpage" channel="inline" format="text/plain" model="">
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".
             The reason is that the format "path/knowledge" is used there,
             which points to another (this) part ".app.var.webpage" whose properties are used.
         -->
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    </part>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </node>
 
-</model>
+</node>

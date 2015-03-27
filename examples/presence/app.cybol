@@ -1,14 +1,14 @@
-<model>
+<node>
 
     <!-- The logical layers. -->
-    <part name="db" channel="file" format="element/part" model="presence/db.cybol"/>
-    <part name="domain" channel="file" format="element/part" model="presence/domain.cybol"/>
-    <part name="wui" channel="file" format="element/part" model="presence/wui.cybol"/>
+    <node name="db" channel="file" format="element/part" model="presence/db.cybol"/>
+    <node name="domain" channel="file" format="element/part" model="presence/domain.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="presence/wui.cybol"/>
 
     <!-- The functionality. -->
-    <part name="logic" channel="file" format="element/part" model="presence/logic.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="presence/logic.cybol"/>
 
     <!-- The temporary variables. (Later possibly replaced by cybol stack properties.) -->
-    <part name="var" channel="file" format="element/part" model="presence/var.cybol"/>
+    <node name="var" channel="file" format="element/part" model="presence/var.cybol"/>
 
-</model>
+</node>

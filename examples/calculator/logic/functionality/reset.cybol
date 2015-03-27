@@ -1,51 +1,51 @@
-<model>
+<node>
 
     <!--
         CAUTION! Do NOT empty array here, but assign an initial value instead.
         Otherwise, the calculation cannot happen due to unequal dimensions of operands.
         The result has to have exactly one integer number.
     -->
-    <part name="reset_result" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="reset_result" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
 
     <!--
         CAUTION! Do NOT assign an initial value like zero, but empty array instead.
         Otherwise, many numbers will appear in the value, so that the calculation
         cannot happen due to different dimension of the two operand arrays.
     -->
-    <part name="reset_operand" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="reset_operand" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="reset_new_operand" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.new_operand"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_new_operand" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.new_operand"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
-    <part name="reset_operation" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="reset_operation" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+        <node name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-    <part name="reset_display" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="reset_display" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="send_tui" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
-        <property name="area" channel="inline" format="path/knowledge" model=".app.tui.main.menu"/>
-        <property name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="send_tui" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
+        <node name="area" channel="inline" format="path/knowledge" model=".app.tui.main.menu"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-</model>
+</node>

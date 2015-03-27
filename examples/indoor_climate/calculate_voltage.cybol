@@ -1,48 +1,48 @@
-<model>
-    <part name="cast_high_byte" channel="inline" format="cast/integer" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
-    </part>
-    <part name="cast_low_byte" channel="inline" format="cast/integer" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/byte"/>
-    </part>
-    <part name="add_high_byte" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="calculate_high_byte" channel="inline" format="calculate/multiply" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_byte_value"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="add_low_byte" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+<node>
+    <node name="cast_high_byte" channel="inline" format="cast/integer" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_high_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+    </node>
+    <node name="cast_low_byte" channel="inline" format="cast/integer" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_low_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
+    </node>
+    <node name="add_high_byte" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_high_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="calculate_high_byte" channel="inline" format="calculate/multiply" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_byte_value"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="add_low_byte" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.voltage_low_byte"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
 <!--
-    <part name="TEST_VOLTAGE_CALCULATED" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="TEST voltage calculated:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="TEST_VOLTAGE_CALCULATED_VALUE" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="TEST_VOLTAGE_CALCULATED" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST voltage calculated:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST_VOLTAGE_CALCULATED_VALUE" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 -->
-</model>
+</node>
 
 <!--
     Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.

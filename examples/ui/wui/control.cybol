@@ -1,13 +1,13 @@
-<model>
-    <part name="world" channel="inline" format="text/plain" model="Greet World">
-        <property name="tag" channel="inline" format="text/plain" model="a"/>
-        <property name="href" channel="inline" format="text/plain" model="http://localhost?action=greet_world"/>
-    </part>
-    <part name="cybop" channel="inline" format="text/plain" model="Greet CYBOP">
-        <property name="tag" channel="inline" format="text/plain" model="a"/>
-        <property name="href" channel="inline" format="text/plain" model="http://localhost?action=greet_cybop"/>
-    </part>
-</model>
+<node>
+    <node name="world" channel="inline" format="text/plain" model="Greet World">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model="http://localhost?action=greet_world"/>
+    </node>
+    <node name="cybop" channel="inline" format="text/plain" model="Greet CYBOP">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model="http://localhost?action=greet_cybop"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

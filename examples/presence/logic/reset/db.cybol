@@ -1,27 +1,27 @@
-<model>
+<node>
 
-    <part name="empty_file" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_file" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_dbday" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_dbday" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_unref" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.unref"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_unref" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.unref"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_db" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.db"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_db" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.db"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-</model>
+</node>

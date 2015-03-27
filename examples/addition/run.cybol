@@ -1,55 +1,55 @@
-<model>
+<node>
 
-    <part name="create_result" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="result"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="initialise_result" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="inline"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
+    <node name="create_result" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_result" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="inline"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
-        <property name="sender" channel="inline" format="text/plain" model="1,1,1"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-    </part>
+        <node name="sender" channel="inline" format="text/plain" model="1,1,1"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+    </node>
 
     <!-- Write knowledge tree into file. -->
-    <part name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="receiver" channel="inline" format="text/plain" model="test_addition.txt"/>
-    </part>
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_addition.txt"/>
+    </node>
 
     <!--
         CAUTION! The "result" integer vector has to be initialised BEFORE this operation.
         If result- and operand vectors had different sizes, they would NOT be added.
     -->
-    <part name="add_operand" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="number/integer" model="1,2,3"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="add_operand" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
 
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
-    <part name="print_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="print_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This example adds an integer vector with three values to a result vector and prints the result on screen.

@@ -1,7 +1,7 @@
-<model>
-    <part name="value" channel="inline" format="integer" model="9"/>
-    <part name="unit" channel="inline" format="string" model="pt"/>
-</model>
+<node>
+    <node name="value" channel="inline" format="integer" model="9"/>
+    <node name="unit" channel="inline" format="string" model="pt"/>
+</node>
 
 <!--
     $RCSfile: font_size.cybol,v $

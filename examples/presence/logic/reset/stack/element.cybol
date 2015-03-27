@@ -1,4 +1,4 @@
-<model>
+<node>
 
     <!--
         CAUTION! Do NOT delete this "empty" operation!
@@ -10,34 +10,34 @@
         since it does NOT copy anything, if the source property value is empty.
     -->
 
-    <part name="empty_number" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.number"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_number" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.number"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_root" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.root"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_root" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.root"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_name" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.name"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_name" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.name"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_day" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.day"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_day" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.day"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-    <part name="empty_href" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.href"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="empty_href" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.(.app.var.reset).element.href"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
-</model>
+</node>

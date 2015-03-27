@@ -1,15 +1,15 @@
-<model>
-    <part name="cast_voltage" channel="inline" format="cast/double" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.temperature_summand"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".settings.voltage"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="add_voltage" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.temperature"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".settings.temperature_summand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-</model>
+<node>
+    <node name="cast_voltage" channel="inline" format="cast/double" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.temperature_summand"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".settings.voltage"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="add_voltage" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.temperature"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".settings.temperature_summand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.

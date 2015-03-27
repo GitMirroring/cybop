@@ -1,7 +1,7 @@
-<model>
-    <part name="functionality" channel="file" format="element/part" model="tui_control/logic/functionality.cybol"/>
-    <part name="handler" channel="file" format="element/part" model="tui_control/logic/handler.cybol"/>
-    <part name="lifecycle" channel="file" format="element/part" model="tui_control/logic/lifecycle.cybol"/>
-    <part name="translation" channel="file" format="element/part" model="tui_control/logic/translation.cybol"/>
-    <part name="user_interface" channel="file" format="element/part" model="tui_control/logic/user_interface.cybol"/>
-</model>
+<node>
+    <node name="functionality" channel="file" format="element/part" model="tui_control/logic/functionality.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="tui_control/logic/handler.cybol"/>
+    <node name="lifecycle" channel="file" format="element/part" model="tui_control/logic/lifecycle.cybol"/>
+    <node name="translation" channel="file" format="element/part" model="tui_control/logic/translation.cybol"/>
+    <node name="user_interface" channel="file" format="element/part" model="tui_control/logic/user_interface.cybol"/>
+</node>

@@ -1,13 +1,13 @@
-<model>
-    <part name="arrow-down" channel="inline" format="path/knowledge" model=".logic.move_arrow_down"/>
-    <part name="arrow-up" channel="inline" format="path/knowledge" model=".logic.move_arrow_up"/>
-    <part name="arrow-right" channel="inline" format="path/knowledge" model=".logic.move_arrow_right"/>
-    <part name="arrow-left" channel="inline" format="path/knowledge" model=".logic.move_arrow_left"/>
-    <part name="enter" channel="inline" format="path/knowledge" model=".logic.enter_sub_menu"/>
-    <part name="escape" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
-    <part name="m" channel="inline" format="path/knowledge" model=".logic.start_mc"/>
-    <part name="e" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
-</model>
+<node>
+    <node name="arrow-down" channel="inline" format="path/knowledge" model=".logic.move_arrow_down"/>
+    <node name="arrow-up" channel="inline" format="path/knowledge" model=".logic.move_arrow_up"/>
+    <node name="arrow-right" channel="inline" format="path/knowledge" model=".logic.move_arrow_right"/>
+    <node name="arrow-left" channel="inline" format="path/knowledge" model=".logic.move_arrow_left"/>
+    <node name="enter" channel="inline" format="path/knowledge" model=".logic.enter_sub_menu"/>
+    <node name="escape" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
+    <node name="m" channel="inline" format="path/knowledge" model=".logic.start_mc"/>
+    <node name="e" channel="inline" format="path/knowledge" model=".logic.exit_programme"/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

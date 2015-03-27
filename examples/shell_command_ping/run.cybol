@@ -1,14 +1,14 @@
-<model>
+<node>
 
-    <part name="ping" channel="inline" format="command/ping" model="">
-        <property name="host" channel="inline" format="text/plain" model="www.google.com"/>
-        <property name="count" channel="inline" format="text/plain" model="5"/>
-	    <property name="interface" channel="inline" format="text/plain" model="eth0"/>
-    </part>
+    <node name="ping" channel="inline" format="command/ping" model="">
+        <node name="host" channel="inline" format="text/plain" model="www.google.com"/>
+        <node name="count" channel="inline" format="text/plain" model="5"/>
+	    <node name="interface" channel="inline" format="text/plain" model="eth0"/>
+    </node>
 
-    <part name="exit" channel="inline" format="live/exit" model=""/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This example executes a shell command.

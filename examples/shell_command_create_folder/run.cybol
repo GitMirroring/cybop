@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="create_folder" channel="inline" format="command/create-folder" model="">
-        <property name="path" channel="inline" format="text/plain" model="./shell_command_create_folder/i_am_a_created_folder"/>
-    </part>
+    <node name="create_folder" channel="inline" format="command/create-folder" model="">
+        <node name="path" channel="inline" format="text/plain" model="./shell_command_create_folder/i_am_a_created_folder"/>
+    </node>
 
-    <part name="exit" channel="inline" format="live/exit" model=""/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
 
-</model>
+</node>
 
 <!--
     This example executes a shell command.

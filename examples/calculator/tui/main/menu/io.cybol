@@ -1,26 +1,26 @@
-<model>
+<node>
 
 <!--
-    <part name="io" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="2,2"/>
-        <property name="size" channel="inline" format="number/integer" model="1,1"/>
-    </part>
+    <node name="io" channel="inline" format="text/plain" model="">
+        <node name="position" channel="inline" format="number/integer" model="2,2"/>
+        <node name="size" channel="inline" format="number/integer" model="1,1"/>
+    </node>
 -->
 
-    <part name="input" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="2,2"/>
-        <property name="size" channel="inline" format="number/integer" model="1,1"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-    </part>
+    <node name="input" channel="inline" format="text/plain" model="">
+        <node name="position" channel="inline" format="number/integer" model="2,2"/>
+        <node name="size" channel="inline" format="number/integer" model="1,1"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    </node>
 
-    <part name="output" channel="inline" format="text/plain" model="">
-        <property name="position" channel="inline" format="number/integer" model="15,4"/>
-        <property name="size" channel="inline" format="number/integer" model="1,1"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-    </part>
+    <node name="output" channel="inline" format="text/plain" model="">
+        <node name="position" channel="inline" format="number/integer" model="15,4"/>
+        <node name="size" channel="inline" format="number/integer" model="1,1"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    </node>
 
-</model>
+</node>

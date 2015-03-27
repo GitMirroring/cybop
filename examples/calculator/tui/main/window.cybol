@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="menu" channel="file" format="element/part" model="calculator/tui/main/menu.cybol">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.menu"/>
-        <property name="position" channel="inline" format="number/integer" model="1,1"/>
+    <node name="menu" channel="file" format="element/part" model="calculator/tui/main/menu.cybol">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.menu"/>
+        <node name="position" channel="inline" format="number/integer" model="1,1"/>
 <!--
-        <property name="size" channel="inline" format="number/integer" model="70,15"/>
+        <node name="size" channel="inline" format="number/integer" model="70,15"/>
 -->
-        <property name="focus" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
-    </part>
+        <node name="focus" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
+    </node>
 
-</model>
+</node>

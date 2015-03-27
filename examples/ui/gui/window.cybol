@@ -1,13 +1,13 @@
-<model>
-    <part name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
-        <property name="position" channel="inline" format="number/integer" model="50,50"/>
-        <property name="size" channel="inline" format="number/integer" model="300,200"/>
-        <property name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
-        <property name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
-        <property name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
-        <property name="expose" channel="inline" format="text/plain" model=".app.logic.send.gui"/>
-    </part>
-</model>
+<node>
+    <node name="rectangle" channel="inline" format="text/plain" model="Rectangle Label">
+        <node name="position" channel="inline" format="number/integer" model="50,50"/>
+        <node name="size" channel="inline" format="number/integer" model="300,200"/>
+        <node name="background" channel="inline" format="colour/rgb" model="0,0,255"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="0,0,0"/>
+        <node name="button-release" channel="inline" format="text/plain" model=".app.logic.print_message"/>
+        <node name="expose" channel="inline" format="text/plain" model=".app.logic.send.gui"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

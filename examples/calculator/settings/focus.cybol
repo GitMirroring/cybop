@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="background" channel="inline" format="colour/terminal" model="red"/>
-    <part name="foreground" channel="inline" format="colour/terminal" model="white"/>
-    <part name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="background" channel="inline" format="colour/terminal" model="red"/>
+    <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
 
-</model>
+</node>

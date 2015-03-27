@@ -1,34 +1,34 @@
-<model>
+<node>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
-    <part name="reset_command" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="receive_command" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="receive_command" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
-    </part>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+    </node>
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
-    <part name="append_path" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.tui.main_actions."/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_command" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="append_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <node name="source" channel="inline" format="text/plain" model=".app.tui.main_actions."/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_command" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
         Otherwise, another signal might be executed before, so that this signal could possibly
         not find all resources anymore, if they meanwhile have been manipulated by the other signal.
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
-    <part name="send_command" channel="inline" format="flow/sequence" model="">
+    <node name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <property name="model" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
-    </part>
-</model>
+        <node name="model" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+    </node>
+</node>

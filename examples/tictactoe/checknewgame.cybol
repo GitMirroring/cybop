@@ -1,78 +1,78 @@
-<model>
+<node>
 
 //Zeichen löschen
-    <part name="reset_command" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
-        <property name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
 //Speichern der Nachricht in Variable
-    <part name="receive_command" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="receive_command" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
-        <property name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
-    </part>
+        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    </node>
 
 
 //Ausgabe der Nachricht
-    <part name="send_message" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
-    <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="send_message" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
 
 //Flag setzen Eingabe yes
-    <part name="comparison1" channel="inline" format="compare/equal" model="">
-    <property name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
-    <property name="right" channel="inline" format="text/plain" model="y"/>
-    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    <property name="result" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
-    <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="comparison1" channel="inline" format="compare/equal" model="">
+    <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <node name="right" channel="inline" format="text/plain" model="y"/>
+    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <node name="result" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
+    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
 //Flag setzen Eingabe no
-    <part name="comparison2" channel="inline" format="compare/equal" model="">
-    <property name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
-    <property name="right" channel="inline" format="text/plain" model="n"/>
-    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    <property name="result" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
-    <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="comparison2" channel="inline" format="compare/equal" model="">
+    <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <node name="right" channel="inline" format="text/plain" model="n"/>
+    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <node name="result" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
+    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
 //Flag setzen Eingabe q
-    <part name="comparison3" channel="inline" format="compare/equal" model="">
-    <property name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
-    <property name="right" channel="inline" format="text/plain" model="q"/>
-    <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    <property name="result" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
-    <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="comparison3" channel="inline" format="compare/equal" model="">
+    <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <node name="right" channel="inline" format="text/plain" model="q"/>
+    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <node name="result" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
+    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
 
 //If-Abfrage yes
-    <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".app.initialising"/>
-        <property name="false" channel="inline" format="path/knowledge" model=".app.inputnewgame"/>
-    </part>
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.initialising"/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.inputnewgame"/>
+    </node>
 
 //If-Abfrage no
-    <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/>
-    </part>
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
 
 //If-Abfrage q
-    <part name="if-then-else" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
-        <property name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-        <property name="false" channel="inline" format="path/knowledge" model=""/>
-    </part>
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
 
-</model>
+</node>

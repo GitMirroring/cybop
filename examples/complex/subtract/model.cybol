@@ -1,14 +1,14 @@
-<model>
+<node>
     <!-- Cartesian coordinates. -->
 
-    <part name="result" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
-    <part name="operand" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
+    <node name="result" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
+    <node name="operand" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
 <!--
     <!-- Polar coordinates. -->
-    <part name="result" channel="inline" format="number/complex-polar" model="1,20"/>
-    <part name="operand" channel="inline" format="number/complex-polar" model="2,25"/>
+    <node name="result" channel="inline" format="number/complex-polar" model="1,20"/>
+    <node name="operand" channel="inline" format="number/complex-polar" model="2,25"/>
 -->
-</model>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

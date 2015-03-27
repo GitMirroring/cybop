@@ -1,14 +1,14 @@
-<model>
-    <part name="table_heading" channel="file" format="element/part" model="wui/table_heading.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="tr"/>
-    </part>
-    <part name="row_0" channel="file" format="element/part" model="wui/table_row.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="tr"/>
-    </part>
-    <part name="row_1" channel="file" format="element/part" model="wui/table_row.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="tr"/>
-    </part>
-    <part name="row_2" channel="file" format="element/part" model="wui/table_row.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="tr"/>
-    </part>
-</model>
+<node>
+    <node name="table_heading" channel="file" format="element/part" model="wui/table_heading.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+    <node name="row_0" channel="file" format="element/part" model="wui/table_row.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+    <node name="row_1" channel="file" format="element/part" model="wui/table_row.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+    <node name="row_2" channel="file" format="element/part" model="wui/table_row.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+</node>

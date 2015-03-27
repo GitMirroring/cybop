@@ -1,25 +1,25 @@
-<model>
+<node>
 
-    <part name="lecturer" channel="inline" format="text/plain" model="Dozent">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="monday" channel="inline" format="text/plain" model="Montag">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="tuesday" channel="inline" format="text/plain" model="Dienstag">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="wednesday" channel="inline" format="text/plain" model="Mittwoch">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="thursday" channel="inline" format="text/plain" model="Donnerstag">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="friday" channel="inline" format="text/plain" model="Freitag">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="saturday" channel="inline" format="text/plain" model="Samstag">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
+    <node name="lecturer" channel="inline" format="text/plain" model="Dozent">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="monday" channel="inline" format="text/plain" model="Montag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="tuesday" channel="inline" format="text/plain" model="Dienstag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="wednesday" channel="inline" format="text/plain" model="Mittwoch">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="thursday" channel="inline" format="text/plain" model="Donnerstag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="friday" channel="inline" format="text/plain" model="Freitag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="saturday" channel="inline" format="text/plain" model="Samstag">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
 
-</model>
+</node>

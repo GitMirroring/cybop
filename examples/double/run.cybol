@@ -1,175 +1,175 @@
-<model>
+<node>
     <!-- Creation -->
-    <part name="create_result" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="result"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
-    <part name="create_operand" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="text/plain" model="operand"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-    </part>
+    <node name="create_result" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="create_operand" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="operand"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
 
     <!-- Initialisation -->
-    <part name="initialise_result" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="source" channel="inline" format="number/fraction-decimal" model="2.25,25.5"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="initialise_operand" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".operand"/>
-        <property name="source" channel="inline" format="number/fraction-decimal" model="10.5,11.11"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
+    <node name="initialise_result" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="source" channel="inline" format="number/fraction-decimal" model="2.25,25.5"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="initialise_operand" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".operand"/>
+        <node name="source" channel="inline" format="number/fraction-decimal" model="10.5,11.11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
 
     <!-- Service startup. -->
-    <part name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </part>
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
 
     <!-- Addition -->
-    <part name="add_operand" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="print_addition" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Addition: 2.25 + 10.5 = 12.75, 25.5 + 11.11 = 36.61:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_addition_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="add_operand" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".operand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="print_addition" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Addition: 2.25 + 10.5 = 12.75, 25.5 + 11.11 = 36.61:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_addition_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
     <!-- Multiplication -->
-    <part name="multiply_operand" channel="inline" format="calculate/multiply" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="print_multiplication" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Multiplication: 12.75 * 10.5 = 133.875, 36.61 * 11.11 = 406.7371:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_multiplication_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="multiply_operand" channel="inline" format="calculate/multiply" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".operand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="print_multiplication" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Multiplication: 12.75 * 10.5 = 133.875, 36.61 * 11.11 = 406.7371:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_multiplication_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
     <!-- Subtraction -->
-    <part name="subtract_operand" channel="inline" format="calculate/subtract" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="print_subtraction" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Subtraction: 133.875 - 10.5 = 123.375, 406.7371 - 11.11 = 395.6271:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_subtraction_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="subtract_operand" channel="inline" format="calculate/subtract" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".operand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="print_subtraction" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Subtraction: 133.875 - 10.5 = 123.375, 406.7371 - 11.11 = 395.6271:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_subtraction_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
     <!-- Division -->
-    <part name="divide_operand" channel="inline" format="calculate/divide" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="print_division" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Division: 123.375 / 10.5 = 11.75, 395.6271 / 11.11 = 35.61:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_division_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="divide_operand" channel="inline" format="calculate/divide" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".operand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="print_division" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Division: 123.375 / 10.5 = 11.75, 395.6271 / 11.11 = 35.61:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_division_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
     <!-- Negation -->
-    <part name="negate_operand" channel="inline" format="calculate/negate" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="operand" channel="inline" format="path/knowledge" model=".operand"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="print_negation" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Negation: neg 10.5 = -10.5, neg 11.11 = -11.11:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_negation_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+    <node name="negate_operand" channel="inline" format="calculate/negate" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".operand"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="print_negation" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Negation: neg 10.5 = -10.5, neg 11.11 = -11.11:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_negation_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
     <!-- Absolution -->
-    <part name="absolute_operand" channel="inline" format="calculate/absolute" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".result"/>
+    <node name="absolute_operand" channel="inline" format="calculate/absolute" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
         <!-- CAUTION! Do NOT use the "operand", but "result" instead, since it has a negative value. -->
-        <property name="operand" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
-    </part>
-    <part name="print_absolution" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="text/plain" model="Absolution: abs -10.5 = 10.5, abs -11.11 = 11.11:"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="print_absolution_result" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".result"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
+        <node name="operand" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
+    </node>
+    <node name="print_absolution" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Absolution: abs -10.5 = 10.5, abs -11.11 = 11.11:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="print_absolution_result" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
 
     <!-- Shutdown -->
-    <part name="exit_application" channel="inline" format="live/exit" model=""/>
-</model>
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     This example calculates values of type "double".

@@ -1,13 +1,13 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="CYBOP Example Application"/>
-    <part name="version" channel="inline" format="text/plain" model="0.16.0"/>
-    <part name="date" channel="inline" format="text/plain" model="2014-10-29"/>
-    <part name="slogan" channel="inline" format="text/plain" model="-- Cybernetics Oriented Programming --"/>
-    <part name="logo" channel="inline" format="image/png" model=""/>
-    <part name="copyright" channel="inline" format="text/plain" model="Copyright (C) 1999-2014. Christian Heller."/>
-    <part name="contact" channel="inline" format="text/plain" model="http://www.cybop.org/"/>
-    <part name="description" channel="inline" format="text/plain" model="Text User Interface (TUI) Application"/>
-    <part name="authors" channel="inline" format="text/plain" model="Christian Heller (christian.heller@tuxtax.de)"/>
-    <part name="helpers" channel="inline" format="text/plain" model=""/>
-    <part name="licence" channel="inline" format="text/plain" model="This software is published under the GPL GNU General Public Licence."/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="CYBOP Example Application"/>
+    <node name="version" channel="inline" format="text/plain" model="0.16.0"/>
+    <node name="date" channel="inline" format="text/plain" model="2014-10-29"/>
+    <node name="slogan" channel="inline" format="text/plain" model="-- Cybernetics Oriented Programming --"/>
+    <node name="logo" channel="inline" format="image/png" model=""/>
+    <node name="copyright" channel="inline" format="text/plain" model="Copyright (C) 1999-2014. Christian Heller."/>
+    <node name="contact" channel="inline" format="text/plain" model="http://www.cybop.org/"/>
+    <node name="description" channel="inline" format="text/plain" model="Text User Interface (TUI) Application"/>
+    <node name="authors" channel="inline" format="text/plain" model="Christian Heller (christian.heller@tuxtax.de)"/>
+    <node name="helpers" channel="inline" format="text/plain" model=""/>
+    <node name="licence" channel="inline" format="text/plain" model="This software is published under the GPL GNU General Public Licence."/>
+</node>

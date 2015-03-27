@@ -1,7 +1,7 @@
-<model>
-    <part name="sum" channel="inline" format="number/integer" model="0"/>
-    <part name="summand" channel="inline" format="number/integer" model="4"/>
-</model>
+<node>
+    <node name="sum" channel="inline" format="number/integer" model="0"/>
+    <node name="summand" channel="inline" format="number/integer" model="4"/>
+</node>
 
 <!--
     This is a small domain model consisting of just two integer numbers.

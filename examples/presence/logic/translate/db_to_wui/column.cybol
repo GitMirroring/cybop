@@ -1,95 +1,95 @@
-<model>
+<node>
 
     <!-- Reset. -->
     <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
-    <part name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
-        <property name="source" channel="inline" format="text/plain" model="db_to_wui_column"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="reset_element" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
-    </part>
+    <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
+        <node name="source" channel="inline" format="text/plain" model="db_to_wui_column"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="reset_element" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
+    </node>
 
     <!-- Identification. -->
-    <part name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.domain."/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
-        <property name="source" channel="inline" format="text/plain" model="weekdays"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify"/>
-        <property name="source" channel="inline" format="text/plain" model="db_to_wui_column"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="identify_weekday_number" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.number"/>
-    </part>
-    <part name="identify_weekday_root" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.root"/>
-    </part>
-    <part name="get_weekday_name" channel="inline" format="access/get-name" model="">
-        <property name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_column.element.root"/>
-    </part>
+    <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
+        <node name="source" channel="inline" format="text/plain" model=".app.domain."/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
+        <node name="source" channel="inline" format="text/plain" model="weekdays"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify"/>
+        <node name="source" channel="inline" format="text/plain" model="db_to_wui_column"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="identify_weekday_number" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.number"/>
+    </node>
+    <node name="identify_weekday_root" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.root"/>
+    </node>
+    <node name="get_weekday_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
+        <node name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_column.element.root"/>
+    </node>
 
     <!-- BEGIN: Optimise this in the future using: ((.path.with.reference)) -->
 
-    <part name="overwrite_dbday_path" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.var.db."/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="append_dbday_day" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_dbday_reference_with_actual_model" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.unref"/>
-        <property name="source" channel="inline" format="path/reference" model=".app.var.dbday"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="overwrite_dbday_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
+        <node name="source" channel="inline" format="text/plain" model=".app.var.db."/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_dbday_day" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.dbday"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_dbday_reference_with_actual_model" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.unref"/>
+        <node name="source" channel="inline" format="path/reference" model=".app.var.dbday"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- END: Optimise this in the future! -->
 
-    <part name="overwrite_link" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.unref)"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="translate_href" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.href"/>
-    </part>
-    <part name="overwrite_href" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link#href"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day)#class"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.db.(.app.var.db_to_wui_column.element.day)"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="overwrite_link" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.unref)"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="translate_href" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.href"/>
+    </node>
+    <node name="overwrite_href" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link#href"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_class" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day)#class"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db.(.app.var.db_to_wui_column.element.day)"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
     <!-- Loop test. -->
-    <part name="increment_index" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.index"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.loop.count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-</model>
+</node>

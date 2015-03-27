@@ -1,13 +1,13 @@
-<model>
-    <part name="startup" channel="file" format="element/part" model="ui/logic/startup.cybol"/>
-    <part name="greet_world" channel="file" format="element/part" model="ui/logic/greet_world.cybol"/>
-    <part name="greet_cybop" channel="file" format="element/part" model="ui/logic/greet_cybop.cybol"/>
-    <part name="translate" channel="file" format="element/part" model="ui/logic/translate.cybol"/>
-    <part name="send" channel="file" format="element/part" model="ui/logic/send.cybol"/>
-    <part name="sense" channel="file" format="element/part" model="ui/logic/sense.cybol"/>
-    <part name="handle" channel="file" format="element/part" model="ui/logic/handle.cybol"/>
-    <part name="exit" channel="inline" format="live/exit" model=""/>
-</model>
+<node>
+    <node name="startup" channel="file" format="element/part" model="ui/logic/startup.cybol"/>
+    <node name="greet_world" channel="file" format="element/part" model="ui/logic/greet_world.cybol"/>
+    <node name="greet_cybop" channel="file" format="element/part" model="ui/logic/greet_cybop.cybol"/>
+    <node name="translate" channel="file" format="element/part" model="ui/logic/translate.cybol"/>
+    <node name="send" channel="file" format="element/part" model="ui/logic/send.cybol"/>
+    <node name="sense" channel="file" format="element/part" model="ui/logic/sense.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="ui/logic/handle.cybol"/>
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

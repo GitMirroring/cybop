@@ -1,21 +1,21 @@
-<model>
-    <part name="get_command_of_current_element_1" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu#focus"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="get_command_of_current_element_2" channel="inline" format="modify/append" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
-        <property name="source" channel="inline" format="text/plain" model="#button_press_action"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="determine_real_command" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
-        <property name="source" channel="inline" format="path/reference" model=".app.tmp.character"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="send_command" channel="inline" format="flow/sequence" model="">
+<node>
+    <node name="get_command_of_current_element_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu#focus"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="get_command_of_current_element_2" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <node name="source" channel="inline" format="text/plain" model="#button_press_action"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="determine_real_command" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <node name="source" channel="inline" format="path/reference" model=".app.tmp.character"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/reference" and NOT "path/knowledge". -->
-        <property name="model" channel="inline" format="path/reference" model=".app.tmp.character"/>
-    </part>
-</model>
+        <node name="model" channel="inline" format="path/reference" model=".app.tmp.character"/>
+    </node>
+</node>

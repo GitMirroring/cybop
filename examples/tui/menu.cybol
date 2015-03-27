@@ -1,41 +1,41 @@
-<model>
-    <part name="title" channel="inline" format="text/plain" model="Menu">
-        <property name="position" channel="inline" format="number/integer" model="30,1"/>
-        <property name="size" channel="inline" format="number/integer" model="4,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="mc" channel="inline" format="text/plain" model="m - Start Midnight Commander (MC)">
-        <property name="position" channel="inline" format="number/integer" model="2,3"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="exit" channel="inline" format="text/plain" model="e - Exit Programme">
-        <property name="position" channel="inline" format="number/integer" model="2,4"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="keys_heading" channel="inline" format="text/plain" model="You may press the following keys:">
-        <property name="position" channel="inline" format="number/integer" model="2,6"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="keys_content" channel="inline" format="text/plain" model="arrow down/up/left/right, enter, escape, m, e">
-        <property name="position" channel="inline" format="number/integer" model="2,7"/>
-        <property name="size" channel="inline" format="number/integer" model="60,1"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-</model>
+<node>
+    <node name="title" channel="inline" format="text/plain" model="Menu">
+        <node name="position" channel="inline" format="number/integer" model="30,1"/>
+        <node name="size" channel="inline" format="number/integer" model="4,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="mc" channel="inline" format="text/plain" model="m - Start Midnight Commander (MC)">
+        <node name="position" channel="inline" format="number/integer" model="2,3"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="exit" channel="inline" format="text/plain" model="e - Exit Programme">
+        <node name="position" channel="inline" format="number/integer" model="2,4"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="keys_heading" channel="inline" format="text/plain" model="You may press the following keys:">
+        <node name="position" channel="inline" format="number/integer" model="2,6"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="keys_content" channel="inline" format="text/plain" model="arrow down/up/left/right, enter, escape, m, e">
+        <node name="position" channel="inline" format="number/integer" model="2,7"/>
+        <node name="size" channel="inline" format="number/integer" model="60,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

@@ -1,9 +1,9 @@
-<model>
-    <part name="left" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
-    <part name="right" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
-    <part name="result" channel="inline" format="logicvalue/boolean" model="false"/>
+<node>
+    <node name="left" channel="inline" format="number/complex-cartesian" model="1.0,2"/>
+    <node name="right" channel="inline" format="number/complex-cartesian" model="3,4.12345"/>
+    <node name="result" channel="inline" format="logicvalue/boolean" model="false"/>
 
-</model>
+</node>
 
 <!-- 
     Copyright (C) 1999-2014. Christian Heller.

@@ -1,6 +1,6 @@
-<model>
-    <part name="index" channel="file" format="element/part" model="wui/index.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="html"/>
-    </part>
+<node>
+    <node name="index" channel="file" format="element/part" model="wui/index.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+    </node>
     <!-- Further html files may follow here ... -->
-</model>
+</node>

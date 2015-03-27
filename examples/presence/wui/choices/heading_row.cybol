@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="choice" channel="inline" format="text/plain" model="Auswahl">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
+    <node name="choice" channel="inline" format="text/plain" model="Auswahl">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
 
-</model>
+</node>

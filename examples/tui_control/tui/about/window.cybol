@@ -1,69 +1,69 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,1"/>
-        <property name="size" channel="inline" format="number/integer" model="30,1"/>
-    </part>
-    <part name="version" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="40,1"/>
-        <property name="size" channel="inline" format="number/integer" model="10,1"/>
-    </part>
-    <part name="date" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="50,1"/>
-        <property name="size" channel="inline" format="number/integer" model="10,1"/>
-    </part>
-    <part name="slogan" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,3"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,1"/>
+        <node name="size" channel="inline" format="number/integer" model="30,1"/>
+    </node>
+    <node name="version" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="40,1"/>
+        <node name="size" channel="inline" format="number/integer" model="10,1"/>
+    </node>
+    <node name="date" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="50,1"/>
+        <node name="size" channel="inline" format="number/integer" model="10,1"/>
+    </node>
+    <node name="slogan" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,3"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
 <!--
-    <part name="logo" channel="inline" format="image/png" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.graphic"/>
-        <property name="position" channel="inline" format="number/integer" model="5,3"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
+    <node name="logo" channel="inline" format="image/png" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.graphic"/>
+        <node name="position" channel="inline" format="number/integer" model="5,3"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
 -->
-    <part name="copyright" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,7"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="contact" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,9"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="description" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,11"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="authors_label" channel="inline" format="text/plain" model="Authors:">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,13"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="authors" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,15"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="helpers" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,17"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="licence" channel="inline" format="text/plain" model="">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
-        <property name="position" channel="inline" format="number/integer" model="5,19"/>
-        <property name="size" channel="inline" format="number/integer" model="70,1"/>
-    </part>
-    <part name="close_button" channel="inline" format="text/plain" model="    OK    ">
-        <property name="super" channel="inline" format="path/knowledge" model=".app.settings.button"/>
-        <property name="position" channel="inline" format="number/integer" model="35,22"/>
-        <property name="size" channel="inline" format="number/integer" model="10,1"/>
-    </part>
-</model>
+    <node name="copyright" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,7"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="contact" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,9"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="description" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,11"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="authors_label" channel="inline" format="text/plain" model="Authors:">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,13"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="authors" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,15"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="helpers" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,17"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="licence" channel="inline" format="text/plain" model="">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.label"/>
+        <node name="position" channel="inline" format="number/integer" model="5,19"/>
+        <node name="size" channel="inline" format="number/integer" model="70,1"/>
+    </node>
+    <node name="close_button" channel="inline" format="text/plain" model="    OK    ">
+        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.button"/>
+        <node name="position" channel="inline" format="number/integer" model="35,22"/>
+        <node name="size" channel="inline" format="number/integer" model="10,1"/>
+    </node>
+</node>

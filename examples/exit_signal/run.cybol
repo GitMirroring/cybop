@@ -1,9 +1,9 @@
-<model>
-    <part name="startup" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="signal"/>
-        <property name="message" channel="inline" format="live/exit" model=""/>
-    </part>
-</model>
+<node>
+    <node name="startup" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="signal"/>
+        <node name="message" channel="inline" format="live/exit" model=""/>
+    </node>
+</node>
 
 <!--
     This example sends the "exit" operation as signal to the cyboi system.

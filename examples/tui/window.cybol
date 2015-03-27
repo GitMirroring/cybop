@@ -1,15 +1,15 @@
-<model>
-    <part name="menu" channel="file" format="element/part" model="tui/menu.cybol">
-        <property name="position" channel="inline" format="number/integer" model="5,2"/>
-        <property name="size" channel="inline" format="number/integer" model="70,10"/>
-        <property name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <property name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
-        <property name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
+<node>
+    <node name="menu" channel="file" format="element/part" model="tui/menu.cybol">
+        <node name="position" channel="inline" format="number/integer" model="5,2"/>
+        <node name="size" channel="inline" format="number/integer" model="70,10"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- This property is evaluated by win32 console only. -->
-        <property name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="border" channel="inline" format="text/plain" model="ascii"/>
-    </part>
-</model>
+        <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="border" channel="inline" format="text/plain" model="ascii"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

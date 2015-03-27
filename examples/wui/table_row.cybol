@@ -1,11 +1,11 @@
-<model>
-    <part name="column_0" channel="inline" format="text/plain" model="Data">
-        <property name="tag" channel="inline" format="text/plain" model="td"/>
-    </part>
-    <part name="column_1" channel="inline" format="text/plain" model="Data">
-        <property name="tag" channel="inline" format="text/plain" model="td"/>
-    </part>
-    <part name="column_2" channel="inline" format="text/plain" model="Data">
-        <property name="tag" channel="inline" format="text/plain" model="td"/>
-    </part>
-</model>
+<node>
+    <node name="column_0" channel="inline" format="text/plain" model="Data">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+    <node name="column_1" channel="inline" format="text/plain" model="Data">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+    <node name="column_2" channel="inline" format="text/plain" model="Data">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+</node>

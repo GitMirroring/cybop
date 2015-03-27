@@ -1,24 +1,24 @@
-<model>
+<node>
 
-    <part name="scheme" channel="inline" format="text/plain" model="http"/>
-    <part name="scheme_suffix" channel="inline" format="text/plain" model=":"/>
-    <part name="hostname_prefix" channel="inline" format="text/plain" model="//"/>
-    <part name="hostname" channel="inline" format="text/plain" model="localhost"/>
-    <part name="port_prefix" channel="inline" format="text/plain" model=":"/>
-    <part name="port" channel="inline" format="text/plain" model="80"/>
-    <part name="directory" channel="inline" format="text/plain" model="/"/>
-    <part name="parametre_prefix" channel="inline" format="text/plain" model="?"/>
+    <node name="scheme" channel="inline" format="text/plain" model="http"/>
+    <node name="scheme_suffix" channel="inline" format="text/plain" model=":"/>
+    <node name="hostname_prefix" channel="inline" format="text/plain" model="//"/>
+    <node name="hostname" channel="inline" format="text/plain" model="localhost"/>
+    <node name="port_prefix" channel="inline" format="text/plain" model=":"/>
+    <node name="port" channel="inline" format="text/plain" model="80"/>
+    <node name="directory" channel="inline" format="text/plain" model="/"/>
+    <node name="parametre_prefix" channel="inline" format="text/plain" model="?"/>
 
-    <part name="parametre_separator" channel="inline" format="text/plain" model="&"/>
-    <part name="parametre_assignment" channel="inline" format="text/plain" model="="/>
+    <node name="parametre_separator" channel="inline" format="text/plain" model="&"/>
+    <node name="parametre_assignment" channel="inline" format="text/plain" model="="/>
 
-    <part name="parametre_year" channel="inline" format="text/plain" model="year"/>
-    <part name="parametre_week" channel="inline" format="text/plain" model="week"/>
-    <part name="parametre_lecturer" channel="inline" format="text/plain" model="lecturer"/>
-    <part name="parametre_day" channel="inline" format="text/plain" model="day"/>
-    <part name="parametre_choice" channel="inline" format="text/plain" model="choice"/>
-    <part name="parametre_action" channel="inline" format="text/plain" model="action"/>
+    <node name="parametre_year" channel="inline" format="text/plain" model="year"/>
+    <node name="parametre_week" channel="inline" format="text/plain" model="week"/>
+    <node name="parametre_lecturer" channel="inline" format="text/plain" model="lecturer"/>
+    <node name="parametre_day" channel="inline" format="text/plain" model="day"/>
+    <node name="parametre_choice" channel="inline" format="text/plain" model="choice"/>
+    <node name="parametre_action" channel="inline" format="text/plain" model="action"/>
 
-    <part name="action_update" channel="inline" format="text/plain" model="update"/>
+    <node name="action_update" channel="inline" format="text/plain" model="update"/>
 
-</model>
+</node>

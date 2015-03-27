@@ -1,87 +1,87 @@
-<model>
+<node>
 
     <!-- Reset. -->
     <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
-    <part name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
-        <property name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="reset_element" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
-    </part>
+    <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
+        <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="reset_element" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
+    </node>
 
     <!-- Identification. -->
-    <part name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
-        <property name="source" channel="inline" format="text/plain" model=".app.domain."/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
-        <property name="source" channel="inline" format="text/plain" model="lecturers"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.identify"/>
-        <property name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.number"/>
-    </part>
-    <part name="identify_lecturer_root" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.root"/>
-    </part>
-    <part name="get_lecturer_name" channel="inline" format="access/get-name" model="">
-        <property name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.element.name"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_lecturer.element.root"/>
-    </part>
+    <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
+        <node name="source" channel="inline" format="text/plain" model=".app.domain."/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
+        <node name="source" channel="inline" format="text/plain" model="lecturers"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify"/>
+        <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.number"/>
+    </node>
+    <node name="identify_lecturer_root" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.root"/>
+    </node>
+    <node name="get_lecturer_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.element.name"/>
+        <node name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_lecturer.element.root"/>
+    </node>
 
-    <part name="reset_db" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.db"/>
-    </part>
-    <part name="translate_path" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.path"/>
-    </part>
-    <part name="TEST" channel="inline" format="communicate/send" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <property name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </part>
-    <part name="receive_db" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="sender" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".app.var.db"/>
-    </part>
+    <node name="reset_db" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.db"/>
+    </node>
+    <node name="translate_path" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.path"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="receive_db" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.db"/>
+    </node>
 
     <!-- CAUTION! This IS necessary, in order to have default values, in case a lecturer's db file is NOT available. -->
-    <part name="reset_lecturers_row" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.lecturers.row"/>
-    </part>
-    <part name="translate_row" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.row"/>
-    </part>
+    <node name="reset_lecturers_row" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.lecturers.row"/>
+    </node>
+    <node name="translate_row" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.row"/>
+    </node>
 
     <!-- Loop test. -->
-    <part name="increment_index" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.index"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.loop.count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-</model>
+</node>

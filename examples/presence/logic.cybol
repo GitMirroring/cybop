@@ -1,19 +1,19 @@
-<model>
+<node>
 
     <!-- Application. -->
-    <part name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
-    <part name="handler" channel="file" format="element/part" model="presence/logic/handler.cybol"/>
-    <part name="actions" channel="file" format="element/part" model="presence/logic/actions.cybol"/>
+    <node name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="presence/logic/handler.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="presence/logic/actions.cybol"/>
 
     <!-- Data. -->
-    <part name="create" channel="file" format="element/part" model="presence/logic/create.cybol"/>
-    <part name="identify" channel="file" format="element/part" model="presence/logic/identify.cybol"/>
-    <part name="reset" channel="file" format="element/part" model="presence/logic/reset.cybol"/>
-    <part name="send" channel="file" format="element/part" model="presence/logic/send.cybol"/>
-    <part name="translate" channel="file" format="element/part" model="presence/logic/translate.cybol"/>
+    <node name="create" channel="file" format="element/part" model="presence/logic/create.cybol"/>
+    <node name="identify" channel="file" format="element/part" model="presence/logic/identify.cybol"/>
+    <node name="reset" channel="file" format="element/part" model="presence/logic/reset.cybol"/>
+    <node name="send" channel="file" format="element/part" model="presence/logic/send.cybol"/>
+    <node name="translate" channel="file" format="element/part" model="presence/logic/translate.cybol"/>
 
     <!-- Date navigation. -->
-    <part name="go_backward" channel="file" format="element/part" model="presence/logic/go_backward.cybol"/>
-    <part name="go_forward" channel="file" format="element/part" model="presence/logic/go_forward.cybol"/>
+    <node name="go_backward" channel="file" format="element/part" model="presence/logic/go_backward.cybol"/>
+    <node name="go_forward" channel="file" format="element/part" model="presence/logic/go_forward.cybol"/>
 
-</model>
+</node>

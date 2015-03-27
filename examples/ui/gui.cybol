@@ -1,22 +1,22 @@
-<model>
-    <part name="window" channel="file" format="element/part" model="ui/gui/window.cybol">
+<node>
+    <node name="window" channel="file" format="element/part" model="ui/gui/window.cybol">
         <!-- This flag indicates that this is a window to which the properties are to be applied. -->
-        <property name="window" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="title" channel="inline" format="text/plain" model="GUI Example"/>
-        <property name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
+        <node name="window" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="title" channel="inline" format="text/plain" model="GUI Example"/>
+        <node name="icon_title" channel="inline" format="text/plain" model="Iconised GUI Example"/>
 <!--
-        <property name="icon" channel="file" format="png" model="ui/gui/icon.png"/>
+        <node name="icon" channel="file" format="png" model="ui/gui/icon.png"/>
 -->
-        <property name="position" channel="inline" format="number/integer" model="30,30"/>
-        <property name="size" channel="inline" format="number/integer" model="600,400"/>
-        <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
-        <property name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
-        <property name="layout" channel="inline" format="text/plain" model="absolute"/>
-        <property name="expose" channel="inline" format="text/plain" model=".app.logic.send"/>
-    </part>
+        <node name="position" channel="inline" format="number/integer" model="30,30"/>
+        <node name="size" channel="inline" format="number/integer" model="600,400"/>
+        <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
+        <node name="foreground" channel="inline" format="colour/rgb" model="255,0,0"/>
+        <node name="layout" channel="inline" format="text/plain" model="absolute"/>
+        <node name="expose" channel="inline" format="text/plain" model=".app.logic.send"/>
+    </node>
     <!-- CAUTION! The action is used in file "logic/handle/gui.cybol". -->
-    <part name="action" channel="inline" format="text/plain" model=""/>
-</model>
+    <node name="action" channel="inline" format="text/plain" model=""/>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.

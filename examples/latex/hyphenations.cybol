@@ -28,15 +28,15 @@
     Christian Heller <christian.heller@tuxtax.de>
 -->
 
-<model>
-    <part name="abstraction" channel="inline" abstraction="string" model="abs-trac-tion"/>
-    <part name="actually" channel="inline" abstraction="string" model="ac-tu-ally"/>
-    <part name="analyst" channel="inline" abstraction="string" model="ana-lyst"/>
-    <part name="analysis" channel="inline" abstraction="string" model="ana-ly-sis"/>
-    <part name="ancient" channel="inline" abstraction="string" model="an-cient"/>
-    <part name="application" channel="inline" abstraction="string" model="ap-pli-ca-tion"/>
-    <part name="aristotle" channel="inline" abstraction="string" model="aris-to-tle"/>
-    <part name="attribute" channel="inline" abstraction="string" model="at-tri-bute"/>
-    <part name="being" channel="inline" abstraction="string" model="be-ing"/>
-    <part name="categorisation" channel="inline" abstraction="string" model="ca-te-go-ri-sa-tion"/>
-</model>
+<node>
+    <node name="abstraction" channel="inline" abstraction="string" model="abs-trac-tion"/>
+    <node name="actually" channel="inline" abstraction="string" model="ac-tu-ally"/>
+    <node name="analyst" channel="inline" abstraction="string" model="ana-lyst"/>
+    <node name="analysis" channel="inline" abstraction="string" model="ana-ly-sis"/>
+    <node name="ancient" channel="inline" abstraction="string" model="an-cient"/>
+    <node name="application" channel="inline" abstraction="string" model="ap-pli-ca-tion"/>
+    <node name="aristotle" channel="inline" abstraction="string" model="aris-to-tle"/>
+    <node name="attribute" channel="inline" abstraction="string" model="at-tri-bute"/>
+    <node name="being" channel="inline" abstraction="string" model="be-ing"/>
+    <node name="categorisation" channel="inline" abstraction="string" model="ca-te-go-ri-sa-tion"/>
+</node>

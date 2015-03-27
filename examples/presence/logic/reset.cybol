@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="stack" channel="file" format="element/part" model="presence/logic/reset/stack.cybol"/>
-    <part name="db" channel="file" format="element/part" model="presence/logic/reset/db.cybol"/>
-    <part name="lecturers" channel="file" format="element/part" model="presence/logic/reset/lecturers.cybol"/>
+    <node name="stack" channel="file" format="element/part" model="presence/logic/reset/stack.cybol"/>
+    <node name="db" channel="file" format="element/part" model="presence/logic/reset/db.cybol"/>
+    <node name="lecturers" channel="file" format="element/part" model="presence/logic/reset/lecturers.cybol"/>
 
-</model>
+</node>

@@ -1,51 +1,51 @@
-<model>
-    <part name="reset_voltage_buffer" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="adc/reset_voltage_buffer.cybol"/>
-    </part>
-    <part name="receive_response" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-        <property name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-        <property name="minimum" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_minimum"/>
-    </part>
-    <part name="get_voltage_buffer_count" channel="inline" format="access/count" model="">
-        <property name="count" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
-        <property name="part" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
-    </part>
-    <part name="compare_voltage_buffer_count" channel="inline" format="compare/greater" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
-        <property name="right" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-    <part name="copy_response_elements" channel="inline" format="flow/branch" model="">
-        <property name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
-        <property name="true" channel="file" format="element/part" model="adc/copy_response_elements.cybol"/>
-        <property name="false" channel="inline" format="element/part" model=""/>
-    </part>
+<node>
+    <node name="reset_voltage_buffer" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="adc/reset_voltage_buffer.cybol"/>
+    </node>
+    <node name="receive_response" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
+        <node name="minimum" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_minimum"/>
+    </node>
+    <node name="get_voltage_buffer_count" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
+        <node name="part" channel="inline" format="path/knowledge" model=".settings.voltage_buffer"/>
+    </node>
+    <node name="compare_voltage_buffer_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_count"/>
+        <node name="right" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="copy_response_elements" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".settings.voltage_buffer_criterion"/>
+        <node name="true" channel="file" format="element/part" model="adc/copy_response_elements.cybol"/>
+        <node name="false" channel="inline" format="element/part" model=""/>
+    </node>
 
-    <part name="set_break_flag" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
-    <part name="calculate_voltage" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="file" format="element/part" model="adc/calculate_voltage.cybol"/>
-    </part>
+    <node name="set_break_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+    <node name="calculate_voltage" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="adc/calculate_voltage.cybol"/>
+    </node>
 
-    <part name="increment_loop_count" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".settings.voltage_maximum_count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-    <part name="sleep" channel="inline" format="run/sleep-nano" model="">
-        <property name="duration" channel="inline" format="path/knowledge" model=".settings.voltage_sleep"/>
-    </part>
-</model>
+    <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".settings.voltage_break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".settings.voltage_count"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".settings.voltage_maximum_count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="sleep" channel="inline" format="run/sleep-nano" model="">
+        <node name="duration" channel="inline" format="path/knowledge" model=".settings.voltage_sleep"/>
+    </node>
+</node>

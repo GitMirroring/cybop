@@ -22,6 +22,7 @@
 
         * Continue cybol element/part serialiser by initialising destination nodes properly
         * Complete cybol example application "presence" uri-to-db translation
+        * Rename all cybol example application "presence" xml tags uniformly to just "node"
 
 2015-03-24  Christian Heller  <christian.heller@tuxtax.de>
 

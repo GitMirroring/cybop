@@ -1,11 +1,11 @@
-<model>
-    <part name="head" channel="file" format="element/part" model="ui/wui/head.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="head"/>
-    </part>
-    <part name="body" channel="file" format="element/part" model="ui/wui/body.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="body"/>
-    </part>
-</model>
+<node>
+    <node name="head" channel="file" format="element/part" model="ui/wui/head.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="head"/>
+    </node>
+    <node name="body" channel="file" format="element/part" model="ui/wui/body.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="body"/>
+    </node>
+</node>
 
 <!--
     Copyright (C) 1999-2014. Christian Heller.
