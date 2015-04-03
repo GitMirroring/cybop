@@ -47,39 +47,33 @@
  * @param p0 the destination buffer (pointer reference)
  * @param p1 the source model buffer (pointer reference)
  * @param p2 the source void* buffer (pointer reference)
- * @param p3 the source wchar_t buffer (pointer reference)
- * @param p4 the channel
+ * @param p3 the source long long int buffer (pointer reference)
+ * @param p4 the source wchar_t buffer (pointer reference)
+ * @param p5 the channel
  */
-void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive select.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // CAUTION! The comparisons below are sorted alphabetically.
-    // However, for reasons of EFFICIENCY, that for the SIGNAL
-    // is standing FIRST, since signals are permanently processed.
-    //
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) SIGNAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) CLOCK_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Use model buffer.
-            // A next signal part retrieved from signal memory,
-            // does NOT have to be processed further here in any form,
-            // i.e. the model can be used DIRECTLY.
-            copy_pointer(p0, p1);
+            // Use long long int buffer.
+            // For instance, a time is returned by the system as long int,
+            // so that it matches into a long long int variable.
+            copy_pointer(p0, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) DISPLAY_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) DISPLAY_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -93,20 +87,47 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) INLINE_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) INLINE_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // Use wchar_t buffer.
             // All inline models are already available as wide character,
             // and do NOT have to get decoded below, so that wchar_t is used.
+            copy_pointer(p0, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) RANDOMISER_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Use long long int buffer.
+            // Even if randomisation functions return a simple int,
+            // that one matches into a long long int variable.
             copy_pointer(p0, p3);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) TERMINAL_CYBOI_CHANNEL);
+        compare_integer_equal((void*) &r, p5, (void*) SIGNAL_CYBOI_CHANNEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Use model buffer.
+            // A next signal part retrieved from signal memory,
+            // does NOT have to be processed further here in any form,
+            // i.e. the model can be used DIRECTLY.
+            copy_pointer(p0, p1);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p5, (void*) TERMINAL_CYBOI_CHANNEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -118,13 +139,13 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4) {
             // a special INPUT_RECORD structure for storage.
 
 #ifdef __APPLE__
-            copy_pointer(p0, p3);
+            copy_pointer(p0, p4);
 #elif WIN32
             copy_pointer(p0, p2);
 #elif GNU_LINUX_OPERATING_SYSTEM
-            copy_pointer(p0, p3);
+            copy_pointer(p0, p4);
 #else
-            copy_pointer(p0, p3);
+            copy_pointer(p0, p4);
 #endif
         }
     }

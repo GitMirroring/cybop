@@ -23,6 +23,7 @@
     <node name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->
+    <node name="current_day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
     <node name="year" channel="inline" format="text/plain" model=""/>
     <node name="week" channel="inline" format="text/plain" model=""/>
 

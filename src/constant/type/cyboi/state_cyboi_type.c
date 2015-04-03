@@ -102,6 +102,14 @@ static int* FRACTION_NUMBER_STATE_CYBOI_TYPE = NUMBER_33_INTEGER_STATE_CYBOI_MOD
 /** The integer number state cyboi type. */
 static int* INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_34_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The long long integer number state cyboi type.
+ *
+ * CAUTION! It IS NECESSARY e.g. when receiving a datetime
+ * via the glibc function "time".
+ */
+static int* LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE = NUMBER_35_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // pointer
 //

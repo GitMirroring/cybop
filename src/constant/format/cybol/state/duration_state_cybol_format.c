@@ -67,8 +67,7 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y', L'd', L'd', L'm', L'm', L'y', L'y', L'y', L'y'};
-static wchar_t* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT = DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT = L"duration/ddmmyyyyddmmyyyy";
 static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //?? TODO: Possibly delete this later, since it is an xdt constant.
@@ -84,8 +83,7 @@ static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
  *
  * This is a CYBOL extension.
  */
-static wchar_t HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'h', L'h', L'm', L'm', L'h', L'h', L'm', L'm'};
-static wchar_t* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT = HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT = L"duration/hhmmhhmm";
 static int* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -104,8 +102,7 @@ static int* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * This is a CYBOL extension.
  */
-static wchar_t ISO_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'i', L's', L'o'};
-static wchar_t* ISO_DURATION_STATE_CYBOL_FORMAT = ISO_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ISO_DURATION_STATE_CYBOL_FORMAT = L"duration/iso";
 static int* ISO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -118,15 +115,14 @@ static int* ISO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * Continuous counting of days.
  * Used by astronomers.
- * 
+ *
  * It may be used together with the following datetime formats:
  * - datetime/jd
  * - datetime/mjd
  *
  * This is a CYBOL extension.
  */
-static wchar_t JD_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'j', L'd'};
-static wchar_t* JD_DURATION_STATE_CYBOL_FORMAT = JD_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* JD_DURATION_STATE_CYBOL_FORMAT = L"duration/jd";
 static int* JD_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -143,8 +139,7 @@ static int* JD_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t JULIAN_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'j', L'u', L'l', L'i', L'a', L'n'};
-static wchar_t* JULIAN_DURATION_STATE_CYBOL_FORMAT = JULIAN_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* JULIAN_DURATION_STATE_CYBOL_FORMAT = L"duration/julian";
 static int* JULIAN_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -161,8 +156,7 @@ static int* JULIAN_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * This is a CYBOL extension.
  */
-static wchar_t SI_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L's', L'i'};
-static wchar_t* SI_DURATION_STATE_CYBOL_FORMAT = SI_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* SI_DURATION_STATE_CYBOL_FORMAT = L"duration/si";
 static int* SI_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //?? TODO: Possibly delete this later, since it is an xdt constant.
@@ -177,8 +171,7 @@ static int* SI_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t YYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n', L'/', L'y', L'y', L'y', L'y'};
-static wchar_t* YYYY_DURATION_STATE_CYBOL_FORMAT = YYYY_DURATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* YYYY_DURATION_STATE_CYBOL_FORMAT = L"duration/yyyy";
 static int* YYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DURATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

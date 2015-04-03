@@ -14,8 +14,14 @@
 WUI
 ___
 
-        * Create non-existing directories before writing persistent data to file in cybol example application "presence"
+        * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
+        * Add files "clock_reader.c" and "clock_writer.c"
+        * Add files "randomiser_reader.c" and "randomiser_writer.c"
+        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
+        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
         * Configure date dynamically in cybol example application "presence"
+
+        * Create non-existing directories before writing persistent data to file in cybol example application "presence"
 
         * Debug socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.

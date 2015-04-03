@@ -18,9 +18,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Introduce new channel "clock" for reading and adjusting time and date
+        * Introduce new channel "randomiser" for sowing a seed and generating random numbers
+        * Extend file "receiver.c" with long long int buffer for datetime and random numbers
+
 2015-03-27  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Continue cybol element/part serialiser by initialising destination nodes properly
+        * Complete cybol element/part serialiser by initialising destination nodes properly
         * Complete cybol example application "presence" uri-to-db translation
         * Rename all cybol example application "presence" xml tags uniformly to just "node"
 

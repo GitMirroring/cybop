@@ -30,6 +30,10 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The clock cybol channel. */
+static wchar_t* CLOCK_CYBOL_CHANNEL = L"clock";
+static int* CLOCK_CYBOL_CHANNEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The display cybol channel. */
 static wchar_t* DISPLAY_CYBOL_CHANNEL = L"display";
 static int* DISPLAY_CYBOL_CHANNEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -41,6 +45,10 @@ static int* FILE_CYBOL_CHANNEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 /** The inline cybol channel. */
 static wchar_t* INLINE_CYBOL_CHANNEL = L"inline";
 static int* INLINE_CYBOL_CHANNEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The randomiser cybol channel. */
+static wchar_t* RANDOMISER_CYBOL_CHANNEL = L"randomiser";
+static int* RANDOMISER_CYBOL_CHANNEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The serial cybol channel. */
 static wchar_t* SERIAL_CYBOL_CHANNEL = L"serial";

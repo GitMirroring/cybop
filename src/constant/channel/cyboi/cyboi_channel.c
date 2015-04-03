@@ -30,26 +30,32 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The clock cyboi channel. */
+static int* CLOCK_CYBOI_CHANNEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The display cyboi channel. */
-static int* DISPLAY_CYBOI_CHANNEL = NUMBER_0_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DISPLAY_CYBOI_CHANNEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The file system cyboi channel. */
-static int* FILE_CYBOI_CHANNEL = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* FILE_CYBOI_CHANNEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The inline cyboi channel. */
-static int* INLINE_CYBOI_CHANNEL = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* INLINE_CYBOI_CHANNEL = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The serial-port cyboi channel. */
-static int* SERIAL_CYBOI_CHANNEL = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The randomiser cyboi channel. */
+static int* RANDOMISER_CYBOI_CHANNEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The serial cyboi channel. */
+static int* SERIAL_CYBOI_CHANNEL = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The signal cyboi channel. */
-static int* SIGNAL_CYBOI_CHANNEL = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SIGNAL_CYBOI_CHANNEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The socket cyboi channel. */
-static int* SOCKET_CYBOI_CHANNEL = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* SOCKET_CYBOI_CHANNEL = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The terminal cyboi channel. */
-static int* TERMINAL_CYBOI_CHANNEL = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* TERMINAL_CYBOI_CHANNEL = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CYBOI_CHANNEL_CONSTANT_SOURCE */
 #endif

@@ -84,8 +84,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive data.");
 
-    // The neutral message item, e.g. an xcb display event.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The pointer message item, e.g. an xcb display event or win32 input record.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The integer message item, e.g. a datetime or random number.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The compressed message item.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The encoded message item.
@@ -108,10 +110,14 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Otherwise, they would be deallocated before being used.
     //
 
-    // Allocate neutral message item.
+    // Allocate pointer message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    allocate_item((void*) &p, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    // Allocate integer message item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Allocate compressed message item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
@@ -131,7 +137,7 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     b = c;
 
     // Select buffer.
-    receive_select((void*) &b, (void*) &p0, (void*) &n, (void*) &s, p13);
+    receive_select((void*) &b, (void*) &p0, (void*) &p, (void*) &i, (void*) &s, p13);
     // Read message.
     receive_read((void*) &ad, (void*) &ac, b, p2, p3, p4, p5, p6, p7, p8, p9, p13);
     if ((p11 != *NULL_POINTER_STATE_CYBOI_MODEL) && (*((int*) p11) == *BINARY_MESSAGE_STATE_CYBOI_LANGUAGE)) {
@@ -159,8 +165,10 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     // Deallocate display event.
     receive_deallocate(b, p13);
 
-    // Deallocate neutral message item.
-    deallocate_item((void*) &n, (void*) POINTER_STATE_CYBOI_TYPE);
+    // Deallocate pointer message item.
+    deallocate_item((void*) &p, (void*) POINTER_STATE_CYBOI_TYPE);
+    // Deallocate integer message item.
+    deallocate_item((void*) &i, (void*) LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE);
     // Deallocate compressed message item.
     deallocate_item((void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
     // Deallocate encoded message item.

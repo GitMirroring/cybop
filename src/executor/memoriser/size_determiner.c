@@ -126,6 +126,10 @@ void determine_size(void* p0, void* p1) {
             copy_integer(p0, (void*) SIGNED_INTEGER_INTEGRAL_TYPE_SIZE);
 //??            copy_integer(p0, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
 
+        } else if (*t == *LONG_LONG_INTEGER_NUMBER_STATE_CYBOI_TYPE) {
+
+            copy_integer(p0, (void*) SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE);
+
         //
         // pointer
         //
