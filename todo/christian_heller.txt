@@ -14,6 +14,19 @@
 WUI
 ___
 
+        * Implement in cyboi:
+            --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
+            --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week
+                language: ??; format: datetime/year-week (index)
+                if year changes and week contains old and new days (with sunday being the first day), then the first week of the NEW year is used
+            --> get_first_day_of_week (sunday being the start of the week): represent/serialise from julian_date representing current_datetime into julian_date representing first day (sunday)
+                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
+                language: ??; format: datetime/week-day-first (julian_date)
+            --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
+                language: ??; format: datetime/week-day (index)
+        * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
+            --> continue with run.cybol
+
         * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
         * Add files "clock_reader.c" and "clock_writer.c"
         * Add files "randomiser_reader.c" and "randomiser_writer.c"
