@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Do not specify encoding in file "content_element_part_cybol_serialiser.c" in order to avoid parse errors when reading serialised inline data
+
 2015-04-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Introduce new channel "clock" for reading and adjusting time and date

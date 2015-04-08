@@ -14,6 +14,9 @@
 WUI
 ___
 
+        * Implement "forward" and "backward" in cybol example application "presence", counting calendar week up and down
+            (first version may be without any datetime functionality)
+
         * Implement in cyboi:
             --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
             --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week

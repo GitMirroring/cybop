@@ -113,14 +113,26 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // The destination name, channel, encoding, language, format, model part.
     void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // void* de = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dl = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* df = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination name, channel, encoding, language, format, model part model item.
     void* dnm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dcm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dem = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // void* dem = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dlm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dfm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dmm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -139,7 +151,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // CAUTION! Use the cyboi runtime type (NOT the mime type format)!
     allocate_part((void*) &dn, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     allocate_part((void*) &dc, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    allocate_part((void*) &de, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // allocate_part((void*) &de, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     allocate_part((void*) &dl, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     allocate_part((void*) &df, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     allocate_part((void*) &dm, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
@@ -147,7 +165,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // Overwrite name of destination name, channel, encoding, language, format, model part.
     overwrite_part_element(dn, (void*) NAME_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NAME_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dc, (void*) CHANNEL_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHANNEL_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(de, (void*) ENCODING_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENCODING_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // overwrite_part_element(de, (void*) ENCODING_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENCODING_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dl, (void*) LANGUAGE_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LANGUAGE_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(df, (void*) FORMAT_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORMAT_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dm, (void*) MODEL_CYBOL_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_CYBOL_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
@@ -160,7 +184,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // and thus does NOT have to be translated anymore.
     overwrite_part_element(dn, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dc, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(de, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // overwrite_part_element(de, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dl, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(df, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dm, (void*) PLAIN_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
@@ -170,7 +200,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // deallocating the part and its child parts at shutdown.
     overwrite_part_element(dn, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(de, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // overwrite_part_element(de, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dl, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(df, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(dm, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
@@ -182,7 +218,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // Get destination name, channel, encoding, language, format, model part model item.
     copy_array_forward((void*) &dnm, dn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dcm, dc, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dem, de, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // copy_array_forward((void*) &dem, de, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dlm, dl, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dfm, df, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dmm, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -195,7 +237,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
 //?? fwprintf(stdout, L"TEST serialise cybol part element content *p3: %i\n", *((int*) p3));
 //?? fwprintf(stdout, L"TEST serialise cybol part element content **dcm: %i\n", *((int*) *((void**) dcm)));
 //?? fwprintf(stdout, L"TEST serialise cybol part element content **dcm as wchar_t*: %ls\n", (wchar_t*) *((void**) dcm));
-    serialise_cybol_encoding(dem, (void*) UTF_8_CYBOI_ENCODING); //?? p4);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // serialise_cybol_encoding(dem, p4);
 //?? fwprintf(stdout, L"TEST serialise cybol part element content **dem: %i\n", *((int*) *((void**) dem)));
     serialise_cybol_language(dlm, p5);
 //?? fwprintf(stdout, L"TEST serialise cybol part element content **dlm: %i\n", *((int*) *((void**) dlm)));
@@ -233,7 +281,13 @@ void serialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3
     // Append destination name, channel, encoding, language, format, model part to destination part's properties.
     append_item_element(pp, (void*) &dn, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(pp, (void*) &dc, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    append_item_element(pp, (void*) &de, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // CAUTION! The encoding is IGNORED here in general.
+    // The serialised file itself gets encoded properly in executor/communicator/sender/.
+    // But the single nodes MUST NOT contain the "encoding" xml attribute,
+    // since their channel is "inline" and when receiving (reading)
+    // the serialised file again, an encoding would lead to wrong character data,
+    // since inline data are already available as wide character data.
+    // append_item_element(pp, (void*) &de, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(pp, (void*) &dl, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(pp, (void*) &df, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
     append_item_element(pp, (void*) &dm, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
