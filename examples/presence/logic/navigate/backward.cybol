@@ -1,0 +1,18 @@
+<node>
+
+    <node name="increment_week" channel="inline" format="calculate/subtract" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.week"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="serialise_week" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.week_string"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.week"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    load/translate data
+
+</node>

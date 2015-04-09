@@ -1,0 +1,6 @@
+<node>
+
+    <node name="backward" channel="file" format="element/part" model="presence/logic/navigate/backward.cybol"/>
+    <node name="forward" channel="file" format="element/part" model="presence/logic/navigate/forward.cybol"/>
+
+</node>

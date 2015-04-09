@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Implement cybol example application "presence" "forward" and "backward" logic, counting calendar week up and down
+
 2015-04-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Do not specify encoding in file "content_element_part_cybol_serialiser.c" in order to avoid parse errors when reading serialised inline data

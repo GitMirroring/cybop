@@ -8,8 +8,8 @@
     <node name="send_icon" channel="inline" format="path/knowledge" model=".app.logic.send.icon"/>
 
     <!-- Date navigation. -->
-    <node name="go_backward" channel="inline" format="path/knowledge" model=".app.logic.go_backward"/>
-    <node name="go_forward" channel="inline" format="path/knowledge" model=".app.logic.go_forward"/>
+    <node name="navigate_backward" channel="inline" format="path/knowledge" model=".app.logic.navigate.backward"/>
+    <node name="navigate_forward" channel="inline" format="path/knowledge" model=".app.logic.navigate.forward"/>
 
     <!-- Overview entry choice. -->
     <node name="update" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_all"/>
