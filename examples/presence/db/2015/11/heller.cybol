@@ -1,7 +1,7 @@
 <node>
-    <node name="monday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
+    <node name="monday" channel="inline" language="text/cybol" format="text/plain" model="holiday"/>
     <node name="tuesday" channel="inline" language="text/cybol" format="text/plain" model=""/>
-    <node name="wednesday" channel="inline" language="text/cybol" format="text/plain" model="businesstrip"/>
+    <node name="wednesday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
     <node name="thursday" channel="inline" language="text/cybol" format="text/plain" model=""/>
     <node name="friday" channel="inline" language="text/cybol" format="text/plain" model=""/>
     <node name="saturday" channel="inline" language="text/cybol" format="text/plain" model=""/>

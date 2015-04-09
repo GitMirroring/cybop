@@ -23,10 +23,13 @@
     <node name="db" channel="inline" format="element/part" model=""/>
 
     <!-- The calendar. -->
+    <node name="year" channel="inline" format="number/integer" model="2015"/>
+    <node name="week" channel="inline" format="number/integer" model="1"/>
+    <node name="year_string" channel="inline" format="text/plain" model="2015"/>
+    <node name="week_string" channel="inline" format="text/plain" model="1"/>
+<!--
     <node name="day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
-    <node name="week" channel="inline" format="text/plain" model=""/>
-    <node name="year" channel="inline" format="text/plain" model=""/>
-    <node name="week_int" channel="inline" format="number/integer" model="0"/>
+-->
 
     <!-- Request-response-cycle. -->
     <node name="request" channel="inline" format="element/part" model=""/>

@@ -14,6 +14,7 @@
 WUI
 ___
 
+        * Check variables in "var.cybol" and files "logic/translate/db_to_wui/href.cybol", "logic/translate/db_to_wui/path.cybol"
         * Implement "forward" and "backward" in cybol example application "presence", counting calendar week up and down
             (first version may be without any datetime functionality)
 

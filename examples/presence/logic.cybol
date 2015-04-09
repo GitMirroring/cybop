@@ -13,7 +13,6 @@
     <node name="translate" channel="file" format="element/part" model="presence/logic/translate.cybol"/>
 
     <!-- Date navigation. -->
-    <node name="go_backward" channel="file" format="element/part" model="presence/logic/go_backward.cybol"/>
-    <node name="go_forward" channel="file" format="element/part" model="presence/logic/go_forward.cybol"/>
+    <node name="navigate" channel="file" format="element/part" model="presence/logic/navigate.cybol"/>
 
 </node>
