@@ -4,5 +4,5 @@
     <node name="wednesday" channel="inline" language="text/cybol" format="text/plain" model="homeoffice"/>
     <node name="thursday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
     <node name="friday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
-    <node name="saturday" channel="inline" language="text/cybol" format="text/plain" model="teaching"/>
+    <node name="saturday" channel="inline" language="text/cybol" format="text/plain" model="businesstrip"/>
 </node>

@@ -26,7 +26,7 @@
 
     <!-- TEMPORARY WORKAROUND -->
     <node name="create_folder" channel="inline" format="command/create-folder" model="">
-        <node name="path" channel="inline" format="text/plain" model=".app.var.directory"/>
+        <node name="path" channel="inline" format="path/knowledge" model=".app.var.directory"/>
     </node>
 
 <!--
