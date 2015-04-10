@@ -1,5 +1,7 @@
 <node>
 
+    <!-- CAUTION! The reset is done elsewhere. -->
+
     <node name="serialise_index" channel="inline" format="represent/serialise" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.number"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).loop.index"/>

@@ -1,9 +1,5 @@
 <node>
 
-    <!-- This is needed for printing messages on terminal. -->
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
     <node name="startup_socket" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
@@ -32,7 +28,7 @@
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
         <node name="id" channel="inline" format="number/integer" model="80"/>
         <node name="service" channel="inline" format="text/plain" model="http"/>
-        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
+        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handle"/>
         <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 

@@ -19,6 +19,8 @@
     <node name="parametre_choice" channel="inline" format="text/plain" model="choice"/>
     <node name="parametre_action" channel="inline" format="text/plain" model="action"/>
 
+    <node name="action_navigate_backward" channel="inline" format="text/plain" model="navigate_backward"/>
+    <node name="action_navigate_forward" channel="inline" format="text/plain" model="navigate_forward"/>
     <node name="action_update" channel="inline" format="text/plain" model="update"/>
 
 </node>

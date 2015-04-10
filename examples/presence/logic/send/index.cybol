@@ -7,7 +7,7 @@
         <!-- CAUTION! Do NOT reset properties since otherwise, they would be lost, e.g. the "encoding" for the http body. -->
         <node name="properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
-    <node name="serialise_html" channel="inline" format="represent/serialise" model="">
+    <node name="serialise_webpage" channel="inline" format="represent/serialise" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.wui.index"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -17,8 +17,7 @@
         </node>
     </node>
 
-    <!-- Write html into file. -->
-    <node name="TEST_html" channel="inline" format="communicate/send" model="">
+    <node name="TEST_webpage_in_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>

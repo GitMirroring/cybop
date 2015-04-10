@@ -17,6 +17,7 @@
     <node name="uri_to_db" channel="file" format="element/part" model="presence/var/stack.cybol"/>
 
     <!-- The db model. -->
+    <node name="directory" channel="inline" format="text/plain" model=""/>
     <node name="file" channel="inline" format="text/plain" model=""/>
     <node name="dbday" channel="inline" format="text/plain" model=""/>
     <node name="unref" channel="inline" format="text/plain" model=""/>
@@ -24,9 +25,14 @@
 
     <!-- The calendar. -->
     <node name="year" channel="inline" format="number/integer" model="2015"/>
-    <node name="week" channel="inline" format="number/integer" model="1"/>
+    <!--
+        TODO: The year does NOT get serialised yet and therefore HAS TO BE assigned directly here.
+        This might change in the future, when date and time are determined at runtime.
+        In this case, the value assigned here may be left empty then.
+    -->
     <node name="year_string" channel="inline" format="text/plain" model="2015"/>
-    <node name="week_string" channel="inline" format="text/plain" model="1"/>
+    <node name="week" channel="inline" format="number/integer" model="11"/>
+    <node name="week_string" channel="inline" format="text/plain" model=""/>
 <!--
     <node name="day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
 -->

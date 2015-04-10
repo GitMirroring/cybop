@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create non-existing directories before writing persistent data to file in cybol example application "presence"
+
 2015-04-09  Christian Heller  <christian.heller@tuxtax.de>
 
         * Implement cybol example application "presence" "forward" and "backward" logic, counting calendar week up and down

@@ -2,7 +2,7 @@
 
     <node name="link" channel="inline" format="text/plain" model="vor >>">
         <node name="tag" channel="inline" format="text/plain" model="a"/>
-        <node name="href" channel="inline" format="text/plain" model="http://presence.ba-leipzig.de/?action=go_forward"/>
+        <node name="href" channel="inline" format="text/plain" model=""/>
     </node>
 
 </node>

@@ -2,7 +2,7 @@
 
     <!-- Application. -->
     <node name="startup" channel="file" format="element/part" model="presence/logic/startup.cybol"/>
-    <node name="handler" channel="file" format="element/part" model="presence/logic/handler.cybol"/>
+    <node name="handle" channel="file" format="element/part" model="presence/logic/handle.cybol"/>
     <node name="actions" channel="file" format="element/part" model="presence/logic/actions.cybol"/>
 
     <!-- Data. -->

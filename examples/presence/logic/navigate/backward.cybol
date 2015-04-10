@@ -1,18 +1,23 @@
 <node>
 
-    <node name="increment_week" channel="inline" format="calculate/subtract" model="">
+    <node name="decrement_week" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.var.week"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
-    <node name="serialise_week" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.week_string"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.week"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    <node name="navigate_to_week" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.navigate.week"/>
     </node>
 
-    load/translate data
+    <!--
+        CAUTION! Do NOT send index page in file "logic/navigate/week.cybol".
+        It gets called on system startup before a socket was created,
+        so that it MUST NOT try to send data yet.
+        Therefore, the page is sent only here, reacting to an action request.
+    -->
+    <node name="send_index" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.send.index"/>
+    </node>
 
 </node>

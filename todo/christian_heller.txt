@@ -14,49 +14,13 @@
 WUI
 ___
 
-        * Check variables in "var.cybol" and files "logic/translate/db_to_wui/href.cybol", "logic/translate/db_to_wui/path.cybol"
-        * Implement "forward" and "backward" in cybol example application "presence", counting calendar week up and down
-            (first version may be without any datetime functionality)
-
-        * Implement in cyboi:
-            --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
-            --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week
-                language: ??; format: datetime/year-week (index)
-                if year changes and week contains old and new days (with sunday being the first day), then the first week of the NEW year is used
-            --> get_first_day_of_week (sunday being the start of the week): represent/serialise from julian_date representing current_datetime into julian_date representing first day (sunday)
-                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
-                language: ??; format: datetime/week-day-first (julian_date)
-            --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
-                language: ??; format: datetime/week-day (index)
-        * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
-            --> continue with run.cybol
-
-        * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
-        * Add files "clock_reader.c" and "clock_writer.c"
-        * Add files "randomiser_reader.c" and "randomiser_writer.c"
-        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
-        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
-        * Configure date dynamically in cybol example application "presence"
-
-        * Create non-existing directories before writing persistent data to file in cybol example application "presence"
+        * Continue in file "presence/logic/translate/uri_to_db/file.cybol"
+            --> directory path gets assembled BUT filename is missing (suffix is ok)
+            --> but since links are not visible in wui, the action is missing for generating directory physically in file system
 
         * Debug socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
-
-        * Check if knowledge paths may be nested, e.g.:
-            .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
-          written instead as:
-            .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
-        * Provide syntax for accessing model via reference path, e.g.:
-            .app.choices.(.app.var.dbday)
-          written instead with DOUBLE round parentheses representing a path/reference as:
-            .app.choices.((.app.var.db.(.app.var.day2)))
-
-        * Implement "stack memory" using existing "part" structure as known from knowledge memory
-        * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
-        * Deliver element that was added LAST in case many equally named elements exist
-        * Rename "knowledge memory" to "heap memory" ??
 
         * Find solution for send/receive arguments. Test e.g. encoding for null OR for a defined integer value?
             --> Fix bug that encoding IS assigned in file "content_element_part_cybol_deserialiser.c" since new allocated part HAS an encoding item whose data are NOT null
@@ -67,11 +31,58 @@ ___
         * Initialise all variables with null in file "content_element_part_cybol_deserialiser.c"
         * TODO Later: CAUTION! Do NOT assign any default values in file "content_element_part_cybol_deserialiser.c". These may be given and filled in e.g. an external cybol editor tool.
 
+        * Extend uri deserialiser
         * Study "libcurl3" library for URL transfer
 
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser
         * Ensure that non-encoded characters are copied as well in percent encoding deserialiser
+
+        * Attach timeout and other meta data as properties to a client socket number?
+            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
+            is the client socket usable as unique id?
+        * Set timeout parametre on server socket startup or sense
+        * Close and remove socket from client list when timeout is reached
+        * Close and remove socket from client list on error, e.g. non-respoding client
+
+        * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
+        * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
+
+        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
+            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
+
+        * Provide mechanism for asynchronous handling in cybol (not cyboi);
+            elsewhere mostly used together with callback functions (future, promise), e.g. in JavaScript, C#;
+            assign a unique integer id which is sent within request;
+            increment int id starting from zero to int max and then restarting at zero;
+            evaluate response to find int id and execute corresponding logic operation;
+            create part with int id and operation knowledge path as model and add to callback list;
+            delete int id part after execution
+
+        * Implement content negotiation:
+            https://de.wikipedia.org/wiki/Content_Negotiation
+        * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
+            https://de.wikipedia.org/wiki/Internet_Media_Type
+
+Stack
+_____
+
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+
+        * Implement "stack memory" using existing "part" structure as known from knowledge memory
+        * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
+        * Deliver element that was added LAST in case many equally named elements exist
+        * Rename "knowledge memory" to "heap memory" ??
+
+LDAP
+____
+
+        * Optimise cybol example application "presence" using login and password
+        * Retrieve login and password and lecturers' email address from ldap server
+        * Remind lecturers via email on editing their presence
+
+Compression
+___________
 
         * Loop "extract" in input/output pipeline, as long as filters are given, e.g. "tar|gzip|base64", see file "extract_receiver.c"
         * Provide filter chaining for "compression" attribute, e.g. encoding="utf-8" compression="tar|gzip|base64" (packing processed left-to-right);
@@ -90,39 +101,23 @@ ___
         * Consider multipart messages:
             https://en.wikipedia.org/wiki/MIME#Multipart_messages
 
-        * Attach timeout and other meta data as properties to a client socket number?
-            in this case, however, client sockets would have to be single parts and not just numbers in one int array;
-            is the client socket usable as unique id?
-        * Set timeout parametre on server socket startup or sense
-        * Close and remove socket from client list when timeout is reached
-        * Close and remove socket from client list on error, e.g. non-respoding client
+Knowledge Path
+______________
 
-        * Activate ipv6 support for win32 in files "inet6_host_address_socket_starter.c" and "inet6_socket_address_socket_starter.c", as soon as the mingw compiler supports it
-        * Activate function "inet_pton" for win32 in files "inet_host_address_socket_starter.c" and "inet6_host_address_socket_starter.c", as soon as the mingw compiler supports "Winsock2.h"
-
-        * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
-            wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
-
-        * Provide mechanism for asynchronous handling in cybol (not cyboi);
-            elsewhere mostly used together with callback functions, e.g. in JavaScript, C#;
-            assign a unique integer id which is sent within request;
-            increment int id starting from zero to int max and then restarting at zero;
-            evaluate response to find int id and execute corresponding logic operation;
-            create part with int id and operation knowledge path as model and add to callback list;
-            delete int id part after execution
-
-        * Implement content negotiation:
-            https://de.wikipedia.org/wiki/Content_Negotiation
-        * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
-            https://de.wikipedia.org/wiki/Internet_Media_Type
+        * Check if knowledge paths may be nested, e.g.:
+            .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
+          written instead as:
+            .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
+        * Provide syntax for accessing model via reference path, e.g.:
+            .app.choices.(.app.var.dbday)
+          written instead with DOUBLE round parentheses representing a path/reference as:
+            .app.choices.((.app.var.db.(.app.var.day2)))
 
 General CYBOI
 _____________
 
-        * Remove cybol properties "channel", "encoding", "language", "format" from cyboi-internal knowledge model schema
-        * Investigate if only "type" (NOT "format") should be used internally, since format is only needed for de-/serialisation??
-            ==> NO! The "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value
-            see e.g. "cybol_serialiser.c"
+        * Remove cybol properties "channel", "encoding", "language" but NOT "format" from cyboi-internal knowledge model schema
+            the "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value; see e.g. "cybol_serialiser.c"
 
 Hello, World!
 _____________
@@ -208,6 +203,26 @@ ______________
 
 Datetime
 ________
+
+        * Implement in cyboi:
+            --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
+            --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week
+                language: ??; format: datetime/year-week (index)
+                if year changes and week contains old and new days (with sunday being the first day), then the first week of the NEW year is used
+            --> get_first_day_of_week (sunday being the start of the week): represent/serialise from julian_date representing current_datetime into julian_date representing first day (sunday)
+                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
+                language: ??; format: datetime/week-day-first (julian_date)
+            --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
+                language: ??; format: datetime/week-day (index)
+        * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
+            --> continue with run.cybol
+
+        * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
+        * Add files "clock_reader.c" and "clock_writer.c"
+        * Add files "randomiser_reader.c" and "randomiser_writer.c"
+        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
+        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
+        * Configure date dynamically in cybol example application "presence"
 
         * Correct new algorithm for time scale gregorian calendar serialiser
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender

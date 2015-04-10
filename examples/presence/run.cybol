@@ -77,6 +77,19 @@
 
 <node>
 
+    <!-- This is needed for printing messages on terminal. -->
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+    <node name="log_initialise" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Initialise application"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
     <node name="create_app" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="app"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -91,16 +104,21 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
-    <node name="TEST_startup_terminal" channel="inline" format="maintain/startup" model="">
+    <node name="log_create" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Create domain"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-
     <node name="create_wui_choices" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.choices.rows"/>
     </node>
     <node name="create_wui_lecturers" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.lecturers.rows"/>
     </node>
+
 <!--
     <node name="initialise_date" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="clock"/>
@@ -115,8 +133,32 @@
         <node name="language" channel="inline" format="meta/language" model="??/??"/>
     </node>
 -->
-    <node name="translate_db_to_wui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.lecturers"/>
+
+    <node name="log_translate" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Translate models"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="translate_dom_to_nav_backward" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_nav.backward"/>
+    </node>
+    <node name="translate_dom_to_nav_forward" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_nav.forward"/>
+    </node>
+
+    <node name="log_navigate" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Navigate week"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="translate_dom_to_nav_week" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.navigate.week"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
@@ -129,6 +171,14 @@
         <node name="receiver" channel="inline" format="text/plain" model="test_presence.txt"/>
     </node>
 
+    <node name="log_startup" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Startup socket"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
     <node name="startup" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
     </node>
