@@ -1,0 +1,11 @@
+<node>
+
+    <node name="flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="empty_number" channel="inline" format="number/integer" model=""/>
+    <node name="exists_number" channel="inline" format="number/integer" model="2015"/>
+
+    <node name="empty_string" channel="inline" format="text/plain" model=""/>
+    <node name="exists_string" channel="inline" format="text/plain" model="2015"/>
+
+</node>

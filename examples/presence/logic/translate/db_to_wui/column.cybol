@@ -58,23 +58,15 @@
 
     <!-- END: Optimise this in the future! -->
 
-    <node name="overwrite_link" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.unref)"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <node name="test_for_emptyness" channel="inline" format="access/indicate-empty" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.empty"/>
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.unref"/>
     </node>
-    <node name="translate_href" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.href"/>
-    </node>
-    <node name="overwrite_href" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link#href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>
-    <node name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day)#class"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db.(.app.var.db_to_wui_column.element.day)"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <!-- Fill cell with database values. If those are empty, then use default values. -->
+    <node name="translate_cell" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.empty"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.cell_default"/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.cell"/>
     </node>
 
     <!-- Loop test. -->

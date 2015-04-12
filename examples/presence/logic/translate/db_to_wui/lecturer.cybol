@@ -61,10 +61,6 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.db"/>
     </node>
 
-    <!-- CAUTION! This IS necessary, in order to have default values, in case a lecturer's db file is NOT available. -->
-    <node name="reset_lecturers_row" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.lecturers.row"/>
-    </node>
     <node name="translate_row" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.row"/>
     </node>

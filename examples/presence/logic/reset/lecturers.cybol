@@ -1,6 +1,0 @@
-<node>
-
-    <node name="column" channel="file" format="element/part" model="presence/logic/reset/lecturers/column.cybol"/>
-    <node name="row" channel="file" format="element/part" model="presence/logic/reset/lecturers/row.cybol"/>
-
-</node>

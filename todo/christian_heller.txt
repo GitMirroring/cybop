@@ -14,10 +14,6 @@
 WUI
 ___
 
-        * Continue in file "presence/logic/translate/uri_to_db/file.cybol"
-            --> directory path gets assembled BUT filename is missing (suffix is ok)
-            --> but since links are not visible in wui, the action is missing for generating directory physically in file system
-
         * Debug socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser
 
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
@@ -73,6 +69,7 @@ _____
         * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
         * Deliver element that was added LAST in case many equally named elements exist
         * Rename "knowledge memory" to "heap memory" ??
+        * Use a third cybol path format "path/stack"??
 
 LDAP
 ____

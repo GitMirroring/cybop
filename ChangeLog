@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add cybol example application "indicate" for testing cybol operations "access/indicate-empty" and "access/indicate-exists"
+        * Set default values in wui cell for non-existing database in cybol example application "presence"
+
 2015-04-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create non-existing directories before writing persistent data to file in cybol example application "presence"
