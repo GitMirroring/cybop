@@ -157,7 +157,7 @@
         <node name="message" channel="inline" format="text/plain" model="Navigate week"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="translate_dom_to_nav_week" channel="inline" format="flow/sequence" model="">
+    <node name="navigate_week" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.navigate.week"/>
     </node>
 

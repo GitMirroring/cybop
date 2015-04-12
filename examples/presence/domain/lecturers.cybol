@@ -2,5 +2,6 @@
 
     <node name="brunner" channel="inline" format="text/plain" model="Prof. Brunner"/>
     <node name="heller" channel="inline" format="text/plain" model="Prof. Heller"/>
+    <node name="brauer" channel="inline" format="text/plain" model="Prof. Brauer"/>
 
 </node>

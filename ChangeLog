@@ -22,6 +22,7 @@
 
         * Add cybol example application "indicate" for testing cybol operations "access/indicate-empty" and "access/indicate-exists"
         * Set default values in wui cell for non-existing database in cybol example application "presence"
+        * Implement "cal_to_wui" translation in cybol example application "presence"
 
 2015-04-10  Christian Heller  <christian.heller@tuxtax.de>
 

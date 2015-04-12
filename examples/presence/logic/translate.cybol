@@ -2,6 +2,8 @@
 
     <node name="dom_to_nav" channel="file" format="element/part" model="presence/logic/translate/dom_to_nav.cybol"/>
 
+    <node name="cal_to_wui" channel="file" format="element/part" model="presence/logic/translate/cal_to_wui.cybol"/>
+
     <node name="db_to_wui" channel="file" format="element/part" model="presence/logic/translate/db_to_wui.cybol"/>
 
     <node name="uri_to_db" channel="file" format="element/part" model="presence/logic/translate/uri_to_db.cybol"/>
