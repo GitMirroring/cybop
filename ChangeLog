@@ -23,6 +23,7 @@
         * Add cybol example application "indicate" for testing cybol operations "access/indicate-empty" and "access/indicate-exists"
         * Set default values in wui cell for non-existing database in cybol example application "presence"
         * Implement "cal_to_wui" translation in cybol example application "presence"
+        * Improve formatting and add still missing data in cybol example application "presence"
 
 2015-04-10  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -46,7 +47,7 @@
 
         * Complete cybol element/part serialiser by initialising destination nodes properly
         * Complete cybol example application "presence" uri-to-db translation
-        * Rename all cybol example application "presence" xml tags uniformly to just "node"
+        * Rename all cybol example application "presence" xml tags (model, part, property, constraint) uniformly to just "node"
 
 2015-03-24  Christian Heller  <christian.heller@tuxtax.de>
 

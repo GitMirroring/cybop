@@ -116,15 +116,16 @@ a:hover {
  */
 
 #lecturers table {
-    width: 800px;
+    width: 880px;
     border-spacing: 1px;
     background-color: #000000;
     text-align: center;
 }
 
 #lecturers th {
-    width: 100px;
+    min-width: 100px;
     padding: 2px;
+    white-space: nowrap;
     background-color: #E0E0E0;
 }
 

@@ -1,7 +1,20 @@
 <node>
 
-    <node name="brunner" channel="inline" format="text/plain" model="Prof. Brunner"/>
-    <node name="heller" channel="inline" format="text/plain" model="Prof. Heller"/>
-    <node name="brauer" channel="inline" format="text/plain" model="Prof. Brauer"/>
+    <node name="brauer" channel="inline" format="text/plain" model="Frau Prof. Brauer"/>
+    <node name="brunner" channel="inline" format="text/plain" model="Herr Prof. Brunner"/>
+    <node name="glaser" channel="inline" format="text/plain" model="Frau Prof. Glaser"/>
+    <node name="groeckel" channel="inline" format="text/plain" model="Frau Prof. Gröckel"/>
+    <node name="guckel" channel="inline" format="text/plain" model="Herr Dr. Guckel"/>
+    <node name="heller" channel="inline" format="text/plain" model="Herr Prof. Heller"/>
+    <node name="hoyer" channel="inline" format="text/plain" model="Frau Dr. Hoyer"/>
+    <node name="krone" channel="inline" format="text/plain" model="Herr Prof. Krone"/>
+    <node name="lange" channel="inline" format="text/plain" model="Frau Prof. Lange"/>
+    <node name="morning" channel="inline" format="text/plain" model="Herr Prof. Morning"/>
+    <node name="schatte" channel="inline" format="text/plain" model="Frau Dr. Schatte"/>
+    <node name="schneider" channel="inline" format="text/plain" model="Frau Dr. Schneider"/>
+    <node name="schulze" channel="inline" format="text/plain" model="Frau Schulze"/>
+    <node name="siegert" channel="inline" format="text/plain" model="Frau Prof. Siegert"/>
+    <node name="stuhr" channel="inline" format="text/plain" model="Frau Dr. Stuhr"/>
+    <node name="thoene" channel="inline" format="text/plain" model="Herr Dr. Thöne"/>
 
 </node>

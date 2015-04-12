@@ -34,8 +34,11 @@ a {
 }
 
 a:hover {
+    font-weight: bold;
+/*
     background-color: #000000;
     color: #FFFFFF;
+*/
 }
 
 /*
@@ -55,7 +58,7 @@ a:hover {
 }
 
 /*
- * Values used in overview and choice.
+ * Values used in lecturers and choices.
  */
 
 .teaching {
@@ -74,11 +77,15 @@ a:hover {
     background-color: #FFCCCC;
 }
 
-.disease {
+.illness {
     background-color: #FFCCCC;
 }
 
 .bankholiday {
+    background-color: #E0E0E0;
+}
+
+.empty {
     background-color: #E0E0E0;
 }
 
@@ -105,43 +112,44 @@ a:hover {
 }
 
 /*
- * Overview.
+ * Lecturers.
  */
 
-#overview table {
-    width: 800px;
+#lecturers table {
+    width: 880px;
     border-spacing: 1px;
     background-color: #000000;
     text-align: center;
 }
 
-#overview th {
-    width: 100px;
+#lecturers th {
+    min-width: 100px;
     padding: 2px;
+    white-space: nowrap;
     background-color: #E0E0E0;
 }
 
-#overview a {
+#lecturers a {
     display: block;
     text-decoration: none;
 }
 
 /*
- * Choice.
+ * Choices.
  */
 
-#choice {
+#choices {
     float: right;
 }
 
-#choice table {
+#choices table {
     width: 100px;
     border-spacing: 1px;
     background-color: #000000;
     text-align: center;
 }
 
-#choice th {
+#choices th {
     padding: 2px;
     background-color: #E0E0E0;
 }
