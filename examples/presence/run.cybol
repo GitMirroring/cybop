@@ -162,6 +162,7 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
+<!--
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -170,6 +171,7 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence.txt"/>
     </node>
+-->
 
     <node name="log_startup" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

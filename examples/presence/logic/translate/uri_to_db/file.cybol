@@ -7,6 +7,7 @@
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_db.file_path"/>
     </node>
 
+<!--
     <node name="TEST_directory_path" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -23,6 +24,7 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+-->
 
     <!-- TEMPORARY WORKAROUND -->
     <node name="create_folder" channel="inline" format="command/create-folder" model="">

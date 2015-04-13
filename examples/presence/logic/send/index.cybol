@@ -17,6 +17,7 @@
         </node>
     </node>
 
+<!--
     <node name="TEST_webpage_in_file" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -25,6 +26,7 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_wui.html"/>
     </node>
+-->
 
     <!-- Send html encapsulated as http-response. -->
     <node name="send" channel="inline" format="communicate/send" model="">
