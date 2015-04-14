@@ -27,6 +27,7 @@
 #define GENERAL_HEADER_HTTP_NAME_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -36,48 +37,39 @@
 //
 
 /** The Cache-Control general header http name. */
-static unsigned char CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'C', 'a', 'c', 'h', 'e', '-', 'C', 'o', 'n', 't', 'r', 'o', 'l'};
-static unsigned char* CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME = CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME = "Cache-Control";
 static int* CACHE_CONTROL_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Connection general header http name. */
-static unsigned char CONNECTION_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'C', 'o', 'n', 'n', 'e', 'c', 't', 'i', 'o', 'n'};
-static unsigned char* CONNECTION_GENERAL_HEADER_HTTP_NAME = CONNECTION_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* CONNECTION_GENERAL_HEADER_HTTP_NAME = "Connection";
 static int* CONNECTION_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Date general header http name. */
-static unsigned char DATE_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'D', 'a', 't', 'e'};
-static unsigned char* DATE_GENERAL_HEADER_HTTP_NAME = DATE_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* DATE_GENERAL_HEADER_HTTP_NAME = "Date";
 static int* DATE_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Pragma general header http name. */
-static unsigned char PRAGMA_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'P', 'r', 'a', 'g', 'm', 'a'};
-static unsigned char* PRAGMA_GENERAL_HEADER_HTTP_NAME = PRAGMA_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* PRAGMA_GENERAL_HEADER_HTTP_NAME = "Pragma";
 static int* PRAGMA_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Trailer general header http name. */
-static unsigned char TRAILER_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'T', 'r', 'a', 'i', 'l', 'e', 'r'};
-static unsigned char* TRAILER_GENERAL_HEADER_HTTP_NAME = TRAILER_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* TRAILER_GENERAL_HEADER_HTTP_NAME = "Trailer";
 static int* TRAILER_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Transfer-Encoding general header http name. */
-static unsigned char TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'T', 'r', 'a', 'n', 's', 'f', 'e', 'r', '-', 'E', 'n', 'c', 'o', 'd', 'i', 'n', 'g'};
-static unsigned char* TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME = TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME = "Transfer-Encoding";
 static int* TRANSFER_ENCODING_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Upgrade general header http name. */
-static unsigned char UPGRADE_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'U', 'p', 'g', 'r', 'a', 'd', 'e'};
-static unsigned char* UPGRADE_GENERAL_HEADER_HTTP_NAME = UPGRADE_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* UPGRADE_GENERAL_HEADER_HTTP_NAME = "Upgrade";
 static int* UPGRADE_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Via general header http name. */
-static unsigned char VIA_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'V', 'i', 'a'};
-static unsigned char* VIA_GENERAL_HEADER_HTTP_NAME = VIA_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* VIA_GENERAL_HEADER_HTTP_NAME = "Via";
 static int* VIA_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The Warning general header http name. */
-static unsigned char WARNING_GENERAL_HEADER_HTTP_NAME_ARRAY[] = {'W', 'a', 'r', 'n', 'i', 'n', 'g'};
-static unsigned char* WARNING_GENERAL_HEADER_HTTP_NAME = WARNING_GENERAL_HEADER_HTTP_NAME_ARRAY;
+static unsigned char* WARNING_GENERAL_HEADER_HTTP_NAME = "Warning";
 static int* WARNING_GENERAL_HEADER_HTTP_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* GENERAL_HEADER_HTTP_NAME_CONSTANT_SOURCE */

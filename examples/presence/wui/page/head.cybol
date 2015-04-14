@@ -25,7 +25,10 @@
     <node name="icon" channel="inline" format="text/plain" model="">
         <node name="tag" channel="inline" format="text/plain" model="link"/>
         <node name="rel" channel="inline" format="text/plain" model="icon"/>
+<!--
         <node name="type" channel="inline" format="text/plain" model="image/png"/>
+-->
+        <node name="type" channel="inline" format="text/plain" model="image/vnd.microsoft.icon"/>
         <node name="href" channel="inline" format="text/plain" model="http://localhost/?action=send_icon"/>
     </node>
     <node name="title" channel="inline" format="text/plain" model="Anwesenheit Hauptberufliche Dozenten">

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-14  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add shell script in directory "bin" for starting cybol example application "presence"
+        * Add http header properties in file "send.cybol" for sent messages in cybol example application "presence"
+
 2015-04-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cybol example application "indicate" for testing cybol operations "access/indicate-empty" and "access/indicate-exists"

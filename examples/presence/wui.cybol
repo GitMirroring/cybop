@@ -19,6 +19,9 @@
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
     <node name="heraldic_symbol" channel="file" language="message/binary" model="presence/wui/footer/sachsen.png"/>
     <!-- CAUTION! Do use xml attribute "language" and NOT "format", since these are binary data. -->
+<!--
     <node name="icon" channel="file" language="message/binary" model="presence/wui/page/favicon.png"/>
+-->
+    <node name="icon" channel="file" language="message/binary" model="presence/wui/page/favicon.ico"/>
 
 </node>

@@ -13,28 +13,44 @@
             whose properties are used INSTEAD of those constraints that might be specified here.
             Therefore, the necessary "encoding" is added to the corresponding part in ".app.var" DIRECTLY.
         -->
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.css"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.css">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="text/css"/>
+        </node>
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
     <node name="header_image" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.header_image"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.header_image">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="image/png"/>
+        </node>
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
     <node name="heraldic_symbol" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.heraldic_symbol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.heraldic_symbol">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="image/png"/>
+        </node>
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
     <node name="icon" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.icon"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.icon">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="image/vnd.microsoft.icon"/>
+        </node>
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 

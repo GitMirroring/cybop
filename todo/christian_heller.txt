@@ -14,7 +14,10 @@
 WUI
 ___
 
-        * Debug socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser
+        * Close client socket after each request in file "handle.cybol" in cybol example application "presence"
+            (possibly solves the problem with socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser)
+        * Investigate favicon handling by testing formats ico and png
+        * Copy cyboi executable and shell script "presence.sh" to directory "/bin" and app "presence" to directory "/srv/presence"
 
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
 

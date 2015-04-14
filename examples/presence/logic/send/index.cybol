@@ -48,7 +48,11 @@
             with which the constraints are recognised properly.
             Therefore, the necessary "encoding" is added at the part ".app.var.webpage" DIRECTLY.
         -->
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+        </node>
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
