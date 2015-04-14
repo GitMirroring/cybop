@@ -14,10 +14,7 @@
 WUI
 ___
 
-        * Close client socket after each request in file "handle.cybol" in cybol example application "presence"
-            (possibly solves the problem with socket endless loop "TEST read bsd socket no data c: 0" appearing e.g. when closing web browser)
-        * Investigate favicon handling by testing formats ico and png
-        * Copy cyboi executable and shell script "presence.sh" to directory "/bin" and app "presence" to directory "/srv/presence"
+        * Debug problem with socket endless loop "TEST read bsd socket error EBADF: 9" (reason is NOT icon node in file "header.cybol"; commenting out did not help)
 
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
 
@@ -31,7 +28,7 @@ ___
         * TODO Later: CAUTION! Do NOT assign any default values in file "content_element_part_cybol_deserialiser.c". These may be given and filled in e.g. an external cybol editor tool.
 
         * Extend uri deserialiser
-        * Study "libcurl3" library for URL transfer
+        * Study "libcurl3" library for URL transfer for new ideas and keywords yet missing in cyboi
 
         * Call percent encoding serialiser for attributes of all parts in html serialiser, e.g. "href" attribute of an "a" tag
         * Ensure that non-encoded characters are copied as well in character reference deserialiser

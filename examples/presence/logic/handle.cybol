@@ -102,8 +102,7 @@
     </node>
 
     <!-- CAUTION! Close client socket only AFTER having processed the action above. -->
-<!--
-    <node name="shutdown_client_socket" channel="inline" format="maintain/startup" model="">
+    <node name="shutdown_client_socket" channel="inline" format="maintain/shutdown" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
         <node name="id" channel="inline" format="number/integer" model="80"/>
@@ -111,6 +110,5 @@
         <node name="mode" channel="inline" format="text/plain" model="client"/>
         <node name="socket" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
--->
 
 </node>

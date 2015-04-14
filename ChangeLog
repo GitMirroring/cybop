@@ -22,6 +22,9 @@
 
         * Add shell script in directory "bin" for starting cybol example application "presence"
         * Add http header properties in file "send.cybol" for sent messages in cybol example application "presence"
+        * Investigate favicon handling by testing formats ico and png
+        * Close client socket after each request in file "handle.cybol" in cybol example application "presence", solving problem with socket endless loop reading data
+        * Accept more than just one client request in cybol example application "presence"
 
 2015-04-12  Christian Heller  <christian.heller@tuxtax.de>
 
