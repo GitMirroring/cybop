@@ -26,14 +26,15 @@
 #ifndef MODE_SOCKET_SHUTTER_SOURCE
 #define MODE_SOCKET_SHUTTER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
-#include "../../../../executor/maintainer/shutter/socket/server_socket_shutter.c"
+#include "../../../../executor/maintainer/shutter/socket/client/client_socket_shutter.c"
+#include "../../../../executor/maintainer/shutter/socket/server/server_socket_shutter.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -62,7 +63,7 @@ void shutdown_socket_mode(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             // Hand over client socket.
             // CAUTION! It does NOT have to be determined from internal memory.
-            shutdown_socket_close(p4);
+            shutdown_socket_client(p0, p3, p4);
         }
     }
 

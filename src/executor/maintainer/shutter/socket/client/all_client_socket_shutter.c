@@ -23,28 +23,30 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ALL_SERVER_SOCKET_SHUTTER_SOURCE
-#define ALL_SERVER_SOCKET_SHUTTER_SOURCE
+#ifndef ALL_CLIENT_SOCKET_SHUTTER_SOURCE
+#define ALL_CLIENT_SOCKET_SHUTTER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/maintainer/shutter/socket/element_server_socket_shutter.c"
-#include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../logger/logger.c"
+#include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../../executor/maintainer/shutter/socket/client/element_client_socket_shutter.c"
+#include "../../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../logger/logger.c"
 
 /**
- * Shuts down all clients in the list.
+ * Searches the list for the client socket handed over.
  *
- * @param p0 the client list data
+ * @param p0 the client list data (pointer reference)
  * @param p1 the client list count
+ * @param p2 the client list size
+ * @param p3 the client socket
  */
-void shutdown_socket_server_all(void* p0, void* p1) {
+void shutdown_socket_client_all(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket server all.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket client all.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -63,7 +65,7 @@ void shutdown_socket_server_all(void* p0, void* p1) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-fwprintf(stdout, L"TEST: shutdown socket server all loop count p1: %i \n", *((int*) p1));
+//?? fwprintf(stdout, L"TEST: shutdown socket client all loop count p1: %i \n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -74,15 +76,12 @@ fwprintf(stdout, L"TEST: shutdown socket server all loop count p1: %i \n", *((in
             break;
         }
 
-        // Test for data available on client socket.
-        // CAUTION! This function only PEEKS into data,
-        // but does NOT remove them, so that they can be read later.
-        shutdown_socket_server_element(p0, (void*) &j);
+        shutdown_socket_client_element(p0, p1, p2, p3, (void*) &j);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* ALL_SERVER_SOCKET_SHUTTER_SOURCE */
+/* ALL_CLIENT_SOCKET_SHUTTER_SOURCE */
 #endif

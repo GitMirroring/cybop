@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove client socket from server's client list on closing, so that it does not get queried any longer with function "check_io_accept" and the socket error "EBADF" gets avoided
+
 2015-04-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add shell script in directory "bin" for starting cybol example application "presence"

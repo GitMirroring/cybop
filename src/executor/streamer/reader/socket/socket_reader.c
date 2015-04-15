@@ -75,7 +75,7 @@ void read_socket(void* p0, void* p1) {
     // Loop until all bytes have been read.
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
+//?? fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
 
         // Sense further data available on socket.
         //
@@ -116,11 +116,11 @@ fwprintf(stdout, L"TEST: read socket loop ec: %i \n", ec);
         // Read data into buffer with given size.
         read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST: read socket result bc: %i \n", bc);
+//?? fwprintf(stdout, L"TEST: read socket result bc: %i \n", bc);
 
         if (bc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST: read socket bc > 0: %i \n", bc);
+//?? fwprintf(stdout, L"TEST: read socket bc > 0: %i \n", bc);
 
             // Append buffer to destination data.
             append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -128,7 +128,7 @@ fwprintf(stdout, L"TEST: read socket bc > 0: %i \n", bc);
 
         if (ec > bs) {
 
-fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
+//?? fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
 
             // There are further data available on the socket.
             // Therefore, another loop cycle will be entered.
@@ -143,7 +143,7 @@ fwprintf(stdout, L"TEST: read socket ec > bs: %i \n", ec);
 
         } else {
 
-fwprintf(stdout, L"TEST: read socket ec <= bs: %i \n", ec);
+//?? fwprintf(stdout, L"TEST: read socket ec <= bs: %i \n", ec);
 
             // The buffer completely or not, which is not relevant.
             // However, its size was sufficient.

@@ -119,9 +119,14 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
                     } else if (c == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST read bsd socket no data c: %i\n", c);
+//?? fwprintf(stdout, L"TEST read bsd socket no data c: %i\n", c);
 
-                        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. No data could be sensed.");
+                        // CAUTION! Do NOT log this message, since it would
+                        // produce dozens of log entries.
+                        // The cyboi endless signal loop queries input/output
+                        // channels frequently for new available data.
+                        // If there are none, then this is just normal.
+                        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read bsd socket. No data could be sensed.");
 
                         // Copy destination count.
                         // CAUTION! Copy value only if >= zero.

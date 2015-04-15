@@ -14,7 +14,7 @@
 WUI
 ___
 
-        * Debug problem with socket endless loop "TEST read bsd socket error EBADF: 9" (reason is NOT icon node in file "header.cybol"; commenting out did not help)
+        * Find out why web pages are loaded only partly
 
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
 
