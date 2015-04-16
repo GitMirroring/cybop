@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
-#include "../../../../executor/searcher/selector/http_response/header_entry_http_response_selector.c"
+#include "../../../../executor/representer/serialiser/http_response/encode_header_entry_http_response_serialiser.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../logger/logger.c"
 
@@ -67,7 +67,7 @@ void serialise_http_response_header_entry(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    select_http_response_header_entry(p0, nd, nc, md, mc);
+    serialise_http_response_header_entry_encode(p0, nd, nc, md, mc);
 }
 
 /* HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE */

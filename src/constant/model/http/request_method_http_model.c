@@ -31,43 +31,35 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The connect request method http model. Connects via ssl tunnel on proxy server. */
-static wchar_t CONNECT_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'C', L'O', L'N', L'N', L'E', L'C', L'T'};
-static wchar_t* CONNECT_REQUEST_METHOD_HTTP_MODEL = CONNECT_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* CONNECT_REQUEST_METHOD_HTTP_MODEL = "CONNECT";
 static int* CONNECT_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The delete request method http model. Deletes the specified file on the webserver. */
-static wchar_t DELETE_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'D', L'E', L'L', L'E', L'T', L'E'};
-static wchar_t* DELETE_REQUEST_METHOD_HTTP_MODEL = DELETE_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* DELETE_REQUEST_METHOD_HTTP_MODEL = "DELETE";
 static int* DELETE_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The get request method http model. Transfers content from server as arguments in uri. */
-static wchar_t GET_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'G', L'E', L'T'};
-static wchar_t* GET_REQUEST_METHOD_HTTP_MODEL = GET_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* GET_REQUEST_METHOD_HTTP_MODEL = "GET";
 static int* GET_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The head request method http model. Sends GET or POST request header, but not content. */
-static wchar_t HEAD_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'H', L'E', L'A', L'D'};
-static wchar_t* HEAD_REQUEST_METHOD_HTTP_MODEL = HEAD_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* HEAD_REQUEST_METHOD_HTTP_MODEL = "HEAD";
 static int* HEAD_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The options request method http model. Returns a list of methods and features supported by the webserver. */
-static wchar_t OPTIONS_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'O', L'P', L'T', L'I', L'O', L'N', L'S'};
-static wchar_t* OPTIONS_REQUEST_METHOD_HTTP_MODEL = OPTIONS_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* OPTIONS_REQUEST_METHOD_HTTP_MODEL = "OPTIONS";
 static int* OPTIONS_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The post request method http model. Transfers content from server in an additional data block consisting of name-value pairs. */
-static wchar_t POST_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'P', L'O', L'S', L'T'};
-static wchar_t* POST_REQUEST_METHOD_HTTP_MODEL = POST_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* POST_REQUEST_METHOD_HTTP_MODEL = "POST";
 static int* POST_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The put request method http model. Uploads data to webserver via given uri. */
-static wchar_t PUT_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'P', L'U', L'T'};
-static wchar_t* PUT_REQUEST_METHOD_HTTP_MODEL = PUT_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* PUT_REQUEST_METHOD_HTTP_MODEL = "PUT";
 static int* PUT_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The trace request method http model. Returns the request as the webserver received it. */
-static wchar_t TRACE_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'T', L'R', L'A', L'C', L'E'};
-static wchar_t* TRACE_REQUEST_METHOD_HTTP_MODEL = TRACE_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* TRACE_REQUEST_METHOD_HTTP_MODEL = "TRACE";
 static int* TRACE_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE */

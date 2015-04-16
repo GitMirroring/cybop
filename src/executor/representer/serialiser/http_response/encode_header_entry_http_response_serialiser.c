@@ -1,0 +1,83 @@
+/*
+ * Copyright (C) 1999-2014. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.16.0 2014-03-31
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
+#define ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
+
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/name/cyboi/http/http_cyboi_name.c"
+#include "../../../../executor/searcher/selector/http_response/header_entry_http_response_selector.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../logger/logger.c"
+
+/**
+ * Serialises the http response header entry encode.
+ *
+ * @param p0 the destination item
+ * @param p1 the source name data
+ * @param p2 the source name count
+ * @param p3 the source model data
+ * @param p4 the source model count
+ */
+void serialise_http_response_header_entry_encode(void* p0, void* p1, void* p2, void* p3, void* p4) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response header entry encode.");
+
+fwprintf(stdout, L"TEST serialise http response header entry encode *nc: %i\n", *((int*) p2));
+fwprintf(stdout, L"TEST serialise http response header entry encode nd: %ls\n", (wchar_t*) p1);
+
+    // The character name item.
+    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The character name item data, count.
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Allocate character name item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Encode wide character array into multibyte character data.
+    encode_utf_8(n, p1, p2);
+
+    // Get character name item data, count.
+    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+    // Inside the structure, arrays may have been reallocated,
+    // with elements pointing to different memory areas now.
+    copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Select entry by name and append model.
+    select_http_response_header_entry(p0, nd, nc, p3, p4);
+
+    // Deallocate character name item.
+    deallocate_item((void*) &n, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+}
+
+/* ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE */
+#endif

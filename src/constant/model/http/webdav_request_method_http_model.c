@@ -31,38 +31,31 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The copy webdav request method http model. Copies a resource from one uri to another. */
-static wchar_t COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'C', L'O', L'P', L'Y'};
-static wchar_t* COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL = COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "COPY";
 static int* COPY_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The lock webdav request method http model. Locks a resource. */
-static wchar_t LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'L', L'O', L'C', L'K'};
-static wchar_t* LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL = LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "LOCK";
 static int* LOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The mkcol webdav request method http model. Creates a collection (also called directory). */
-static wchar_t MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'M', L'K', L'C', L'O', L'L'};
-static wchar_t* MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL = MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "MKCOL";
 static int* MKCOL_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The move webdav request method http model. Moves a resource from one uri to another. */
-static wchar_t MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'M', L'O', L'V', L'E'};
-static wchar_t* MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL = MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "MOVE";
 static int* MOVE_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The propfind webdav request method http model. Reads properties as resources from an xml file. Retrieves the directory structure of a remote system. */
-static wchar_t PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'P', L'R', L'O', L'P', L'F', L'I', L'N', L'D'};
-static wchar_t* PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL = PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "PROPFIND";
 static int* PROPFIND_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The proppatch webdav request method http model. Changes and deletes various properties of a resource in one single atomic act. */
-static wchar_t PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'P', L'R', L'O', L'P', L'P', L'A', L'T', L'C', L'H'};
-static wchar_t* PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL = PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "PROPPATCH";
 static int* PROPPATCH_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The unlock webdav request method http model. Unlocks a resource. */
-static wchar_t UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY[] = {L'U', L'N', L'L', L'O', L'C', L'K'};
-static wchar_t* UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL = UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_ARRAY;
+static unsigned char* UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL = "UNLOCK";
 static int* UNLOCK_WEBDAV_REQUEST_METHOD_HTTP_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* WEBDAV_REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE */

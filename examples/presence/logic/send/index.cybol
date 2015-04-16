@@ -56,4 +56,16 @@
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
+    <node name="test_http_response" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage">
+            <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
+            <node name="Connection" channel="inline" format="text/plain" model="close"/>
+            <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+        </node>
+        <node name="receiver" channel="inline" format="text/plain" model="test_presence_http_response.txt"/>
+    </node>
+
 </node>

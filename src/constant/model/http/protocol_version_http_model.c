@@ -31,13 +31,11 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The 1.0 protocol version http model. */
-static unsigned char NUMBER_1_0_PROTOCOL_VERSION_HTTP_MODEL_ARRAY[] = {'H', 'T', 'T', 'P', '/', '1', '.', '0'};
-static unsigned char* NUMBER_1_0_PROTOCOL_VERSION_HTTP_MODEL = NUMBER_1_0_PROTOCOL_VERSION_HTTP_MODEL_ARRAY;
+static unsigned char* NUMBER_1_0_PROTOCOL_VERSION_HTTP_MODEL = "HTTP/1.0";
 static int* NUMBER_1_0_PROTOCOL_VERSION_HTTP_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The 1.1 protocol version http model. */
-static unsigned char NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_ARRAY[] = {'H', 'T', 'T', 'P', '/', '1', '.', '1'};
-static unsigned char* NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL = NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_ARRAY;
+static unsigned char* NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL = "HTTP/1.1";
 static int* NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PROTOCOL_VERSION_HTTP_MODEL_CONSTANT_SOURCE */
