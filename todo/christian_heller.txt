@@ -14,10 +14,13 @@
 WUI
 ___
 
+        * Change http header names into capital letters, as requested by http specification
+        * Use RESPONSE command in http response
+            Münz: Prof. Websites: Kap. 9.3, Kap. 11
+        * Print and verify generated http response in file
         * Find out why web pages are loaded only partly:
             Read existing flags before setting nonblocking flag: wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100 (11.20 Nicht blockierende I/O-Sockets)
             Problem with signals due to slow function "accept": wolf_-_linux-unix-programmierung/Kap11-012.htm#RxxKap11012040003911F030100 (11.13 Parallele Server)
-            Münz: Prof. Websites: Kap. 9.3, Kap. 11
 
         * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
 
