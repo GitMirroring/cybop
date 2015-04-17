@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/manipulation/manipulation_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/accessor/name_getter/array_name_getter.c"
 #include "../../executor/manipulator/part_manipulator.c"
 #include "../../logger/logger.c"
@@ -94,15 +94,15 @@ void apply_manipulate(void* p0, void* p1, void* p2, void* p3) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get value part.
-    get_part_knowledge((void*) &v, p0, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) VALUE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get position part.
-    get_part_knowledge((void*) &p, p0, (void*) POSITION_MANIPULATION_LOGIC_CYBOL_NAME, (void*) POSITION_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) POSITION_MANIPULATION_LOGIC_CYBOL_NAME, (void*) POSITION_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_part_knowledge((void*) &t, p0, (void*) TYPE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) TYPE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &t, p0, (void*) TYPE_MANIPULATION_LOGIC_CYBOL_NAME, (void*) TYPE_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
-    get_part_knowledge((void*) &c, p0, (void*) COUNT_MANIPULATION_LOGIC_CYBOL_NAME, (void*) COUNT_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) COUNT_MANIPULATION_LOGIC_CYBOL_NAME, (void*) COUNT_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get index part.
-    get_part_knowledge((void*) &i, p0, (void*) INDEX_MANIPULATION_LOGIC_CYBOL_NAME, (void*) INDEX_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) INDEX_MANIPULATION_LOGIC_CYBOL_NAME, (void*) INDEX_MANIPULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get value part model item.
     copy_array_forward((void*) &vm, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

@@ -33,7 +33,7 @@
 #include "../../constant/name/cybol/logic/access/count_access_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/counter/part_counter.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -85,13 +85,13 @@ void apply_count(void* p0, void* p1, void* p2) {
     void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get count part.
-    get_part_knowledge((void*) &c, p0, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get part part.
-    get_part_knowledge((void*) &p, p0, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get selection part.
-    get_part_knowledge((void*) &s, p0, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get filter part.
-    get_part_knowledge((void*) &f, p0, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

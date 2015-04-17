@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/move_file_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/move_file_commander.c"
 #include "../../logger/logger.c"
 
@@ -96,15 +96,15 @@ void apply_move_file(void* p0, void* p1, void* p2) {
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source part.
-    get_part_knowledge((void*) &s, p0, (void*) SOURCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SOURCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get destination part.
-    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DESTINATION_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &d, p0, (void*) DESTINATION_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DESTINATION_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get force part.
-    get_part_knowledge((void*) &f, p0, (void*) FORCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FORCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get interactive part.
-    get_part_knowledge((void*) &i, p0, (void*) INTERACTIVE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERACTIVE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) INTERACTIVE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERACTIVE_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get verbal part.
-    get_part_knowledge((void*) &v, p0, (void*) VERBAL_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VERBAL_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_MOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
 
     // Get source part model item.

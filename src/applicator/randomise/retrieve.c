@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/randomisation/retrieve_randomisation_logic_cybol_name.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/randomiser/retriever.c"
 #include "../../logger/logger.c"
 
@@ -82,11 +82,11 @@ void apply_retrieve(void* p0, void* p1, void* p2) {
     void* maxmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_part_knowledge((void*) &r, p0, (void*) RESULT_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) RESULT_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) RESULT_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) RESULT_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get minimum part.
-    get_part_knowledge((void*) &min, p0, (void*) MINIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) MINIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &min, p0, (void*) MINIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) MINIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get maximum part.
-    get_part_knowledge((void*) &max, p0, (void*) MAXIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) MAXIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &max, p0, (void*) MAXIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) MAXIMUM_RETRIEVE_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get result part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

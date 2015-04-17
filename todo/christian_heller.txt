@@ -14,12 +14,11 @@
 WUI
 ___
 
-        * Let file "knowledge_part_getter.c" handle only hierarchy to get model using argument p5
-        * Move away function "get_name_array" into different file, e.g. "get_part_by_name"
-        * Create similiar file relying on part index, e.g. "get_part_by_index"
-        * Study directory "executor/accessor/getter/" in order to find out if "get_by_index" functionality is already implemented there
-        * Adapt file "header_entry_http_response_serialiser.c" to use new function "get_by_index" so that model ".app.domain.server" is not copied as text but rather the part to which it is pointing
-        * Verify correctness in cybol example application "presence" where server description referenced by ".app.domain.server" should appear in http_response test file
+        * Adjust includes in http response serialiser files
+
+        * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
+
+        * Increase limit of connecting clients or do only close connexion after a timeout has been reached (currently the web browser blocks after ten clicks, since each request opens a new socket connexion)
 
         * Inspect cybol example application "presence" and add warning that NO user sessions are used so that the current week MIGHT not be the same as the one handed over in the uri, due to requests happening in between
 

@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/grep_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/grep_commander.c"
 #include "../../logger/logger.c"
 
@@ -75,9 +75,9 @@ void apply_grep(void* p0, void* p1, void* p2) {
     void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get pattern part.
-    get_part_knowledge((void*) &p, p0, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get file part.
-    get_part_knowledge((void*) &f, p0, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get pattern part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

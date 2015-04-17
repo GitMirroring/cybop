@@ -53,7 +53,7 @@
  * Example:
  *
  * void* item_reference = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_item_element((void*) &item_reference, whole_item, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+ * get_item_metadata((void*) &item_reference, whole_item, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) DATA_ITEM_STATE_CYBOI_NAME);
  *
  * @param p0 the destination array (if source index is inside of source count boundary; unchanged otherwise)
  * @param p1 the source item
@@ -63,7 +63,7 @@
  * @param p5 the source item index
  * @param p6 the source item element index
  */
-void get_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get item element.");
 

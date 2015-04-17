@@ -102,7 +102,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // with elements pointing to different memory areas now.
     // CAUTION! Do NOT use the "copy_array_forward" function here,
     // since it returns an array, but not the contained element.
-    get_item_element((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    get_item_metadata((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

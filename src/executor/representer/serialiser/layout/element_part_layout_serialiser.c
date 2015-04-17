@@ -31,7 +31,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/layout/position_layout_serialiser.c"
 #include "../../../../logger/logger.c"
@@ -91,8 +91,8 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
 */
 
     // Get parts.
-    get_part_knowledge((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
-    get_part_knowledge((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
+    get_part_name((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
+    get_part_name((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
     // Get part model, properties items.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/sort_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/sort_commander.c"
 #include "../../logger/logger.c"
 
@@ -82,11 +82,11 @@ void apply_sort(void* p0, void* p1, void* p2) {
     void* rmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get file part.
-    get_part_knowledge((void*) &f, p0, (void*) FILE_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FILE_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get output part.
-    get_part_knowledge((void*) &o, p0, (void*) OUTPUT_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get reversed part.
-    get_part_knowledge((void*) &r, p0, (void*) REVERSED_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) REVERSED_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) REVERSED_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) REVERSED_SORT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
 
     // Get file part model item.

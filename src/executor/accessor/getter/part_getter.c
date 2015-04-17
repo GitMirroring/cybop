@@ -37,18 +37,18 @@
 #include "../../../logger/logger.c"
 
 /**
- * Gets the source part element given by the source part element index
+ * Gets the source part metadata given by the source part metadata index
  * as reference copied to the destination pointer array.
  *
  * CAUTION! The parametre p0 does NOT have to be a reference!
- * It points to a memory area to which the source element is copied.
+ * It points to a memory area to which the source metadata is copied.
  * If using a local variable, then the memory area is allocated
  * automatically by the function, on the stack.
  *
  * Example:
  *
  * void* part_reference = *NULL_POINTER_STATE_CYBOI_MODEL;
- * get_part_element((void*) &part_reference, whole_part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) MODEL_PART_STATE_CYBOI_NAME);
+ * get_part_metadata((void*) &part_reference, whole_part, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j, (void*) MODEL_PART_STATE_CYBOI_NAME);
  *
  * @param p0 the destination array
  * @param p1 the source part
@@ -56,16 +56,16 @@
  * @param p3 the count
  * @param p4 the destination array index
  * @param p5 the source part index
- * @param p6 the source part element index
+ * @param p6 the source part metadata index
  */
-void get_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void get_part_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part element.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part metadata.");
 
-    // The source part element.
+    // The source part metadata.
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get source part element.
+    // Get source part metadata.
     //
     // CAUTION! It is NOT necessary to use the "overwrite" function here,
     // since the destination handed over as parametre is a pointer
@@ -74,8 +74,8 @@ void get_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
     // Using the "copy_array_forward" function is more efficient.
     copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
-    // Get destination array from source part element item.
-    get_item_element(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get destination array from source part metadata item.
+    get_item_metadata(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
 /* PART_GETTER_SOURCE */

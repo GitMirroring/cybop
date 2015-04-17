@@ -32,7 +32,7 @@
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/cleanup_context_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/context_gui_serialiser.c"
@@ -81,8 +81,8 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
     void* shmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_knowledge((void*) &super, p12, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p13, p14);
-    get_part_knowledge((void*) &sh, p12, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p13, p14);
+    get_part_name((void*) &super, p12, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p13, p14);
+    get_part_name((void*) &sh, p12, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p13, p14);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -97,7 +97,7 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
 
     if (sh == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p14);
+        get_part_name((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p14);
     }
 
     // Get part model items.

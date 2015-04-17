@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/remove_file_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/remove_file_commander.c"
 #include "../../logger/logger.c"
 
@@ -94,15 +94,15 @@ void apply_remove_file(void* p0, void* p1, void* p2) {
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path part.
-    get_part_knowledge((void*) &p, p0, (void*) PATH_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PATH_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get force part.
-    get_part_knowledge((void*) &f, p0, (void*) FORCE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FORCE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get interactive part.
-    get_part_knowledge((void*) &i, p0, (void*) INTERACTIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERACTIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) INTERACTIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERACTIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get recursive part.
-    get_part_knowledge((void*) &r, p0, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get verbal part.
-    get_part_knowledge((void*) &v, p0, (void*) VERBAL_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VERBAL_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
 
     // Get path part model item.

@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/ping_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/ping_commander.c"
 #include "../../logger/logger.c"
 
@@ -83,11 +83,11 @@ void apply_ping(void* p0, void* p1, void* p2) {
     void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get host part.
-    get_part_knowledge((void*) &h, p0, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &h, p0, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HOST_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get count part.
-    get_part_knowledge((void*) &c, p0, (void*) COUNT_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) COUNT_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) COUNT_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) COUNT_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get interface part.
-    get_part_knowledge((void*) &i, p0, (void*) INTERFACE_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERFACE_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) INTERFACE_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERFACE_PING_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get host part model item.
     copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

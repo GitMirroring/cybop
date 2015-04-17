@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/randomisation/sow_randomisation_logic_cybol_name.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/randomiser/sower.c"
 #include "../../logger/logger.c"
 
@@ -58,7 +58,7 @@ void apply_sow(void* p0, void* p1, void* p2) {
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source seed part.
-    get_part_knowledge((void*) &s, p0, (void*) SEED_SOW_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) SEED_SOW_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SEED_SOW_RANDOMISATION_LOGIC_CYBOL_NAME, (void*) SEED_SOW_RANDOMISATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get source seed part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source seed part model item data.

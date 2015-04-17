@@ -149,7 +149,7 @@ fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
             //
             // CAUTION! Do NOT use the "copy_array_forward" function,
             // since it is low-level and does not check array boundaries!
-            get_part_element((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, id, p4);
+            get_part_metadata((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, id, p4);
 
 /*??
 fwprintf(stdout, L"TEST deserialise index id: %i\n", *((int*) id));

@@ -35,7 +35,7 @@
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/element_gui_serialiser.c"
@@ -110,11 +110,11 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
     int smdh = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_knowledge((void*) &super, p8, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p9, p10);
-    get_part_knowledge((void*) &p, p8, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
-    get_part_knowledge((void*) &s, p8, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
-    get_part_knowledge((void*) &l, p8, (void*) LAYOUT_GUI_STATE_CYBOL_NAME, (void*) LAYOUT_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
-    get_part_knowledge((void*) &w, p8, (void*) WINDOW_GUI_STATE_CYBOL_NAME, (void*) WINDOW_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
+    get_part_name((void*) &super, p8, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p9, p10);
+    get_part_name((void*) &p, p8, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
+    get_part_name((void*) &s, p8, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
+    get_part_name((void*) &l, p8, (void*) LAYOUT_GUI_STATE_CYBOL_NAME, (void*) LAYOUT_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
+    get_part_name((void*) &w, p8, (void*) WINDOW_GUI_STATE_CYBOL_NAME, (void*) WINDOW_GUI_STATE_CYBOL_NAME_COUNT, p9, p10);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -129,22 +129,22 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
 
     if (p == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &p, supermd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
+        get_part_name((void*) &p, supermd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
     }
 
     if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &s, supermd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
+        get_part_name((void*) &s, supermd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
     }
 
     if (l == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &l, supermd, (void*) LAYOUT_GUI_STATE_CYBOL_NAME, (void*) LAYOUT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
+        get_part_name((void*) &l, supermd, (void*) LAYOUT_GUI_STATE_CYBOL_NAME, (void*) LAYOUT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
     }
 
     if (w == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_knowledge((void*) &w, supermd, (void*) WINDOW_GUI_STATE_CYBOL_NAME, (void*) WINDOW_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
+        get_part_name((void*) &w, supermd, (void*) WINDOW_GUI_STATE_CYBOL_NAME, (void*) WINDOW_GUI_STATE_CYBOL_NAME_COUNT, supermc, p10);
     }
 
     // Get part model items.

@@ -63,7 +63,7 @@ void deserialise_gui_expose(void* p0, void* p1, void* p2, void* p3, void* p4, vo
     void* amc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get action part.
-    get_part_knowledge((void*) &a, p4, p7, p8, p5, p6);
+    get_part_name((void*) &a, p4, p7, p8, p5, p6);
 
 fwprintf(stdout, L"TEST deserialise gui expose p5: %i\n", *((int*) p5));
 fwprintf(stdout, L"TEST deserialise gui expose a: %i\n", a);

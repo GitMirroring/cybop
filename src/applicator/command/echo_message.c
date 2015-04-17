@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/echo_message_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/echo_message_commander.c"
 #include "../../logger/logger.c"
 
@@ -67,7 +67,7 @@ void apply_echo_message(void* p0, void* p1, void* p2) {
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get message part.
-    get_part_knowledge((void*) &m, p0, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &m, p0, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get message part model item.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

@@ -32,7 +32,7 @@
 #include "../../constant/name/cybol/logic/memory/create_memory_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/creator/creator.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -93,13 +93,13 @@ void apply_create(void* p0, void* p1, void* p2) {
     void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get name part.
-    get_part_knowledge((void*) &n, p0, (void*) NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &n, p0, (void*) NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get format part.
-    get_part_knowledge((void*) &f, p0, (void*) FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get element part.
-    get_part_knowledge((void*) &e, p0, (void*) ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &e, p0, (void*) ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get whole part.
-    get_part_knowledge((void*) &w, p0, (void*) WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &w, p0, (void*) WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME, (void*) WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get name part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

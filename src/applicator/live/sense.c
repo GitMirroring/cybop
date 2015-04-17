@@ -34,7 +34,7 @@
 #include "../../constant/name/cybol/logic/life/sense_life_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/lifeguard/sensor.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../logger/logger.c"
 
 /**
@@ -103,15 +103,15 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3) {
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_knowledge((void*) &c, p0, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get service id part.
-    get_part_knowledge((void*) &i, p0, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get service name part.
-    get_part_knowledge((void*) &se, p0, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &se, p0, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get handler part.
-    get_part_knowledge((void*) &h, p0, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &h, p0, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get sender part.
-    get_part_knowledge((void*) &s, p0, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

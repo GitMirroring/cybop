@@ -39,7 +39,7 @@
 #include "../../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
@@ -101,7 +101,7 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get binary mode flag part.
-        get_part_knowledge((void*) &b, p3, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5);
+        get_part_name((void*) &b, p3, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5);
         // Get binary mode flag part model item.
         copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         // Get binary mode flag part model item data.

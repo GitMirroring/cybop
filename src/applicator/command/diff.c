@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/diff_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/diff_commander.c"
 #include "../../logger/logger.c"
 
@@ -75,9 +75,9 @@ void apply_diff(void* p0, void* p1, void* p2) {
     void* f2mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get first file part.
-    get_part_knowledge((void*) &f1, p0, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f1, p0, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get second file part.
-    get_part_knowledge((void*) &f2, p0, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f2, p0, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get first file part model item.
     copy_array_forward((void*) &f1m, f1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

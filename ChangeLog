@@ -22,6 +22,8 @@
 
         * Correct usage of types "char" and "wchar_t" as well as comparison function in http serialiser
         * Specify http headers in ".app.var" and ".app.wui" instead of in "send" operations in cybol example application "presence"
+        * Add directory "executor/accessor/getter/part/" ("name_part_getter.c" and "index_part_getter.c" calling "knowledge_part_getter.c")
+        * Adapt file "header_entry_http_response_serialiser.c" to use new file "index_part_getter.c"
 
 2015-04-15  Christian Heller  <christian.heller@tuxtax.de>
 

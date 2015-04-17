@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/copy_file_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/accessor/knowledge_getter/knowledge_part_getter.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/copy_file_commander.c"
 #include "../../logger/logger.c"
 
@@ -123,23 +123,23 @@ void apply_copy_file(void* p0, void* p1, void* p2) {
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source part.
-    get_part_knowledge((void*) &s, p0, (void*) SOURCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SOURCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get destination part.
-    get_part_knowledge((void*) &d, p0, (void*) DESTINATION_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DESTINATION_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &d, p0, (void*) DESTINATION_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DESTINATION_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get force part.
-    get_part_knowledge((void*) &f, p0, (void*) FORCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FORCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get interactive part.
-    get_part_knowledge((void*) &i, p0, (void*) INTERACTIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERACTIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) INTERACTIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERACTIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get preserve all attributes part.
-    get_part_knowledge((void*) &paa, p0, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &paa, p0, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get preserve links part.
-    get_part_knowledge((void*) &pl, p0, (void*) PRESERVE_LINKS_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRESERVE_LINKS_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &pl, p0, (void*) PRESERVE_LINKS_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRESERVE_LINKS_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get recursive part.
-    get_part_knowledge((void*) &r, p0, (void*) RECURSIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) RECURSIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get update part.
-    get_part_knowledge((void*) &u, p0, (void*) UPDATE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) UPDATE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &u, p0, (void*) UPDATE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) UPDATE_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get verbal part.
-    get_part_knowledge((void*) &v, p0, (void*) VERBAL_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VERBAL_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_COPY_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

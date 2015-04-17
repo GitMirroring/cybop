@@ -92,7 +92,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // CAUTION! The body count is handed over as argument,
     // since it gets generated into the "Content-Length:" header.
     //
-    serialise_http_response_header(p0, p3, p4, ac);
+    serialise_http_response_header(p0, p3, p4, ac, p5);
 
     // Serialise separator.
     //

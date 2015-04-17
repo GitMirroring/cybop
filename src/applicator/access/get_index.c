@@ -74,11 +74,11 @@ void apply_get_index(void* p0, void* p1, void* p2) {
     void* wmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get index part.
-    get_part_knowledge((void*) &i, p0, (void*) INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) INDEX_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get part name part.
-    get_part_knowledge((void*) &p, p0, (void*) PART_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PART_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get whole part.
-    get_part_knowledge((void*) &w, p0, (void*) WHOLE_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) WHOLE_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &w, p0, (void*) WHOLE_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME, (void*) WHOLE_GET_INDEX_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get index part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
