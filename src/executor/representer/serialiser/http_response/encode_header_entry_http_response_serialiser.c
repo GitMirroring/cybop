@@ -38,7 +38,7 @@
 /**
  * Serialises the http response header entry encode.
  *
- * @param p0 the destination item
+ * @param p0 the destination character item
  * @param p1 the source name data
  * @param p2 the source name count
  * @param p3 the source model data
@@ -48,35 +48,36 @@ void serialise_http_response_header_entry_encode(void* p0, void* p1, void* p2, v
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response header entry encode.");
 
-fwprintf(stdout, L"TEST serialise http response header entry encode *nc: %i\n", *((int*) p2));
-fwprintf(stdout, L"TEST serialise http response header entry encode nd: %ls\n", (wchar_t*) p1);
+    // The character name, model item.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The character name, model item data, count.
+    void* md = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The character name item.
-    void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The character name item data, count.
-    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* nc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-    // Allocate character name item.
+    // Allocate character name, model item.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &n, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    allocate_item((void*) &m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Encode wide character array into multibyte character data.
-    encode_utf_8(n, p1, p2);
+    encode_utf_8(m, p3, p4);
 
-    // Get character name item data, count.
+    // Get character name, model item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
     // Inside the structure, arrays may have been reallocated,
     // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &nd, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &nc, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &md, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mc, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+//?? fwprintf(stdout, L"TEST serialise http response header entry encode p1: %ls\n", (wchar_t*) p1);
+//?? fwprintf(stdout, L"TEST serialise http response header entry encode md: %s\n", (char*) md);
+//?? fwprintf(stdout, L"TEST serialise http response header entry encode mc: %i\n", *((int*) mc));
 
     // Select entry by name and append model.
-    select_http_response_header_entry(p0, nd, nc, p3, p4);
+    select_http_response_header_entry(p0, p1, p2, md, mc);
 
-    // Deallocate character name item.
-    deallocate_item((void*) &n, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate character name, model item.
+    deallocate_item((void*) &m, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* ENCODE_HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE */

@@ -54,10 +54,6 @@ void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive decode.");
 
-        // The item data, count.
-        void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
-
         // Decode message.
         decode(p2, p3, p4, p5);
 
@@ -65,12 +61,8 @@ void receive_decode(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &d, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &c, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        // Assign destination data, count.
-        copy_pointer(p0, (void*) &d);
-        copy_pointer(p1, (void*) &c);
+        copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
 //?? fwprintf(stdout, L"TEST: receive decode *c: %i \n", *((int*) c));
 //?? fwprintf(stdout, L"TEST: receive decode d: %s \n", d);

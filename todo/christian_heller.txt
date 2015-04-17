@@ -14,10 +14,14 @@
 WUI
 ___
 
-        * Print and verify generated http response in cybol example application "presence"
-            Why doesn't it contain given http headers?
-            Convert char and wchar_t so that they may be compared and are appended properly
-            Specify http headers in .app.var instead of in "send" operation
+        * Let file "knowledge_part_getter.c" handle only hierarchy to get model using argument p5
+        * Move away function "get_name_array" into different file, e.g. "get_part_by_name"
+        * Create similiar file relying on part index, e.g. "get_part_by_index"
+        * Study directory "executor/accessor/getter/" in order to find out if "get_by_index" functionality is already implemented there
+        * Adapt file "header_entry_http_response_serialiser.c" to use new function "get_by_index" so that model ".app.domain.server" is not copied as text but rather the part to which it is pointing
+        * Verify correctness in cybol example application "presence" where server description referenced by ".app.domain.server" should appear in http_response test file
+
+        * Inspect cybol example application "presence" and add warning that NO user sessions are used so that the current week MIGHT not be the same as the one handed over in the uri, due to requests happening in between
 
         * Find out why web pages are loaded only partly:
             Read existing flags before setting nonblocking flag: wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100 (11.20 Nicht blockierende I/O-Sockets)

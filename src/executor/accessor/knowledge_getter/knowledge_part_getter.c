@@ -55,10 +55,10 @@
  *   only then, that name can be used to determine the actual compound element
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source data
+ * @param p1 the source whole data
  * @param p2 the part name data
  * @param p3 the part name count
- * @param p4 the source count
+ * @param p4 the source whole count
  * @param p5 the knowledge memory part
  */
 void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {

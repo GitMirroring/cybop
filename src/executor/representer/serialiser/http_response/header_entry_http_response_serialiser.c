@@ -37,7 +37,7 @@
 /**
  * Serialises the http response header entry.
  *
- * @param p0 the destination item
+ * @param p0 the destination character item
  * @param p1 the source properties data
  * @param p2 the source properties index
  */
@@ -58,6 +58,7 @@ void serialise_http_response_header_entry(void* p0, void* p1, void* p2) {
 
     // Get part at index.
     copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+
     // Get part name, model.
     copy_array_forward((void*) &n, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &m, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

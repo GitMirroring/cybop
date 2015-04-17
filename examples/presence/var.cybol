@@ -51,15 +51,15 @@
     <!-- The serialised webpage. -->
     <node name="webpage" channel="inline" format="text/plain" model="">
         <!--
-            CAUTION! The necessary "encoding" is added here DIRECTLY,
-            since it does NOT work adding it as constraint at the operation "send".
+            CAUTION! The following nodes are added here DIRECTLY,
+            since it does NOT work adding them to the operation "send".
             The reason is that the format "path/knowledge" is used there,
-            which points to another (this) part ".app.var.webpage" whose properties are used.
+            which points to this part here, whose properties are used.
         -->
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="Server" channel="inline" format="text/plain" model="CYBOI/0.17.0 (Linux) CYBOL/2.0.0"/>
-        <node name="Connection" channel="inline" format="text/plain" model="close"/>
-        <node name="Content-Type" channel="inline" format="text/plain" model="text/html"/>
+        <node name="server" channel="inline" format="path/knowledge" model=".app.domain.server"/>
+        <node name="connection" channel="inline" format="text/plain" model="close"/>
+        <node name="content-type" channel="inline" format="text/plain" model="text/html"/>
     </node>
 
 </node>

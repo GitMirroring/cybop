@@ -48,33 +48,27 @@
 //
 
 /** The scheme uri cyboi name. */
-static wchar_t SCHEME_URI_CYBOI_NAME_ARRAY[] = {L's', L'c', L'h', L'e', L'm', L'e'};
-static wchar_t* SCHEME_URI_CYBOI_NAME = SCHEME_URI_CYBOI_NAME_ARRAY;
+static wchar_t* SCHEME_URI_CYBOI_NAME = L"scheme";
 static int* SCHEME_URI_CYBOI_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The authority uri cyboi name. */
-static wchar_t AUTHORITY_URI_CYBOI_NAME_ARRAY[] = {L'a', L'u', L't', L'h', L'o', L'r', L'i', L't', L'y'};
-static wchar_t* AUTHORITY_URI_CYBOI_NAME = AUTHORITY_URI_CYBOI_NAME_ARRAY;
+static wchar_t* AUTHORITY_URI_CYBOI_NAME = L"authority";
 static int* AUTHORITY_URI_CYBOI_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The authority-text uri cyboi name. */
-static wchar_t AUTHORITY_TEXT_URI_CYBOI_NAME_ARRAY[] = {L'a', L'u', L't', L'h', L'o', L'r', L'i', L't', L'y', L'-', L't', L'e', L'x', L't'};
-static wchar_t* AUTHORITY_TEXT_URI_CYBOI_NAME = AUTHORITY_TEXT_URI_CYBOI_NAME_ARRAY;
+static wchar_t* AUTHORITY_TEXT_URI_CYBOI_NAME = L"authority-text";
 static int* AUTHORITY_TEXT_URI_CYBOI_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The path uri cyboi name. */
-static wchar_t PATH_URI_CYBOI_NAME_ARRAY[] = {L'p', L'a', L't', L'h'};
-static wchar_t* PATH_URI_CYBOI_NAME = PATH_URI_CYBOI_NAME_ARRAY;
+static wchar_t* PATH_URI_CYBOI_NAME = L"path";
 static int* PATH_URI_CYBOI_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The query uri cyboi name. */
-static wchar_t QUERY_URI_CYBOI_NAME_ARRAY[] = {L'q', L'u', L'e', L'r', L'y'};
-static wchar_t* QUERY_URI_CYBOI_NAME = QUERY_URI_CYBOI_NAME_ARRAY;
+static wchar_t* QUERY_URI_CYBOI_NAME = L"query";
 static int* QUERY_URI_CYBOI_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The fragment uri cyboi name. */
-static wchar_t FRAGMENT_URI_CYBOI_NAME_ARRAY[] = {L'f', L'r', L'a', L'g', L'm', L'e', L'n', L't'};
-static wchar_t* FRAGMENT_URI_CYBOI_NAME = FRAGMENT_URI_CYBOI_NAME_ARRAY;
+static wchar_t* FRAGMENT_URI_CYBOI_NAME = L"fragment";
 static int* FRAGMENT_URI_CYBOI_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* URI_CYBOI_NAME_CONSTANT_SOURCE */

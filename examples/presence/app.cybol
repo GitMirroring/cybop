@@ -8,7 +8,7 @@
     <!-- The functionality. -->
     <node name="logic" channel="file" format="element/part" model="presence/logic.cybol"/>
 
-    <!-- The temporary variables. (Later possibly replaced by cybol stack properties.) -->
+    <!-- The temporary variables. (Many variables will later possibly get replaced by cybol stack properties.) -->
     <node name="var" channel="file" format="element/part" model="presence/var.cybol"/>
 
 </node>
