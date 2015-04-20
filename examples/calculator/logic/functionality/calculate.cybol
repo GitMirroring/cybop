@@ -25,8 +25,8 @@
         <node name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
-	<!--
-	<node name="negate" channel="inline" format="calculate/negate" model="">
+    <!--
+    <node name="negate" channel="inline" format="calculate/negate" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
         <node name="operand" channel="inline" format="path/knowledge" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>

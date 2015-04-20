@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2014. Christian Heller.
+ * Copyright (C) 1999-2015. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.16.0 2014-03-31
+ * @version CYBOP 0.17.0 2015-04-20
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -51,7 +51,7 @@ void manage_shutdown(void* p0) {
     // corresponding service shutdown operation in cybol logic templates.
     // The "interrupt" procedures are called within the "shutdown" procedures.
 
-fwprintf(stdout, L"TEST manage shutdown p0: %i\n", p0);
+//?? fwprintf(stdout, L"TEST manage shutdown p0: %i\n", p0);
 
     // Shutdown display.
     shutdown_display(p0, (void*) DISPLAY_THREAD, (void*) DISPLAY_EXIT); //?? TODO: This is the OLD version, soon to be replaced with "manage_shutdown_all"

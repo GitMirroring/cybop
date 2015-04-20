@@ -2,7 +2,7 @@
 
     <node name="update_focus" channel="file" format="element/part" model="calculator/logic/user_interface/update_focus.cybol"/>
     <node name="update_display" channel="file" format="element/part" model="calculator/logic/user_interface/update_display.cybol"/>
-	<node name="update_display_without_reset" channel="file" format="element/part" model="calculator/logic/user_interface/update_display_without_reset.cybol"/>
+    <node name="update_display_without_reset" channel="file" format="element/part" model="calculator/logic/user_interface/update_display_without_reset.cybol"/>
 
     <node name="display_command" channel="file" format="element/part" model="calculator/logic/user_interface/display_command.cybol"/>
     <node name="display_focus" channel="file" format="element/part" model="calculator/logic/user_interface/display_focus.cybol"/>

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2015. Christian Heller.
 #
 # This file represents a record of user-visible changes to cybop.
 #
@@ -9,9 +9,42 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.17.0 2015-04-20
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
+CYBOP 0.17.0, 2015-04-20, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Prepare gui serialiser and layout serialiser
+            - Add randomise operations
+            - Add more cyboi shell commands and -operations (Maximilian Brenner)
+            - Complete socket functionality and keep client socket integer array internally
+            - Define symbolic names as variable values at startup
+            - Create input/output entry structure for all kinds of services
+            - Optimise endless loop checking for signals/service interrupts in controller (eliminate some sensing threads)
+            - Loop and close all services at shutdown
+            - Merge input/output filters for various channels in chain (device|compression|encoding|language+format|knowledge)
+            - Distinguish low-level reading/writing in directory "executor/streamer/" from "executor/communicator/" as central i/o point
+            - Reactivate and update http-request/http-response/uri de-/serialiser
+            - Implement xml serialiser
+            - Implement cybol element/part serialiser
+            - Introduce new channel "clock" for reading and adjusting time and date
+            - Introduce new channel "randomiser" for sowing a seed and generating random numbers
+        * CYBOL:
+            - Update api generator
+            - Provide example syntax files in XML, JSON, self-defined "short" notation in new directory "doc/books/cybol/syntax/"
+            - Rename all xml tags (model, part, property, constraint) uniformly to just "node"
+            - Add "string_comparison" cybol example application
+            - Add "randomiser" cybol example application
+            - Add "arithmetics" cybol example application
+            - Rewrite "calculator" cybol example application (Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt)
+            - Add "tictactoe" cybol example application (Sandra Rum, Stephan Griese, Thomas Schulze)
+            - Add "socket_server" and "socket_client" cybol example applications
+            - Add "www_server_static" and "www_server_dynamic" cybol example applications
+            - Continue "presence" cybol example application with css, calendar week navigation, favicon, uri generation
+        * Project:
+            - Update cybol api specification (Max Müller-Domhardt, Sebastian König)
+            - Add "cybol_generator" gui designer based on C++/Qt (Pit Braunsdorf, Sophia Kledzinski)
 
 CYBOP 0.16.0, 2014-03-31, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
@@ -108,10 +141,10 @@ CYBOP 0.12.0, 2012-08-22, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOL:
             - Make cybol example application "ui_control" work again
             - Add example applications: get_count, addition_using_indices, index_usage, knowledge_tree_access, addition_using_serialisation, wui, tui, double
-            - Generate cybol application programming interface (api) specification from cybol files using html format, contributed by Enrico Gallus
+            - Generate cybol application programming interface (api) specification from cybol files using html format (largely contributed by Enrico Gallus)
             - Add new operations: represent/serialise, represent/deserialise, access/get-name
         * Project:
-            - Add "cybol_extension" tutorial of Falk Müller
+            - Add "cybol_extension" tutorial (Falk Müller)
 
 CYBOP 0.11.0, 2012-06-08, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
@@ -376,6 +409,7 @@ CYBOP 0.1.0, 2003-09-11, Christian Heller  <christian.heller@tuxtax.de>
             - Create static structures of instances in memory
             - Run dynamic loop catching signals from internal signal memory (queue)
             - Create GUI using Java Swing (as temporary workaround)
+            - Create CYBOI by renaming and altering the ResMedLib base library of the Res Medicinae project
         * CYBOL Core:
             - CYBOL is based on XML syntax
             - One file represents an abstract item/ category/ class/ hierarchy

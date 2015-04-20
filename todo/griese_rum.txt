@@ -1,8 +1,0 @@
-
-CYBOL Game
-===========
-
-        * Entwickle Spiel TicTacToe auf Kommandozeilenebene
-        * Setze Einspielermodus um (zweiter Spieler vom Computer gesteuert)
-        * Baue Nutzerschnittstelle (CLI, TUI)
-

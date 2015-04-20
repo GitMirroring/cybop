@@ -1,12 +1,12 @@
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2015. Christian Heller.
 #
 # This file lists the names and email addresses of individuals who worked on cybop.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.17.0 2015-04-20
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -26,6 +26,14 @@ Cybernetics Oriented Language (CYBOL)
         * Johannes David <johannes.david@it2010.ba-leipzig.de> (cybol api specification update with state and logic)
         * Cedric Thomas <cedric.thomas@it2011.ba-leipzig.de> (calculator application with tui)
         * Marius Klotke <marius.klotke@it2011.ba-leipzig.de> (opengl 3d world test model; reflexions on integration into cyboi)
+        * Max Müller-Domhardt <max.mueller-domhardt@web.de> (api update)
+        * Sebastian König <sebastian.koenig@cs12-1.ba-leipzig.de> (api update)
+        * Sibylle Hebenstreit <sibylle.hebenstreit@gmail.com> (calculator example)
+        * Marc Jäkel <marc.jaekel@cs12-2.ba-leipzig.de> (calculator example)
+        * Andreas Burkhardt <andreas.burkhardt@cs12-2.ba-leipzig.de> (calculator example)
+        * Sandra Rum <sandra.rum@cs12-2.ba-leipzig.de> (tictactoe game example)
+        * Stephan Griese <stephan.griese@cs12-2.ba-leipzig.de> (tictactoe game example)
+        * Thomas Schulze <thomas.schulze@cs12-2.ba-leipzig.de> (tictactoe game example)
 
 Cybernetics Oriented Interpreter (CYBOI)
         * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
@@ -55,6 +63,7 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Mike Feustel <mike.feustel@it2011.ba-leipzig.de> (compilation in win32 using visual studio)
         * Benno Schilling <benno.schilling@it2011.ba-leipzig.de> (compilation in win32 using visual studio)
         * Markus Hinkelmann <markus@mhinkelmann.de> (compilation in apple mac osx)
+        * Maximilian Brenner <maximilian.brenner@cs12-2.ba-leipzig.de> (cyboi shell commands ping, grep, traceroute, diff, sort and cyboi operations square, squareroot)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
@@ -81,6 +90,8 @@ Tools
         * Alexander Papenfuß <alexander.papenfuss@it2010.ba-leipzig.de> (cybol editor in C# running with mono)
         * Axel Petzka <axel.petzka@it2010.ba-leipzig.de> (cybol editor with web user interface)
         * Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de> (Eclipse extension offering cybol syntax highlighting and sensitive keyword list)
+        * Pit Braunsdorf <pit.braunsdorf@cs12-1.ba-leipzig.de> (gui designer cybol_generator based on C++/Qt)
+        * Sophia Kledzinski <sophia.kledzinski@cs12-2.ba-leipzig.de> (gui designer cybol_generator based on C++/Qt)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)

@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2015. Christian Heller.
 #
 # This file lists so-called "TODO" items, in other words open tasks
 # to be worked on in the future.
@@ -7,7 +7,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.17.0 2015-04-20
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -135,6 +135,14 @@ _____
 
 Tool
 ____
+
+        * Extend gui designer "cybol_generator" based on C++/Qt/QtCreator/QtDesigner with cybol/xml generator of Pit Braunsdorf, Sophia Kledzinski
+        * See:
+            examples/gui/gui.cybol
+            examples/gui/window.cybol
+            src/user_interface.cybol
+            src/user_interface.pdf
+            src/executor/representer/serialiser/gui/shape_gui_serialiser.c
 
         * Extend cybol editor, e.g. Eclipse plug-in
         * Upload plug-in to official Eclipse website

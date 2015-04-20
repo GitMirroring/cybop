@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Release CYBOP 0.17.0
+
 2015-04-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Correct usage of types "char" and "wchar_t" as well as comparison function in http serialiser
@@ -136,7 +140,7 @@
         * Rename cybol example application "www_server" into "www_server_dynamic"
         * Add new cybol example application "www_server_static" delivering static files to clients
         * Add new language "message/binary" for arbitrary data
-        * Delete file "http_request_selector.c", since HTTP/WebDAV method should get evaluated in cybol application
+        * Delete file "http_request_selector.c", since http/webdav method should get evaluated in cybol application
         * Continue cybol example application "presence" prototype
 
 2015-03-01  Christian Heller  <christian.heller@tuxtax.de>
@@ -368,6 +372,11 @@
 
 2014-12-02  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Add cyboi shell commands (ping, grep, traceroute, diff, sort) and cyboi operations (square, squareroot) of Maximilian Brenner
+        * Add cybol example application "calculator" of Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt
+        * Add cybol example game "TicTacToe" (single user mode, with tui) of Sandra Rum, Stephan Griese, Thomas Schulze
+        * Add cybol api update of Max Müller-Domhardt, Sebastian König
+        * Add gui designer "cybol_generator" based on C++/Qt/QtCreator/QtDesigner with cybol/xml generator of Pit Braunsdorf, Sophia Kledzinski
         * Build in special error codes for winsock
         * Add further constants for address family, socket style, protocol
 

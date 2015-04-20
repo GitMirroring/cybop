@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2014. Christian Heller.
+ * Copyright (C) 1999-2015. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.16.0 2014-03-31
+ * @version CYBOP 0.17.0 2015-04-20
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -64,7 +64,7 @@ void manage_shutdown_services(void* p0, void* p1, void* p2) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-fwprintf(stdout, L"TEST manage shutdown services loop count p1: %i\n", *((int*) p1));
+//?? fwprintf(stdout, L"TEST manage shutdown services loop count p1: %i\n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

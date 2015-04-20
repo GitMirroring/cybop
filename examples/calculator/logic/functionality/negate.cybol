@@ -37,8 +37,8 @@
         <node name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.negate"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
-	-->
-	<node name="negate" channel="inline" format="calculate/negate" model="">
+    -->
+    <node name="negate" channel="inline" format="calculate/negate" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
         <node name="operand" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>

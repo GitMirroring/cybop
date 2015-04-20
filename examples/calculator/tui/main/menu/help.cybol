@@ -48,7 +48,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
     </node>
-	<node name="negate" channel="inline" format="text/plain" model="<n>             - negate (+/-)">
+    <node name="negate" channel="inline" format="text/plain" model="<n>             - negate (+/-)">
         <node name="position" channel="inline" format="number/integer" model="2,19"/>
         <node name="size" channel="inline" format="number/integer" model="20,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>

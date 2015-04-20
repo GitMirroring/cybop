@@ -1,12 +1,12 @@
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2015. Christian Heller.
 #
 # This file specifies directories and files to be considered in the build process.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.17.0 2015-04-20
 # @author Didier Link <didier@famille-link.fr>
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
