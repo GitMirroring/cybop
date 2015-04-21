@@ -272,18 +272,32 @@ ___________________________
     /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
     /home/cybop/src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
     /home/cybop/src/controller/cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi http_communication/run.cybol
-*NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi presence/run.cybol
+    /home/cybop/src/controller/cyboi socket_server
+    /home/cybop/src/controller/cyboi socket_client
+    /home/cybop/src/controller/cyboi www_server_static
+    /home/cybop/src/controller/cyboi www_server_dynamic
+    /home/cybop/src/controller/cyboi presence/run.cybol
+
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi document_generator/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi latex/run.cybol
 
-To make the client-server communication work in the "http_communication" example,
-type the following URL into a web browser after having started the application:
-http://localhost:1971/?action=index
+
+Further CYBOL Applications
+__________________________
+
+cybop/tools/integer_state_cyboi_model_generator/
+cybop/tools/field_description_xdt_model_generator/
+cybop/tools/xdt_field_description_serialiser_generator/
+
+cybop/doc/books/cybol/api/
+
+Source of the following cybol-generated website:
+http://www.ba-leipzig.de/index.php?id=153
+lehre/systems_implementation/project/overview/
 
 You may also want to have a look at the Res Medicinae project, where more CYBOL
-application modules for the healthcare domain will be provided over the coming years:
+application modules for the healthcare domain might be provided some day:
 http://www.resmedicinae.org/
 
 

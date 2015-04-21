@@ -14,6 +14,8 @@
 WUI
 ___
 
+        * Append year and week to actions "send_index" and "navigate_forward/backward"
+
         * Adjust includes in http response serialiser files
 
         * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
@@ -26,7 +28,11 @@ ___
             Read existing flags before setting nonblocking flag: wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100 (11.20 Nicht blockierende I/O-Sockets)
             Problem with signals due to slow function "accept": wolf_-_linux-unix-programmierung/Kap11-012.htm#RxxKap11012040003911F030100 (11.13 Parallele Server)
 
-        * extra: update project/overview in "lehre": properties message --> sender; model --> message; for operation "modify/empty", DO specify property "model" in addition to "part"
+        * Update other cybol applications (see INSTALL file for a list):
+            properties message --> sender
+            model --> message
+            for operation "modify/empty", DO specify property "model" in addition to "part"
+            Replace all tags with name "node"
 
         * Find solution for send/receive arguments. Test e.g. encoding for null OR for a defined integer value?
             --> Fix bug that encoding IS assigned in file "content_element_part_cybol_deserialiser.c" since new allocated part HAS an encoding item whose data are NOT null
