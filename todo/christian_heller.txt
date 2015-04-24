@@ -14,6 +14,9 @@
 WUI
 ___
 
+        * Check why action is sometimes empty by test-logging http requests
+        * Branch cybol code sending a standard html error page if action is empty in file "handle.cybol"
+
         * Append year and week to actions "send_index" and "navigate_forward/backward"
 
         * Adjust includes in http response serialiser files
