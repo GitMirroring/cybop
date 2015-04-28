@@ -104,7 +104,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // since it returns an array, but not the contained element.
     get_item_metadata((void*) &sd, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-fwprintf(stdout, L"TEST check signal sd: %i\n", sd);
+//?? fwprintf(stdout, L"TEST check signal sd: %i\n", sd);
 
     if (sd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

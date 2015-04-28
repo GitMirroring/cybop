@@ -67,7 +67,7 @@ void check_client_all(void* p0, void* p1, void* p2) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-fwprintf(stdout, L"TEST check client all *p2: %i\n", *((int*) p2));
+//?? fwprintf(stdout, L"TEST check client all *p2: %i\n", *((int*) p2));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

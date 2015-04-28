@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-28  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug file "element_client_socket_shutter.c" where socket was retrieved as pointer instead of as int so that data were read from a phantasy socket
+        * Adapt cybol example application "presence" to properly close client socket after each request
+
 2015-04-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release CYBOP 0.17.0

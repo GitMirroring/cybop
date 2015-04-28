@@ -56,7 +56,7 @@ void shutdown_socket_client(void* p0, void* p1, void* p2) {
     // Calculate internal memory index using given port.
     calculate_integer_add((void*) &i, p1);
 
-fwprintf(stdout, L"TEST: shutdown socket client i: %i \n", i);
+//?? fwprintf(stdout, L"TEST: shutdown socket client i: %i \n", i);
 
     if (i > *SOCKET_INTERNAL_MEMORY_STATE_CYBOI_NAME) {
 

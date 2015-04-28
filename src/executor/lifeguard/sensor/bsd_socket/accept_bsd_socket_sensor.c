@@ -93,7 +93,7 @@ void sense_bsd_socket_accept(void* p0, void* p1) {
             //
             *c = accept(*s, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-fwprintf(stdout, L"TEST: sense bsd socket accept *c: %i \n", *c);
+//?? fwprintf(stdout, L"TEST: sense bsd socket accept *c: %i \n", *c);
 
             if (*c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -122,7 +122,7 @@ fwprintf(stdout, L"TEST: sense bsd socket accept *c: %i \n", *c);
 
                 } else if (errno == EWOULDBLOCK) {
 
-fwprintf(stdout, L"TEST: sense bsd socket accept error EWOULDBLOCK: %i \n", errno);
+//??     fwprintf(stdout, L"TEST: sense bsd socket accept error EWOULDBLOCK: %i \n", errno);
 
                     // CAUTION! Do NOT log the following error!
                     // The reason is that the socket is non-blocking,

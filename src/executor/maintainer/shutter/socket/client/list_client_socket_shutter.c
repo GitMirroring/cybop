@@ -61,6 +61,9 @@ void shutdown_socket_client_list(void* p0, void* p1) {
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
     // Shutdown all clients.
+    // CAUTION! The list item data need to be handed over
+    // as POINTER REFERENCE, since that is requested by
+    // the "remove" function inside.
     shutdown_socket_client_all((void*) &d, c, s, p1);
 }
 

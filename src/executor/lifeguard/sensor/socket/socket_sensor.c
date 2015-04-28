@@ -68,7 +68,7 @@ void sense_socket(void* p0, void* p1, void* p2) {
     // CAUTION! Look at the data but do NOT remove it from the input queue.
     int o = MSG_PEEK;
 
-fwprintf(stdout, L"TEST sense socket bs: %i\n", bs);
+//?? fwprintf(stdout, L"TEST sense socket bs: %i\n", bs);
 
     // Read data until buffer is filled.
     read_socket_buffer(bd, (void*) &bc, (void*) &bs, p1, (void*) &o);

@@ -14,10 +14,8 @@
 WUI
 ___
 
-        * Debug file "element_client_socket_shutter.c" where c is a pointer instead of an int in the comparison
-        * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c"
-        * Check if sender has to be reset (or io entry disabled?) in file "receive_io_checker.c"
-        * Check why loop is not left if count is zero in file "bsd_socket_reader.c"
+        * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
+        * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
         * Check why action is sometimes empty by test-logging http requests
         * Branch cybol code sending a standard html error page if action is empty in file "handle.cybol"
 
