@@ -60,6 +60,9 @@ void shutdown_socket_client_element(void* p0, void* p1, void* p2, void* p3, void
     // Get client at the given index.
     copy_array_forward((void*) &c, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
 
+fwprintf(stdout, L"TEST: shutdown socket client element c: %i \n", c);
+fwprintf(stdout, L"TEST: shutdown socket client element *p3: %i \n", *((int*) p3));
+
     // Compare client with client socket handed over.
     compare_integer_equal((void*) &r, (void*) &c, p3);
 
@@ -67,11 +70,11 @@ void shutdown_socket_client_element(void* p0, void* p1, void* p2, void* p3, void
 
         // The client was found in the list.
 
-        // Close client socket.
-        shutdown_socket_close((void*) &c);
-
         // Remove entry from client list.
         remove_array(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        // Close client socket.
+        shutdown_socket_close((void*) &c);
     }
 }
 

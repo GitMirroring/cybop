@@ -93,6 +93,8 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
 //?? fwprintf(stdout, L"TEST: read socket buffer p1: %i \n", *((int*) p1));
 //?? fwprintf(stdout, L"TEST: read socket buffer p0: %i \n", p0);
 
+fwprintf(stdout, L"TEST read bsd socket *ss: %i\n", *ss);
+
                     // Read message.
                     //
                     // Normally, "recv" blocks until there is input available to be read.
@@ -105,6 +107,8 @@ void read_bsd_socket(void* p0, void* p1, void* p2, void* p3, void* p4) {
                     // In this case, the flags argument has the value MSG_PEEK.
                     // Otherwise, for normal reading, it may have a value of zero.
                     int c = recv(*ss, p0, st, *o);
+
+fwprintf(stdout, L"TEST read bsd socket c: %i\n", c);
 
                     if (c > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 

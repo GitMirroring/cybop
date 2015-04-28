@@ -69,6 +69,8 @@ void shutdown_bsd_socket_close(void* p0) {
         // to specify a timeout period.
         int r = close(*s);
 
+fwprintf(stdout, L"\nTEST: shutdown bsd socket close *s: %i \n\n", *s);
+
         if (r >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
 //?? fwprintf(stdout, L"TEST: shutdown bsd socket close success r: %i \n", r);

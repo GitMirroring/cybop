@@ -55,7 +55,7 @@ void check_io_accept(void* p0, void* p1) {
     // Get receiver server from io entry.
     get_io_entry_element((void*) &s, p1, (void*) SOCKET_NUMBER_SOCKET_INPUT_OUTPUT_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST: check io accept s: %i \n", s);
+fwprintf(stdout, L"TEST: check io accept s: %i \n", s);
 
     // Sense new client requests (accept) on server socket.
     sense_socket_accept((void*) &c, (void*) &s);

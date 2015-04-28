@@ -101,6 +101,23 @@
         <node name="model" channel="inline" format="path/reference" model=".app.var.path"/>
     </node>
 
+    <node name="TEST_close_label" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Close socket:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST_close_socket" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
     <!-- CAUTION! Close client socket only AFTER having processed the action above. -->
     <node name="shutdown_client_socket" channel="inline" format="maintain/shutdown" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -109,6 +126,15 @@
         <node name="service" channel="inline" format="text/plain" model="http"/>
         <node name="mode" channel="inline" format="text/plain" model="client"/>
         <node name="socket" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
+
+    <node name="TEST_close_done" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Closed socket successfully."/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>

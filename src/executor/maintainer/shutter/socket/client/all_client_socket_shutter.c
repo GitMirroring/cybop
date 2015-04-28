@@ -65,7 +65,7 @@ void shutdown_socket_client_all(void* p0, void* p1, void* p2, void* p3) {
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
-//?? fwprintf(stdout, L"TEST: shutdown socket client all loop count p1: %i \n", *((int*) p1));
+fwprintf(stdout, L"TEST: shutdown socket client all p1: %i \n", *((int*) p1));
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

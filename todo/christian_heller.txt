@@ -14,6 +14,10 @@
 WUI
 ___
 
+        * Debug file "element_client_socket_shutter.c" where c is a pointer instead of an int in the comparison
+        * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c"
+        * Check if sender has to be reset (or io entry disabled?) in file "receive_io_checker.c"
+        * Check why loop is not left if count is zero in file "bsd_socket_reader.c"
         * Check why action is sometimes empty by test-logging http requests
         * Branch cybol code sending a standard html error page if action is empty in file "handle.cybol"
 
@@ -74,7 +78,7 @@ ___
             create part with int id and operation knowledge path as model and add to callback list;
             delete int id part after execution
 
-        * Implement content negotiation:
+        * Implement content negotiation for providing resources in different human languages:
             https://de.wikipedia.org/wiki/Content_Negotiation
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
