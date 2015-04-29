@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-04-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create page links dynamically in cybol example application "presence", so that host address is correct
+
 2015-04-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug file "element_client_socket_shutter.c" where socket was retrieved as pointer instead of as int so that data were read from a phantasy socket

@@ -1,5 +1,6 @@
 <node>
 
+    <node name="dom_to_page" channel="file" format="element/part" model="presence/logic/translate/dom_to_page.cybol"/>
     <node name="dom_to_nav" channel="file" format="element/part" model="presence/logic/translate/dom_to_nav.cybol"/>
 
     <node name="cal_to_wui" channel="file" format="element/part" model="presence/logic/translate/cal_to_wui.cybol"/>

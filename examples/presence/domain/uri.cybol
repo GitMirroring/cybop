@@ -3,7 +3,10 @@
     <node name="scheme" channel="inline" format="text/plain" model="http"/>
     <node name="scheme_suffix" channel="inline" format="text/plain" model=":"/>
     <node name="hostname_prefix" channel="inline" format="text/plain" model="//"/>
+<!--
     <node name="hostname" channel="inline" format="text/plain" model="localhost"/>
+-->
+    <node name="hostname" channel="inline" format="path/knowledge" model=".app.domain.address"/>
     <node name="port_prefix" channel="inline" format="text/plain" model=":"/>
     <node name="port" channel="inline" format="text/plain" model="80"/>
     <node name="directory" channel="inline" format="text/plain" model="/"/>
@@ -19,6 +22,10 @@
     <node name="parametre_choice" channel="inline" format="text/plain" model="choice"/>
     <node name="parametre_action" channel="inline" format="text/plain" model="action"/>
 
+    <node name="action_send_header_image" channel="inline" format="text/plain" model="send_header_image"/>
+    <node name="action_send_heraldic_symbol" channel="inline" format="text/plain" model="send_heraldic_symbol"/>
+    <node name="action_send_css" channel="inline" format="text/plain" model="send_css"/>
+    <node name="action_send_icon" channel="inline" format="text/plain" model="send_icon"/>
     <node name="action_navigate_backward" channel="inline" format="text/plain" model="navigate_backward"/>
     <node name="action_navigate_forward" channel="inline" format="text/plain" model="navigate_forward"/>
     <node name="action_update" channel="inline" format="text/plain" model="update"/>

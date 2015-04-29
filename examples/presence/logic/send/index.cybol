@@ -56,6 +56,7 @@
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
+<!--
     <node name="test_http_response" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
@@ -63,5 +64,6 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence_http_response.txt"/>
     </node>
+-->
 
 </node>
