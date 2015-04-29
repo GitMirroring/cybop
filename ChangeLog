@@ -20,7 +20,7 @@
 
 2015-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Create page links dynamically in cybol example application "presence", so that host address is correct
+        * Create page links (for retrieval of images and css file) dynamically in cybol example application "presence", so that hostname (ip address) is correct
 
 2015-04-28  Christian Heller  <christian.heller@tuxtax.de>
 

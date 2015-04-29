@@ -5,8 +5,9 @@
     <node name="hostname_prefix" channel="inline" format="text/plain" model="//"/>
 <!--
     <node name="hostname" channel="inline" format="text/plain" model="localhost"/>
+    <node name="hostname" channel="inline" format="text/plain" model="192.168.150.106"/>
 -->
-    <node name="hostname" channel="inline" format="path/knowledge" model=".app.domain.address"/>
+    <node name="hostname" channel="file" format="text/plain" model="presence/hostname.txt"/>
     <node name="port_prefix" channel="inline" format="text/plain" model=":"/>
     <node name="port" channel="inline" format="text/plain" model="80"/>
     <node name="directory" channel="inline" format="text/plain" model="/"/>

@@ -10,9 +10,5 @@
     <node name="uri" channel="file" format="element/part" model="presence/domain/uri.cybol"/>
 
     <node name="server" channel="inline" format="text/plain" model="Presence/1.0 (CYBOI/0.17.0)"/>
-<!--
-    <node name="address" channel="inline" format="text/plain" model="localhost"/>
--->
-    <node name="address" channel="inline" format="text/plain" model="192.168.150.106"/>
 
 </node>
