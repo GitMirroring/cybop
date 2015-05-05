@@ -11,27 +11,57 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Datetime
+________
+
+        * Create list of useful cybol operations related to date and time, see e.g.:
+            moehrke_-_php_pear/04_0_date_and_time-001.htm#5287d2b67ab3202efa1386b66e82368f
+
+        * Implement in cyboi:
+            --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
+            --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week
+                language: ??; format: datetime/year-week (index)
+                if year changes and week contains old and new days (with sunday being the first day), then the first week of the NEW year is used
+            --> get_first_day_of_week (sunday being the start of the week): represent/serialise from julian_date representing current_datetime into julian_date representing first day (sunday)
+                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
+                language: ??; format: datetime/week-day-first (julian_date)
+            --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
+                language: ??; format: datetime/week-day (index)
+        * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
+            --> continue with run.cybol
+
+        * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
+        * Add files "clock_reader.c" and "clock_writer.c"
+        * Add files "randomiser_reader.c" and "randomiser_writer.c"
+        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
+        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
+        * Configure date dynamically in cybol example application "presence"
+
+        * Correct new algorithm for time scale gregorian calendar serialiser
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
+            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
+            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+
+        * Implement "utc" datetime de-/serialiser
+
+        * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
+        * Check out http://www.joda.org/joda-time/
+        * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model OR leave them in cybol, so that model diagram and html etc. work fine?
+
 WUI
 ___
 
         * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
         * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
+
         * Check why action is sometimes empty by test-logging http requests
         * Branch cybol code sending a standard html error page if action is empty in file "handle.cybol"
 
         * Append year and week to actions "send_index" and "navigate_forward/backward"
 
-        * Adjust includes in http response serialiser files
-
         * Study directory "executor/accessor/getter/part_getter.c" in order to find out redundancies with sub directory "part/"
 
         * Increase limit of connecting clients or do only close connexion after a timeout has been reached (currently the web browser blocks after ten clicks, since each request opens a new socket connexion)
-
-        * Inspect cybol example application "presence" and add warning that NO user sessions are used so that the current week MIGHT not be the same as the one handed over in the uri, due to requests happening in between
-
-        * Find out why web pages are loaded only partly:
-            Read existing flags before setting nonblocking flag: wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100 (11.20 Nicht blockierende I/O-Sockets)
-            Problem with signals due to slow function "accept": wolf_-_linux-unix-programmierung/Kap11-012.htm#RxxKap11012040003911F030100 (11.13 Parallele Server)
 
         * Update other cybol applications (see INSTALL file for a list):
             properties message --> sender
@@ -218,40 +248,6 @@ ______________
         * Provide pipelining, e.g. using a defined standard cybop tree node like ".pipe";
             bring error message if someone wants to create an application node with this name;
             or use capital letters ".PIPE" for such invisible system-relevant tree nodes
-
-Datetime
-________
-
-        * Implement in cyboi:
-            --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
-            --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week
-                language: ??; format: datetime/year-week (index)
-                if year changes and week contains old and new days (with sunday being the first day), then the first week of the NEW year is used
-            --> get_first_day_of_week (sunday being the start of the week): represent/serialise from julian_date representing current_datetime into julian_date representing first day (sunday)
-                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
-                language: ??; format: datetime/week-day-first (julian_date)
-            --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
-                language: ??; format: datetime/week-day (index)
-        * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
-            --> continue with run.cybol
-
-        * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
-        * Add files "clock_reader.c" and "clock_writer.c"
-        * Add files "randomiser_reader.c" and "randomiser_writer.c"
-        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
-        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
-        * Configure date dynamically in cybol example application "presence"
-
-        * Correct new algorithm for time scale gregorian calendar serialiser
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
-            http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
-            see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
-
-        * Implement "utc" datetime de-/serialiser
-
-        * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
-        * Check out http://www.joda.org/joda-time/
-        * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model OR leave them in cybol, so that model diagram and html etc. work fine?
 
 xDT
 ___
