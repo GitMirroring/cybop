@@ -32,7 +32,7 @@
         In this case, the value assigned here may be left empty then.
     -->
     <node name="year_string" channel="inline" format="text/plain" model="2015"/>
-    <node name="week" channel="inline" format="number/integer" model="11"/>
+    <node name="week" channel="inline" format="number/integer" model="23"/>
     <node name="week_string" channel="inline" format="text/plain" model=""/>
 <!--
     <node name="day" channel="inline" format="datetime/utc" model="2015-01-01T00:00:00"/>
