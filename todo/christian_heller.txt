@@ -51,6 +51,8 @@ ________
 WUI
 ___
 
+        * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
+
         * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
         * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
 

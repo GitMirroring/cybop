@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-05-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add "exit_application" action to cybol example application "presence"
+        * Run valgrind test
+
 2015-04-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create page links (for retrieval of images and css file) dynamically in cybol example application "presence", so that hostname (ip address) is correct

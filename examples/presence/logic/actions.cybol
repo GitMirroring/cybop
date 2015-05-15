@@ -1,6 +1,6 @@
 <node>
 
-    <!-- Web user interface. -->
+    <!-- Web page. -->
     <node name="send_index" channel="inline" format="path/knowledge" model=".app.logic.send.index"/>
     <node name="send_css" channel="inline" format="path/knowledge" model=".app.logic.send.css"/>
     <node name="send_header_image" channel="inline" format="path/knowledge" model=".app.logic.send.header_image"/>
@@ -13,5 +13,8 @@
 
     <!-- Overview entry choice. -->
     <node name="update" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_all"/>
+
+    <!-- Overview entry choice. -->
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>
