@@ -41,12 +41,22 @@ ________
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Gregorianischem_Kalender
             see "JulianTime.java" and "TimeScale.java::convertTo()" of Dieter Egger (contains all four time scale conversions) and file "design_decisions.txt"
+        * Verify date arithmetics using:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.2 Uhrzeit- und Datumsarithmetik)
+
+        * Implement cybol operations for calculating (religious) holidays:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.2 Uhrzeit- und Datumsarithmetik | Osterdatum (und bewegl. Feste) ... end of chapter +/- to get all feast days)
+        * Implement cybol operations for calculating leap year/day_of_week/Jahrestag/n-te Wochentag im Monat:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.2 Uhrzeit- und Datumsarithmetik | Datumsrechnung)
 
         * Implement "utc" datetime de-/serialiser
 
         * Implement TAI and other remaining times, necessary for real time/embedded/mobile devices
         * Check out http://www.joda.org/joda-time/
         * Move ddmmyyyy/qyyyy/yyyy datetime and three duration formats from cybol to xdt, for type/format/model OR leave them in cybol, so that model diagram and html etc. work fine?
+
+        * Implement cybol operation converting arabian to roman numbers; see:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.1 Verarbeitung von Zeichenketten (Strings) | Römische Zahlen)
 
 WUI
 ___
@@ -123,6 +133,25 @@ _____
         * Deliver element that was added LAST in case many equally named elements exist
         * Rename "knowledge memory" to "heap memory" ??
         * Use a third cybol path format "path/stack"??
+
+Mathematics
+___________
+
+        * Implement cybol operations for calculating mathematical things:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.3 Numerik)
+            - Primzahlen, Auflösen arithmetischer Ausdrücke, Nullstellenberechnung, Numerische Integration, Gausselimination (lin. Gleichungen)
+
+        * Implement cybol operations for calculating statistical things:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.4 Statistische Maßzahlen)
+            - Beschreibende Statistik
+            - Tabellarische und graphische Darstellung (Histogramm)
+            - Mittelwert, Varianz, Standardabweichung, Standardfehler
+            - Minimum, Maximum, Median, Modalwert
+            - Lineare Regression
+
+        * Implement cybol operations for calculating statistical things:
+            tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.5 Suchen und Sortieren)
+            - linear, binär, sortieren
 
 LDAP
 ____
