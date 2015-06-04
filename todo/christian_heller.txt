@@ -14,6 +14,12 @@
 Datetime
 ________
 
+        communicate/receive
+            channel="clock"
+            language="text/cybol" (or use "calendar/gregorian" or "chronology/gregorian" as language here?)
+            format="datetime/utc"
+        --> read: http://www.joda.org/joda-time/quickstart.html
+
         * Create list of useful cybol operations related to date and time, see e.g.:
             sst/doc/moehrke_-_php_pear/04_0_date_and_time-001.htm#5287d2b67ab3202efa1386b66e82368f
             - internally, only the datetime structure is used (julian date = solar day + fraction)
@@ -31,15 +37,13 @@ ________
                 language: ??; format: datetime/week-day-first (julian_date)
             --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
                 language: ??; format: datetime/week-day (index)
+
+        * Extend file "sender.c" with long long int buffer for datetime
+        * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
+        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
+        * Configure date dynamically in cybol example application "presence"
         * Implement "forward" and "backward" in cybol example application "presence", by just adding/subtracting 7 (days) from current day
             --> continue with run.cybol
-
-        * Extend file "sender.c" with long long int buffer for datetime and randomiser seed
-        * Add files "clock_reader.c" and "clock_writer.c"
-        * Add files "randomiser_reader.c" and "randomiser_writer.c"
-        * Adapt cybol example applications using old versions of "time/current" with new receive via channel "clock"
-        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
-        * Configure date dynamically in cybol example application "presence"
 
         * Correct new algorithm for time scale gregorian calendar serialiser
             http://de.wikipedia.org/wiki/Umrechnung_zwischen_Julianischem_Datum_und_Julianischem_Kalender
@@ -61,6 +65,15 @@ ________
 
         * Implement cybol operation converting arabian to roman numbers; see:
             tmp/datetime/plate_-_programmieren_in_c_datumsberechnung.html (8 Ausgewählte Algorithmen (Teil 1) | 8.1 Verarbeitung von Zeichenketten (Strings) | Römische Zahlen)
+
+Randomiser
+__________
+
+        * Extend file "sender.c" with long long int buffer for randomiser seed
+        * Add files "randomiser_reader.c" (returning a random number) and "randomiser_writer.c" (seeting the seed)
+            communicate/receive
+                channel="randomiser"
+        * Adapt cybol example applications using old versions of "randomise/sow" and "randomise/retrieve" with new receive/send via channel "randomiser"
 
 WUI
 ___
