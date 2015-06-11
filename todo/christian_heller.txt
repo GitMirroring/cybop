@@ -14,29 +14,42 @@
 Datetime
 ________
 
-        communicate/receive
-            channel="clock"
-            language="text/cybol" (or use "calendar/gregorian" or "chronology/gregorian" as language here?)
-            format="datetime/utc"
-        --> read: http://www.joda.org/joda-time/quickstart.html
-
+        * Konvertierung Kalender:
+            communicate/receive
+                channel="inline"
+                language="text/cybol" (or use "calendar/gregorian" or "chronology/gregorian" as language here?)
+                format="datetime/utc"
+                model="2015-06-11T12-56"
+        * Systemzeit: convert to cyboi datetime internally (UNIX since 1970-01-01; Windows since 1900??)
+            communicate/receive
+                channel="clock"
+                language="text/cybol" (or use "calendar/gregorian" or "chronology/gregorian" as language here?)
+                format="datetime/utc"
         * Create list of useful cybol operations related to date and time, see e.g.:
             sst/doc/moehrke_-_php_pear/04_0_date_and_time-001.htm#5287d2b67ab3202efa1386b66e82368f
+            http://www.joda.org/joda-time/quickstart.html
             - internally, only the datetime structure is used (julian date = solar day + fraction)
             - retrieval of values such as a month's number, name of a day etc. should happen
               via "serialise/" operations, i.e. a destination language "text/cybol" and
               format have to be specified, e.g. "datetime/day-of-week" or "datetime/calendar-week" etc.
-
         * Implement in cyboi:
-            --> get_current_datetime (as julian_date): communicate/receive via channel "clock"
-            --> get_calendar_week: represent/serialise from julian_date representing current_datetime into int number 1..53 representing calendar_week
+            represent/serialise
+                --> get_calendar_week:
                 language: ??; format: datetime/year-week (index)
+                destination="int number 1..53 representing calendar_week"
+                source=".app.node.representing.current_datetime.as.julian_date"
                 if year changes and week contains old and new days (with sunday being the first day), then the first week of the NEW year is used
-            --> get_first_day_of_week (sunday being the start of the week): represent/serialise from julian_date representing current_datetime into julian_date representing first day (sunday)
-                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
+            represent/serialise
+                --> get_first_day_of_week (sunday being the start of the week):
                 language: ??; format: datetime/week-day-first (julian_date)
-            --> get_weekday: represent/serialise from julian_date representing current_datetime into int number 0..6 representing weekday (sunday having index number 0)
+                destination="julian_date representing first day (sunday)"
+                source="julian_date representing current_datetime"
+                e.g. if tuesday, then subtract 2 to receive julian_date of sunday of the same week; offer this in cyboi
+            represent/serialise
+                --> get_weekday:
                 language: ??; format: datetime/week-day (index)
+                destination="into int number 0..6 representing weekday (sunday having index number 0)"
+                source="julian_date representing current_datetime"
 
         * Extend file "sender.c" with long long int buffer for datetime
         * Add files "clock_reader.c" (returning current unix time in s) and "clock_writer.c" (setting computer time, which needs administrator rights)
