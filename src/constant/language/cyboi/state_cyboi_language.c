@@ -86,6 +86,34 @@
 //?? static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOI_FORMAT = NUMBER_150_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// chronology
+//
+
+/** The buddhist chronology state cyboi language. */
+static int* BUDDHIST_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The coptic chronology state cyboi language. */
+static int* COPTIC_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ethiopic chronology state cyboi language. */
+static int* ETHIOPIC_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The gregorian-julian chronology state cyboi language. */
+static int* GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The gregorian chronology state cyboi language. */
+static int* GREGORIAN_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The islamic chronology state cyboi language. */
+static int* ISLAMIC_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The iso chronology state cyboi language. */
+static int* ISO_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The julian chronology state cyboi language. */
+static int* JULIAN_CHRONOLOGY_STATE_CYBOI_LANGUAGE = NUMBER_180_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // image
 //
 

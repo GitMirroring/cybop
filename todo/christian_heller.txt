@@ -14,6 +14,11 @@
 Datetime
 ________
 
+        * See file "todo/todo_datetime.pdf"
+
+        ("chronology" language already added to constants)
+        * Add various datetime formats, e.g. "datetime/ddmmyyyy" etc.
+
         * Konvertierung Kalender:
             communicate/receive
                 channel="inline"
