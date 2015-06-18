@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2015-06-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up constants for "datetime" format and "chronology" language
+
 2015-06-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add new "chronology" language files for calendar systems

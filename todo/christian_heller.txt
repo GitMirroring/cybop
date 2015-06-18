@@ -14,10 +14,7 @@
 Datetime
 ________
 
-        * See file "todo/todo_datetime.pdf"
-
-        ("chronology" language already added to constants)
-        * Add various datetime formats, e.g. "datetime/ddmmyyyy" etc.
+        * Add items from file "todo/todo_datetime.pdf" to datetime formats
 
         * Konvertierung Kalender:
             communicate/receive
@@ -232,6 +229,12 @@ _____________
 
         * Remove cybol properties "channel", "encoding", "language" but NOT "format" from cyboi-internal knowledge model schema
             the "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value; see e.g. "cybol_serialiser.c"
+        * Introduce "error" property for cybol operations to be used for exception handling
+
+        * Simplify "lightning_talk" presentation:
+            - motivation: small problem and solution as demonstration --> impression
+            - purpose of cybop --> explanation
+            - less xml source code (too verbose), use table with columns for xml attributes instead
 
 Hello, World!
 _____________
