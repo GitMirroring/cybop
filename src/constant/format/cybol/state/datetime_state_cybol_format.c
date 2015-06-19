@@ -55,6 +55,51 @@
 //
 
 /**
+ * The datetime/dd.mm.yyyy state cybol type.
+ *
+ * It is used e.g. in Germany, Europe, Russia,
+ * South America, India, Africa, Australia.
+ * https://de.wikipedia.org/wiki/Datumsformat
+ *
+ * German de jure standard: DIN 1355-1
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* DD_DOT_MM_DOT_YYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/dd.mm.yyyy";
+static int* DD_DOT_MM_DOT_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/dd/mm/yy state cybol type.
+ *
+ * It is used e.g. in Europe, Russia,
+ * South America, India, Africa, Australia.
+ * https://de.wikipedia.org/wiki/Datumsformat
+ *
+ * Since the year is AMBIGUOUS, it gets interpreted
+ * as being in the 20th century.
+ * Example: 01/02/03 gets interpreted as 1903-02-01
+ *
+ * Since the "year 2000 problem", all dates since then should be
+ * and are expected to be given with FOUR year digits.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* DD_SLASH_MM_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/dd/mm/yy";
+static int* DD_SLASH_MM_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/dd/mm/yyyy state cybol type.
+ *
+ * It is used e.g. in Europe, Russia,
+ * South America, India, Africa, Australia.
+ * https://de.wikipedia.org/wiki/Datumsformat
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* DD_SLASH_MM_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/dd/mm/yyyy";
+static int* DD_SLASH_MM_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The datetime/ddmmyyyy state cybol type.
  *
  * It is used e.g. in the German xDT medical standard.
@@ -71,6 +116,35 @@ static int* DDMMYYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  */
 static wchar_t* ISO_DATETIME_STATE_CYBOL_FORMAT = L"datetime/iso";
 static int* ISO_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/mm/dd/yy state cybol type.
+ *
+ * It is used e.g. in the USA, Philippines, Saudia Arabia.
+ * https://de.wikipedia.org/wiki/Datumsformat
+ *
+ * Since the year is AMBIGUOUS, it gets interpreted
+ * as being in the 20th century.
+ * Example: 01/02/03 gets interpreted as 1903-01-02
+ *
+ * Since the "year 2000 problem", all dates since then should be
+ * and are expected to be given with FOUR year digits.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MM_SLASH_DD_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/mm/dd/yy";
+static int* MM_SLASH_DD_SLASH_YY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The datetime/mm/dd/yyyy state cybol type.
+ *
+ * It is used e.g. in the USA, Philippines, Saudia Arabia.
+ * https://de.wikipedia.org/wiki/Datumsformat
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MM_SLASH_DD_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT = L"datetime/mm/dd/yyyy";
+static int* MM_SLASH_DD_SLASH_YYYY_DATETIME_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The datetime/mmyy state cybol type.
