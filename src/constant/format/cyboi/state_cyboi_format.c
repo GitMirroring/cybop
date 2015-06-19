@@ -297,44 +297,59 @@ static int* TERMINAL_COLOUR_STATE_CYBOI_FORMAT = NUMBER_152_INTEGER_STATE_CYBOI_
 // datetime
 //
 
-//?? TODO: Possibly delete this later, since it is an xdt constant.
+/** The ascension datetime state cyboi format. */
+static int* ASCENSION_DATETIME_STATE_CYBOI_FORMAT = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The day-of-month datetime state cyboi format. */
+static int* DAY_OF_MONTH_DATETIME_STATE_CYBOI_FORMAT = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The day-of-week datetime state cyboi format. */
+static int* DAY_OF_WEEK_DATETIME_STATE_CYBOI_FORMAT = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The day-of-year datetime state cyboi format. */
+static int* DAY_OF_YEAR_DATETIME_STATE_CYBOI_FORMAT = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The dd.mm.yyyy datetime state cyboi format. */
+static int* DD_DOT_MM_DOT_YYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The dd/mm/yy datetime state cyboi format. */
+static int* DD_SLASH_MM_SLASH_YY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The dd/mm/yyyy datetime state cyboi format. */
+static int* DD_SLASH_MM_SLASH_YYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The ddmmyyyy datetime state cyboi format. */
-static int* DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_200_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* DDMMYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The gregorian datetime state cyboi format. */
-static int* GREGORIAN_DATETIME_STATE_CYBOI_FORMAT = NUMBER_201_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The easter-monday datetime state cyboi format. */
+static int* EASTER_MONDAY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The jd datetime state cyboi format. */
-static int* JD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_202_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The easter-sunday datetime state cyboi format. */
+static int* EASTER_SUNDAY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The julian datetime state cyboi format. */
-static int* JULIAN_DATETIME_STATE_CYBOI_FORMAT = NUMBER_203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The iso datetime state cyboi format. */
+static int* ISO_DATETIME_STATE_CYBOI_FORMAT = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The mjd datetime state cyboi format. */
-static int* MJD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_204_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The mm/dd/yy datetime state cyboi format. */
+static int* MM_SLASH_DD_SLASH_YY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_211_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//?? TODO: Possibly delete this later, since it is an xdt constant.
+/** The mm/dd/yyyy datetime state cyboi format. */
+static int* MM_SLASH_DD_SLASH_YYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_212_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The mmyy datetime state cyboi format. */
-static int* MMYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_205_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* MMYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_213_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The posix datetime state cyboi format. */
-static int* POSIX_DATETIME_STATE_CYBOI_FORMAT = NUMBER_206_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The month-of-year datetime state cyboi format. */
+static int* MONTH_OF_YEAR_DATETIME_STATE_CYBOI_FORMAT = NUMBER_214_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The qyyyy datetime state cyboi format. */
-static int* QYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_207_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static int* QYYYY_DATETIME_STATE_CYBOI_FORMAT = NUMBER_215_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The tai datetime state cyboi format. */
-static int* TAI_DATETIME_STATE_CYBOI_FORMAT = NUMBER_208_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The week-of-month datetime state cyboi format. */
+static int* WEEK_OF_MONTH_DATETIME_STATE_CYBOI_FORMAT = NUMBER_216_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The ti datetime state cyboi format. */
-static int* TI_DATETIME_STATE_CYBOI_FORMAT = NUMBER_209_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The tjd datetime state cyboi format. */
-static int* TJD_DATETIME_STATE_CYBOI_FORMAT = NUMBER_210_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The utc datetime state cyboi format. */
-static int* UTC_DATETIME_STATE_CYBOI_FORMAT = NUMBER_211_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The week-of-year datetime state cyboi format. */
+static int* WEEK_OF_YEAR_DATETIME_STATE_CYBOI_FORMAT = NUMBER_217_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // drawing
@@ -347,11 +362,9 @@ static int* X_DWF_DRAWING_STATE_CYBOI_FORMAT = NUMBER_250_INTEGER_STATE_CYBOI_MO
 // duration
 //
 
-//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The ddmmyyyyddmmyyyy duration state cyboi format. */
 static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOI_FORMAT = NUMBER_280_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The hhmmhhmm duration state cyboi format. */
 static int* HHMMHHMM_DURATION_STATE_CYBOI_FORMAT = NUMBER_281_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -367,7 +380,6 @@ static int* JULIAN_DURATION_STATE_CYBOI_FORMAT = NUMBER_284_INTEGER_STATE_CYBOI_
 /** The si duration state cyboi format. */
 static int* SI_DURATION_STATE_CYBOI_FORMAT = NUMBER_285_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//?? TODO: Possibly delete this later, since it is an xdt constant.
 /** The yyyy duration state cyboi format. */
 static int* YYYY_DURATION_STATE_CYBOI_FORMAT = NUMBER_286_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

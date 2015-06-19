@@ -27,6 +27,7 @@
 #define LANGUAGE_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
+#include "../../../../constant/language/cybol/state/chronology_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/interface_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/message_state_cybol_language.c"
 #include "../../../../constant/language/cybol/state/number_state_cybol_language.c"
@@ -57,6 +58,160 @@ void serialise_cybol_language(void* p0, void* p1) {
     // State.
     //
     // ======================================================================
+
+    //
+    // chronology
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BUDDHIST_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) COPTIC_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) COPTIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPTIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ETHIOPIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREGORIAN_JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREGORIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ISLAMIC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) ISO_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) ISO_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ISO_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) JD_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) JD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) JD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) JULIAN_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) JULIAN_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) MJD_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) MJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) POSIX_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) POSIX_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) POSIX_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) TAI_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) TAI_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TAI_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) TI_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) TI_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TI_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) TJD_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) TJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TJD_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) UTC_CHRONOLOGY_STATE_CYBOI_LANGUAGE);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) UTC_CHRONOLOGY_STATE_CYBOL_LANGUAGE, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UTC_CHRONOLOGY_STATE_CYBOL_LANGUAGE_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
 
     //
     // interface

@@ -139,91 +139,11 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p6, (void*) GREGORIAN_DATETIME_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p6, (void*) ISO_DATETIME_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_cybol_datetime_gregorian(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) JD_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_jd(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) JULIAN_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_julian(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) MJD_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_mjd(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) POSIX_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_posix(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) TAI_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_tai(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) TI_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_ti(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) TJD_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_tjd(p0, p8, p9);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p6, (void*) UTC_DATETIME_STATE_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            serialise_cybol_datetime_utc(p0, p8, p9);
+//??            serialise_chronology_gregorian_iso(p0, p8, p9);
         }
     }
 

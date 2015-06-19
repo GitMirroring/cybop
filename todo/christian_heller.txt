@@ -14,6 +14,8 @@
 Datetime
 ________
 
+        * Move concrete de-/serialisers from directory cybol to new directory "chronology"
+        * Test new chronology language and datetime format conversion in cybol example application "presence"
         * Add items from file "todo/todo_datetime.pdf" to datetime formats
 
         * Konvertierung Kalender:
