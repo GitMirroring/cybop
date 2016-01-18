@@ -1,0 +1,3 @@
+- update beginners manual
+- cybop tutorial (first steps)
+- explanation
