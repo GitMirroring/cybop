@@ -1,1 +1,2 @@
- 
+* Update cybol api specification with state and logic, which gets automatically generated into html
+         
