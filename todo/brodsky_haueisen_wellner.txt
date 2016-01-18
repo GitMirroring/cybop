@@ -1,0 +1,3 @@
+We want to write a cybop based program to play BlackJack(21)
+1. dealer and player (maybe more players later)
+2. rules: standard
