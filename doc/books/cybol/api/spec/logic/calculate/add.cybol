@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="add"/>
-    <part name="description" channel="inline" format="text/plain" model="Adds two numbers of the given format."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/calculate/add/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="calculate/add"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/calculate/add/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="add"/>
+    <node name="description" channel="inline" format="text/plain" model="Adds two numbers of the given format."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/calculate/add/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="calculate/add"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/calculate/add/properties.cybol"/>
+</node>

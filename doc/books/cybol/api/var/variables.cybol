@@ -1,15 +1,15 @@
-<model>
+<node>
 
     <!-- The loop parametres. -->
-    <part name="count" channel="inline" format="number/integer" model="0"/>
-    <part name="index" channel="inline" format="number/integer" model="0"/>
-    <part name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="count" channel="inline" format="number/integer" model="0"/>
+    <node name="index" channel="inline" format="number/integer" model="0"/>
+    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <!-- The element. -->
-    <part name="number" channel="inline" format="text/plain" model=""/>
-    <part name="root" channel="inline" format="text/plain" model=""/>
-    <part name="name" channel="inline" format="text/plain" model=""/>
+    <node name="number" channel="inline" format="text/plain" model=""/>
+    <node name="root" channel="inline" format="text/plain" model=""/>
+    <node name="name" channel="inline" format="text/plain" model=""/>
     <!-- This is only needed for accessing a part's properties. -->
-    <part name="properties" channel="inline" format="text/plain" model=""/>
+    <node name="properties" channel="inline" format="text/plain" model=""/>
 
-</model>
+</node>

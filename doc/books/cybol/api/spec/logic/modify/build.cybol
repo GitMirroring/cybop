@@ -1,8 +1,8 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="build"/>
-    <part name="description" channel="inline" format="text/plain" model=" Builds a part name to be used in a list of many parts.
+<node>
+    <node name="name" channel="inline" format="text/plain" model="build"/>
+    <node name="description" channel="inline" format="text/plain" model=" Builds a part name to be used in a list of many parts.
  Uses a base name and adds an index to retrieve a unique resulting composed name."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/modify/build/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="modify/build"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/modify/build/properties.cybol"/>
-</model>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/modify/build/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="modify/build"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/modify/build/properties.cybol"/>
+</node>

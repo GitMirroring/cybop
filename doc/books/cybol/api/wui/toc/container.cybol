@@ -1,8 +1,8 @@
-<model>
+<node>
 
-    <part name="heading" channel="inline" format="text/plain" model="">
-        <property name="tag" channel="inline" format="text/plain" model="a"/>
-        <property name="href" channel="inline" format="text/plain" model=""/>
-    </part>
+    <node name="heading" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="href" channel="inline" format="text/plain" model=""/>
+    </node>
 
-</model>
+</node>

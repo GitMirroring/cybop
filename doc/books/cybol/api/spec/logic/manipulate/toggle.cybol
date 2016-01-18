@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="toggle"/>
-    <part name="description" channel="inline" format="text/plain" model="Toggles the bit at the given position."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/manipulate/toggle/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="manipulate/toggle"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/manipulate/toggle/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="toggle"/>
+    <node name="description" channel="inline" format="text/plain" model="Toggles the bit at the given position."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/manipulate/toggle/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="manipulate/toggle"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/manipulate/toggle/properties.cybol"/>
+</node>

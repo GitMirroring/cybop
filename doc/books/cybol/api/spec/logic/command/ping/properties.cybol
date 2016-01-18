@@ -1,23 +1,23 @@
-<model>
-    <part name="host" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="host"/>
-        <property name="description" channel="inline" format="text/plain" model="the host to be pinged"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="count" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="count"/>
-        <property name="description" channel="inline" format="text/plain" model="count of ping packets to send"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="interface" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="interface"/>
-        <property name="description" channel="inline" format="text/plain" model="interface to send packets on"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-</model>
+<node>
+    <node name="host" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="host"/>
+        <node name="description" channel="inline" format="text/plain" model="the host to be pinged"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="count"/>
+        <node name="description" channel="inline" format="text/plain" model="count of ping packets to send"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="interface" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="interface"/>
+        <node name="description" channel="inline" format="text/plain" model="interface to send packets on"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="equal"/>
-    <part name="description" channel="inline" format="text/plain" model="Compares left and right parametre."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/compare/equal/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="compare/equal"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/compare/equal/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="equal"/>
+    <node name="description" channel="inline" format="text/plain" model="Compares left and right parametre."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/compare/equal/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="compare/equal"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/compare/equal/properties.cybol"/>
+</node>

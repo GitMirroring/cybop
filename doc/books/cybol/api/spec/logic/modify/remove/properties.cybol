@@ -1,23 +1,23 @@
-<model>
-	<part name="part" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="part"/>
-        <property name="description" channel="inline" format="text/plain" model="the part"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-	<part name="count" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="count"/>
-        <property name="description" channel="inline" format="text/plain" model="If null, ALL elements will be removed. The number of elements to be removed."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-	<part name="index" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="index"/>
-        <property name="description" channel="inline" format="text/plain" model="If null, the index of the LAST element will be used instead. The index from where to start removing elements from."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="number/integer"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-</model>
+<node>
+	<node name="part" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="part"/>
+        <node name="description" channel="inline" format="text/plain" model="the part"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+	<node name="count" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="count"/>
+        <node name="description" channel="inline" format="text/plain" model="If null, ALL elements will be removed. The number of elements to be removed."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+	<node name="index" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="index"/>
+        <node name="description" channel="inline" format="text/plain" model="If null, the index of the LAST element will be used instead. The index from where to start removing elements from."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

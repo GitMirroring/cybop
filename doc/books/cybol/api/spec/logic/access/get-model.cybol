@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="get-model"/>
-    <part name="description" channel="inline" format="text/plain" model="Get a part's model."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/access/get-model/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="access/get-model"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/access/get-model/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="get-model"/>
+    <node name="description" channel="inline" format="text/plain" model="Get a part's model."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/access/get-model/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="access/get-model"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/access/get-model/properties.cybol"/>
+</node>

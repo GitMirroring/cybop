@@ -1,16 +1,16 @@
-<model>
-    <part name="result" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="result"/>
-        <property name="description" channel="inline" format="text/plain" model="The result flag, set to true on successful comparison, left untouched otherwise."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/*"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="operand" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="part"/>
-        <property name="description" channel="inline" format="text/plain" model="The part."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-</model>
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="description" channel="inline" format="text/plain" model="The result flag, set to true on successful comparison, left untouched otherwise."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="operand" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="part"/>
+        <node name="description" channel="inline" format="text/plain" model="The part."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,30 +1,30 @@
-<model>
-    <part name="path" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="path"/>
-        <property name="description" channel="inline" format="text/plain" model=" the path including wildcards for deleting files and directories"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>	
-	<part name="interactive" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="interactive"/>
-        <property name="description" channel="inline" format="text/plain" model="the interactive option (askes everytime for permission of deleting a file or directory)"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>	
-	<part name="recursive" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="recursive"/>
-        <property name="description" channel="inline" format="text/plain" model="the recursvie option (deletes any files in the current directory and in all of its subdirectories)"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-	<part name="verbal" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="verbal"/>
-        <property name="description" channel="inline" format="text/plain" model="the verbal option (shows what have been moved)"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>	
-</model>
+<node>
+    <node name="path" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="path"/>
+        <node name="description" channel="inline" format="text/plain" model=" the path including wildcards for deleting files and directories"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>	
+	<node name="interactive" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="interactive"/>
+        <node name="description" channel="inline" format="text/plain" model="the interactive option (askes everytime for permission of deleting a file or directory)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>	
+	<node name="recursive" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="recursive"/>
+        <node name="description" channel="inline" format="text/plain" model="the recursvie option (deletes any files in the current directory and in all of its subdirectories)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+	<node name="verbal" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="verbal"/>
+        <node name="description" channel="inline" format="text/plain" model="the verbal option (shows what have been moved)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>	
+</node>

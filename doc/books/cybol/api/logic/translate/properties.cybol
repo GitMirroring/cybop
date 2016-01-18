@@ -1,42 +1,42 @@
-<model>
+<node>
 
     <!-- Identification. -->
-    <part name="identify_property_number" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.property_number"/>
-    </part>
-    <part name="identify_property_root" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.property_root"/>
-    </part>
-    <part name="get_property_name" channel="inline" format="access/get-name" model="">
-        <property name="element" channel="inline" format="path/knowledge" model=".app.var.property.name"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.property.root"/>
-    </part>
+    <node name="identify_property_number" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.property_number"/>
+    </node>
+    <node name="identify_property_root" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.property_root"/>
+    </node>
+    <node name="get_property_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="path/knowledge" model=".app.var.property.name"/>
+        <node name="part" channel="inline" format="path/reference" model=".app.var.property.root"/>
+    </node>
 
     <!-- Loop reset. -->
     <!-- It is NOT necessary, since there are NO children. -->
 
     <!-- Model creation. -->
     <!-- There is NO toc entry for the properties. -->
-    <part name="create_wui_content_properties" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.wui_content_properties"/>
-    </part>
+    <node name="create_wui_content_properties" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.wui_content_properties"/>
+    </node>
 
     <!-- Child translation. -->
     <!-- It is NOT necessary, since there are NO children. -->
 
     <!-- Loop test. -->
-    <part name="increment_index" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.property.index"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.property.index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.property.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.property.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.property.count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.property.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.property.index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.var.property.count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-</model>
+</node>

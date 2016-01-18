@@ -1,8 +1,8 @@
-<model>
-    <part name="equal" channel="file" format="element/part" model="api/spec/logic/compare/equal.cybol"/>
-    <part name="greater" channel="file" format="element/part" model="api/spec/logic/compare/greater.cybol"/>
-    <part name="greater-or-equal" channel="file" format="element/part" model="api/spec/logic/compare/greater-or-equal.cybol"/>
-    <part name="smaller (TODO)" channel="file" format="element/part" model="api/spec/logic/compare/smaller.cybol"/>
-    <part name="smaller-or-equal (TODO)" channel="file" format="element/part" model="api/spec/logic/compare/smaller-or-equal.cybol"/>
-    <part name="unequal" channel="file" format="element/part" model="api/spec/logic/compare/unequal.cybol"/>
-</model>
+<node>
+    <node name="equal" channel="file" format="element/part" model="api/spec/logic/compare/equal.cybol"/>
+    <node name="greater" channel="file" format="element/part" model="api/spec/logic/compare/greater.cybol"/>
+    <node name="greater-or-equal" channel="file" format="element/part" model="api/spec/logic/compare/greater-or-equal.cybol"/>
+    <node name="smaller (TODO)" channel="file" format="element/part" model="api/spec/logic/compare/smaller.cybol"/>
+    <node name="smaller-or-equal (TODO)" channel="file" format="element/part" model="api/spec/logic/compare/smaller-or-equal.cybol"/>
+    <node name="unequal" channel="file" format="element/part" model="api/spec/logic/compare/unequal.cybol"/>
+</node>

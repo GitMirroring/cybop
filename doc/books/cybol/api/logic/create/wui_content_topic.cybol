@@ -1,38 +1,38 @@
-<model>
+<node>
 
-    <part name="create_wui_content_topic" channel="inline" format="memorise/create" model="">
-        <property name="name" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="element" channel="inline" format="text/plain" model="part"/>
-        <property name="whole" channel="inline" format="path/knowledge" model=".app.wui.body.content"/>
-    </part>
+    <node name="create_wui_content_topic" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+        <node name="whole" channel="inline" format="path/knowledge" model=".app.wui.body.content"/>
+    </node>
 
-    <part name="initialise_wui_content_topic_part" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/part"/>
-        <property name="message" channel="inline" format="text/plain" model="api/wui/content/topic.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name)"/>
-    </part>
-    <part name="initialise_wui_content_topic_properties" channel="inline" format="communicate/receive" model="">
-        <property name="channel" channel="inline" format="meta/channel" model="file"/>
-        <property name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="element/property"/>
-        <property name="message" channel="inline" format="text/plain" model="api/wui/content/topic/topic_properties.cybol"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name)"/>
-    </part>
+    <node name="initialise_wui_content_topic_part" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="api/wui/content/topic.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name)"/>
+    </node>
+    <node name="initialise_wui_content_topic_properties" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/property"/>
+        <node name="sender" channel="inline" format="text/plain" model="api/wui/content/topic/topic_properties.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name)"/>
+    </node>
 
-    <part name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).anchor.heading"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
-    <part name="overwrite_name" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).anchor#name"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
-        <property name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </part>
+    <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).anchor.heading"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).anchor#name"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.topic.name"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
-</model>
+</node>

@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="remainder"/>
-    <part name="description" channel="inline" format="text/plain" model="Not implemented yet."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/calculate/remainder/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="calculate/remainder"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/calculate/remainder/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="remainder"/>
+    <node name="description" channel="inline" format="text/plain" model="Not implemented yet."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/calculate/remainder/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="calculate/remainder"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/calculate/remainder/properties.cybol"/>
+</node>

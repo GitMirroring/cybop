@@ -1,9 +1,9 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="not"/>
-    <part name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NOT.
+<node>
+    <node name="name" channel="inline" format="text/plain" model="not"/>
+    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NOT.
 	The 'output' parametre represents the first operand;
   the 'input' parametre the second."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/logify/not/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="logify/not"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/logify/not/properties.cybol"/>
-</model>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/logify/not/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="logify/not"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/logify/not/properties.cybol"/>
+</node>

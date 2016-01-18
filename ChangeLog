@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-01-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add todo files of new student group members
+        * Rename property "message" into "sender" and "model" into "message" for receive operations in cybol api
+
 2015-06-19  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt cybol de-/serialiser to new constants for "datetime" format and "chronology" language

@@ -1,6 +1,6 @@
-<model>
+<node>
 
-    <part name="device" channel="file" format="element/part" model="api/spec/state/device.cybol"/>
-    <part name="user_interface" channel="file" format="element/part" model="api/spec/state/user_interface.cybol"/>
+    <node name="device" channel="file" format="element/part" model="api/spec/state/device.cybol"/>
+    <node name="user_interface" channel="file" format="element/part" model="api/spec/state/user_interface.cybol"/>
 
-</model>
+</node>

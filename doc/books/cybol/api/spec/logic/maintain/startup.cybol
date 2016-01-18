@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="startup"/>
-    <part name="description" channel="inline" format="text/plain" model="Starts up a service on the given channel."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/maintain/startup/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="maintain/startup"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/maintain/startup/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="startup"/>
+    <node name="description" channel="inline" format="text/plain" model="Starts up a service on the given channel."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/maintain/startup/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="maintain/startup"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/maintain/startup/properties.cybol"/>
+</node>

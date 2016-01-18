@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="spec" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <part name="topic" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <part name="category" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <part name="part" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <part name="property" channel="file" format="element/part" model="api/var/variables.cybol"/>
+    <node name="spec" channel="file" format="element/part" model="api/var/variables.cybol"/>
+    <node name="topic" channel="file" format="element/part" model="api/var/variables.cybol"/>
+    <node name="category" channel="file" format="element/part" model="api/var/variables.cybol"/>
+    <node name="part" channel="file" format="element/part" model="api/var/variables.cybol"/>
+    <node name="property" channel="file" format="element/part" model="api/var/variables.cybol"/>
 
-    <part name="file" channel="inline" format="text/plain" model="api.html"/>
-    <part name="title" channel="inline" format="text/plain" model="CYBOL Version 2014-12-02 API Specification"/>
+    <node name="file" channel="inline" format="text/plain" model="api.html"/>
+    <node name="title" channel="inline" format="text/plain" model="CYBOL Version 2014-12-02 API Specification"/>
 
-</model>
+</node>

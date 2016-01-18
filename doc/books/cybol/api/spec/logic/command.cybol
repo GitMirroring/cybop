@@ -1,15 +1,15 @@
-<model>
-  <part name="archive-file" channel="file" format="element/part" model="api/spec/logic/command/archive_file.cybol"/>
-  <part name="change-permission" channel="file" format="element/part" model="api/spec/logic/command/change_permission.cybol"/>
-  <part name="copy-file" channel="file" format="element/part" model="api/spec/logic/command/copy_file.cybol"/>
-  <part name="create-folder" channel="file" format="element/part" model="api/spec/logic/command/create_folder.cybol"/>
-  <part name="diff" channel="file" format="element/part" model="api/spec/logic/command/diff.cybol"/>
-  <part name="echo-message" channel="file" format="element/part" model="api/spec/logic/command/echo_message.cybol"/>
-  <part name="directory-contents" channel="file" format="element/part" model="api/spec/logic/command/directory_contents.cybol"/>
-  <part name="grep" channel="file" format="element/part" model="api/spec/logic/command/grep.cybol"/>
-  <part name="move-file" channel="file" format="element/part" model="api/spec/logic/command/move_file.cybol"/>
-  <part name="ping" channel="file" format="element/part" model="api/spec/logic/command/ping.cybol"/>
-  <part name="remove-file" channel="file" format="element/part" model="api/spec/logic/command/remove_file.cybol"/>
-  <part name="tape-archiver" channel="file" format="element/part" model="api/spec/logic/command/tape_archiver.cybol"/>
-  <part name="word-count" channel="file" format="element/part" model="api/spec/logic/command/word_count.cybol"/>
-</model>
+<node>
+  <node name="archive-file" channel="file" format="element/part" model="api/spec/logic/command/archive_file.cybol"/>
+  <node name="change-permission" channel="file" format="element/part" model="api/spec/logic/command/change_permission.cybol"/>
+  <node name="copy-file" channel="file" format="element/part" model="api/spec/logic/command/copy_file.cybol"/>
+  <node name="create-folder" channel="file" format="element/part" model="api/spec/logic/command/create_folder.cybol"/>
+  <node name="diff" channel="file" format="element/part" model="api/spec/logic/command/diff.cybol"/>
+  <node name="echo-message" channel="file" format="element/part" model="api/spec/logic/command/echo_message.cybol"/>
+  <node name="directory-contents" channel="file" format="element/part" model="api/spec/logic/command/directory_contents.cybol"/>
+  <node name="grep" channel="file" format="element/part" model="api/spec/logic/command/grep.cybol"/>
+  <node name="move-file" channel="file" format="element/part" model="api/spec/logic/command/move_file.cybol"/>
+  <node name="ping" channel="file" format="element/part" model="api/spec/logic/command/ping.cybol"/>
+  <node name="remove-file" channel="file" format="element/part" model="api/spec/logic/command/remove_file.cybol"/>
+  <node name="tape-archiver" channel="file" format="element/part" model="api/spec/logic/command/tape_archiver.cybol"/>
+  <node name="word-count" channel="file" format="element/part" model="api/spec/logic/command/word_count.cybol"/>
+</node>

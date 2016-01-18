@@ -1,5 +1,5 @@
-<model>
-    <part name="and" channel="file" format="element/part" model="api/spec/logic/logify/and.cybol"/>
-    <part name="not" channel="file" format="element/part" model="api/spec/logic/logify/not.cybol"/>
-    <part name="or" channel="file" format="element/part" model="api/spec/logic/logify/or.cybol"/>
-</model>
+<node>
+    <node name="and" channel="file" format="element/part" model="api/spec/logic/logify/and.cybol"/>
+    <node name="not" channel="file" format="element/part" model="api/spec/logic/logify/not.cybol"/>
+    <node name="or" channel="file" format="element/part" model="api/spec/logic/logify/or.cybol"/>
+</node>

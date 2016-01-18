@@ -1,9 +1,9 @@
-<model>
-	<part name="model" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="name"/>
-        <property name="description" channel="inline" format="text/plain" model="the part to be destroyed"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/knowledge"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-</model>
+<node>
+	<node name="model" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="name"/>
+        <node name="description" channel="inline" format="text/plain" model="the part to be destroyed"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

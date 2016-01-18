@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="rotate-left"/>
-    <part name="description" channel="inline" format="text/plain" model="Rotates all bits of a value to the left by position."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/manipulate/rotate-left/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="manipulate/rotate-left"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/manipulate/rotate-left/properties.cybol"/>
-</model>
+<node>
+    <node name="name" channel="inline" format="text/plain" model="rotate-left"/>
+    <node name="description" channel="inline" format="text/plain" model="Rotates all bits of a value to the left by position."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/manipulate/rotate-left/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="manipulate/rotate-left"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/manipulate/rotate-left/properties.cybol"/>
+</node>

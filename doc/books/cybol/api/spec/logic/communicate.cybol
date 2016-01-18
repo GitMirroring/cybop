@@ -1,4 +1,4 @@
-<model>
-    <part name="receive" channel="file" format="element/part" model="api/spec/logic/communicate/receive.cybol"/>
-    <part name="send" channel="file" format="element/part" model="api/spec/logic/communicate/send.cybol"/>
-</model>
+<node>
+    <node name="receive" channel="file" format="element/part" model="api/spec/logic/communicate/receive.cybol"/>
+    <node name="send" channel="file" format="element/part" model="api/spec/logic/communicate/send.cybol"/>
+</node>

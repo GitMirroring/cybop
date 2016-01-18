@@ -1,9 +1,9 @@
-<model>
-    <part name="path" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="path"/>
-        <property name="description" channel="inline" format="text/plain" model="path to the directory"/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="text/plain"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-</model>
+<node>
+    <node name="path" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="path"/>
+        <node name="description" channel="inline" format="text/plain" model="path to the directory"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,7 +1,7 @@
-<model>
-    <part name="name" channel="inline" format="text/plain" model="copy-file"/>
-    <part name="description" channel="inline" format="text/plain" model="Copies the file resource to a destination."/>
-    <part name="example" channel="file" format="text/plain" model="api/spec/logic/command/copy_file/example.txt"/>
-    <part name="format" channel="inline" format="text/plain" model="command/copy"/>
-    <part name="properties" channel="file" format="element/part" model="api/spec/logic/command/copy_file/properties.cybol"/>
-</model> 
+<node>
+    <node name="name" channel="inline" format="text/plain" model="copy-file"/>
+    <node name="description" channel="inline" format="text/plain" model="Copies the file resource to a destination."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/command/copy_file/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="command/copy"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/command/copy_file/properties.cybol"/>
+</node> 

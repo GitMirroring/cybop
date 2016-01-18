@@ -1,9 +1,9 @@
-<model>
-    <part name="append" channel="file" format="element/part" model="api/spec/logic/modify/append.cybol"/>
-    <part name="build" channel="file" format="element/part" model="api/spec/logic/modify/build.cybol"/>
-    <part name="empty" channel="file" format="element/part" model="api/spec/logic/modify/empty.cybol"/>
-    <part name="fill" channel="file" format="element/part" model="api/spec/logic/modify/fill.cybol"/>
-    <part name="insert" channel="file" format="element/part" model="api/spec/logic/modify/insert.cybol"/>
-    <part name="overwrite" channel="file" format="element/part" model="api/spec/logic/modify/overwrite.cybol"/>
-    <part name="remove" channel="file" format="element/part" model="api/spec/logic/modify/remove.cybol"/>
-</model>
+<node>
+    <node name="append" channel="file" format="element/part" model="api/spec/logic/modify/append.cybol"/>
+    <node name="build" channel="file" format="element/part" model="api/spec/logic/modify/build.cybol"/>
+    <node name="empty" channel="file" format="element/part" model="api/spec/logic/modify/empty.cybol"/>
+    <node name="fill" channel="file" format="element/part" model="api/spec/logic/modify/fill.cybol"/>
+    <node name="insert" channel="file" format="element/part" model="api/spec/logic/modify/insert.cybol"/>
+    <node name="overwrite" channel="file" format="element/part" model="api/spec/logic/modify/overwrite.cybol"/>
+    <node name="remove" channel="file" format="element/part" model="api/spec/logic/modify/remove.cybol"/>
+</node>

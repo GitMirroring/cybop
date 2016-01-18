@@ -1,18 +1,18 @@
-<model>
+<node>
 
-    <part name="spec_root" channel="file" format="element/part" model="api/logic/identify/spec_root.cybol"/>
+    <node name="spec_root" channel="file" format="element/part" model="api/logic/identify/spec_root.cybol"/>
 
-    <part name="topic_number" channel="file" format="element/part" model="api/logic/identify/topic_number.cybol"/>
-    <part name="topic_root" channel="file" format="element/part" model="api/logic/identify/topic_root.cybol"/>
+    <node name="topic_number" channel="file" format="element/part" model="api/logic/identify/topic_number.cybol"/>
+    <node name="topic_root" channel="file" format="element/part" model="api/logic/identify/topic_root.cybol"/>
 
-    <part name="category_number" channel="file" format="element/part" model="api/logic/identify/category_number.cybol"/>
-    <part name="category_root" channel="file" format="element/part" model="api/logic/identify/category_root.cybol"/>
+    <node name="category_number" channel="file" format="element/part" model="api/logic/identify/category_number.cybol"/>
+    <node name="category_root" channel="file" format="element/part" model="api/logic/identify/category_root.cybol"/>
 
-    <part name="part_number" channel="file" format="element/part" model="api/logic/identify/part_number.cybol"/>
-    <part name="part_root" channel="file" format="element/part" model="api/logic/identify/part_root.cybol"/>
-    <part name="part_properties" channel="file" format="element/part" model="api/logic/identify/part_properties.cybol"/>
+    <node name="part_number" channel="file" format="element/part" model="api/logic/identify/part_number.cybol"/>
+    <node name="part_root" channel="file" format="element/part" model="api/logic/identify/part_root.cybol"/>
+    <node name="part_properties" channel="file" format="element/part" model="api/logic/identify/part_properties.cybol"/>
 
-    <part name="property_number" channel="file" format="element/part" model="api/logic/identify/property_number.cybol"/>
-    <part name="property_root" channel="file" format="element/part" model="api/logic/identify/property_root.cybol"/>
+    <node name="property_number" channel="file" format="element/part" model="api/logic/identify/property_number.cybol"/>
+    <node name="property_root" channel="file" format="element/part" model="api/logic/identify/property_root.cybol"/>
 
-</model>
+</node>

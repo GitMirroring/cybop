@@ -11,6 +11,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Stack
+_____
+
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+
+        * Implement "stack memory" using existing "part" structure as known from knowledge memory
+        * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
+        * Deliver element that was added LAST in case many equally named elements exist
+        * Rename "knowledge memory" to "heap memory" ??
+        * Use a third cybol path format "path/stack"??
+
 Datetime
 ________
 
@@ -156,17 +167,6 @@ ___
             https://de.wikipedia.org/wiki/Content_Negotiation
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
-
-Stack
-_____
-
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
-
-        * Implement "stack memory" using existing "part" structure as known from knowledge memory
-        * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
-        * Deliver element that was added LAST in case many equally named elements exist
-        * Rename "knowledge memory" to "heap memory" ??
-        * Use a third cybol path format "path/stack"??
 
 Mathematics
 ___________

@@ -1,5 +1,5 @@
-<model>
+<node>
 
-    <property name="tag" channel="inline" format="text/plain" model="html"/>
+    <node name="tag" channel="inline" format="text/plain" model="html"/>
 
-</model>
+</node>

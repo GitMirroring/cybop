@@ -1,23 +1,23 @@
-<model>
-    <part name="result" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="result"/>
-        <property name="description" channel="inline" format="text/plain" model="The product resulting from the multiplication. It initially contains the first factor."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/*"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="operand" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="operand"/>
-        <property name="description" channel="inline" format="text/plain" model="The second factor for the multiplication."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="type" channel="inline" format="text/plain" model="">
-        <property name="name" channel="inline" format="text/plain" model="type"/>
-        <property name="description" channel="inline" format="text/plain" model="The number type. It has to be identical for all parametres."/>
-        <property name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
-        <property name="model" channel="inline" format="text/plain" model=""/>
-    </part>
-</model>
+<node>
+    <node name="result" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="description" channel="inline" format="text/plain" model="The product resulting from the multiplication. It initially contains the first factor."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="operand" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="operand"/>
+        <node name="description" channel="inline" format="text/plain" model="The second factor for the multiplication."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="type" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="type"/>
+        <node name="description" channel="inline" format="text/plain" model="The number type. It has to be identical for all parametres."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>

@@ -1,4 +1,4 @@
-<model>
+<node>
 
     <!--
         CAUTION! Do NOT delete this "empty" operation!
@@ -6,14 +6,14 @@
         so that previous results are not overwritten.
         Therefore, the result variable HAS TO BE emptied beforehand.
     -->
-    <part name="empty" channel="inline" format="modify/empty" model="">
-        <property name="part" channel="inline" format="path/knowledge" model=".app.var.property.number"/>
-    </part>
-    <part name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.property.number"/>
-        <property name="source" channel="inline" format="path/knowledge" model=".app.var.property.index"/>
-        <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-    </part>
+    <node name="empty" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.property.number"/>
+    </node>
+    <node name="serialise_index" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.property.number"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.property.index"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
 
-</model>
+</node>

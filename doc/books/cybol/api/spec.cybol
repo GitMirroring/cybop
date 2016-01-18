@@ -1,6 +1,6 @@
-<model>
+<node>
 
-    <part name="logic" channel="file" format="element/part" model="api/spec/logic.cybol"/>
-    <part name="state" channel="file" format="element/part" model="api/spec/state.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="api/spec/logic.cybol"/>
+    <node name="state" channel="file" format="element/part" model="api/spec/state.cybol"/>
 
-</model>
+</node>

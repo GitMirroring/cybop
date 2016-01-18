@@ -1,12 +1,12 @@
-<model>
+<node>
 
-    <part name="heading" channel="inline" format="text/plain" model="Example">
-        <property name="tag" channel="inline" format="text/plain" model="h5"/>
-    </part>
-    <part name="text" channel="inline" format="text/plain" model="">
-        <property name="tag" channel="inline" format="text/plain" model="p"/>
-        <property name="preformatted" channel="inline" format="logicvalue/boolean" model="true"/>
-        <property name="class" channel="inline" format="text/plain" model="part_example"/>
-    </part>
+    <node name="heading" channel="inline" format="text/plain" model="Example">
+        <node name="tag" channel="inline" format="text/plain" model="h5"/>
+    </node>
+    <node name="text" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="p"/>
+        <node name="preformatted" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="class" channel="inline" format="text/plain" model="part_example"/>
+    </node>
 
-</model>
+</node>

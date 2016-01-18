@@ -1,16 +1,16 @@
-<model>
+<node>
 
     <!-- Identification. -->
-    <part name="identify_category_number" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.category_number"/>
-    </part>
-    <part name="identify_category_root" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.category_root"/>
-    </part>
-    <part name="get_category_name" channel="inline" format="access/get-name" model="">
-        <property name="element" channel="inline" format="path/knowledge" model=".app.var.category.name"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.category.root"/>
-    </part>
+    <node name="identify_category_number" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.category_number"/>
+    </node>
+    <node name="identify_category_root" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.category_root"/>
+    </node>
+    <node name="get_category_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="path/knowledge" model=".app.var.category.name"/>
+        <node name="part" channel="inline" format="path/reference" model=".app.var.category.root"/>
+    </node>
 
     <!-- Loop reset. -->
     <!--
@@ -18,61 +18,61 @@
         The reason is that calculation might fail for non-existing children,
         and using an invalid count of a previous child would lead to wrong results.
     -->
-    <part name="reset_count" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.part.count"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="reset_index" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.part.index"/>
-        <property name="source" channel="inline" format="number/integer" model="0"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
-    <part name="reset_break" channel="inline" format="modify/overwrite" model="">
-        <property name="destination" channel="inline" format="path/knowledge" model=".app.var.part.break"/>
-        <property name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <property name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </part>
+    <node name="reset_count" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.part.count"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="reset_index" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.part.index"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="reset_break" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.part.break"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
 
     <!-- Model creation. -->
-    <part name="create_wui_toc_category" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.wui_toc_category"/>
-    </part>
-    <part name="create_wui_content_category" channel="inline" format="flow/sequence" model="">
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.create.wui_content_category"/>
-    </part>
+    <node name="create_wui_toc_category" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.wui_toc_category"/>
+    </node>
+    <node name="create_wui_content_category" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.wui_content_category"/>
+    </node>
 
     <!-- Child translation. -->
-    <part name="count_parts" channel="inline" format="access/count" model="">
-        <property name="count" channel="inline" format="path/knowledge" model=".app.var.part.count"/>
-        <property name="part" channel="inline" format="path/reference" model=".app.var.category.root"/>
-    </part>
+    <node name="count_parts" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="path/knowledge" model=".app.var.part.count"/>
+        <node name="part" channel="inline" format="path/reference" model=".app.var.category.root"/>
+    </node>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.part.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.part.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.part.count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
-    <part name="loop_parts" channel="inline" format="flow/loop" model="">
-        <property name="break" channel="inline" format="path/knowledge" model=".app.var.part.break"/>
-        <property name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.part"/>
-    </part>
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.part.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.part.index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.var.part.count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+    <node name="loop_parts" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="path/knowledge" model=".app.var.part.break"/>
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.part"/>
+    </node>
 
     <!-- Loop test. -->
-    <part name="increment_index" channel="inline" format="calculate/add" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.category.index"/>
-        <property name="operand" channel="inline" format="number/integer" model="1"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </part>
+    <node name="increment_index" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.category.index"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
-    <part name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <property name="result" channel="inline" format="path/knowledge" model=".app.var.category.break"/>
-        <property name="left" channel="inline" format="path/knowledge" model=".app.var.category.index"/>
-        <property name="right" channel="inline" format="path/knowledge" model=".app.var.category.count"/>
-        <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <property name="selection" channel="inline" format="text/plain" model="all"/>
-    </part>
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.category.break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.category.index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.var.category.count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
 
-</model>
+</node>

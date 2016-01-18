@@ -1,9 +1,9 @@
-<model>
+<node>
 
-    <part name="spec" channel="file" format="element/part" model="api/logic/translate/spec.cybol"/>
-    <part name="topic" channel="file" format="element/part" model="api/logic/translate/topic.cybol"/>
-    <part name="category" channel="file" format="element/part" model="api/logic/translate/category.cybol"/>
-    <part name="part" channel="file" format="element/part" model="api/logic/translate/part.cybol"/>
-    <part name="properties" channel="file" format="element/part" model="api/logic/translate/properties.cybol"/>
+    <node name="spec" channel="file" format="element/part" model="api/logic/translate/spec.cybol"/>
+    <node name="topic" channel="file" format="element/part" model="api/logic/translate/topic.cybol"/>
+    <node name="category" channel="file" format="element/part" model="api/logic/translate/category.cybol"/>
+    <node name="part" channel="file" format="element/part" model="api/logic/translate/part.cybol"/>
+    <node name="properties" channel="file" format="element/part" model="api/logic/translate/properties.cybol"/>
 
-</model>
+</node>

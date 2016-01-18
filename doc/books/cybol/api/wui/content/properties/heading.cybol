@@ -1,19 +1,19 @@
-<model>
+<node>
 
-    <part name="name" channel="inline" format="text/plain" model="name">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="description" channel="inline" format="text/plain" model="description">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="required" channel="inline" format="text/plain" model="required">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="format" channel="inline" format="text/plain" model="format">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
-    <part name="model" channel="inline" format="text/plain" model="model">
-        <property name="tag" channel="inline" format="text/plain" model="th"/>
-    </part>
+    <node name="name" channel="inline" format="text/plain" model="name">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="description" channel="inline" format="text/plain" model="description">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="required" channel="inline" format="text/plain" model="required">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="format" channel="inline" format="text/plain" model="format">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="model" channel="inline" format="text/plain" model="model">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
 
-</model>
+</node>

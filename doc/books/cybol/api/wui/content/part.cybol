@@ -1,20 +1,20 @@
-<model>
+<node>
 
-    <part name="anchor" channel="file" format="element/part" model="api/wui/content/part/anchor.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="a"/>
-        <property name="name" channel="inline" format="text/plain" model=""/>
-    </part>
-    <part name="description" channel="file" format="element/part" model="api/wui/content/part/description.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="div"/>
-    </part>
-    <part name="format" channel="file" format="element/part" model="api/wui/content/part/format.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="div"/>
-    </part>
-    <part name="example" channel="file" format="element/part" model="api/wui/content/part/example.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="div"/>
-    </part>
-    <part name="properties" channel="file" format="element/part" model="api/wui/content/part/properties.cybol">
-        <property name="tag" channel="inline" format="text/plain" model="div"/>
-    </part>
+    <node name="anchor" channel="file" format="element/part" model="api/wui/content/part/anchor.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="a"/>
+        <node name="name" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="description" channel="file" format="element/part" model="api/wui/content/part/description.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+    </node>
+    <node name="format" channel="file" format="element/part" model="api/wui/content/part/format.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+    </node>
+    <node name="example" channel="file" format="element/part" model="api/wui/content/part/example.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+    </node>
+    <node name="properties" channel="file" format="element/part" model="api/wui/content/part/properties.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="div"/>
+    </node>
 
-</model>
+</node>
