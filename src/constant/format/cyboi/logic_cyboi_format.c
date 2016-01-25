@@ -173,6 +173,9 @@ static int* SORT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1614_INTEGER_STATE_CYBOI_MO
 /** The clear command logic cyboi format. */
 static int* CLEAR_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1615_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The help command logic cyboi format. */
+static int* HELP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1616_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //
