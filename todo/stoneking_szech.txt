@@ -15,7 +15,8 @@
         * Create useful and uniform names for commands using pattern "verb-noun"
         * Procedure to add a new cybol operation to cyboi:
             1. Write cybol example application using shell command (in order to identify an operation name as well as necessary properties)
-            2. Add shell commands to directory "constant/model/command/" (NOT necessary for standard cybol operations)
+            2. Add shell commands to directory "constant/model/command/" (NOT necessary for standard cybol operations) 
+	      -> go here to change names (if different for Unix/Win32)
             3. Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
             4. Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
             5. Add new file with options for each command to directory "constant/name/cybol/logic/commander/"

@@ -1,0 +1,83 @@
+/*
+ * Copyright (C) 1999-2015. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.17.0 2015-04-20
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef HELP_SOURCE
+#define HELP_SOURCE
+
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/logic/commander/help_commander_logic_cybol_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/commander/help_commander.c"
+#include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
+
+/**
+ * Display information about a command.
+ *
+ * Expected parametres:
+ * - pattern (required): the command for which info should be displayed
+ *
+ * Constraints:
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ */
+void apply_help(void* p0, void* p1, void* p2) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply help.");
+
+    // The message part.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The message part model item.
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The message part model item data and count.
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get message part.
+    get_part_name((void*) &m, p0, (void*) COMMAND_HELP_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_HELP_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+
+    // Get message part model item.
+    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get message part model item data and count.
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    command_help(mmd, mmc);
+}
+
+/* ECHO_MESSAGE_SOURCE */
+#endif

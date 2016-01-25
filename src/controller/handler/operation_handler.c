@@ -40,6 +40,7 @@
 #include "../../applicator/command/clear_screen.c"
 #include "../../applicator/command/copy_file.c"
 #include "../../applicator/command/echo_message.c"
+#include "../../applicator/command/help.c"
 #include "../../applicator/command/list_directory_contents.c"
 #include "../../applicator/command/move_file.c"
 #include "../../applicator/command/remove_file.c"
@@ -345,7 +346,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_copy_file(p0, p1, p3);
+            apply_clear_screen();
         }
     }
 
@@ -366,6 +367,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_echo_message(p0, p1, p3);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) HELP_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_help(p0, p1, p3);
         }
     }
 
