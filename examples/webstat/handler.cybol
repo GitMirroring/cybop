@@ -31,7 +31,7 @@
         <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
+    <!-- Write knowledge tree into file.
     <node name="test_request" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -40,11 +40,12 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_www_server_static_request.txt"/>
     </node>
+     -->
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
-        <node name="source" channel="inline" format="text/plain" model="www_server_static/files"/>
+        <node name="source" channel="inline" format="text/plain" model="webstat/files"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_path" channel="inline" format="modify/append" model="">
