@@ -31,8 +31,10 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
- * This command does not have parameters or options!
- */
+* No options
+*/
+
 
 /* CLEAR_SCREEN_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
+
