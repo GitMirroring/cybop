@@ -11,6 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Lecture
+_______
+
+        * Make cybol api generation work
+
 Stack
 _____
 
