@@ -67,7 +67,7 @@
 *
 *
 */
-void command_clear() {
+void command_clear_screen() {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command clear.");
 
