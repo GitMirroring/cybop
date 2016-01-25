@@ -122,6 +122,58 @@ static int* DOUBLE_CAST_LOGIC_CYBOI_FORMAT = NUMBER_1202_INTEGER_STATE_CYBOI_MOD
 static int* INTEGER_CAST_LOGIC_CYBOI_FORMAT = NUMBER_1203_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
+// command
+//
+
+/** The archive command logic cyboi format. */
+static int* ARCHIVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The copy command logic cyboi format. */
+static int* COPY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The echo command logic cyboi format. */
+static int* ECHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The list-directory-contents command logic cyboi format. */
+static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The move command logic cyboi format. */
+static int* MOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1604_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The remove command logic cyboi format. */
+static int* REMOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1605_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The tape archiver command logic cyboi format. */
+static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1606_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The change-permission command logic cyboi format. */
+static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1607_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The word count command logic cyboi format. */
+static int* WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1608_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The create folder command logic cyboi format. */
+static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1609_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ping command logic cyboi format. */
+static int* PING_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1610_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The grep command logic cyboi format. */
+static int* GREP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1611_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The traceroute command logic cyboi format. */
+static int* TRACEROUTE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1612_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The diff command logic cyboi format. */
+static int* DIFF_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1613_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The sort command logic cyboi format. */
+static int* SORT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1614_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The clear command logic cyboi format. */
+static int* CLEAR_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1615_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+//
 // communicate
 //
 
@@ -179,54 +231,6 @@ static int* DECODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_1500_INTEGER_STATE_CYBOI_
 /** The encode convert logic cyboi format. */
 static int* ENCODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_1501_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-//
-// command
-//
-
-/** The archive command logic cyboi format. */
-static int* ARCHIVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The copy command logic cyboi format. */
-static int* COPY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The echo command logic cyboi format. */
-static int* ECHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1602_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The list-directory-contents command logic cyboi format. */
-static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1603_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The move command logic cyboi format. */
-static int* MOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1604_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The remove command logic cyboi format. */
-static int* REMOVE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1605_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The tape archiver command logic cyboi format. */
-static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1606_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The change-permission command logic cyboi format. */
-static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1607_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The word count command logic cyboi format. */
-static int* WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1608_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The create folder command logic cyboi format. */
-static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1609_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The ping command logic cyboi format. */
-static int* PING_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1610_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The grep command logic cyboi format. */
-static int* GREP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1611_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The traceroute command logic cyboi format. */
-static int* TRACEROUTE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1612_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The diff command logic cyboi format. */
-static int* DIFF_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1613_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The sort command logic cyboi format. */
-static int* SORT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1614_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // flow
