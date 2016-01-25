@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef ECHO_MESSAGE_SOURCE
-#define ECHO_MESSAGE_SOURCE
+#ifndef CLEAR_SCREEN_SOURCE
+#define CLEAR_SCREEN_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -58,5 +58,5 @@ void apply_clear_screen() {
     command_clear_screen();
 }
 
-/* ECHO_MESSAGE_SOURCE */
+/* CLEAR_SCREEN_SOURCE */
 #endif
