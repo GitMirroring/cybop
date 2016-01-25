@@ -1,0 +1,8 @@
+<node>
+
+    <node name="var" channel="file" format="element/part" model="webstat/var.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="webstat/logic.cybol"/>
+    <node name="actions" channel="file" format="element/part" model="webstat/actions.cybol"/>
+    <node name="handler" channel="file" format="element/part" model="webstat/handler.cybol"/>
+
+</node>

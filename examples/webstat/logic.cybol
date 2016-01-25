@@ -1,0 +1,9 @@
+<node>
+
+    <!--
+    <node name="handler" channel="file" format="element/part" model="webstat/handler.cybol"/>
+    -->
+    
+    <node name="exit_programme" channel="inline" format="live/exit" model=""/>
+
+</node>

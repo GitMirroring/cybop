@@ -1,0 +1,53 @@
+<node>
+
+    <node name="create_app" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="app"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+
+    <!-- initialisiert alle Module -->
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="webstat/app.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+    </node>
+
+    <!-- initialisiert Terminal für Ausgaben -->
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+    <!-- initialisiere Socket 127.0.0.1:8080-->
+    <node name="startup_socket" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
+        <node name="style" channel="inline" format="text/plain" model="stream"/>
+        <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
+        <node name="address" channel="inline" format="text/plain" model=".app.var.address"/>
+        <node name="id" channel="inline" format="path/knowledge" model=".app.var.port"/>
+        <!--
+        <node name="service" channel="inline" format="text/plain" model="http"/>
+        -->
+        <node name="mode" channel="inline" format="text/plain" model="server"/>
+        <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="connexions" channel="inline" format="number/integer" model="1"/>
+  </node>
+  
+  <node name="sense_requests" channel="inline" format="live/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="id" channel="inline" format="number/integer" model=".app.var.port"/>
+        <!--
+        <node name="service" channel="inline" format="text/plain" model="http"/>
+        -->
+        <node name="handler" channel="inline" format="path/knowledge" model=".app.handler"/>
+        <!-- identifiziert Socket -->
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+  </node>
+    
+
+
+</node>

@@ -1,0 +1,7 @@
+<node>
+
+    <node name="port" channel="inline" format="number/integer" model="8080"/>
+    <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+
+</node>
