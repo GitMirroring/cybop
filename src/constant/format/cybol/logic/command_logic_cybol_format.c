@@ -122,6 +122,17 @@ static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT = MOVE_COMMAND_LOGIC_CYBOL_FORMA
 static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/help logic cybol format.
+ *
+ * Provides information about one or all system commands.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'h', L'e', L'l', L'p'};
+static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT = HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/remove logic cybol format.
  *
  * Removes a file or directory.
