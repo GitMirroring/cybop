@@ -1,4 +1,14 @@
  * Provide more shell commands in a platform-independent way, usable on posix and win32
+ * Start with simple DOS shell commands, e.g. "clear", and test in classical DOS command window
+ * Add a couple of PowerShell commands and test in PowerShell
+ * Implement these commands for UNIX shell as well, if existent
+
+
+ * Rule of distinction between DOS and PowerShell:
+    - implement in classical DOS if command exists there
+    - implement for PowerShell only if not existent for classical DOS
+
+
         * See list of commands:
             http://de.wikipedia.org/wiki/Unix-Kommandos#Kommandos_.28Auswahl.29
             http://de.wikipedia.org/wiki/Windows_PowerShell#Cmdlets
