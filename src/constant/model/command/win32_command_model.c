@@ -55,6 +55,11 @@ static wchar_t ECHO_WIN32_COMMAND_MODEL_ARRAY[] = {L'e', L'c', L'h', L'o'};
 static wchar_t* ECHO_WIN32_COMMAND_MODEL = ECHO_WIN32_COMMAND_MODEL_ARRAY;
 static int* ECHO_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The help win32 command model. */
+static wchar_t HELP_WIN32_COMMAND_MODEL_ARRAY[] = {L'h', L'e', L'l', L'p'};
+static wchar_t* HELP_WIN32_COMMAND_MODEL = MOVE_WIN32_COMMAND_MODEL_ARRAY;
+static int* HELP_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The move win32 command model. */
 static wchar_t MOVE_WIN32_COMMAND_MODEL_ARRAY[] = {L'm', L'o', L'v', L'e'};
 static wchar_t* MOVE_WIN32_COMMAND_MODEL = MOVE_WIN32_COMMAND_MODEL_ARRAY;
