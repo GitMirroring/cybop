@@ -15,6 +15,7 @@ Lecture
 _______
 
         * Make cybol api generation work
+        * Study "www_server_static" example + Make "webstat" work
 
 Stack
 _____
