@@ -1,4 +1,5 @@
 <model>
+<!--
     <part name="count" channel="inline" format="text/plain" model="">
         <property name="name" channel="inline" format="text/plain" model="count"/>
         <property name="description" channel="inline" format="text/plain" model="The knowledge model in which to store the result."/>
@@ -6,6 +7,7 @@
         <property name="format" channel="inline" format="text/plain" model="path/*"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
+-->
     <part name="part" channel="inline" format="text/plain" model="">
         <property name="name" channel="inline" format="text/plain" model="part"/>
         <property name="description" channel="inline" format="text/plain" model="The part whose elements to be counted."/>
@@ -13,6 +15,7 @@
         <property name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
+<!--
     <part name="selection" channel="inline" format="text/plain" model="">
         <property name="name" channel="inline" format="text/plain" model="selection"/>
         <property name="description" channel="inline" format="text/plain" model="The area of the elements names, to be compared. May be one of: all, suffix, prefix, subsequence. If null the element count is compared without comparison."/>
@@ -27,4 +30,5 @@
         <property name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
         <property name="model" channel="inline" format="text/plain" model=""/>
     </part>
+-->
 </model>
