@@ -8,6 +8,7 @@
     -->
     <node name="empty" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="path/knowledge" model=".app.var.property.number"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="serialise_index" channel="inline" format="represent/serialise" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.property.number"/>

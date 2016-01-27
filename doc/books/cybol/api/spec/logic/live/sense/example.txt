@@ -1,4 +1,4 @@
-<part name="set_handler_commands_reading" channel="inline" format="live/sense" model="">
-    <property name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    <property name="handler" channel="inline" format="path/knowledge" model=".app.handler"/>
-</part>
+<node name="set_handler_commands_reading" channel="inline" format="live/sense" model="">
+    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    <node name="handler" channel="inline" format="path/knowledge" model=".app.handler"/>
+</node>

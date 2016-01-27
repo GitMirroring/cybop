@@ -7,7 +7,7 @@
     </node>
     <!--
         CAUTION! This is different from other such files.
-        Between a part and a property, there is the node "properties" that has to be added here.
+        Between a part and a property, there is the node called "properties" that has to be added here.
     -->
     <node name="append_properties" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.property.root"/>

@@ -1,6 +1,6 @@
-<part name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
-    <property name="destination" channel="inline" format="path/knowledge" model=".summand"/>
-    <property name="source" channel="inline" format="path/knowledge" model=".text"/>
-    <property name="format" channel="inline" format="meta/format" model="number/integer"/>
-    <property name="language" channel="inline" format="meta/language" model="text/cybol"/>
-</part>
+<node name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
+    <node name="destination" channel="inline" format="path/knowledge" model=".summand"/>
+    <node name="source" channel="inline" format="path/knowledge" model=".text"/>
+    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+</node>

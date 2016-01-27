@@ -1,9 +1,9 @@
-<part name="chmod_file" channel="inline" format="command/word-count" model="">
-    <property name="path" channel="inline" format="text/plain"
+<node name="chmod_file" channel="inline" format="command/word-count" model="">
+    <node name="path" channel="inline" format="text/plain"
       model="./shell_command_word_count/example.txt"/>
-    <property name="bytes" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="chars" channel="inline" format="logicvalue/boolean" model="true"/>
-    <property name="lines" channel="inline" format="logicvalue/boolean" model="true"/>
-    <property name="max-line-length" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="words" channel="inline" format="logicvalue/boolean" model="true"/>
-</part>
+    <node name="bytes" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="chars" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="lines" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="max-line-length" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="words" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

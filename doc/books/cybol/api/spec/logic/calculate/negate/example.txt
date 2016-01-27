@@ -1,5 +1,5 @@
-<part name="negate" channel="inline" format="calculate/negate" model="">
-    <property name="result" channel="inline" format="path/knowledge" model=".result"/>
-    <property name="operand" channel="inline" format="number/integer" model="1,2,3"/>
-    <property name="type" channel="inline" format="meta/type" model="number/integer"/>
-</part>
+<node name="negate" channel="inline" format="calculate/negate" model="">
+    <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+    <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
+    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+</node>

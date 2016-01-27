@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-01-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up cybol api
+        * Add "model" and/or "properties" property (as needed) to all occurences of "modify/empty" operation in cybol api to make generation work again
+
 2016-01-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add todo files of new student group members

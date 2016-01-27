@@ -1,19 +1,19 @@
-<part name="list_parent_directory_recursively" channel="inline" format="command/list-directory-contents"
+<node name="list_parent_directory_recursively" channel="inline" format="command/list-directory-contents"
   model="">
-    <property name="path" channel="inline" format="text/plain" model="./.."/>
-    <property name="all" channel="inline" format="logicvalue/boolean" model="true"/>
-    <property name="long" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="one_row_per_entry" channel="inline" format="logicvalue/boolean" model="true"/>
-    <property name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-    <property name="short" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="sort_by_file_size" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="sort_by_modification" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="sort_by_extension" channel="inline" format="logicvalue/boolean" model="false"/>
-</part>
+    <node name="path" channel="inline" format="text/plain" model="./.."/>
+    <node name="all" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="long" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="one_row_per_entry" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="sort_by_file_size" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="sort_by_modification" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="sort_by_extension" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>
 
-<part name="list_files_in_current_directory" channel="inline" format="command/list-directory-contents"
+<node name="list_files_in_current_directory" channel="inline" format="command/list-directory-contents"
   model="">
-    <property name="all" channel="inline" format="logicvalue/boolean" model="false"/>
-    <property name="long" channel="inline" format="logicvalue/boolean" model="true"/>
-    <property name="export" channel="inline" format="text/plain" model="test.txt"/>
-</part>
+    <node name="all" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="long" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="export" channel="inline" format="text/plain" model="test.txt"/>
+</node>

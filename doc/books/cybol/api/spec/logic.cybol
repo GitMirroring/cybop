@@ -1,7 +1,6 @@
 <node>
 
     <node name="access" channel="file" format="element/part" model="api/spec/logic/access.cybol"/>
-<!--
     <node name="calculate" channel="file" format="element/part" model="api/spec/logic/calculate.cybol"/>
     <node name="cast" channel="file" format="element/part" model="api/spec/logic/cast.cybol"/>
     <node name="command" channel="file" format="element/part" model="api/spec/logic/command.cybol"/>
@@ -19,6 +18,5 @@
     <node name="represent" channel="file" format="element/part" model="api/spec/logic/represent.cybol"/>
     <node name="run" channel="file" format="element/part" model="api/spec/logic/run.cybol"/>
     <node name="time" channel="file" format="element/part" model="api/spec/logic/time.cybol"/>
--->
 
 </node>

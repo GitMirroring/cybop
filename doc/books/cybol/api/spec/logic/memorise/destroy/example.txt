@@ -1,3 +1,3 @@
-<part name="destroy_tui_control" channel="inline" format="memorise/destroy" model="">
-    <property name="name" channel="inline" format="path/knowledge" model=".tui_control"/>
-</part>
+<node name="destroy_tui_control" channel="inline" format="memorise/destroy" model="">
+    <node name="name" channel="inline" format="path/knowledge" model=".tui_control"/>
+</node>

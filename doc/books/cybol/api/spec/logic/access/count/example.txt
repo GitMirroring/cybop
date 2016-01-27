@@ -1,6 +1,6 @@
-<part name="count" channel="inline" format="access/count" model="">
-    <property name="count" channel="inline" format="path/knowledge" model=".count"/>
-    <property name="part" channel="inline" format="path/knowledge" model=".addition_application"/>
-    <property name="selection" channel="inline" format="text/plain" model="subsequence"/>
-    <property name="filter" channel="inline" format="text/plain" model="summand"/>
-</part>
+<node name="count" channel="inline" format="access/count" model="">
+    <node name="count" channel="inline" format="path/knowledge" model=".count"/>
+    <node name="part" channel="inline" format="path/knowledge" model=".addition_application"/>
+    <node name="selection" channel="inline" format="text/plain" model="subsequence"/>
+    <node name="filter" channel="inline" format="text/plain" model="summand"/>
+</node>

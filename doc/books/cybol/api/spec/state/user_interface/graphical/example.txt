@@ -1,10 +1,10 @@
-<part name="window" channel="file" format="element/part" model="gui/window.cybol">
-    <property name="position" channel="inline" format="number/integer" model="0,0"/>
-    <property name="size" channel="inline" format="number/integer" model="800,600"/>
-    <property name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
-    <property name="foreground" channel="inline" format="path/knowledge" model=".app.settings.foreground"/>
-    <property name="layout" channel="inline" format="text/plain" model="compass"/>
-    <property name="title" channel="inline" format="text/plain" model="Test Application Window"/>
-    <property name="icon" channel="file" format="image/png" model="gui/window/icon.png"/>
-    <property name="expose" channel="inline" format="path/knowledge" model=".app.logic.refresh_gui"/>
-</part>
+<node name="window" channel="file" format="element/part" model="gui/window.cybol">
+    <node name="position" channel="inline" format="number/integer" model="0,0"/>
+    <node name="size" channel="inline" format="number/integer" model="800,600"/>
+    <node name="background" channel="inline" format="colour/rgb" model="255,255,255"/>
+    <node name="foreground" channel="inline" format="path/knowledge" model=".app.settings.foreground"/>
+    <node name="layout" channel="inline" format="text/plain" model="compass"/>
+    <node name="title" channel="inline" format="text/plain" model="Test Application Window"/>
+    <node name="icon" channel="file" format="image/png" model="gui/window/icon.png"/>
+    <node name="expose" channel="inline" format="path/knowledge" model=".app.logic.refresh_gui"/>
+</node>
