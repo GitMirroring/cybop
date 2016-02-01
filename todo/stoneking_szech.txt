@@ -27,4 +27,4 @@
             10. Consider platform (unix or windows) using preprocessor defines
             11. Add new file for each command (cybol operation) to directory "applicator/command/"
             12. Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
-        * Constant part: 2,3,4,5,6,7,8,12
+        * Constant part: 2 - 8, 12
