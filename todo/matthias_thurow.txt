@@ -1,1 +1,2 @@
- cybol application
+cybol application
+    minesweeper
