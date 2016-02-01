@@ -4,8 +4,8 @@
     <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
     
-    <node name="file_path_today" channel="inline" format="text/plain" model="webstat/"/>
-    <node name="file_path_yesterday" channel="inline" format="text/plain" model="webstat/"/>
+    <node name="file_path_today" channel="inline" format="text/plain" model=""/>
+    <node name="file_path_yesterday" channel="inline" format="text/plain" model=""/>
     <node name="file_path_total" channel="inline" format="text/plain" model="webstat/total.txt"/>
     
     <node name="today" channel="inline" format="text/plain" model=""/>

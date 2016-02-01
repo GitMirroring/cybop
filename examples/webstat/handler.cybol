@@ -34,7 +34,7 @@
     <!-- ### lese Datum aus (heute, gestern) ### -->
     
     <node name="get_date" channel="inline" format="run/run" model="">
-        <node name="programme" channel="inline" format="text/plain" model="date +%F > webstat/current_date.txt; date -d yesterday +%F > webstat/yesterday.txt"/>
+        <node name="programme" channel="inline" format="text/plain" model="date +%F | tr -d '\n' > webstat/current_date.txt; date -d yesterday +%F | tr -d '\n' > webstat/yesterday.txt"/>
     </node>
     
     <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
@@ -49,12 +49,23 @@
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     
-    
-    
+      
     
     <!-- ### lese Zugriffe aus Datei ### -->
     
     <!-- lese Zugriffe für heute -->
+    
+    <node name="reset_path_today" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="append_root_path" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
+        <node name="source" channel="inline" format="text/plain" model="webstat/"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
     
     <node name="build_path_today" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
@@ -95,6 +106,17 @@
     
     
     <!-- lese Zugriffe für gestern -->
+    
+    <node name="reset_path_yesterday" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="append_root_path" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
+        <node name="source" channel="inline" format="text/plain" model="webstat/"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
     
     <node name="build_path_yesterday" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
@@ -138,7 +160,9 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
     </node>    
     
-    
+   
+   <!-- #################################################### --->
+   
     
    
     <node name="print_path" channel="inline" format="communicate/send" model="">
@@ -169,6 +193,45 @@
     </node>
     
    
+
+    <!-- ### erhoehe Zaehler ### -->
+
+    <node name="increment_today" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>    
+    
+    <node name="increment_total" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    
+    
+    
+    <!-- ### speicher Zaehler ### -->
+    
+    <node name="store_visits_today" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
+        <node name="receiver" channel="inline" format="text/plain" model=".app.var.file_path_today"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="store_visits_total" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
+        <node name="receiver" channel="inline" format="text/plain" model=".app.var.file_path_total"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
 
     
     
