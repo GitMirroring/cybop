@@ -38,6 +38,7 @@
 #include "../../applicator/contain/contain.c"
 #include "../../applicator/command/archive_file.c"
 #include "../../applicator/command/clear_screen.c"
+#include "../../applicator/command/config_network.c"
 #include "../../applicator/command/copy_file.c"
 #include "../../applicator/command/echo_message.c"
 #include "../../applicator/command/help.c"
