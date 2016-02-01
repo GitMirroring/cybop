@@ -1,0 +1,7 @@
+<node>
+
+    <node name="temporary" channel="file" format="element/part" model="minesweeper/temporary.cybol"/>
+    <node name="logic" channel="file" format="element/part" model="minesweeper/logic.cybol"/>
+    <node name="tui" channel="file" format="element/part" model="minesweeper/tui.cybol"/>
+
+</node>

@@ -1,0 +1,23 @@
+<node>
+
+    <node name="window" channel="file" format="element/part" model="minesweeper/tui/window.cybol">
+        <node name="position" channel="inline" format="number/integer" model="0,0"/>
+        <node name="size" channel="inline" format="number/integer" model="102,25"/>
+        <node name="background" channel="inline" format="colour/terminal" model="green"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <!-- This property is evaluated by win32 console only. -->
+        <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="border" channel="inline" format="text/plain" model="ascii"/>
+    </node>
+    <node name="cursor" channel="inline" format="text/plain" model="">
+        <node name="position" channel="inline" format="number/integer" model="0,26"/>
+    </node>
+    <!-- Further windows and dialogues may follow here. -->
+
+    <!-- structure-->
+    <node name="window" channel="file" format="element/part" model="minesweeper/tui/window.cybol"/>
+
+    <node name="about" channel="file" format="element/part" model="minesweeper/tui/about.cybol"/>
+    <node name="menu" channel="file" format="element/part" model="minesweeper/tui/menu.cybol"/>
+</node>
