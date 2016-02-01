@@ -3,6 +3,17 @@
     <node name="port" channel="inline" format="number/integer" model="8080"/>
     <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+    
+    <node name="file_path_today" channel="inline" format="text/plain" model="webstat/"/>
+    <node name="file_path_yesterday" channel="inline" format="text/plain" model="webstat/"/>
+    <node name="file_path_total" channel="inline" format="text/plain" model="webstat/total.txt"/>
+    
+    <node name="today" channel="inline" format="text/plain" model=""/>
+    <node name="yesterday" channel="inline" format="text/plain" model=""/>
+    
+    <node name="visits_today" channel="inline" format="number/integer" model="0"/>
+    <node name="visits_yesterday" channel="inline" format="number/integer" model="0"/>
+    <node name="visits_total" channel="inline" format="number/integer" model="0"/>
     <node name="request" channel="inline" format="element/part" model=""/>
     <node name="path" channel="inline" format="path/knowledge" model=""/>
     <node name="file" channel="inline" format="text/ascii" model=""/>

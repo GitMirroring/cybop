@@ -30,18 +30,175 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
         <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
-
-    <!-- Write knowledge tree into file.
-    <node name="test_request" channel="inline" format="communicate/send" model="">
+    
+    <!-- ### lese Datum aus (heute, gestern) ### -->
+    
+    <node name="get_date" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="date +%F > webstat/current_date.txt; date -d yesterday +%F > webstat/yesterday.txt"/>
+    </node>
+    
+    <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.today"/>
+        <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    
+    <node name="read_date_yesterday" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.yesterday"/>
+        <node name="source" channel="file" format="text/plain" model="webstat/yesterday.txt"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    
+    
+    
+    
+    <!-- ### lese Zugriffe aus Datei ### -->
+    
+    <!-- lese Zugriffe für heute -->
+    
+    <node name="build_path_today" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.today"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    
+    <node name="append_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
+        <node name="source" channel="inline" format="text/plain" model=".txt"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    
+    
+    <node name="print_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    
+    <node name="reset_visits_today" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="receive_file_today" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
+    </node>   
+    
+    
+    <!-- lese Zugriffe für gestern -->
+    
+    <node name="build_path_yesterday" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.yesterday"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    
+    <node name="append_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
+        <node name="source" channel="inline" format="text/plain" model=".txt"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    
+        <node name="reset_visits_yesterday" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.visits_yesterday"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="receive_file_yesterday" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_yesterday"/>
+    </node>   
+    
+
+    <!-- lese Gesamtzugriffe ein -->
+    <node name="reset_visits_total" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="receive_file_total" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_total"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
+    </node>    
+    
+    
+    
+   
+    <node name="print_path" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="print_pathefwe" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_yesterday"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="print_pathfew" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+   
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--
+    <node name="test_request" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app.var"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_www_server_static_request.txt"/>
     </node>
-     -->
-
+    -->
+    
+    <!-- lese vorhandene Daten ein -->
+    <node name="initialise_visits_today" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
+        <node name="source" channel="file" format="number/integer" model="webstat/"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+        
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
