@@ -31,8 +31,8 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The Windows show all info command option name. */
-static wchar_t* ALL_CONFIG_NETWORK_UNIX_COMMAND_OPTION_NAME = L"/all";
-static int* ALL_CONFIG_NETWORK_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_f_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* ALL_CONFIG_NETWORK_WIN32_COMMAND_OPTION_NAME = L"/all";
+static int* ALL_CONFIG_NETWORK_WIN32_COMMAND_OPTION_NAME_COUNT = NUMBER_f_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CONFIG_NETWORK_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif
