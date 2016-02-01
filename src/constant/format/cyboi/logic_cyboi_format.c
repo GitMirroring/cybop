@@ -179,6 +179,10 @@ static int* HELP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1616_INTEGER_STATE_CYBOI_MO
 /** The config network command logic cyboi format. */
 static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1617_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The date command logic cyboi format. */
+static int* DATE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1618_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+
 //
 // communicate
 //
