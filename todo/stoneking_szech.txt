@@ -19,7 +19,7 @@
 	      -> go here to change names (if different for Unix/Win32)
             3. Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
             4. Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
-            5. Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
+            5. Add new file with options for each command and parameter to directory "constant/name/cybol/logic/commander/" -> ALL commands regardless of OS
             6. Add new file with options for each command to directory "constant/name/command_option/unix/" (or windows/) (NOT necessary for standard cybol operations)
             7. Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c" -> check file from step number 3
             8. Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
@@ -27,3 +27,4 @@
             10. Consider platform (unix or windows) using preprocessor defines
             11. Add new file for each command (cybol operation) to directory "applicator/command/"
             12. Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
+        * Constant part: 2,3,4,5,6,7,8,12

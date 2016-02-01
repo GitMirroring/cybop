@@ -98,6 +98,17 @@ static wchar_t ECHO_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm'
 static wchar_t* ECHO_COMMAND_LOGIC_CYBOL_FORMAT = ECHO_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/config network logic cybol format.
+ *
+ * Get network information.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'o', L'n', L'f', L'i', L'g', L'-', L'n', L'e', L't', L'w', L'o', L'r', L'k'};
+static wchar_t* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT = CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 
 /**
  * The command/list-directory-contents logic cybol format.

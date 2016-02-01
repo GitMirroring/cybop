@@ -176,6 +176,9 @@ static int* CLEAR_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1615_INTEGER_STATE_CYBOI_M
 /** The help command logic cyboi format. */
 static int* HELP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1616_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The config network command logic cyboi format. */
+static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1617_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //

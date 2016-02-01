@@ -349,6 +349,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_clear_screen();
         }
     }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) CONFIG_NETWORK_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_config_network(p0, p1, p3);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
