@@ -11,22 +11,26 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Lecture
-_______
+Student Projects
+________________
 
-        * Make cybol api generation work
-        * Study "www_server_static" example + Make "webstat" work
+        * Delete directory "test-benchmark/" and move content to "tools/benchmark/"
 
 Stack
 _____
-
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
 
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
         * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
         * Deliver element that was added LAST in case many equally named elements exist
         * Rename "knowledge memory" to "heap memory" ??
-        * Use a third cybol path format "path/stack"??
+        * Use a third cybol path format "path/stack"?
+            rather NOT, since just a name has to be handed over to get the last element with that name from stack
+            dot-notation would allow random access, which is not wanted
+            therefore, no new path format but just using "text/plain" to hand over name of stack variable
+
+        * Rename memories into: system (internal), heap (knowledge), stack
+
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
 
 Datetime
 ________

@@ -10,7 +10,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter_stack/app.cybol"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
@@ -36,6 +36,30 @@
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
+<!--
+    <node name="create_stack_variables" channel="inline" format="stack|heap|memorise/push(pop)|create|create-local|create-stack" model="">
+        <node name="name" channel="inline" format="text/plain" model="loop"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+        <node name="memory" channel="inline" format="text/plain" model="stack"/>
+    </node>
+    <node name="initialise_stack_variables" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter_stack/stack.cybol"/>
+        <node name="message" channel="inline" format="path/stack" model=".loop"/>
+    </node>
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/stack" model="break"/>
+        <node name="left" channel="inline" format="path/stack" model="index"/>
+        <node name="right" channel="inline" format="path/stack" model="count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+-->
+
     <node name="print_numbers" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="path/knowledge" model=".app.break"/>
         <node name="model" channel="inline" format="path/knowledge" model=".app.model"/>
@@ -47,4 +71,5 @@
 
 <!--
     This example uses a loop to print the numbers 1 to 10 to screen.
+    It uses stack variables instead of global heap variables.
 -->

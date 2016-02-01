@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-02-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Prepare "counter_stack" cybol example application
+
 2016-01-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up cybol api
