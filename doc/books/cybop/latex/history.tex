@@ -115,7 +115,7 @@ in this book, I have created this small history of events and enlightening ideas
         ontology structure.
     \item[2002] I begin to realise that not only \emph{View} (MVC) and
         \emph{Controller} (HMVC) are \emph{hierarchical}, but also the
-        \emph{Model} (Knowledge/ Domain) is. In many days and weeks of intensive
+        \emph{Model} (Knowledge/Domain) is. In many days and weeks of intensive
         thinking I find that -- as in Universe -- actually \emph{every} other
         software component is hierarchical, too. Consequently, I introduce one
         top-most super (meta) class \emph{Item} that represents a simple
@@ -155,7 +155,7 @@ now, but at least the direction is clear.
         It is not necessary -- even badly wrong -- to apply different design
         patterns for their implementation. I change inheritances and
         dependencies of many of my framework classes so that finally
-        \emph{Knowledge-}/ \emph{Domain-}, \emph{Backend-}, \emph{Communication-}
+        \emph{Knowledge-}/\emph{Domain-}, \emph{Backend-}, \emph{Communication-}
         and \emph{Frontend} models are of the same super type. This decision
         opens unforeseen new possibilities. All kinds of frontends, all
         communication and backend mechanisms can now be implemented
@@ -169,7 +169,7 @@ now, but at least the direction is clear.
     \item[2003] I realise how far I have moved away from my original aim of
         writing a small medical application. While implementing the new signal
         handling mechanism it gets clear that I move more and more towards the
-        operating system and its hardware input/ output handling code which
+        operating system and its hardware input/output handling code which
         scares me a bit. But there seems to be no other way to go when aiming
         at the creation of clear, easy, modular, flexible, correct systems.
     \item[2003] \emph{Exceptions} are system-internal \emph{Signals}. It is not
@@ -238,7 +238,7 @@ from those that are used to \emph{dynamically} control a system's hardware.
     \item[2003] Since CYBOL contains all concepts that are necessary to model
         knowledge, including \emph{Categorisation} (inheritance), a CYBOI written
         in \emph{Java} causes unnecessary overhead. The interpreter's main tasks
-        (input/ output- and memory handling as well as processing instructions)
+        (input/output- and memory handling as well as processing instructions)
         are anyway situated close to hardware so that I start to reimplement
         CYBOI in the \emph{C} programming language.
     \item[2004] An open problem that had caused me many headaches was the
@@ -273,7 +273,7 @@ from those that are used to \emph{dynamically} control a system's hardware.
         special \emph{Name Structure} has to be defined and additional CYBOI
         routines have to be written.
     \item[2005] It turns out to be problematic to use existing
-        \emph{Graphical User Interface} (GUI) frameworks for input/ output
+        \emph{Graphical User Interface} (GUI) frameworks for input/output
         (i/o). Many of them base on OOP principles; all require the adoption of
         special structures. Since the first version of CYBOI is developed under
         the \emph{Linux} \emph{Operating System} (OS), low-level
@@ -294,7 +294,7 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
 
 \begin{itemize}
     \item[2006] Within two months of being unemployed, I review the CYBOI
-        implementation of input/ output (i/o) threads, and can correct open
+        implementation of input/output (i/o) threads, and can correct open
         conflicts by using \emph{Mutual Exclusion} (Mutex) flags.
         Also, \emph{Central Processing Unit} (CPU) busy states are now avoided.
     \item[2006] Branches of the runtime knowledge tree are pointed to in CYBOL
@@ -309,19 +309,19 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
         All that is now done in the main thread instead. What remains for the
         input threads is just the setting of an interrupt flag in a
         "sense" function, whenever data arrive.
-    \item[2008] All CYBOI source code gets adapted to using wide characters/ Unicode.
+    \item[2008] All CYBOI source code gets adapted to using wide characters/Unicode.
     \item[2008] CYBOL abstraction constants now follow the MIME type schema.
         All constants, no matter for which kind of model or format,
         get categorised into "abstraction", "channel", "model", "name".
         This was not easy to figure out, since at the beginning,
         it was not obvious to me that all kinds of formats (xdt, html etc.)
         and even composed primitive structures (fraction, complex etc.):
-        use some kind of name/ index/ key/ identification to identify the parts;
-        know about the abstraction/ type of their parts (even a file system knows
+        use some kind of name/index/key/identification to identify the parts;
+        know about the abstraction/type of their parts (even a file system knows
         about whether it deals with a directory or file, and which kind of file);
-        contain the actual model/ data/ value.
+        contain the actual model/data/value.
     \item[2009] Various converters get implemented, e.g.:
-        xml, tcp socket, http request/ response, uri, html.
+        xml, tcp socket, http request/response, uri, html.
     \item[2010] Array functions are unified for all primitive data types.
     \item[2011] The whole container framework gets refactored and simplified.
         It is based on three fundamental structures: array, item, part.
@@ -343,5 +343,8 @@ on the architecture and implementation of the \emph{CYBOI Interpreter}.
         xDT content as HTML page, was written for the "Res Medicinae" project.
     \item[2013] Date and time handling turns out to be a complicated subject,
         in whose investigation a lot of time has to be spent.
+    \item[2014] Nested knowledge path names are now possible using parentheses.
+    \item[2015] The cybol syntax gets reduced further from four tags to now just one tag called "node".
+    \item[2015] Sockets are working fine and may be used to realise web applications.
     \item[20xx] For open issues yet to be implemented, see section \ref{call_for_developers_heading}!
 \end{itemize}
