@@ -98,6 +98,8 @@ _____
             * Add new file for each command (cybol operation) to directory "applicator/command/"
             * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
 
+        * Implement standard algorithms for search, sort etc.
+
         * Add calculator functions for types datetime, duration
         * Add comparator functions for types datetime, duration
 
