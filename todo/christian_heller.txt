@@ -16,6 +16,9 @@ ________________
 
         Markus Then <markus.then@cs13-2.ba-leipzig.de>
 
+        * Verify that all system resources which are opened are closed again
+            for services, this is done at startup/shutdown
+            for files, this should be done directly, so that open/close functions embrace read/write function calls
         * Debug file open scheme:
             Der cybop Interpreter öffnet im Handler unseres Projektes angegebene Dateien
             bereits bei der Initialisierung, obwohl der Handler noch nicht ausgeführt wird.
@@ -23,8 +26,6 @@ ________________
             im Handler erstellt und geöffnet werden soll (siehe Projekt "webstat").
             Kann mit folgendem Kommando getestet werden:
             strace -re trace=open ../src/controller/cyboi webstat/run.cybol
-
-        * Delete directory "test-benchmark/" and move content to "tools/benchmark/"
 
 Stack
 _____
