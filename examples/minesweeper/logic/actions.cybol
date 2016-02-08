@@ -1,17 +1,12 @@
 <node>
-    <node name="command" channel="inline" format="text/plain" model=""/>
-    <!--
-        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
-        A knowledge path is treated like a character array anyway.
-        So, text fragments may be added to it in the "handler.cybol" file.
-    -->
-    <node name="path" channel="inline" format="path/knowledge" model=""/>
-    
-    <node name="character" channel="inline" format="text/plain" model=""/>
-    <node name="integer" channel="inline" format="number/integer" model=""/>
-
-    <node name="action" channel="inline" format="text/plain" model=""/>
-    <node name="navigation" channel="inline" format="text/plain" model=""/>
+    <!--   unused   -->
+    <node name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_down"/>
+    <node name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_up"/>
+    <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_right"/>
+    <node name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_left"/>
+    <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.enter_sub_menu"/>
+    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+    <node name="e" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
 </node>
 
 <!--

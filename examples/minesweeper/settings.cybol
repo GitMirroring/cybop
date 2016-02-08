@@ -1,0 +1,13 @@
+<node>
+
+    <node name="window" channel="file" format="element/part" model="minesweeper/settings/window.cybol"/>
+    <node name="menu" channel="file" format="element/part" model="minesweeper/settings/menu.cybol"/>
+    <node name="menu_header" channel="file" format="element/part" model="minesweeper/settings/menu_header.cybol"/>
+    <node name="menu_title" channel="file" format="element/part" model="minesweeper/settings/menu_title.cybol"/>
+    <node name="menu_item" channel="file" format="element/part" model="minesweeper/settings/menu_item.cybol"/>
+    <node name="menu_footer" channel="file" format="element/part" model="minesweeper/settings/menu_footer.cybol"/>
+    <node name="label" channel="file" format="element/part" model="minesweeper/settings/label.cybol"/>
+    <node name="button" channel="file" format="element/part" model="minesweeper/settings/button.cybol"/>
+    <node name="focus" channel="file" format="element/part" model="minesweeper/settings/focus.cybol"/>
+
+</node>

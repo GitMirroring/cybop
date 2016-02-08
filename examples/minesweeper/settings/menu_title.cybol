@@ -1,0 +1,6 @@
+<node>
+    <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+    <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+    <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+</node>

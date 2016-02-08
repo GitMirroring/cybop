@@ -47,5 +47,7 @@
 
     <node name="actions" channel="file" format="element/part" model="minesweeper/logic/actions.cybol"/>
     <node name="handler" channel="file" format="element/part" model="minesweeper/logic/handler.cybol"/>
+    <node name="shutdown" channel="file" format="element/part" model="minesweeper/logic/shutdown.cybol"/>
+    <node name="user_interface" channel="file" format="element/part" model="minesweeper/logic/user_interface.cybol"/>
 
 </node>

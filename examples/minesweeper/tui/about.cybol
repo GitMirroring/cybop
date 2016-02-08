@@ -1,0 +1,71 @@
+<node>
+    <node name="title" channel="inline" format="text/plain" model="Menu">
+        <node name="position" channel="inline" format="number/integer" model="30,1"/>
+        <node name="size" channel="inline" format="number/integer" model="4,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="mc" channel="inline" format="text/plain" model="m - Start Midnight Commander (MC)">
+        <node name="position" channel="inline" format="number/integer" model="2,3"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="exit" channel="inline" format="text/plain" model="e - Exit Programme">
+        <node name="position" channel="inline" format="number/integer" model="2,4"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="keys_heading" channel="inline" format="text/plain" model="You may press the following keys:">
+        <node name="position" channel="inline" format="number/integer" model="2,6"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="keys_content" channel="inline" format="text/plain" model="arrow down/up/left/right, enter, escape, m, e">
+        <node name="position" channel="inline" format="number/integer" model="2,7"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    
+    <node name="new_content" channel="inline" format="text/plain" model="here is some custom text :)">
+        <node name="position" channel="inline" format="number/integer" model="2,9"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+</node>
+
+<!--
+    Copyright (C) 1999-2015. Christian Heller.
+
+    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
+
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
+
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.17.0 2015-04-20
+    @author Christian Heller <christian.heller@tuxtax.de>
+-->
