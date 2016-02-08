@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-02-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Check return value of "fclose" function calls for error in all code
+
 2016-02-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Prepare "counter_stack" cybol example application

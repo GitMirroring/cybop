@@ -14,11 +14,15 @@
 Student Projects
 ________________
 
-        Markus Then <markus.then@cs13-2.ba-leipzig.de>
+        For group "webstat":
+        * Provide newline for cybol operation "modify/append"
 
+        For group "webstat":
         * Verify that all system resources which are opened are closed again
             for services, this is done at startup/shutdown
             for files, this should be done directly, so that open/close functions embrace read/write function calls
+        * Check why file is not closed in file "executor/streamer/reader/file/file_reader.c"
+            verify errorno OR return code of function "fclose"
         * Debug file open scheme:
             Der cybop Interpreter öffnet im Handler unseres Projektes angegebene Dateien
             bereits bei der Initialisierung, obwohl der Handler noch nicht ausgeführt wird.
@@ -26,6 +30,12 @@ ________________
             im Handler erstellt und geöffnet werden soll (siehe Projekt "webstat").
             Kann mit folgendem Kommando getestet werden:
             strace -re trace=open ../src/controller/cyboi webstat/run.cybol
+
+    <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.today"/>
+        <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
 
 Stack
 _____

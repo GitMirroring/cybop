@@ -106,11 +106,27 @@ void write_file_stream(void* p0, void* p1, void* p2, void* p3) {
 
         // Close file.
         // CAUTION! Check file for null pointer to avoid a segmentation fault!
-        fclose(f);
+        int e = fclose(f);
+
+        if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+            
+            // An error occured.
+
+            if (e == EOF) {
+
+                fwprintf(stdout, L"Could not write file stream. The error EOF was detected on closing the file. e: %i\n", e);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The error EOF was detected on closing the file.");
+            
+            } else {
+                
+                fwprintf(stdout, L"Could not write file stream. An unknown error was detected on closing the file. e: %i\n", e);
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. An unknown error was detected on closing the file.");
+            }
+        }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream file. The file is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not write file stream. The file is null.");
     }
 
     // Deallocate terminated file name item.
