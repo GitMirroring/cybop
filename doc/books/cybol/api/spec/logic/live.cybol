@@ -1,4 +1,5 @@
 <node>
+    <node name="exit" channel="file" format="element/part" model="api/spec/logic/live/exit.cybol"/>
     <node name="interrupt" channel="file" format="element/part" model="api/spec/logic/live/interrupt.cybol"/>
     <node name="sense" channel="file" format="element/part" model="api/spec/logic/live/sense.cybol"/>
 </node>
