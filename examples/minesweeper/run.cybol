@@ -40,13 +40,13 @@
     <node name="focus_current_menu_item" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.focus"/>
     </node>
-    <node name="set_cursor" channel="inline" format="communicate/send" model="">
+<!--    <node name="set_cursor" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app.tui.cursor"/>
-    </node>
+    </node>-->
     <node name="sense_commands" channel="inline" format="live/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_main"/>

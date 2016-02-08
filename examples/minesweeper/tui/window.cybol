@@ -8,8 +8,9 @@
         <!-- This property is evaluated by win32 console only. -->
         <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
+        <node name="focus" channel="inline" format="text/plain" model=".app.tui.menu.0_0"/>
     </node>
-    <node name="about" channel="file" format="element/part" model="minesweeper/tui/about.cybol">
+<!--    <node name="about" channel="file" format="element/part" model="minesweeper/tui/about.cybol">
         <node name="position" channel="inline" format="number/integer" model="57,1"/>
         <node name="size" channel="inline" format="number/integer" model="60,37"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -18,7 +19,7 @@
         
         <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
-    </node>
+    </node>-->
 </node>
 
 <!--

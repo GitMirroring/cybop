@@ -7,13 +7,6 @@
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="mc" channel="inline" format="text/plain" model="m - Start Midnight Commander (MC)">
-        <node name="position" channel="inline" format="number/integer" model="2,3"/>
-        <node name="size" channel="inline" format="number/integer" model="40,1"/>
-        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
-        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
-        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
     <node name="exit" channel="inline" format="text/plain" model="e - Exit Programme">
         <node name="position" channel="inline" format="number/integer" model="2,4"/>
         <node name="size" channel="inline" format="number/integer" model="40,1"/>
@@ -38,6 +31,13 @@
     
     <node name="new_content" channel="inline" format="text/plain" model="here is some custom text :)">
         <node name="position" channel="inline" format="number/integer" model="2,9"/>
+        <node name="size" channel="inline" format="number/integer" model="40,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="blue"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="new_content2" channel="inline" format="text/plain" model="some additional information">
+        <node name="position" channel="inline" format="number/integer" model="2,11"/>
         <node name="size" channel="inline" format="number/integer" model="40,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>

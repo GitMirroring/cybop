@@ -10,9 +10,9 @@
         <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="border" channel="inline" format="text/plain" model="ascii"/>
     </node>
-    <node name="cursor" channel="inline" format="text/plain" model="">
+    <!--<node name="cursor" channel="inline" format="text/plain" model="">
         <node name="position" channel="inline" format="number/integer" model="0,39"/>
-    </node>
+    </node>-->
     <!-- Further windows and dialogues may follow here. -->
 
     <!-- structure-->
