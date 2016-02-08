@@ -1,6 +1,6 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="indicate-exists"/>
-    <node name="description" channel="inline" format="text/plain" model="Indicates if data exist, i.e. the count is greater than zero."/>
+    <node name="description" channel="inline" format="text/plain" model="Indicates if data exist, i.e. the count is greater than zero. The operation is ONLY usable with values of format "text/plain"."/>
     <node name="example" channel="file" format="text/plain" model="api/spec/logic/access/indicate-exists/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="access/indicate-exists"/>
     <node name="properties" channel="file" format="element/part" model="api/spec/logic/access/indicate-exists/properties.cybol"/>

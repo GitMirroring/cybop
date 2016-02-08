@@ -1,0 +1,4 @@
+<node name="test_empty_number_exists" channel="inline" format="access/indicate-exists" model="">
+  <node name="result" channel="inline" format="path/knowledge" model=".app.flag"/>
+  <node name="part" channel="inline" format="path/knowledge" model=".app.empty_number"/>
+</node>
