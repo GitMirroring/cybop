@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="exit"/>
+    <node name="description" channel="inline" format="text/plain" model="Closes a running application."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/live/exit/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="live/exit"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/live/exit/properties.cybol"/>
+</node>
