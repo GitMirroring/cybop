@@ -1,6 +1,8 @@
 * Update cybol api specification with state and logic, which gets automatically generated into html
 
 
+Kategorie Command und File trennen
+
 
 Beispiel vorhanden für:
 
@@ -69,3 +71,4 @@ indicate-exists
 get-format
 get-model
 get-channel
+cast-double
