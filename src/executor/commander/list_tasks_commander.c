@@ -68,9 +68,10 @@
  * Echo message.
  *
  * @param ld the keyword data
+ * @param ad the keyword data
  * @param vd the verbose data
  */
-void command_list_tasks(void* ld, void* vd) {
+void command_list_tasks(void* ld, void* ad, void* vd) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command list tasks.");
 
@@ -120,11 +121,32 @@ void command_list_tasks(void* ld, void* vd) {
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 	
-    compare_integer_unequal((void*) &r, vd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, ad, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Append keywords option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#ifdef __APPLE__
+            append_item_element(arg, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+	    
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(arg, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+            append_item_element(arg, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
+        }
+
+        // Reset comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+	
+    compare_integer_unequal((void*) &r, vd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append verbose option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 #ifdef __APPLE__
