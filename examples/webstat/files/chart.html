@@ -21,7 +21,7 @@
 		    dataType: "text",
 		    success: function(data) {
 			    //alert("Data recived");
-			    var allTextLines = data.split(/\r\n|\n/);
+			    var allTextLines = data.split("\n")// CSV: data.split(/\r\n|\n/);
 			    for (var i=0; i<allTextLines.length; i++) {
 					var entry = allTextLines[i].split(',');
 					if( entry[0].length > 0){
