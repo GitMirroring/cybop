@@ -4,9 +4,27 @@
     <node name="address" channel="inline" format="text/plain" model="127.0.0.1"/>
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
     
+    <!-- loop Variablen -->
+    <node name="csv_content" channel="inline" format="text/plain" model=""/>
+    <node name="count" channel="inline" format="number/integer" model=""/>
+    <node name="count_text" channel="inline" format="plain/text" model=""/>
+    <node name="maximum" channel="inline" format="number/integer" model="6"/>
+    <node name="break" channel="inline" format="number/integer" model=""/>
+    <node name="date_command" channel="inline" format="text/plain" model=""/>
+    <node name="date_path" channel="inline" format="text/plain" model="webstat/tmp/loop_date.txt"/>
+    <node name="loop_date" channel="inline" format="text/plain" model=""/>
+    <node name="loop_date_path" channel="inline" format="text/plain" model=""/>
+    <node name="loop_visits" channel="inline" format="text/plain" model=""/>
+    <node name="linefeed" channel="inline" format="text/plain" model=""/>
+    
+    <node name="file_path_linefeed" channel="inline" format="text/plain" model="webstat/tmp/newline.txt"/>
+    <node name="file_path_csv_data" channel="inline" format="text/plain" model="webstat/files/data.csv"/>
     <node name="file_path_today" channel="inline" format="text/plain" model=""/>
     <node name="file_path_yesterday" channel="inline" format="text/plain" model=""/>
-    <node name="file_path_total" channel="inline" format="text/plain" model="webstat/total.txt"/>
+    <node name="file_path_total" channel="inline" format="text/plain" model="webstat/saved_statistics/total.txt"/>
+    <node name="statistics_root_path" channel="inline" format="text/plain" model="webstat/saved_statistics/"/>
+    <node name="file_path_date_today" channel="inline" format="text/plain" model="webstat/tmp/date_today.txt"/>
+    <node name="file_path_date_yesterday" channel="inline" format="text/plain" model="webstat/tmp/date_yesterday.txt"/>
     
     <node name="today" channel="inline" format="text/plain" model=""/>
     <node name="yesterday" channel="inline" format="text/plain" model=""/>

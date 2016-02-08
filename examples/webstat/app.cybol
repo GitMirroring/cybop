@@ -2,7 +2,9 @@
 
     <node name="var" channel="file" format="element/part" model="webstat/var.cybol"/>
     <node name="logic" channel="file" format="element/part" model="webstat/logic.cybol"/>
+    <node name="webstat" channel="file" format="element/part" model="webstat/templates/webstat.cybol"/>
     <node name="actions" channel="file" format="element/part" model="webstat/actions.cybol"/>
     <node name="handler" channel="file" format="element/part" model="webstat/handler.cybol"/>
+    <node name="loop" channel="file" format="element/part" model="webstat/loop.cybol"/>
 
 </node>
