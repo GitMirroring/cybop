@@ -110,7 +110,7 @@ static wchar_t* ECHO_COMMAND_LOGIC_CYBOL_FORMAT = ECHO_COMMAND_LOGIC_CYBOL_FORMA
 static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/config network logic cybol format.
+ * The command/config-network logic cybol format.
  *
  * Get network information.
  *
@@ -131,6 +131,17 @@ static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
 static wchar_t LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'l', L'i', L's', L't', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't', L's'};
 static wchar_t* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT = LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/list-tasks logic cybol format.
+ *
+ * List all the processes running on the computer.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'l', L'i', L's', L't', L'-', L't', L'a', L's', L'k', L's'};
+static wchar_t* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT = LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/move logic cybol format.

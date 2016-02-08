@@ -182,6 +182,8 @@ static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1317_INTEGER_STAT
 /** The date command logic cyboi format. */
 static int* DATE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1318_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The list tasks command logic cyboi format. */
+static int* LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1319_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // communicate
