@@ -46,7 +46,7 @@
  * - path: the path including wildcards for deleting files and directories
 
  * - interactive (optional): the interactive option (askes everytime for permission of deleting a file or directory)
- * - recursive(optional): the recursvie option (deletes any files in the current directory and in all of its subdirectories)
+ * - recursive(optional): the recursive option (deletes any files in the current directory and in all of its subdirectories)
  * - verbal(optional): the verbal option (shows what have been deleted)
  *
  * Constraints:
@@ -102,7 +102,7 @@ void apply_remove_file(void* p0, void* p1, void* p2) {
     // Get recursive part.
     get_part_name((void*) &r, p0, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get verbal part.
-    get_part_name((void*) &v, p0, (void*) VERBAL_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VERBAL_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_REMOVE_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
 
     // Get path part model item.
