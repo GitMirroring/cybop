@@ -1,2 +1,71 @@
 * Update cybol api specification with state and logic, which gets automatically generated into html
-         
+
+
+
+Beispiel vorhanden für:
+
+live exit -> tictactoe exit.cybol
+
+time/current? -> tictactoe setrandom.cybol
+
+
+run/run
+run/sleep (Eintrag in HTML fehlt, zweimal run/run...)
+
+
+command/clear (noch nicht in Api gelistet...)
+
+
+
+
+Beispiel selber zu schreiben für:
+
+
+randomise/sow
+randmoise/retrieve
+
+
+cast character
+cast byte
+
+get language
+get encoding
+get properties
+get reference
+get type
+
+compare/small
+compare/smaller-or-equal
+
+decode
+encode
+
+file/archive-file
+file/copy-file
+file/copy-file-unix-shell
+file/copy-file-win32-command
+file/list-directory-contents
+
+manipulate/check
+manipulate/rotate-left
+manipulate/rotate-right
+manipulate/set
+manipulate/shift-left
+manipulate/shift-right
+manipulate/toggle
+
+modify/build
+modify/fill
+modify/insert
+
+
+
+
+erledigt:
+
+sequence
+indicate-empty
+indicate-exists
+get-format
+get-model
+get-channel
