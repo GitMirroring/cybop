@@ -17,6 +17,12 @@ ________________
         For group "webstat":
         * Provide newline for cybol operation "modify/append"
 
+        * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
+            --> possible reason is parallel request by browser
+            --> enable multiple (not only one) parallel requests on server socket
+            --> Are these put in a wait queue so that they can be processed one-by-one serially
+                or do they have to be processed in more than one threads on the server?
+
         For group "webstat":
         * Verify that all system resources which are opened are closed again
             for services, this is done at startup/shutdown
