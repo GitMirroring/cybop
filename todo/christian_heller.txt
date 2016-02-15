@@ -14,6 +14,9 @@
 Student Projects
 ________________
 
+        For group "api":
+        * Test example "examples/api-examples/get-format/"
+
         For group "webstat":
         * Provide newline and other escape characters for cybol operation "modify/append"
 

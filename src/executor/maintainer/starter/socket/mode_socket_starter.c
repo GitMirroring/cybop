@@ -46,7 +46,7 @@
  * @param p4 the style count
  * @param p5 the protocol data
  * @param p6 the protocol count
- * @param x7 the blocking flag
+ * @param p7 the blocking flag
  * @param p8 the filename data
  * @param p9 the filename count
  * @param p10 the host address data
