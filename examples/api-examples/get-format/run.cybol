@@ -1,60 +1,53 @@
 <node>
 
-    <node name="create_part_1" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="part_1"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
-    </node>
-    <node name="create_part_2" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="part_2"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
-    </node>
-    <node name="create_format" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="format"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    <node name="create_app" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="app"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
 
-    <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".part_1"/>
-        <node name="source" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </node>
-    <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
-        <node name="source" channel="inline" format="number/integer" model="blubla"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>
-    <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".format"/>
-        <node name="source" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="api-examples/get-format/app.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
-    <node name="copy_name_of_part_1_into_model_of_part_2" channel="inline" format="access/get-format" model="">
-        <node name="element" channel="inline" format="path/knowledge" model=".format"/>
-        <node name="part" channel="inline" format="path/knowledge" model=".part_1"/>
+    <node name="get_details" channel="inline" format="access/get-format" model="">
+        <node name="element" channel="inline" format="path/knowledge" model=".app.details"/>
+        <node name="part" channel="inline" format="path/knowledge" model=".app.node"/>
     </node>
-
     <node name="serialise_result" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".format"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.output"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.details"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
 
+    <!-- Write knowledge tree into file. -->
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_api_get-format.txt"/>
+    </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
-    <node name="print_model_of_part_2" channel="inline" format="communicate/send" model="">
+    <node name="print_result" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".part_2"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.output"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
