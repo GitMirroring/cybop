@@ -188,6 +188,9 @@ static int* LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1319_INTEGER_STATE_CY
 /** The change directory command logic cyboi format. */
 static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1320_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The kill process command logic cyboi format. */
+static int* KILL_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1321_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //
