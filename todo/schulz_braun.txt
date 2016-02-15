@@ -20,6 +20,17 @@ command/clear (noch nicht in Api gelistet...)
 
 
 
+
+
+
+--> socket-Beispiel!
+maintain/startup
+
+
+
+
+
+
 Beispiel selber zu schreiben für:
 
 
@@ -29,6 +40,8 @@ randmoise/retrieve
 
 cast character
 cast byte
+cast-double
+get-model
 
 get language
 get encoding
@@ -69,6 +82,5 @@ sequence
 indicate-empty
 indicate-exists
 get-format
-get-model
 get-channel
-cast-double
+get-type
