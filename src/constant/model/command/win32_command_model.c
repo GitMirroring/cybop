@@ -30,6 +30,11 @@
 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The change directory win32 command model. */
+static wchar_t CHANGE_DIRECTORY_WIN32_COMMAND_MODEL_ARRAY[] = {L'c', L'd'};
+static wchar_t* CHANGE_DIRECTORY_WIN32_COMMAND_MODEL = CHANGE_DIRECTORY_WIN32_COMMAND_MODEL_ARRAY;
+static int* CHANGE_DIRECTORY_WIN32_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The copy win32 command model. */
 static wchar_t XCOPY_WIN32_COMMAND_MODEL_ARRAY[] = {L'x', L'c', L'o', L'p', L'y'};
 static wchar_t* XCOPY_WIN32_COMMAND_MODEL = XCOPY_WIN32_COMMAND_MODEL_ARRAY;

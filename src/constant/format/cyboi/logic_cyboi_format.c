@@ -185,6 +185,9 @@ static int* DATE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1318_INTEGER_STATE_CYBOI_MO
 /** The list tasks command logic cyboi format. */
 static int* LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1319_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The change directory command logic cyboi format. */
+static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1320_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //

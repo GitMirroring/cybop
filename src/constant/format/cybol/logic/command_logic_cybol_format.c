@@ -66,6 +66,17 @@ static wchar_t* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT = ARCHIVE_COMMAND_LOGIC_CYBOL
 static int* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/change-directory logic cybol format.
+ *
+ * Change the directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'h', L'a', L'n', L'g', L'e', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y'};
+static wchar_t* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The clear logic cybol format.
  *
  * Clear the console screen.
