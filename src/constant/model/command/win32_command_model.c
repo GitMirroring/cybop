@@ -55,6 +55,11 @@ static wchar_t DEL_WIN32_COMMAND_MODEL_ARRAY[] = {L'd', L'e', L'l'};
 static wchar_t* DEL_WIN32_COMMAND_MODEL = DEL_WIN32_COMMAND_MODEL_ARRAY;
 static int* DEL_WIN32_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The kill win32 command model. */
+static wchar_t KILL_WIN32_COMMAND_MODEL_ARRAY[] = {L't', L's', L'k', L'i', L'l', L'l'};
+static wchar_t* KILL_WIN32_COMMAND_MODEL = KILL_WIN32_COMMAND_MODEL_ARRAY;
+static int* KILL_WIN32_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The list directory contents win32 command model. */
 static wchar_t DIR_WIN32_COMMAND_MODEL_ARRAY[] = {L'd', L'i', L'r'};
 static wchar_t* DIR_WIN32_COMMAND_MODEL = DIR_WIN32_COMMAND_MODEL_ARRAY;

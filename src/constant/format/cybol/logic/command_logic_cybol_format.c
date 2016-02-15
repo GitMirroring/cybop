@@ -131,6 +131,17 @@ static wchar_t CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', 
 static wchar_t* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT = CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/kill logic cybol format.
+ *
+ * Kill a process.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t KILL_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'k', L'i', L'l', L'l'};
+static wchar_t* KILL_COMMAND_LOGIC_CYBOL_FORMAT = KILL_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* KILL_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 
 /**
  * The command/list-directory-contents logic cybol format.
