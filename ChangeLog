@@ -20,6 +20,10 @@
 
 2016-02-08  Christian Heller  <christian.heller@tuxtax.de>
 
+        * Debug file open scheme and verify closing of files
+            strace -re trace=close ../src/controller/cyboi webstat/run.cybol
+            strace -re trace=open ../src/controller/cyboi webstat/run.cybol
+            strace -re trace=file ../src/controller/cyboi webstat/run.cybol
         * Check return value of "fclose" function calls for error in all code
 
 2016-02-01  Christian Heller  <christian.heller@tuxtax.de>

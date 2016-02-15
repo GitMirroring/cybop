@@ -15,7 +15,7 @@ Student Projects
 ________________
 
         For group "webstat":
-        * Provide newline for cybol operation "modify/append"
+        * Provide newline and other escape characters for cybol operation "modify/append"
 
         * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
             --> possible reason is parallel request by browser
@@ -23,25 +23,15 @@ ________________
             --> Are these put in a wait queue so that they can be processed one-by-one serially
                 or do they have to be processed in more than one threads on the server?
 
-        For group "webstat":
-        * Verify that all system resources which are opened are closed again
-            for services, this is done at startup/shutdown
-            for files, this should be done directly, so that open/close functions embrace read/write function calls
-        * Check why file is not closed in file "executor/streamer/reader/file/file_reader.c"
-            verify errorno OR return code of function "fclose"
-        * Debug file open scheme:
-            Der cybop Interpreter öffnet im Handler unseres Projektes angegebene Dateien
-            bereits bei der Initialisierung, obwohl der Handler noch nicht ausgeführt wird.
-            Da diese Referenz offen gehalten wird, gibt es Probleme wenn die Datei erst
-            im Handler erstellt und geöffnet werden soll (siehe Projekt "webstat").
-            Kann mit folgendem Kommando getestet werden:
-            strace -re trace=open ../src/controller/cyboi webstat/run.cybol
+        * Provide "get_current_date" (or similarly called) operation in cybol
+            <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
+                <node name="destination" channel="inline" format="path/knowledge" model=".app.var.today"/>
+                <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
+                <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+            </node>
 
-    <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.today"/>
-        <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>
+        For group "shell command":
+        * Provide knowledge tree node as argument that output of shell command may be assigned to
 
 Stack
 _____
