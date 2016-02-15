@@ -189,9 +189,7 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
             // Close file.
             // CAUTION! Check file for null pointer above
             // in order to avoid a segmentation fault here!
-    fwprintf(stdout, L"TEST read file close pre f: %i\n", f);
             int e = fclose(f);
-    fwprintf(stdout, L"TEST read file close post f: %i\n", f);
 
             if (e != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
