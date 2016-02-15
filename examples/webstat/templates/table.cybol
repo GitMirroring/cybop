@@ -1,0 +1,14 @@
+<node>
+    <node name="table_heading" channel="file" format="element/part" model="webstat/templates/table_heading.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+    <node name="row_0" channel="file" format="element/part" model="webstat/templates/table_row_today.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+    <node name="row_1" channel="file" format="element/part" model="webstat/templates/table_row_yesterday.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+    <node name="row_2" channel="file" format="element/part" model="webstat/templates/table_row_total.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="tr"/>
+    </node>
+</node>

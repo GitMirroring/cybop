@@ -1,0 +1,5 @@
+<node>
+    <node name="column_1" channel="inline" format="text/plain" model="Aufrufstatistik">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+</node>

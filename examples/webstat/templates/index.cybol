@@ -1,0 +1,8 @@
+<node>
+    <node name="head" channel="file" format="element/part" model="webstat/templates/head.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="head"/>
+    </node>
+    <node name="body" channel="file" format="element/part" model="webstat/templates/body.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="body"/>
+    </node>
+</node>

@@ -1,0 +1,7 @@
+<node>
+    <node name="index" channel="file" format="element/part" model="webstat/templates/index.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+    </node>
+    <!-- Further html files may follow here ... -->
+</node>
+ 

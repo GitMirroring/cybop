@@ -1,0 +1,10 @@
+<node>
+    <node name="column_0" channel="inline" format="text/plain" model="Heute">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    
+    <node name="column_1" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>    
+    
+</node>
