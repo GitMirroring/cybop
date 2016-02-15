@@ -34,11 +34,11 @@
 static wchar_t* FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-f";
 static int* FORCE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The interactvie remove file unix command option name. */
+/** The interactive remove file unix command option name. */
 static wchar_t* INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-i";
 static int* INTERACTIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The recursvie remove file unix command option name. */
+/** The recursive remove file unix command option name. */
 static wchar_t* RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME = L"-r";
 static int* RECURSIVE_REMOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

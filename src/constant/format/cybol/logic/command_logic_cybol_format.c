@@ -121,6 +121,17 @@ static wchar_t* DATE_COMMAND_LOGIC_CYBOL_FORMAT = DATE_COMMAND_LOGIC_CYBOL_FORMA
 static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/disk-free logic cybol format.
+ *
+ * Display free disk space.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L's', L'k', L'-', L'f', L'r', L'e', L'e'};
+static wchar_t* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT = DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/echo logic cybol format.
  *
  * Echo a given message to the standard output.
