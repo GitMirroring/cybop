@@ -27,4 +27,40 @@
         <node name="format" channel="inline" format="text/plain" model="text/plain"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
+    
+    	<node name="protocol" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="protocol"/>
+        <node name="description" channel="inline" format="text/plain" model=""/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    	<node name="id" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="id"/>
+        <node name="description" channel="inline" format="text/plain" model=""/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    	<node name="server" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="server"/>
+        <node name="description" channel="inline" format="text/plain" model=""/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    	<node name="blocking" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="blocking"/>
+        <node name="description" channel="inline" format="text/plain" model=""/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    	<node name="connexions" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="connexions"/>
+        <node name="description" channel="inline" format="text/plain" model=""/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="number/integer"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
 </node>
