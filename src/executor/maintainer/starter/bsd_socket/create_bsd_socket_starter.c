@@ -87,10 +87,13 @@ void startup_bsd_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4)
                     // The latter is to be used for address family assignment.
                     // See further below!
                     *s = socket(*pf, *st, *pr);
-		    
-		    // set socket reusable after execution
-		    int setOpt = 1;
-		    setsockopt(*s, SOL_SOCKET, SO_REUSEADDR, (char*)&setOpt, sizeof(setOpt));
+
+                    // The socket options.
+                    char od = (char) *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+                    int os = sizeof(od);
+
+                    // Set socket reusable after execution.
+                    setsockopt(*s, SOL_SOCKET, SO_REUSEADDR, &od, os);
 
                     if (*s >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
