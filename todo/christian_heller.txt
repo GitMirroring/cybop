@@ -14,12 +14,16 @@
 Student Projects
 ________________
 
-        For group "api":
-        * Test example "examples/api-examples/get-format/"
-
         For group "webstat":
-        * Provide newline and other escape characters for cybol operation "modify/append"
 
+        * Provide newline and other escape characters for cybol operation "modify/append"
+        * Possibilities:
+            - flag for send/overwrite/append and similar operations
+            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
+            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
+                so that regular expression gets evaluated internally before copying the resulting string
+
+        * Check why parallel access of more than one client is not possible, even though the number of possible clients is greater zero at socket startup
         * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
             --> possible reason is parallel request by browser
             --> enable multiple (not only one) parallel requests on server socket
@@ -32,9 +36,6 @@ ________________
                 <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
                 <node name="type" channel="inline" format="meta/type" model="text/plain"/>
             </node>
-
-        For group "shell command":
-        * Provide knowledge tree node as argument that output of shell command may be assigned to
 
 Stack
 _____
