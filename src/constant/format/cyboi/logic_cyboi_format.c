@@ -191,6 +191,9 @@ static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1320_INTEGER_ST
 /** The kill process command logic cyboi format. */
 static int* KILL_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1321_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The compare files command logic cyboi format. */
+static int* COMPARE_FILES_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1322_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //

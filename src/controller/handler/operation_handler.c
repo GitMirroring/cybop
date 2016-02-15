@@ -37,13 +37,14 @@
 #include "../../applicator/compare/compare.c"
 #include "../../applicator/contain/contain.c"
 #include "../../applicator/command/archive_file.c"
+#include "../../applicator/command/change_directory.c"
 #include "../../applicator/command/clear_screen.c"
+#include "../../applicator/command/compare_files.c"
 #include "../../applicator/command/config_network.c"
 #include "../../applicator/command/copy_file.c"
 #include "../../applicator/command/date.c"
 #include "../../applicator/command/echo_message.c"
 #include "../../applicator/command/help.c"
-#include "../../applicator/command/change_directory.c"
 #include "../../applicator/command/kill.c"
 #include "../../applicator/command/list_directory_contents.c"
 #include "../../applicator/command/list_tasks.c"
@@ -372,6 +373,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_config_network(p0, p1, p3);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) COMPARE_FILES_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_compare_files(p0, p1, p3);
         }
     }
 

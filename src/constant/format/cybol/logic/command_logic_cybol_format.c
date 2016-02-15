@@ -77,7 +77,7 @@ static wchar_t* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_DIRECTORY_C
 static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The clear logic cybol format.
+ * The command/clear logic cybol format.
  *
  * Clear the console screen.
  *
@@ -86,6 +86,17 @@ static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
 static wchar_t CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'l', L'e', L'a', L'r'};
 static wchar_t* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT = CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/compare-files logic cybol format.
+ *
+ * Compare two files.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'-', L'f', L'i', L'l', L'e', L's'};
+static wchar_t* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT = COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/copy logic cybol format.
