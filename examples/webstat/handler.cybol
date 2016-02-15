@@ -30,6 +30,16 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
         <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
+    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="source" channel="inline" format="text/plain" model="webstat/files"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_path" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#path"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
     
     <!-- ### lese Datum aus (heute, gestern) ### -->
     
@@ -153,23 +163,28 @@
         <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_total"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
     </node>    
-
     
 
     <!-- ### erhoehe Zaehler ### -->
-
-    <node name="increment_today" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
-        <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </node>    
     
-    <node name="increment_total" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
-        <node name="operand" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    <node name="reset_increment" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.increment"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     
+    <node name="compare" channel="inline" format="compare/equal" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.increment"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="right" channel="inline" format="text/plain" model="webstat/files/index.html"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.increment"/>
+        <node name="true" channel="file" format="element/part" model="webstat/increment.cybol"/>
+    </node>
     
     
     <!-- ### speicher Zaehler ### -->
@@ -207,7 +222,7 @@
     
     <node name="set_count_zero" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.count"/>
-        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.maximum"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     
@@ -221,14 +236,6 @@
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.break"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </node>
-    
-    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.break"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.count"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.var.maximum"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     
     <node name="create_csv" channel="inline" format="flow/loop" model="">
@@ -308,16 +315,6 @@
     
         
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
-    <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
-        <node name="source" channel="inline" format="text/plain" model="webstat/files"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>
-    <node name="append_path" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request#uri#path"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>
 
     <node name="print_path_label" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -359,6 +356,5 @@
         <node name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
         <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
     </node>
-        
 
 </node>
