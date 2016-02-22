@@ -1,0 +1,35 @@
+<node>
+	<node name="create_value" channel="inline" format="memorise/create" model="">
+		<node name="name" channel="inline" format="text/plain" model="value"/>
+		<node name="format" channel="inline" format="meta/format" model="text/plain"/>
+		<node name="element" channel="inline" format="text/plain" model="part"/>
+	</node>
+
+	<node name="init_value" channel="inline" format="communicate/receive" model="">
+		<node name="channel" channel="inline" format="meta/channel" model="inline"/>
+		<node name="encoding" chanenl="inline" format="meta/encoding" model="utf-8"/>
+		<node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+		<node name="format" channel="inline" format="meta/format" model="text/plain"/>
+		<node name="sender" channel="inline" format="text/plain" model="app"/>
+		<node name="message" channel="inline" format="path/knowledge" model=".value"/>
+	</node>
+
+	<node name="append" channel="inline" format="modify/append" model="">
+		<node name="destination" channel="inline" format="path/knowledge" model=".value"/>
+		<node name="source" channel="inline" format="text/plain" model="end"/>
+		<node name="type" channel="inline" format="meta/type" model="text/plain"/>
+	</node>	
+
+	<node name="startup" channel="inline" format="maintain/startup" model="">
+		<node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+	</node>
+	<node name="print" channel="inline" format="communicate/send" model="">
+		<node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+		<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+		<node name="language" channel="inline" format="meta/language" model="message/cli"/>
+		<node name="format" channel="inline" format="meta/format" model="text/plain"/>
+		<node name="message" channel="inline" format="path/knowledge" model=".value"/>
+		<node name="newline" channel="inline" format="text/plain" model="true"/>
+	</node>
+	<node name="shutdown" channel="inline" format="live/exit" model=""/>
+</node>

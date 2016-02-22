@@ -1,0 +1,9 @@
+<node>
+	<node name="startup" channel="inline" format="maintain/startup" model="">
+		<node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+	</node>
+	<node name="call_reference" channel="inline" format="flow/sequence" model="">
+		<node name="model" channel="file" format="element/part" model="manual/reference/print.cybol"/>
+	</node>
+	<node name="shutdown" channel="inline" format="live/exit" model=""/>
+</node>
