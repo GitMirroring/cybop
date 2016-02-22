@@ -57,24 +57,42 @@
 /**
  * The memorise/create logic cybol format.
  *
- * Create / allocate / reserve memory for data of the given type.
+ * Create / allocate / reserve memory on heap.
  *
  * This is a CYBOL extension.
  */
-static wchar_t CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'c', L'r', L'e', L'a', L't', L'e'};
-static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT = CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/create";
 static int* CREATE_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The memorise/destroy logic cybol format.
  *
- * Destroy / deallocate / free memory of the given data.
+ * Destroy / deallocate / free memory on heap.
  *
  * This is a CYBOL extension.
  */
-static wchar_t DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L'm', L'o', L'r', L'i', L's', L'e', L'/', L'd', L'e', L's', L't', L'r', L'o', L'y'};
-static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT = DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/destroy";
 static int* DESTROY_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The memorise/pop logic cybol format.
+ *
+ * Destroy / deallocate / free memory on stack.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* POP_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/pop";
+static int* POP_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The memorise/push logic cybol format.
+ *
+ * Create / allocate / reserve memory on stack.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* PUSH_MEMORISE_LOGIC_CYBOL_FORMAT = L"memorise/push";
+static int* PUSH_MEMORISE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MEMORISE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

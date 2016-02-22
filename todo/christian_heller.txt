@@ -40,12 +40,17 @@ ________________
 Stack
 _____
 
+        * Use cybol example application "counter_stack"
+
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
-        * Use cybol example application "counter_staack"
-        * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
+        * Use PROPERTIES of a COMPOUND logic part structure, and NOT special push/pop operations
+        * Add/remove stack variables handed over as cybol properties to/from stack memory
+            before/after calling function "handle_part", so that they get destroyed automatically ??
+
         * Deliver element that was added LAST in case many equally named elements exist
+
         * Rename "knowledge memory" to "heap memory" ??
-        * Use a third cybol path format "path/stack"?
+        * Use a third cybol path format "path/stack" or "memory/stack" ??
             rather NOT, since just a name has to be handed over to get the last element with that name from stack
             dot-notation would allow random access, which is not wanted
             therefore, no new path format but just using "text/plain" to hand over name of stack variable
@@ -53,6 +58,7 @@ _____
         * Rename memories into: system (internal), heap (knowledge), stack
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
 
 Datetime
 ________
