@@ -1,0 +1,9 @@
+<node>
+
+    //Auf Eingabe warten und an checknewgame übergeben
+    <node name="sense_commands" channel="inline" format="live/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="handler" channel="inline" format="path/knowledge" model=".app.checknewgame"/>
+    </node>
+
+</node>

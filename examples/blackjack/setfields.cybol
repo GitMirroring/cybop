@@ -1,0 +1,116 @@
+<node>
+
+//Variablen auf 'X' setzen
+
+    <node name="set_player_field_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="source" channel="inline" format="text/plain" model=" "/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_2" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_3" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_4" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_5" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_6" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_7" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_8" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_player_field_9" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
+        <node name="source" channel="inline" format="text/plain" model="X"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+//Variablen auf 'O' setzen
+
+    <node name="set_computer_field_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_2" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_3" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_4" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_5" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_6" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_7" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_8" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="set_computer_field_9" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
+        <node name="source" channel="inline" format="text/plain" model="O"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+
+</node> 

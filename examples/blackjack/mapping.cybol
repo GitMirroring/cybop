@@ -1,0 +1,352 @@
+<node>
+    <node name="fieldmapping_1_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_1_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_1_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_1_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_1_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_1_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_1_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_1_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+	
+	///
+	
+	   <node name="fieldmapping_2_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_2_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_2_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_2_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_2_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_2_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_2_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_2_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+	////
+	
+	   <node name="fieldmapping_3_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_3_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_3_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_3_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_3_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_3_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_3_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_3_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+	
+	////
+	
+	   <node name="fieldmapping_4_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_4_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_4_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_4_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_4_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_4_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_4_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_4_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+	////
+	
+	   <node name="fieldmapping_5_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_5_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_5_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_5_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_5_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_5_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_5_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_5_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+	
+	////
+	
+	   <node name="fieldmapping_6_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_6_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_6_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_6_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_6_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_6_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_6_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_6_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+	
+	////
+	
+	   <node name="fieldmapping_7_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_7_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_7_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_7_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_7_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_7_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_7_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_7_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+	
+	////
+	
+	   <node name="fieldmapping_8_A" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_print"/>
+        <node name="source" channel="inline" format="text/plain" model="A"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_8_J" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_print"/>
+        <node name="source" channel="inline" format="text/plain" model="J"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_8_K" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_print"/>
+        <node name="source" channel="inline" format="text/plain" model="K"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_8_Q" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_print"/>
+        <node name="source" channel="inline" format="text/plain" model="Q"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="fieldmapping_8_smaller" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_print"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_8_10" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_value"/>
+        <node name="source" channel="inline" format="number/integer" model="10"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_8_11" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_value"/>
+        <node name="source" channel="inline" format="number/integer" model="11"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="fieldmapping_value_8_smaller" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8_value"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+	
+</node>

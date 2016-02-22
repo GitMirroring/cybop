@@ -1,0 +1,8 @@
+<node>
+
+// Wechsel zu .playerinput
+    <node name="start_playerinput" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.playerinput"/>
+    </node>
+
+</node>

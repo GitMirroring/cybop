@@ -1,0 +1,468 @@
+<node>
+
+//Zurücksetzen der Variablen
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+//gehe zu setrandom
+    <node name="start_playerinput" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.setrandom"/>
+    </node>
+
+//Rücksetzen der Flags
+    <node name="reset_player_field_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_2" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_3" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_4" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_5" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_6" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_7" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_8" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_player_field_9" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+
+//Flag setzen Eingabe 1
+    <node name="comparison1" channel="inline" format="compare/equal" model="">
+    <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+    <node name="right" channel="inline" format="text/plain" model="1"/>
+    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+    <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_1" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_1" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 2
+    <node name="comparison2" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="2"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_2" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_2" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 3
+    <node name="comparison3" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="3"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_3" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_3" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 4
+    <node name="comparison4" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="4"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_4" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_4" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 5
+    <node name="comparison5" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="5"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_5" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_5" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 6
+    <node name="comparison6" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="6"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_6" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_6" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 7
+    <node name="comparison7" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="7"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_7" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_7" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 8
+    <node name="comparison8" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="8"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_8" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_8" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+//Flag setzen Eingabe 9
+    <node name="comparison9" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="right" channel="inline" format="text/plain" model="9"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_empty_9" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_9"/>
+        <node name="right" channel="inline" format="text/plain" model="_"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="flag_9" channel="inline" format="logify/and" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+
+//Ausgewähltes Feld setzen
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_1"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_2"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_3"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_4"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_5"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_6"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_7"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_8"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.setfields.set_computer_field_9"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
+    </node>
+
+
+//Empty-Field Flag rücksetzen
+    <node name="empty_field_flag" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+
+//Test ob ausgewählt
+    <node name="flag_selected_9" channel="inline" format="logify/or" model="">
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_9"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_8" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_8"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_7" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_7"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_6" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_6"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_5" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_5"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_4" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_4"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_3" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_3"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_2" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_2"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="flag_selected_1" channel="inline" format="logify/or" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".app.var.flag_field_1"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+
+//Gehe weiter oder zurück
+    <node name="if-then-else2" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_field_empty"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.checkloose"/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.checkcomputerinput"/>
+    </node>
+
+</node>

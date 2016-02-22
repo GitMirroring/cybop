@@ -1,0 +1,337 @@
+<node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.newgame_flag"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.no_newgame_flag"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_3_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_4_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_5_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_6_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_7_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_8_print"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_1_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_2_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_3_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_4_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_5_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_6_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_7_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_8_value"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_J"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_Q"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_K"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_A"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_1_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_2_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_3_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_4_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_5_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_6_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_7_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_8_smaller"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.hit_card"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.stand"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.result_player"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.result_pc"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+
+//go to startgame
+    <node name="start_command" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.startgame"/>
+    </node>
+
+</node>

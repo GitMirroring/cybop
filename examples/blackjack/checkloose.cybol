@@ -1,0 +1,91 @@
+<node>
+    //clear result
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    //check loose
+    <node name="create_result" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+
+    <node name="initialise_result" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="inline"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
+        <node name="sender" channel="inline" format="text/plain" model="0"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+    </node>
+
+    <node name="add_player" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_5_value"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="add_player2" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_6_value"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="add_player3" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_7_value"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="add_player4" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_8_value"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="wert" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Wert - Player: "/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="wert" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="reset_flag" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="compare_player_over_21" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="right" channel="inline" format="number/integer" model="21"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="pc_wert" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.check_smaller_21"/>
+    </node>
+
+    <node name="if-then-else15" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.print_loose"/>
+    </node>
+
+</node>

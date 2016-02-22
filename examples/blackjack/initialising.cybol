@@ -1,0 +1,86 @@
+<node>
+
+    //Variablen auf default setzen
+    <node name="reset_field_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_2" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_3" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_4" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_5" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_6" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_7" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_field_8" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    <node name="reset_win_flag_player" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.win_flag_player"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+    <node name="reset_win_flag_pc" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.win_flag_pc"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+
+
+    //gehe zu setrandom
+    <node name="start_playerinput" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.setrandom"/>
+    </node>
+
+    //initial dealer eine karte + eine karte verdeckt -> spieler 2 karten
+    <node name="start_printfield" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.printinit"/>
+    </node>
+
+    //check loose
+    <node name="checkloose" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.checkloose"/>
+    </node>
+
+    // Wechsel zu .playerturn
+    <node name="start_command" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.playerturn"/>
+    </node>
+
+
+</node> 

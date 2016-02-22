@@ -1,0 +1,39 @@
+<node>
+
+    <node name="var" channel="file" format="element/part" model="blackjack/var.cybol"/>
+
+    <node name="computerinput" channel="file" format="element/part" model="blackjack/computerinput.cybol"/>
+    <node name="checkcomputerinput" channel="file" format="element/part" model="blackjack/checkcomputerinput.cybol"/>
+    <node name="setrandom" channel="file" format="element/part" model="blackjack/setrandom.cybol"/>
+    <node name="checkloose" channel="file" format="element/part" model="blackjack/checkloose.cybol"/>
+    <node name="playerloose" channel="file" format="element/part" model="blackjack/playerloose.cybol"/>
+    <node name="playerwin" channel="file" format="element/part" model="blackjack/playerwin.cybol"/>
+    <node name="checkplayerinput" channel="file" format="element/part" model="blackjack/checkplayerinput.cybol"/>
+    <node name="checkplayerinput2" channel="file" format="element/part" model="blackjack/checkplayerinput2.cybol"/>
+    <node name="playerinput" channel="file" format="element/part" model="blackjack/playerinput.cybol"/>
+    <node name="playerinput2" channel="file" format="element/part" model="blackjack/playerinput2.cybol"/>
+    <node name="setfields" channel="file" format="element/part" model="blackjack/setfields.cybol"/>
+    <node name="checkwin" channel="file" format="element/part" model="blackjack/checkwin.cybol"/>
+    <node name="draw" channel="file" format="element/part" model="blackjack/draw.cybol"/>
+    <node name="computerturn" channel="file" format="element/part" model="blackjack/computerturn.cybol"/>
+    <node name="playerturn" channel="file" format="element/part" model="blackjack/playerturn.cybol"/>
+    <node name="startgame" channel="file" format="element/part" model="blackjack/startgame.cybol"/>
+    <node name="printfield" channel="file" format="element/part" model="blackjack/printfield.cybol"/>
+    <node name="checknewgame" channel="file" format="element/part" model="blackjack/checknewgame.cybol"/>
+    <node name="inputnewgame" channel="file" format="element/part" model="blackjack/inputnewgame.cybol"/>
+    <node name="initialising" channel="file" format="element/part" model="blackjack/initialising.cybol"/>
+    <node name="numberstocharacters" channel="file" format="element/part" model="blackjack/numberstocharacters.cybol"/>
+    <node name="printinit" channel="file" format="element/part" model="blackjack/printinit.cybol"/>
+    <node name="print_loose" channel="file" format="element/part" model="blackjack/print_loose.cybol"/>
+    <node name="print_player_card_3" channel="file" format="element/part" model="blackjack/print_player_card_3.cybol"/>
+    <node name="print_player_card_4" channel="file" format="element/part" model="blackjack/print_player_card_4.cybol"/>
+    <node name="print_pc_card_2" channel="file" format="element/part" model="blackjack/print_pc_card_2.cybol"/>
+    <node name="print_pc_card_3" channel="file" format="element/part" model="blackjack/print_pc_card_3.cybol"/>
+    <node name="print_pc_card_4" channel="file" format="element/part" model="blackjack/print_pc_card_4.cybol"/>
+    <node name="check_smaller_21" channel="file" format="element/part" model="blackjack/check_smaller_21.cybol"/>
+
+    <node name="mapping" channel="file" format="element/part" model="blackjack/mapping.cybol"/>
+
+    <node name="exit" channel="file" format="element/part" model="blackjack/exit.cybol"/>
+
+</node>

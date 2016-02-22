@@ -1,0 +1,19 @@
+<node>
+
+// go to print pc 2. card
+    <node name="start_printfield" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.print_pc_card_2"/>
+    </node>
+
+// go to print pc 3. card
+    <node name="start_printfield1" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.print_pc_card_3 "/>
+    </node>
+
+// go to print pc 3. card
+    <node name="start_printfield2" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.print_pc_card_4"/>
+    </node>
+
+
+</node>
