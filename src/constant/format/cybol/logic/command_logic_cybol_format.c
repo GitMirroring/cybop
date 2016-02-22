@@ -176,6 +176,16 @@ static wchar_t* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT = FIND_COMMAND_COMMAND_L
 static int* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/find-file logic cybol format.
+ *
+ * Find a file.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/find-file";
+static int* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/kill logic cybol format.
  *
  * Kill a process.

@@ -64,7 +64,7 @@
 #endif
 
 /**
- * Display free disk space.
+ * Display info on a command.
  * 
  * @param cmd the command model data
  * @param cmc the command model count

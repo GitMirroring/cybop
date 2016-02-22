@@ -203,6 +203,9 @@ static int* FIND_COMMAND_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1324_INTEGER_STATE_
 /** The display content command logic cyboi format. */
 static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1325_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The find file command logic cyboi format. */
+static int* FIND_FILE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1326_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //
