@@ -200,6 +200,9 @@ static int* DISK_FREE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1323_INTEGER_STATE_CYB
 /** The find command command logic cyboi format. */
 static int* FIND_COMMAND_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1324_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The display content command logic cyboi format. */
+static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1325_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //

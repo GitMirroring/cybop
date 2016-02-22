@@ -60,10 +60,10 @@ static wchar_t DEL_WIN32_COMMAND_MODEL_ARRAY[] = {L'd', L'e', L'l'};
 static wchar_t* DEL_WIN32_COMMAND_MODEL = DEL_WIN32_COMMAND_MODEL_ARRAY;
 static int* DEL_WIN32_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The kill win32 command model. */
-static wchar_t KILL_WIN32_COMMAND_MODEL_ARRAY[] = {L't', L's', L'k', L'i', L'l', L'l'};
-static wchar_t* KILL_WIN32_COMMAND_MODEL = KILL_WIN32_COMMAND_MODEL_ARRAY;
-static int* KILL_WIN32_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The display text file win32 command model. */
+static wchar_t DISPLAY_CONTENT_WIN32_COMMAND_MODEL_ARRAY[] = {L'm', L'o', L'r', L'e'};
+static wchar_t* DISPLAY_CONTENT_WIN32_COMMAND_MODEL = DISPLAY_CONTENT_WIN32_COMMAND_MODEL_ARRAY;
+static int* DISPLAY_CONTENT_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The list directory contents win32 command model. */
 static wchar_t DIR_WIN32_COMMAND_MODEL_ARRAY[] = {L'd', L'i', L'r'};
@@ -79,6 +79,11 @@ static int* ECHO_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_
 static wchar_t HELP_WIN32_COMMAND_MODEL_ARRAY[] = {L'h', L'e', L'l', L'p'};
 static wchar_t* HELP_WIN32_COMMAND_MODEL = HELP_WIN32_COMMAND_MODEL_ARRAY;
 static int* HELP_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The kill win32 command model. */
+static wchar_t KILL_WIN32_COMMAND_MODEL_ARRAY[] = {L't', L's', L'k', L'i', L'l', L'l'};
+static wchar_t* KILL_WIN32_COMMAND_MODEL = KILL_WIN32_COMMAND_MODEL_ARRAY;
+static int* KILL_WIN32_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The move win32 command model. */
 static wchar_t MOVE_WIN32_COMMAND_MODEL_ARRAY[] = {L'm', L'o', L'v', L'e'};

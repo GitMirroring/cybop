@@ -143,6 +143,17 @@ static wchar_t* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT = DISK_FREE_COMMAND_LOGIC_C
 static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/display-content logic cybol format.
+ *
+ * Display the content of one or more text files
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L's', L'p', L'l', L'a', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't'};
+static wchar_t* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT = DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/echo logic cybol format.
  *
  * Echo a given message to the standard output.

@@ -44,6 +44,7 @@
 #include "../../applicator/command/copy_file.c"
 #include "../../applicator/command/date.c"
 #include "../../applicator/command/disk_free.c"
+#include "../../applicator/command/display_content.c"
 #include "../../applicator/command/echo_message.c"
 #include "../../applicator/command/find_command.c"
 #include "../../applicator/command/help.c"
@@ -415,6 +416,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_disk_free(p0, p1, p3);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_display_content(p0, p1, p3);
         }
     }
 
