@@ -41,6 +41,7 @@ Stack
 _____
 
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
+        * Use cybol example application "counter_staack"
         * Add/remove stack variables handed over as cybol properties to/from stack memory before/after calling function "handle_part"
         * Deliver element that was added LAST in case many equally named elements exist
         * Rename "knowledge memory" to "heap memory" ??

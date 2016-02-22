@@ -28,6 +28,10 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
+    <!--
+        The classic implementation WITHOUT stack
+    -->
+
     <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.break"/>
@@ -36,21 +40,16 @@
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
+    <node name="print_numbers" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="path/knowledge" model=".app.break"/>
+        <node name="model" channel="inline" format="path/knowledge" model=".app.model"/>
+    </node>
+
+    <!--
+        The new implementation WITH stack
+    -->
+
 <!--
-    <node name="create_stack_variables" channel="inline" format="stack|heap|memorise/push(pop)|create|create-local|create-stack" model="">
-        <node name="name" channel="inline" format="text/plain" model="loop"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="memory" channel="inline" format="text/plain" model="stack"/>
-    </node>
-    <node name="initialise_stack_variables" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter_stack/stack.cybol"/>
-        <node name="message" channel="inline" format="path/stack" model=".loop"/>
-    </node>
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="path/stack" model="break"/>
         <node name="left" channel="inline" format="path/stack" model="index"/>
@@ -58,12 +57,18 @@
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
--->
-
     <node name="print_numbers" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="path/knowledge" model=".app.break"/>
         <node name="model" channel="inline" format="path/knowledge" model=".app.model"/>
+-->
+        <!-- Define stack variables. -->
+<!--
+        <node name="count" channel="inline" format="number/integer" model="10"/>
+        <node name="index" channel="inline" format="number/integer" model="1"/>
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
     </node>
+-->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
