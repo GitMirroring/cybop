@@ -272,7 +272,7 @@ void command_compare_files(void* p1d, void* p1c, void* p2d, void* p2c, void* p0,
         // Append compress whitespace option.
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #ifdef WIN32
-        append_item_element(arg, (void*) COMPRESS_WHITESPACE_COMPARE_FILES_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMPRESS_WHITESPACE_COMPARE_FILES_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        append_item_element(arg, (void*) SQUEEZE_COMPARE_FILES_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SQUEEZE_COMPARE_FILES_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif 
     }
     

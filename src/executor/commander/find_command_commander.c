@@ -110,6 +110,8 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 
 #ifdef __APPLE__
             append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+	    
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -129,6 +131,8 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 
 #ifdef __APPLE__
             append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+	    
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -148,6 +152,8 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 
 #ifdef __APPLE__
             append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+	    
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else

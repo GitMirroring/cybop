@@ -90,6 +90,8 @@ void command_disk_free(void* amd, void* hmd, void* kmd, void* lmd, void* mmd, vo
     // Append command.
 #ifdef __APPLE__
         append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif WIN32
+	
 #elif GNU_LINUX_OPERATING_SYSTEM
         append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
@@ -108,6 +110,8 @@ void command_disk_free(void* amd, void* hmd, void* kmd, void* lmd, void* mmd, vo
 
 #ifdef __APPLE__
             append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+    
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -127,6 +131,8 @@ void command_disk_free(void* amd, void* hmd, void* kmd, void* lmd, void* mmd, vo
 
 #ifdef __APPLE__
             append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -146,6 +152,8 @@ void command_disk_free(void* amd, void* hmd, void* kmd, void* lmd, void* mmd, vo
 
 #ifdef __APPLE__
             append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+	    
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
