@@ -28,13 +28,11 @@
 
 #include <stddef.h>
 
-#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
  * This command does not have options or parameters.
-*/
-
+ */
 
 /* CLEAR_SCREEN_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif
- 
