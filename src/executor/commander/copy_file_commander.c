@@ -74,7 +74,7 @@
  * @param paamd the preserve all attributes model data
  * @param plmd the preserve links model data
  * @param rmd the recursive model data
- * @param umd the verbal model data
+ * @param umd the update model data
  * @param vmd the verbal model data
  */
 void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, void* imd, void* paamd, void* plmd, void* rmd, void* umd, void* vmd) {

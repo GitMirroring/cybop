@@ -1,0 +1,54 @@
+/*
+ * Copyright (C) 1999-2015. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.17.0 2015-04-20
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef FIND_COMMAND_COMMANDER_OPTION_NAME_CONSTANT_SOURCE
+#define FIND_COMMAND_COMMANDER_OPTION_NAME_CONSTANT_SOURCE
+
+#include <stddef.h>
+
+#include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
+/** The command logic cybol name (parameter). */
+static wchar_t COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd'};
+static wchar_t* COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME = COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The binary logic cybol name. */
+static wchar_t BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'-', L'b',};
+static wchar_t* BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME = BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The manual logic cybol name. */
+static wchar_t MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'-', L'm'};
+static wchar_t* MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME = MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The source logic cybol name. */
+static wchar_t SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'-', L's'};
+static wchar_t* SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME = SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/* FIND_COMMAND_COMMANDER_OPTION_NAME_CONSTANT_SOURCE */
+#endif

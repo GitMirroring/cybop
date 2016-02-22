@@ -197,6 +197,9 @@ static int* COMPARE_FILES_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1322_INTEGER_STATE
 /** The disk free command logic cyboi format. */
 static int* DISK_FREE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1323_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The find command command logic cyboi format. */
+static int* FIND_COMMAND_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1324_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //
