@@ -7,27 +7,33 @@
     </node>
     <node name="create_part_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_2"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
 
 
+
+
+
     <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".part_1"/>
-        <node name="source" channel="inline" format="number/integer" model="2"/>
+        <node name="source" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
-        <node name="source" channel="inline" format="text/plain" model="blubla"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="source" channel="inline" format="number/fraction-decimal" model=""/>
+        <node name="type" channel="inline" format="meta/type" model="number/fraction-decimal"/>
     </node>
 
 
-    <node name="copy_name_of_part_1_into_model_of_part_2" channel="inline" format="access/get-type" model="">
-        <node name="element" channel="inline" format="path/knowledge" model=".part_2"/>
-        <node name="part" channel="inline" format="path/knowledge" model=".part_1"/>
+
+    <node name="cast_double" channel="inline" format="cast/double" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".part_1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
+
 
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -37,7 +43,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="format" channel="inline" format="meta/format" model="number/fraction-decimal"/>
         <node name="message" channel="inline" format="path/knowledge" model=".part_2"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>

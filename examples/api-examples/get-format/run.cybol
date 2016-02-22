@@ -19,21 +19,12 @@
         <node name="element" channel="inline" format="path/knowledge" model=".app.details"/>
         <node name="part" channel="inline" format="path/knowledge" model=".app.node"/>
     </node>
+
     <node name="serialise_result" channel="inline" format="represent/serialise" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.output"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.details"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    </node>
-
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_api_get-format.txt"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">

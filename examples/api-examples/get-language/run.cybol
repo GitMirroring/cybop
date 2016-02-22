@@ -1,4 +1,5 @@
 <node>
+
     <node name="create_part_1" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_1"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -7,9 +8,13 @@
     </node>
     <node name="create_part_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="part_2"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
+
+
+
     <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".part_1"/>
         <node name="source" channel="inline" format="number/integer" model="2"/>
@@ -17,13 +22,19 @@
     </node>
     <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
-        <node name="source" channel="inline" format="number/integer" model="blubla"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <node name="source" channel="inline" format="text/plain" model="blubbi"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>		<!-- Diese Zeile scheint egal zu sein. model="meta/language" oder model="meta/type" macht keinen Unterschied -->
     </node>
-    <node name="copy_name_of_part_1_into_model_of_part_2" channel="inline" format="access/get-language" model="">
+
+
+
+
+    <node name="copy_language_of_part_1_into_model_of_part_2" channel="inline" format="access/get-language" model="">
         <node name="element" channel="inline" format="path/knowledge" model=".part_2"/>
         <node name="part" channel="inline" format="path/knowledge" model=".part_1"/>
     </node>
+
+
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
@@ -36,48 +47,34 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
 
-<!--     <node name="initialise_greeting" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="helloworld/greeting.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".greeting"/>
-    </node>    -->
 
-<!--
-    This example creates and initialises two values:
-    one of type integer and another one of type character.
-    The "access/get-name" operation copies the name of part_1 into the model of part_2.
-    Afterwards, the model of part_2 is printed on screen.
-    The example demonstrates how node names may be accessed.
-    However, they CANNOT be modified, only copied since otherwise,
-    the application's knowledge tree might get mixed up.
--->
 
-<!--
-    Copyright (C) 1999-2015. Christian Heller.
 
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
 
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
 
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
 
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
 
-    @version CYBOP 0.17.0 2015-04-20
-    @author Christian Heller <christian.heller@tuxtax.de>
--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
