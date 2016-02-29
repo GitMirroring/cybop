@@ -37,8 +37,4 @@
     <node name="table" channel="file" format="element/part" model="webstat/templates/table.cybol">
         <node name="tag" channel="inline" format="text/plain" model="table"/>
     </node>
-    <node name="statistic_link" channel="inline" format="text/plain" model="Diagramm">
-        <node name="tag" channel="inline" format="text/plain" model="a"/>
-        <node name="href" channel="inline" format="text/plain" model="chart_external.html"/>
-    </node>
 </node>
