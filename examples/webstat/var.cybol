@@ -17,7 +17,7 @@
     <node name="loop_visits" channel="inline" format="text/plain" model=""/>
     <node name="linefeed" channel="inline" format="text/plain" model=""/>
     
-    <node name="file_path_linefeed" channel="inline" format="text/plain" model="webstat/tmp/newline.txt"/>
+    <node name="file_path_linefeed" channel="inline" format="text/plain" model="webstat/newline.txt"/>
     <node name="file_path_csv_data" channel="inline" format="text/plain" model="webstat/files/data.csv"/>
     <node name="file_path_today" channel="inline" format="text/plain" model=""/>
     <node name="file_path_yesterday" channel="inline" format="text/plain" model=""/>
