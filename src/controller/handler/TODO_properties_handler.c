@@ -23,36 +23,25 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_HANDLER_SOURCE
-#define PART_HANDLER_SOURCE
+#ifndef PROPERTIES_HANDLER_SOURCE
+#define PROPERTIES_HANDLER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/handler/element_part_handler.c"
-#include "../../executor/comparator/all/array_all_comparator.c"
+//?? #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../logger/logger.c"
 
 /**
- * Handles the part signal.
+ * Handles the properties which are to be stored
+ * as local variables on stack memory.
  *
- * @param p0 the signal model data (operation)
- * @param p1 the signal model count
- * @param p2 the signal properties data (parametres) [possibly necessary one day for local stack variables or pre- and post conditions etc.]
- * @param p3 the signal properties count
- * @param p4 the internal memory data
- * @param p5 the knowledge memory part
- * @param p6 the stack memory part
- * @param p7 the signal memory item
- * @param p8 the direct execution flag
- * @param p9 the shutdown flag
+ * @param p0 the properties data
+ * @param p1 the properties count
+ * @param p2 the stack memory part
  */
-void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void handle_properties(void* p0, void* p1, void* p2) {
 
-    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_PART_MESSAGE_LOG_CYBOI_MODEL, (void*) HANDLE_PART_MESSAGE_LOG_CYBOI_MODEL_COUNT);
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, "Handle properties.");
 
     // The loop variable.
     int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -80,12 +69,12 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        handle_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8, p9);
+        handle_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8);
 
         // Increment loop variable.
         j++;
     }
 }
 
-/* PART_HANDLER_SOURCE */
+/* PROPERTIES_HANDLER_SOURCE */
 #endif

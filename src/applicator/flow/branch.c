@@ -39,7 +39,7 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Branches the programme flow, depending on the criterion flag.
@@ -54,11 +54,12 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory data
- * @param p4 the signal memory item
- * @param p5 the shutdown flag
+ * @param p3 the stack memory part
+ * @param p4 the internal memory data
+ * @param p5 the signal memory item
+ * @param p6 the shutdown flag
  */
-void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply branch.");
@@ -112,14 +113,14 @@ fwprintf(stdout, L"TEST branch *cmd: %i\n", *((int*) cmd));
 //?? fwprintf(stdout, L"TEST branch true: %i\n", r);
 
         // The criterion is true. Handle true model.
-        handle(t, p3, p2, p4, (void*) &x, p5);
+        handle(t, p4, p2, p3, p5, (void*) &x, p6);
 
     } else {
 
 //?? fwprintf(stdout, L"TEST branch false: %i\n", r);
 
         // The criterion is false. Handle false model.
-        handle(f, p3, p2, p4, (void*) &x, p5);
+        handle(f, p4, p2, p3, p5, (void*) &x, p6);
     }
 //?? fwprintf(stdout, L"TEST branch END: %i\n", r);
 }

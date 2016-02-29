@@ -41,22 +41,23 @@
 // Forward declarations.
 //
 
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Handles the part signal element.
  *
  * @param p0 the signal model data (operation)
  * @param p1 the signal model index
- * @param p2 the signal properties data (parametres) [possibly necessary one day for pre- and post conditions etc.]
+ * @param p2 the signal properties data (parametres) [possibly necessary one day for local stack variables or pre- and post conditions etc.]
  * @param p3 the signal properties count
  * @param p4 the internal memory data
  * @param p5 the knowledge memory part
- * @param p6 the signal memory item
- * @param p7 the direct execution flag
- * @param p8 the shutdown flag
+ * @param p6 the stack memory part
+ * @param p7 the signal memory item
+ * @param p8 the direct execution flag
+ * @param p9 the shutdown flag
  */
-void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part element.");
 
@@ -68,7 +69,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
     // Evaluate direct execution flag.
-    compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -78,8 +79,13 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
+        //?? TODO: Store local variables (taken from list p2, p3) on stack memory here!
+//??        handle_stack(p2, p3, p6);
+
         // Handle signal.
-        handle(s, p4, p5, p6, p7, p8);
+        handle(s, p4, p5, p6, p7, p8, p9);
+
+        //?? TODO: Destroy local variables (taken from list p2, p3) on stack memory here!
 
     } else {
 

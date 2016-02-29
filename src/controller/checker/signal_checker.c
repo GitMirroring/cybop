@@ -71,11 +71,12 @@
  *
  * @param p0 the internal memory data
  * @param p1 the knowledge memory part
- * @param p2 the signal memory item
- * @param p3 the signal memory sleep time
- * @param p4 the shutdown flag
+ * @param p2 the stack memory part
+ * @param p3 the signal memory item
+ * @param p4 the signal memory sleep time
+ * @param p5 the shutdown flag
  */
-void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check signal.");
@@ -94,7 +95,7 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // Receive signal.
     // It suffices to hand over: destination signal, signal memory item, signal memory index, channel.
-    receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, p2, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
+    receive_data(s, *NULL_POINTER_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &i, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) SIGNAL_CYBOI_CHANNEL);
 
     // Get signal item data.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -111,14 +112,14 @@ void check_signal(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // A signal was found and has to be handled.
         // Handling a signal has higher priority than checking for new interrupt requests.
 
-        check_found(sd, p0, p1, p2, (void*) &i, p4);
+        check_found(sd, p0, p1, p2, p3, (void*) &i, p5);
 
     } else {
 
         // No signal is available in the signal memory.
         // Query interrupt flags for requests.
 
-        check_empty(p0, p2, p3);
+        check_empty(p0, p3, p4);
     }
 
     // Deallocate signal item.

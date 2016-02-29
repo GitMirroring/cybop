@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-02-29  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Introduce stack memory
+
 2016-02-15  Markus Then <markus.then@cs13-2.ba-leipzig.de>
 
         * Set Linux BSD Sockets reusable after programme execution

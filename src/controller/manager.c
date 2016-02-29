@@ -60,13 +60,15 @@
  * - shutdown
  *
  * in the following order:
- * - startup internal memory (global system parametres, e.g. for input/output)
- * - startup knowledge memory (statics = state knowledge + logic knowledge)
- * - startup signal memory (knowledge models to be executed as operations)
+ * - startup internal memory (system parametres; globally accessible; e.g. for input/output)
+ * - startup knowledge memory (heap; statics = state knowledge + logic knowledge)
+ * - startup stack memory (stack)
+ * - startup signal memory (event queue; knowledge models to be executed as operations)
  * - allocate startup signal and add to signal memory
  * - run signal checker loop (dynamics)
  * - deallocate startup signal
  * - shutdown signal memory
+ * - shutdown stack memory
  * - shutdown knowledge memory
  * - shutdown internal memory
  *
@@ -85,6 +87,8 @@ void manage(void* p0) {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge memory part.
     void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stack memory part.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -228,6 +232,11 @@ void manage(void* p0) {
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_part((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    // Allocate stack memory part.
+    //
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &st, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     // Allocate signal memory item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -324,8 +333,7 @@ void manage(void* p0) {
     // CAUTION! ONLY ONE parametre can be handed over to threads!
     // Therefore, the knowledge memory and signal memory NEED TO BE ADDED
     // to the internal memory, in order to be forwardable to threads.
-    startup_internal_memory(i, (void*) &k, (void*) &s, (void*) &signal_memory_sleep_time,
-        (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NULL_POINTER_STATE_CYBOI_MODEL,
+    startup_internal_memory(i, (void*) &k, (void*) &st, (void*) &s, (void*) &signal_memory_sleep_time,
         (void*) &display_enable, (void*) &display_irq, (void*) &display_mutex, (void*) &display_sleep_time,
         (void*) &serial_enable, (void*) &serial_irq, (void*) &serial_mutex, (void*) &serial_sleep_time,
         (void*) &terminal_enable, (void*) &terminal_irq, (void*) &terminal_mutex, (void*) &terminal_sleep_time,
@@ -371,6 +379,13 @@ void manage(void* p0) {
 
     // Deallocate signal memory item.
     deallocate_item((void*) &s, (void*) POINTER_STATE_CYBOI_TYPE);
+    // Deallocate stack memory part.
+    // CAUTION! This is the stack memory tree root node.
+    // It has to be deallocated MANUALLY here.
+    // Its references count was initially zero and never
+    // got changed during programme execution,
+    // so that this root part is not deallocated automatically.
+    deallocate_part((void*) &st);
     // Deallocate knowledge memory part.
     // CAUTION! This is the knowledge memory tree root node.
     // It has to be deallocated MANUALLY here.

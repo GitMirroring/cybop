@@ -52,11 +52,12 @@
  * @param p0 the signal part
  * @param p1 the internal memory data
  * @param p2 the knowledge memory part
- * @param p3 the signal memory item
- * @param p4 the direct execution flag
- * @param p5 the shutdown flag
+ * @param p3 the stack memory part
+ * @param p4 the signal memory item
+ * @param p5 the direct execution flag
+ * @param p6 the shutdown flag
  */
-void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle signal.");
@@ -141,8 +142,9 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             // Handle compound part signal.
             //
             // CAUTION! The signal part properties are possibly
-            // necessary one day for pre- and post conditions etc.
-            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5);
+            // necessary one day for local stack variables or
+            // pre- and post conditions etc.
+            handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -189,7 +191,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2);
 
             // Handle signal.
-            handle(part, p1, p2, p3, p4, p5);
+            handle(part, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -216,7 +218,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
             deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2);
 
             // Handle signal.
-            handle(part, p1, p2, p3, p4, p5);
+            handle(part, p1, p2, p3, p4, p5, p6);
         }
     }
 
@@ -229,7 +231,7 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
         if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Handle primitive operation signal.
-            handle_operation(pd, pc, p1, p2, p3, p5, fd);
+            handle_operation(pd, pc, p1, p2, p3, p4, p6, fd);
         }
     }
 }

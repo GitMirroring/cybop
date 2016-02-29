@@ -60,15 +60,19 @@ void check(void* p0) {
 
     // The knowledge memory part.
     void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stack memory part.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory item, sleep time.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sl = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get knowledge memory part.
     copy_array_forward((void*) &k, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) KNOWLEDGE_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get stack memory part.
+    copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) STACK_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     // Get signal memory item, sleep time.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &st, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sl, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SLEEP_TIME_SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // The shutdown flag.
     int f = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -82,7 +86,7 @@ void check(void* p0) {
             break;
         }
 
-        check_signal(p0, k, s, st, (void*) &f);
+        check_signal(p0, k, st, s, sl, (void*) &f);
     }
 }
 
