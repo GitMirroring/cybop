@@ -1,0 +1,3 @@
+<node name="sleep" channel="inline" format="run/sleep-nano" model="">
+    <node name="duration" channel="inline" format="path/knowledge" model=".settings.voltage_sleep"/>
+</node>
