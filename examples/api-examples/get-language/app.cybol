@@ -1,0 +1,7 @@
+<node>
+
+    <node name="node" channel="inline" format="text/plain" model="blubla"/>
+    <node name="details" channel="inline" format="meta/language" model="text/cybol"/>
+    <node name="output" channel="inline" format="text/plain" model=""/>
+
+</node>
