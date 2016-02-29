@@ -1,0 +1,18 @@
+<node>
+    <node name="reset_minecount_text" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_count_text"/>
+        <node name="source" channel="inline" format="text/plain" model=""/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="cast_mine_count" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_count_text"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.mine_count"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+    <node name="print_mine_count" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/reference" model=".app.focused_field_text"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.mine_count_text"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+</node>
