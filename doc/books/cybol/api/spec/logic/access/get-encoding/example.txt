@@ -1,5 +1,0 @@
-<node name="get_parts_encoding" channel="inline" format="access/get-encoding" model="">
-  <node name="element" channel="inline" format="path/knowledge" model=".app.var.lecturers.element.encoding"/>
-  <node name="part" channel="inline" format="path/reference" model=".app.var.lecturers.element.root"/>
-</node> 
- 
