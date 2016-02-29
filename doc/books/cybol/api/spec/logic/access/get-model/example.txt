@@ -1,4 +1,0 @@
-<node name="get_parts_model" channel="inline" format="access/get-model" model="">
-  <node name="element" channel="inline" format="path/knowledge" model=".app.var.lecturers.element.model"/>
-  <node name="part" channel="inline" format="path/reference" model=".app.var.lecturers.element.root"/>
-</node> 
