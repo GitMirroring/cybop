@@ -1,45 +1,48 @@
 <node>
 
-    <node name="create_stack_variables" channel="inline" format="memorise/push" model="">
-        <node name="count" channel="inline" format="number/integer" model="10"/>
-        <node name="index" channel="inline" format="number/integer" model="1"/>
-        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+    <node name="create_app" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="app"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter_stack/app.cybol"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
-    <!-- Write stack memory into file. -->
-    <node name="test_stack_memory" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack.txt"/>
+    <!-- Write knowledge tree into file. -->
+    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack-heap.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
-    <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
-    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="memory/stack" model="break"/>
-        <node name="left" channel="inline" format="memory/stack" model="index"/>
-        <node name="right" channel="inline" format="memory/stack" model="count"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-    <node name="print_numbers" channel="inline" format="flow/loop" model="">
-        <node name="break" channel="inline" format="memory/stack" model="break"/>
-        <node name="model" channel="inline" format="memory/stack" model="model"/>
+    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
     </node>
 
-    <!-- TODO ?? -->
-    <node name="destroy_stack_variables" channel="inline" format="memorise/pop" model="">
-        <node name="count" channel="inline" format="number/integer" model="10"/>
-        <node name="index" channel="inline" format="number/integer" model="1"/>
-        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+    <!-- Alternative with local variables specified directly -->
+<!--
+    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
+            <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+            <node name="index" channel="inline" format="number/integer" model="1"/>
+            <node name="count" channel="inline" format="number/integer" model="10"/>
+            <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+        </node>
     </node>
+-->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
@@ -47,5 +50,5 @@
 
 <!--
     This example uses a loop to print the numbers 1 to 10 to screen.
-    It uses stack variables instead of global heap variables.
+    It uses local stack variables instead of global heap variables.
 -->

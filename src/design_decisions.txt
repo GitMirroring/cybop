@@ -467,3 +467,58 @@ in the various operating systems.
 // (to which all windows belong) would never get recognised.
 // Therefore, this main thread has to check for messages.
 
+Stack Memory
+____________
+
+Three possible options for using local variables on stack have been evaluated:
+
+1 Manual Creation
+
+    <node name="create_stack_variables" channel="inline" format="memorise/push" model="">
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="index" channel="inline" format="number/integer" model="1"/>
+        <node name="count" channel="inline" format="number/integer" model="10"/>
+        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+    </node>
+
+Problem: The variables would have to be destroyed manually as well.
+If forgotten, they might cause memory leaks.
+Also, having to create stack variables manually using a
+cybol operation seems complicated and annoying.
+
+2 Model Properties
+
+    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
+            <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+            <node name="index" channel="inline" format="number/integer" model="1"/>
+            <node name="count" channel="inline" format="number/integer" model="10"/>
+            <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+        </node>
+    </node>
+
+Problem: The stack variables are not usable.
+They are defined as child nodes of the "model" node ...
+
+TODO?? Perhaps they ARE possible anyway?? Both, solution 2 and 3?
+
+3 Part Properties
+
+    <node name="logic" channel="file" format="element/part" model="counter_stack/logic.cybol">
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="index" channel="inline" format="number/integer" model="1"/>
+        <node name="count" channel="inline" format="number/integer" model="10"/>
+        <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+    </node>
+
+Problem: This solution is only usable for compound logic parts
+that have been defined beforehand in a cybol logic file.
+
+TODO?? Perhaps they ARE possible anyway?? Both, solution 2 and 3?
+
+Usage of solution 3 definition in a part at runtime:
+
+    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
+    </node>
+

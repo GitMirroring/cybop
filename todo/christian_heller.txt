@@ -45,6 +45,7 @@ ________________
 Stack
 _____
 
+        * See file "src/design_decisions.txt"; possibly both solutions 2 and 3 can be implemented
         * Use cybol example application "counter_stack"
 
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
