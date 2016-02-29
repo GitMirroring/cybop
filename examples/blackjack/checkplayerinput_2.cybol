@@ -1,18 +1,9 @@
 <node>
 
+
     //Zeichen löschen
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.hit_card"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.stand"/>
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -21,7 +12,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
     </node>
 
     //Ausgabe der Nachricht
@@ -30,33 +21,32 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-
     //Flag setzen Eingabe h
     <node name="comparison1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
         <node name="right" channel="inline" format="text/plain" model="h"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.hit_card"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.hit_card_2"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 
     //Flag setzen Eingabe s
     <node name="comparison2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
         <node name="right" channel="inline" format="text/plain" model="s"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.stand"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.stand_2"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     //Flag setzen Eingabe q
     <node name="comparison3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
         <node name="right" channel="inline" format="text/plain" model="q"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="result" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
@@ -65,15 +55,15 @@
 
     //If-Abfrage hit
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.hit_card"/>
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.hit_card_2"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.print_player_card_4"/>
         <node name="false" channel="inline" format="path/knowledge" model=""/>
     </node>
 
     //If-Abfrage stay
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stand"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.pc_turn"/>
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stand_2"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.computerturn"/>
         <node name="false" channel="inline" format="path/knowledge" model=""/>
     </node>
 
@@ -82,13 +72,6 @@
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.exit_flag"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
         <node name="false" channel="inline" format="path/knowledge" model=""/>
-    </node>
-
-    //Gehe weiter oder zurück
-    <node name="if-then-else2" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-        <node name="false" channel="inline" format="path/knowledge" model=".app.pc_turn"/>
     </node>
 
 </node>

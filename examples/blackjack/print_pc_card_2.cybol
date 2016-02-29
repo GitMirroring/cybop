@@ -1,8 +1,6 @@
-<node>
+ <node>
 
-    //String-Ausgabe
-
-    <node name="newline1" channel="inline" format="communicate/send" model="">
+	<node name="newline1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -10,6 +8,16 @@
         <node name="message" channel="inline" format="text/plain" model=""/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="field_Dealer" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="Dealer: "/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     //field 1 PC
@@ -33,65 +41,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="if-then-else0" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_1_smaller"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_smaller"/>
-    </node>
-
-    <node name="comparison1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="11"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_10"/>
-    </node>
-
-    <node name="comparison2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="12"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else2" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_10"/>
-    </node>
-
-    <node name="comparison3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="13"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else3" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_10"/>
-    </node>
-
-    <node name="comparison4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="14"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else4" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_11"/>
-    </node>
-
-
-    //print field 2
+    //print field 2 
     <node name="field_2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -102,74 +52,65 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="line_2" channel="inline" format="communicate/send" model="">
+
+///// Berechne Wert
+
+   //clear result
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    //check loose
+    <node name="create_result" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="result_pc"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+
+    <node name="initialise_result" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="inline"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <!-- CAUTION! The format HAS TO BE of type "meta/format". The cybol mime type is of interest, not the cyboi-internal runtime type. -->
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
+        <node name="sender" channel="inline" format="text/plain" model="0"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result_pc"/>
+    </node>
+
+    <node name="add_player" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="add_player2" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+     <node name="wert_pc" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="  "/>
+        <node name="message" channel="inline" format="text/plain" model="Wert Dealer: "/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    <node name="if-then-else5" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_value_flag_1_smaller"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_smaller"/>
+    <node name="wert" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="comparison5" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="11"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else6" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_10"/>
-    </node>
-
-    <node name="comparison6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="12"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else7" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_10"/>
-    </node>
-
-    <node name="comparison7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="13"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else8" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_10"/>
-    </node>
-
-    <node name="comparison8" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
-        <node name="right" channel="inline" format="number/integer" model="14"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else9" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.fieldmapping_value_1_11"/>
-    </node>
-
-    <node name="newline2" channel="inline" format="communicate/send" model="">
+    <node name="newline3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -179,9 +120,52 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    //check loose
-    <node name="checksmaller21" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.check_smaller_21"/>
+//// Over 21 
+
+    <node name="compare_pc_over_21" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="right" channel="inline" format="number/integer" model="21"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="if-then-else15" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.print_win"/>
+    </node>
+
+<node name="compare_pc_equals_21" channel="inline" format="compare/equal" model="">
+        <node name="left" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="right" channel="inline" format="number/integer" model="21"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.print_loose"/>
+    </node>
+
+    <node name="compare_pc_over_16" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_ende"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="right" channel="inline" format="number/integer" model="16"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="if-then-else15" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_ende"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.ergebnis"/>
+    </node>
+   
+    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
+	<node name="false" channel="inline" format="path/knowledge" model=".app.print_pc_card_3"/>
+
     </node>
 
 </node>

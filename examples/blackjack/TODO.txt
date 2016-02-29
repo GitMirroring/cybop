@@ -1,0 +1,4 @@
+1. letzter schritt (2 mal h eingabe) -> geht nicht / check loose wird nicht aufgerufen (wird sven machen)
+2. pc runden (computerturn -> print_pc_card_2) dort muss die nächste karte aufgedekt werden
+3. der wert gecheckt (check pc_wert < 17 -> next turn oder auswertung (check wert_pc gegen wert_player))
+4. next turn falls < 17 und dann noch mal prüfen

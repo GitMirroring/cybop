@@ -9,14 +9,17 @@
     <node name="playerloose" channel="file" format="element/part" model="blackjack/playerloose.cybol"/>
     <node name="playerwin" channel="file" format="element/part" model="blackjack/playerwin.cybol"/>
     <node name="checkplayerinput" channel="file" format="element/part" model="blackjack/checkplayerinput.cybol"/>
-    <node name="checkplayerinput2" channel="file" format="element/part" model="blackjack/checkplayerinput2.cybol"/>
+    <node name="checkplayerinput_2" channel="file" format="element/part" model="blackjack/checkplayerinput_2.cybol"/>
+    <node name="checkplayerinput_3" channel="file" format="element/part" model="blackjack/checkplayerinput_2.cybol"/>
     <node name="playerinput" channel="file" format="element/part" model="blackjack/playerinput.cybol"/>
-    <node name="playerinput2" channel="file" format="element/part" model="blackjack/playerinput2.cybol"/>
+    <node name="playerinput_2" channel="file" format="element/part" model="blackjack/playerinput_2.cybol"/>
+    <node name="playerinput_3" channel="file" format="element/part" model="blackjack/playerinput_3.cybol"/>
     <node name="setfields" channel="file" format="element/part" model="blackjack/setfields.cybol"/>
     <node name="checkwin" channel="file" format="element/part" model="blackjack/checkwin.cybol"/>
     <node name="draw" channel="file" format="element/part" model="blackjack/draw.cybol"/>
     <node name="computerturn" channel="file" format="element/part" model="blackjack/computerturn.cybol"/>
     <node name="playerturn" channel="file" format="element/part" model="blackjack/playerturn.cybol"/>
+    <node name="playerturn_2" channel="file" format="element/part" model="blackjack/playerturn_2.cybol"/>
     <node name="startgame" channel="file" format="element/part" model="blackjack/startgame.cybol"/>
     <node name="printfield" channel="file" format="element/part" model="blackjack/printfield.cybol"/>
     <node name="checknewgame" channel="file" format="element/part" model="blackjack/checknewgame.cybol"/>
@@ -25,11 +28,13 @@
     <node name="numberstocharacters" channel="file" format="element/part" model="blackjack/numberstocharacters.cybol"/>
     <node name="printinit" channel="file" format="element/part" model="blackjack/printinit.cybol"/>
     <node name="print_loose" channel="file" format="element/part" model="blackjack/print_loose.cybol"/>
+    <node name="print_win" channel="file" format="element/part" model="blackjack/print_win.cybol"/>
     <node name="print_player_card_3" channel="file" format="element/part" model="blackjack/print_player_card_3.cybol"/>
     <node name="print_player_card_4" channel="file" format="element/part" model="blackjack/print_player_card_4.cybol"/>
     <node name="print_pc_card_2" channel="file" format="element/part" model="blackjack/print_pc_card_2.cybol"/>
     <node name="print_pc_card_3" channel="file" format="element/part" model="blackjack/print_pc_card_3.cybol"/>
     <node name="print_pc_card_4" channel="file" format="element/part" model="blackjack/print_pc_card_4.cybol"/>
+    <node name="ergebnis" channel="file" format="element/part" model="blackjack/ergebnis.cybol"/>
     <node name="check_smaller_21" channel="file" format="element/part" model="blackjack/check_smaller_21.cybol"/>
 
     <node name="mapping" channel="file" format="element/part" model="blackjack/mapping.cybol"/>

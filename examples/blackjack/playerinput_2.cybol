@@ -33,11 +33,10 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-
 //Auf Eingabe warten und an checkplayerinput übergeben
-    <node name="sense_commands" channel="inline" format="live/sense" model="">
+    <node name="sense_commands2" channel="inline" format="live/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="handler" channel="inline" format="path/knowledge" model=".app.checkplayerinput"/>
+        <node name="handler" channel="inline" format="path/knowledge" model=".app.checkplayerinput_2"/>
     </node>
 
 

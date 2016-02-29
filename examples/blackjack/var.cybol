@@ -7,8 +7,11 @@
     <node name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="no_newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="exit_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="stop_flag" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <node name="command" channel="inline" format="text/plain" model=""/>
+    <node name="command_2" channel="inline" format="text/plain" model=""/>
+    <node name="command_3" channel="inline" format="text/plain" model=""/>
 
     <node name="field_1" channel="inline" format="number/integer" model=""/>
     <node name="field_2" channel="inline" format="number/integer" model=""/>
@@ -27,16 +30,6 @@
     <node name="field_6_print" channel="inline" format="text/plain" model=""/>
     <node name="field_7_print" channel="inline" format="text/plain" model=""/>
     <node name="field_8_print" channel="inline" format="text/plain" model=""/>
-
-    <node name="field_1_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_2_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_3_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_4_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_5_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_6_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_7_value" channel="inline" format="number/integer" model="0"/>
-    <node name="field_8_value" channel="inline" format="number/integer" model="0"/>
-
 
     <node name="field_flag_1_J" channel="inline" format="logicvalue/boolean" model=""/>
     <node name="field_flag_2_J" channel="inline" format="logicvalue/boolean" model=""/>
@@ -93,12 +86,18 @@
     <node name="field_value_flag_8_smaller" channel="inline" format="logicvalue/boolean" model=""/>
 
     <node name="hit_card" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="hit_card_2" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="hit_card_3" channel="inline" format="logicvalue/boolean" model=""/>
     <node name="stand" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="stand_2" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="stand_3" channel="inline" format="logicvalue/boolean" model=""/>
 
     <node name="flag_loose" channel="inline" format="logicvalue/boolean" model=""/>
     <node name="flag_next" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="flag_win" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="flag_ende" channel="inline" format="logicvalue/boolean" model=""/>
 
-    <node name="result_player" channel="inline" format="number/integer" model="0"/>
+    <node name="result" channel="inline" format="number/integer" model="0"/>
     <node name="result_pc" channel="inline" format="number/integer" model="0"/>
 
 </node>

@@ -20,6 +20,14 @@
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command_2"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.command_3"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -312,11 +320,31 @@
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.hit_card_2"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.hit_card_3"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="path/knowledge" model=".app.var.stand"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.stand_2"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.stand_3"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="reset_command" channel="inline" format="modify/empty" model="">

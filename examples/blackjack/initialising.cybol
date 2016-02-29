@@ -62,7 +62,7 @@
     </node>
 
 
-    //gehe zu setrandom
+    //gehe zu setrandom -
     <node name="start_playerinput" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.setrandom"/>
     </node>
@@ -70,11 +70,6 @@
     //initial dealer eine karte + eine karte verdeckt -> spieler 2 karten
     <node name="start_printfield" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.printinit"/>
-    </node>
-
-    //check loose
-    <node name="checkloose" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.checkloose"/>
     </node>
 
     // Wechsel zu .playerturn
