@@ -1,0 +1,4 @@
+    <node name="get_details" channel="inline" format="access/get-language" model="">
+        <node name="element" channel="inline" format="path/knowledge" model=".app.details"/>
+        <node name="part" channel="inline" format="path/knowledge" model=".app.node"/>
+    </node> 
