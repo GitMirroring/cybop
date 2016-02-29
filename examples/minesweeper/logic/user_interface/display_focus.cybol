@@ -10,13 +10,6 @@
         <node name="source" channel="inline" format="text/plain" model=".value"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
-
-<!--    <node name="append" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tui.menu.display.value"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.temporary.character"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>-->
-
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

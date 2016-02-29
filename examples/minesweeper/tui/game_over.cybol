@@ -1,0 +1,10 @@
+<node>
+    <node name="title" channel="inline" format="text/plain" model="GAME OVER">
+        <node name="position" channel="inline" format="number/integer" model="3,1"/>
+        <node name="size" channel="inline" format="number/integer" model="9,1"/>
+        <node name="background" channel="inline" format="colour/terminal" model="red"/>
+        <node name="foreground" channel="inline" format="colour/terminal" model="black"/>
+        <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="underline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+</node>

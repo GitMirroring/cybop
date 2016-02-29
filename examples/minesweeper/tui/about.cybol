@@ -1,6 +1,6 @@
 <node>
     <node name="title" channel="inline" format="text/plain" model="Menu">
-        <node name="position" channel="inline" format="number/integer" model="30,1"/>
+        <node name="position" channel="inline" format="number/integer" model="25,1"/>
         <node name="size" channel="inline" format="number/integer" model="4,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
@@ -14,14 +14,14 @@
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="keys_heading" channel="inline" format="text/plain" model="You may press the following keys:">
+    <node name="keys_heading" channel="inline" format="text/plain" model="You can move the cursor by using the arrow keys">
         <node name="position" channel="inline" format="number/integer" model="2,6"/>
         <node name="size" channel="inline" format="number/integer" model="40,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="keys_content" channel="inline" format="text/plain" model="arrow down/up/left/right, enter, escape, m, e">
+    <node name="keys_content" channel="inline" format="text/plain" model="Press Enter to reveal the currently selected field">
         <node name="position" channel="inline" format="number/integer" model="2,7"/>
         <node name="size" channel="inline" format="number/integer" model="40,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
@@ -29,14 +29,14 @@
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     
-    <node name="new_content" channel="inline" format="text/plain" model="here is some custom text :)">
+    <node name="new_content" channel="inline" format="text/plain" model="Revealing a mine will result in a loss">
         <node name="position" channel="inline" format="number/integer" model="2,9"/>
         <node name="size" channel="inline" format="number/integer" model="40,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-    <node name="new_content2" channel="inline" format="text/plain" model="some additional information">
+    <node name="new_content2" channel="inline" format="text/plain" model="You win if there are only 10 field not revealed">
         <node name="position" channel="inline" format="number/integer" model="2,11"/>
         <node name="size" channel="inline" format="number/integer" model="40,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>

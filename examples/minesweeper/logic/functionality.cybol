@@ -1,0 +1,33 @@
+<node>
+    
+    <node name="add_mine" channel="file" format="element/part" model="minesweeper/logic/functionality/add_mine.cybol"/>
+
+    <node name="check_border" channel="file" format="element/part" model="minesweeper/logic/functionality/check_border.cybol"/>
+    <node name="check_corner" channel="file" format="element/part" model="minesweeper/logic/functionality/check_corner.cybol"/>
+    
+    <node name="check_mines" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines.cybol"/>
+    
+    <node name="check_mines_border_top" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_border_top.cybol"/>
+    <node name="check_mines_border_right" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_border_right.cybol"/>
+    <node name="check_mines_border_bottom" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_border_bottom.cybol"/>
+    <node name="check_mines_border_left" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_border_left.cybol"/>
+    
+    <node name="check_mines_corner1" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_corner1.cybol"/>
+    <node name="check_mines_corner2" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_corner2.cybol"/>
+    <node name="check_mines_corner3" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_corner3.cybol"/>
+    <node name="check_mines_corner4" channel="file" format="element/part" model="minesweeper/logic/functionality/check_mines_corner4.cybol"/>
+    
+    <node name="export_border_top" channel="file" format="element/part" model="minesweeper/logic/functionality/export_border_top.cybol"/>
+    <node name="export_border_right" channel="file" format="element/part" model="minesweeper/logic/functionality/export_border_right.cybol"/>
+    <node name="export_border_bottom" channel="file" format="element/part" model="minesweeper/logic/functionality/export_border_bottom.cybol"/>
+    <node name="export_border_left" channel="file" format="element/part" model="minesweeper/logic/functionality/export_border_left.cybol"/>
+    
+    <node name="flip_empty" channel="file" format="element/part" model="minesweeper/logic/functionality/flip_empty.cybol"/>
+    <node name="flip_field" channel="file" format="element/part" model="minesweeper/logic/functionality/flip_field.cybol"/>
+    <node name="flip_mine" channel="file" format="element/part" model="minesweeper/logic/functionality/flip_mine.cybol"/>
+    <node name="flip_mine" channel="file" format="element/part" model="minesweeper/logic/functionality/flip_mine.cybol"/>
+    
+    <node name="print_minecount" channel="file" format="element/part" model="minesweeper/logic/functionality/print_minecount.cybol"/>
+    <node name="reset_bools" channel="file" format="element/part" model="minesweeper/logic/functionality/reset_bools.cybol"/>
+    
+</node>

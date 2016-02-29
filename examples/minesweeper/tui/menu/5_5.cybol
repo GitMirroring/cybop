@@ -1,11 +1,9 @@
 <node>
-
-    <node name="value" channel="inline" format="text/plain" model="6">
+    <node name="value" channel="inline" format="text/plain" model="?">
         <node name="position" channel="inline" format="number/integer" model="3,2"/>
         <node name="size" channel="inline" format="number/integer" model="1,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-
 </node>

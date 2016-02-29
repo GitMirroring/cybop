@@ -1,8 +1,55 @@
 <node>
+    <!--   Variablen   -->
+    <node name="focused_field_text" channel="inline" format="text/plain" model=""/>
+    
+    <node name="random1" channel="inline" format="number/integer" model=""/>
+    <node name="random2" channel="inline" format="number/integer" model=""/>
+    <node name="seed" channel="inline" format="number/integer" model=""/>
+    
+    <node name="r1" channel="inline" format="text/plain" model=""/>
+    <node name="r2" channel="inline" format="text/plain" model=""/>
+    <node name="field" channel="inline" format="text/plain" model=""/>
+    
+    <node name="break" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="count" channel="inline" format="number/integer" model=""/>
+    
+    <node name="r1_inc" channel="inline" format="number/integer" model=""/>
+    <node name="r2_inc" channel="inline" format="number/integer" model=""/>
+    
+    <node name="corner1" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="corner2" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="corner3" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="corner4" channel="inline" format="logicvalue/boolean" model=""/>
+    
+    <node name="border_top" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="border_bottom" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="border_left" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="border_right" channel="inline" format="logicvalue/boolean" model=""/>
+    
+    <node name="c1" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="c2" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="c3" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="c4" channel="inline" format="logicvalue/boolean" model=""/>
+    
+    <node name="b1" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="b2" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="b3" channel="inline" format="logicvalue/boolean" model=""/>
+    <node name="b4" channel="inline" format="logicvalue/boolean" model=""/>
+    
+    <node name="bool" channel="inline" format="logicvalue/boolean" model=""/>
+    
+    <node name="mine_count" channel="inline" format="number/integer" model=""/>
+    <node name="mine_count_text" channel="inline" format="text/plain" model=""/>
+    <node name="mine_path" channel="inline" format="text/plain" model=""/>
+    
+    <node name="game_over" channel="inline" format="logicvalue/boolean" model=""/>
+    
 
+    <!--   Unterknoten   -->
     <node name="temporary" channel="file" format="element/part" model="minesweeper/temporary.cybol"/>
     <node name="logic" channel="file" format="element/part" model="minesweeper/logic.cybol"/>
     <node name="settings" channel="file" format="element/part" model="minesweeper/settings.cybol"/>
     <node name="tui" channel="file" format="element/part" model="minesweeper/tui.cybol"/>
-
+    <node name="send_tui" channel="file" format="element/part" model="minesweeper/send_tui.cybol"/>
+    <node name="send_game_over_tui" channel="file" format="element/part" model="minesweeper/send_game_over_tui.cybol"/>
 </node>

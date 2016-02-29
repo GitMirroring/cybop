@@ -1,8 +1,8 @@
 <node>
 
     <node name="update_focus" channel="file" format="element/part" model="minesweeper/logic/user_interface/update_focus.cybol"/>
-<!--    <node name="update_display" channel="file" format="element/part" model="minesweeper/logic/user_interface/update_display.cybol"/>
-    -->
+    <node name="update_display" channel="file" format="element/part" model="minesweeper/logic/user_interface/update_display.cybol"/>
+    
     <node name="display_focus" channel="file" format="element/part" model="minesweeper/logic/user_interface/display_focus.cybol"/>
 
     <node name="focus" channel="file" format="element/part" model="minesweeper/logic/user_interface/focus.cybol"/>

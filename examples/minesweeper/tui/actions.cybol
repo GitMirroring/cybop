@@ -6,8 +6,8 @@
     <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
 
     <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
-    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset"/>
 
+    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.shutdown"/>
     <node name="e" channel="inline" format="path/knowledge" model=".app.logic.shutdown"/>
 
 </node>

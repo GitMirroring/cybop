@@ -12,6 +12,8 @@
 
     <node name="action" channel="inline" format="text/plain" model=""/>
     <node name="navigation" channel="inline" format="text/plain" model=""/>
+    
+    <node name="bool" channel="inline" format="logicvalue/boolean" model=""/>
 </node>
 
 <!--
