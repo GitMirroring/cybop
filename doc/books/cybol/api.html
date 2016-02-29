@@ -288,36 +288,6 @@
                     </div>
                 </div>
                 <div class="category_toc">
-                    <a href="#file">
-                        file
-                    </a>
-                    <div class="part_toc">
-                        <a href="#archive-file">
-                            archive-file
-                        </a>
-                    </div>
-                    <div class="part_toc">
-                        <a href="#copy-file">
-                            copy-file
-                        </a>
-                    </div>
-                    <div class="part_toc">
-                        <a href="#copy-file-unix-shell (TODO)">
-                            copy-file-unix-shell (TODO)
-                        </a>
-                    </div>
-                    <div class="part_toc">
-                        <a href="#copy-file-win32-command (TODO)">
-                            copy-file-win32-command (TODO)
-                        </a>
-                    </div>
-                    <div class="part_toc">
-                        <a href="#list-directory-contents (TODO)">
-                            list-directory-contents (TODO)
-                        </a>
-                    </div>
-                </div>
-                <div class="category_toc">
                     <a href="#flow">
                         flow
                     </a>
@@ -741,12 +711,10 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_channel&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-channel&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.channel&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
-
+&#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-channel&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.details&#x22;/&#x3E;
+    &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.node&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -833,11 +801,10 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_encoding&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-encoding&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.encoding&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
+   &#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-encoding&#x22; model=&#x22;&#x22;&#x3E;
+        &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.details&#x22;/&#x3E;
+        &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.node&#x22;/&#x3E;
+    &#x3C;/node&#x3E; 
 
                             </p>
                         </div>
@@ -925,12 +892,10 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_format&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-format&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.format&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
-
+&#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-format&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.details&#x22;/&#x3E;
+    &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.node&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -1017,11 +982,10 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_language&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-language&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.language&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
+    &#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-language&#x22; model=&#x22;&#x22;&#x3E;
+        &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.details&#x22;/&#x3E;
+        &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.node&#x22;/&#x3E;
+    &#x3C;/node&#x3E; 
 
                             </p>
                         </div>
@@ -1109,11 +1073,6 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_model&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-model&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.model&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
-
                             </p>
                         </div>
                         <div>
@@ -1137,38 +1096,6 @@
                                     <th>
                                         model
                                     </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        element
-                                    </td>
-                                    <td>
-                                        The part&#x27;s element (model).
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/*
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        part
-                                    </td>
-                                    <td>
-                                        The knowledge path to the part.
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/* | number/*
-                                    </td>
-                                    <td>
-                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1290,12 +1217,6 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_properties&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-properties&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.properties&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
-
                             </p>
                         </div>
                         <div>
@@ -1319,38 +1240,6 @@
                                     <th>
                                         model
                                     </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        element
-                                    </td>
-                                    <td>
-                                        The part&#x27;s element (properties).
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/*
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        part
-                                    </td>
-                                    <td>
-                                        The knowledge path to the part.
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/* | number/*
-                                    </td>
-                                    <td>
-                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1382,12 +1271,6 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_reference&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-reference&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.reference&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
-
                             </p>
                         </div>
                         <div>
@@ -1411,38 +1294,6 @@
                                     <th>
                                         model
                                     </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        element
-                                    </td>
-                                    <td>
-                                        The part&#x27;s element (reference).
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/*
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        part
-                                    </td>
-                                    <td>
-                                        The knowledge path to the part.
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/* | number/*
-                                    </td>
-                                    <td>
-                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -1474,12 +1325,11 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;get_parts_type&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-type&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.lecturers.element.type&#x22;/&#x3E;
-  &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/reference&#x22; model=&#x22;.app.var.lecturers.element.root&#x22;/&#x3E;
-&#x3C;/node&#x3E; 
- 
-
+&#x3C;node name=&#x22;get_details&#x22; channel=&#x22;inline&#x22; format=&#x22;access/get-type&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;element&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
+model=&#x22;.app.details&#x22;/&#x3E;
+    &#x3C;node name=&#x22;part&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.node&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2614,11 +2464,6 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;cast_character&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/character&#x22; model=&#x22;&#x22;&#x3E;
-  &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;communicate/send&#x22; model=&#x22;&#x22; /&#x3E;
-  &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;a&#x22; /&#x3E;
-  &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22; /&#x3E;
-&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2642,54 +2487,6 @@
                                     <th>
                                         model
                                     </th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        destination
-                                    </td>
-                                    <td>
-                                        The knowledge model to cast to.
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/*
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        source
-                                    </td>
-                                    <td>
-                                        The knowledge model to cast from.
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/* | number/*
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        type
-                                    </td>
-                                    <td>
-                                        The source type.
-                                    </td>
-                                    <td>
-                                        true
-                                    </td>
-                                    <td>
-                                        path/* | meta/type
-                                    </td>
-                                    <td>
-                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -2721,13 +2518,11 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;cast_temperature_maximum_count&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/double&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
-      model=&#x22;.settings.temperature_maximum_count_divisor&#x22;/&#x3E;
-    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
-      model=&#x22;.settings.temperature_maximum_count&#x22;/&#x3E;
-    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
-&#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;cast_double&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/double&#x22; model=&#x22;&#x22;&#x3E;
+        &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.part_2&#x22;/&#x3E;
+        &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.part_1&#x22;/&#x3E;
+        &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2830,13 +2625,11 @@
                                 Example
                             </h5>
                             <p class="part_example">
-&#x3C;node name=&#x22;cast_high_byte&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/integer&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
-      model=&#x22;.settings.voltage_high_byte&#x22;/&#x3E;
-    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22;
-      model=&#x22;.settings.voltage_buffer_high_byte&#x22;/&#x3E;
-    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/byte&#x22;/&#x3E;
-&#x3C;/node&#x3E;
+    &#x3C;node name=&#x22;cast_double&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/integer&#x22; model=&#x22;&#x22;&#x3E;
+        &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.part_2&#x22;/&#x3E;
+        &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;12&#x22;/&#x3E;
+        &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/byte&#x22;/&#x3E;
+    &#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -5631,7 +5424,6 @@
                                 Example
                             </h5>
                             <p class="part_example">
-test
                             </p>
                         </div>
                         <div>
@@ -5935,268 +5727,6 @@ test
                             </h5>
                             <p>
                                 convert/encode
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <table border="1" class="property_table">
-                                <tr>
-                                    <th>
-                                        name
-                                    </th>
-                                    <th>
-                                        description
-                                    </th>
-                                    <th>
-                                        required
-                                    </th>
-                                    <th>
-                                        format
-                                    </th>
-                                    <th>
-                                        model
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <a name="file">
-                        <h2>
-                            file
-                        </h2>
-                    </a>
-                    <div>
-                        <a name="archive-file">
-                            <h3>
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <table border="1" class="property_table">
-                                <tr>
-                                    <th>
-                                        name
-                                    </th>
-                                    <th>
-                                        description
-                                    </th>
-                                    <th>
-                                        required
-                                    </th>
-                                    <th>
-                                        format
-                                    </th>
-                                    <th>
-                                        model
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div>
-                        <a name="copy-file">
-                            <h3>
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <table border="1" class="property_table">
-                                <tr>
-                                    <th>
-                                        name
-                                    </th>
-                                    <th>
-                                        description
-                                    </th>
-                                    <th>
-                                        required
-                                    </th>
-                                    <th>
-                                        format
-                                    </th>
-                                    <th>
-                                        model
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div>
-                        <a name="copy-file-unix-shell (TODO)">
-                            <h3>
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <table border="1" class="property_table">
-                                <tr>
-                                    <th>
-                                        name
-                                    </th>
-                                    <th>
-                                        description
-                                    </th>
-                                    <th>
-                                        required
-                                    </th>
-                                    <th>
-                                        format
-                                    </th>
-                                    <th>
-                                        model
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div>
-                        <a name="copy-file-win32-command (TODO)">
-                            <h3>
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <table border="1" class="property_table">
-                                <tr>
-                                    <th>
-                                        name
-                                    </th>
-                                    <th>
-                                        description
-                                    </th>
-                                    <th>
-                                        required
-                                    </th>
-                                    <th>
-                                        format
-                                    </th>
-                                    <th>
-                                        model
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div>
-                        <a name="list-directory-contents (TODO)">
-                            <h3>
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
                             </p>
                         </div>
                         <div>
@@ -6575,6 +6105,7 @@ test
                                         channel
                                     </td>
                                     <td>
+                                        the channel whose service is to be interrupted (terminal, display, www etc.)
                                     </td>
                                     <td>
                                         true
@@ -7152,6 +6683,18 @@ test
 &#x3C;node name=&#x22;startup_terminal&#x22; channel=&#x22;inline&#x22; format=&#x22;maintain/startup&#x22; model=&#x22;&#x22;&#x3E;
     &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;terminal&#x22;/&#x3E;
 &#x3C;/node&#x3E;
+
+&#x3C;node name=&#x22;startup_socket&#x22; channel=&#x22;inline&#x22; format=&#x22;maintain/startup&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;channel&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/channel&#x22; model=&#x22;socket&#x22;/&#x3E;
+    &#x3C;node name=&#x22;namespace&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;ipv4&#x22;/&#x3E;
+    &#x3C;node name=&#x22;style&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;stream&#x22;/&#x3E;
+    &#x3C;node name=&#x22;protocol&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;tcp&#x22;/&#x3E;
+    &#x3C;node name=&#x22;address&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.address&#x22;/&#x3E;
+    &#x3C;node name=&#x22;id&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.app.var.port&#x22;/&#x3E;
+    &#x3C;node name=&#x22;mode&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;server&#x22;/&#x3E;
+    &#x3C;node name=&#x22;blocking&#x22; channel=&#x22;inline&#x22; format=&#x22;logicvalue/boolean&#x22; model=&#x22;false&#x22;/&#x3E;
+    &#x3C;node name=&#x22;connexions&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;1&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -7197,7 +6740,7 @@ test
                                         namespace
                                     </td>
                                     <td>
-                                        Only if service is www, cyboi or similar! The namespace of the socket
+                                        the address family, e.g. ip6
                                     </td>
                                     <td>
                                         false
@@ -7213,7 +6756,7 @@ test
                                         style
                                     </td>
                                     <td>
-                                        Only if service is www, cyboi or similar! The namespace of the socket
+                                        the communication style, e.g. stream
                                     </td>
                                     <td>
                                         false
@@ -7229,13 +6772,92 @@ test
                                         address
                                     </td>
                                     <td>
-                                        Only if service is www, cyboi or similar! The address of hosts communicating with this system via socket.
+                                        the host address
                                     </td>
                                     <td>
                                         false
                                     </td>
                                     <td>
                                         text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        protocol
+                                    </td>
+                                    <td>
+                                        the protocol, e.g. tcp
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        path/knowledge
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        id
+                                    </td>
+                                    <td>
+                                        the service identification if having multiple terminals/displays/sockets etc., e.g. socket port 80; either port or service may be specified; port has higher priority; if missing, zero will be used (first io entry)
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        path/knowledge
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        server
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        text/plain
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        blocking
+                                    </td>
+                                    <td>
+                                        the socket status, i.e. whether or not a socket is blocking
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        logicvalue/boolean
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        connexions
+                                    </td>
+                                    <td>
+                                        the number of possible pending client requests
+                                    </td>
+                                    <td>
+                                        false
+                                    </td>
+                                    <td>
+                                        number/integer
                                     </td>
                                     <td>
                                     </td>
@@ -9730,7 +9352,7 @@ test
                                 </tr>
                                 <tr>
                                     <td>
-                                        channel
+                                        programme
                                     </td>
                                     <td>
                                         The program to be run.
@@ -9750,7 +9372,7 @@ test
                     <div>
                         <a name="sleep">
                             <h3>
-                                run
+                                sleep
                             </h3>
                         </a>
                         <div>
@@ -9774,6 +9396,9 @@ test
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;sleep&#x22; channel=&#x22;inline&#x22; format=&#x22;run/sleep-nano&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;duration&#x22; channel=&#x22;inline&#x22; format=&#x22;path/knowledge&#x22; model=&#x22;.settings.voltage_sleep&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -9800,7 +9425,7 @@ test
                                 </tr>
                                 <tr>
                                     <td>
-                                        channel
+                                        duration
                                     </td>
                                     <td>
                                         The amount of microseconds to sleep
