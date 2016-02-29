@@ -105,6 +105,11 @@ static wchar_t PING_WIN32_COMMAND_MODEL_ARRAY[] = {L'p', L'i', L'n', L'g'};
 static wchar_t* PING_WIN32_COMMAND_MODEL = PING_WIN32_COMMAND_MODEL_ARRAY;
 static int* PING_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The sleep win32 command model. */
+static wchar_t DELAY_WIN32_COMMAND_MODEL_ARRAY[] = {L't', L'i', L'm', L'e', L'o', L'u', L't'};
+static wchar_t* DELAY_WIN32_COMMAND_MODEL = DELAY_WIN32_COMMAND_MODEL_ARRAY;
+static int* DELAY_WIN32_COMMAND_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** Configuration of a network adapter. */
 static wchar_t CONFIG_NETWORK_WIN32_COMMAND_MODEL_ARRAY[] = {L'i', L'p', L'c', L'o', L'n', L'f', L'i', L'g'};
 static wchar_t* CONFIG_NETWORK_WIN32_COMMAND_MODEL = CONFIG_NETWORK_WIN32_COMMAND_MODEL_ARRAY;

@@ -132,6 +132,17 @@ static wchar_t* DATE_COMMAND_LOGIC_CYBOL_FORMAT = DATE_COMMAND_LOGIC_CYBOL_FORMA
 static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/delay logic cybol format.
+ *
+ * Delay for a few seconds.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t DELAY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'e', L'l', L'a', L'y'};
+static wchar_t* DELAY_COMMAND_LOGIC_CYBOL_FORMAT = DELAY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/disk-free logic cybol format.
  *
  * Display free disk space.

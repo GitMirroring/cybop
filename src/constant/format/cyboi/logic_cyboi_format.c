@@ -206,6 +206,9 @@ static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1325_INTEGER_STA
 /** The find file command logic cyboi format. */
 static int* FIND_FILE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1326_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The sleep command logic cyboi format. */
+static int* DELAY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1327_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //

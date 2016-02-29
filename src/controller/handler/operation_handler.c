@@ -43,6 +43,7 @@
 #include "../../applicator/command/config_network.c"
 #include "../../applicator/command/copy_file.c"
 #include "../../applicator/command/date.c"
+#include "../../applicator/command/delay.c"
 #include "../../applicator/command/disk_free.c"
 #include "../../applicator/command/display_content.c"
 #include "../../applicator/command/echo_message.c"
@@ -407,6 +408,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_date(p0, p1, p3);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p6, (void*) DELAY_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_delay(p0, p1, p3);
         }
     }
     
