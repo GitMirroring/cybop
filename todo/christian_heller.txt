@@ -11,6 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Proposals
+_________
+
+        * Make attribute "channel", "model" optional
+
 Student Projects
 ________________
 
