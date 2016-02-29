@@ -1,7 +1,5 @@
-<node name="cast_temperature_maximum_count" channel="inline" format="cast/double" model="">
-    <node name="destination" channel="inline" format="path/knowledge"
-      model=".settings.temperature_maximum_count_divisor"/>
-    <node name="source" channel="inline" format="path/knowledge"
-      model=".settings.temperature_maximum_count"/>
-    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-</node>
+    <node name="cast_double" channel="inline" format="cast/double" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".part_1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
