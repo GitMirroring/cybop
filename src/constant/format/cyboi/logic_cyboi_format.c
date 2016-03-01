@@ -209,6 +209,9 @@ static int* FIND_FILE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1326_INTEGER_STATE_CYB
 /** The sleep command logic cyboi format. */
 static int* DELAY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1327_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The spellcheck command logic cyboi format. */
+static int* SPELLCHECK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1328_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //

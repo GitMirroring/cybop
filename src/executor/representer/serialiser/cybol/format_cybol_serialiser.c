@@ -1021,7 +1021,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1031,7 +1031,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) COMPARE_FILES_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1040,7 +1040,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
             append_item_element(p0, (void*) COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
-    }    
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1051,7 +1051,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) COPY_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) CLEAR_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1061,7 +1061,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) CLEAR_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) CONFIG_NETWORK_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1071,7 +1071,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) DATE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1081,7 +1081,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) DATE_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) DELAY_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1091,7 +1091,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) DELAY_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) DISK_FREE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1101,7 +1101,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1110,7 +1110,7 @@ void serialise_cybol_format(void* p0, void* p1) {
 
             append_item_element(p0, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
-    }    
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1121,7 +1121,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) ECHO_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) FIND_COMMAND_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1131,7 +1131,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) FIND_FILE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1141,7 +1141,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) HELP_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1151,7 +1151,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) HELP_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) KILL_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1171,7 +1171,7 @@ void serialise_cybol_format(void* p0, void* p1) {
             append_item_element(p0, (void*) LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p1, (void*) LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -1289,6 +1289,16 @@ void serialise_cybol_format(void* p0, void* p1) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) SORT_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p1, (void*) SPELLCHECK_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            append_item_element(p0, (void*) SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

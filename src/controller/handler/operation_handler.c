@@ -64,6 +64,7 @@
 #include "../../applicator/command/traceroute.c"
 #include "../../applicator/command/diff.c"
 #include "../../applicator/command/sort.c"
+#include "../../applicator/command/spellcheck.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -351,7 +352,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_archive_file(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -361,7 +362,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_change_directory(p0, p1, p3);
         }
     }
-    
+
      if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) CLEAR_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -371,7 +372,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_clear_screen();
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) CONFIG_NETWORK_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -381,7 +382,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_config_network(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) COMPARE_FILES_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -401,7 +402,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_copy_file(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) DATE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -411,7 +412,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_date(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) DELAY_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -421,7 +422,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_delay(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) DISK_FREE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -431,7 +432,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_disk_free(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -451,7 +452,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_echo_message(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) FIND_COMMAND_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -461,7 +462,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_find_command(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) FIND_FILE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -471,7 +472,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_find_file(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) HELP_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -481,7 +482,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_help(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) KILL_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -501,7 +502,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_list_directory_contents(p0, p1, p3);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -619,6 +620,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_sort(p0, p1, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) SPELLCHECK_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_spellcheck(p0, p1, p3);
         }
     }
 

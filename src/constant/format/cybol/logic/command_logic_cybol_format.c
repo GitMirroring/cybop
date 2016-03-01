@@ -77,6 +77,17 @@ static wchar_t* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_DIRECTORY_C
 static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/change-permission logic cybol format.
+ *
+ * Changes the permission of a file or directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'h', L'a', L'n', L'g', L'e', L'-', L'p', L'e', L'r', L'm', L'i', L's', L's', L'i', L'o', L'n'};
+static wchar_t* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/clear logic cybol format.
  *
  * Clear the console screen.
@@ -121,6 +132,17 @@ static wchar_t* COPY_COMMAND_LOGIC_CYBOL_FORMAT = COPY_COMMAND_LOGIC_CYBOL_FORMA
 static int* COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/create-folder logic cybol format.
+ *
+ * Creates a folder
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'r', L'e', L'a', L't', L'e', L'-', L'f', L'o', L'l', L'd', L'e', L'r'};
+static wchar_t* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT = CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/date logic cybol format.
  *
  * Print out the date.
@@ -141,6 +163,17 @@ static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
 static wchar_t DELAY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'e', L'l', L'a', L'y'};
 static wchar_t* DELAY_COMMAND_LOGIC_CYBOL_FORMAT = DELAY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/diff logic cybol format.
+ *
+ * displays differences between two files
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L'f', L'f'};
+static wchar_t* DIFF_COMMAND_LOGIC_CYBOL_FORMAT = DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/disk-free logic cybol format.
@@ -197,6 +230,28 @@ static wchar_t* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/find-file";
 static int* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/grep logic cybol format.
+ *
+ * prints lines matching a pattern
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'g', L'r', L'e', L'p'};
+static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/help logic cybol format.
+ *
+ * Provides information about one or all system commands.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'h', L'e', L'l', L'p'};
+static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT = HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/kill logic cybol format.
  *
  * Kill a process.
@@ -242,15 +297,15 @@ static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT = MOVE_COMMAND_LOGIC_CYBOL_FORMA
 static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/help logic cybol format.
+ * The command/ping logic cybol format.
  *
- * Provides information about one or all system commands.
+ * Pings a given host
  *
  * This is a CYBOL extension.
  */
-static wchar_t HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'h', L'e', L'l', L'p'};
-static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT = HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'p', L'i', L'n', L'g'};
+static wchar_t* PING_COMMAND_LOGIC_CYBOL_FORMAT = PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/remove logic cybol format.
@@ -264,6 +319,28 @@ static wchar_t* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT = REMOVE_COMMAND_LOGIC_CYBOL_F
 static int* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/sort logic cybol format.
+ *
+ * sorts a file
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t SORT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L's', L'o', L'r', L't'};
+static wchar_t* SORT_COMMAND_LOGIC_CYBOL_FORMAT = SORT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/spellcheck logic cybol format.
+ *
+ * Spellcheck a file.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L's', L'p', L'e', L'l', L'l', L'c', L'h', L'e', L'c', L'k'};
+static wchar_t* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT = SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/remove logic cybol format.
  *
  * Removes a file or directory.
@@ -275,15 +352,15 @@ static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = TAPE_ARCHIVER_COMMAND
 static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/change-permission logic cybol format.
+ * The command/traceroute logic cybol format.
  *
- * Changes the permission of a file or directory.
+ * displays packet routes to any reachable host
  *
  * This is a CYBOL extension.
  */
-static wchar_t CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'h', L'a', L'n', L'g', L'e', L'-', L'p', L'e', L'r', L'm', L'i', L's', L's', L'i', L'o', L'n'};
-static wchar_t* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L't', L'r', L'a', L'c', L'e', L'r', L'o', L'u', L't', L'e'};
+static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/word count logic cybol format.
@@ -295,72 +372,6 @@ static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
 static wchar_t WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'w', L'o', L'r', L'd', L'-', L'c', L'o', L'u', L'n', L't'};
 static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/create-folder logic cybol format.
- *
- * Creates a folder
- *
- * This is a CYBOL extension.
- */
-static wchar_t CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'r', L'e', L'a', L't', L'e', L'-', L'f', L'o', L'l', L'd', L'e', L'r'};
-static wchar_t* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT = CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
-* The command/ping logic cybol format.
-*
-* Pings a given host
-*
-* This is a CYBOL extension.
-*/
-static wchar_t PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'p', L'i', L'n', L'g'};
-static wchar_t* PING_COMMAND_LOGIC_CYBOL_FORMAT = PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
-* The command/grep logic cybol format.
-*
-* prints lines matching a pattern
-*
-* This is a CYBOL extension.
-*/
-static wchar_t GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'g', L'r', L'e', L'p'};
-static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
-* The command/traceroute logic cybol format.
-*
-* displays packet routes to any reachable host
-*
-* This is a CYBOL extension.
-*/
-static wchar_t TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L't', L'r', L'a', L'c', L'e', L'r', L'o', L'u', L't', L'e'};
-static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
-* The command/diff logic cybol format.
-*
-* displays differences between two files
-*
-* This is a CYBOL extension.
-*/
-static wchar_t DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L'f', L'f'};
-static wchar_t* DIFF_COMMAND_LOGIC_CYBOL_FORMAT = DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
-* The command/sort logic cybol format.
-*
-* sorts a file
-*
-* This is a CYBOL extension.
-*/
-static wchar_t SORT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L's', L'o', L'r', L't'};
-static wchar_t* SORT_COMMAND_LOGIC_CYBOL_FORMAT = SORT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
-static int* SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

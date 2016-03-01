@@ -1,0 +1,204 @@
+/*
+ * Copyright (C) 1999-2015. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.17.0 2015-04-20
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef SPELLCHECK_COMMANDER_SOURCE
+#define SPELLCHECK_COMMANDER_SOURCE
+
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/runner/executor.c"
+#include "../../logger/logger.c"
+
+//
+// CAUTION! The options of many commands are SIMILAR on various platforms.
+// Therefore, it might suffice to distinguish included files here
+// and use IDENTICAL CONSTANTS whose values are determined
+// by the include they stem from.
+//
+// However, there ARE commands on some platforms that do NOT
+// exist on another. The same is true for command options.
+// Therefore, it makes sense to distinguish between platforms
+// at EVERY option, even if that produces some redundant code.
+//
+#ifndef WIN32
+    #include "../../constant/name/command_option/unix/spellcheck_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+#endif
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
+
+/**
+ * Change directory.
+ *
+ * @param pd the path data
+ * @param pc the path count
+ * @param md the mode data
+ * @param mc the mode count
+ * @param smd the suggestion mode data
+ * @param smc the suggestion mode count
+ * @param ld the language data
+ * @param lc the language count
+ * @param ed the encoding data
+ * @param ec the encoding count
+ * @param kd the keymapping data
+ * @param kc the keymapping count
+ * @param mad the master data
+ * @param mac the master count
+ * @param db the do not backup option
+ */
+void command_spellcheck(void* pd, void* pc, void* md, void* mc,void* smd, void* smc,void* ld, void* lc,void* ed, void* ec,void* kd, void* kc,void* mad, void* mac, void* db) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command spellcheck.");
+
+    // The arguments item.
+    void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The arguments item data, count.
+    void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    
+    // Allocate arguments item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+    // Append command.
+#ifndef WIN32
+    append_item_element(arg, (void*) SPELLCHECK_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SPELLCHECK_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#endif
+
+// command parameters    
+
+#ifndef WIN32    
+    if (pc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    }      
+#endif
+
+#ifndef WIN32    
+    if (mc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, (void*) MODE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, md, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }      
+#endif
+
+#ifndef WIN32    
+    if (smc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, (void*) SUG_MODE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SUG_MODE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }      
+#endif
+
+
+#ifndef WIN32    
+    if (lc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, (void*) LANGUAGE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LANGUAGE_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, ld, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }      
+#endif
+
+#ifndef WIN32    
+    if (ec != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, (void*) ENCODING_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ENCODING_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, ed, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }      
+#endif
+
+
+#ifndef WIN32    
+    if (kc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, (void*) KEYMAPPING_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KEYMAPPING_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, kd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }      
+#endif
+
+#ifndef WIN32    
+    if (mac != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            // Append path.
+
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+	    append_item_element(arg, (void*) MASTER_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MASTER_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	    append_item_element(arg, mad, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    }      
+#endif
+    
+// command options
+
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+#ifndef WIN32
+    compare_integer_unequal((void*) &r, db, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // Append change the current drive option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+        append_item_element(arg, (void*) DONT_BACKUP_SPELLCHECK_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DONT_BACKUP_SPELLCHECK_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+    }
+#endif    
+
+    // Get arguments item data, count.
+    copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    // Execute command line in shell.
+    execute(argd, argc);
+
+    // Deallocate arguments item.
+    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+}
+
+/* SPELLCHECK_COMMANDER_SOURCE */
+#endif
+ 
