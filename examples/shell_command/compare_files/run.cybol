@@ -1,8 +1,8 @@
 <node>
 
     <node name="compare-files" channel="inline" format="command/compare-files" model="">
-        <node name="path1" channel="inline" format="text/plain" model="shell_command_compare_files/file1"/>
-	<node name="path2" channel="inline" format="text/plain" model="shell_command_compare_files/file2"/>
+        <node name="path1" channel="inline" format="text/plain" model="compare_files/file1"/>
+	<node name="path2" channel="inline" format="text/plain" model="compare_files/file2"/>
 	<node name="print-offset" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit" channel="inline" format="live/exit" model=""/>

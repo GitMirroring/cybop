@@ -1,7 +1,7 @@
 <node>
 
     <node name="display-content" channel="inline" format="command/display-content" model="">
-        <node name="path" channel="inline" format="text/plain" model="shell_command_display_content/file1"/>
+        <node name="path" channel="inline" format="text/plain" model="display_content/file1"/>
         <node name="squeeze" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="number-lines" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>

@@ -2,7 +2,7 @@
 
     <node name="grep" channel="inline" format="command/grep" model="">
         <node name="pattern" channel="inline" format="text/plain" model="test"/>
-        <node name="file" channel="inline" format="text/plain" model="shell_command_grep/grep.txt"/>
+        <node name="file" channel="inline" format="text/plain" model="grep/grep.txt"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>

@@ -1,9 +1,8 @@
 <node>
 
-    <node name="sort" channel="inline" format="command/sort" model="">
-        <node name="file" channel="inline" format="text/plain" model="shell_command_sort/sort.txt"/>
-        <node name="output" channel="inline" format="text/plain" model="shell_command_sort/sorted.txt"/>
-        <node name="reversed" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="diff" channel="inline" format="command/diff" model="">
+        <node name="file1" channel="inline" format="text/plain" model="diff/diff1.txt"/>
+        <node name="file2" channel="inline" format="text/plain" model="diff/diff2.txt"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
