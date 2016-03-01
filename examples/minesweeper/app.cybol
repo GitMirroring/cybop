@@ -43,7 +43,6 @@
     <node name="mine_path" channel="inline" format="text/plain" model=""/>
     
     <node name="game_over" channel="inline" format="logicvalue/boolean" model=""/>
-    
 
     <!--   Unterknoten   -->
     <node name="temporary" channel="file" format="element/part" model="minesweeper/temporary.cybol"/>

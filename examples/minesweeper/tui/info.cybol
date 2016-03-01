@@ -1,6 +1,6 @@
 <node>
-    <node name="title" channel="inline" format="text/plain" model="GAME OVER">
-        <node name="position" channel="inline" format="number/integer" model="4,2"/>
+    <node name="title" channel="inline" format="text/plain" model="exit the game by pressing e">
+        <node name="position" channel="inline" format="number/integer" model="1,1"/>
         <node name="size" channel="inline" format="number/integer" model="9,1"/>
         <node name="background" channel="inline" format="colour/terminal" model="red"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="white"/>

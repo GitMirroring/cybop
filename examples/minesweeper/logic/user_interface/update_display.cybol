@@ -1,15 +1,21 @@
 <node>
 
     <!-- The display HAS TO BE EMPTIED since otherwise, the result is appended to the old operand. -->
-    <node name="send_tui" channel="inline" format="communicate/send" model="">
+    <!--<node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
+    </node>-->
     
+    <node name="compare" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.game_over"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.send_game_over_tui"/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.send_tui"/>
+    </node> 
+    <!--
     <node name="move_arrow_up" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -17,7 +23,7 @@
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="update_display"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
+    </node>-->
 
     <!--
         CAUTION! The display HAS TO BE EMPTIED here again after refreshing the ui
