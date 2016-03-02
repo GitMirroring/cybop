@@ -41,7 +41,7 @@ Stack
 _____
 
         * See file "src/design_decisions.txt"; possibly both solutions 2 and 3 can be implemented
-        * Use cybol example application "counter_stack"
+        * Use cybol example application "counter_stack" to use stack variables
 
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
         * Use PROPERTIES of a COMPOUND logic part structure, and NOT special push/pop operations
