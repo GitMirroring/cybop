@@ -602,7 +602,13 @@ _________
 Super
 _____
 
-        * Check out handling of "super" property. Is it necessary at all?
+        * Compare with "prototype chain" checking in ECMA/JavaScript
+        * Should properties (those of a part itself and those of super parts) be assigned to a part when it is created?
+            OR
+            Should the "super" property referencing (one or more) super parts be evaluated each time again at runtime?
+            --> rather not the second, since property values of a part might get changed, so that the part needs to keep and store ALL properties.
+
+        * Check out handling of "super" property (ALTERNATIVE name "prototype"). Is it necessary at all?
             ==> use "prototype programming" paradigm-like behaviour, i.e.:
                 templates are just templates for initial creation of a model at runtime;
                 later on, each model has to keep ALL its parts with properties itself/ alone
