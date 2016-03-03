@@ -40,7 +40,9 @@ ________________
 Stack
 _____
 
-        * See file "src/design_decisions.txt"; possibly both solutions 2 and 3 can be implemented
+        * Continue with file "controller/handler/element_part_handler.c"
+
+        * See file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
         * Use cybol example application "counter_stack" to use stack variables
 
         * Implement "stack memory" using existing "part" structure as known from knowledge memory
@@ -48,15 +50,14 @@ _____
         * Add/remove stack variables handed over as cybol properties to/from stack memory
             before/after calling function "handle_part", so that they get destroyed automatically ??
 
-        * Deliver element that was added LAST in case many equally named elements exist
+        * Deliver element that was added LAST in case many equally named elements exist (LIFO)
 
         * Rename "knowledge memory" to "heap memory" ??
         * Use a third cybol path format "path/stack" or "memory/stack" ??
             rather NOT, since just a name has to be handed over to get the last element with that name from stack
             dot-notation would allow random access, which is not wanted
             therefore, no new path format but just using "text/plain" to hand over name of stack variable
-
-        * Rename memories into: system (internal), heap (knowledge), stack
+        * Rename memories into: system (internal), heap (knowledge), stack??
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.

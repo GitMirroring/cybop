@@ -79,6 +79,16 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
+//         STEPS TO IMPLEMENT:
+//         - the properties keep/represent local variables
+//         - iterate over these properties
+//         - clone them one by one --> TODO: provide clone operation for models of each possible type
+//         - add each one to the stack
+//
+//         (remark: cloning the properties container altogether is NOT a solution,
+//         since its elements are to be added to the stack one by one anyway,
+//         so that the cloned container part/model would be superfluous)
+
         //?? TODO: Store local variables (taken from list p2, p3) on stack memory here!
 //??        handle_stack(p2, p3, p6);
 
@@ -103,6 +113,18 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // waiting in the signal memory have the chance
         // to be processed in between, in order to fulfil
         // the response time requirement.
+        //
+
+        //
+        // CAUTION! Do NOT store any properties in stack memory!
+        // There is no guarantee as to when the signal gets
+        // actually processed from the signal memory (queue).
+        // External interrupts such as from a socket communication
+        // or mouse events might occur and be processed first.
+        // In this case, the order of stack memory entries
+        // would get MIXED UP.
+        // Therefore, the stack memory may ONLY be used with
+        // DIRECT handling of signals as done in the "if" branch above.
         //
 
         write_signal(p4, (void*) &s);

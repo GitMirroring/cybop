@@ -46,7 +46,7 @@
 2016-01-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add todo files of new student group members
-        * Rename property "message" into "sender" and "model" into "message" for receive operations in cybol api
+        * Rename property "message" into "sender" and "model" into "message" for receive operations in cybol api application source code
 
 2015-06-19  Christian Heller  <christian.heller@tuxtax.de>
 
