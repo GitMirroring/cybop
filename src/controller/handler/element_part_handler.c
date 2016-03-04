@@ -83,6 +83,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 //         - the properties keep/represent local variables
 //         - iterate over these properties
 //         - clone them one by one --> TODO: provide clone operation for models of each possible type
+//             (which is easier than identifying the format (type), creating a node, and copying the value)
 //         - add each one to the stack
 //
 //         (remark: cloning the properties container altogether is NOT a solution,

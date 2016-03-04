@@ -28,19 +28,21 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
-    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
-    </node>
-
-    <!-- Alternative with local variables specified directly -->
-<!--
+    <!-- Possibility 1: local variables specified directly as properties -->
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
             <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
             <node name="index" channel="inline" format="number/integer" model="1"/>
             <node name="count" channel="inline" format="number/integer" model="10"/>
-            <node name="model" channel="file" format="element/part" model="counter_stack/model.cybol"/>
+            <node name="model" channel="inline" format="path/knowledge" model=".app.model"/>
         </node>
+    </node>
+-->
+
+    <!-- Possibility 2: local variables specified in knowledge tree -->
+<!--
+    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
     </node>
 -->
 
