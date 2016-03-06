@@ -1,10 +1,8 @@
 <node>
-
-/// Abfrage ob Game bereits gewonnen/verloren ist
    
- <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+    <node name="if-then-else15" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.run"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
 	<node name="false" channel="inline" format="path/knowledge" model=".app.ergebnis_2"/>
     </node>
 
