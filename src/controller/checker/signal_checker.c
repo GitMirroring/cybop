@@ -71,7 +71,7 @@
  *
  * @param p0 the internal memory data
  * @param p1 the knowledge memory part
- * @param p2 the stack memory part
+ * @param p2 the stack memory item
  * @param p3 the signal memory item
  * @param p4 the signal memory sleep time
  * @param p5 the shutdown flag

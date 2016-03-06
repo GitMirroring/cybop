@@ -40,7 +40,7 @@
  * @param p0 the signal part
  * @param p1 the internal memory data
  * @param p2 the knowledge memory part
- * @param p3 the stack memory part
+ * @param p3 the stack memory item
  * @param p4 the signal memory item
  * @param p5 the signal memory index where the signal was found
  * @param p6 the shutdown flag

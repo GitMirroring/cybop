@@ -48,11 +48,11 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  *
  * @param p0 the signal model data (operation)
  * @param p1 the signal model index
- * @param p2 the signal properties data (parametres) [possibly necessary one day for local stack variables or pre- and post conditions etc.]
+ * @param p2 the signal properties data (local stack variables)
  * @param p3 the signal properties count
  * @param p4 the internal memory data
  * @param p5 the knowledge memory part
- * @param p6 the stack memory part
+ * @param p6 the stack memory item
  * @param p7 the signal memory item
  * @param p8 the direct execution flag
  * @param p9 the shutdown flag

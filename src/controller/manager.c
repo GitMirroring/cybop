@@ -87,7 +87,7 @@ void manage(void* p0) {
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The knowledge memory part.
     void* k = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The stack memory part.
+    // The stack memory item.
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The signal memory item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -219,6 +219,7 @@ void manage(void* p0) {
     // Variable allocation.
     //
 
+    //
     // Allocate internal memory data.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -226,17 +227,32 @@ void manage(void* p0) {
     //
     // CAUTION! The internal memory has a pre-defined count/size,
     // given by the constant INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT.
+    //
     allocate_array((void*) &i, (void*) INTERNAL_MEMORY_STATE_CYBOI_MODEL_COUNT, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
     // Allocate knowledge memory part.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
+    //
     allocate_part((void*) &k, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-    // Allocate stack memory part.
+    //
+    // Allocate stack memory item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_part((void*) &st, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    //
+    // CAUTION! It is given an initial size of 1024, in order
+    // to avoid steady reallocation, for better performance.
+    //
+    // CAUTION! The stack memory should be a simple array (item) only.
+    // If it was a part, rubbish (garbage) collection would become effective
+    // and manipulate the references count of child parts when removing them.
+    // But this is NOT necessary here, since stack entries get
+    // created and destroyed manually, when needed.
+    //
+    allocate_item((void*) &st, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    //
     // Allocate signal memory item.
     //
     // CAUTION! Due to memory allocation handling, the size MUST NOT
@@ -245,11 +261,12 @@ void manage(void* p0) {
     // CAUTION! It is given an initial size of 1024, in order
     // to avoid steady reallocation, for better performance.
     //
-    // CAUTION! The signal memory should be a simple array only.
+    // CAUTION! The signal memory should be a simple array (item) only.
     // If it was a part, rubbish (garbage) collection would become effective
     // and manipulate the references count of child parts when removing them,
     // so that these might get deallocated while still needed.
     // But only the knowledge memory part has the right to do that.
+    //
     allocate_item((void*) &s, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     //
@@ -379,13 +396,8 @@ void manage(void* p0) {
 
     // Deallocate signal memory item.
     deallocate_item((void*) &s, (void*) POINTER_STATE_CYBOI_TYPE);
-    // Deallocate stack memory part.
-    // CAUTION! This is the stack memory tree root node.
-    // It has to be deallocated MANUALLY here.
-    // Its references count was initially zero and never
-    // got changed during programme execution,
-    // so that this root part is not deallocated automatically.
-    deallocate_part((void*) &st);
+    // Deallocate stack memory item.
+    deallocate_item((void*) &st, (void*) POINTER_STATE_CYBOI_TYPE);
     // Deallocate knowledge memory part.
     // CAUTION! This is the knowledge memory tree root node.
     // It has to be deallocated MANUALLY here.

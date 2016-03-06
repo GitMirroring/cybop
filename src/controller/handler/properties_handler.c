@@ -37,7 +37,7 @@
  *
  * @param p0 the properties data
  * @param p1 the properties count
- * @param p2 the stack memory part
+ * @param p2 the stack memory item
  */
 void handle_properties(void* p0, void* p1, void* p2) {
 
@@ -69,7 +69,7 @@ void handle_properties(void* p0, void* p1, void* p2) {
             break;
         }
 
-        handle_part_element(p0, (void*) &j, p2, p3, p4, p5, p6, p7, p8);
+        handle_properties_element(p0, (void*) &j, p2);
 
         // Increment loop variable.
         j++;

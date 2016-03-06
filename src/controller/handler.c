@@ -52,7 +52,7 @@
  * @param p0 the signal part
  * @param p1 the internal memory data
  * @param p2 the knowledge memory part
- * @param p3 the stack memory part
+ * @param p3 the stack memory item
  * @param p4 the signal memory item
  * @param p5 the direct execution flag
  * @param p6 the shutdown flag
@@ -140,10 +140,6 @@ fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
 //?? fwprintf(stdout, L"TEST handle part: %i\n", r);
 
             // Handle compound part signal.
-            //
-            // CAUTION! The signal part properties are possibly
-            // necessary one day for local stack variables or
-            // pre- and post conditions etc.
             handle_part(md, mc, pd, pc, p1, p2, p3, p4, p5, p6);
         }
     }

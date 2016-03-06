@@ -60,7 +60,7 @@
  *
  * @param p0 the internal memory data (pointer reference)
  * @param p1 the knowledge memory part (pointer reference)
- * @param p2 the stack memory part (pointer reference)
+ * @param p2 the stack memory item (pointer reference)
  * @param p3 the signal memory item (pointer reference)
  * @param p4 the signal memory sleep time (pointer reference)
  * @param p5 the display enable flag (pointer reference)
