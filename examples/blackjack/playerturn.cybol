@@ -1,5 +1,6 @@
 <node>
 
+
 //// Over 21 falls A A
 
     <node name="compare_player_over_21" channel="inline" format="compare/greater" model="">
@@ -10,12 +11,12 @@
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
-    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+    <node name="if-then-else15" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.print_loose"/>
     </node>
 
-    <node name="compare_player_equals_21" channel="inline" format="compare/equal" model="">
+<node name="compare_player_equals_21" channel="inline" format="compare/equal" model="">
         <node name="left" channel="inline" format="path/knowledge" model=".result"/>
         <node name="right" channel="inline" format="number/integer" model="21"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
@@ -23,17 +24,18 @@
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
-    <node name="if-then-else2" channel="inline" format="flow/branch" model="">
+    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.print_win"/>
     </node>
 
 /// ueberpruefen ob Game schon gewonnen/verloren wenn nicht weiter zu playerinput
 
-    <node name="if-then-else3" channel="inline" format="flow/branch" model="">
+    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-	    <node name="false" channel="inline" format="path/knowledge" model=".app.playerinput"/>
+	<node name="false" channel="inline" format="path/knowledge" model=".app.playerinput"/>
+
     </node>
 
 </node>

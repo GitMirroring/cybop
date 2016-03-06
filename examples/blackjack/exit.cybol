@@ -1,6 +1,7 @@
 <node>
 
-    //Programm schließen
+    	//Programm schließen
+
     <node name="exit_app" channel="inline" format="live/exit" model=""/>
 
 </node>

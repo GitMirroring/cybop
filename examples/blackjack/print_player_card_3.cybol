@@ -158,37 +158,10 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="reset_flag" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    // Wechsel zu .playerturn_2
+    <node name="start_command" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.playerturn_2"/>
     </node>
 
-    <node name="compare_player_over_21" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".result"/>
-        <node name="right" channel="inline" format="number/integer" model="21"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else15" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.print_loose"/>
-        <node name="false" channel="inline" format="path/knowledge" model=".app.playerturn_2"/>
-    </node>
-
-<node name="compare_player_equals_21" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".result"/>
-        <node name="right" channel="inline" format="number/integer" model="21"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
-        <node name="selection" channel="inline" format="text/plain" model="all"/>
-    </node>
-
-    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.print_win"/>
-        <node name="false" channel="inline" format="path/knowledge" model=".app.playerturn_2"/>
-    </node>
 
 </node>

@@ -1,7 +1,7 @@
 <node>
 
 
-//// Over 21 falls A A
+//// Over 21 
 
     <node name="compare_player_over_21" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
@@ -30,12 +30,9 @@
     </node>
 
 /// ueberpruefen ob Game schon gewonnen/verloren wenn nicht weiter zu playerinput
-
-    <node name="if-then-else1" channel="inline" format="flow/branch" model="">
+ <node name="if-then-else1" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
+        <node name="true" channel="inline" format="path/knowledge" model=".app.run"/>
 	<node name="false" channel="inline" format="path/knowledge" model=".app.playerinput_2"/>
-
     </node>
-
 </node>
