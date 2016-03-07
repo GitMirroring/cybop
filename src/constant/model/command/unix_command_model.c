@@ -31,148 +31,119 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The shell unix command model. */
-static wchar_t SHELL_UNIX_COMMAND_MODEL_ARRAY[] = {L'/', L'b', L'i', L'n', L'/', L's', L'h'};
-static wchar_t* SHELL_UNIX_COMMAND_MODEL = SHELL_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* SHELL_UNIX_COMMAND_MODEL = L"/bin/sh";
 static int* SHELL_UNIX_COMMAND_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The tape archiver unix command model. */
-static wchar_t TAPE_ARCHIVER_UNIX_COMMAND_MODEL_ARRAY[] = {L't', L'a', L'r'};
-static wchar_t* TAPE_ARCHIVER_UNIX_COMMAND_MODEL = TAPE_ARCHIVER_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* TAPE_ARCHIVER_UNIX_COMMAND_MODEL = L"tar";
 static int* TAPE_ARCHIVER_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The change directory unix command model. */
-static wchar_t CHANGE_DIRECTORY_UNIX_COMMAND_MODEL_ARRAY[] = {L'c', L'd'};
-static wchar_t* CHANGE_DIRECTORY_UNIX_COMMAND_MODEL = CHANGE_DIRECTORY_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* CHANGE_DIRECTORY_UNIX_COMMAND_MODEL = L"cd";
 static int* CHANGE_DIRECTORY_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The clear screen unix command model. */
-static wchar_t CLEAR_SCREEN_UNIX_COMMAND_MODEL_ARRAY[] = {L'c', L'l', L'e', L'a', L'r'};
-static wchar_t* CLEAR_SCREEN_UNIX_COMMAND_MODEL = CLEAR_SCREEN_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* CLEAR_SCREEN_UNIX_COMMAND_MODEL = L"clear";
 static int* CLEAR_SCREEN_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The compare two files unix command model. */
-static wchar_t COMPARE_FILES_UNIX_COMMAND_MODEL_ARRAY[] = {L'c', L'm', L'p'};
-static wchar_t* COMPARE_FILES_UNIX_COMMAND_MODEL = COMPARE_FILES_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* COMPARE_FILES_UNIX_COMMAND_MODEL = L"cmp";
 static int* COMPARE_FILES_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copy file unix command model. */
-static wchar_t COPY_FILE_UNIX_COMMAND_MODEL_ARRAY[] = {L'c', L'p'};
-static wchar_t* COPY_FILE_UNIX_COMMAND_MODEL = COPY_FILE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* COPY_FILE_UNIX_COMMAND_MODEL = L"cp";
 static int* COPY_FILE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The print date unix command model. */
-static wchar_t DATE_UNIX_COMMAND_MODEL_ARRAY[] = {L'd', L'a', L't', L'e'};
-static wchar_t* DATE_UNIX_COMMAND_MODEL = DATE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* DATE_UNIX_COMMAND_MODEL = L"date";
 static int* DATE_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The disk free unix command model. */
-static wchar_t DISK_FREE_UNIX_COMMAND_MODEL_ARRAY[] = {L'd', L'f'};
-static wchar_t* DISK_FREE_UNIX_COMMAND_MODEL = DISK_FREE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* DISK_FREE_UNIX_COMMAND_MODEL = L"df";
 static int* DISK_FREE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The display text file unix command model. */
-static wchar_t DISPLAY_CONTENT_UNIX_COMMAND_MODEL_ARRAY[] = {L'c', L'a', L't'};
-static wchar_t* DISPLAY_CONTENT_UNIX_COMMAND_MODEL = DISPLAY_CONTENT_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* DISPLAY_CONTENT_UNIX_COMMAND_MODEL = L"cat";
 static int* DISPLAY_CONTENT_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The echo message unix command model. */
-static wchar_t ECHO_MESSAGE_UNIX_COMMAND_MODEL_ARRAY[] = {L'e', L'c', L'h', L'o'};
-static wchar_t* ECHO_MESSAGE_UNIX_COMMAND_MODEL = ECHO_MESSAGE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* ECHO_MESSAGE_UNIX_COMMAND_MODEL = L"echo";
 static int* ECHO_MESSAGE_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The find command unix command model. */
-static wchar_t FIND_COMMAND_UNIX_COMMAND_MODEL_ARRAY[] = {L'w', L'h', L'e', L'r', L'e', L'i', L's'};
-static wchar_t* FIND_COMMAND_UNIX_COMMAND_MODEL = FIND_COMMAND_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* FIND_COMMAND_UNIX_COMMAND_MODEL = L"whereis";
 static int* FIND_COMMAND_UNIX_COMMAND_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The find file unix command model. */
-static wchar_t FIND_FILE_UNIX_COMMAND_MODEL_ARRAY[] = {L'f', L'i', L'n', L'd'};
-static wchar_t* FIND_FILE_UNIX_COMMAND_MODEL = FIND_FILE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* FIND_FILE_UNIX_COMMAND_MODEL = L"find";
 static int* FIND_FILE_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The kill unix command model. */
-static wchar_t KILL_UNIX_COMMAND_MODEL_ARRAY[] = {L'k', L'i', L'l', L'l'};
-static wchar_t* KILL_UNIX_COMMAND_MODEL = KILL_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* KILL_UNIX_COMMAND_MODEL = L"kill";
 static int* KILL_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The list directory contents unix command model. */
-static wchar_t LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_ARRAY[] = {L'l', L's'};
-static wchar_t* LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL = LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL = L"ls";
 static int* LIST_DIRECTORY_CONTENTS_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The move file unix command model. */
-static wchar_t MOVE_FILE_UNIX_COMMAND_MODEL_ARRAY[] = {L'm', L'v'};
-static wchar_t* MOVE_FILE_UNIX_COMMAND_MODEL = MOVE_FILE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* MOVE_FILE_UNIX_COMMAND_MODEL = L"mv";
 static int* MOVE_FILE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The remove file unix command model. */
-static wchar_t REMOVE_FILE_UNIX_COMMAND_MODEL_ARRAY[] = {L'r', L'm'};
-static wchar_t* REMOVE_FILE_UNIX_COMMAND_MODEL = REMOVE_FILE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* REMOVE_FILE_UNIX_COMMAND_MODEL = L"rm";
 static int* REMOVE_FILE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The sleep unix command model. */
-static wchar_t DELAY_UNIX_COMMAND_MODEL_ARRAY[] = {L's', L'l', L'e', L'e', L'p'};
-static wchar_t* DELAY_UNIX_COMMAND_MODEL = DELAY_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* DELAY_UNIX_COMMAND_MODEL = L"sleep";
 static int* DELAY_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The change permission unix command model. */
-static wchar_t CHANGE_PERMISSION_UNIX_COMMAND_MODEL_ARRAY[] = {L'c', L'h', L'm', L'o', L'd'};
-static wchar_t* CHANGE_PERMISSION_UNIX_COMMAND_MODEL = CHANGE_PERMISSION_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* CHANGE_PERMISSION_UNIX_COMMAND_MODEL = L"chmod";
 static int* CHANGE_PERMISSION_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** Configuration of a network adapter */
-static wchar_t CONFIG_NETWORK_UNIX_COMMAND_MODEL_ARRAY[] = {L'i', L'p'};
-static wchar_t* CONFIG_NETWORK_UNIX_COMMAND_MODEL = CONFIG_NETWORK_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* CONFIG_NETWORK_UNIX_COMMAND_MODEL = L"ip";
 static int* CONFIG_NETWORK_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The word count unix command model. */
-static wchar_t WORD_COUNT_UNIX_COMMAND_MODEL_ARRAY[] = {L'w', L'c'};
-static wchar_t* WORD_COUNT_UNIX_COMMAND_MODEL = WORD_COUNT_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* WORD_COUNT_UNIX_COMMAND_MODEL = L"wc";
 static int* WORD_COUNT_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The create folder unix command model. */
-static wchar_t CREATE_FOLDER_UNIX_COMMAND_MODEL_ARRAY[] = {L'm', L'k', L'd', L'i', L'r'};
-static wchar_t* CREATE_FOLDER_UNIX_COMMAND_MODEL = CREATE_FOLDER_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* CREATE_FOLDER_UNIX_COMMAND_MODEL = L"mkdir";
 static int* CREATE_FOLDER_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The help unix command model. */
-static wchar_t HELP_UNIX_COMMAND_MODEL_ARRAY[] = {L'm', L'a', L'n'};
-static wchar_t* HELP_UNIX_COMMAND_MODEL = HELP_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* HELP_UNIX_COMMAND_MODEL = L"man";
 static int* HELP_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ping unix command model. */
-static wchar_t PING_UNIX_COMMAND_MODEL_ARRAY[] = {L'p', L'i', L'n', L'g'};
-static wchar_t* PING_UNIX_COMMAND_MODEL = PING_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* PING_UNIX_COMMAND_MODEL = L"ping";
 static int* PING_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The grep unix command model. */
-static wchar_t GREP_UNIX_COMMAND_MODEL_ARRAY[] = {L'g', L'r', L'e', L'p'};
-static wchar_t* GREP_UNIX_COMMAND_MODEL = GREP_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* GREP_UNIX_COMMAND_MODEL = L"grep";
 static int* GREP_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The traceroute unix command model. */
-static wchar_t TRACEROUTE_UNIX_COMMAND_MODEL_ARRAY[] = {L't', L'r', L'a', L'c', L'e', L'r', L'o', L'u', L't', L'e'};
-static wchar_t* TRACEROUTE_UNIX_COMMAND_MODEL = TRACEROUTE_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* TRACEROUTE_UNIX_COMMAND_MODEL = L"traceroute";
 static int* TRACEROUTE_UNIX_COMMAND_MODEL_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The diff unix command model. */
-static wchar_t DIFF_UNIX_COMMAND_MODEL_ARRAY[] = {L'd', L'i', L'f', L'f'};
-static wchar_t* DIFF_UNIX_COMMAND_MODEL = DIFF_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* DIFF_UNIX_COMMAND_MODEL = L"diff";
 static int* DIFF_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The sort unix command model. */
-static wchar_t SORT_UNIX_COMMAND_MODEL_ARRAY[] = {L's', L'o', L'r', L't'};
-static wchar_t* SORT_UNIX_COMMAND_MODEL = SORT_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* SORT_UNIX_COMMAND_MODEL = L"sort";
 static int* SORT_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The list tasks command model. */
-static wchar_t LIST_TASKS_UNIX_COMMAND_MODEL_ARRAY[] = {L'p', L's'};
-static wchar_t* LIST_TASKS_UNIX_COMMAND_MODEL = LIST_TASKS_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* LIST_TASKS_UNIX_COMMAND_MODEL = L"ps";
 static int* LIST_TASKS_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The spellcheck unix command model. */
-static wchar_t SPELLCHECK_UNIX_COMMAND_MODEL_ARRAY[] = {L'a', L's', L'p', L'e', L'l', L'l', L' ' , L'c' , L'h', L'e', L'c', L'k'};
-static wchar_t* SPELLCHECK_UNIX_COMMAND_MODEL = SPELLCHECK_UNIX_COMMAND_MODEL_ARRAY;
+static wchar_t* SPELLCHECK_UNIX_COMMAND_MODEL = L"aspell check";
 static int* SPELLCHECK_UNIX_COMMAND_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* UNIX_COMMAND_MODEL_CONSTANT_SOURCE */
