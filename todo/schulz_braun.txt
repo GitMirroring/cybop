@@ -12,8 +12,8 @@ get-properties    in Bearbeitung
 get-reference     in Bearbeitung
 
 
-cast-byte         ging schon mal
-cast-character    geht nicht
+cast-byte         noch nicht implementiert
+cast-character    geht nicht (?)
 cast-double       erledigt
 cast-integer      erledigt
 
@@ -21,7 +21,6 @@ sequence          erledigt
 live/exit         erledigt
 maintain          erledigt
 run/sleep         erledigt
-
 
 
 compare/small                       Beispiel fehlt
@@ -32,8 +31,6 @@ modify/build           offen
 modify/fill            offen
 modify/insert          offen
 
-decode                 offen
-encode                 offen
-
+convert-Funktionen     offen
 manipulate-Funktionen  offen
 
