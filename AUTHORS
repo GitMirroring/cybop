@@ -10,7 +10,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-In chronological order ...
+In chronological order ... oldest entry on top, newest on bottom ...
 
 Cybernetics Oriented Programming (CYBOP)
         * Christian Heller <christian.heller@tuxtax.de> (software development theory)
@@ -34,6 +34,15 @@ Cybernetics Oriented Language (CYBOL)
         * Sandra Rum <sandra.rum@cs12-2.ba-leipzig.de> (tictactoe game example)
         * Stephan Griese <stephan.griese@cs12-2.ba-leipzig.de> (tictactoe game example)
         * Thomas Schulze <thomas.schulze@cs12-2.ba-leipzig.de> (tictactoe game example)
+        * Christian Schulz <christian.schulz@cs13-2.ba-leipzig.de> (api update)
+        * Lena Braun <lena.braun@cs13-2.ba-leipzig.de> (api update)
+        * Dmitry Brodskiy <dmitry.brodskiy@cs13-1.ba-leipzig.de> (blackjack game example)
+        * Sven Haueisen <sven.haueisen@cs13-2.ba-leipzig.de> (blackjack game example)
+        * Jan Wellner <jan.wellner@cs13-1.ba-leipzig.de> (blackjack game example)
+        * Matthias Thurow <matthias.thurow@cs13-2.ba-leipzig.de> (minesweeper game example)
+        * Markus Then <markus.then@gmx.de> (webstat example)
+        * Stanley Sellig <stanley.sellig@cs13-1.ba-leipzig.de> (webstat example)
+        * Nico Schallehn <nico.schallehn@cs13-2.ba-leipzig.de> (webstat example)
 
 Cybernetics Oriented Interpreter (CYBOI)
         * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
@@ -64,6 +73,8 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Benno Schilling <benno.schilling@it2011.ba-leipzig.de> (compilation in win32 using visual studio)
         * Markus Hinkelmann <markus@mhinkelmann.de> (compilation in apple mac osx)
         * Maximilian Brenner <maximilian.brenner@cs12-2.ba-leipzig.de> (cyboi shell commands ping, grep, traceroute, diff, sort and cyboi operations square, squareroot)
+        * Christopher Stoneking <christopher.stoneking@cs13-1.ba-leipzig.de> (cyboi shell commands ip, clear, man, date, cd, ps, df, cmp, kill, cat, whereis, find, sleep, aspell)
+        * Christian Szech <christian.szech@cs13-2.ba-leipzig.de> (cyboi shell commands ip, clear, man, date, cd, ps, df, cmp, kill, cat, whereis, find, sleep, aspell)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
@@ -83,6 +94,8 @@ CYBOP Project
         * Max Brauer <max.brauer@inqbus.de> (article comparing cybop double hierarchy with Python meta programming)
         * Tim Illner <tim.illner@it2010.ba-leipzig.de> (english beginner's manual)
         * Jana Weigel <jana.weigel@stud.htwk-leipzig.de> (cybop book cover in 3d, cybop logo as svg)
+        * Sebastian Wolff <sebastian.wolff@cs13-1.ba-leipzig.de> (german beginner's manual)
+        * Tobias Thurow <tobias.thurow@cs13-2.ba-leipzig.de> (german beginner's manual)
 
 Tools
         * Benjamin Teßmar <benjamin.tessmar@it2009.ba-leipzig.de> (cybol editor based on mono)
@@ -92,6 +105,8 @@ Tools
         * Michael Dietrich <michael.dietrich@it2010.ba-leipzig.de> (Eclipse extension offering cybol syntax highlighting and sensitive keyword list)
         * Pit Braunsdorf <pit.braunsdorf@cs12-1.ba-leipzig.de> (gui designer cybol_generator based on C++/Qt)
         * Sophia Kledzinski <sophia.kledzinski@cs12-2.ba-leipzig.de> (gui designer cybol_generator based on C++/Qt)
+        * Patrick Hebner <patrick.hebner@cs13-1.ba-leipzig.de> (benchmark comparing c++, java, python, cybol)
+        * Sebastian Kloppe <sebastian.kloppe@cs13-2.ba-leipzig.de> (benchmark comparing c++, java, python, cybol)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
