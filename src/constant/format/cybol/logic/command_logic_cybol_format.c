@@ -61,8 +61,7 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'a', L'r', L'c', L'h', L'i', L'v', L'e'};
-static wchar_t* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT = ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/archive";
 static int* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -72,8 +71,7 @@ static int* ARCHIVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * This is a CYBOL extension.
  */
-static wchar_t CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'h', L'a', L'n', L'g', L'e', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y'};
-static wchar_t* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT = L"command/change-directory";
 static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -83,8 +81,7 @@ static int* CHANGE_DIRECTORY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * This is a CYBOL extension.
  */
-static wchar_t CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'h', L'a', L'n', L'g', L'e', L'-', L'p', L'e', L'r', L'm', L'i', L's', L's', L'i', L'o', L'n'};
-static wchar_t* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT = CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT = L"command/change-permission";
 static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -94,8 +91,7 @@ static int* CHANGE_PERMISSION_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
  *
  * This is a CYBOL extension.
  */
-static wchar_t CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'l', L'e', L'a', L'r'};
-static wchar_t* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT = CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT = L"command/clear";
 static int* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -105,8 +101,7 @@ static int* CLEAR_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * This is a CYBOL extension.
  */
-static wchar_t COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'-', L'f', L'i', L'l', L'e', L's'};
-static wchar_t* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT = COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT = L"command/compare-files";
 static int* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -116,8 +111,7 @@ static int* COMPARE_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * This is a CYBOL extension.
  */
-static wchar_t CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'o', L'n', L'f', L'i', L'g', L'-', L'n', L'e', L't', L'w', L'o', L'r', L'k'};
-static wchar_t* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT = CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT = L"command/config-network";
 static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -127,8 +121,7 @@ static int* CONFIG_NETWORK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * This is a CYBOL extension.
  */
-static wchar_t COPY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'o', L'p', L'y'};
-static wchar_t* COPY_COMMAND_LOGIC_CYBOL_FORMAT = COPY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* COPY_COMMAND_LOGIC_CYBOL_FORMAT = L"command/copy";
 static int* COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -138,8 +131,7 @@ static int* COPY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'c', L'r', L'e', L'a', L't', L'e', L'-', L'f', L'o', L'l', L'd', L'e', L'r'};
-static wchar_t* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT = CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT = L"command/create-folder";
 static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -149,8 +141,7 @@ static int* CREATE_FOLDER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * This is a CYBOL extension.
  */
-static wchar_t DATE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'a', L't', L'e'};
-static wchar_t* DATE_COMMAND_LOGIC_CYBOL_FORMAT = DATE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DATE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/date";
 static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -160,8 +151,7 @@ static int* DATE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t DELAY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'e', L'l', L'a', L'y'};
-static wchar_t* DELAY_COMMAND_LOGIC_CYBOL_FORMAT = DELAY_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DELAY_COMMAND_LOGIC_CYBOL_FORMAT = L"command/delay";
 static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -171,8 +161,7 @@ static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * This is a CYBOL extension.
  */
-static wchar_t DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L'f', L'f'};
-static wchar_t* DIFF_COMMAND_LOGIC_CYBOL_FORMAT = DIFF_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DIFF_COMMAND_LOGIC_CYBOL_FORMAT = L"command/diff";
 static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -182,8 +171,7 @@ static int* DIFF_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L's', L'k', L'-', L'f', L'r', L'e', L'e'};
-static wchar_t* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT = DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-free";
 static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -193,8 +181,7 @@ static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * This is a CYBOL extension.
  */
-static wchar_t DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'd', L'i', L's', L'p', L'l', L'a', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't'};
-static wchar_t* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT = DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/display-content";
 static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -204,8 +191,7 @@ static int* DISPLAY_CONTENT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * This is a CYBOL extension.
  */
-static wchar_t ECHO_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'e', L'c', L'h', L'o'};
-static wchar_t* ECHO_COMMAND_LOGIC_CYBOL_FORMAT = ECHO_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* ECHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/echo";
 static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -215,8 +201,7 @@ static int* ECHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'f', L'i', L'n', L'd', L'-', L'c', L'o', L'm', L'm', L'a', L'n', L'd'};
-static wchar_t* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT = FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT = L"command/find-command";
 static int* FIND_COMMAND_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -236,8 +221,7 @@ static int* FIND_FILE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE
  *
  * This is a CYBOL extension.
  */
-static wchar_t GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'g', L'r', L'e', L'p'};
-static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = GREP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* GREP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/grep";
 static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -247,8 +231,7 @@ static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'h', L'e', L'l', L'p'};
-static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT = HELP_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT  = L"command/help";
 static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -258,8 +241,7 @@ static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t KILL_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'k', L'i', L'l', L'l'};
-static wchar_t* KILL_COMMAND_LOGIC_CYBOL_FORMAT = KILL_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* KILL_COMMAND_LOGIC_CYBOL_FORMAT = L"command/kill";
 static int* KILL_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 
@@ -270,8 +252,7 @@ static int* KILL_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'l', L'i', L's', L't', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r', L'y', L'-', L'c', L'o', L'n', L't', L'e', L'n', L't', L's'};
-static wchar_t* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT = LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT = L"command/list-directory-contents";
 static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -281,8 +262,7 @@ static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31
  *
  * This is a CYBOL extension.
  */
-static wchar_t LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'l', L'i', L's', L't', L'-', L't', L'a', L's', L'k', L's'};
-static wchar_t* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT = LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT = L"command/list-tasks";
 static int* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -292,8 +272,7 @@ static int* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * This is a CYBOL extension.
  */
-static wchar_t MOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'm', L'o', L'v', L'e'};
-static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT = MOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT  = L"command/move";
 static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -303,8 +282,7 @@ static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'p', L'i', L'n', L'g'};
-static wchar_t* PING_COMMAND_LOGIC_CYBOL_FORMAT = PING_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* PING_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ping";
 static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -314,8 +292,7 @@ static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'r', L'e', L'm', L'o', L'v', L'e'};
-static wchar_t* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT = REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/remove";
 static int* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -325,8 +302,7 @@ static int* REMOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t SORT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L's', L'o', L'r', L't'};
-static wchar_t* SORT_COMMAND_LOGIC_CYBOL_FORMAT = SORT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* SORT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/sort";
 static int* SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -336,8 +312,7 @@ static int* SORT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L's', L'p', L'e', L'l', L'l', L'c', L'h', L'e', L'c', L'k'};
-static wchar_t* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT = SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT = L"command/spellcheck";
 static int* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -347,8 +322,7 @@ static int* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * This is a CYBOL extension.
  */
-static wchar_t TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L't', L'a', L'p', L'e', L'-', L'a', L'r', L'c', L'h', L'i', L'v', L'e', L'r'};
-static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = L"command/tape-archiver";
 static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -358,8 +332,7 @@ static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * This is a CYBOL extension.
  */
-static wchar_t TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L't', L'r', L'a', L'c', L'e', L'r', L'o', L'u', L't', L'e'};
-static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/traceroute";
 static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -369,8 +342,7 @@ static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  *
  * This is a CYBOL extension.
  */
-static wchar_t WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd', L'/', L'w', L'o', L'r', L'd', L'-', L'c', L'o', L'u', L'n', L't'};
-static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/word-count";
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
