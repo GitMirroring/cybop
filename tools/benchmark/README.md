@@ -27,6 +27,15 @@ innerLoop():
 end loop
 ```
 
+## Prerequisites
+
+- Oracle JDK 8
+- Installed CYBOI (Interpreter)
+- Appropriately adjust the paths of the runner script to fit your environment:
+  - programpath: The absolute path of the CYBOP-Benchmark directory
+  - scriptpath:  The absolut path of the start-benchmark.sh script
+  - runtimes:    The number of loops the benchmark will execute the particular programms
+
 ## **How to run**
 -----------------
 
