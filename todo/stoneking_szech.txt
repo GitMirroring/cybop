@@ -1,4 +1,4 @@
- * Provide more shell commands in a platform-independent way, usable on posix and win32
+ * Provide more shell commands in a platform-independent way, usable on posix and Win32
  * Start with simple DOS shell commands, e.g. "clear", and test in classical DOS command window
  * Add a couple of PowerShell commands and test in PowerShell
  * Implement these commands for UNIX shell as well, if existent
