@@ -30,3 +30,11 @@
 	      -> remove_file.c is a good example for this - has parameter and options
             12. Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
         * Constant part: 2 - 8, 12
+
+Possible future task: Add more options to "find file", so that the shell script of Prof. Heller can be executed.
+
+More notes:
+The example of "display_content" doesn't quite work right - parameter is not being found. "change_directory" also has problems, but we could not find out what.
+The table "shell.ods" contains notes on our commands. "done" means the command can be compiled with no problems, 
+"works" means the example application works with no problems.
+
