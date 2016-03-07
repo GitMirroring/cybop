@@ -1,4 +1,3 @@
-
 get-channel       erledigt
 get-encoding      erledigt
 get-format        erledigt
@@ -11,7 +10,6 @@ get-model         in Bearbeitung
 get-properties    in Bearbeitung
 get-reference     in Bearbeitung
 
-
 cast-byte         noch nicht implementiert
 cast-character    geht nicht (?)
 cast-double       erledigt
@@ -21,7 +19,6 @@ sequence          erledigt
 live/exit         erledigt
 maintain          erledigt
 run/sleep         erledigt
-
 
 compare/small                       Beispiel fehlt
 compare/smaller-or-equal            Beispiel fehlt
@@ -33,4 +30,3 @@ modify/insert          offen
 
 convert-Funktionen     offen
 manipulate-Funktionen  offen
-

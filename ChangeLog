@@ -18,6 +18,16 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add cyboi shell commands and cyboi operations of Christopher Stoneking, Christian Szech
+        * Add cybol example application game "minesweeper" [Minenräumer] of Matthias Thurow
+        * Add cybol example application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
+        * Add cybol example application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
+        * Add cybol api update of Christian Schulz, Lena Braun
+        * Add german cybop manual update of Sebastian Wolff, Tobias Thurow
+        * Add benchmark tool comparing cybol with c++, java, python of Sebastian Kloppe, Patrick Hebner
+
 2016-02-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Introduce stack memory
@@ -430,7 +440,7 @@
 
         * Add cyboi shell commands (ping, grep, traceroute, diff, sort) and cyboi operations (square, squareroot) of Maximilian Brenner
         * Add cybol example application "calculator" of Sibylle Hebenstreit, Marc Jäkel, Andreas Burkhardt
-        * Add cybol example game "TicTacToe" (single user mode, with tui) of Sandra Rum, Stephan Griese, Thomas Schulze
+        * Add cybol example game "TicTacToe" [Drei gewinnt] (single user mode, with tui) of Sandra Rum, Stephan Griese, Thomas Schulze
         * Add cybol api update of Max Müller-Domhardt, Sebastian König
         * Add gui designer "cybol_generator" based on C++/Qt/QtCreator/QtDesigner with cybol/xml generator of Pit Braunsdorf, Sophia Kledzinski
         * Build in special error codes for winsock
