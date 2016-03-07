@@ -1,0 +1,5 @@
+Versuch, eine neue Eigenschaft »svn:mime-type« hinzuzufügen,
+aber die Eigenschaft existiert bereits.
+<<<<<<< (lokaler Eigenschaftswert)
+application/x-tar=======
+application/octet-stream>>>>>>> (empfangener Eigenschaftswert)
