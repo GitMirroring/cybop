@@ -29,8 +29,9 @@ end loop
 
 ## Prerequisites
 
-- Oracle JDK 8
+- Oracle JDK 8 - not OpenJDK
 - Installed CYBOI (Interpreter)
+- CYBOI must integrated into the PATH
 - Appropriately adjust the paths of the runner script to fit your environment:
   - programpath: The absolute path of the CYBOP-Benchmark directory
   - scriptpath:  The absolut path of the start-benchmark.sh script
