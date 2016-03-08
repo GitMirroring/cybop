@@ -174,3 +174,5 @@ ____
         * Offer settings page for configuration of editor colours, tab width etc.
         * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
 
+        * Extend benchmark tool with further algorithms, tui/gui/wui, languages, options, diagrams
+
