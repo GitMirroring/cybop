@@ -29,12 +29,14 @@
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../controller/handler/properties_handler.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
-#include "../../executor/modifier/appender/item_appender.c"
+#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/streamer/writer/signal/signal_writer.c"
 #include "../../logger/logger.c"
 
 //
@@ -79,24 +81,13 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
-//         STEPS TO IMPLEMENT:
-//         - the properties keep/represent local variables
-//         - iterate over these properties
-//         - clone them one by one --> TODO: provide clone operation for models of each possible type
-//             (which is easier than identifying the format (type), creating a node, and copying the value)
-//         - add each one to the stack
-//
-//         (remark: cloning the properties container altogether is NOT a solution,
-//         since its elements are to be added to the stack one by one anyway,
-//         so that the cloned container part/model would be superfluous)
-
-        //?? TODO: Store local variables (taken from list p2, p3) on stack memory here!
-//??        handle_stack(p2, p3, p6);
+        // Store local variables on stack memory.
+        handle_properties(p2, p3, p6);
 
         // Handle signal.
         handle(s, p4, p5, p6, p7, p8, p9);
 
-        //?? TODO: Destroy local variables (taken from list p2, p3) on stack memory here!
+        //?? TODO: Remove local variables from stack memory.
 
     } else {
 

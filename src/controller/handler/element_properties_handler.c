@@ -28,6 +28,12 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/modifier/appender/item_appender.c"
+#include "../../executor/modifier/copier/array_copier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -62,8 +68,8 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     // Add destination variable part to stack memory.
     //
     // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
-    // The stack memory holds parts that were allocated as clone especially.
-    // However, these parts will get deallocated manually, WITHOUT rubbish (garbage) collection.
+    // The stack memory holds parts that were allocated as CLONE on purpose.
+    // However, these parts will get deallocated MANUALLY, WITHOUT rubbish (garbage) collection.
     // Hence, rubbish (garbage) collection would only disturb here.
     //
     append_item_element(p2, (void*) &d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

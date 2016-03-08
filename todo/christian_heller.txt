@@ -11,31 +11,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Student Projects
-________________
+Clone
+_____
 
-        For group "webstat":
-
-        * Provide newline and other escape characters for cybol operation "modify/append"
-        * Possibilities:
-            - flag for send/overwrite/append and similar operations
-            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
-            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
-                so that regular expression gets evaluated internally before copying the resulting string
-
-        * Check why parallel access of more than one client is not possible, even though the number of possible clients is greater zero at socket startup
-        * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
-            --> possible reason is parallel request by browser
-            --> enable multiple (not only one) parallel requests on server socket
-            --> Are these put in a wait queue so that they can be processed one-by-one serially
-                or do they have to be processed in more than one threads on the server?
-
-        * Provide "get_current_date" (or similarly called) operation in cybol
-            <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
-                <node name="destination" channel="inline" format="path/knowledge" model=".app.var.today"/>
-                <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
-                <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-            </node>
+        * Move function "overwrite_part_all" from "part_overwriter.c" to somewhere else, e.g. a clone-specific file
+        * Delete file "part_copier.c"
+        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
+            using the function "copy_part" for deep copying makes no sense, since a part's child nodes change dynamically and are not predictable
+            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
+            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
 
 Stack
 _____
@@ -61,6 +45,53 @@ _____
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
+
+GUI
+___
+
+        * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
+
+        * Create io entry array structure for display i/o at startup and destroy at shutdown
+
+        * Think through design of gui using cybol (box model, layout manager, look'n'feel)
+        * Use css box model with relative positioning also for tui, gui etc.?
+
+        * Move the following hints on layout usage into source code:
+            "stretch" property for border layout with possible values "horizontal" and "vertical",
+            to determine if north-south or west-east element are maximised;
+            do NOT assign "north" etc. to elements;
+            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
+            if "stretch" is "vertical", then use order: west, east, north, south, centre
+
+        * Inspect and learn from GTK+ C library
+
+        * Where and how to free colours?
+            see file "context_x_window_system_serialiser.c"
+            The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
+            "As xcb_alloc_color_reply() allocates memory, you have to free it."
+
+        * Extend gui serialiser for win32 display
+            HDC hdc;
+            PAINTSTRUCT PaintStruct;
+            hdc = BeginPaint(hWnd, &PaintStruct);
+            TextOut(hdc,0,0,str, strlen(str));
+            EndPaint(hWnd, &PaintStruct);
+        * http://xcb.freedesktop.org/manual/group__XCB____API.html
+        * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
+
+        * Extend gui serialiser for win32 display; API:
+        * Complete example using rectangle:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145175%28v=vs.85%29.aspx
+        * Line and Curve Functions:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
+        * Filled Shape Functions:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162715%28v=vs.85%29.aspx
+        * DrawTextEx function:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
+        * Windows Data Types:
+            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
+
+        * Remove directory "src/windows/"
 
 Sensing Threads
 _______________
@@ -225,6 +256,13 @@ _______________
 Datetime
 ________
 
+        * Provide "get_current_date" (or similarly called) operation in cybol
+            <node name="read_date_today" channel="inline" format="modify/overwrite" model="">
+                <node name="destination" channel="inline" format="path/knowledge" model=".app.var.today"/>
+                <node name="source" channel="file" format="text/plain" model="webstat/current_date.txt"/>
+                <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+            </node>
+
         * Move concrete de-/serialisers from directory cybol to new directory "chronology"
         * Test new chronology language and datetime format conversion in cybol example application "presence"
         * Add items from file "todo/todo_datetime.pdf" to datetime formats
@@ -308,6 +346,14 @@ ___
 
         * Debug runtime errors; see file "todo/memcheck.log" (created on 64 Bit machine)
 
+        * Check why parallel access of more than one client is not possible, even though the number of possible clients is greater zero at socket startup
+        * Check why only one of many files (css or js or image etc.) referenced from within html is delivered by server
+            --> Is non-blocking mode used?
+            --> possible reason is parallel request by browser
+            --> enable multiple (not only one) parallel requests on server socket
+            --> Are these put in a wait queue so that they can be processed one-by-one serially
+                or do they have to be processed in more than one threads on the server?
+
         * Check if sender should be pointer or integer (e.g. for client socket) in file "io_entry_getter.c" used in file "accept_io_checker.c"
         * Check if sender has to be reset in server socket io entry in file "receive_io_checker.c", when being closed
 
@@ -355,18 +401,20 @@ ___
         * Set non-blocking flag also for accepted client sockets, in order to be able to send/receive in non-blocking mode? See:
             wolf_-_linux-unix-programmierung/Kap11-019.htm#RxxKap11019040003981F017100
 
-        * Provide mechanism for asynchronous handling in cybol (not cyboi);
-            elsewhere mostly used together with callback functions (future, promise), e.g. in JavaScript, C#;
-            assign a unique integer id which is sent within request;
-            increment int id starting from zero to int max and then restarting at zero;
-            evaluate response to find int id and execute corresponding logic operation;
-            create part with int id and operation knowledge path as model and add to callback list;
-            delete int id part after execution
-
         * Implement content negotiation for providing resources in different human languages:
             https://de.wikipedia.org/wiki/Content_Negotiation
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
+
+String
+______
+
+        * Provide newline and other escape characters for cybol operation "modify/append"
+        * Possibilities:
+            - flag for send/overwrite/append and similar operations
+            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
+            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
+                so that regular expression gets evaluated internally before copying the resulting string
 
 Mathematics
 ___________
@@ -451,53 +499,6 @@ _____________
             But if the aim is to create a schema and language capable of representing knowledge in general, then a GPL should be the result.
             CYBOL is such a GPL and reaches its flexibility by following the principles of human thinking: discrimination (discrete part models), composition (parts are containers), categorisation (inheritance of part properties).
 
-GUI
-___
-
-        * Handle platform-specific event message that gets handed over as argument to gui/xcb/win32_display deserialiser
-
-        * Create io entry array structure for display i/o at startup and destroy at shutdown
-
-        * Think through design of gui using cybol (box model, layout manager, look'n'feel)
-        * Use css box model with relative positioning also for tui, gui etc.?
-
-        * Move the following hints on layout usage into source code:
-            "stretch" property for border layout with possible values "horizontal" and "vertical",
-            to determine if north-south or west-east element are maximised;
-            do NOT assign "north" etc. to elements;
-            if "stretch" is "horizontal", then use order: north, south, west, east, centre;
-            if "stretch" is "vertical", then use order: west, east, north, south, centre
-
-        * Inspect and learn from GTK+ C library
-
-        * Where and how to free colours?
-            see file "context_x_window_system_serialiser.c"
-            The xcb tutorial "libxcb-1.10/doc/tutorial/index.html#alloccolor" writes:
-            "As xcb_alloc_color_reply() allocates memory, you have to free it."
-
-        * Extend gui serialiser for win32 display
-            HDC hdc;
-            PAINTSTRUCT PaintStruct;
-            hdc = BeginPaint(hWnd, &PaintStruct);
-            TextOut(hdc,0,0,str, strlen(str));
-            EndPaint(hWnd, &PaintStruct);
-        * http://xcb.freedesktop.org/manual/group__XCB____API.html
-        * Set icon of window defined in "gui.cybol" in file "properties_gui_serialiser.c" (documented nowhere in xcb)
-
-        * Extend gui serialiser for win32 display; API:
-        * Complete example using rectangle:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145175%28v=vs.85%29.aspx
-        * Line and Curve Functions:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd145031%28v=vs.85%29.aspx
-        * Filled Shape Functions:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162715%28v=vs.85%29.aspx
-        * DrawTextEx function:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/dd162499%28v=vs.85%29.aspx
-        * Windows Data Types:
-            http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
-
-        * Remove directory "src/windows/"
-
 Shell Commands
 ______________
 
@@ -537,15 +538,6 @@ ___
         * Move xDT de-/serialisation into a library, since it is very large (4 MiB) and compilation takes much too long
             uncomment include in line 54 and serialise call in line 270 of file "serialiser.c"
             compilation takes > 30 min and reports an error "variable tracking size limit exceeded with -fvar-tracking-assignments", but binary gets created successfully anyway
-
-Clone
-_____
-
-        * Delete file "part_copier.c"
-        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
-            using the function "copy_part" for deep copying makes no sense, since a part's child nodes change dynamically and are not predictable
-            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
-            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
 
 TUI
 ___

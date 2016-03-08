@@ -28,12 +28,20 @@
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-//?? #include "../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../controller/handler/element_properties_handler.c"
+#include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../logger/logger.c"
 
 /**
  * Handles the properties which are to be stored
  * as local variables on stack memory.
+ *
+ * Remark: Cloning the properties container altogether is NOT a solution,
+ * since its elements are to be added to the stack one by one anyway,
+ * so that the cloned container structure itself would be superfluous.
  *
  * @param p0 the properties data
  * @param p1 the properties count
