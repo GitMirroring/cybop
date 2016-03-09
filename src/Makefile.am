@@ -18,4 +18,4 @@
 #
 SUBDIRS = controller
 
-EXTRA_DIST = applicator constant executor logger tester variable windows architecture.odp architecture.pdf checker_and_sensor.png checker_and_sensor.xmi communicator_receive_send_pipeline.png data_structure_cyboi.png data_structure_cybol.png data_structure.xmi Makefile.am
+EXTRA_DIST = applicator constant executor logger tester variable windows architecture.odp architecture.pdf checker_and_sensor.png checker_and_sensor.xmi chronology_and_datetime.png chronology_and_datetime.xmi communicator_receive_send_pipeline.png data_structure_cyboi.png data_structure_cybol.png data_structure.xmi Makefile.am

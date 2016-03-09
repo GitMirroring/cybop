@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-09  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add clone functionality
+
 2016-03-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cyboi shell commands and cyboi operations of Christopher Stoneking, Christian Szech

@@ -477,9 +477,18 @@ ______________
 General CYBOI
 _____________
 
+        * Use "memcpy" function everywhere values are copied via pointer in all source code,
+            e.g. in file "integer_copier.c" instead of:
+            *de = *se;
+            rather via function call:
+            memcpy(de, se);
+        * Unify (possibly) primitive copy operations neglecting type;
+            however, test argument pointers for null anyway, in order to avoid wrong values and errors
+
         * Remove cybol properties "channel", "encoding", "language" but NOT "format" from cyboi-internal knowledge model schema
             the "format" IS NECESSARY, since some are META formats, e.g. LANGUAGE_META_STATE_CYBOI_FORMAT, which would be lost if there was only a pure int "type" value; see e.g. "cybol_serialiser.c"
-        * Introduce "error" property for cybol operations to be used for exception handling
+            removal was tried but cybol applications did not work anymore -- check this out first
+        * Introduce "error" property for cybol operations to be used for exception handling?
 
         * Simplify "lightning_talk" presentation:
             - motivation: small problem and solution as demonstration --> impression

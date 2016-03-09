@@ -26,6 +26,7 @@
 #ifndef PART_ALLOCATOR_SOURCE
 #define PART_ALLOCATOR_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
@@ -54,6 +55,11 @@ void allocate_part(void* p0, void* p1, void* p2) {
         // A channel, encoding, type have to be given as property in cybol.
         // If not deserialised at startup, they have to be translated
         // from characters into an integer value each time the operation is called.
+        //
+        // A test commenting out channel, encoding, language, format
+        // showed that cybol applications did not work anymore.
+        // Therefore, they are added for now but possibly removed in the future,
+        // if it is verified that they are not needed at runtime anymore.
         //
 
         // The references, name, channel, encoding, language, format, type, model, properties.
