@@ -45,7 +45,7 @@
  *
  * @param p0 the destination array
  * @param p1 the source array
- * @param p2 the source count
+ * @param p2 the source index
  */
 void clone_array_deep_element(void* p0, void* p1, void* p2) {
 
@@ -56,19 +56,18 @@ void clone_array_deep_element(void* p0, void* p1, void* p2) {
     // The source part.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    //
-    // TODO: Use index for both, source AND destination!
-    //
+    // Get source part with given index.
+    copy_array_forward((void*) &sp, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
-    // Get source part.
-    //?? TODO
-
-    // Clone source into destination part.
+    // Clone source- into destination part.
     // CAUTION! Hand over destination part as pointer reference.
     clone_part((void*) &dp, sp);
 
     // Add destination part to destination array.
-    add_part_pointer_to_destination_array();
+    // CAUTION! The destination array got allocated already,
+    // so that its size matches that of the source array.
+    // CAUTION! The same index is used for source- and destination array.
+    copy_array_forward(p0, (void*) &dp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* ELEMENT_DEEP_ARRAY_CLONER_SOURCE */

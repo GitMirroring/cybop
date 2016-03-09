@@ -14,12 +14,12 @@
 Clone
 _____
 
-        * Move function "overwrite_part_all" from "part_overwriter.c" to somewhere else, e.g. a clone-specific file
-        * Delete file "part_copier.c"
-        * Provide function "clone_part" for deep copying, since function "copy_part" is used for shallow copying (of pointer to part)
-            using the function "copy_part" for deep copying makes no sense, since a part's child nodes change dynamically and are not predictable
-            USE file "copier/part_copier.c"; is renaming it to "part_cloner.c" necessary?
-            shallow copy is realised in file "value_copier.c" by mapping call to "copy_pointer"
+        * Merge file "part_copier.c" with "part_cloner.c"?
+        * Change shallow into deep copy in file "value_copier.c" where call is mapped to "copy_pointer" now but should possibly be mapped to "copy_part" or "clone_part" in the future
+
+        * Verify if other formats than "element/part" have to be filtered in file "type_array_cloner.c",
+            e.g. composed structures such as datetime, fraction etc.;
+            if so, then a special clone file has to be created for each of them, e.g. "datetime_cloner.c"
 
 Stack
 _____
