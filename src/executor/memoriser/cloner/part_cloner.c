@@ -78,7 +78,7 @@ void clone_part(void* p0, void* p1) {
         void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The source part type data.
+        // The source part type item data.
         void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get source part name, type, model, properties item.

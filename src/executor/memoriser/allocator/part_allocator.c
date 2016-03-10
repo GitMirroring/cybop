@@ -30,6 +30,7 @@
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
+#include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reference_counter.c"
 

@@ -26,24 +26,20 @@
 #ifndef VALUE_COPIER_SOURCE
 #define VALUE_COPIER_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
 #include "../../../executor/modifier/copier/complex_copier.c"
+#include "../../../executor/modifier/copier/content_part_copier.c"
 #include "../../../executor/modifier/copier/datetime_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/double_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/fraction_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
-#include "../../../executor/modifier/copier/part_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../executor/modifier/copier/wide_character_copier.c"
 #include "../../../logger/logger.c"
@@ -107,6 +103,10 @@ void copy_value(void* p0, void* p1, void* p2) {
             // CAUTION! The type "element/part" IS important for activating
             // the rubbish (garbage) collection when calling modifier functions like:
             // append, empty, insert, overwrite, remove.
+
+            // CAUTION! Both, the destination- as well as the source value
+            // will get interpreted as pointer reference inside.
+//??            copy_part_content(p0, p1);
             copy_pointer(p0, p1);
         }
     }

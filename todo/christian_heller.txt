@@ -14,12 +14,10 @@
 Clone
 _____
 
+        * Check why "Segmentation fault" occurs when "copy_part_content" is enabled instead of "copy_pointer" in section "PART_ELEMENT_STATE_CYBOI_TYPE" of file "value_copier.c"
         * Merge file "part_copier.c" with "part_cloner.c"?
         * Change shallow into deep copy in file "value_copier.c" where call is mapped to "copy_pointer" now but should possibly be mapped to "copy_part" or "clone_part" in the future
-
-        * Verify if other formats than "element/part" have to be filtered in file "type_array_cloner.c",
-            e.g. composed structures such as datetime, fraction etc.;
-            if so, then a special clone file has to be created for each of them, e.g. "datetime_cloner.c"
+        * Remove directory "executor/memoriser/cloner/" recursively once it has been verified that it is not needed anymore for local stack variables in "controller/handler/element_properties_handler.c"
 
 Stack
 _____

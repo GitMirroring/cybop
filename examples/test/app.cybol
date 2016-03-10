@@ -1,0 +1,6 @@
+<node>
+
+    <node name="number" channel="inline" format="number/integer" model="12"/>
+    <node name="clone" channel="inline" format="number/integer" model="0"/>
+
+</node>

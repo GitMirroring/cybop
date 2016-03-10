@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CONTENT_NODE_CYBOL_DESERIALISER_SOURCE
-#define CONTENT_NODE_CYBOL_DESERIALISER_SOURCE
+#ifndef CONTENT_ELEMENT_PART_CYBOL_DESERIALISER_SOURCE
+#define CONTENT_ELEMENT_PART_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../constant/channel/cybol/cybol_channel.c"
 #include "../../../../constant/encoding/cybol/unicode_cybol_encoding.c"
@@ -488,5 +488,5 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
     }
 }
 
-/* CONTENT_NODE_CYBOL_DESERIALISER_SOURCE */
+/* CONTENT_ELEMENT_PART_CYBOL_DESERIALISER_SOURCE */
 #endif

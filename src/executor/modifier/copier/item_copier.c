@@ -26,13 +26,13 @@
 #ifndef ITEM_COPIER_SOURCE
 #define ITEM_COPIER_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/state_cyboi_model.c"
+#include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
+#include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
@@ -45,26 +45,39 @@
  * @param p0 the destination item
  * @param p1 the source item
  * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the source index
  */
-void copy_item(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void copy_item(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy item.");
 
-    // The destination data.
+    // CAUTION! The source item size is NOT needed here,
+    // since the source item count is assigned TWICE,
+    // once for the destination item COUNT and once more
+    // for the destination item SIZE.
+    // This helps avoid allocation of unneeded memory space,
+    // since count keeps the actual number of elements.
+
+    // The destination item data, count, size.
     void* dd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source data.
+    void* dc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* ds = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source item data, count.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get destination data.
+    // Get destination item data, count, size.
     copy_array_forward((void*) &dd, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get source data.
+    copy_array_forward((void*) &dc, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ds, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+    // Get source item data, count.
     copy_array_forward((void*) &sd, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sc, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Set source- to destination data.
-    copy_array_forward(dd, sd, p2, p3, p4, p5);
+    // Copy details of source- into destination item.
+    // CAUTION! Assign source COUNT to destination SIZE.
+    copy_array_elements_forward(dd, sd, p2, sc);
+    copy_array_elements_forward(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    copy_array_elements_forward(ds, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 }
 
 /* ITEM_COPIER_SOURCE */
