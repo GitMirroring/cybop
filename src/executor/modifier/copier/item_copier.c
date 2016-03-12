@@ -45,8 +45,9 @@
  * @param p0 the destination item
  * @param p1 the source item
  * @param p2 the type
+ * @param p3 the deep copying flag
  */
-void copy_item(void* p0, void* p1, void* p2) {
+void copy_item(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy item.");
 
@@ -75,9 +76,9 @@ void copy_item(void* p0, void* p1, void* p2) {
 
     // Copy details of source- into destination item.
     // CAUTION! Assign source COUNT to destination SIZE.
-    copy_array_elements_forward(dd, sd, p2, sc);
-    copy_array_elements_forward(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-    copy_array_elements_forward(ds, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    copy_array_elements_forward(dd, sd, p2, p3, sc);
+    copy_array_elements_forward(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    copy_array_elements_forward(ds, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 }
 
 /* ITEM_COPIER_SOURCE */

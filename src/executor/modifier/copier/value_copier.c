@@ -50,8 +50,9 @@
  * @param p0 the destination value
  * @param p1 the source value
  * @param p2 the type
+ * @param p3 the deep copying flag
  */
-void copy_value(void* p0, void* p1, void* p2) {
+void copy_value(void* p0, void* p1, void* p2, void* p3) {
 
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
@@ -106,8 +107,26 @@ void copy_value(void* p0, void* p1, void* p2) {
 
             // CAUTION! Both, the destination- as well as the source value
             // will get interpreted as pointer reference inside.
-//??            copy_part_content(p0, p1);
-            copy_pointer(p0, p1);
+
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            compare_integer_unequal((void*) &r, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // This is going to be a DEEP COPY, also called CLONING.
+
+fwprintf(stdout, L"TEST copy value deep pre: %i\n", r);
+                copy_part_content(p0, p1);
+fwprintf(stdout, L"TEST copy value deep post: %i\n", r);
+
+            } else {
+
+                // This is going to be a SHALLOW COPY.
+
+                copy_pointer(p0, p1);
+            }
         }
     }
 
@@ -232,9 +251,10 @@ void copy_value(void* p0, void* p1, void* p2) {
  * @param p0 the destination value
  * @param p1 the source value
  * @param p2 the type
- * @param p3 the index
+ * @param p3 the deep copying flag
+ * @param p4 the index
  */
-void copy_value_offset(void* p0, void* p1, void* p2, void* p3) {
+void copy_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
@@ -247,11 +267,11 @@ void copy_value_offset(void* p0, void* p1, void* p2, void* p3) {
     void* s = p1;
 
     // Add offset to destination value and source value.
-    add_offset((void*) &d, p2, p3);
-    add_offset((void*) &s, p2, p3);
+    add_offset((void*) &d, p2, p4);
+    add_offset((void*) &s, p2, p4);
 
     // Set source value to destination value.
-    copy_value(d, s, p2);
+    copy_value(d, s, p2, p3);
 }
 
 /* VALUE_COPIER_SOURCE */

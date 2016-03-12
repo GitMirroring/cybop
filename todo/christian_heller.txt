@@ -14,6 +14,9 @@
 Clone
 _____
 
+        * Continue with cybol example application "test"
+        * Add new property "deep" of format "logicvalue/boolean" to "overwrite" cybol operation and adapt all "copy_array_forward" function calls
+
         * Check why "Segmentation fault" occurs when "copy_part_content" is enabled instead of "copy_pointer" in section "PART_ELEMENT_STATE_CYBOI_TYPE" of file "value_copier.c"
         * Merge file "part_copier.c" with "part_cloner.c"?
         * Change shallow into deep copy in file "value_copier.c" where call is mapped to "copy_pointer" now but should possibly be mapped to "copy_part" or "clone_part" in the future

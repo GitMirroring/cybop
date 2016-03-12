@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Introduce "deep copying argument" in array- and value functions
+
 2016-03-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move deep copy (clone) functionality to files "value_copier.c", "content_part_copier.c", "part_copier.c", "item_copier.c"

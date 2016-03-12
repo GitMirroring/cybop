@@ -49,7 +49,7 @@
 //
 
 void allocate_part(void* p0, void* p1, void* p2);
-void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3);
+void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p4);
 void copy_part(void* p0, void* p1);
 
 /**
@@ -62,7 +62,7 @@ void copy_part(void* p0, void* p1);
  * - copying content from source to destination
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source part
+ * @param p1 the source part (pointer reference)
  */
 void copy_part_content(void* p0, void* p1) {
 
@@ -90,11 +90,15 @@ void copy_part_content(void* p0, void* p1) {
             copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+fwprintf(stdout, L"TEST copy part content 1: %i\n", d);
             // Allocate destination part.
             allocate_part(p0, smc, std);
 
+fwprintf(stdout, L"TEST copy part content 2: %i\n", d);
             // Copy details from source- into destination part.
             copy_part(*d, *s);
+
+fwprintf(stdout, L"TEST copy part content 3: %i\n", d);
 
         } else {
 

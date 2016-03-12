@@ -98,14 +98,14 @@ void copy_part(void* p0, void* p1) {
     copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Copy details of source- into destination part.
-    copy_item(dn, sn, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    copy_item(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    copy_item(de, se, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    copy_item(dl, sl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    copy_item(df, sf, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    copy_item(dt, st, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    copy_item(dm, sm, std);
-    copy_item(dp, sp, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    copy_item(dn, sn, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(de, se, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(dl, sl, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(df, sf, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(dt, st, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(dm, sm, std, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_item(dp, sp, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* PART_COPIER_SOURCE */

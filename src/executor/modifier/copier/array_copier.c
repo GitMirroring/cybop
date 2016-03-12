@@ -46,9 +46,10 @@
  * @param p0 the destination array
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
+ * @param p3 the deep copying flag
+ * @param p4 the count
  */
-void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
+void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
@@ -59,7 +60,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -73,14 +74,14 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p3);
+        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             break;
         }
 
-        copy_value_offset(p0, p1, p2, (void*) &j);
+        copy_value_offset(p0, p1, p2, p3, (void*) &j);
 
         j++;
     }
@@ -94,9 +95,10 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3) {
  * @param p0 the destination array
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
+ * @param p3 the deep copying flag
+ * @param p4 the count
  */
-void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
+void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy array elements backward.");
 
@@ -105,7 +107,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         // CAUTION! If the loop count handed over as parametre is NULL,
         // then the break flag will NEVER be set to true, because the loop
@@ -118,7 +120,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
     }
 
     // Initialise loop variable with count.
-    copy_integer((void*) &j, p3);
+    copy_integer((void*) &j, p4);
     // CAUTION! Subtract one because this is an index.
     calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
@@ -131,7 +133,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3) {
             break;
         }
 
-        copy_value_offset(p0, p1, p2, (void*) &j);
+        copy_value_offset(p0, p1, p2, p3, (void*) &j);
 
         j--;
     }
@@ -174,7 +176,7 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
             add_offset((void*) &d, p2, p4);
             add_offset((void*) &s, p2, p5);
 
-            copy_array_elements_forward(d, s, p2, p3);
+            copy_array_elements_forward(d, s, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
 
         } else {
 
@@ -226,7 +228,7 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             add_offset((void*) &d, p2, p4);
             add_offset((void*) &s, p2, p5);
 
-            copy_array_elements_backward(d, s, p2, p3);
+            copy_array_elements_backward(d, s, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
 
         } else {
 
