@@ -14,6 +14,8 @@
 Clone
 _____
 
+        * Verify new deep copying functionality by writing special unit test
+
         * Continue with cybol example application "test"
         * Add new property "deep" of format "logicvalue/boolean" to "overwrite" cybol operation and adapt all "copy_array_forward" function calls
 
@@ -21,6 +23,20 @@ _____
         * Merge file "part_copier.c" with "part_cloner.c"?
         * Change shallow into deep copy in file "value_copier.c" where call is mapped to "copy_pointer" now but should possibly be mapped to "copy_part" or "clone_part" in the future
         * Remove directory "executor/memoriser/cloner/" recursively once it has been verified that it is not needed anymore for local stack variables in "controller/handler/element_properties_handler.c"
+
+String
+______
+
+        * Verify and possibly merge directory "executor/container/" with other container functionality, e.g. in "executor/modifier/"
+        * Provide cybol operations similar to Java, e.g. "startsWith()", "subString()"
+            OR are these already possible by using array functions and index?
+
+        * Provide newline and other escape characters for cybol operation "modify/append"
+        * Possibilities:
+            - flag for send/overwrite/append and similar operations
+            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
+            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
+                so that regular expression gets evaluated internally before copying the resulting string
 
 Stack
 _____
@@ -406,16 +422,6 @@ ___
             https://de.wikipedia.org/wiki/Content_Negotiation
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
-
-String
-______
-
-        * Provide newline and other escape characters for cybol operation "modify/append"
-        * Possibilities:
-            - flag for send/overwrite/append and similar operations
-            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
-            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
-                so that regular expression gets evaluated internally before copying the resulting string
 
 Mathematics
 ___________
@@ -855,3 +861,7 @@ _____
             ==> for now, as temporary solution, the properties are stored redundantly (twice) in the template
                 that needs them (for example "menu_item" entries in the resmedicinae-revue menu) and in its super template
 
+Tester
+______
+
+        * Clean up directory "tester/" and related constants and functionality

@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up directory "tester/" and related constants and functionality
+
 2016-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Introduce "deep copying argument" in array- and value functions

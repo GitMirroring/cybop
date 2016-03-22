@@ -26,6 +26,7 @@
 #ifndef COMPARATOR_SOURCE
 #define COMPARATOR_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -55,7 +56,7 @@
 void compare_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare element.");
-    
+
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -118,7 +119,7 @@ void compare_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p6 the selection count
  */
 void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
-  
+
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare.");
 
     // The comparison result.
@@ -163,7 +164,7 @@ void compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p
             compare_subsequence_part(p0, p1, p2, p3, p4);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare. The selection is unknown.");

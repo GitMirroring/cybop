@@ -1,4 +1,4 @@
- /*
+/*
  * Copyright (C) 1999-2015. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
@@ -23,11 +23,22 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef TESTER_CHECKER_SOURCE
-#define TESTER_CHECKER_SOURCE
-#include "pointer_tester.c"
-void test_checker(){
-    test_check_pointer();
+#ifndef COPIER_TESTER
+#define COPIER_TESTER
+
+/**
+ * Tests the copier.
+ *
+ * Sub test procedure calls can be activated/deactivated here
+ * by simply commenting/uncommenting the corresponding lines.
+ */
+void test_copier() {
+
+    fwprintf(stdout, L"Test copier.\n");
+
+//??    test_copier_shallow();
+//??    test_copier_deep();
 }
-/* TESTER_CHECKER_SOURCE */
+
+/* COPIER_TESTER */
 #endif

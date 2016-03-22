@@ -132,10 +132,10 @@ _____
         * Write short cybol application for testing
         * Test conversion using differently encoded text files
 
-        * Create test functions in files of directory "tester/"
+        * Create unit test functions in files of directory "tester/"
         * Adapt the following files only if new test files are introduced
             "constant/model/cyboi/option/test_unit_option_cyboi_model.c"
-            "constant/model/cyboi/test/unit_test_cyboi_model.c"
+            "constant/model/cyboi/test/test_cyboi_model.c"
             "executor/searcher/selector/command_line/test_unit_command_line_selector.c"
             "controller/tester.c"
         * Process test functions with e.g. "cyboi --test=calculator"
@@ -175,4 +175,3 @@ ____
         * Offer quickfixes in list for automatic error correction, as known from Eclipse Java plug-in
 
         * Extend benchmark tool with further algorithms, tui/gui/wui, languages, options, diagrams
-
