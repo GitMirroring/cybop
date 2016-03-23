@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add doxygen configuration files in directory "doxygen/", for automatically generating source code api documentation
+
 2016-03-22  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up directory "tester/" and related constants and functionality
