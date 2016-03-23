@@ -40,9 +40,21 @@
 #include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/fraction_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
+// CAUTION! Do NOT include the "content_part_copier.c" module.
+// It is true, the "copy_part_content" function is called from here,
+// but the module dependency hierarchy slightly differs and just goes top-down
+// by module granularity and NOT by call hierarchy.
+// Therefore, the "part_copier.c" module is included here.
+#include "../../../executor/modifier/copier/part_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../executor/modifier/copier/wide_character_copier.c"
 #include "../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void copy_part_content(void* p0, void* p1);
 
 /**
  * Copies the value.

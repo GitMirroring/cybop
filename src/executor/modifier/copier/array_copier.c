@@ -26,6 +26,7 @@
 #ifndef ARRAY_COPIER_SOURCE
 #define ARRAY_COPIER_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -35,8 +36,13 @@
 #include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../executor/memoriser/offset_adder.c"
-#include "../../../executor/modifier/copier/value_copier.c"
 #include "../../../logger/logger.c"
+
+//
+// Forward declarations.
+//
+
+void copy_value(void* p0, void* p1, void* p2, void* p3);
 
 /**
  * Copies count source array elements into the destination array.

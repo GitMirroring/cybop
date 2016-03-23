@@ -20,7 +20,7 @@
 
 2016-03-23  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Add doxygen configuration files in directory "doxygen/", for automatically generating source code api documentation
+        * Add doxygen configuration files in directory "doxygen/", for automatically generating source code api documentation with module dependencies
 
 2016-03-22  Christian Heller  <christian.heller@tuxtax.de>
 
