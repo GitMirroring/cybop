@@ -34,23 +34,10 @@
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-//
-// CAUTION! Do NOT include the following source code modules:
-// "../../../executor/memoriser/allocator/part_allocator.c"
-// "../../../executor/modifier/copier/array_copier.c"
-// "../../../executor/modifier/copier/part_copier.c"
-// They would cause circular dependencies.
-// Therefore, forward declarations are used instead.
-//
+#include "../../../executor/memoriser/allocator/part_allocator.c"
+#include "../../../executor/modifier/copier/array_copier.c"
+#include "../../../executor/modifier/copier/part_copier.c"
 #include "../../../logger/logger.c"
-
-//
-// Forward declarations.
-//
-
-void allocate_part(void* p0, void* p1, void* p2);
-void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p4);
-void copy_part(void* p0, void* p1);
 
 /**
  * Copies the part content (child nodes).

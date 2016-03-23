@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void copy_value(void* p0, void* p1, void* p2, void* p3);
+void copy_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Copies count source array elements into the destination array.

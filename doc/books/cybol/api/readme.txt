@@ -1,3 +1,19 @@
+
+STATE
+_____
+
+* Add formats of primitive types, e.g.:
+
+    number/integer
+    number/fraction-decimal
+    number/fraction-vulgar
+    text/plain
+    logicvalue/boolean
+
+
+LOGIC
+_____
+
 get-channel       erledigt
 get-encoding      erledigt
 get-format        erledigt
