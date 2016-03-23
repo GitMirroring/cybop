@@ -37,6 +37,9 @@ Debian packages for compilation:
     xlibs-dev (now possibly contained in xorg-dev)
     xorg-dev
 
+Debian packages for development:
+    graphviz including dot tool
+
 
 Package and Library Installation Windows (GCC)
 ______________________________________________
