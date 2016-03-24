@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename module "value_copier.c" into "copier.c"
+        * Include module "copier.c" in file "cyboi.c", since no other module includes it directly, but forward declarations in e.g. "array_copier.c" require it
+        * Clean up includes and forward declarations for correct module dependency
+
 2016-03-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add doxygen configuration files in directory "doxygen/", for automatically generating source code api documentation with module dependencies
