@@ -14,7 +14,7 @@
 Clone
 _____
 
-        * Verify new deep copying functionality by writing special unit test
+        * Continue module "copier_tester.c" for unit testing deep copying functionality
 
         * Continue with cybol example application "test"
         * Add new property "deep" of format "logicvalue/boolean" to "overwrite" cybol operation and adapt all "copy_array_forward" function calls

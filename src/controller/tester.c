@@ -30,7 +30,7 @@
 #include "../constant/model/cyboi/test/test_cyboi_model.c"
 #include "../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../tester/copier_tester.c"
-//?? #include "../tester/pointer_tester.c"
+#include "../tester/pointer_tester.c"
 
 //
 // Examples for source code testing via log messages.
@@ -72,7 +72,7 @@ void test(void* p0) {
             // Instead, ALL OTHER test functions are to be called here.
 
             test_copier(p0);
-//??            test_pointer(p0);
+            test_pointer(p0);
 
             // Call further test units here.
         }
@@ -88,7 +88,6 @@ void test(void* p0) {
         }
     }
 
-/*??
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p0, (void*) POINTER_TEST_CYBOI_MODEL);
@@ -98,7 +97,6 @@ void test(void* p0) {
             test_pointer(p0);
         }
     }
-*/
 
     // Add further test units here.
 }
