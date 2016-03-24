@@ -26,8 +26,6 @@
 #ifndef CYBOI_SOURCE
 #define CYBOI_SOURCE
 
-#include <string.h>
-
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../constant/model/cyboi/operation_mode/operation_mode_cyboi_model.c"
@@ -42,6 +40,12 @@
 #include "../controller/orienter.c"
 #include "../controller/tester.c"
 #include "../controller/unglobaliser.c"
+//
+// CAUTION! The module "copier.c" has to be included HERE,
+// since no other module includes it directly, but
+// forward declarations in e.g. "array_copier.c" require it.
+//
+#include "../executor/modifier/copier/copier.c"
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"
 #include "../variable/reference_counter.c"

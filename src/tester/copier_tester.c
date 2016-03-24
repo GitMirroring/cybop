@@ -25,8 +25,9 @@
 
 #ifndef COPIER_TESTER
 #define COPIER_TESTER
+
 /**
- * Tests the part.
+ * Tests the part copier.
  */
 void test_copier_part() {
 
@@ -113,7 +114,7 @@ void test_copier_part() {
     // Encode and output part as model diagram.
     //
 
-    test_part_as_model_diagram((void*) L"TEST_COPIER.txt", w);
+    test_part_as_model_diagram((void*) L"test_copier_part.txt", w);
 
     // Deallocate parts.
     deallocate_part((void*) &p1);
@@ -129,7 +130,7 @@ void test_copier_part() {
  */
 void test_copier() {
 
-    fwprintf(stdout, L"TEST copier.\n");
+    fwprintf(stdout, L"Test copier.\n");
 
     test_copier_part();
 }

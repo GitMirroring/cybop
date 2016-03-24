@@ -643,9 +643,9 @@ void test_pointer_addition() {
  * Sub test procedure calls can be activated/ deactivated here
  * by simply commenting/ uncommenting the corresponding lines.
  */
-void test_check_pointer() {
+void test_pointer() {
 
-    fwprintf(stdout, L"TEST pointer.\n");
+    fwprintf(stdout, L"Test pointer.\n");
 
     test_pointer_null();
     test_pointer_cast();

@@ -26,13 +26,12 @@
 #ifndef ARRAY_ALL_COMPARATOR_SOURCE
 #define ARRAY_ALL_COMPARATOR_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../executor/comparator/basic/array_comparator.c"
-#include "../../../executor/comparator/basic/integer_comparator.c"
 #include "../../../logger/logger.c"
 
 /**

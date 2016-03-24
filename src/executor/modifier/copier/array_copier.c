@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void copy_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4);
+void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Copies count source array elements into the destination array.
@@ -87,7 +87,7 @@ void copy_array_elements_forward(void* p0, void* p1, void* p2, void* p3, void* p
             break;
         }
 
-        copy_value_offset(p0, p1, p2, p3, (void*) &j);
+        copy_offset(p0, p1, p2, p3, (void*) &j);
 
         j++;
     }
@@ -139,7 +139,7 @@ void copy_array_elements_backward(void* p0, void* p1, void* p2, void* p3, void* 
             break;
         }
 
-        copy_value_offset(p0, p1, p2, p3, (void*) &j);
+        copy_offset(p0, p1, p2, p3, (void*) &j);
 
         j--;
     }

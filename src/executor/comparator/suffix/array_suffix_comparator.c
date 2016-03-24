@@ -26,17 +26,14 @@
 #ifndef ARRAY_SUFFIX_COMPARATOR_SOURCE
 #define ARRAY_SUFFIX_COMPARATOR_SOURCE
 
-#include <stdlib.h>
-#include <string.h>
-
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
-#include "../../../executor/memoriser/offset_adder.c"
-#include "../../../executor/modifier/copier/value_copier.c"
-#include "../../../executor/memoriser/size_determiner.c"
+#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/comparator/basic/array_comparator.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -55,11 +52,11 @@ void compare_suffix_array(void* p0, void* p1, void* p2, void* p3, void* p4, void
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare suffix array.");
 
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer((void*) &r, p5, p6, (void*) GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOI_FORMAT);
+    compare_integer_greater_or_equal((void*) &r, p5, p6);
 
-    if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The left array index.
         int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef VALUE_COPIER_SOURCE
-#define VALUE_COPIER_SOURCE
+#ifndef COPIER_SOURCE
+#define COPIER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,6 +33,7 @@
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
 #include "../../../executor/modifier/copier/complex_copier.c"
+// The "content_part_copier" includes inside: part, item, array.
 #include "../../../executor/modifier/copier/content_part_copier.c"
 #include "../../../executor/modifier/copier/datetime_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
@@ -52,11 +53,11 @@
  * @param p2 the type
  * @param p3 the deep copying flag
  */
-void copy_value(void* p0, void* p1, void* p2, void* p3) {
+void copy(void* p0, void* p1, void* p2, void* p3) {
 
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value.");
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy.");
 
     // The comparison result.
     // CAUTION! It is used instead of if-else statements.
@@ -117,9 +118,9 @@ void copy_value(void* p0, void* p1, void* p2, void* p3) {
 
                 // This is going to be a DEEP COPY, also called CLONING.
 
-fwprintf(stdout, L"TEST copy value deep pre: %i\n", r);
+fwprintf(stdout, L"TEST copy deep pre: %i\n", r);
                 copy_part_content(p0, p1);
-fwprintf(stdout, L"TEST copy value deep post: %i\n", r);
+fwprintf(stdout, L"TEST copy deep post: %i\n", r);
 
             } else {
 
@@ -240,7 +241,7 @@ fwprintf(stdout, L"TEST copy value deep post: %i\n", r);
 
         // CAUTION! Do NOT call the logger here.
         // It uses functions causing circular references.
-        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy value. The operand type is unknown.");
+        // log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy. The operand type is unknown.");
     }
 }
 
@@ -254,11 +255,11 @@ fwprintf(stdout, L"TEST copy value deep post: %i\n", r);
  * @param p3 the deep copying flag
  * @param p4 the index
  */
-void copy_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     // CAUTION! Do NOT call the logger here.
     // It uses functions causing circular references.
-    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy value offset.");
+    // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy offset.");
 
     // The destination value, source value.
     // CAUTION! They HAVE TO BE initialised with p0 and p1,
@@ -270,9 +271,9 @@ void copy_value_offset(void* p0, void* p1, void* p2, void* p3, void* p4) {
     add_offset((void*) &d, p2, p4);
     add_offset((void*) &s, p2, p4);
 
-    // Set source value to destination value.
-    copy_value(d, s, p2, p3);
+    // Copy source- to destination value.
+    copy(d, s, p2, p3);
 }
 
-/* VALUE_COPIER_SOURCE */
+/* COPIER_SOURCE */
 #endif
