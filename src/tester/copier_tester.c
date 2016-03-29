@@ -53,6 +53,7 @@
  */
 void test_copier_part() {
 
+/*??
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test copier part.");
 
     // The parts (original, clone, nodes, properties).
@@ -170,6 +171,7 @@ void test_copier_part() {
     deallocate_part((void*) &p1);
     deallocate_part((void*) &p2);
     deallocate_part((void*) &w);
+*/
 }
 
 /**
