@@ -26,6 +26,17 @@
 #ifndef COPIER_TESTER
 #define COPIER_TESTER
 
+#include "../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../constant/name/cyboi/state/primitive_state_cyboi_name.c"
+#include "../constant/type/cyboi/state_cyboi_type.c"
+#include "../executor/memoriser/allocator/part_allocator.c"
+#include "../logger/logger.c"
+
 /**
  * Tests the part copier.
  *
@@ -53,7 +64,6 @@
  */
 void test_copier_part() {
 
-/*??
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test copier part.");
 
     // The parts (original, clone, nodes, properties).
@@ -102,6 +112,7 @@ void test_copier_part() {
     // deallocating the part and its child parts at shutdown.
     //
 
+/*??
     // Assign details of part o.
     overwrite_part_element(o, (void*) L"o", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
     overwrite_part_element(o, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
