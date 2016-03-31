@@ -77,8 +77,8 @@ void copy_item(void* p0, void* p1, void* p2, void* p3) {
     // Copy details of source- into destination item.
     // CAUTION! Assign source COUNT to destination SIZE.
     copy_array_elements_forward(dd, sd, p2, p3, sc);
-    copy_array_elements_forward(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-    copy_array_elements_forward(ds, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    copy_array_elements_forward(dc, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    copy_array_elements_forward(ds, sc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 }
 
 /* ITEM_COPIER_SOURCE */

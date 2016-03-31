@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-03-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete module "copier_tester.c" for unit testing deep copying functionality
+        * Remove directory "executor/memoriser/cloner/" recursively, since it has been replaced by "executor/modifier/copier/"
+
 2016-03-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename module "value_copier.c" into "copier.c"
@@ -35,7 +40,7 @@
 
 2016-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Introduce "deep copying argument" in array- and value functions
+        * Introduce "deep copying argument" in array- and value copying functions
 
 2016-03-10  Christian Heller  <christian.heller@tuxtax.de>
 
