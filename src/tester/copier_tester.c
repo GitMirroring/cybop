@@ -105,6 +105,10 @@ void test_copier_part() {
     allocate_part((void*) &p2i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
     allocate_part((void*) &n2i1, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
     allocate_part((void*) &p2i1i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    // Allocate clone tree parts.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_part((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     //
     // Assign name, format, type, model, properties.
@@ -226,17 +230,18 @@ void test_copier_part() {
     // Write original tree root part as model diagram.
     test_part_as_model_diagram((void*) L"test_copier_part_original.txt", o);
 
-fwprintf(stdout, L"TEST 0: %i\n", 0);
-    copy((void*) &c, (void*) &o, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-fwprintf(stdout, L"TEST 1: %i\n", 0);
+fwprintf(stdout, L"TEST pre: %i\n", c);
+    copy_part(c, o);
+//??    copy((void*) &c, (void*) &o, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+fwprintf(stdout, L"TEST post: %i\n", c);
 
     // Write clone tree root part as model diagram.
     test_part_as_model_diagram((void*) L"test_copier_part_clone.txt", c);
 
-fwprintf(stdout, L"TEST 2: %i\n", 0);
-
     // Deallocate original tree.
     deallocate_part((void*) &o);
+    // Deallocate clone tree.
+    deallocate_part((void*) &c);
 }
 
 /**

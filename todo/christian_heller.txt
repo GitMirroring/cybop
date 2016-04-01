@@ -14,6 +14,7 @@
 Clone
 _____
 
+        * Think about whether to use "copy_part" or just "copy" in file "copier_tester.c"
         * Check why strange characters appear instead of "_" in cloned file using "copier_tester.c"
 
         * Continue with cybol example application "test"
