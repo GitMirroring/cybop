@@ -1,18 +1,18 @@
 {
-    "part": { "name": "startup_terminal", "channel": "inline", "format": "maintain/startup", "model": "", "properties": {
-        "property": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} }
+    "node": { "name": "startup_terminal", "channel": "inline", "format": "maintain/startup", "model": "", "properties": {
+        "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} }
     } },
 
-    "part": { "name": "print", "channel": "inline", "format": "communicate/send", "model": "", "properties": {
-        "property": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} },
-        "property": { "name": "encoding", "channel": "inline", "format": "meta/encoding", "model": "utf-8", "properties": {} },
-        "property": { "name": "language", "channel": "inline", "format": "meta/language", "model": "message/cli", "properties": {} },
-        "property": { "name": "format", "channel": "inline", "format": "meta/format", "model": "text/plain", "properties": {} },
-        "property": { "name": "message", "channel": "inline", "format": "text/plain", "model": "Hello, World!", "properties": {
-            "property": { "name": "foreground", "channel": "inline", "format": "colour/terminal", "model": "green", "properties": {} },
+    "node": { "name": "print", "channel": "inline", "format": "communicate/send", "model": "", "properties": {
+        "node": { "name": "channel", "channel": "inline", "format": "meta/channel", "model": "terminal", "properties": {} },
+        "node": { "name": "encoding", "channel": "inline", "format": "meta/encoding", "model": "utf-8", "properties": {} },
+        "node": { "name": "language", "channel": "inline", "format": "meta/language", "model": "message/cli", "properties": {} },
+        "node": { "name": "format", "channel": "inline", "format": "meta/format", "model": "text/plain", "properties": {} },
+        "node": { "name": "message", "channel": "inline", "format": "text/plain", "model": "Hello, World!", "properties": {
+            "node": { "name": "foreground", "channel": "inline", "format": "colour/terminal", "model": "green", "properties": {} },
         } },
-        "property": { "name": "newline", "channel": "inline", "format": "logicvalue/boolean", "model": "true", "properties": {} }
+        "node": { "name": "newline", "channel": "inline", "format": "logicvalue/boolean", "model": "true", "properties": {} }
     } },
 
-    "part": { "name": "shutdown", "channel": "inline", "format": "live/exit", "model": "", "properties": {} }
+    "node": { "name": "shutdown", "channel": "inline", "format": "live/exit", "model": "", "properties": {} }
 }

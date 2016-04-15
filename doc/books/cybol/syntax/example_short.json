@@ -1,0 +1,18 @@
+{
+    { "startup_terminal", "inline", "maintain/startup", "", {
+        { "channel", "inline", "meta/channel", "terminal", {} }
+    } },
+
+    { "print", "inline", "communicate/send", "", {
+        { "channel", "inline", "meta/channel", "terminal", {} },
+        { "encoding", "inline", "meta/encoding", "utf-8", {} },
+        { "language", "inline", "meta/language", "message/cli", {} },
+        { "format", "inline", "meta/format", "text/plain", {} },
+        { "message", "inline", "text/plain", "Hello, World!", {
+            { "foreground", "inline", "colour/terminal", "green", {} },
+        } },
+        { "newline", "inline", "logicvalue/boolean", "true", {} }
+    } },
+
+    { "shutdown", "inline", "live/exit", "", {} }
+}

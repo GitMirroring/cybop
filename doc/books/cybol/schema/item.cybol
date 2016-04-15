@@ -1,7 +1,7 @@
-<model>
+<node>
 
-    <part name="data" channel="inline" format="text/ascii" model=""/>
-    <part name="count" channel="inline" format="number/integer" model=""/>
-    <part name="size" channel="inline" format="number/integer" model=""/>
+    <node name="data" channel="inline" format="text/ascii" model=""/>
+    <node name="count" channel="inline" format="number/integer" model=""/>
+    <node name="size" channel="inline" format="number/integer" model=""/>
 
-</model>
+</node>

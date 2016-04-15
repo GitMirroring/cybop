@@ -1,13 +1,13 @@
-<model>
+<node>
 
-    <part name="name" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="channel" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="encoding" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="language" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="format" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="type" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="model" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="properties" channel="inline" format="element/part" model="schema/item.cybol"/>
-    <part name="references" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="name" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="channel" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="encoding" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="language" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="format" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="type" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="model" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="properties" channel="inline" format="element/part" model="schema/item.cybol"/>
+    <node name="references" channel="inline" format="element/part" model="schema/item.cybol"/>
 
-</model>
+</node>
