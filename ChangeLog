@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-05-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Update cybol schema files
+
 2016-03-31  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete module "copier_tester.c" for unit testing deep copying functionality

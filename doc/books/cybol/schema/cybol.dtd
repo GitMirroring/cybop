@@ -1,41 +1,41 @@
 <!--
-    $RCSfile: cybol.dtd,v $
+    Copyright (C) 1999-2015. Christian Heller.
 
-    Copyright (c) 2003-2004. Christian Heller and the CYBOP developers.
+    This file is part of the Cybernetics Oriented Language (CYBOL).
 
-    Permission is granted to copy, distribute and/or modify this document
-    under the terms of the GNU Free Documentation License, Version 1.1
-    or any later version published by the Free Software Foundation;
-    with no Invariant Sections, with no Front-Cover Texts and with no Back-Cover
-    Texts. A copy of the license is included in the section entitled
-    "GNU Free Documentation License".
+    CYBOL is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published
+    by the Free Software Foundation, either version 3 of the License,
+    or (at your option) any later version.
 
-    http://www.cybop.net
-    - Cybernetics Oriented Programming -
+    CYBOL is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty
+    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    See the GNU General Public License for more details.
 
-    @version $Revision: 1.4 $ $Date: 2005/07/14 10:31:40 $ $Author: christian $
+    You should have received a copy of the GNU General Public License
+    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
+
+    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+    CYBOP Developers <cybop-developers@nongnu.org>
+
+    @version CYBOP 0.17.0 2015-04-20
     @author Christian Heller <christian.heller@tuxtax.de>
-/-->
+-->
 
-<!ELEMENT model (part*)>
-<!ELEMENT part (property*)>
-<!ELEMENT property (constraint*)>
-<!ELEMENT constraint EMPTY>
+<!--
+    CAUTION! The CYBOL language does NOT need a root node.
+    Its nodes all have the same identical attributes.
 
-<!ATTLIST part
+    Unfortunately, XML does require a root node for each document.
+    Therefore, CYBOL uses one, too.
+    However, it is actually superfluous and its attributes are as well.
+-->
+
+<!ELEMENT node (node*)>
+
+<!ATTLIST node
     name CDATA #REQUIRED
     channel CDATA #REQUIRED
-    abstraction CDATA #REQUIRED
-    model CDATA #REQUIRED>
-
-<!ATTLIST property
-    name CDATA #REQUIRED
-    channel CDATA #REQUIRED
-    abstraction CDATA #REQUIRED
-    model CDATA #REQUIRED>
-
-<!ATTLIST constraint
-    name CDATA #REQUIRED
-    channel CDATA #REQUIRED
-    abstraction CDATA #REQUIRED
+    format CDATA #REQUIRED
     model CDATA #REQUIRED>
