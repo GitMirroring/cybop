@@ -755,6 +755,8 @@ _________
 Super
 _____
 
+        * Call property node just "class" and not "super" any longer
+
         * Compare with "prototype chain" checking in ECMA/JavaScript
         * Should properties (those of a part itself and those of super parts) be assigned to a part when it is created?
             OR
