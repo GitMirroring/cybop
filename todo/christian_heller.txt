@@ -28,11 +28,18 @@ _____
 
 
         * Think about whether to use "copy_part" or just "copy" in file "copier_tester.c"
+        * CAUTION!
+            Possibly, the source count sc MUST NOT be copied to destination size ds in file "item_copier.c" since otherwise, reallocation would be necessary!
+            Do the single items have to be reallocated to the source items' size in file "part_copier.c"?
+            Possibly, use function "overwrite_item" instead of "copy_item" in file "part_copier.c"?
+                (bidirectional dependency between copy and overwrite requires forward declaration, in this case)
         * Check why strange characters appear instead of "_" in cloned file using "copier_tester.c"
 
         * Continue with cybol example application "test"
         * Add new property "deep" of format "logicvalue/boolean" to cybol operations "overwrite" and "append"
         * Adapt all "copy_array_forward" function calls
+
+        * Test for memory leaks with valgrind
 
 Stack
 _____

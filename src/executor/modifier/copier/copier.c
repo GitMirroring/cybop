@@ -33,7 +33,7 @@
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
 #include "../../../executor/modifier/copier/complex_copier.c"
-// The "content_part_copier" includes inside: part, item, array.
+// The module "content_part_copier.c" includes inside: part, item, array.
 #include "../../../executor/modifier/copier/content_part_copier.c"
 #include "../../../executor/modifier/copier/datetime_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
@@ -137,7 +137,9 @@ fwprintf(stdout, L"TEST copy deep post: %i\n", r);
                 // - created for deep copy
                 // - copied (appended) for shallow copy
 
+fwprintf(stdout, L"TEST copy shallow pre: %i\n", r);
                 copy_pointer(p0, p1);
+fwprintf(stdout, L"TEST copy shallow post: %i\n", r);
             }
         }
     }

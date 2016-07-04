@@ -19,11 +19,11 @@
     This is not necessary, since "overwrite" can copy values of any type, even compound models of type "element/part".
     Repeat this test with a shallow- and a deep copy.
 -->
-<!--
     <node name="clone_tree_shallow" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.clone"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.number"/>
     </node>
+<!--
     <node name="clone_tree_deep" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.clone"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.number"/>
