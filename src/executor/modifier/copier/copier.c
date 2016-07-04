@@ -126,6 +126,17 @@ fwprintf(stdout, L"TEST copy deep post: %i\n", r);
 
                 // This is going to be a SHALLOW COPY.
 
+                //?? TODO: Just copying the pointer for shallow copy is NOT correct,
+                // since it will overwrite the destination element,
+                // which is lost and may never be destroyed,
+                // not even by the garbage collector, leading to a memory leak.
+                // Possible solution: Hand over flag indicating shallow or deep copy.
+                // A simple branch may distinguish between the two,
+                // Source children have to be processed anyway,
+                // but the destination nodes are to be:
+                // - created for deep copy
+                // - copied (appended) for shallow copy
+
                 copy_pointer(p0, p1);
             }
         }
