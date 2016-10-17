@@ -137,9 +137,9 @@ fwprintf(stdout, L"TEST copy deep post: %i\n", r);
                 // - created for deep copy
                 // - copied (appended) for shallow copy
 
-fwprintf(stdout, L"TEST copy shallow pre: %i\n", r);
+//?? fwprintf(stdout, L"TEST copy shallow pre: %i\n", r);
                 copy_pointer(p0, p1);
-fwprintf(stdout, L"TEST copy shallow post: %i\n", r);
+//?? fwprintf(stdout, L"TEST copy shallow post: %i\n", r);
             }
         }
     }
