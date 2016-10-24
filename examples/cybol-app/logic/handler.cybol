@@ -1,0 +1,7 @@
+<node>
+
+    <node name="send" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.send"/>
+    </node>
+
+</node>

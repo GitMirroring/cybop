@@ -3,4 +3,10 @@
     <node name="sum" channel="inline" format="number/integer" model="0"/>
     <node name="summand" channel="inline" format="number/integer" model="30"/>
 
+    <node name="wui" channel="inline" format="text/plain" model="">
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+    </node>
+
+    <node name="client_socket" channel="inline" format="number/integer" model="0"/>
+
 </node>

@@ -6,4 +6,6 @@
 
     <node name="sense" channel="file" format="element/part" model="cybol-app/logic/sense.cybol"/>
 
+    <node name="handler" channel="file" format="element/part" model="cybol-app/logic/handler.cybol"/>
+
 </node>

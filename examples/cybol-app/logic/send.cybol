@@ -1,23 +1,36 @@
 <node>
 
+    <node name="translate_wui" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.domain.wui"/>
+        <node name="source" channel="inline" format="path/knowledge" model=".app.wui"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
+        <node name="language" channel="inline" format="meta/language" model="text/html">
+            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+    </node>
+
+    <node name="send_to_client_socket" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <!--
+            CAUTION! An "encoding" is NOT given when using the language "message/http-response",
+            since it would cause the WHOLE http message to get encoded.
+            But the http header should be ASCII (single-byte characters) only.
+            Likewise, binary attachments such as images should NOT get encoded.
+        -->
+        <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.domain.wui"/>
+        <node name="receiver" channel="inline" format="path/knowledge" model=".app.domain.client_socket"/>
+    </node>
+
     <node name="send_cli" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.domain.sum"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".app.domain.wui"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <node name="send_wui" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/html">
-            <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
-        </node>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui"/>
-        <node name="receiver" channel="inline" format="text/plain" model="cybol-app/wui.html"/>
     </node>
 
 </node>

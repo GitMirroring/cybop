@@ -34,9 +34,6 @@
     <node name="startup" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
     </node>
-    <node name="send" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.send"/>
-    </node>
     <node name="sense" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.sense"/>
     </node>
