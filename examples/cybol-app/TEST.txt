@@ -1,15 +1,42 @@
 [selected_node] | element/part | 
-+-sum | number/integer | 30
-+-summand | number/integer | 30
-+-startup | element/part | 
-| +-add | calculate/add | 
-| | #-result | path/knowledge | .app.sum
-| | #-operand | path/knowledge | .app.summand
-| | #-type | meta/type | number/integer
-| +-test_knowledge_tree | communicate/send | 
-| | #-receiver | text/plain | cybol-app/TEST.txt
-| | #-channel | meta/channel | file
-| | #-encoding | meta/encoding | utf-8
-| | #-language | meta/language | text/model-diagram
-| | #-format | meta/format | element/part
-| | #-message | path/knowledge | .app
++-domain | element/part | 
+| +-sum | number/integer | 30
+| +-summand | number/integer | 30
++-wui | element/part | 
+| +-head | element/part | 
+| | #-tag | text/plain | head
+| +-body | element/part | 
+| | +-sum | path/knowledge | .app.domain.sum
+| | | #-tag | text/plain | h1
+| | #-tag | text/plain | body
+| #-tag | text/plain | html
++-logic | element/part | 
+| +-startup | element/part | 
+| | +-add | calculate/add | 
+| | | #-result | path/knowledge | .app.domain.sum
+| | | #-operand | path/knowledge | .app.domain.summand
+| | | #-type | meta/type | number/integer
+| | +-test_knowledge_tree | communicate/send | 
+| | | #-receiver | text/plain | cybol-app/TEST.txt
+| | | #-channel | meta/channel | file
+| | | #-encoding | meta/encoding | utf-8
+| | | #-language | meta/language | text/model-diagram
+| | | #-format | meta/format | element/part
+| | | #-message | path/knowledge | .app
+| | +-startup_terminal | maintain/startup | 
+| | | #-channel | meta/channel | terminal
+| | +-send_cli | communicate/send | 
+| | | #-channel | meta/channel | terminal
+| | | #-encoding | meta/encoding | utf-8
+| | | #-language | meta/language | message/cli
+| | | #-format | meta/format | number/integer
+| | | #-message | path/knowledge | .app.domain.sum
+| | | #-newline | logicvalue/boolean | true
+| | +-send_wui | communicate/send | 
+| | | #-channel | meta/channel | file
+| | | #-encoding | meta/encoding | utf-8
+| | | #-language | meta/language | text/html
+| | | | #-indentation | logicvalue/boolean | true
+| | | #-format | meta/format | element/part
+| | | #-message | path/knowledge | .app.wui
+| | | #-receiver | text/plain | cybol-app/wui.html

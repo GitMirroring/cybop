@@ -1,7 +1,11 @@
 <node>
 
-    <node name="domain" channel="file" format="element/part" model="cybol-app/domain.cybol"/>
+    <node name="domain" channel="file" format="element/part" model="cybol-app/domain/domain.cybol"/>
 
-    <node name="logic" channel="file" format="element/part" model="cybol-app/logic.cybol"/>
+    <node name="wui" channel="file" format="element/part" model="cybol-app/wui/wui.cybol">
+        <node name="tag" channel="inline" format="text/plain" model="html"/>
+    </node>
+
+    <node name="logic" channel="file" format="element/part" model="cybol-app/logic/logic.cybol"/>
     
 </node>

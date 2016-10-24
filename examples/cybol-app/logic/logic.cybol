@@ -1,0 +1,5 @@
+<node>
+
+    <node name="startup" channel="file" format="element/part" model="cybol-app/logic/startup.cybol"/>
+
+</node>

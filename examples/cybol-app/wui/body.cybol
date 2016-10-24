@@ -1,0 +1,7 @@
+<node>
+
+    <node name="sum" channel="inline" format="path/knowledge" model=".app.domain.sum">
+        <node name="tag" channel="inline" format="text/plain" model="h1"/>
+    </node>
+
+</node>
