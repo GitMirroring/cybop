@@ -1,0 +1,7 @@
+<node>
+
+    <node name="domain" channel="file" format="element/part" model="cybol-app/domain.cybol"/>
+
+    <node name="logic" channel="file" format="element/part" model="cybol-app/logic.cybol"/>
+    
+</node>

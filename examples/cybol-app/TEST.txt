@@ -1,0 +1,15 @@
+[selected_node] | element/part | 
++-sum | number/integer | 30
++-summand | number/integer | 30
++-startup | element/part | 
+| +-add | calculate/add | 
+| | #-result | path/knowledge | .app.sum
+| | #-operand | path/knowledge | .app.summand
+| | #-type | meta/type | number/integer
+| +-test_knowledge_tree | communicate/send | 
+| | #-receiver | text/plain | cybol-app/TEST.txt
+| | #-channel | meta/channel | file
+| | #-encoding | meta/encoding | utf-8
+| | #-language | meta/language | text/model-diagram
+| | #-format | meta/format | element/part
+| | #-message | path/knowledge | .app

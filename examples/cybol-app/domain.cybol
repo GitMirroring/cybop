@@ -1,0 +1,6 @@
+<node>
+
+    <node name="sum" channel="inline" format="number/integer" model="0"/>
+    <node name="summand" channel="inline" format="number/integer" model="30"/>
+
+</node>

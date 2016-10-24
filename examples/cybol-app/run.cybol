@@ -1,0 +1,24 @@
+<node>
+
+    <node name="create_app" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="app"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="cybol-app/app.cybol"/>
+    </node>
+
+    <node name="startup" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
+    </node>
+
+    <node name="exit_app" channel="inline" format="live/exit" model=""/>
+
+</node>
