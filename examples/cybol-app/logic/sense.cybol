@@ -1,0 +1,10 @@
+<node>
+
+    <node name="sense_requests" channel="inline" format="live/sense" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="socket"/>
+        <node name="service" channel="inline" format="text/plain" model="http"/>
+        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
+        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+    </node>
+
+</node>

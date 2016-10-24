@@ -25,6 +25,7 @@
 | | | #-message | path/knowledge | .app
 | | +-startup_terminal | maintain/startup | 
 | | | #-channel | meta/channel | terminal
+| +-send | element/part | 
 | | +-send_cli | communicate/send | 
 | | | #-channel | meta/channel | terminal
 | | | #-encoding | meta/encoding | utf-8

@@ -2,4 +2,8 @@
 
     <node name="startup" channel="file" format="element/part" model="cybol-app/logic/startup.cybol"/>
 
+    <node name="send" channel="file" format="element/part" model="cybol-app/logic/send.cybol"/>
+
+    <node name="sense" channel="file" format="element/part" model="cybol-app/logic/sense.cybol"/>
+
 </node>
