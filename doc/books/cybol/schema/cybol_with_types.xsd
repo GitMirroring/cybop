@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
     Copyright (C) 1999-2015. Christian Heller.
@@ -27,8 +27,8 @@
 
 <xs:schema
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="http://www.cybop.net"
-    xmlns="http://www.cybop.net"
+    targetNamespace="http://www.cybop.org"
+    xmlns="http://www.cybop.org"
     elementFormDefault="qualified">
     <xs:complexType name="node_type">
         <xs:sequence>
@@ -36,7 +36,7 @@
         </xs:sequence>
         <xs:attribute name="name" type="xs:string" use="required"/>
         <xs:attribute name="channel" type="xs:string" use="required"/>
-        <xs:attribute name="abstraction" type="xs:string" use="required"/>
+        <xs:attribute name="format" type="xs:string" use="required"/>
         <xs:attribute name="model" type="xs:string" use="required"/>
     </xs:complexType>
     <xs:element name="node" type="node_type"/>

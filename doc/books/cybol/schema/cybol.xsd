@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
     Copyright (C) 1999-2015. Christian Heller.
@@ -35,19 +35,19 @@
 -->
 
 <xs:schema
-    xmlns:xs='http://www.w3.org/2001/XMLSchema'
-    targetNamespace='http://www.cybop.net'
-    xmlns='http://www.cybop.net'
-    elementFormDefault='qualified'>
-    <xs:element name='node'>
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.cybop.org"
+    xmlns="http://www.cybop.org"
+    elementFormDefault="qualified">
+    <xs:element name="node">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref='node' minOccurs='0' maxOccurs='unbounded'/>
+                <xs:element ref="node" minOccurs="0" maxOccurs="unbounded"/>
             </xs:sequence>
-            <xs:attribute name='name' type='xs:string' use='required'/>
-            <xs:attribute name='channel' type='xs:string' use='required'/>
-            <xs:attribute name='format' type='xs:string' use='required'/>
-            <xs:attribute name='model' type='xs:string' use='required'/>
+            <xs:attribute name="name" type="xs:string" use="required"/>
+            <xs:attribute name="channel" type="xs:string" use="required"/>
+            <xs:attribute name="format" type="xs:string" use="required"/>
+            <xs:attribute name="model" type="xs:string" use="required"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>
