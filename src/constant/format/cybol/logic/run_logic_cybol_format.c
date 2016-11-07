@@ -61,8 +61,7 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t RUN_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'r', L'u', L'n', L'/', L'r', L'u', L'n'};
-static wchar_t* RUN_LOGIC_CYBOL_FORMAT = RUN_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* RUN_LOGIC_CYBOL_FORMAT = L"run/run";
 static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -75,8 +74,7 @@ static int* RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_AR
  *
  * This is a CYBOL extension.
  */
-static wchar_t NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'r', L'u', L'n', L'/', L's', L'l', L'e', L'e', L'p', L'-', L'n', L'a', L'n', L'o'};
-static wchar_t* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT = NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT = L"run/sleep-nano";
 static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -89,8 +87,7 @@ static int* NANO_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'r', L'u', L'n', L'/', L's', L'l', L'e', L'e', L'p', L'-', L's', L'e', L'c', L'o', L'n', L'd'};
-static wchar_t* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT = SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT_ARRAY;
+static wchar_t* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT = L"run/sleep-second";
 static int* SECOND_SLEEP_RUN_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* RUN_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

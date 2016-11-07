@@ -27,6 +27,7 @@
 #define URI_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -35,10 +36,9 @@
 //
 
 /**
- * The uri/mms state cybol type.
+ * The uri/mms state cybol format.
  */
-static wchar_t MMS_URI_STATE_CYBOL_FORMAT_ARRAY[] = {L'u', L'r', L'i', L'/', L'm', L'm', L's'};
-static wchar_t* MMS_URI_STATE_CYBOL_FORMAT = MMS_URI_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MMS_URI_STATE_CYBOL_FORMAT = L"uri/mms";
 static int* MMS_URI_STATE_CYBOL_FORMAT_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* URI_MIME_TYPE_CONSTANTS_SOURCE */

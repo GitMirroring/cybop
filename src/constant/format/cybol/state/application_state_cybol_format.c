@@ -63,259 +63,236 @@ application/ogg: Ogg, a multimedia bitstream container format; Defined in RFC 35
 */
 
 /**
- * The application/acad state cybol type.
+ * The application/acad state cybol format.
  *
  * AutoCAD files (by NCSA).
  * Registered.
  * Suffixes: dwg
  */
-static wchar_t ACAD_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'a', L'c', L'a', L'd'};
-static wchar_t* ACAD_APPLICATION_STATE_CYBOL_FORMAT = ACAD_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ACAD_APPLICATION_STATE_CYBOL_FORMAT = L"application/acad";
 static int* ACAD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/applefile state cybol type.
+ * The application/applefile state cybol format.
  *
  * AppleFile-Dateien files.
  * Registered.
  */
-static wchar_t APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'a', L'p', L'p', L'l', L'e', L'f', L'i', L'l', L'e'};
-static wchar_t* APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT = APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT = L"application/applefile";
 static int* APPLEFILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/astound state cybol type.
+ * The application/astound state cybol format.
  *
  * Astound files.
  * Registered.
  * Suffixes: asd, asn
  */
-static wchar_t ASTOUND_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'a', L's', L't', L'o', L'u', L'n', L'd'};
-static wchar_t* ASTOUND_APPLICATION_STATE_CYBOL_FORMAT = ASTOUND_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ASTOUND_APPLICATION_STATE_CYBOL_FORMAT = L"application/astound";
 static int* ASTOUND_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/dsptype state cybol type.
+ * The application/dsptype state cybol format.
  *
  * TSP files.
  * Registered.
  * Suffixes: tsp
  */
-static wchar_t DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'd', L's', L'p', L't', L'y', L'p', L'e'};
-static wchar_t* DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT = DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT = L"application/dsptype";
 static int* DSPTYPE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/dxf state cybol type.
+ * The application/dxf state cybol format.
  *
  * AutoCAD files (by CERN).
  * Registered.
  * Suffixes: dxf
  */
-static wchar_t DXF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'd', L'x', L'f'};
-static wchar_t* DXF_APPLICATION_STATE_CYBOL_FORMAT = DXF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* DXF_APPLICATION_STATE_CYBOL_FORMAT = L"application/dxf";
 static int* DXF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/futuresplash state cybol type.
+ * The application/futuresplash state cybol format.
  *
  * Flash Futuresplash files.
  * Registered.
  * Suffixes: spl
  */
-static wchar_t FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'f', L'u', L't', L'u', L'r', L'e', L's', L'p', L'l', L'a', L's', L'h'};
-static wchar_t* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT = FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT = L"application/futuresplash";
 static int* FUTURESPLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/gzip state cybol type.
+ * The application/gzip state cybol format.
  *
  * GNU Zip files.
  * Registered.
  * Suffixes: gz
  */
-static wchar_t GZIP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'g', L'z', L'i', L'p'};
-static wchar_t* GZIP_APPLICATION_STATE_CYBOL_FORMAT = GZIP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* GZIP_APPLICATION_STATE_CYBOL_FORMAT = L"application/gzip";
 static int* GZIP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/listenup state cybol type.
+ * The application/listenup state cybol format.
  *
  * Listenup files.
  * Registered.
  * Suffixes: ptlk
  */
-static wchar_t LISTENUP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'l', L'i', L's', L't', L'e', L'n', L'u', L'p'};
-static wchar_t* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT = LISTENUP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT = L"application/listenup";
 static int* LISTENUP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/mac-binhex40 state cybol type.
+ * The application/mac-binhex40 state cybol format.
  *
  * Macintosh Binär files.
  * Registered.
  * Suffixes: hqx
  */
-static wchar_t MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L'a', L'c', L'-', L'b', L'i', L'n', L'h', L'e', L'x', L'4', L'0'};
-static wchar_t* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT = MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT = L"application/mac-binhex40";
 static int* MAC_BINHEX40_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/mbedlet state cybol type.
+ * The application/mbedlet state cybol format.
  *
  * Mbedlet files.
  * Registered.
  * Suffixes: mbd
  */
-static wchar_t MBEDLET_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L'b', L'e', L'd', L'l', L'e', L't'};
-static wchar_t* MBEDLET_APPLICATION_STATE_CYBOL_FORMAT = MBEDLET_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MBEDLET_APPLICATION_STATE_CYBOL_FORMAT = L"application/mbedlet";
 static int* MBEDLET_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/mif state cybol type.
+ * The application/mif state cybol format.
  *
  * FrameMaker Interchange Format files.
  * Registered.
  * Suffixes: mif
  */
-static wchar_t MIF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L'i', L'f'};
-static wchar_t* MIF_APPLICATION_STATE_CYBOL_FORMAT = MIF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MIF_APPLICATION_STATE_CYBOL_FORMAT = L"application/mif";
 static int* MIF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/msexcel state cybol type.
+ * The application/msexcel state cybol format.
  *
  * Microsoft Excel files.
  * Registered.
  * Suffixes: xls, xla
  */
-static wchar_t MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L's', L'e', L'x', L'c', L'e', L'l'};
-static wchar_t* MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT = MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT = L"application/msexcel";
 static int* MSEXCEL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/mshelp state cybol type.
+ * The application/mshelp state cybol format.
  *
  * Microsoft Windows Help files.
  * Registered.
  * Suffixes: hlp, chm
  */
-static wchar_t MSHELP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L's', L'h', L'e', L'l', L'p'};
-static wchar_t* MSHELP_APPLICATION_STATE_CYBOL_FORMAT = MSHELP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MSHELP_APPLICATION_STATE_CYBOL_FORMAT = L"application/mshelp";
 static int* MSHELP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/mspowerpoint state cybol type.
+ * The application/mspowerpoint state cybol format.
  *
  * Microsoft Powerpoint files.
  * Registered.
  * Suffixes: ppt, ppz, pps, pot
  */
-static wchar_t MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L's', L'p', L'o', L'w', L'e', L'r', L'p', L'o', L'i', L'n', L't'};
-static wchar_t* MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT = MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT = L"application/mspowerpoint";
 static int* MSPOWERPOINT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/msword state cybol type.
+ * The application/msword state cybol format.
  *
  * Microsoft Word files.
  * Registered.
  * Suffixes: doc, dot
  */
-static wchar_t MSWORD_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'm', L's', L'w', L'o', L'r', L'd'};
-static wchar_t* MSWORD_APPLICATION_STATE_CYBOL_FORMAT = MSWORD_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MSWORD_APPLICATION_STATE_CYBOL_FORMAT = L"application/msword";
 static int* MSWORD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/octet-stream state cybol type.
+ * The application/octet-stream state cybol format.
  *
  * Executable files.
  * Registered.
  * Suffixes: bin, exe, com, dll, class
  */
-static wchar_t OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'o', L'c', L't', L'e', L't', L'-', L's', L't', L'r', L'e', L'a', L'm'};
-static wchar_t* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT = OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT = L"application/octet-stream";
 static int* OCTET_STREAM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/oda state cybol type.
+ * The application/oda state cybol format.
  *
  * Oda files.
  * Registered.
  * Suffixes: oda
  */
-static wchar_t ODA_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'o', L'd', L'a'};
-static wchar_t* ODA_APPLICATION_STATE_CYBOL_FORMAT = ODA_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* ODA_APPLICATION_STATE_CYBOL_FORMAT = L"application/oda";
 static int* ODA_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/pdf state cybol type.
+ * The application/pdf state cybol format.
  *
  * Adobe PDF files
  * Registered.
  * Suffixes: pdf 
  */
-static wchar_t PDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'p', L'd', L'f'};
-static wchar_t* PDF_APPLICATION_STATE_CYBOL_FORMAT = PDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* PDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/pdf";
 static int* PDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/postscript state cybol type.
+ * The application/postscript state cybol format.
  *
  * Adobe PostScript files
  * Registered.
  * Suffixes: ai, eps, ps 
  */
-static wchar_t POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'p', L'o', L's', L't', L's', L'c', L'r', L'i', L'p', L't'};
-static wchar_t* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT = POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT = L"application/postscript";
 static int* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/rtc state cybol type.
+ * The application/rtc state cybol format.
  *
  * RTC files
  * Registered.
  * Suffixes: rtc
  */
-static wchar_t RTC_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'r', L't', L'c'};
-static wchar_t* RTC_APPLICATION_STATE_CYBOL_FORMAT = RTC_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* RTC_APPLICATION_STATE_CYBOL_FORMAT = L"application/rtc";
 static int* RTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/rtf state cybol type.
+ * The application/rtf state cybol format.
  *
  * Microsoft RTF files
  * Registered.
  * Suffixes: rtf
  */
-static wchar_t RTF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'r', L't', L'f'};
-static wchar_t* RTF_APPLICATION_STATE_CYBOL_FORMAT = RTF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* RTF_APPLICATION_STATE_CYBOL_FORMAT = L"application/rtf";
 static int* RTF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/studiom state cybol type.
+ * The application/studiom state cybol format.
  *
  * Studiom files
  * Registered.
  * Suffixes: smp
  */
-static wchar_t STUDIOM_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L's', L't', L'u', L'd', L'i', L'o', L'm'};
-static wchar_t* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT = STUDIOM_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT = L"application/studiom";
 static int* STUDIOM_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/toolbook state cybol type.
+ * The application/toolbook state cybol format.
  *
  * Toolbook files.
  * Registered.
  * Suffixes: tbk
  */
-static wchar_t TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L't', L'o', L'o', L'l', L'b', L'o', L'o', L'k'};
-static wchar_t* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT = TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT = L"application/toolbook";
 static int* TOOLBOOK_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/vnd.wap.wmlc state cybol type.
+ * The application/vnd.wap.wmlc state cybol format.
  *
  * WMLC files (WAP).
  * Registered.
@@ -325,7 +302,7 @@ static wchar_t* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vnd.
 static int* VND_WAP_WMLC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/vnd.wap.wmlscriptc state cybol type.
+ * The application/vnd.wap.wmlscriptc state cybol format.
  *
  * WML-Script-C files (WAP).
  * Registered.
@@ -335,413 +312,376 @@ static wchar_t* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT = L"applicatio
 static int* VND_WAP_WMLSCRIPTC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_30_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/vocaltec-media-desc.
+ * The application/vocaltec-media-desc state cybol format.
  *
  * Vocaltec Mediadesc files
  * Registered.
  * Suffixes: vmd
  */
-static wchar_t VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'o', L'c', L'a', L'l', L't', L'e', L'c', L'-', L'm', L'e', L'd', L'i', L'a', L'-', L'd', L'e', L's', L'c'};
-static wchar_t* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT = VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT = L"application/vocaltec-media-desc";
 static int* VOCALTEC_MEDIA_DESC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/vocaltec-media-file.
+ * The application/vocaltec-media-file state cybol format.
  *
  * Vocaltec Media files
  * Registered.
  * Suffixes: vmf
  */
-static wchar_t VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'v', L'o', L'c', L'a', L'l', L't', L'e', L'c', L'-', L'm', L'e', L'd', L'i', L'a', L'-', L'f', L'i', L'l', L'e'};
-static wchar_t* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT = VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT = L"application/vocaltec-media-file";
 static int* VOCALTEC_MEDIA_FILE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/xhtml+xml state cybol type.
+ * The application/xhtml+xml state cybol format.
  *
  * XHTML archive files. Defined by RFC 3236.
  * Registered.
  * Suffixes: xhtml
  */
-static wchar_t XHTML_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'h', L't', L'm', L'l'};
-static wchar_t* XHTML_APPLICATION_STATE_CYBOL_FORMAT = XHTML_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* XHTML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xhtml+xml";
 static int* XHTML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/xml.
+ * The application/xml state cybol format.
  *
  * XML files
  * Registered.
  * Suffixes: xml
  */
-static wchar_t XML_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'm', L'l'};
-static wchar_t* XML_APPLICATION_STATE_CYBOL_FORMAT = XML_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* XML_APPLICATION_STATE_CYBOL_FORMAT = L"application/xml";
 static int* XML_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-bcpio.
+ * The application/x-bcpio state cybol format.
  *
  * BCPIO files
  * Registered.
  * Suffixes: bcpio
  */
-static wchar_t X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'b', L'c', L'p', L'i', L'o'};
-static wchar_t* X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT = X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-bcpio";
 static int* X_BCPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-compress.
+ * The application/x-compress state cybol format.
  *
  * zlib compressed files
  * Registered.
  * Suffixes: z
  */
-static wchar_t X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'c', L'o', L'm', L'p', L'r', L'e', L's', L's'};
-static wchar_t* X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT = X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-compress";
 static int* X_COMPRESS_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-cpio.
+ * The application/x-cpio state cybol format.
  *
  * CPIO files
  * Registered.
  * Suffixes: cpio
  */
-static wchar_t X_CPIO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'c', L'p', L'i', L'o'};
-static wchar_t* X_CPIO_APPLICATION_STATE_CYBOL_FORMAT = X_CPIO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_CPIO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-cpio";
 static int* X_CPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-csh.
+ * The application/x-csh state cybol format.
  *
  * C-Shellscript files
  * Registered.
  * Suffixes: csh
  */
-static wchar_t X_CSH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'c', L's', L'h'};
-static wchar_t* X_CSH_APPLICATION_STATE_CYBOL_FORMAT = X_CSH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_CSH_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-csh";
 static int* X_CSH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-director.
+ * The application/x-director state cybol format.
  *
  * Macromedia Director files
  * Registered.
  * Suffixes: dcr, dir, dxr
  */
-static wchar_t X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'd', L'i', L'r', L'e', L'c', L't', L'o', L'r'};
-static wchar_t* X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT = X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-director";
 static int* X_DIRECTOR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-dvi.
+ * The application/x-dvi state cybol format.
  *
  * DVI files
  * Registered.
  * Suffixes: dvi
  */
-static wchar_t X_DVI_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'd', L'v', L'i'};
-static wchar_t* X_DVI_APPLICATION_STATE_CYBOL_FORMAT = X_DVI_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_DVI_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-dvi";
 static int* X_DVI_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-envoy.
+ * The application/x-envoy state cybol format.
  *
  * Envoy files
  * Registered.
  * Suffixes: evy
  */
-static wchar_t X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'e', L'n', L'v', L'o', L'y'};
-static wchar_t* X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT = X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-envoy";
 static int* X_ENVOY_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-gtar.
+ * The application/x-gtar state cybol format.
  *
  * GNU tar files
  * Registered.
  * Suffixes: gtar
  */
-static wchar_t X_GTAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'g', L't', L'a', L'r'};
-static wchar_t* X_GTAR_APPLICATION_STATE_CYBOL_FORMAT = X_GTAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_GTAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-gtar";
 static int* X_GTAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-hdf.
+ * The application/x-hdf state cybol format.
  *
  * HDF files
  * Registered.
  * Suffixes: hdf
  */
-static wchar_t X_HDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'h', L'd', L'f'};
-static wchar_t* X_HDF_APPLICATION_STATE_CYBOL_FORMAT = X_HDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_HDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-hdf";
 static int* X_HDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-httpd-php.
+ * The application/x-httpd-php state cybol format.
  *
  * PHP files
  * Registered.
  * Suffixes: php, phtml
  */
-static wchar_t X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'h', L't', L't', L'p', L'd', L'-', L'p', L'h', L'p'};
-static wchar_t* X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT = X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-httpd-php";
 static int* X_HTTPD_PHP_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-javascript.
+ * The application/x-javascript state cybol format.
  *
  * server side JavaScript files
  * Registered.
  * Suffixes: js
  */
-static wchar_t X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'j', L'a', L'v', L'a', L's', L'c', L'r', L'i', L'p', L't'};
-static wchar_t* X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT = X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-javascript";
 static int* X_JAVASCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-macbinary.
+ * The application/x-macbinary state cybol format.
  *
  * Macintosh binary files
  * Registered.
  * Suffixes: bin
  */
-static wchar_t X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'm', L'a', L'c', L'b', L'i', L'n', L'a', L'r', L'y'};
-static wchar_t* X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT = X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-macbinary";
 static int* X_MACBINARY_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-mif.
+ * The application/x-mif state cybol format.
  *
  * FrameMaker Interchange Format files
  * Registered.
  * Suffixes: mif
  */
-static wchar_t X_MIF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'm', L'i', L'f'};
-static wchar_t* X_MIF_APPLICATION_STATE_CYBOL_FORMAT = X_MIF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_MIF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-mif";
 static int* X_MIF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-netcdf.
+ * The application/x-netcdf state cybol format.
  *
  * Unidata CDF files
  * Registered.
  * Suffixes: nc, cdf
  */
-static wchar_t X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'n', L'e', L't', L'c', L'd', L'f'};
-static wchar_t* X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT = X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-netcdf";
 static int* X_NETCDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-nschat.
+ * The application/x-nschat state cybol format.
  *
  * NS Chat files
  * Registered.
  * Suffixes: nsc
  */
-static wchar_t X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'n', L's', L'c', L'h', L'a', L't'};
-static wchar_t* X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT = X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-nschat";
 static int* X_NSCHAT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-sh.
+ * The application/x-sh state cybol format.
  *
  * Bourne Shellscript files
  * Registered.
  * Suffixes: sh
  */
-static wchar_t X_SH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'h'};
-static wchar_t* X_SH_APPLICATION_STATE_CYBOL_FORMAT = X_SH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SH_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sh";
 static int* X_SH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-shar.
+ * The application/x-shar state cybol format.
  *
  * Shell archive files
  * Registered.
  * Suffixes: shar
  */
-static wchar_t X_SHAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'h', L'a', L'r'};
-static wchar_t* X_SHAR_APPLICATION_STATE_CYBOL_FORMAT = X_SHAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SHAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-shar";
 static int* X_SHAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-shockwave-flash.
+ * The application/x-shockwave-flash state cybol format.
  *
  * Flash Shockwave files
  * Registered.
  * Suffixes: swf, cab
  */
-static wchar_t X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'h', L'o', L'c', L'k', L'w', L'a', L'v', L'e', L'-', L'f', L'l', L'a', L's', L'h'};
-static wchar_t* X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT = X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-shockwave-flash";
 static int* X_SHOCKWAVE_FLASH_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_29_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-sprite.
+ * The application/x-sprite state cybol format.
  *
  * Sprite files
  * Registered.
  * Suffixes: spr, sprite
  */
-static wchar_t X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'p', L'r', L'i', L't', L'e'};
-static wchar_t* X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT = X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sprite";
 static int* X_SPRITE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-stuffit.
+ * The application/x-stuffit state cybol format.
  *
  * Stuffit files
  * Registered.
  * Suffixes: sit
  */
-static wchar_t X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L't', L'u', L'f', L'f', L'i', L't'};
-static wchar_t* X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT = X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-stuffit";
 static int* X_STUFFIT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-supercard.
+ * The application/x-supercard state cybol format.
  *
  * Supercard files
  * Registered.
  * Suffixes: sca
  */
-static wchar_t X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'u', L'p', L'e', L'r', L'c', L'a', L'r', L'd'};
-static wchar_t* X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT = X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-supercard";
 static int* X_SUPERCARD_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-sv4cpio.
+ * The application/x-sv4cpio state cybol format.
  *
  * CPIO files
  * Registered.
  * Suffixes: sv4cpio
  */
-static wchar_t X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'v', L'4', L'c', L'p', L'i', L'o'};
-static wchar_t* X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT = X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sv4cpio";
 static int* X_SV4CPIO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-sv4crc.
+ * The application/x-sv4crc state cybol format.
  *
  * CPIO files with CRC
  * Registered.
  * Suffixes: sv4crc
  */
-static wchar_t X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L's', L'v', L'4', L'c', L'r', L'c'};
-static wchar_t* X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT = X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-sv4crc";
 static int* X_SV4CRC_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-tcl.
+ * The application/x-tcl state cybol format.
  *
  * TCL script files
  * Registered.
  * Suffixes: tcl
  */
-static wchar_t X_TCL_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'c', L'l'};
-static wchar_t* X_TCL_APPLICATION_STATE_CYBOL_FORMAT = X_TCL_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TCL_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-tcl";
 static int* X_TCL_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-tex.
+ * The application/x-tex state cybol format.
  *
  * TeX files
  * Registered.
  * Suffixes: tex
  */
-static wchar_t X_TEX_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'e', L'x'};
-static wchar_t* X_TEX_APPLICATION_STATE_CYBOL_FORMAT = X_TEX_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TEX_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-tex";
 static int* X_TEX_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-texinfo.
+ * The application/x-texinfo state cybol format.
  *
  * Texinfo files
  * Registered.
  * Suffixes: texinfo, texi
  */
-static wchar_t X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'e', L'x', L'i', L'n', L'f', L'o'};
-static wchar_t* X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT = X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-texinfo";
 static int* X_TEXINFO_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-troff.
+ * The application/x-troff state cybol format.
  *
  * TROFF files (UNIX)
  * Registered.
  * Suffixes: t, tr, roff
  */
-static wchar_t X_TROFF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'r', L'o', L'f', L'f'};
-static wchar_t* X_TROFF_APPLICATION_STATE_CYBOL_FORMAT = X_TROFF_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TROFF_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff";
 static int* X_TROFF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-troff-man.
+ * The application/x-troff-man state cybol format.
  *
  * TROFF files (UNIX)
  * Registered.
  * Suffixes: t, tr, roff
  */
-static wchar_t X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'r', L'o', L'f', L'f', L'-', L'm', L'a', L'n'};
-static wchar_t* X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT = X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff-man";
 static int* X_TROFF_MAN_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-troff-me.
+ * The application/x-troff-me state cybol format.
  *
  * TROFF files with ME-Makros (Unix)
  * Registered.
  * Suffixes: me, roff
  */
-static wchar_t X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'r', L'o', L'f', L'f', L'-', L'm', L'e'};
-static wchar_t* X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT = X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff-me";
 static int* X_TROFF_ME_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-troff-ms.
+ * The application/x-troff-ms state cybol format.
  *
  * TROFF files with MS-Makros (Unix)
  * Registered.
  * Suffixes: ms, roff
  */
-static wchar_t X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'r', L'o', L'f', L'f', L'-', L'm', L's'};
-static wchar_t* X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT = X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-troff-ms";
 static int* X_TROFF_MS_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-ustar.
+ * The application/x-ustar state cybol format.
  *
  * tar archiv files (Posix)
  * Registered.
  * Suffixes: ustar
  */
-static wchar_t X_USTAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'u', L's', L't', L'a', L'r'};
-static wchar_t* X_USTAR_APPLICATION_STATE_CYBOL_FORMAT = X_USTAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_USTAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-ustar";
 static int* X_USTAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-wais-source.
+ * The application/x-wais-source state cybol format.
  *
  * WAIS source files
  * Registered.
  * Suffixes: src
  */
-static wchar_t X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'w', L'a', L'i', L's', L'-', L's', L'o', L'u', L'r', L'c', L'e'};
-static wchar_t* X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT = X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-wais-source";
 static int* X_WAIS_SOURCE_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/x-www-form-urlencoded.
+ * The application/x-www-form-urlencoded state cybol format.
  *
  * HTML form urlencoded files on CGI
  * Registered.
  */
-static wchar_t X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'w', L'w', L'w', L'-', L'f', L'o', L'r', L'm', L'-', L'u', L'r', L'l', L'e', L'n', L'c', L'o', L'd', L'e', L'd'};
-static wchar_t* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT = X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-www-form-urlencoded";
 static int* X_WWW_FORM_URLENCODED_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The application/zip state cybol type.
+ * The application/zip state cybol format.
  *
  * ZIP archive files.
  * Registered.

@@ -11,6 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories language, model, name, type
+
 Clone
 _____
 
@@ -718,7 +720,6 @@ _______
             http://www.noxeos.com/2011/07/29/c-const-static-keywords/
         * Check possible simplification of constants definition using:
             int* var = (int[]) { 6 };
-        * Replace constant values using single characters like {L'm', L'v'} with string like L"mv"
 
         * Make sure types are compared for correctness when copying a value (called by receive, overwrite, append etc.);
             usually a "type" property is given; the two arguments also have a type; all three have to be identical

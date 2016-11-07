@@ -55,7 +55,7 @@
 //
 
 /**
- * The path/reference state cybol type.
+ * The path/reference state cybol format.
  *
  * A knowledge path pointing to an item of a knowledge tree,
  * that contains a knowledge path.
@@ -67,12 +67,11 @@
  *
  * The same rules as for the "path/knowledge" language apply here.
  */
-static wchar_t REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'r', L'e', L'f', L'e', L'r', L'e', L'n', L'c', L'e'};
-static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = REFERENCE_PATH_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = L"path/reference";
 static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The path/knowledge state cybol type.
+ * The path/knowledge state cybol format.
  *
  * A knowledge path pointing to an item of a knowledge tree, whereby:
  * - "part" tree node names are dot (.) separated
@@ -86,8 +85,7 @@ static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  * points to the meta property "background colour" of the
  * knowledge tree item ".application.gui.menu_bar.file_menu"
  */
-static wchar_t KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'a', L't', L'h', L'/', L'k', L'n', L'o', L'w', L'l', L'e', L'd', L'g', L'e'};
-static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT = KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT = L"path/knowledge";
 static int* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PATH_STATE_CYBOL_FORMAT_CONSTANTS_SOURCE */

@@ -28,6 +28,7 @@
 #define MULTIPART_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -53,7 +54,7 @@
 //
 
 /**
- * The multipart/alternative state cybol type.
+ * The multipart/alternative state cybol format.
  *
  * mixed multipart data.
  * Registered.
@@ -62,7 +63,7 @@ static wchar_t* ALTERNATIVE_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/alternati
 static int* ALTERNATIVE_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/byteranges state cybol type.
+ * The multipart/byteranges state cybol format.
  *
  * multipart data with Byte information.
  * Registered.
@@ -71,7 +72,7 @@ static wchar_t* BYTERANGES_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/byteranges
 static int* BYTERANGES_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/digest state cybol type.
+ * The multipart/digest state cybol format.
  *
  * multipart data / selection.
  * Registered.
@@ -80,7 +81,7 @@ static wchar_t* DIGEST_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/digest";
 static int* DIGEST_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/encrypted state cybol type.
+ * The multipart/encrypted state cybol format.
  *
  * encrypted multipart data.
  * Registered.
@@ -89,7 +90,7 @@ static wchar_t* ENCRYPTED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/encrypted";
 static int* ENCRYPTED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/form-data state cybol type.
+ * The multipart/form-data state cybol format.
  *
  * multipart data from HTML form (f.e. file upload).
  * Registered.
@@ -98,7 +99,7 @@ static wchar_t* FORM_DATA_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/form-data";
 static int* FORM_DATA_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/mixed state cybol type.
+ * The multipart/mixed state cybol format.
  *
  * mixed multipart data: MIME E-mail; Defined in RFC 2045 and RFC 2046.
  * Registered.
@@ -107,7 +108,7 @@ static wchar_t* MIXED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/mixed";
 static int* MIXED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/parallel state cybol type.
+ * The multipart/parallel state cybol format.
  *
  * multipart data parallel.
  * Registered.
@@ -116,7 +117,7 @@ static wchar_t* PARALLEL_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/parallel";
 static int* PARALLEL_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/related state cybol type.
+ * The multipart/related state cybol format.
  *
  * multipart data connected.
  * Registered.
@@ -125,7 +126,7 @@ static wchar_t* RELATED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/related";
 static int* RELATED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/report state cybol type.
+ * The multipart/report state cybol format.
  *
  * multipart data / report.
  * Registered.
@@ -134,7 +135,7 @@ static wchar_t* REPORT_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/report";
 static int* REPORT_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/signed state cybol type.
+ * The multipart/signed state cybol format.
  *
  * multipart data referred.
  * Registered.
@@ -143,7 +144,7 @@ static wchar_t* SIGNED_MULTIPART_STATE_CYBOL_FORMAT = L"multipart/signed";
 static int* SIGNED_MULTIPART_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The multipart/voice-message state cybol type.
+ * The multipart/voice-message state cybol format.
  *
  * multipart data / voice message.
  * Registered.

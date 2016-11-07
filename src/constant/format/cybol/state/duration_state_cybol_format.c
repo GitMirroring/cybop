@@ -56,7 +56,7 @@
 
 //?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
- * The duration/ddmmyyyyddmmyyyy state cybol type.
+ * The duration/ddmmyyyyddmmyyyy state cybol format.
  *
  * format: ddmmyyyyddmmyyyy
  * unit: day
@@ -72,7 +72,7 @@ static int* DDMMYYYYDDMMYYYY_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_25_INTEG
 
 //?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
- * The duration/hhmmhhmm state cybol type.
+ * The duration/hhmmhhmm state cybol format.
  *
  * format: hhmmhhmm
  * unit: minute
@@ -87,7 +87,7 @@ static wchar_t* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT = L"duration/hhmmhhmm";
 static int* HHMMHHMM_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The duration/iso state cybol type.
+ * The duration/iso state cybol format.
  *
  * format: iso (defined in ISO 8601)
  * unit: two dates or one date and a difference
@@ -106,7 +106,7 @@ static wchar_t* ISO_DURATION_STATE_CYBOL_FORMAT = L"duration/iso";
 static int* ISO_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The duration/jd state cybol type.
+ * The duration/jd state cybol format.
  *
  * format: double
  * unit: day
@@ -126,7 +126,7 @@ static wchar_t* JD_DURATION_STATE_CYBOL_FORMAT = L"duration/jd";
 static int* JD_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The duration/julian state cybol type.
+ * The duration/julian state cybol format.
  *
  * format: iso (defined in ISO 8601)
  * unit: two dates or one date and a difference
@@ -143,7 +143,7 @@ static wchar_t* JULIAN_DURATION_STATE_CYBOL_FORMAT = L"duration/julian";
 static int* JULIAN_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The duration/si state cybol type.
+ * The duration/si state cybol format.
  *
  * format: iso (defined in ISO 8601)
  * unit: SI-second
@@ -161,7 +161,7 @@ static int* SI_DURATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
 
 //?? TODO: Possibly delete this later, since it is an xdt constant.
 /**
- * The duration/yyyy state cybol type.
+ * The duration/yyyy state cybol format.
  *
  * format: iso (defined in ISO 8601)
  * unit: year

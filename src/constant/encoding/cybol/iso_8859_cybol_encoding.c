@@ -56,8 +56,7 @@
  * for legacy HTML documents and for documents transmitted via MIME messages,
  * such as HTTP responses when the document's media type is "text" (as in "text/html").
  */
-static wchar_t ISO_8859_1_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1'};
-static wchar_t* ISO_8859_1_CYBOL_ENCODING = ISO_8859_1_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_1_CYBOL_ENCODING = L"iso-8859-1";
 static int* ISO_8859_1_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -69,8 +68,7 @@ static int* ISO_8859_1_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * Bosnian, Polish, Croatian, Czech, Slovak, Slovenian, Serbian, and Hungarian.
  * The missing euro sign can be found in version ISO 8859-16.
  */
-static wchar_t ISO_8859_2_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'2'};
-static wchar_t* ISO_8859_2_CYBOL_ENCODING = ISO_8859_2_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_2_CYBOL_ENCODING = L"iso-8859-2";
 static int* ISO_8859_2_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -81,8 +79,7 @@ static int* ISO_8859_2_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * Turkish, Maltese, and Esperanto.
  * Largely superseded by ISO 8859-9 for Turkish and Unicode for Esperanto.
  */
-static wchar_t ISO_8859_3_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'3'};
-static wchar_t* ISO_8859_3_CYBOL_ENCODING = ISO_8859_3_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_3_CYBOL_ENCODING = L"iso-8859-3";
 static int* ISO_8859_3_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -92,8 +89,7 @@ static int* ISO_8859_3_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  *
  * Estonian, Latvian, Lithuanian, Greenlandic, and Sami.
  */
-static wchar_t ISO_8859_4_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'4'};
-static wchar_t* ISO_8859_4_CYBOL_ENCODING = ISO_8859_4_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_4_CYBOL_ENCODING = L"iso-8859-4";
 static int* ISO_8859_4_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -104,8 +100,7 @@ static int* ISO_8859_4_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * Covers mostly Slavic languages that use a Cyrillic alphabet, including
  * Belarusian, Bulgarian, Macedonian, Russian, Serbian, and Ukrainian (partial[3]).
  */
-static wchar_t ISO_8859_5_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'5'};
-static wchar_t* ISO_8859_5_CYBOL_ENCODING = ISO_8859_5_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_5_CYBOL_ENCODING = L"iso-8859-5";
 static int* ISO_8859_5_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -117,8 +112,7 @@ static int* ISO_8859_5_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * Doesn't support other languages using the Arabic script.
  * Needs to be BiDi and cursive joining processed for display.
  */
-static wchar_t ISO_8859_6_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'6'};
-static wchar_t* ISO_8859_6_CYBOL_ENCODING = ISO_8859_6_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_6_CYBOL_ENCODING = L"iso-8859-6";
 static int* ISO_8859_6_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -131,8 +125,7 @@ static int* ISO_8859_6_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * monotonic orthography, but lacks the diacritics for polytonic orthography.
  * These were introduced with Unicode.
  */
-static wchar_t ISO_8859_7_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'7'};
-static wchar_t* ISO_8859_7_CYBOL_ENCODING = ISO_8859_7_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_7_CYBOL_ENCODING = L"iso-8859-7";
 static int* ISO_8859_7_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -145,8 +138,7 @@ static int* ISO_8859_7_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * (needs to be BiDi processed for display) and visual (left-to-right)
  * order (in effect, after bidi processing and line breaking).
  */
-static wchar_t ISO_8859_8_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'8'};
-static wchar_t* ISO_8859_8_CYBOL_ENCODING = ISO_8859_8_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_8_CYBOL_ENCODING = L"iso-8859-8";
 static int* ISO_8859_8_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -157,8 +149,7 @@ static int* ISO_8859_8_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * Largely the same as ISO 8859-1, replacing the rarely used Icelandic letters
  * with Turkish ones. It is also used for Kurdish.
  */
-static wchar_t ISO_8859_9_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'9'};
-static wchar_t* ISO_8859_9_CYBOL_ENCODING = ISO_8859_9_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_9_CYBOL_ENCODING = L"iso-8859-9";
 static int* ISO_8859_9_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -169,8 +160,7 @@ static int* ISO_8859_9_CYBOL_ENCODING_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODE
  * A rearrangement of Latin-4.
  * Considered more useful for Nordic languages. Baltic languages use Latin-4 more.
  */
-static wchar_t ISO_8859_10_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'0'};
-static wchar_t* ISO_8859_10_CYBOL_ENCODING = ISO_8859_10_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_10_CYBOL_ENCODING = L"iso-8859-10";
 static int* ISO_8859_10_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -181,8 +171,7 @@ static int* ISO_8859_10_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MOD
  * Contains most characters needed for the Thai language.
  * Same as TIS 620.
  */
-static wchar_t ISO_8859_11_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'1'};
-static wchar_t* ISO_8859_11_CYBOL_ENCODING = ISO_8859_11_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_11_CYBOL_ENCODING = L"iso-8859-11";
 static int* ISO_8859_11_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -193,8 +182,7 @@ static int* ISO_8859_11_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MOD
  * The work in making a part of 8859 for Devanagari was officially abandoned in 1997.
  * ISCII and Unicode/ISO/IEC 10646 cover Devanagari.
  */
-static wchar_t ISO_8859_12_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'2'};
-static wchar_t* ISO_8859_12_CYBOL_ENCODING = ISO_8859_12_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_12_CYBOL_ENCODING = L"iso-8859-12";
 static int* ISO_8859_12_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -204,8 +192,7 @@ static int* ISO_8859_12_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MOD
  *
  * Added some characters for Baltic languages which were missing from Latin-4 and Latin-6.
  */
-static wchar_t ISO_8859_13_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'3'};
-static wchar_t* ISO_8859_13_CYBOL_ENCODING = ISO_8859_13_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_13_CYBOL_ENCODING = L"iso-8859-13";
 static int* ISO_8859_13_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -215,8 +202,7 @@ static int* ISO_8859_13_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MOD
  *
  * Covers Celtic languages such as Gaelic and the Breton language.
  */
-static wchar_t ISO_8859_14_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'4'};
-static wchar_t* ISO_8859_14_CYBOL_ENCODING = ISO_8859_14_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_14_CYBOL_ENCODING = L"iso-8859-14";
 static int* ISO_8859_14_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -228,8 +214,7 @@ static int* ISO_8859_14_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MOD
  * replacing them with the euro sign € and the letters Š, š, Ž, ž, Œ, œ, and Ÿ,
  * which completes the coverage of French, Finnish and Estonian.
  */
-static wchar_t ISO_8859_15_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'5'};
-static wchar_t* ISO_8859_15_CYBOL_ENCODING = ISO_8859_15_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_15_CYBOL_ENCODING = L"iso-8859-15";
 static int* ISO_8859_15_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -242,8 +227,7 @@ static int* ISO_8859_15_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MOD
  * The focus lies more on letters than symbols.
  * The currency sign is replaced with the euro sign.
  */
-static wchar_t ISO_8859_16_CYBOL_ENCODING_ARRAY[] = {L'i', L's', L'o', L'-', L'8', L'8', L'5', L'9', L'-', L'1', L'6'};
-static wchar_t* ISO_8859_16_CYBOL_ENCODING = ISO_8859_16_CYBOL_ENCODING_ARRAY;
+static wchar_t* ISO_8859_16_CYBOL_ENCODING = L"iso-8859-16";
 static int* ISO_8859_16_CYBOL_ENCODING_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ISO_8859_CYBOL_ENCODING_CONSTANT_SOURCE */

@@ -27,6 +27,7 @@
 #define LOGICVALUE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -54,14 +55,13 @@
 //
 
 /**
- * The logicvalue/boolean state cybol type.
+ * The logicvalue/boolean state cybol format.
  *
  * Classical logic with the only possible truth values "true" and "false".
  *
  * This is a CYBOL extension.
  */
-static wchar_t BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'v', L'a', L'l', L'u', L'e', L'/', L'b', L'o', L'o', L'l', L'e', L'a', L'n'};
-static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT = BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT = L"logicvalue/boolean";
 static int* BOOLEAN_LOGICVALUE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??

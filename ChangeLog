@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-11-07  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories channel, encoding, format
+
 2016-05-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Update lightning talk

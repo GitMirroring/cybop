@@ -28,6 +28,7 @@
 #define DRAWING_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -53,7 +54,7 @@
 //
 
 /**
- * The drawing/x-dwf state cybol type.
+ * The drawing/x-dwf state cybol format.
  *
  * Drawing files.
  * Registered.
