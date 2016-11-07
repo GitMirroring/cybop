@@ -20,7 +20,7 @@
 
 2016-11-07  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories channel, encoding, format
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories channel, encoding, format, language, type
 
 2016-05-20  Christian Heller  <christian.heller@tuxtax.de>
 

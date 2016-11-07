@@ -11,7 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories language, model, name, type
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
+            done: ansi_escape_code, character_code
+            continue: within half of file "character_entity_reference/html_character_entity_reference_model.c")
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories name
 
 Clone
 _____
