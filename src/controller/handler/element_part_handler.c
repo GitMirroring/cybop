@@ -82,7 +82,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         //
 
         // Store local variables on stack memory (push).
-        handle_properties_push(p2, p3, p6);
+        handle_properties(p2, p3, p6);
 
         // Handle signal.
         handle(s, p4, p5, p6, p7, p8, p9);
