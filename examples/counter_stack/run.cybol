@@ -29,6 +29,7 @@
     </node>
 
     <!-- Possibility 1: local variables specified directly as properties -->
+<!--
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
             <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>

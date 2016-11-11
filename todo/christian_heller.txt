@@ -49,11 +49,10 @@ _____
 Stack
 _____
 
-        * read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
-
         * Continue with file "controller/handler/element_part_handler.c"
         * Use deep copying (??) for local stack variables in "controller/handler/element_properties_handler.c"
 
+        * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
         * See file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
         * Use cybol example application "counter_stack" to use stack variables
 

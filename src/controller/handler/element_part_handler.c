@@ -81,13 +81,36 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
-        // Store local variables on stack memory.
-        handle_properties(p2, p3, p6);
+        // Store local variables on stack memory (push).
+        handle_properties_push(p2, p3, p6);
 
         // Handle signal.
         handle(s, p4, p5, p6, p7, p8, p9);
 
-        //?? TODO: Remove local variables from stack memory.
+        // Remove local variables from stack memory (pop).
+        //
+        // Solution 1: Read properties again
+        //
+        // CAUTION! The properties might have been changed within
+        // the logic executed within the "handle" function above.
+        // Therefore, they should NOT be accessed a second time here,
+        // in order to remove temporary values from stack memory,
+        // since the number and type of properties might have changed,
+        // which would otherwise lead to SEVERE MEMORY ERRORS.
+        //
+        // Solution 2: Add empty marker element to stack
+        //
+        // - INEFFICIENT since added for each function call
+        // - added even for logic not using temporary values on stack
+        // - consumes additional time and memory
+        //
+        // Solution 3: Remember number of values added
+        //
+        // - seems to be the easiest solution
+        // - the "push" function above needs to return the number of values added
+        // - that number is used here in "pop" to remove values from stack
+        //
+        //?? handle_properties_pop(p2, p3, p6);
 
     } else {
 
