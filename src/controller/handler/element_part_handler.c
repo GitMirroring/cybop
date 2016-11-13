@@ -36,6 +36,8 @@
 #include "../../controller/handler/properties_handler.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../executor/modifier/remover/item_remover.c"
 #include "../../executor/streamer/writer/signal/signal_writer.c"
 #include "../../logger/logger.c"
 
@@ -67,6 +69,10 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The stack memory item count.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stack memory item count old value.
+    int old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
@@ -81,13 +87,20 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
-        // Store local variables on stack memory (push).
+        // Determine stack memory item count.
+        copy_array_forward((void*) &c, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        // Copy stack memory item count.
+        // It is later to be used as index for variable value removal.
+        // Therefore, the OLD value is saved here.
+        copy_integer((void*) &old, c);
+
+        // Store variable values on stack memory (push).
         handle_properties(p2, p3, p6);
 
         // Handle signal.
         handle(s, p4, p5, p6, p7, p8, p9);
 
-        // Remove local variables from stack memory (pop).
+        // Remove variable values from stack memory (pop).
         //
         // Solution 1: Read properties again
         //
@@ -107,10 +120,11 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // Solution 3: Remember number of values added
         //
         // - seems to be the easiest solution
-        // - the "push" function above needs to return the number of values added
-        // - that number is used here in "pop" to remove values from stack
+        // - the exact same number of values that was added to stack
+        //   (signal properties count) is removed from it again here
+        // - the former (old) stack memory item count is used as index for removal
         //
-        //?? handle_properties_pop(p2, p3, p6);
+        remove_item(p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p3, (void*) &old);
 
     } else {
 

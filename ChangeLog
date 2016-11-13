@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-11-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Decide to specify stack variable values as properties of a compound logic part structure in cybol
+        * Use existing cyboi part structure as known from knowledge memory for stack memory entries as well
+        * Implement testwise duplication/addition/automatic removal of values for stack memory in files "controller/handler/element_part_handler.c" and "controller/handler/element_properties_handler.c"
+
 2016-11-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories channel, encoding, format, language, type
