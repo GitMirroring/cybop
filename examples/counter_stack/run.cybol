@@ -41,11 +41,9 @@
 -->
 
     <!-- Possibility 2: local variables specified in knowledge tree -->
-<!--
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
     </node>
--->
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

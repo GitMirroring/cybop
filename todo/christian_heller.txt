@@ -19,6 +19,9 @@
 Stack
 _____
 
+        * Hand over stack memory as argument to all functions of applicator and related files
+        * Continue with function "get_part_knowledge" by enabling stack memory
+
         * Implement access to stack memory from within cybol
         * Forward stack memory as argument throughout cyboi system
         * Deliver element that was added LAST in case many equally named elements exist (LIFO)
@@ -501,6 +504,10 @@ ______________
             .app.choices.(.app.var.dbday)
           written instead with DOUBLE round parentheses representing a path/reference as:
             .app.choices.((.app.var.db.(.app.var.day2)))
+
+        * Implement usage of embedded indices, e.g.:
+            .app.addresses[.app.loop_index]
+        * Optimise cybol example applications using embedded index
 
 General CYBOI
 _____________

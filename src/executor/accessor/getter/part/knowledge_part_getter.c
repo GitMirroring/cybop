@@ -57,8 +57,9 @@
  * @param p0 the destination part (pointer reference)
  * @param p1 the source part (pointer reference)
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void get_part_knowledge(void* p0, void* p1, void* p2) {
+void get_part_knowledge(void* p0, void* p1, void* p2/*??, void* p3*/) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -100,10 +101,36 @@ void get_part_knowledge(void* p0, void* p1, void* p2) {
 
         //
         // The following comparisons do, in this order, get a part model item as:
-        // - reference knowledge (a model pointing to another model containing a part name)
-        // - knowledge (a model containing a hierarchical part name)
+        // - stack memory (a model containing the name of a value stored in stack memory)
+        // - reference knowledge memory (a model pointing to another model containing a part name)
+        // - knowledge memory (a model containing a hierarchical part name)
         // - direct model
         //
+
+/*??
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            compare_integer_equal((void*) &r, sfd, (void*) STACK_PATH_STATE_CYBOI_FORMAT);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                //
+                // Get part as stack memory model.
+                //
+                // CAUTION! The format "path/stack" is processed as wchar_t inside.
+                // The "properties" are uninteresting, since a stack variable name
+                // cannot have constraints. That is, only the model is of interest.
+                // It contains the name of the stack variable to be retrieved.
+                //
+                // Example of a model containing a stack variable name:
+                // <node name="result" channel="inline" format="path/stack" model="break"/>
+                //
+
+                // Get part referenced by stack memory variable name (path).
+//??                get_name_item_element(p0, p3, smd, smc);
+            }
+        }
+*/
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
