@@ -62,9 +62,10 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory data
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_startup(void* p0, void* p1, void* p2, void* p3) {
+void apply_startup(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply startup.");
 
@@ -164,33 +165,33 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
     void* socket_comd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CHANNEL_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get service id part.
-    get_part_name((void*) &id, p0, (void*) IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &id, p0, (void*) IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get serial filename part.
-    get_part_name((void*) &serial_f, p0, (void*) FILENAME_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &serial_f, p0, (void*) FILENAME_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get serial baudrate part.
-    get_part_name((void*) &serial_b, p0, (void*) BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &serial_b, p0, (void*) BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) BAUDRATE_SERIAL_INTERFACE_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket namespace part.
-    get_part_name((void*) &socket_n, p0, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_n, p0, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) NAMESPACE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket style part.
-    get_part_name((void*) &socket_st, p0, (void*) STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_st, p0, (void*) STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) STYLE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket protocol part.
-    get_part_name((void*) &socket_p, p0, (void*) PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_p, p0, (void*) PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) PROTOCOL_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket address part.
-    get_part_name((void*) &socket_a, p0, (void*) ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_a, p0, (void*) ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) ADDRESS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket filename part.
-    get_part_name((void*) &socket_f, p0, (void*) FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_f, p0, (void*) FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) FILENAME_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket service part.
-    get_part_name((void*) &socket_se, p0, (void*) SERVICE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) SERVICE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_se, p0, (void*) SERVICE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) SERVICE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket mode part.
-    get_part_name((void*) &socket_m, p0, (void*) MODE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) MODE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_m, p0, (void*) MODE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) MODE_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket blocking part.
-    get_part_name((void*) &socket_b, p0, (void*) BLOCKING_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) BLOCKING_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_b, p0, (void*) BLOCKING_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) BLOCKING_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket socket part.
-    get_part_name((void*) &socket_s, p0, (void*) SOCKET_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) SOCKET_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_s, p0, (void*) SOCKET_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) SOCKET_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get socket connexions part.
-    get_part_name((void*) &socket_co, p0, (void*) CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &socket_co, p0, (void*) CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME, (void*) CONNEXIONS_SOCKET_STARTUP_MAINTENANCE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -258,7 +259,7 @@ void apply_startup(void* p0, void* p1, void* p2, void* p3) {
     // Get socket connexions part model item data.
     copy_array_forward((void*) &socket_comd, socket_com, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    startup_service(p3, idmd, serial_fmd, serial_fmc, serial_bmd,
+    startup_service(p4, idmd, serial_fmd, serial_fmc, serial_bmd,
         socket_nmd, socket_nmc, socket_stmd, socket_stmc, socket_pmd, socket_pmc, socket_bmd,
         socket_fmd, socket_fmc, socket_amd, socket_amc,
         socket_comd, socket_smd, socket_mmd, socket_mmc, socket_semd, socket_semc, cmd);

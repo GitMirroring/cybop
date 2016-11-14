@@ -53,10 +53,11 @@
  * @param p6 the layout properties data
  * @param p7 the layout properties count
  * @param p8 the knowledge memory part
- * @param p9 the layout data
- * @param p10 the layout count
+ * @param p9 the stack memory item
+ * @param p10 the layout data
+ * @param p11 the layout count
  */
-void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
+void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout grid size.");
 
@@ -82,8 +83,8 @@ void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_name((void*) &r, p6, (void*) ROWS_GRID_LAYOUT_STATE_CYBOL_NAME, (void*) ROWS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT, p7, p8);
-    get_part_name((void*) &c, p6, (void*) COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME, (void*) COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT, p7, p8);
+    get_part_name((void*) &r, p6, (void*) ROWS_GRID_LAYOUT_STATE_CYBOL_NAME, (void*) ROWS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT, p7, p8, p9);
+    get_part_name((void*) &c, p6, (void*) COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME, (void*) COLUMNS_GRID_LAYOUT_STATE_CYBOL_NAME_COUNT, p7, p8, p9);
 
     // Get part model items.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -168,7 +169,7 @@ void serialise_layout_grid_size(void* p0, void* p1, void* p2, void* p3, void* p4
     // CAUTION! A layout-dependent formula has to be applied inside,
     // for calculating the position (x, y) of child elements.
     // The formula gets selected depending on the last parametre.
-    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, p8, p9, p10);
+    serialise_layout_part(p0, p1, (void*) &w, (void*) &h, p2, p3, p8, p10, p11);
 }
 
 /* SIZE_GRID_LAYOUT_SERIALISER_SOURCE */

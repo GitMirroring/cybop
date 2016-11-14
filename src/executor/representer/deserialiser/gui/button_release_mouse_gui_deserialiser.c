@@ -51,6 +51,7 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the knowledge memory part
+ * @param p?? the stack memory item
  * @param p7 the event type data
  * @param p8 the event type count
  * @param p9 the button mask
@@ -59,7 +60,7 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p12 the format data
  * @param p13 the loop break flag
  */
-void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

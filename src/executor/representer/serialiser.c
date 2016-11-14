@@ -90,9 +90,10 @@
  * @param p14 the clear flag
  * @param p15 the newline flag
  * @param p16 the knowledge memory part
- * @param p17 the internal memory data
+ * @param p17 the stack memory item
+ * @param p18 the internal memory data
  */
-void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17) {
+void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise.");
 
@@ -125,7 +126,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p14, p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p18, p14, p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 
@@ -135,7 +136,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_initial(p10, p11, p12, p13, p16, p17, p8);
+            serialise_gui_initial(p10, p11, p12, p13, p16, p18, p8);
         }
     }
 
@@ -165,7 +166,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p14, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p18, p14, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 
@@ -246,7 +247,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
             void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
             // Get indentation flag part.
-            get_part_name((void*) &i, p6, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p7, p16);
+            get_part_name((void*) &i, p6, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) INDENTATION_LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p7, p16, p17);
             // Get indentation flag part model item.
             copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get indentation flag part model item data.

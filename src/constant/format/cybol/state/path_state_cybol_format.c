@@ -55,22 +55,6 @@
 //
 
 /**
- * The path/reference state cybol format.
- *
- * A knowledge path pointing to an item of a knowledge tree,
- * that contains a knowledge path.
- * In other words, the item pointed to just "wraps" or "encapsulates"
- * a knowledge path which in turn points to the actual item.
- *
- * Defined in CYBOL specification:
- * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
- *
- * The same rules as for the "path/knowledge" language apply here.
- */
-static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = L"path/reference";
-static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The path/knowledge state cybol format.
  *
  * A knowledge path pointing to an item of a knowledge tree, whereby:
@@ -87,6 +71,30 @@ static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  */
 static wchar_t* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT = L"path/knowledge";
 static int* KNOWLEDGE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The path/reference state cybol format.
+ *
+ * A knowledge path pointing to an item of a knowledge tree,
+ * that contains a knowledge path.
+ * In other words, the item pointed to just "wraps" or "encapsulates"
+ * a knowledge path which in turn points to the actual item.
+ *
+ * Defined in CYBOL specification:
+ * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
+ *
+ * The same rules as for the "path/knowledge" language apply here.
+ */
+static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = L"path/reference";
+static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The path/stack state cybol format.
+ *
+ * A variable name pointing to an item of the stack memory.
+ */
+static wchar_t* REFERENCE_PATH_STATE_CYBOL_FORMAT = L"path/stack";
+static int* REFERENCE_PATH_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PATH_STATE_CYBOL_FORMAT_CONSTANTS_SOURCE */
 #endif

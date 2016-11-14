@@ -48,14 +48,15 @@
  * - binary (optional, Unix): Search only for binaries.
  * - manual (optional, Unix): Search only for manual sections.
  * - source (optional, Unix): Search only for source files.
- * 
+ *
  * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_find_command(void* p0, void* p1, void* p2) {
+void apply_find_command(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
 
@@ -75,48 +76,39 @@ void apply_find_command(void* p0, void* p1, void* p2) {
     // The manual part model item.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part model item.
-    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;  
-
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The command part model item data and count.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;  
-    
+    void* cmc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The binary part model item data.
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The manual part model item data.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source part model item data.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    
-    
-    // Get command part.
-    get_part_name((void*) &c, p0, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    
-    // Get print differing chars part.
-    get_part_name((void*) &b, p0, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    // Get print offset part.
-    get_part_name((void*) &m, p0, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    // Get silent part.
-    get_part_name((void*) &s, p0, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);   
 
-    
-    
+    // Get command part.
+    get_part_name((void*) &c, p0, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get print differing chars part.
+    get_part_name((void*) &b, p0, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get print offset part.
+    get_part_name((void*) &m, p0, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get silent part.
+    get_part_name((void*) &s, p0, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+
     // Get command part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    
     // Get binary part model item.
     copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get manual part model item.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    
-    
+
     // Get command part model item data and count.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &cmc, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    
     // Get print differing chars part model item data.
     copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get print offset model item data.
@@ -124,7 +116,6 @@ void apply_find_command(void* p0, void* p1, void* p2) {
     // Get silent part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    
     command_find_command(cmd, cmc, bmd, mmd, smd);
 }
 

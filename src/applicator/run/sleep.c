@@ -25,9 +25,11 @@
 
 #ifndef SLEEP_SOURCE
 #define SLEEP_SOURCE
+
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -53,9 +55,10 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the operation format
+ * @param p3 the stack memory item
+ * @param p4 the operation format
  */
-void apply_sleep(void* p0, void* p1, void* p2, void* p3) {
+void apply_sleep(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sleep.");
 
@@ -67,13 +70,13 @@ void apply_sleep(void* p0, void* p1, void* p2, void* p3) {
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get duration part.
-    get_part_name((void*) &d, p0, (void*) DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME, (void*) DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &d, p0, (void*) DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME, (void*) DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get duration part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get duration part model item data.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    sleep_duration(dmd, p3);
+    sleep_duration(dmd, p4);
 }
 
 /* SLEEP_SOURCE */

@@ -37,27 +37,28 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
-* Get the date or change it
-*
-* Expected parametres:
-* - new date (optional): value of the new date
-* 
-* - /T (optional): display option (display date, Win32 only)
-* - -I (optional): the ISO option (date in ISO format)
-* - -R (optional): the RFC option (date in RFC format)
-* - -u (optional): the UTC option (date in UTC format)
-*
-* Constraints:
-*
-* @param p0 the parametres data
-* @param p1 the parametres count
-* @param p2 the knowledge memory part
-*/
-void apply_date(void* p0, void* p1, void* p2) {
+ * Get the date or change it
+ *
+ * Expected parametres:
+ * - new date (optional): value of the new date
+ *
+ * - /T (optional): display option (display date, Win32 only)
+ * - -I (optional): the ISO option (date in ISO format)
+ * - -R (optional): the RFC option (date in RFC format)
+ * - -u (optional): the UTC option (date in UTC format)
+ *
+ * Constraints:
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
+ */
+void apply_date(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply date.");
 
@@ -96,16 +97,15 @@ void apply_date(void* p0, void* p1, void* p2) {
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get new date part.
-    get_part_name((void*) &n, p0, (void*) DATE_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DATE_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &n, p0, (void*) DATE_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DATE_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get display part.
-    get_part_name((void*) &t, p0, (void*) DISPLAY_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DISPLAY_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &t, p0, (void*) DISPLAY_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) DISPLAY_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get ISO part.
-    get_part_name((void*) &i, p0, (void*) ISO_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ISO_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) ISO_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ISO_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get RFC part.
-    get_part_name((void*) &r, p0, (void*) RFC_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RFC_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) RFC_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RFC_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get UTC part.
-    get_part_name((void*) &u, p0, (void*) UTC_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) UTC_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-
+    get_part_name((void*) &u, p0, (void*) UTC_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) UTC_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get new date part model item.
     copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -117,7 +117,6 @@ void apply_date(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get UTC part model item.
     copy_array_forward((void*) &um, u, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
 
     // Get new date part model item data and count.
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

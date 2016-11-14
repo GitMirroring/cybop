@@ -59,7 +59,7 @@
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
  */
-void get_part_knowledge(void* p0, void* p1, void* p2/*??, void* p3*/) {
+void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -107,7 +107,6 @@ void get_part_knowledge(void* p0, void* p1, void* p2/*??, void* p3*/) {
         // - direct model
         //
 
-/*??
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             compare_integer_equal((void*) &r, sfd, (void*) STACK_PATH_STATE_CYBOI_FORMAT);
@@ -127,10 +126,9 @@ void get_part_knowledge(void* p0, void* p1, void* p2/*??, void* p3*/) {
                 //
 
                 // Get part referenced by stack memory variable name (path).
-//??                get_name_item_element(p0, p3, smd, smc);
+                get_name_item_element(p0, p3, smd, smc);
             }
         }
-*/
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

@@ -19,6 +19,7 @@
 Stack
 _____
 
+        * CONTINUE with last two files "expose_gui_deserialiser.c" and "button_release_mouse_gui_deserialiser.c"
         * Hand over stack memory as argument to all functions of applicator and related files
         * Continue with function "get_part_knowledge" by enabling stack memory
 

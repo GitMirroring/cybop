@@ -66,9 +66,10 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory data
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_sense(void* p0, void* p1, void* p2, void* p3) {
+void apply_sense(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply sense.");
 
@@ -103,15 +104,15 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3) {
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) CHANNEL_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get service id part.
-    get_part_name((void*) &i, p0, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &i, p0, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) IDENTIFICATION_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get service name part.
-    get_part_name((void*) &se, p0, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &se, p0, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SERVICE_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get handler part.
-    get_part_name((void*) &h, p0, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &h, p0, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) HANDLER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get sender part.
-    get_part_name((void*) &s, p0, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME, (void*) SENDER_SENSE_LIFE_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -132,7 +133,7 @@ void apply_sense(void* p0, void* p1, void* p2, void* p3) {
     // Get sender part model item data.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    sense(p3, imd, (void*) &h, (void*) &smd, semd, semc, cmd);
+    sense(p4, imd, (void*) &h, (void*) &smd, semd, semc, cmd);
 }
 
 /* SENSE_SOURCE */
