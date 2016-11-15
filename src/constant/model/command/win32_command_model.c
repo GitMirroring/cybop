@@ -118,5 +118,21 @@ static int* SORT_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_
 static wchar_t* LIST_TASKS_WIN32_COMMAND_MODEL = L"tasklist";
 static int* LIST_TASKS_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The who am i win32 command model. */
+static wchar_t* WHO_AM_I_WIN32_COMMAND_MODEL = L"whoami";
+static int* WHO_AM_I_WIN32_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The top win32 command model. */
+static wchar_t* TOP_WIN32_COMMAND_MODEL = L"tasklist";
+static int* TOP_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ifconfi win32 command model. */
+static wchar_t* IFCONFIG_WIN32_COMMAND_MODEL = L"ipconfig";
+static int* IFCONFIG_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ifconfi win32 command model. */
+static wchar_t* W_WIN32_COMMAND_MODEL = L"net user";
+static int* W_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* WIN32_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif

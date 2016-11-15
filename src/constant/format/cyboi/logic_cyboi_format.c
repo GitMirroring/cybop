@@ -212,6 +212,21 @@ static int* DELAY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1327_INTEGER_STATE_CYBOI_M
 /** The spellcheck command logic cyboi format. */
 static int* SPELLCHECK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1328_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The who am i command logic cyboi format. */
+static int* WHO_AM_I_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The who command logic cyboi format. */
+static int* WHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1331_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The top command logic cyboi format. */
+static int* TOP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1332_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ifconfig command logic cyboi format. */
+static int* IFCONFIG_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1333_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The id command logic cyboi format. */
+static int* ID_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 //
 // communicate
 //
