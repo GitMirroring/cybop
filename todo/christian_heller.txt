@@ -20,22 +20,21 @@ Stack
 _____
 
         CONTINUE WITH:
-        * Check why cybol example application "counter_stack" does not work
+        * Inspect file "knowledge_part_getter.c", function "get_name_item_element", function "get_name_array", function "find_name_array"
+        * Adapt function "find_name_array" in file "array_name_finder.c" to offer search for first OR last element by just ONE argument, in order to avoid redundancies
+        * Deliver stack element that was added LAST in case many equally named elements exist (LIFO), in file "knowledge_part_getter.c" (first if-branch)
 
-        * Use different FIND function, starting search from the end
-        * Deliver element that was added LAST in case many equally named elements exist (LIFO)
-
-        * Use cybol example application "counter_stack" to test stack variables
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
 
         * Rename memories into: system (internal), heap (knowledge), stack??
 
-        * Use deep copying (??) for local stack variables in "controller/handler/element_properties_handler.c"
+        * Use (deep) copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
             replace existing testwise implementation which only allows copying of integer values
 
         * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
         * See file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
+        * Delete these files later
 
 Clone
 _____

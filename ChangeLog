@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-11-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Complete stack memory handling (works only for integer values, until copy/clone is ready in the future)
+        * Use cybol example application "counter_stack" to test stack variables
+
 2016-11-14  Christian Heller  <christian.heller@tuxtax.de>
 
         * Forward stack memory as argument throughout cyboi system

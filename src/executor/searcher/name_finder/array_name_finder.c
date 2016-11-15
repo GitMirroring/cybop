@@ -60,7 +60,7 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
-    int r = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -93,7 +93,7 @@ void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // Compare part p name item with given name p2.
         compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
 
-        if (r != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // The part with the searched name has been found.
 

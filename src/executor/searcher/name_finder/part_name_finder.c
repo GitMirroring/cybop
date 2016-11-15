@@ -28,19 +28,18 @@
 
 #include "../../../constant/format/cybol/number_cybol_type.c"
 #include "../../../constant/format/cybol/path_cybol_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
-#include "../../../variable/reallocation_factor.c"
 
 /**
- * Finds a part with the searched name array in the investigated part.
+ * Finds a part with the searched name in the investigated part.
  *
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated part (each element pointing to a part)
@@ -63,7 +62,7 @@ void find_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 }
 
 /**
- * Finds a part with the searched name part in the investigated part.
+ * Finds a part with the searched name in the investigated part.
  *
  * @param p0 the index (if found; unchanged otherwise)
  * @param p1 the investigated part (each element pointing to a part)
