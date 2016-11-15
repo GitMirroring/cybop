@@ -19,22 +19,16 @@
 Stack
 _____
 
-        * CONTINUE with last two files "expose_gui_deserialiser.c" and "button_release_mouse_gui_deserialiser.c"
-        * Hand over stack memory as argument to all functions of applicator and related files
-        * Continue with function "get_part_knowledge" by enabling stack memory
+        CONTINUE WITH:
+        * Check why cybol example application "counter_stack" does not work
 
-        * Implement access to stack memory from within cybol
-        * Forward stack memory as argument throughout cyboi system
+        * Use different FIND function, starting search from the end
         * Deliver element that was added LAST in case many equally named elements exist (LIFO)
 
         * Use cybol example application "counter_stack" to test stack variables
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
 
-        * Use a third cybol path format "path/stack" or "memory/stack" ??
-            rather NOT, since just a name has to be handed over to get the last element with that name from stack
-            dot-notation would allow random access, which is not wanted
-            therefore, no new path format but just using "text/plain" to hand over name of stack variable
         * Rename memories into: system (internal), heap (knowledge), stack??
 
         * Use deep copying (??) for local stack variables in "controller/handler/element_properties_handler.c"

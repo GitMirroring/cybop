@@ -126,7 +126,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p18, p14, p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p18, p14, p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 
@@ -136,7 +136,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_gui_initial(p10, p11, p12, p13, p16, p18, p8);
+            serialise_gui_initial(p10, p11, p12, p13, p16, p17, p18, p8);
         }
     }
 
@@ -156,7 +156,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_http_response(p0, p10, p11, p12, p13, p16);
+            serialise_http_response(p0, p10, p11, p12, p13, p16, p17);
         }
     }
 
@@ -166,7 +166,7 @@ void serialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p18, p14, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
+            serialise_tui_initial(p0, p10, p11, p12, p13, p16, p17, p18, p14, p15, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p8);
         }
     }
 

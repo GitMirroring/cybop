@@ -222,7 +222,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
 //?? fwprintf(stdout, L"TEST apply send *mmc: %i\n", *((int*) mmc));
 //?? fwprintf(stdout, L"TEST apply send *mpc: %i\n", *((int*) mpc));
 
-    send_data(rm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, cmd, emd, lmd, lpd, lpc, fmd, td, mmd, mmc, mpd, mpc, (void*) &m, clmd, nlmd, ntmd, p2, p4);
+    send_data(rm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, cmd, emd, lmd, lpd, lpc, fmd, td, mmd, mmc, mpd, mpc, (void*) &m, clmd, nlmd, ntmd, p2, p3, p4);
 
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

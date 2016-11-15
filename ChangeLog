@@ -20,7 +20,8 @@
 
 2016-11-14  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Hand over stack memory as argument to all functions of applicator and related files
+        * Forward stack memory as argument throughout cyboi system
+        * Implement access to stack memory from within cybol via format "path/stack"
 
 2016-11-13  Christian Heller  <christian.heller@tuxtax.de>
 

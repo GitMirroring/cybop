@@ -174,7 +174,7 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
     // Serialise layout.
     // CAUTION! A layout is useful for both,
     // element AND window below.
-    serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, lpd, lpc, p10, lmd, lmc);
+    serialise_layout(p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, lpd, lpc, p10, p11, lmd, lmc);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -190,13 +190,13 @@ fwprintf(stdout, L"TEST serialise gui properties: %i\n", p0);
 
         // This is a gui child element and NOT the root window.
 
-        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p8, p9, p10);
+        serialise_gui_element(p0, p1, p2, p3, p4, p5, p6, p7, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11);
 
     } else {
 
         // This is the root window.
 
-        serialise_gui_window(p0, p2, p5, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p8, p9, p10);
+        serialise_gui_window(p0, p2, p5, (void*) &pmdx, (void*) &pmdy, (void*) &smdw, (void*) &smdh, p8, p9, p10, p11);
     }
 }
 

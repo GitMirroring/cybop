@@ -43,8 +43,9 @@
  * @param p1 the source whole data
  * @param p2 the source whole index of the part
  * @param p3 the knowledge memory part
+ * @param p4 the stack memory item
  */
-void get_part_index(void* p0, void* p1, void* p2, void* p3) {
+void get_part_index(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part index.");
 
@@ -61,7 +62,7 @@ void get_part_index(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Get actual destination part behind source model part.
-    get_part_knowledge(p0, (void*) &s, p3);
+    get_part_knowledge(p0, (void*) &s, p3, p4);
 }
 
 /* INDEX_PART_GETTER_SOURCE */

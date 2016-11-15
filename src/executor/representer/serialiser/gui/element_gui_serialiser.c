@@ -108,7 +108,7 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
     copy_array_forward((void*) &shmc, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise context.
-    serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14);
+    serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15);
     // Serialise shape.
     serialise_gui_shape(p0, p1, p2, p3, p5, p8, p9, p10, p11, shmd, shmc);
     // Serialise text.
