@@ -454,7 +454,7 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_who(p0, p1, p3);
+            apply_who(p0, p1, p3, p4);
         }
     }
 

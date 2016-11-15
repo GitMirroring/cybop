@@ -41,8 +41,13 @@
 
 /**
  * Display who.
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_who(void* p0, void* p1, void* p2) {
+void apply_who(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"who.");
 
@@ -53,7 +58,7 @@ void apply_who(void* p0, void* p1, void* p2) {
 // The ALL part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
 // Get ALL part.
-    get_part_name((void*) &a, p0, (void*) ALL_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &a, p0, (void*) ALL_DATE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DATE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 // Get ALL part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 // Get ALL part model item data.
