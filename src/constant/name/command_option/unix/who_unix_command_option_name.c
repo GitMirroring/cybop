@@ -30,9 +30,13 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The ALL date format unix command option name. */
+/** The ALL who format unix command option name. */
 static wchar_t* ALL_WHO_UNIX_COMMAND_OPTION_NAME = L"-a";
 static int* ALL_WHO_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The BOOT who format unix command option name. */
+static wchar_t* BOOT_WHO_UNIX_COMMAND_OPTION_NAME = L"-b";
+static int* BOOT_WHO_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* WHO_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif
