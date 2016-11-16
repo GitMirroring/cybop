@@ -42,12 +42,49 @@
 /**
  * Display top.
  */
-void apply_top() {
+void apply_top(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"top.");
 
+    // The ALL part.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    command_top();
+	// The ALL part model item.
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* hm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+	// The ALL part model item data.
+    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+	// Get ALL part.
+    get_part_name((void*) &b, p0, (void*) BATCH_TOP_COMMANDER_LOGIC_CYBOL_NAME, (void*) BATCH_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) COMMAND_TOP_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &h, p0, (void*) THREAD_TOP_COMMANDER_LOGIC_CYBOL_NAME, (void*) THREAD_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) IDLE_TOP_COMMANDER_LOGIC_CYBOL_NAME, (void*) IDLE_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SECURE_TOP_COMMANDER_LOGIC_CYBOL_NAME, (void*) SECURE_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+	// Get ALL part model item.
+    copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+	// Get ALL part model item data.
+    copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    command_top(bmd, cmd, hmd, imd, smd);
 }
 
 /* TOP_SOURCE */

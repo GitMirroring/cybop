@@ -464,7 +464,7 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_top();
+            apply_top(p0, p1, p2, p3);
         }
     }
 

@@ -62,7 +62,7 @@
     #include <unistd.h>
 #endif
 
-void command_top() {
+void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command top.");
 
@@ -88,7 +88,116 @@ void command_top() {
         append_item_element(arg, (void*) TOP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TOP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 
-        
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, bmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append ALL option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) BATCH_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BATCH_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) BATCH_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BATCH_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) BATCH_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BATCH_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+// The comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, cmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append ALL option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) COMMAND_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMMAND_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) COMMAND_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMMAND_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) COMMAND_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COMMAND_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+
+// The comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, hmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append ALL option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) THREAD_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) THREAD_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) THREAD_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) THREAD_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) THREAD_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) THREAD_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+// The comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, imd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append ALL option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) IDLE_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) IDLE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) IDLE_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) IDLE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) IDLE_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) IDLE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+// The comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, smd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append ALL option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) SECURE_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SECURE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) SECURE_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SECURE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) SECURE_TOP_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SECURE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
 
         // Get arguments item data, count.
         copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

@@ -30,6 +30,25 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The BATCH top format unix command option name. */
+static wchar_t* BATCH_TOP_UNIX_COMMAND_OPTION_NAME = L"-b";
+static int* BATCH_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The COMMAND top format unix command option name. */
+static wchar_t* COMMAND_TOP_UNIX_COMMAND_OPTION_NAME = L"-c";
+static int* COMMAND_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The THREAD top format unix command option name. */
+static wchar_t* THREAD_TOP_UNIX_COMMAND_OPTION_NAME = L"-h";
+static int* THREAD_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The IDLE top format unix command option name. */
+static wchar_t* IDLE_TOP_UNIX_COMMAND_OPTION_NAME = L"-i";
+static int* IDLE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The SECURE top format unix command option name. */
+static wchar_t* SECURE_TOP_UNIX_COMMAND_OPTION_NAME = L"-s";
+static int* SECURE_TOP_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 
 /* TOP_COMMAND_OPTION_NAME_CONSTANT_SOURCE */

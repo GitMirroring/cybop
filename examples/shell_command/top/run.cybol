@@ -1,7 +1,11 @@
 <node>
 
     <node name="who" channel="inline" format="command/top" model="">
-        
+        <node name="batch" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="command" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="thread" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="idle" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="secure" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
