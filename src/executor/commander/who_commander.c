@@ -62,7 +62,7 @@
     #include <unistd.h>
 #endif
 
-void command_who(void* amd, void* bmd) {
+void command_who(void* amd, void* bmd, void* dmd, void* lmd, void* smd) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command who.");
 
@@ -127,6 +127,69 @@ void command_who(void* amd, void* bmd) {
 		    append_item_element(arg, (void*) BOOT_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BOOT_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 	#else
 		    append_item_element(arg, (void*) BOOT_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BOOT_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+	r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, dmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append DEAD option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) DEAD_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DEAD_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) DEAD_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DEAD_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) DEAD_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DEAD_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append LOGIN option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) LOGIN_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOGIN_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) LOGIN_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOGIN_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) LOGIN_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOGIN_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#endif
+
+		}
+
+r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, smd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+		    // Append SHORT option - Unix only.
+		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+	#ifdef __APPLE__
+		    append_item_element(arg, (void*) SHORT_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#elif WIN32
+
+	#elif GNU_LINUX_OPERATING_SYSTEM
+		    append_item_element(arg, (void*) SHORT_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+	#else
+		    append_item_element(arg, (void*) SHORT_WHO_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_WHO_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 	#endif
 
 		}
