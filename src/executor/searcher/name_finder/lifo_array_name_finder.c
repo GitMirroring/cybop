@@ -1,0 +1,106 @@
+/*
+ * Copyright (C) 1999-2015. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.17.0 2015-04-20
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef LIFO_ARRAY_NAME_FINDER_SOURCE
+#define LIFO_ARRAY_NAME_FINDER_SOURCE
+
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/comparator/all/part_all_comparator.c"
+#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../../executor/modifier/copier/array_copier.c"
+#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../logger/logger.c"
+
+/**
+ * Finds a part with the given name in the investigated array,
+ * using the last-in-first-out (lifo) principle (stack).
+ *
+ * @param p0 the index (if found; unchanged otherwise)
+ * @param p1 the investigated data (each element pointing to a part)
+ * @param p2 the searched name data
+ * @param p3 the searched name count
+ * @param p4 the investigated count
+ */
+void find_name_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array lifo.");
+
+    // The break flag.
+    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The loop variable.
+    // CAUTION! The value of -1 causes the loop to break by default.
+    int j = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
+    // The part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    // Initialise loop variable.
+    // CAUTION! It gets changed ONLY IF the loop count handed over
+    // as argument is valid (not null).
+    // Otherwise, it just gets ignored inside the copy function.
+    copy_integer((void*) &j, p4);
+
+    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_smaller((void*) &b, (void*) &j, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+
+        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The maximum loop count has been reached.
+            // All elements have been compared.
+            // A part with the searched name could not be found.
+            // Leave index untouched.
+
+            break;
+        }
+
+        // Get part j from investigated pointer array p1.
+        copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        // Compare part p name item with given name p2.
+        compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The part with the searched name has been found.
+
+            // Remember the index.
+            copy_integer(p0, (void*) &j);
+
+            // The loop may be left now.
+            break;
+        }
+
+        j--;
+    }
+}
+
+/* LIFO_ARRAY_NAME_FINDER_SOURCE */
+#endif

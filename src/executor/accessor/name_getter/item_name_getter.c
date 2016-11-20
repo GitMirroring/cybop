@@ -26,6 +26,7 @@
 #ifndef ITEM_NAME_GETTER_SOURCE
 #define ITEM_NAME_GETTER_SOURCE
 
+#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -39,8 +40,9 @@
  * @param p1 the source whole item
  * @param p2 the part name data
  * @param p3 the part name count
+ * @param p4 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void get_name_item_element(void* p0, void* p1, void* p2, void* p3) {
+void get_name_item_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name item element.");
 
@@ -53,7 +55,7 @@ void get_name_item_element(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Get destination part with given name from source whole item data.
-    get_name_array(p0, d, p2, p3, c);
+    get_name_array(p0, d, p2, p3, c, p4);
 }
 
 /**
@@ -62,8 +64,9 @@ void get_name_item_element(void* p0, void* p1, void* p2, void* p3) {
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole item
  * @param p2 the part name item
+ * @param p3 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void get_name_item(void* p0, void* p1, void* p2) {
+void get_name_item(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name item.");
 
@@ -82,7 +85,7 @@ void get_name_item(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &nc, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Get destination part with given name from source whole item data.
-    get_name_array(p0, d, nd, nc, c);
+    get_name_array(p0, d, nd, nc, c, p3);
 }
 
 /* ITEM_NAME_GETTER_SOURCE */

@@ -126,7 +126,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 //
 
                 // Get part referenced by stack memory variable name (path).
-                get_name_item_element(p0, p3, smd, smc);
+                get_name_item_element(p0, p3, smd, smc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
 

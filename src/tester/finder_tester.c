@@ -327,7 +327,7 @@ void test_finder_part_by_name() {
     void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Find part in whole by name.
-    get_name_part_element((void*) &f, w, (void*) L"part_two", (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    get_name_part_element((void*) &f, w, (void*) L"part_two", (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     //
     // Output test results.

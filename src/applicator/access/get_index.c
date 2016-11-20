@@ -98,7 +98,7 @@ void apply_get_index(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &wmc, wm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Determine index of searched part within whole.
-    find_name_array(imd, wmd, pmd, pmc, wmc);
+    find_name_array(imd, wmd, pmd, pmc, wmc, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 }
 
 /* GET_INDEX_SOURCE */

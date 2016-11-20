@@ -58,7 +58,7 @@ void get_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source model part by name.
-    get_name_array((void*) &s, p1, p2, p3, p4);
+    get_name_array((void*) &s, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Get actual destination part behind source model part.
     get_part_knowledge(p0, (void*) &s, p5, p6);

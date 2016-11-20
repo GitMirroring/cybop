@@ -118,7 +118,7 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
             // or zero (name does not exist) right at the beginning,
             // then no knowledge part could be found before
             // and therefore, the destination remains UNTOUCHED.
-            get_name_part_element(p0, p1, sd, (void*) &sc, p4);
+            get_name_part_element(p0, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // CAUTION! There is NO USE in processing the knowledge hierarchy
             // recursively further down here, since the part was the
@@ -149,7 +149,7 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
             // In order to avoid this, the p0 result parametre
             // gets only assigned the final part in the
             // block with break condition further above.
-            get_name_part_element((void*) &p, p1, sd, (void*) &sc, p4);
+            get_name_part_element((void*) &p, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // Process knowledge hierarchy recursively further down.
             //

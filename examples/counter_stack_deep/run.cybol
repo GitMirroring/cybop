@@ -10,13 +10,13 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="counter_stack/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="counter_stack_deep/app.cybol"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack_deep.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
@@ -28,20 +28,8 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
-    <!-- Possibility 1: local variables specified directly as properties -->
-<!--
-    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="file" format="element/part" model="counter_stack/logic.cybol">
-            <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-            <node name="index" channel="inline" format="number/integer" model="1"/>
-            <node name="count" channel="inline" format="number/integer" model="10"/>
-        </node>
-    </node>
--->
-
-    <!-- Possibility 2: local variables specified in knowledge tree -->
-    <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
+    <node name="execute_loop" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.loop_1"/>
     </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
@@ -49,6 +37,13 @@
 </node>
 
 <!--
-    This example uses a loop to print the numbers 1 to 10 to screen.
+    This example uses three nested loops to print numbers onto the screen.
     It uses local stack variables instead of global heap variables.
+    Its purpose is to test correct usage of the "last in first out" (LIFO) principle.
+    The inner loops use the same variable names as the outer loops and
+    inner ones (written to the stack as last) should have higher priority
+    and cover the outer identical names, respectively.
+    Upon leaving the inner loop, its local stack variables should get destroyed,
+    so that the values valid for the outer loop are then active again.
+    On re-entering the inner loop, its local variables are written to the stack again.
 -->

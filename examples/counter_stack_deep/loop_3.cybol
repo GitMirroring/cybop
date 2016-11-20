@@ -1,0 +1,17 @@
+<node>
+
+    <!-- The break condition has to be GREATER-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/stack" model="break"/>
+        <node name="left" channel="inline" format="path/stack" model="index"/>
+        <node name="right" channel="inline" format="path/stack" model="count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="print_numbers" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="path/stack" model="break"/>
+        <node name="model" channel="inline" format="path/knowledge" model=".app.model_3"/>
+    </node>
+
+</node>

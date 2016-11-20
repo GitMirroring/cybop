@@ -42,8 +42,9 @@
  * @param p2 the part name data
  * @param p3 the part name count
  * @param p4 the source whole count
+ * @param p5 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name array.");
 
@@ -51,7 +52,7 @@ void get_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
     int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 
     // Determine index of searched part.
-    find_name_array((void*) &i, p1, p2, p3, p4);
+    find_name_array((void*) &i, p1, p2, p3, p4, p5);
 
     if (i > *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
 

@@ -162,7 +162,7 @@ fwprintf(stdout, L"TEST deserialise path nmd: %ls\n", (wchar_t*) nmd);
             // In order to avoid this, the p0 result parametre
             // gets only assigned the final part in the
             // block with break condition further above.
-            get_name_part_element((void*) &p, p1, nmd, nmc, p4);
+            get_name_part_element((void*) &p, p1, nmd, nmc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
 /*??
 fwprintf(stdout, L"TEST deserialise path p: %i\n", p);

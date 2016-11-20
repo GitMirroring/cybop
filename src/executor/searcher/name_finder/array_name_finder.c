@@ -29,15 +29,9 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
-#include "../../../executor/comparator/all/part_all_comparator.c"
-#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../executor/searcher/name_finder/fifo_array_name_finder.c"
+#include "../../../executor/searcher/name_finder/lifo_array_name_finder.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -48,63 +42,32 @@
  * @param p2 the searched name data
  * @param p3 the searched name count
  * @param p4 the investigated count
+ * @param p5 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void find_name_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Find name array.");
 
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The loop variable.
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_greater_or_equal((void*) &b, (void*) &j, p4);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The maximum loop count has been reached.
-            // All elements have been compared.
-            // A part with the searched name could not be found.
-            // Leave index untouched.
-
-            break;
-        }
-
-        // Get part j from investigated pointer array p1.
-        copy_array_forward((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
-        // Compare part p name item with given name p2.
-        compare_all_part_element((void*) &r, p, p2, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) NAME_PART_STATE_CYBOI_NAME);
+        compare_integer_unequal((void*) &r, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The part with the searched name has been found.
+            // The lifo flag IS set.
 
-            // Remember the index.
-            copy_integer(p0, (void*) &j);
-
-            // The loop may be left now.
-            break;
+            find_name_array_lifo(p0, p1, p2, p3, p4);
         }
+    }
 
-        j++;
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The lifo flag is NOT set.
+
+        find_name_array_fifo(p0, p1, p2, p3, p4);
     }
 }
 

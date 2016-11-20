@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-11-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Create cybol example application "counter_stack_deep" to test LIFO-principle with equally named stack variables within three nested loops
+        * Adapt cyboi functions to offer part search by FIFO or LIFO principle
+        * Deliver stack element that was added last in file "knowledge_part_getter.c"
+
 2016-11-15  Christian Heller  <christian.heller@tuxtax.de>
 
         * Complete stack memory handling (works only for integer values, until copy/clone is ready in the future)

@@ -40,8 +40,9 @@
  * @param p2 the part name data
  * @param p3 the part name count
  * @param p4 the destination part element index
+ * @param p5 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name part element.");
 
@@ -52,7 +53,7 @@ void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
 
     // Get destination part with given name from source whole data item.
-    get_name_item_element(p0, s, p2, p3);
+    get_name_item_element(p0, s, p2, p3, p5);
 }
 
 /**
@@ -61,8 +62,9 @@ void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
  * @param p2 the part name part
+ * @param p3 the lifo flag (use last-in-first-out instead of first-in-first-out)
  */
-void get_name_part(void* p0, void* p1, void* p2) {
+void get_name_part(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name part.");
 
@@ -77,7 +79,7 @@ void get_name_part(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &n, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
 
     // Get destination part with given name from source whole data item.
-    get_name_item(p0, s, n);
+    get_name_item(p0, s, n, p3);
 }
 
 /* PART_NAME_GETTER_SOURCE */
