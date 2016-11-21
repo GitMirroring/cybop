@@ -61,7 +61,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* EXIT_LIVE_LOGIC_CYBOL_FORMAT = L"live/exit";
+static wchar_t EXIT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'e', L'x', L'i', L't'};
+static wchar_t* EXIT_LIVE_LOGIC_CYBOL_FORMAT = EXIT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* EXIT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -71,7 +72,8 @@ static int* EXIT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * This is a CYBOL extension.
  */
-static wchar_t* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT = L"live/interrupt";
+static wchar_t INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L'i', L'n', L't', L'e', L'r', L'r', L'u', L'p', L't'};
+static wchar_t* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT = INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -81,7 +83,8 @@ static int* INTERRUPT_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SENSE_LIVE_LOGIC_CYBOL_FORMAT = L"live/sense";
+static wchar_t SENSE_LIVE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'i', L'v', L'e', L'/', L's', L'e', L'n', L's', L'e'};
+static wchar_t* SENSE_LIVE_LOGIC_CYBOL_FORMAT = SENSE_LIVE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SENSE_LIVE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LIVE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

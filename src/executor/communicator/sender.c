@@ -70,10 +70,9 @@
  * @param p16 the newline flag
  * @param p17 the termination flag
  * @param p18 the knowledge memory part
- * @param p19 the stack memory item
- * @param p20 the internal memory data
+ * @param p19 the internal memory data
  */
-void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19, void* p20) {
+void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16, void* p17, void* p18, void* p19) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Send.");
 
@@ -125,7 +124,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // CAUTION! The buffer argument may be of either
     // type "char" or type "wchar_t", which is IRRELEVANT.
     // This function knows how to handle it, depending on the given language.
-    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19, p20);
+    send_serialise((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p15, p16, p18, p19);
 //?? fwprintf(stdout, L"TEST send data serialise *ac: %i\n", *((int*) ac));
 //?? fwprintf(stdout, L"TEST send data serialise ad: %s\n", (char*) ad);
     //?? TODO: The newline flag causes a newline to be added at the end of each part.
@@ -142,7 +141,7 @@ void send_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
     // Write message.
     // CAUTION! Hand over message as POINTER REFERENCE, not just pointer.
     // The pointer is used inside to count sent data due to socket buffer limit.
-    send_write(p0, (void*) &ad, ac, p20, p14, p3);
+    send_write(p0, (void*) &ad, ac, p19, p14, p3);
 
     // Deallocate serialised wide character item.
     deallocate_item((void*) &s, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

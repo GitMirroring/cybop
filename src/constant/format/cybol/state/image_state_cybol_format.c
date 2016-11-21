@@ -28,7 +28,6 @@
 #define IMAGE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
-
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -54,7 +53,7 @@
 //
 
 /**
- * The image/cis-cod state cybol format.
+ * The image/cis-cod state cybol type.
  *
  * CIS-Cod files.
  * Registered.
@@ -64,7 +63,7 @@ static wchar_t* CIS_COD_IMAGE_STATE_CYBOL_FORMAT = L"image/cis-cod";
 static int* CIS_COD_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/cmu-raster state cybol format.
+ * The image/cmu-raster state cybol type.
  *
  * CMU-Raster files.
  * Registered.
@@ -74,7 +73,7 @@ static wchar_t* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT = L"image/cmu-raster";
 static int* CMU_RASTER_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/fif state cybol format.
+ * The image/fif state cybol type.
  *
  * FIF files.
  * Registered.
@@ -84,7 +83,7 @@ static wchar_t* FIF_IMAGE_STATE_CYBOL_FORMAT = L"image/fif";
 static int* FIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/gif state cybol format.
+ * The image/gif state cybol type.
  *
  * GIF image.
  * Defined in RFC 2045 and RFC 2046.
@@ -94,7 +93,7 @@ static wchar_t* GIF_IMAGE_STATE_CYBOL_FORMAT = L"image/gif";
 static int* GIF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/ief state cybol format.
+ * The image/ief state cybol type.
  *
  * IEF files.
  * Registered.
@@ -104,7 +103,7 @@ static wchar_t* IEF_IMAGE_STATE_CYBOL_FORMAT = L"image/ief";
 static int* IEF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/jpeg state cybol format.
+ * The image/jpeg state cybol type.
  *
  * JPEG JFIF image.
  * Defined in RFC 2045 and RFC 2046.
@@ -114,7 +113,7 @@ static wchar_t* JPEG_IMAGE_STATE_CYBOL_FORMAT = L"image/jpeg";
 static int* JPEG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/png state cybol format.
+ * The image/png state cybol type.
  *
  * Portable Network Graphics.
  * Registered.
@@ -124,7 +123,7 @@ static wchar_t* PNG_IMAGE_STATE_CYBOL_FORMAT = L"image/png";
 static int* PNG_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/tiff state cybol format.
+ * The image/tiff state cybol type.
  *
  * Tag Image File Format.
  * Defined in RFC 3302.
@@ -134,7 +133,7 @@ static wchar_t* TIFF_IMAGE_STATE_CYBOL_FORMAT = L"image/tiff";
 static int* TIFF_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/vasa state cybol format.
+ * The image/vasa state cybol type.
  *
  * Vasa files.
  * Registered.
@@ -144,7 +143,7 @@ static wchar_t* VASA_IMAGE_STATE_CYBOL_FORMAT = L"image/vasa";
 static int* VASA_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/vnd.wap.wbmp state cybol format.
+ * The image/vnd.wap.wbmp state cybol type.
  *
  * Bitmap files (WAP).
  * Registered.
@@ -154,7 +153,7 @@ static wchar_t* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT = L"image/vnd.wap.wbmp";
 static int* VND_WAP_WBMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-freehand state cybol format.
+ * The image/x-freehand state cybol type.
  *
  * Freehand files.
  * Registered.
@@ -164,7 +163,7 @@ static wchar_t* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT = L"image/x-freehand";
 static int* X_FREEHAND_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-icon state cybol format.
+ * The image/x-icon state cybol type.
  *
  * Icon files (f.e. Favoriten-Icons).
  * Registered.
@@ -174,7 +173,7 @@ static wchar_t* X_ICON_IMAGE_STATE_CYBOL_FORMAT = L"image/x-icon";
 static int* X_ICON_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-portable-anymap state cybol format.
+ * The image/x-portable-anymap state cybol type.
  *
  * PBM Anymap files.
  * Registered.
@@ -184,7 +183,7 @@ static wchar_t* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-
 static int* X_PORTABLE_ANYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-portable-bitmap state cybol format.
+ * The image/x-portable-bitmap state cybol type.
  *
  * PBM Bitmap files.
  * Registered.
@@ -194,7 +193,7 @@ static wchar_t* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-
 static int* X_PORTABLE_BITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-portable-graymap state cybol format.
+ * The image/x-portable-graymap state cybol type.
  *
  * PBM Graymap files.
  * Registered.
@@ -204,7 +203,7 @@ static wchar_t* X_PORTABLE_GARYMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable
 static int* X_PORTABLE_GRAYMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-portable-pixmap state cybol format.
+ * The image/x-portable-pixmap state cybol type.
  *
  * PBM Pixmap files.
  * Registered.
@@ -214,7 +213,7 @@ static wchar_t* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-portable-
 static int* X_PORTABLE_PIXMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-rgb state cybol format.
+ * The image/x-rgb state cybol type.
  *
  * RGB files.
  * Registered.
@@ -224,7 +223,7 @@ static wchar_t* X_RGB_IMAGE_STATE_CYBOL_FORMAT = L"image/x-rgb";
 static int* X_RGB_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-windowdump state cybol format.
+ * The image/x-windowdump state cybol type.
  *
  * X-Windows Dump.
  * Registered.
@@ -234,7 +233,7 @@ static wchar_t* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-windowdump";
 static int* X_WINDOWDUMP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-xbitmap state cybol format.
+ * The image/x-xbitmap state cybol type.
  *
  * XBM files.
  * Registered.
@@ -244,7 +243,7 @@ static wchar_t* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT = L"image/x-xbitmap";
 static int* X_XBITMAP_IMAGE_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The image/x-xpixmap state cybol format.
+ * The image/x-xpixmap state cybol type.
  *
  * XPM files.
  * Registered.

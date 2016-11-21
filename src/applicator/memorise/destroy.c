@@ -49,9 +49,8 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
  */
-void apply_destroy(void* p0, void* p1, void* p2, void* p3) {
+void apply_destroy(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply destroy.");
 
@@ -63,7 +62,7 @@ void apply_destroy(void* p0, void* p1, void* p2, void* p3) {
     void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_part_name((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME, (void*) MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get part type item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Get part type item data.

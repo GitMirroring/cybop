@@ -63,7 +63,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* AND_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/and";
+static wchar_t AND_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'a', L'n', L'd'};
+static wchar_t* AND_LOGIFY_LOGIC_CYBOL_FORMAT = AND_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* AND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -75,7 +76,8 @@ static int* AND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* NAND_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/nand";
+static wchar_t NAND_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'a', L'n', L'd'};
+static wchar_t* NAND_LOGIFY_LOGIC_CYBOL_FORMAT = NAND_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* NAND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -88,7 +90,8 @@ static int* NAND_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t* NEG_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/neg";
+static wchar_t NEG_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'e', L'g'};
+static wchar_t* NEG_LOGIFY_LOGIC_CYBOL_FORMAT = NEG_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* NEG_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -100,7 +103,8 @@ static int* NEG_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* NOR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/nor";
+static wchar_t NOR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'o', L'r'};
+static wchar_t* NOR_LOGIFY_LOGIC_CYBOL_FORMAT = NOR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* NOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -113,7 +117,8 @@ static int* NOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* NOT_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/not";
+static wchar_t NOT_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'n', L'o', L't'};
+static wchar_t* NOT_LOGIFY_LOGIC_CYBOL_FORMAT = NOT_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* NOT_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -125,7 +130,8 @@ static int* NOT_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* OR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/or";
+static wchar_t OR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'o', L'r'};
+static wchar_t* OR_LOGIFY_LOGIC_CYBOL_FORMAT = OR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* OR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -137,7 +143,8 @@ static int* OR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * This is a CYBOL extension.
  */
-static wchar_t* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/xnor";
+static wchar_t XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'x', L'n', L'o', L'r'};
+static wchar_t* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT = XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -149,7 +156,8 @@ static int* XNOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t* XOR_LOGIFY_LOGIC_CYBOL_FORMAT = L"logify/xor";
+static wchar_t XOR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'l', L'o', L'g', L'i', L'f', L'y', L'/', L'x', L'o', L'r'};
+static wchar_t* XOR_LOGIFY_LOGIC_CYBOL_FORMAT = XOR_LOGIFY_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* XOR_LOGIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOGIFY_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

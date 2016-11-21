@@ -43,7 +43,7 @@
 /**
  * Print byte, word, and line counts, count the number of bytes, whitespace-separated words, and newlines in each given FILE
  *
- * Expected parametres:
+ * Expected parametres: 
  * - path (required): path to the file or directory
  * - bytes (optional): Outputs the number of bytes
  * - chars (optional): Outputs the number of chars
@@ -56,9 +56,8 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
  */
-void apply_word_count(void* p0, void* p1, void* p2, void* p3) {
+void apply_word_count(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change permission.");
 
@@ -67,7 +66,7 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3) {
     // The byte part.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The char part.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;    
     // The line part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The max-length-party part.
@@ -80,9 +79,9 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3) {
     // The byte part model item.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The char part model item.
-    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;    
     // The line part model item.
-    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;    
     // The max-line-length part model item.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The word part model item.
@@ -94,27 +93,28 @@ void apply_word_count(void* p0, void* p1, void* p2, void* p3) {
     // The byte part model item data.
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The char part model item data.
-    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;    
     // The line part model item data.
-    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;    
     // The max-line-length part model item data.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The word part model item data.
     void* wmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-    // Get byte part.
-    get_part_name((void*) &b, p0, (void*) BYTE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) BYTE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-    // Get char part.
-    get_part_name((void*) &c, p0, (void*) CHAR_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) CHAR_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-     // Get line part.
-    get_part_name((void*) &l, p0, (void*) LINE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) LINE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-     // Get max-line-length part.
-    get_part_name((void*) &m, p0, (void*) MAX_LINE_LENGTH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MAX_LINE_LENGTH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-     // Get word part.
-    get_part_name((void*) &w, p0, (void*) WORD_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) WORD_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
+    // Get path part.
+    get_part_name((void*) &p, p0, (void*) PATH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get byte part.
+    get_part_name((void*) &b, p0, (void*) BYTE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) BYTE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    // Get char part.
+    get_part_name((void*) &c, p0, (void*) CHAR_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) CHAR_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+     // Get line part.
+    get_part_name((void*) &l, p0, (void*) LINE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) LINE_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+     // Get max-line-length part.
+    get_part_name((void*) &m, p0, (void*) MAX_LINE_LENGTH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MAX_LINE_LENGTH_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+     // Get word part.
+    get_part_name((void*) &w, p0, (void*) WORD_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) WORD_WORD_COUNT_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+   
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get byte part model item.

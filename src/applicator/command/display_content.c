@@ -54,9 +54,8 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
  */
-void apply_display_content(void* p0, void* p1, void* p2, void* p3) {
+void apply_display_content(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply display content of a text file.");
 
@@ -78,6 +77,7 @@ void apply_display_content(void* p0, void* p1, void* p2, void* p3) {
     // The squeeze part model item.
     void* sqzm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+
     // The path part model item data and count.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -88,14 +88,15 @@ void apply_display_content(void* p0, void* p1, void* p2, void* p3) {
     // The squeeze part model item data.
     void* sqzmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PATH_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get clear screen part.
-    get_part_name((void*) &clr, p0, (void*) CLEAR_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) CLEAR_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &clr, p0, (void*) CLEAR_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) CLEAR_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get display line numbers part.
-    get_part_name((void*) &ln, p0, (void*) NUMBER_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) NUMBER_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &ln, p0, (void*) NUMBER_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) NUMBER_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get squeeze part.
-    get_part_name((void*) &sqz, p0, (void*) SQUEEZE_BLANK_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) SQUEEZE_BLANK_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &sqz, p0, (void*) SQUEEZE_BLANK_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME, (void*) SQUEEZE_BLANK_LINES_DISPLAY_CONTENT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -121,4 +122,4 @@ void apply_display_content(void* p0, void* p1, void* p2, void* p3) {
 
 /* DISPLAY_CONTENT_SOURCE */
 #endif
-
+ 

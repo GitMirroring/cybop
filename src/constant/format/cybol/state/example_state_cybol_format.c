@@ -28,7 +28,6 @@
 #define EXAMPLE_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
-
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -54,7 +53,7 @@
 //
 
 /**
- * The example state cybol format.
+ * The example state cybol type.
  *
  * This is just offered by IANA for testing reasons.
  */

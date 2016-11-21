@@ -36,9 +36,8 @@
 #include "../../logger/logger.c"
 
 /**
- * Handles the properties.
- *
- * They represent variable values to be stored on stack memory.
+ * Handles the properties which are to be stored
+ * as local variables on stack memory.
  *
  * Remark: Cloning the properties container altogether is NOT a solution,
  * since its elements are to be added to the stack one by one anyway,

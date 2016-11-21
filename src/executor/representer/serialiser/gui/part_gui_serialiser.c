@@ -50,9 +50,8 @@
  * @param p8 the source properties data
  * @param p9 the source properties count
  * @param p10 the knowledge memory part
- * @param p11 the stack memory item
  */
-void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_gui_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui part.");
 
@@ -84,7 +83,7 @@ fwprintf(stdout, L"TEST serialise gui part: %i\n", p7);
             break;
         }
 
-        serialise_gui_part_element(p0, p1, p2, p3, p4, p5, p6, (void*) &j, p8, p9, p10, p11);
+        serialise_gui_part_element(p0, p1, p2, p3, p4, p5, p6, (void*) &j, p8, p9, p10);
 
         // Increment loop variable.
         j++;

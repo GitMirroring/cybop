@@ -62,6 +62,10 @@ static int* DISPLAY_CONTENT_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_C
 static wchar_t* DIR_WIN32_COMMAND_MODEL = L"dir";
 static int* DIR_WIN32_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The touch win32 command model. */
+static wchar_t* TOUCH_WIN32_COMMAND_MODEL = L"touch";
+static int* TOUCH_WIN32_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The echo win32 command model. */
 static wchar_t* ECHO_WIN32_COMMAND_MODEL = L"echo";
 static int* ECHO_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -117,22 +121,6 @@ static int* SORT_WIN32_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_
 /** The list tasks win32 command model. */
 static wchar_t* LIST_TASKS_WIN32_COMMAND_MODEL = L"tasklist";
 static int* LIST_TASKS_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The who am i win32 command model. */
-static wchar_t* WHO_AM_I_WIN32_COMMAND_MODEL = L"whoami";
-static int* WHO_AM_I_WIN32_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The top win32 command model. */
-static wchar_t* TOP_WIN32_COMMAND_MODEL = L"tasklist";
-static int* TOP_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The ifconfi win32 command model. */
-static wchar_t* IFCONFIG_WIN32_COMMAND_MODEL = L"ipconfig";
-static int* IFCONFIG_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The ifconfi win32 command model. */
-static wchar_t* W_WIN32_COMMAND_MODEL = L"net user";
-static int* W_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* WIN32_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif

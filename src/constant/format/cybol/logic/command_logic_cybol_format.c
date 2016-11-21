@@ -155,6 +155,16 @@ static wchar_t* DELAY_COMMAND_LOGIC_CYBOL_FORMAT = L"command/delay";
 static int* DELAY_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/touch logic cybol format.
+ *
+ * Create non-existing file.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT = L"command/touch";
+static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/diff logic cybol format.
  *
  * displays differences between two files
@@ -344,56 +354,6 @@ static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STAT
  */
 static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/word-count";
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/who-am-i logic cybol format.
- *
- * Display who am i.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who-am-i";
-static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/who logic cybol format.
- *
- * Display who.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* WHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who";
-static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/top logic cybol format.
- *
- * Display top.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* TOP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/top";
-static int* TOP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/ifconfig logic cybol format.
- *
- * Display ifconfig.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifconfig";
-static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/id logic cybol format.
- *
- * Display id.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
-static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

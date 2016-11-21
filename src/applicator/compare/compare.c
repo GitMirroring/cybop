@@ -58,11 +58,10 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
- * @param p4 the operation type
+ * @param p3 the operation type
  */
-void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
+void apply_compare(void* p0, void* p1, void* p2, void* p3) {
+    
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply compare.");
 
     // The result part.
@@ -90,17 +89,17 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The selection part model item data, count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
+    
     // Get result part.
-    get_part_name((void*) &r, p0, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME, (void*) RESULT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get left part.
-    get_part_name((void*) &lo, p0, (void*) LEFT_COMPARISON_LOGIC_CYBOL_NAME, (void*) LEFT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &lo, p0, (void*) LEFT_COMPARISON_LOGIC_CYBOL_NAME, (void*) LEFT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get right part.
-    get_part_name((void*) &ro, p0, (void*) RIGHT_COMPARISON_LOGIC_CYBOL_NAME, (void*) RIGHT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &ro, p0, (void*) RIGHT_COMPARISON_LOGIC_CYBOL_NAME, (void*) RIGHT_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_COMPARISON_LOGIC_CYBOL_NAME, (void*) TYPE_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TYPE_COMPARISON_LOGIC_CYBOL_NAME, (void*) TYPE_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get selection part.
-    get_part_name((void*) &s, p0, (void*) SELECTION_COMPARISON_LOGIC_CYBOL_NAME, (void*) SELECTION_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SELECTION_COMPARISON_LOGIC_CYBOL_NAME, (void*) SELECTION_COMPARISON_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get result part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -125,7 +124,7 @@ fwprintf(stdout, L"TEST apply compare t: %i\n", t);
 fwprintf(stdout, L"TEST apply compare s: %i\n", s);
 */
 
-    compare(rmd, lo, ro, p4, tmd, smd, smc);
+    compare(rmd, lo, ro, p3, tmd, smd, smc);
 }
 
 /* COMPARE_SOURCE */

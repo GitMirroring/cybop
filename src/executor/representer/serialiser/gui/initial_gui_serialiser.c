@@ -47,15 +47,14 @@
  * @param p2 the source properties data
  * @param p3 the source properties count
  * @param p4 the knowledge memory part
- * @param p5 the stack memory item
- * @param p6 the internal memory data
- * @param p7 the format
+ * @param p5 the internal memory data
+ * @param p6 the format
  */
-void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void serialise_gui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui initial.");
 
-fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p7));
+fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p6));
 
     // The connexion.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -74,14 +73,14 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p7));
     // CAUTION! Do NOT use "overwrite_array" function here,
     // since it adapts the array count and size.
     // But the internal array's count and size are CONSTANT.
-    copy_array_forward((void*) &c, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &s, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &w, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &gc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &f, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FONT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &s, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SCREEN_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &w, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &gc, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) GRAPHIC_CONTEXT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &f, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FONT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dc, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    serialise_gui_part_element_content(c, s, w, gc, f, dc, p0, p1, p2, p3, p4, p5, p7);
+    serialise_gui_part_element_content(c, s, w, gc, f, dc, p0, p1, p2, p3, p4, p6);
 }
 
 /* INITIAL_GUI_SERIALISER_SOURCE */

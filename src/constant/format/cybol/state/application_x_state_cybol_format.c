@@ -60,12 +60,13 @@ application/x-httpd-php-source: PHP source files
 */
 
 /**
- * The application/x-latex state cybol format.
+ * The application/x-latex state cybol type.
  *
  * LaTeX files.
  * Suffixes: tex
  */
-static wchar_t* X_LATEX_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-latex";
+static wchar_t X_LATEX_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L'l', L'a', L't', L'e', L'x'};
+static wchar_t* X_LATEX_APPLICATION_STATE_CYBOL_FORMAT = X_LATEX_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* X_LATEX_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /*??
@@ -75,12 +76,13 @@ application/x-rar-compressed: RAR archive files
 */
 
 /**
- * The application/x-tar state cybol format.
+ * The application/x-tar state cybol type.
  *
  * Tarball files.
  * Suffixes: tar
  */
-static wchar_t* X_TAR_APPLICATION_STATE_CYBOL_FORMAT = L"application/x-tar";
+static wchar_t X_TAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'p', L'p', L'l', L'i', L'c', L'a', L't', L'i', L'o', L'n', L'/', L'x', L'-', L't', L'a', L'r'};
+static wchar_t* X_TAR_APPLICATION_STATE_CYBOL_FORMAT = X_TAR_APPLICATION_STATE_CYBOL_FORMAT_ARRAY;
 static int* X_TAR_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* APPLICATION_X_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

@@ -63,9 +63,8 @@
  * @param p13 the source properties data
  * @param p14 the source properties count
  * @param p15 the knowledge memory part
- * @param p16 the stack memory item
  */
-void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
+void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise x window system context properties.");
 
@@ -140,16 +139,16 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
     void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_name((void*) &super, p13, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &fg, p13, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &bg, p13, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &lw, p13, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &ls, p13, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &cs, p13, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &js, p13, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &fs, p13, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &fr, p13, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
-    get_part_name((void*) &f, p13, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, p14, p15, p16);
+    get_part_name((void*) &super, p13, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &fg, p13, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &bg, p13, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &lw, p13, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &ls, p13, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &cs, p13, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &js, p13, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &fs, p13, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &fr, p13, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
+    get_part_name((void*) &f, p13, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, p14, p15);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -164,47 +163,47 @@ void serialise_x_window_system_context_properties(void* p0, void* p1, void* p2, 
 
     if (fg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &fg, supermd, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME, (void*) FOREGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (bg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &bg, supermd, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME, (void*) BACKGROUND_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (lw == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &lw, supermd, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &lw, supermd, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME, (void*) LINE_WIDTH_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (ls == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &ls, supermd, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &ls, supermd, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME, (void*) LINE_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (cs == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &cs, supermd, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &cs, supermd, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME, (void*) CAP_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (js == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &js, supermd, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &js, supermd, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME, (void*) JOIN_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (fs == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &fs, supermd, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &fs, supermd, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME, (void*) FILL_STYLE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (fr == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &fr, supermd, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &fr, supermd, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME, (void*) FILL_RULE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     if (f == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &f, supermd, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15, p16);
+        get_part_name((void*) &f, supermd, (void*) FONT_GUI_STATE_CYBOL_NAME, (void*) FONT_GUI_STATE_CYBOL_NAME_COUNT, supermc, p15);
     }
 
     // Get part model items.

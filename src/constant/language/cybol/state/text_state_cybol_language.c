@@ -53,7 +53,7 @@
 //
 
 /**
- * The text/authority state cybol language.
+ * The text/authority cybol language.
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
@@ -63,7 +63,7 @@ static wchar_t* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE = L"text/authority";
 static int* AUTHORITY_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/bdt state cybol language.
+ * The text/bdt cybol language.
  *
  * Behandlungsdaten-Transfer (BDT) format.
  * It belongs to the x Datentransfer (xDT) group of
@@ -77,7 +77,7 @@ static wchar_t* BDT_TEXT_STATE_CYBOL_LANGUAGE = L"text/bdt";
 static int* BDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/css state cybol language.
+ * The text/css cybol language.
  *
  * Cascading Style Sheets.
  * Defined in RFC 2318.
@@ -87,7 +87,7 @@ static wchar_t* CSS_TEXT_STATE_CYBOL_LANGUAGE = L"text/css";
 static int* CSS_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/cybol state cybol language.
+ * The text/cybol cybol language.
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
@@ -98,7 +98,7 @@ static wchar_t* CYBOL_TEXT_STATE_CYBOL_LANGUAGE = L"text/cybol";
 static int* CYBOL_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/gdt state cybol language.
+ * The text/gdt cybol language.
  *
  * Gerätedaten-Transfer (GDT) format.
  * It belongs to the x Datentransfer (xDT) group of
@@ -112,7 +112,7 @@ static wchar_t* GDT_TEXT_STATE_CYBOL_LANGUAGE = L"text/gdt";
 static int* GDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/html state cybol language.
+ * The text/html cybol language.
  *
  * Hypertext Markup Language (HTML) format.
  * Defined in RFC 2854.
@@ -122,7 +122,7 @@ static wchar_t* HTML_TEXT_STATE_CYBOL_LANGUAGE = L"text/html";
 static int* HTML_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/hxp state cybol language.
+ * The text/hxp cybol language.
  *
  * Healthcare Exchange Protocol (HXP) format.
  * An XML-based standard for medical data exchange.
@@ -135,7 +135,7 @@ static wchar_t* HXP_TEXT_STATE_CYBOL_LANGUAGE = L"text/hxp";
 static int* HXP_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/ldt state cybol language.
+ * The text/ldt cybol language.
  *
  * Labordaten-Transfer (LDT) format.
  * It belongs to the x Datentransfer (xDT) group of
@@ -149,7 +149,7 @@ static wchar_t* LDT_TEXT_STATE_CYBOL_LANGUAGE = L"text/ldt";
 static int* LDT_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/model-diagram state cybol language.
+ * The text/model-diagram cybol language.
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
@@ -159,7 +159,7 @@ static wchar_t* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE = L"text/model-diagram";
 static int* MODEL_DIAGRAM_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/uri state cybol language.
+ * The text/uri cybol language.
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
@@ -169,13 +169,13 @@ static wchar_t* URI_TEXT_STATE_CYBOL_LANGUAGE = L"text/uri";
 static int* URI_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/xdt-field-description state cybol language.
+ * The text/xdt-field-description cybol language.
  */
 static wchar_t* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE = L"text/xdt-field-description";
 static int* XDT_FIELD_DESCRIPTION_TEXT_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_26_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The text/xml state cybol language.
+ * The text/xml cybol language.
  *
  * Extensible Markup Language.
  * Defined in RFC 3023.

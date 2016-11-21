@@ -61,7 +61,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* DECODE_CONVERT_LOGIC_CYBOL_FORMAT = L"convert/decode";
+static wchar_t DECODE_CONVERT_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'n', L'v', L'e', L'r', L't', L'/', L'd', L'e', L'c', L'o', L'd', L'e'};
+static wchar_t* DECODE_CONVERT_LOGIC_CYBOL_FORMAT = DECODE_CONVERT_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -71,7 +72,8 @@ static int* DECODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT = L"convert/encode";
+static wchar_t ENCODE_CONVERT_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'n', L'v', L'e', L'r', L't', L'/', L'e', L'n', L'c', L'o', L'd', L'e'};
+static wchar_t* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT = ENCODE_CONVERT_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* ENCODE_CONVERT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CONVERT_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

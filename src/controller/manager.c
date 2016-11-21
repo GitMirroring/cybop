@@ -246,6 +246,10 @@ void manage(void* p0) {
     // to avoid steady reallocation, for better performance.
     //
     // CAUTION! The stack memory should be a simple array (item) only.
+    // If it was a part, rubbish (garbage) collection would become effective
+    // and manipulate the references count of child parts when removing them.
+    // But this is NOT necessary here, since stack entries get
+    // created and destroyed manually, when needed.
     //
     allocate_item((void*) &st, (void*) NUMBER_1024_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
     //

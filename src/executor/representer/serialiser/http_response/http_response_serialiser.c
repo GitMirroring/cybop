@@ -48,9 +48,8 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
- * @param p6 the stack memory item
  */
-void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response.");
 
@@ -78,7 +77,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     // CAUTION! The body has to be encoded FIRST, so that its count can be
     // determined, since it has to be given as http header value below.
-    serialise_http_response_body((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6);
+    serialise_http_response_body((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5);
 
     // Serialise protocol.
     serialise_http_response_protocol(p0);
@@ -93,7 +92,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     // CAUTION! The body count is handed over as argument,
     // since it gets generated into the "Content-Length:" header.
     //
-    serialise_http_response_header(p0, p3, p4, ac, p5, p6);
+    serialise_http_response_header(p0, p3, p4, ac, p5);
 
     // Serialise separator.
     //

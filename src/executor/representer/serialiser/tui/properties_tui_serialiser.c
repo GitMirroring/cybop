@@ -58,10 +58,9 @@
  * @param p4 the source whole properties data
  * @param p5 the source whole properties count
  * @param p6 the knowledge memory part
- * @param p7 the stack memory item
- * @param p8 the cli flag
+ * @param p7 the cli flag
  */
-void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui properties.");
 
@@ -168,18 +167,18 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     int wsmdy = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_name((void*) &super, p2, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &p, p2, (void*) POSITION_TUI_STATE_CYBOL_NAME, (void*) POSITION_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &s, p2, (void*) SIZE_TUI_STATE_CYBOL_NAME, (void*) SIZE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &bg, p2, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &fg, p2, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &bo, p2, (void*) BORDER_TUI_STATE_CYBOL_NAME, (void*) BORDER_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &h, p2, (void*) HIDDEN_TUI_STATE_CYBOL_NAME, (void*) HIDDEN_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &i, p2, (void*) INVERSE_TUI_STATE_CYBOL_NAME, (void*) INVERSE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &bl, p2, (void*) BLINK_TUI_STATE_CYBOL_NAME, (void*) BLINK_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &u, p2, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &b, p2, (void*) BOLD_TUI_STATE_CYBOL_NAME, (void*) BOLD_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
-    get_part_name((void*) &in, p2, (void*) INTENSE_TUI_STATE_CYBOL_NAME, (void*) INTENSE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6, p7);
+    get_part_name((void*) &super, p2, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &p, p2, (void*) POSITION_TUI_STATE_CYBOL_NAME, (void*) POSITION_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &s, p2, (void*) SIZE_TUI_STATE_CYBOL_NAME, (void*) SIZE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &bg, p2, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &fg, p2, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &bo, p2, (void*) BORDER_TUI_STATE_CYBOL_NAME, (void*) BORDER_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &h, p2, (void*) HIDDEN_TUI_STATE_CYBOL_NAME, (void*) HIDDEN_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &i, p2, (void*) INVERSE_TUI_STATE_CYBOL_NAME, (void*) INVERSE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &bl, p2, (void*) BLINK_TUI_STATE_CYBOL_NAME, (void*) BLINK_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &u, p2, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &b, p2, (void*) BOLD_TUI_STATE_CYBOL_NAME, (void*) BOLD_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
+    get_part_name((void*) &in, p2, (void*) INTENSE_TUI_STATE_CYBOL_NAME, (void*) INTENSE_TUI_STATE_CYBOL_NAME_COUNT, p3, p6);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -195,62 +194,62 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
     if (p == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &p, supermd, (void*) POSITION_TUI_STATE_CYBOL_NAME, (void*) POSITION_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &p, supermd, (void*) POSITION_TUI_STATE_CYBOL_NAME, (void*) POSITION_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (s == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &s, supermd, (void*) SIZE_TUI_STATE_CYBOL_NAME, (void*) SIZE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &s, supermd, (void*) SIZE_TUI_STATE_CYBOL_NAME, (void*) SIZE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (bg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &bg, supermd, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &bg, supermd, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME, (void*) BACKGROUND_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (fg == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &fg, supermd, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &fg, supermd, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME, (void*) FOREGROUND_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (bo == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &bo, supermd, (void*) BORDER_TUI_STATE_CYBOL_NAME, (void*) BORDER_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &bo, supermd, (void*) BORDER_TUI_STATE_CYBOL_NAME, (void*) BORDER_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (h == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &h, supermd, (void*) HIDDEN_TUI_STATE_CYBOL_NAME, (void*) HIDDEN_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &h, supermd, (void*) HIDDEN_TUI_STATE_CYBOL_NAME, (void*) HIDDEN_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (i == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &i, supermd, (void*) INVERSE_TUI_STATE_CYBOL_NAME, (void*) INVERSE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &i, supermd, (void*) INVERSE_TUI_STATE_CYBOL_NAME, (void*) INVERSE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (bl == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &bl, supermd, (void*) BLINK_TUI_STATE_CYBOL_NAME, (void*) BLINK_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &bl, supermd, (void*) BLINK_TUI_STATE_CYBOL_NAME, (void*) BLINK_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (u == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &u, supermd, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &u, supermd, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME, (void*) UNDERLINE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (b == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &b, supermd, (void*) BOLD_TUI_STATE_CYBOL_NAME, (void*) BOLD_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &b, supermd, (void*) BOLD_TUI_STATE_CYBOL_NAME, (void*) BOLD_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     if (in == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &in, supermd, (void*) INTENSE_TUI_STATE_CYBOL_NAME, (void*) INTENSE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6, p7);
+        get_part_name((void*) &in, supermd, (void*) INTENSE_TUI_STATE_CYBOL_NAME, (void*) INTENSE_TUI_STATE_CYBOL_NAME_COUNT, supermc, p6);
     }
 
     // Get parts from whole properties.
-    get_part_name((void*) &wp, p4, (void*) POSITION_TUI_STATE_CYBOL_NAME, (void*) POSITION_TUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7);
-    get_part_name((void*) &ws, p4, (void*) SIZE_TUI_STATE_CYBOL_NAME, (void*) SIZE_TUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7);
+    get_part_name((void*) &wp, p4, (void*) POSITION_TUI_STATE_CYBOL_NAME, (void*) POSITION_TUI_STATE_CYBOL_NAME_COUNT, p5, p6);
+    get_part_name((void*) &ws, p4, (void*) SIZE_TUI_STATE_CYBOL_NAME, (void*) SIZE_TUI_STATE_CYBOL_NAME_COUNT, p5, p6);
 
     // Get part model items.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -329,7 +328,7 @@ void serialise_tui_properties(void* p0, void* p1, void* p2, void* p3, void* p4, 
     //   place the cursor at a special input field.
     //   The "serialise_*_character" functions are NOT
     //   achieving this, since loops won't run with zero count.
-    serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy, p8);
+    serialise_tui_origo(p0, p1, (void*) &pmdx, (void*) &pmdy, p7);
 }
 
 /* PROPERTIES_TUI_SERIALISER_SOURCE */

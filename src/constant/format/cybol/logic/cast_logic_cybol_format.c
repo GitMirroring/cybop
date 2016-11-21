@@ -61,7 +61,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* BYTE_CAST_LOGIC_CYBOL_FORMAT = L"cast/byte";
+static wchar_t BYTE_CAST_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L's', L't', L'/', L'b', L'y', L't', L'e'};
+static wchar_t* BYTE_CAST_LOGIC_CYBOL_FORMAT = BYTE_CAST_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -71,7 +72,8 @@ static int* BYTE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * This is a CYBOL extension.
  */
-static wchar_t* CHARACTER_CAST_LOGIC_CYBOL_FORMAT = L"cast/character";
+static wchar_t CHARACTER_CAST_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L's', L't', L'/', L'c', L'h', L'a', L'r', L'a', L'c', L't', L'e', L'r'};
+static wchar_t* CHARACTER_CAST_LOGIC_CYBOL_FORMAT = CHARACTER_CAST_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* CHARACTER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -81,7 +83,8 @@ static int* CHARACTER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t* DOUBLE_CAST_LOGIC_CYBOL_FORMAT = L"cast/double";
+static wchar_t DOUBLE_CAST_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L's', L't', L'/', L'd', L'o', L'u', L'b', L'l', L'e'};
+static wchar_t* DOUBLE_CAST_LOGIC_CYBOL_FORMAT = DOUBLE_CAST_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* DOUBLE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -91,7 +94,8 @@ static int* DOUBLE_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t* INTEGER_CAST_LOGIC_CYBOL_FORMAT = L"cast/integer";
+static wchar_t INTEGER_CAST_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'a', L's', L't', L'/', L'i', L'n', L't', L'e', L'g', L'e', L'r'};
+static wchar_t* INTEGER_CAST_LOGIC_CYBOL_FORMAT = INTEGER_CAST_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* INTEGER_CAST_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CAST_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

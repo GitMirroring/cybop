@@ -27,7 +27,6 @@
 #define BLUETOOTH_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
-
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -36,9 +35,10 @@
 //
 
 /**
- * The bluetooth/synchronisation-profile state cybol format.
+ * The bluetooth/synchronisation-profile state cybol type.
  */
-static wchar_t* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_FORMAT = L"bluetooth/synchronisation-profile";
+static wchar_t SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_FORMAT_ARRAY[] = {L'b', L'l', L'u', L'e', L't', L'o', L'o', L't', L'h', L'/', L's', L'y', L'n', L'c', L'h', L'r', L'o', L'n', L'i', L'z', L'a', L't', L'i', L'o', L'n', L'-', L'p', L'r', L'o', L'f', L'i', L'l', L'e'};
+static wchar_t* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_FORMAT = SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_FORMAT_ARRAY;
 static int* SYNCHRONISATION_PROFILE_BLUETOOTH_STATE_CYBOL_FORMAT_COUNT = NUMBER_33_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* BLUETOOTH_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

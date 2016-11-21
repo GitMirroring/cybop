@@ -44,7 +44,8 @@
  *
  * Disk Operating System (DOS) Code page 850.
  */
-static wchar_t* DOS_850_CYBOL_ENCODING = L"dos-850";
+static wchar_t DOS_850_CYBOL_ENCODING_ARRAY[] = {L'd', L'o', L's', L'-', L'8', L'5', L'0'};
+static wchar_t* DOS_850_CYBOL_ENCODING = DOS_850_CYBOL_ENCODING_ARRAY;
 static int* DOS_850_CYBOL_ENCODING_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DOS_CYBOL_ENCODING_CONSTANT_SOURCE */

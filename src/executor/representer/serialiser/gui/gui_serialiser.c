@@ -58,10 +58,9 @@
  * @param p9 the source properties data
  * @param p10 the source properties count
  * @param p11 the knowledge memory part
- * @param p12 the stack memory item
- * @param p13 the format
+ * @param p12 the format
  */
-void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui.");
 
@@ -74,13 +73,13 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p13, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p12, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             // CAUTION! Do NOT call function "serialise_gui_properties" here.
             // It is called inside the "serialise_gui_part" function.
-            serialise_gui_part(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p11, p12);
+            serialise_gui_part(p0, p1, p2, p3, p4, p5, p7, p8, p9, p10, p11);
         }
     }
 
@@ -91,7 +90,7 @@ void serialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // Leave processing of other formats to cybol serialiser.
-        serialise_cybol(p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p13, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p9, p10);
+        serialise_cybol(p6, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p12, *NULL_POINTER_STATE_CYBOI_MODEL, p7, p8, p9, p10);
     }
 }
 

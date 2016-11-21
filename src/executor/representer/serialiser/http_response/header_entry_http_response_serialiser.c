@@ -42,9 +42,8 @@
  * @param p1 the source properties data
  * @param p2 the source properties index
  * @param p3 the knowledge memory part
- * @param p4 the stack memory item
  */
-void serialise_http_response_header_entry(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void serialise_http_response_header_entry(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response header entry.");
 
@@ -60,7 +59,7 @@ void serialise_http_response_header_entry(void* p0, void* p1, void* p2, void* p3
     void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part at index.
-    get_part_index((void*) &p, p1, p2, p3, p4);
+    get_part_index((void*) &p, p1, p2, p3);
 
     // Get part name, model.
     copy_array_forward((void*) &n, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);

@@ -52,9 +52,8 @@
  * @param p6 the source properties data
  * @param p7 the source properties count
  * @param p8 the knowledge memory part
- * @param p9 the stack memory item
  */
-void serialise_gui_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_gui_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui context.");
 
@@ -63,9 +62,9 @@ void serialise_gui_context(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #elif WIN32
     serialise_win32_display_context(p5, p6, p7, p8);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8, p9);
+    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8);
 #else
-    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8, p9);
+    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8);
 #endif
 }
 

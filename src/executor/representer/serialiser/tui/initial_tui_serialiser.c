@@ -45,14 +45,13 @@
  * @param p3 the source properties data
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
- * @param p6 the stack memory item
- * @param p7 the internal memory data
- * @param p8 the clear flag
- * @param p9 the newline flag
- * @param p10 the cli flag
- * @param p11 the format
+ * @param p6 the internal memory data
+ * @param p7 the clear flag
+ * @param p8 the newline flag
+ * @param p9 the cli flag
+ * @param p10 the format
  */
-void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui initial.");
 
@@ -87,7 +86,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #endif
 
     // Get output.
-    copy_array_forward((void*) &op, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &op, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // CAUTION! Handing over the output item is necessary
     // for serialising into a win32 console, since
@@ -98,7 +97,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The only difference is the CLI FLAG handed over,
     // which is used to avoid cursor positioning,
     // since that is NOT wanted for cli.
-    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p8, p9, (void*) &l, p10, (void*) &a, p11);
+    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p7, p8, (void*) &l, p9, (void*) &a, p10);
 }
 
 /* INITIAL_TUI_SERIALISER_SOURCE */

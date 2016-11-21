@@ -44,6 +44,7 @@
  *
  * Expected parametres:
  * - path: the path including wildcards for deleting files and directories
+
  * - insensitive (optional): the insensitive option (ignore upper/lowercase when searching for a file, Unix only)
  * - recursive(optional): the recursive option (recursive search, Windows only)
  *
@@ -52,9 +53,8 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
  */
-void apply_find_file(void* p0, void* p1, void* p2, void* p3) {
+void apply_find_file(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply find file.");
     printf("Bgin");
@@ -89,13 +89,14 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3) {
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get name part.
-    get_part_name((void*) &n, p0, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &n, p0, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get insensitive part.
-    get_part_name((void*) &i, p0, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get recursive part.
-    get_part_name((void*) &r, p0, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -105,6 +106,7 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3) {
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get recursive part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
 
     // Get path part model item data and count.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -122,3 +124,4 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3) {
 
 /* FIND_FILE_SOURCE */
 #endif
+ 

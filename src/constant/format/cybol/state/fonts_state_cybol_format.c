@@ -27,7 +27,6 @@
 #define FONTS_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
-
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -36,9 +35,10 @@
 //
 
 /**
- * The fonts/package state cybol format.
+ * The fonts/package state cybol type.
  */
-static wchar_t* PACKAGE_FONTS_STATE_CYBOL_FORMAT = L"fonts/package";
+static wchar_t PACKAGE_FONTS_STATE_CYBOL_FORMAT_ARRAY[] = {L'f', L'o', L'n', L't', L's', L'/', L'p', L'a', L'c', L'k', L'a', L'g', L'e'};
+static wchar_t* PACKAGE_FONTS_STATE_CYBOL_FORMAT = PACKAGE_FONTS_STATE_CYBOL_FORMAT_ARRAY;
 static int* PACKAGE_FONTS_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FONTS_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

@@ -46,11 +46,10 @@
  * @param p4 the position x
  * @param p5 the position y
  * @param p6 the knowledge memory part
- * @param p7 the stack memory item
- * @param p8 the layout data
- * @param p9 the layout count
+ * @param p7 the layout data
+ * @param p8 the layout count
  */
-void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise layout part element.");
 
@@ -92,8 +91,8 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
 */
 
     // Get parts.
-    get_part_name((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p6, p7);
-    get_part_name((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p6, p7);
+    get_part_name((void*) &p, propd, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
+    get_part_name((void*) &s, propd, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, propc, p6);
     // Get part model, properties items.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -111,7 +110,7 @@ void serialise_layout_part_element(void* p0, void* p1, void* p2, void* p3, void*
 */
 
     // Calculate part position using layout-specific formula.
-    serialise_layout_position((void*) &x, (void*) &y, p2, p3, p4, p5, p1, p8, p9);
+    serialise_layout_position((void*) &x, (void*) &y, p2, p3, p4, p5, p1, p7, p8);
 
     // Set position x, y.
     copy_array_forward(pmd, (void*) &x, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) DIMENSION_0_VECTOR_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);

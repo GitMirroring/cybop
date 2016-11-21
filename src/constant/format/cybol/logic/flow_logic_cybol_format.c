@@ -61,7 +61,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_FORMAT = L"flow/branch";
+static wchar_t BRANCH_FLOW_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'b', L'r', L'a', L'n', L'c', L'h'};
+static wchar_t* BRANCH_FLOW_LOGIC_CYBOL_FORMAT = BRANCH_FLOW_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -71,7 +72,8 @@ static int* BRANCH_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  *
  * This is a CYBOL extension.
  */
-static wchar_t* LOOP_FLOW_LOGIC_CYBOL_FORMAT = L"flow/loop";
+static wchar_t LOOP_FLOW_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L'l', L'o', L'o', L'p'};
+static wchar_t* LOOP_FLOW_LOGIC_CYBOL_FORMAT = LOOP_FLOW_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -81,7 +83,8 @@ static int* LOOP_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MO
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT = L"flow/sequence";
+static wchar_t SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'f', L'l', L'o', L'w', L'/', L's', L'e', L'q', L'u', L'e', L'n', L'c', L'e'};
+static wchar_t* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT = SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* FLOW_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

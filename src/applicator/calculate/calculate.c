@@ -58,11 +58,10 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
- * @param p4 the operation type
+ * @param p3 the operation type
  */
-void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
+void apply_calculate(void* p0, void* p1, void* p2, void* p3) {
+  
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply calculate.");
 
     // The result part.
@@ -79,11 +78,11 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_part_name((void*) &r, p0, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME, (void*) RESULT_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get operand part.
-    get_part_name((void*) &o, p0, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &o, p0, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME, (void*) OPERAND_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_CALCULATION_LOGIC_CYBOL_NAME, (void*) TYPE_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TYPE_CALCULATION_LOGIC_CYBOL_NAME, (void*) TYPE_CALCULATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get type part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -92,7 +91,7 @@ void apply_calculate(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Calculate result by applying operation.
-    calculate_all_part(r, o, p4, tmd);
+    calculate_all_part(r, o, p3, tmd);
 }
 
 /* CALCULATE_SOURCE */

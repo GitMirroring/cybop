@@ -52,11 +52,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
- * @param p4 the operation type
+ * @param p3 the operation type
  */
-void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4) {
-
+void apply_logify(void* p0, void* p1, void* p2, void* p3) {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply logify.");
 
     // The output part.
@@ -79,13 +77,13 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model item data.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-
+    
     // Get output part.
-    get_part_name((void*) &o, p0, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &o, p0, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) OUTPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get input part.
-    get_part_name((void*) &i, p0, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME, (void*) INPUT_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME, (void*) TYPE_LOGIC_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get output part model item.
     copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -104,13 +102,14 @@ void apply_logify(void* p0, void* p1, void* p2, void* p3, void* p4) {
     //fwprintf(stdout, L"pre i: %i\n", *((int*) imd));
     //fwprintf(stdout, L"pre o: %i\n", *((int*) omd));
     //fwprintf(stdout, L"pre t: %i\n", *((int*) tmd));
-
+     
+    
     //fwprintf(stdout, L"pre i: %c\n", *((char*) imd));
     //fwprintf(stdout, L"pre o: %c\n", *((char*) omd));
     //fwprintf(stdout, L"pre t: %c\n", *((char*) tmd));
-
+    
     // Calculate output by applying operation.
-    logify_value(omd, imd, p4, tmd);
+    logify_value(omd, imd, p3, tmd);
 
     //fwprintf(stdout, L"post i: %c\n", *((char*) imd));
     //fwprintf(stdout, L"post o: %c\n", *((char*) omd));

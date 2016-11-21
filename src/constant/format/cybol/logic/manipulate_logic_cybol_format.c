@@ -61,7 +61,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/check";
+static wchar_t CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'c', L'h', L'e', L'c', L'k'};
+static wchar_t* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT = CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -71,7 +72,8 @@ static int* CHECK_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/clear";
+static wchar_t CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'c', L'l', L'e', L'a', L'r'};
+static wchar_t* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT = CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -81,7 +83,8 @@ static int* CLEAR_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/rotate-left";
+static wchar_t ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'o', L't', L'a', L't', L'e', L'-', L'l', L'e', L'f', L't'};
+static wchar_t* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -91,7 +94,8 @@ static int* ROTATE_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/rotate-right";
+static wchar_t ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L'r', L'o', L't', L'a', L't', L'e', L'-', L'r', L'i', L'g', L'h', L't'};
+static wchar_t* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -101,7 +105,8 @@ static int* ROTATE_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SET_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/set";
+static wchar_t SET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'e', L't'};
+static wchar_t* SET_MANIPULATE_LOGIC_CYBOL_FORMAT = SET_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -111,7 +116,8 @@ static int* SET_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CY
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/shift-left";
+static wchar_t SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'h', L'i', L'f', L't', L'-', L'l', L'e', L'f', L't'};
+static wchar_t* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT = SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -121,7 +127,8 @@ static int* SHIFT_LEFT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_S
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/shift-right";
+static wchar_t SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L's', L'h', L'i', L'f', L't', L'-', L'r', L'i', L'g', L'h', L't'};
+static wchar_t* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT = SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -131,7 +138,8 @@ static int* SHIFT_RIGHT_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_
  *
  * This is a CYBOL extension.
  */
-static wchar_t* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT = L"manipulate/toggle";
+static wchar_t TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'm', L'a', L'n', L'i', L'p', L'u', L'l', L'a', L't', L'e', L'/', L't', L'o', L'g', L'g', L'l', L'e'};
+static wchar_t* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT = TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* TOGGLE_MANIPULATE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MANIPULATE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */

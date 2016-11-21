@@ -54,7 +54,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
+ * @param p3 the stack memory part
  * @param p4 the internal memory data
  * @param p5 the signal memory item
  * @param p6 the shutdown flag
@@ -78,11 +78,11 @@ void apply_branch(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get criterion part.
-    get_part_name((void*) &c, p0, (void*) CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get true part.
-    get_part_name((void*) &t, p0, (void*) TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2);
     // Get false part.
-    get_part_name((void*) &f, p0, (void*) FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &f, p0, (void*) FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME, (void*) FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // Get criterion part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

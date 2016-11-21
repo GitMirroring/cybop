@@ -52,7 +52,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the stack memory item
+ * @param p3 the stack memory part
  * @param p4 the internal memory data
  * @param p5 the signal memory item
  * @param p6 the shutdown flag
@@ -66,7 +66,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get model part.
-    get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2);
 
     // The direct execution flag.
     // CAUTION! The flag has to be set to true, because otherwise,

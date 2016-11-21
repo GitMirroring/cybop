@@ -61,7 +61,8 @@
  *
  * This is a CYBOL extension.
  */
-static wchar_t* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/equal";
+static wchar_t EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'e', L'q', L'u', L'a', L'l'};
+static wchar_t* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -71,7 +72,8 @@ static int* EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  *
  * This is a CYBOL extension.
  */
-static wchar_t* GREATER_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater";
+static wchar_t GREATER_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'g', L'r', L'e', L'a', L't', L'e', L'r'};
+static wchar_t* GREATER_COMPARE_LOGIC_CYBOL_FORMAT = GREATER_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -81,7 +83,8 @@ static int* GREATER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * This is a CYBOL extension.
  */
-static wchar_t* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/greater-or-equal";
+static wchar_t GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'g', L'r', L'e', L'a', L't', L'e', L'r', L'-', L'o', L'r', L'-', L'e', L'q', L'u', L'a', L'l'};
+static wchar_t* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -91,7 +94,8 @@ static int* GREATER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SMALLER_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/smaller";
+static wchar_t SMALLER_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L's', L'm', L'a', L'l', L'l', L'e', L'r'};
+static wchar_t* SMALLER_COMPARE_LOGIC_CYBOL_FORMAT = SMALLER_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SMALLER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -101,7 +105,8 @@ static int* SMALLER_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * This is a CYBOL extension.
  */
-static wchar_t* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/smaller-or-equal";
+static wchar_t SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L's', L'm', L'a', L'l', L'l', L'e', L'r', L'-', L'o', L'r', L'-', L'e', L'q', L'u', L'a', L'l'};
+static wchar_t* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT = SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -111,7 +116,8 @@ static int* SMALLER_OR_EQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  *
  * This is a CYBOL extension.
  */
-static wchar_t* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT = L"compare/unequal";
+static wchar_t UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'm', L'p', L'a', L'r', L'e', L'/', L'u', L'n', L'e', L'q', L'u', L'a', L'l'};
+static wchar_t* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT = UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT_ARRAY;
 static int* UNEQUAL_COMPARE_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMPARE_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
