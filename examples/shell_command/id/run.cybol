@@ -1,7 +1,11 @@
 <node>
 
     <node name="who" channel="inline" format="command/id" model="">
-        
+        <node name="context" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="group" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="groups" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="name" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="user" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
