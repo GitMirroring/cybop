@@ -30,9 +30,30 @@
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/**
-* No options
-*/
+/** print only the security context of the process*/
+static wchar_t CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'o', L'n', L't', L'e', L'x', L't'};
+static wchar_t* CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME = CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* CONTEXT_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**print only the effective group ID */
+static wchar_t GROUP_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'g', L'r', L'o', L'u', L'p'};
+static wchar_t* GROUP_ID_COMMANDER_LOGIC_CYBOL_NAME = GROUP_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* GROUP_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**print all group IDs */
+static wchar_t GROUPS_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'g', L'r', L'o', L'u', L'p', L's'};
+static wchar_t* GROUPS_ID_COMMANDER_LOGIC_CYBOL_NAME = GROUPS_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* GROUPS_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** print a name instead of a number, for -ugG*/
+static wchar_t NAME_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'n', L'a', L'm', L'e'};
+static wchar_t* NAME_ID_COMMANDER_LOGIC_CYBOL_NAME = NAME_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* NAME_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**print only the effective user ID */
+static wchar_t USER_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'u', L's', L'e', L'r'};
+static wchar_t* USER_ID_COMMANDER_LOGIC_CYBOL_NAME = USER_ID_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static int* USER_ID_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ID_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
