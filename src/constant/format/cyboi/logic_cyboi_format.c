@@ -212,8 +212,20 @@ static int* DELAY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1327_INTEGER_STATE_CYBOI_M
 /** The spellcheck command logic cyboi format. */
 static int* SPELLCHECK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1328_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The touch command logic cyboi format. */
-static int* TOUCH_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1329_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The who am i command logic cyboi format. */
+static int* WHO_AM_I_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The who command logic cyboi format. */
+static int* WHO_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1331_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The top command logic cyboi format. */
+static int* TOP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1332_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ifconfig command logic cyboi format. */
+static int* IFCONFIG_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1333_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The id command logic cyboi format. */
+static int* ID_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
 // communicate
@@ -440,13 +452,6 @@ static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2502_INTEGER_STATE_CYBO
 
 /** The current time logic cyboi format. */
 static int* CURRENT_TIME_LOGIC_CYBOI_FORMAT = NUMBER_2550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
-// sort
-//
-
-/** The sort/quick logic cybol format. **/
-static int* QUICK_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

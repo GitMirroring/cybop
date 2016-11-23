@@ -53,15 +53,16 @@
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the knowledge memory part
- * @param p7 the event type data
- * @param p8 the event type count
- * @param p9 the button mask
- * @param p10 the mouse x coordinate
- * @param p11 the mouse y coordinate
- * @param p12 the format data
- * @param p13 the loop break flag
+ * @param p7 the stack memory item
+ * @param p8 the event type data
+ * @param p9 the event type count
+ * @param p10 the button mask
+ * @param p11 the mouse x coordinate
+ * @param p12 the mouse y coordinate
+ * @param p13 the format data
+ * @param p14 the loop break flag
  */
-void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13) {
+void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui part element content.");
 
@@ -70,81 +71,81 @@ void deserialise_gui_part_element_content(void* p0, void* p1, void* p2, void* p3
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_expose(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_button_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_mouse_button_press(p0, p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_mouse_button_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_mouse_motion_notify(p0, p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_enter_notify(p0, p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_leave_notify(p0, p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) KEY_PRESS_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_keyboard_key_press(p0, p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_all_array((void*) &r, p7, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
+        compare_all_array((void*) &r, p8, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) KEY_RELEASE_KEYBOARD_STATE_CYBOL_NAME_COUNT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13);
+            deserialise_gui_keyboard_key_release(p0, p1, p2, p3, p4, p5, p6, p8, p9, p10, p11, p12, p13, p14);
         }
     }
 }

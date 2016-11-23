@@ -55,23 +55,21 @@
 //
 
 /**
- * The element/part state cybol type.
+ * The element/part state cybol format.
  *
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
-static wchar_t PART_ELEMENT_STATE_CYBOL_FORMAT_ARRAY[] = {L'e', L'l', L'e', L'm', L'e', L'n', L't', L'/', L'p', L'a', L'r', L't'};
-static wchar_t* PART_ELEMENT_STATE_CYBOL_FORMAT = PART_ELEMENT_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* PART_ELEMENT_STATE_CYBOL_FORMAT = L"element/part";
 static int* PART_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The element/property state cybol type.
+ * The element/property state cybol format.
  *
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
-static wchar_t PROPERTY_ELEMENT_STATE_CYBOL_FORMAT_ARRAY[] = {L'e', L'l', L'e', L'm', L'e', L'n', L't', L'/', L'p', L'r', L'o', L'p', L'e', L'r', L't', L'y'};
-static wchar_t* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT = PROPERTY_ELEMENT_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT = L"element/property";
 static int* PROPERTY_ELEMENT_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ELEMENT_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

@@ -47,19 +47,23 @@
  * @param p5 the source properties data
  * @param p6 the source properties count
  * @param p7 the knowledge memory part
- * @param p8 the internal memory data
- * @param p9 the minimum number of bytes to be received in one call of the read function
- * @param p10 the maximum number of bytes to be received in one call of the read function
- * @param p11 the channel
+ * @param p8 the stack memory item
+ * @param p9 the internal memory data
+ * @param p10 the minimum number of bytes to be received in one call of the read function
+ * @param p11 the maximum number of bytes to be received in one call of the read function
+ * @param p12 the channel
  */
-void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
-    if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Receive read.");
 
+//?? fwprintf(stdout, L"TEST: receive read *p4: %i \n", *((int*) p4));
+//?? fwprintf(stdout, L"TEST: receive read p3: %ls \n", p3);
+
         // Read message from device.
-        read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+        read_data(p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 
         // Get item data, count.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -67,9 +71,6 @@ void receive_read(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
         // with elements pointing to different memory areas now.
         copy_array_forward(p0, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward(p1, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-//?? fwprintf(stdout, L"TEST: receive read *c: %i \n", *((int*) c));
-//?? fwprintf(stdout, L"TEST: receive read d: %s \n", d);
 
     } else {
 

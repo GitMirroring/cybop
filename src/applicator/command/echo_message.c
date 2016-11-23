@@ -51,27 +51,24 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_echo_message(void* p0, void* p1, void* p2) {
+void apply_echo_message(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply echo message.");
 
     // The message part.
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The message part model item.
     void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The message part model item data and count.
     void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* mmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get message part.
-    get_part_name((void*) &m, p0, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-
+    get_part_name((void*) &m, p0, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get message part model item.
     copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
     // Get message part model item data and count.
     copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &mmc, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);

@@ -66,8 +66,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_tape_archiver(void* p0, void* p1, void* p2) {
+void apply_tape_archiver(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply tape archiver file.");
 
@@ -116,17 +117,17 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source part.
-    get_part_name((void*) &s, p0, (void*) SOURCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SOURCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get destination part.
-    get_part_name((void*) &d, p0, (void*) DESTINATION_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) DESTINATION_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &d, p0, (void*) DESTINATION_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) DESTINATION_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get force part.
-    get_part_name((void*) &f, p0, (void*) FORCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FORCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) FORCE_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get gzip part.
-    get_part_name((void*) &g, p0, (void*) GZIP_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) GZIP_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &g, p0, (void*) GZIP_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) GZIP_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get unpack part.
-    get_part_name((void*) &u, p0, (void*) UNPACK_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) UNPACK_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &u, p0, (void*) UNPACK_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) UNPACK_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get verbal part.
-    get_part_name((void*) &v, p0, (void*) VERBAL_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VERBAL_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBAL_TAPE_ARCHIVER_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -157,7 +158,7 @@ void apply_tape_archiver(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &vmd, vm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     command_tape_archiver(smd, smc, dmd, dmc, fmd, gmd, umd, vmd);
-
 }
+
 /* TAPE_ARCHIVER_SOURCE */
 #endif

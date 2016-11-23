@@ -57,7 +57,7 @@
 //
 
 /**
- * The number/byte state cybol type.
+ * The number/byte state cybol format.
  *
  * Byte number (integral data type).
  *
@@ -69,12 +69,11 @@
  * Numbers in an array ARE separated by comma;
  * text characters of a string are NOT.
  */
-static wchar_t BYTE_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'b', L'y', L't', L'e'};
-static wchar_t* BYTE_NUMBER_STATE_CYBOL_FORMAT = BYTE_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* BYTE_NUMBER_STATE_CYBOL_FORMAT = L"number/byte";
 static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number/complex-cartesian state cybol type.
+ * The number/complex-cartesian state cybol format.
  *
  * Complex number written in cartesian form, that is as
  * comma-separated real part and imaginary part.
@@ -89,12 +88,11 @@ static int* BYTE_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI
  * would be written in CYBOL as:
  * 2,3
  */
-static wchar_t COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'c', L'o', L'm', L'p', L'l', L'e', L'x', L'-', L'c', L'a', L'r', L't', L'e', L's', L'i', L'a', L'n'};
-static wchar_t* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT = COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT = L"number/complex-cartesian";
 static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number/complex-polar state cybol type.
+ * The number/complex-polar state cybol format.
  *
  * Complex number written in polar form, that is as
  * comma-separated absolute value (modulus) and argument (angle).
@@ -109,12 +107,11 @@ static int* COMPLEX_CARTESIAN_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_24_INTEGE
  * would be written in CYBOL as:
  * 2,30
  */
-static wchar_t COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'c', L'o', L'm', L'p', L'l', L'e', L'x', L'-', L'p', L'o', L'l', L'a', L'r'};
-static wchar_t* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT = COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT = L"number/complex-polar";
 static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number/fraction-decimal state cybol type.
+ * The number/fraction-decimal state cybol format.
  *
  * Decimal fraction number written as floating-point number.
  *
@@ -123,12 +120,11 @@ static int* COMPLEX_POLAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_ST
  * Example:
  * 345.678038409
  */
-static wchar_t FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'f', L'r', L'a', L'c', L't', L'i', L'o', L'n', L'-', L'd', L'e', L'c', L'i', L'm', L'a', L'l'};
-static wchar_t* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT = FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT = L"number/fraction-decimal";
 static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number/fraction-vulgar state cybol type.
+ * The number/fraction-vulgar state cybol format.
  *
  * Vulgar fraction number written as comma-separated numerator and denominator.
  *
@@ -140,31 +136,28 @@ static int* FRACTION_DECIMAL_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER
  * would be written in CYBOL as:
  * 2,3
  */
-static wchar_t FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'f', L'r', L'a', L'c', L't', L'i', L'o', L'n', L'-', L'v', L'u', L'l', L'g', L'a', L'r'};
-static wchar_t* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT = FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT = L"number/fraction-vulgar";
 static int* FRACTION_VULGAR_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number/integer state cybol type.
+ * The number/integer state cybol format.
  *
  * Integer number (integral data type).
  *
  * This is a CYBOL extension.
  */
-static wchar_t INTEGER_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'i', L'n', L't', L'e', L'g', L'e', L'r'};
-static wchar_t* INTEGER_NUMBER_STATE_CYBOL_FORMAT = INTEGER_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* INTEGER_NUMBER_STATE_CYBOL_FORMAT = L"number/integer";
 static int* INTEGER_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The number/line-speed state cybol type.
+ * The number/line-speed state cybol format.
  *
  * Integer number (integral data type), prefixed with a "B".
  * This represents a symbol as defined in the POSIX.1 standard.
  *
  * This is a CYBOL extension.
  */
-static wchar_t LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT_ARRAY[] = {L'n', L'u', L'm', L'b', L'e', L'r', L'/', L'l', L'i', L'n', L'e', L'-', L's', L'p', L'e', L'e', L'd'};
-static wchar_t* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT = LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT = L"number/line-speed";
 static int* LINE_SPEED_NUMBER_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* NUMBER_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

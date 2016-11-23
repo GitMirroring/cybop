@@ -27,6 +27,7 @@
 #define PRINT_MIME_TYPE_CONSTANTS_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -35,10 +36,9 @@
 //
 
 /**
- * The print/jobs state cybol type.
+ * The print/jobs state cybol format.
  */
-static wchar_t JOBS_PRINT_STATE_CYBOL_FORMAT_ARRAY[] = {L'p', L'r', L'i', L'n', L't', L'/', L'j', L'o', L'b', L's'};
-static wchar_t* JOBS_PRINT_STATE_CYBOL_FORMAT = JOBS_PRINT_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* JOBS_PRINT_STATE_CYBOL_FORMAT = L"print/jobs";
 static int* JOBS_PRINT_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PRINT_MIME_TYPE_CONSTANTS_SOURCE */

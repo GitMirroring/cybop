@@ -98,10 +98,6 @@ static int* REMOVE_FILE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_
 static wchar_t* DELAY_UNIX_COMMAND_MODEL = L"sleep";
 static int* DELAY_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The touch unix command model. */
-static wchar_t* TOUCH_UNIX_COMMAND_MODEL = L"touch";
-static int* TOUCH_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The change permission unix command model. */
 static wchar_t* CHANGE_PERMISSION_UNIX_COMMAND_MODEL = L"chmod";
 static int* CHANGE_PERMISSION_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -149,6 +145,26 @@ static int* LIST_TASKS_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_M
 /** The spellcheck unix command model. */
 static wchar_t* SPELLCHECK_UNIX_COMMAND_MODEL = L"aspell check";
 static int* SPELLCHECK_UNIX_COMMAND_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The whoami unix command model. */
+static wchar_t* WHO_AM_I_UNIX_COMMAND_MODEL = L"whoami";
+static int* WHO_AM_I_UNIX_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The who unix command model. */
+static wchar_t* WHO_UNIX_COMMAND_MODEL = L"who";
+static int* WHO_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The top unix command model. */
+static wchar_t* TOP_UNIX_COMMAND_MODEL = L"top";
+static int* TOP_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ifconfig unix command model. */
+static wchar_t* IFCONFIG_UNIX_COMMAND_MODEL = L"ifconfig";
+static int* IFCONFIG_UNIX_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The id unix command model. */
+static wchar_t* ID_UNIX_COMMAND_MODEL = L"id";
+static int* ID_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* UNIX_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif

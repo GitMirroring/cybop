@@ -25,9 +25,11 @@
 
 #ifndef RUN_SOURCE
 #define RUN_SOURCE
+
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -49,8 +51,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_run(void* p0, void* p1, void* p2) {
+void apply_run(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply run.");
 
@@ -63,7 +66,7 @@ void apply_run(void* p0, void* p1, void* p2) {
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get programme part.
-    get_part_name((void*) &p, p0, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME, (void*) PROGRAMME_RUN_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get programme part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get programme part model item data, count.

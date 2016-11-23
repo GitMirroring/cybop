@@ -53,7 +53,7 @@
 //
 
 /**
- * The message/binary cybol language.
+ * The message/binary state cybol language.
  *
  * An arbitrary binary message that does not get interpreted in any way.
  * This is a CYBOL extension.
@@ -62,7 +62,7 @@ static wchar_t* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/binary";
 static int* BINARY_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/cli cybol language.
+ * The message/cli state cybol language.
  *
  * A command line interface message.
  * This is a CYBOL extension.
@@ -71,7 +71,7 @@ static wchar_t* CLI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/cli";
 static int* CLI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/gui cybol language.
+ * The message/gui state cybol language.
  *
  * A graphical user interface message.
  * This is a CYBOL extension.
@@ -80,7 +80,7 @@ static wchar_t* GUI_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/gui";
 static int* GUI_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/http-request cybol language.
+ * The message/http-request state cybol language.
  *
  * An HTTP request message.
  * This is a CYBOL extension.
@@ -89,7 +89,7 @@ static wchar_t* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-reque
 static int* HTTP_REQUEST_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/http-response cybol language.
+ * The message/http-response state cybol language.
  *
  * An HTTP response message.
  * This is a CYBOL extension.
@@ -98,13 +98,13 @@ static wchar_t* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/http-resp
 static int* HTTP_RESPONSE_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/news cybol language.
+ * The message/news state cybol language.
  */
 static wchar_t* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE = L"message/news";
 static int* NEWS_MESSAGE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The message/tui cybol language.
+ * The message/tui state cybol language.
  *
  * A text user interface message.
  * This is a CYBOL extension.

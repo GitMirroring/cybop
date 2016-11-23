@@ -36,17 +36,15 @@
 //
 
 /**
- * The interface/graphical cybol language.
+ * The interface/graphical state cybol language.
  */
-static wchar_t GRAPHICAL_INTERFACE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'i', L'n', L't', L'e', L'r', L'f', L'a', L'c', L'e', L'/', L'g', L'r', L'a', L'p', L'h', L'i', L'c', L'a', L'l'};
-static wchar_t* GRAPHICAL_INTERFACE_STATE_CYBOL_LANGUAGE = GRAPHICAL_INTERFACE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* GRAPHICAL_INTERFACE_STATE_CYBOL_LANGUAGE = L"interface/graphical";
 static int* GRAPHICAL_INTERFACE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The interface/x-winamp-skin cybol language.
+ * The interface/x-winamp-skin state cybol language.
  */
-static wchar_t X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE_ARRAY[] = {L'i', L'n', L't', L'e', L'r', L'f', L'a', L'c', L'e', L'/', L'x', L'-', L'w', L'i', L'n', L'a', L'm', L'p', L'-', L's', L'k', L'i', L'n'};
-static wchar_t* X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE = X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE = L"interface/x-winamp-skin";
 static int* X_WINAMP_SKIN_INTERFACE_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INTERFACE_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */

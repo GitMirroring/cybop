@@ -57,8 +57,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_change_permission(void* p0, void* p1, void* p2) {
+void apply_change_permission(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change permission.");
 
@@ -112,21 +113,20 @@ void apply_change_permission(void* p0, void* p1, void* p2) {
     // The verbose part model item data.
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PATH_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get user part.
-    get_part_name((void*) &u, p0, (void*) USER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) USER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &u, p0, (void*) USER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) USER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get group part.
-    get_part_name((void*) &g, p0, (void*) GROUP_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) GROUP_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &g, p0, (void*) GROUP_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) GROUP_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get other part.
-    get_part_name((void*) &o, p0, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &o, p0, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) OTHER_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get recursive part.
-    get_part_name((void*) &r, p0, (void*) RECURSIVE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) RECURSIVE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get silent part.
-    get_part_name((void*) &s, p0, (void*) SILENT_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SILENT_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &s, p0, (void*) SILENT_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SILENT_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get verbose part.
-    get_part_name((void*) &v, p0, (void*) VERBOSE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBOSE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &v, p0, (void*) VERBOSE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBOSE_CHANGE_PERMISSION_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

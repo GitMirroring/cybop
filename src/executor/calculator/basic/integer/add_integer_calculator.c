@@ -51,7 +51,7 @@ void calculate_integer_add(void* p0, void* p1) {
             // It uses functions causing circular references.
             // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Calculate integer add.");
 
-            *sum = *s + *sum;
+            *sum = *sum + *s;
 
         } else {
 

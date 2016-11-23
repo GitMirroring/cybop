@@ -57,8 +57,9 @@
  * @param p0 the destination part (pointer reference)
  * @param p1 the source part (pointer reference)
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void get_part_knowledge(void* p0, void* p1, void* p2) {
+void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -100,8 +101,9 @@ void get_part_knowledge(void* p0, void* p1, void* p2) {
 
         //
         // The following comparisons do, in this order, get a part model item as:
-        // - reference knowledge (a model pointing to another model containing a part name)
-        // - knowledge (a model containing a hierarchical part name)
+        // - stack memory (a model containing the name of a value stored in stack memory)
+        // - reference knowledge memory (a model pointing to another model containing a part name)
+        // - knowledge memory (a model containing a hierarchical part name)
         // - direct model
         //
 

@@ -54,7 +54,7 @@
 //
 
 /**
- * The audio/basic state cybol type.
+ * The audio/basic state cybol format.
  *
  * Sound files.
  * Registered.
@@ -64,7 +64,7 @@ static wchar_t* BASIC_AUDIO_STATE_CYBOL_FORMAT = L"audio/basic";
 static int* BASIC_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/echospeech state cybol type.
+ * The audio/echospeech state cybol format.
  *
  * Echospeed files.
  * Registered.
@@ -74,18 +74,17 @@ static wchar_t* ECHOSPEECH_AUDIO_STATE_CYBOL_FORMAT = L"audio/echospeech";
 static int* ECHOSPEECH_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/mpeg state cybol type.
+ * The audio/mpeg state cybol format.
  *
  * MP3 or other MPEG audio.
  * Defined in RFC 3003.
  * Suffixes: mpeg
  */
-static wchar_t MPEG_AUDIO_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'm', L'p', L'e', L'g'};
-static wchar_t* MPEG_AUDIO_STATE_CYBOL_FORMAT = MPEG_AUDIO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MPEG_AUDIO_STATE_CYBOL_FORMAT = L"audio/mpeg";
 static int* MPEG_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/tsplayer state cybol type.
+ * The audio/tsplayer state cybol format.
  *
  * TS-Player files.
  * Registered.
@@ -95,14 +94,13 @@ static wchar_t* TSPLAYER_AUDIO_STATE_CYBOL_FORMAT = L"audio/tsplayer";
 static int* TSPLAYER_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/vorbis state cybol type.
+ * The audio/vorbis state cybol format.
  */
-static wchar_t VORBIS_AUDIO_STATE_CYBOL_FORMAT_ARRAY[] = {L'a', L'u', L'd', L'i', L'o', L'/', L'v', L'o', L'r', L'b', L'i', L's'};
-static wchar_t* VORBIS_AUDIO_STATE_CYBOL_FORMAT = VORBIS_AUDIO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* VORBIS_AUDIO_STATE_CYBOL_FORMAT = L"audio/vorbis";
 static int* VORBIS_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/voxware state cybol type.
+ * The audio/voxware state cybol format.
  *
  * Vox files.
  * Registered.
@@ -112,7 +110,7 @@ static wchar_t* VOXWARE_AUDIO_STATE_CYBOL_FORMAT = L"audio/voxware";
 static int* VOXWARE_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-aiff state cybol type.
+ * The audio/x-aiff state cybol format.
  *
  * Vox files.
  * Registered.
@@ -122,7 +120,7 @@ static wchar_t* X_AIFF_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-aiff";
 static int* X_AIFF_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-dspeech state cybol type.
+ * The audio/x-dspeech state cybol format.
  *
  * speech files.
  * Registered.
@@ -132,7 +130,7 @@ static wchar_t* X_DSPEECH_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-dspeech";
 static int* X_DSPEECH_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-midi state cybol type.
+ * The audio/x-midi state cybol format.
  *
  * MIDI files.
  * Registered.
@@ -142,7 +140,7 @@ static wchar_t* X_MIDI_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-midi";
 static int* X_MIDI_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-mpeg state cybol type.
+ * The audio/x-mpeg state cybol format.
  *
  * MPEG files.
  * Registered.
@@ -152,7 +150,7 @@ static wchar_t* X_MPEG_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-mpeg";
 static int* X_MPEG_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-pn-realaudio state cybol type.
+ * The audio/x-pn-realaudio state cybol format.
  *
  * RealAudio files.
  * Registered.
@@ -162,7 +160,7 @@ static wchar_t* X_PN_REALAUDIO_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-pn-realaudio
 static int* X_PN_REALAUDIO_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-pn-realaudio-plugin state cybol type.
+ * The audio/x-pn-realaudio-plugin state cybol format.
  *
  * RealAudio-Plugin files.
  * Registered.
@@ -172,7 +170,7 @@ static wchar_t* X_PN_REALAUDIO_PLUGIN_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-pn-re
 static int* X_PN_REALAUDIO_PLUGIN_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-qt-stream state cybol type.
+ * The audio/x-qt-stream state cybol format.
  *
  * Quicktime-Streaming files.
  * Registered.
@@ -182,7 +180,7 @@ static wchar_t* X_QT_STREAM_AUDIO_STATE_CYBOL_FORMAT = L"audio/x-qt-stream";
 static int* X_QT_STREAM_AUDIO_STATE_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The audio/x-wav state cybol type.
+ * The audio/x-wav state cybol format.
  *
  * WAV files.
  * Registered.

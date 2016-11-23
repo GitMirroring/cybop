@@ -27,6 +27,7 @@
 #define MEDIA_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -35,10 +36,9 @@
 //
 
 /**
- * The media/vcd state cybol type.
+ * The media/vcd state cybol format.
  */
-static wchar_t VCD_MEDIA_STATE_CYBOL_FORMAT_ARRAY[] = {L'm', L'e', L'd', L'i', L'a', L'/', L'v', L'c', L'd'};
-static wchar_t* VCD_MEDIA_STATE_CYBOL_FORMAT = VCD_MEDIA_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* VCD_MEDIA_STATE_CYBOL_FORMAT = L"media/vcd";
 static int* VCD_MEDIA_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MEDIA_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

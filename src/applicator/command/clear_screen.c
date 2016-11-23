@@ -48,12 +48,16 @@
  *
  * Constraints:
  *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_clear_screen() {
+void apply_clear_screen(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply clear screen.");
 
-   
+    //?? TODO
 
     command_clear_screen();
 }

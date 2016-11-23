@@ -54,8 +54,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_spellcheck(void* p0, void* p1, void* p2) {
+void apply_spellcheck(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply spellcheck.");
 
@@ -75,7 +76,7 @@ void apply_spellcheck(void* p0, void* p1, void* p2) {
     void* ma = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The don't backup part.
     void* db = *NULL_POINTER_STATE_CYBOI_MODEL;
-    
+
     // The path part model item.
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The mode part model item.
@@ -117,25 +118,23 @@ void apply_spellcheck(void* p0, void* p1, void* p2) {
     // The don't backup part model item data.
     void* dbmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &p, p0, (void*) PATH_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get mode part.
-    get_part_name((void*) &m, p0, (void*) MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &m, p0, (void*) MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get suggestion mode part.
-    get_part_name((void*) &sm, p0, (void*) SUG_MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) SUG_MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &sm, p0, (void*) SUG_MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) SUG_MODE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get language part.
-    get_part_name((void*) &l, p0, (void*) LANGUAGE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &l, p0, (void*) LANGUAGE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get encoding part.
-    get_part_name((void*) &e, p0, (void*) ENCODING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) ENCODING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &e, p0, (void*) ENCODING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) ENCODING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get keymapping part.
-    get_part_name((void*) &k, p0, (void*) KEYMAPPING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) KEYMAPPING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &k, p0, (void*) KEYMAPPING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) KEYMAPPING_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get master part.
-    get_part_name((void*) &ma, p0, (void*) MASTER_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) MASTER_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &ma, p0, (void*) MASTER_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) MASTER_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get don't backup part.
-    get_part_name((void*) &db, p0, (void*) DONT_BACKUP_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) DONT_BACKUP_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-    
-    
+    get_part_name((void*) &db, p0, (void*) DONT_BACKUP_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME, (void*) DONT_BACKUP_SPELLCHECK_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get mode part model item.
@@ -152,7 +151,7 @@ void apply_spellcheck(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &mam, ma, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get don't backup part model item.
     copy_array_forward((void*) &dbm, db, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    
+
     // Get path part model item data and count.
     copy_array_forward((void*) &pmd, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);

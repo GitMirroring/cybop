@@ -53,14 +53,13 @@
 //
 
 /**
- * The number/terminal-mode cybol language.
+ * The number/terminal-mode state cybol language.
  *
  * CYBOL (XML) format.
  * Defined in CYBOL specification:
  * http://www.nongnu.org/cybop/books/cybol/cybol.pdf
  */
-static wchar_t TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE_ARRAY[] = {'n', L'u', L'm', L'b', L'e', L'r', L'/', L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l', L'-', L'm', L'o', L'd', L'e'};
-static wchar_t* TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE = TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE_ARRAY;
+static wchar_t* TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE = L"number/terminal-mode";
 static int* TERMINAL_MODE_NUMBER_STATE_CYBOL_LANGUAGE_COUNT = NUMBER_20_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* NUMBER_STATE_CYBOL_LANGUAGE_CONSTANT_SOURCE */

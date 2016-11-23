@@ -30,24 +30,7 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-/** The CONTEXT id format unix command option name. */
-static wchar_t* CONTEXT_ID_UNIX_COMMAND_OPTION_NAME = L"-Z";
-static int* CONTEXT_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The GROUP id format unix command option name. */
-static wchar_t* GROUP_ID_UNIX_COMMAND_OPTION_NAME = L"-g";
-static int* GROUP_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The GROUPS id format unix command option name. */
-static wchar_t* GROUPS_ID_UNIX_COMMAND_OPTION_NAME = L"-G";
-static int* GROUPS_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The NAME id format unix command option name. */
-static wchar_t* NAME_ID_UNIX_COMMAND_OPTION_NAME = L"-n";
-static int* NAME_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The USER id format unix command option name. */
-static wchar_t* USER_ID_UNIX_COMMAND_OPTION_NAME = L"-u";
-static int* USER_ID_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 /* ID_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

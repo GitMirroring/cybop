@@ -27,6 +27,7 @@
 #define COLOUR_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -54,37 +55,34 @@
 //
 
 /**
- * The colour/cmyk state cybol type.
+ * The colour/cmyk state cybol format.
  *
  * Cyan, Magenta, Yellow, Key (black) (CMYK) colour model,
  * also referred to as "process color" or "four color".
  *
  * This is a CYBOL extension.
  */
-static wchar_t CMYK_COLOUR_STATE_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'l', L'o', L'u', L'r', L'/', L'c', L'm', L'y', L'k'};
-static wchar_t* CMYK_COLOUR_STATE_CYBOL_FORMAT = CMYK_COLOUR_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* CMYK_COLOUR_STATE_CYBOL_FORMAT = L"colour/cmyk";
 static int* CMYK_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The colour/rgb state cybol type.
+ * The colour/rgb state cybol format.
  *
  * Red, Green, Blue colour model.
  *
  * This is a CYBOL extension.
  */
-static wchar_t RGB_COLOUR_STATE_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'l', L'o', L'u', L'r', L'/', L'r', L'g', L'b'};
-static wchar_t* RGB_COLOUR_STATE_CYBOL_FORMAT = RGB_COLOUR_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* RGB_COLOUR_STATE_CYBOL_FORMAT = L"colour/rgb";
 static int* RGB_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The colour/terminal state cybol type.
+ * The colour/terminal state cybol format.
  *
  * Terminal colour name as written word.
  *
  * This is a CYBOL extension.
  */
-static wchar_t TERMINAL_COLOUR_STATE_CYBOL_FORMAT_ARRAY[] = {L'c', L'o', L'l', L'o', L'u', L'r', L'/', L't', L'e', L'r', L'm', L'i', L'n', L'a', L'l'};
-static wchar_t* TERMINAL_COLOUR_STATE_CYBOL_FORMAT = TERMINAL_COLOUR_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* TERMINAL_COLOUR_STATE_CYBOL_FORMAT = L"colour/terminal";
 static int* TERMINAL_COLOUR_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COLOUR_STATE_CYBOL_FORMAT_CONSTANT_SOURCE */

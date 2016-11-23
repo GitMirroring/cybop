@@ -45,13 +45,14 @@
  * @param p4 the source properties data
  * @param p5 the source properties count
  * @param p6 the knowledge memory part
- * @param p7 the clear flag
- * @param p8 the newline flag
- * @param p9 the tree level
- * @param p10 the cli flag
- * @param p11 the original attributes
+ * @param p7 the stack memory item
+ * @param p8 the clear flag
+ * @param p9 the newline flag
+ * @param p10 the tree level
+ * @param p11 the cli flag
+ * @param p12 the original attributes
  */
-void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element.");
 
@@ -83,7 +84,7 @@ void serialise_tui_part_element(void* p0, void* p1, void* p2, void* p3, void* p4
 
     // Serialise part element content.
     // CAUTION! Do not forget to hand over whole properties.
-    serialise_tui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, fd);
+    serialise_tui_part_element_content(p0, p1, md, mc, pd, pc, p4, p5, p6, p7, p8, p9, p10, p11, p12, fd);
 }
 
 /* ELEMENT_PART_TUI_SERIALISER_SOURCE */

@@ -28,6 +28,7 @@
 #define MODEL_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -53,7 +54,7 @@
 //
 
 /**
- * The model/vrml state cybol type.
+ * The model/vrml state cybol format.
  *
  * Visualization of virtual worlds (VRML)
  * Registered.

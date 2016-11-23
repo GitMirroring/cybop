@@ -60,9 +60,10 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
- * @param p3 the internal memory data
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_send(void* p0, void* p1, void* p2, void* p3) {
+void apply_send(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply send.");
 
@@ -131,25 +132,25 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
     void* ntmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get channel part.
-    get_part_name((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &c, p0, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CHANNEL_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get encoding part.
-    get_part_name((void*) &e, p0, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &e, p0, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) ENCODING_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get language part.
-    get_part_name((void*) &l, p0, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &l, p0, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) LANGUAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get format part.
-    get_part_name((void*) &f, p0, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &f, p0, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) FORMAT_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get message part.
-    get_part_name((void*) &m, p0, (void*) MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &m, p0, (void*) MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) MESSAGE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get receiver part.
-    get_part_name((void*) &r, p0, (void*) RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &r, p0, (void*) RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) RECEIVER_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get area part.
-    get_part_name((void*) &a, p0, (void*) AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &a, p0, (void*) AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) AREA_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get clear flag part.
-    get_part_name((void*) &cl, p0, (void*) CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &cl, p0, (void*) CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) CLEAR_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get new line part.
-    get_part_name((void*) &nl, p0, (void*) NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &nl, p0, (void*) NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NEWLINE_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get null termination part.
-    get_part_name((void*) &nt, p0, (void*) NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &nt, p0, (void*) NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) NULL_TERMINATION_SEND_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get channel part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -221,7 +222,7 @@ void apply_send(void* p0, void* p1, void* p2, void* p3) {
 //?? fwprintf(stdout, L"TEST apply send *mmc: %i\n", *((int*) mmc));
 //?? fwprintf(stdout, L"TEST apply send *mpc: %i\n", *((int*) mpc));
 
-    send_data(rm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, cmd, emd, lmd, lpd, lpc, fmd, td, mmd, mmc, mpd, mpc, (void*) &m, clmd, nlmd, ntmd, p2, p3);
+    send_data(rm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, cmd, emd, lmd, lpd, lpc, fmd, td, mmd, mmc, mpd, mpc, (void*) &m, clmd, nlmd, ntmd, p2, p3, p4);
 
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

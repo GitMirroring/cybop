@@ -28,6 +28,7 @@
 #define VIDEO_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
 #include <stddef.h>
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 //
@@ -53,47 +54,43 @@
 //
 
 /**
- * The video/avi state cybol type.
+ * The video/avi state cybol format.
  */
-static wchar_t AVI_VIDEO_STATE_CYBOL_FORMAT_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'a', L'v', L'i'};
-static wchar_t* AVI_VIDEO_STATE_CYBOL_FORMAT = AVI_VIDEO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* AVI_VIDEO_STATE_CYBOL_FORMAT = L"video/avi";
 static int* AVI_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/mp4 state cybol type.
+ * The video/mp4 state cybol format.
  *
  * MP4 video.
  * Defined in RFC 4337.
  * Suffixes: mp4
  */
-static wchar_t MP4_VIDEO_STATE_CYBOL_FORMAT_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'm', L'p', L'4'};
-static wchar_t* MP4_VIDEO_STATE_CYBOL_FORMAT = MP4_VIDEO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MP4_VIDEO_STATE_CYBOL_FORMAT = L"video/mp4";
 static int* MP4_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/mpeg state cybol type.
+ * The video/mpeg state cybol format.
  *
  * MPEG-1 videwith multiplexed audio.
  * Defined in RFC 2045 and RFC 2046.
  * Suffixes: mpeg, mpg, mpe
  */
-static wchar_t MPEG_VIDEO_STATE_CYBOL_FORMAT_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'm', L'p', L'e', L'g'};
-static wchar_t* MPEG_VIDEO_STATE_CYBOL_FORMAT = MPEG_VIDEO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* MPEG_VIDEO_STATE_CYBOL_FORMAT = L"video/mpeg";
 static int* MPEG_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/quicktime state cybol type.
+ * The video/quicktime state cybol format.
  *
  * QuickTime video.
  * Registered.
  * Suffixes: qt, mov
  */
-static wchar_t QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'q', L'u', L'i', L'c', L'k', L't', L'i', L'm', L'e'};
-static wchar_t* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT = QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT = L"video/quicktime";
 static int* QUICKTIME_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/vnd.vivo state cybol type.
+ * The video/vnd.vivo state cybol format.
  *
  * Vivo files.
  * Registered.
@@ -103,7 +100,7 @@ static wchar_t* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT = L"video/vnd.vivo";
 static int* VND_VIVO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/x-msvideo state cybol type.
+ * The video/x-msvideo state cybol format.
  *
  * Microsoft AVI files.
  * Registered.
@@ -113,18 +110,17 @@ static wchar_t* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT = L"video/x-msvideo";
 static int* X_MSVIDEO_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/x-ms-wmv state cybol type.
+ * The video/x-ms-wmv state cybol format.
  *
  * Windows Media Video.
  * Documented in Microsoft KB 288102.
  * Suffixes: wmv
  */
-static wchar_t X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_ARRAY[] = {L'v', L'i', L'd', L'e', L'o', L'/', L'x', L'-', L'm', L's', L'-', L'w', L'm', L'v'};
-static wchar_t* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT = X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_ARRAY;
+static wchar_t* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT = L"video/x-ms-wmv";
 static int* X_MS_WMV_VIDEO_STATE_CYBOL_FORMAT_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The video/x-sgi-movie state cybol type.
+ * The video/x-sgi-movie state cybol format.
  *
  * Movie files.
  * Registered.

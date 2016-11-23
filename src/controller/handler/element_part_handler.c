@@ -36,6 +36,8 @@
 #include "../../controller/handler/properties_handler.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../executor/modifier/remover/item_remover.c"
 #include "../../executor/streamer/writer/signal/signal_writer.c"
 #include "../../logger/logger.c"
 
@@ -67,6 +69,10 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The stack memory item count.
+    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The stack memory item count old value.
+    int old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);

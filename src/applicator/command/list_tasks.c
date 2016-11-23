@@ -50,8 +50,9 @@
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
  */
-void apply_list_tasks(void* p0, void* p1, void* p2) {
+void apply_list_tasks(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply list tasks.");
 
@@ -76,14 +77,12 @@ void apply_list_tasks(void* p0, void* p1, void* p2) {
     // The verbose part model item data.
     void* vmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    
     // Get keyword part.
-    get_part_name((void*) &l, p0, (void*) KEYWORD_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME, (void*) KEYWORD_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &l, p0, (void*) KEYWORD_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME, (void*) KEYWORD_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get all part.
-    get_part_name((void*) &a, p0, (void*) ALL_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
+    get_part_name((void*) &a, p0, (void*) ALL_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     // Get verbose part.
-    get_part_name((void*) &v, p0, (void*) VERBOSE_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBOSE_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2);
-
+    get_part_name((void*) &v, p0, (void*) VERBOSE_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME, (void*) VERBOSE_LIST_TASKS_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
 
     // Get keyword part model item.
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -91,7 +90,6 @@ void apply_list_tasks(void* p0, void* p1, void* p2) {
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get verbose part model item.
     copy_array_forward((void*) &vm, v, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
 
     // Get keyword part model item data.
     copy_array_forward((void*) &lmd, lm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
