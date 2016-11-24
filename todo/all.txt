@@ -18,6 +18,7 @@ _____________
             - see file "doc/books/cybol/api/readme.txt"
             - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
             - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
+        * Correct wrong entry in cybol api using operation "time/current" instead of "time/time"
 
         * Update beginner's manual (LaTeX or LibreOffice), in order to get accepted as official GNU project
             - Update list of external libraries and dependencies

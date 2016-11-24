@@ -67,6 +67,10 @@ void find_name_array_lifo(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // as argument is valid (not null).
     // Otherwise, it just gets ignored inside the copy function.
     copy_integer((void*) &j, p4);
+    // CAUTION! Subtracting 1 is ESSENTIAL,
+    // since this is NOT the count, but the index!
+    // Otherwise, a "bus error" will occur and the system crash.
+    calculate_integer_subtract((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 

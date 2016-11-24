@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-11-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug "bus error" caused by wrong loop index in file "lifo_array_name_finder.c",
+            appearing on some machines when executing cybol example application "counter_stack_deep"
+        * Replace some constant values like {L'm', L'v'} with string like L"mv" in directories model
+
 2016-11-20  Christian Heller  <christian.heller@tuxtax.de>
 
         * Create cybol example application "counter_stack_deep" to test LIFO-principle with equally named stack variables within three nested loops

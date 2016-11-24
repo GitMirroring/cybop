@@ -98,31 +98,27 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
-//?? TEST BEGIN
-static int TEST_COUNTER = 0;
-TEST_COUNTER++;
-fwprintf(stdout, L"TEST handle TEST_COUNTER: %i\n", TEST_COUNTER);
-void* TEST_ITEM = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* TEST_ITEM_DATA = *NULL_POINTER_STATE_CYBOI_MODEL;
-void* TEST_ITEM_COUNT = *NULL_POINTER_STATE_CYBOI_MODEL;
-allocate_item((void*) &TEST_ITEM, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-append_item_element(TEST_ITEM, (void*) L"TEST/test_", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-serialise_cybol_integer(TEST_ITEM, (void*) &TEST_COUNTER, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
-copy_array_forward((void*) &TEST_ITEM_DATA, TEST_ITEM, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-copy_array_forward((void*) &TEST_ITEM_COUNT, TEST_ITEM, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-test_part_as_model_diagram(TEST_ITEM_DATA, p2);
-deallocate_item((void*) &TEST_ITEM, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-//?? TEST END
-*/
+// //?? TEST BEGIN
+// static int TEST_COUNTER = 0;
+// TEST_COUNTER++;
+// fwprintf(stdout, L"TEST handle TEST_COUNTER: %i\n", TEST_COUNTER);
+// void* TEST_ITEM = *NULL_POINTER_STATE_CYBOI_MODEL;
+// void* TEST_ITEM_DATA = *NULL_POINTER_STATE_CYBOI_MODEL;
+// void* TEST_ITEM_COUNT = *NULL_POINTER_STATE_CYBOI_MODEL;
+// allocate_item((void*) &TEST_ITEM, (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+// append_item_element(TEST_ITEM, (void*) L"TEST/test_", (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// serialise_cybol_integer(TEST_ITEM, (void*) &TEST_COUNTER, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
+// copy_array_forward((void*) &TEST_ITEM_DATA, TEST_ITEM, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+// copy_array_forward((void*) &TEST_ITEM_COUNT, TEST_ITEM, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+// test_part_as_model_diagram(TEST_ITEM_DATA, p2);
+// deallocate_item((void*) &TEST_ITEM, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+// //?? TEST END
 
-/*??
-if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
-fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
-} else {
-fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
-}
-*/
+// if (fd != *NULL_POINTER_STATE_CYBOI_MODEL) {
+// fwprintf(stdout, L"TEST handle *fd: %i\n", *((int*) fd));
+// } else {
+// fwprintf(stdout, L"TEST handle NULL fd: %i\n", fd);
+// }
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

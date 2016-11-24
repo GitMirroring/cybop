@@ -67,12 +67,14 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal properties count old value.
+    int pc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The stack memory item count.
-    void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The stack memory item count old value.
-    int old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    int mc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
@@ -87,33 +89,39 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
+        // Copy signal properties count.
+        // It is later to be used as count for variable value removal.
+        // Within the "handle" function called below, it may happen
+        // that the properties and their count get changed.
+        // Therefore, the OLD value is saved here.
+        copy_integer((void*) &pc_old, p3);
         // Determine stack memory item count.
-        copy_array_forward((void*) &c, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &mc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
         // Copy stack memory item count.
         // It is later to be used as index for variable value removal.
         // Therefore, the OLD value is saved here.
-        copy_integer((void*) &old, c);
+        copy_integer((void*) &mc_old, mc);
 
-    //?? DELETE, only for testing!
+//     //?? DELETE, only for testing!
 //     int COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-//     copy_integer((void*) &COUNT, c);
-//     fwprintf(stdout, L"TEST handle part element 0 old: %i\n", old);
+//     copy_integer((void*) &COUNT, mc);
+//     fwprintf(stdout, L"TEST handle part element 0 mc_old: %i\n", mc_old);
 //     fwprintf(stdout, L"TEST handle part element 0 COUNT: %i\n", COUNT);
 
         // Store variable values on stack memory (push).
         handle_properties(p2, p3, p6);
 
-    //?? DELETE, only for testing!
-//     copy_integer((void*) &COUNT, c);
-//     fwprintf(stdout, L"TEST handle part element 1 old: %i\n", old);
+//     //?? DELETE, only for testing!
+//     copy_integer((void*) &COUNT, mc);
+//     fwprintf(stdout, L"TEST handle part element 1 mc_old: %i\n", mc_old);
 //     fwprintf(stdout, L"TEST handle part element 1 COUNT: %i\n", COUNT);
 
         // Handle signal.
         handle(s, p4, p5, p6, p7, p8, p9);
 
-    //?? DELETE, only for testing!
-//     copy_integer((void*) &COUNT, c);
-//     fwprintf(stdout, L"TEST handle part element 2 old: %i\n", old);
+//     //?? DELETE, only for testing!
+//     copy_integer((void*) &COUNT, mc);
+//     fwprintf(stdout, L"TEST handle part element 2 mc_old: %i\n", mc_old);
 //     fwprintf(stdout, L"TEST handle part element 2 COUNT: %i\n", COUNT);
 
         // Remove variable values from stack memory (pop).
@@ -138,13 +146,13 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // - seems to be the easiest solution
         // - the exact same number of values that was added to stack
         //   (signal properties count) is removed from it again here
-        // - the former (old) stack memory item count is used as index for removal
+        // - the former (mc_old) stack memory item count is used as index for removal
         //
-        remove_item(p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p3, (void*) &old);
+        remove_item(p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) &pc_old, (void*) &mc_old);
 
-    //?? DELETE, only for testing!
-//     copy_integer((void*) &COUNT, c);
-//     fwprintf(stdout, L"TEST handle part element 3 old: %i\n", old);
+//     //?? DELETE, only for testing!
+//     copy_integer((void*) &COUNT, mc);
+//     fwprintf(stdout, L"TEST handle part element 3 mc_old: %i\n", mc_old);
 //     fwprintf(stdout, L"TEST handle part element 3 COUNT: %i\n", COUNT);
 
     } else {
