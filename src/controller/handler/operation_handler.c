@@ -86,6 +86,7 @@
 #include "../../applicator/command/userlog.c"
 #include "../../applicator/command/touch.c"
 #include "../../applicator/command/ifup.c"
+#include "../../applicator/command/netstat.c"
 #include "../../applicator/modify/append.c"
 #include "../../applicator/modify/build.c"
 #include "../../applicator/modify/empty.c"
@@ -421,6 +422,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_ifup();
+        }
+    }
+
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) NETSTAT_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_netstat(p0, p1, p3, p4);
         }
     }
 

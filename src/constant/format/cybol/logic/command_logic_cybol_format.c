@@ -485,6 +485,16 @@ static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
 static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/netstat logic cybol format.
+ *
+ * Display network informations.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/netstat";
+static int* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
