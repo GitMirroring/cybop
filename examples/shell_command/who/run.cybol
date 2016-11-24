@@ -1,11 +1,11 @@
 <node>
 
     <node name="who" channel="inline" format="command/who" model="">
-	<node name="all" channel="inline" format="logicvalue/boolean" model="false"/>
-	<node name="boot" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="all" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="boot" channel="inline" format="logicvalue/boolean" model="true"/>
 	<node name="dead" channel="inline" format="logicvalue/boolean" model="false"/>
 	<node name="login" channel="inline" format="logicvalue/boolean" model="false"/>
-	<node name="short" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
 
 
 	        
