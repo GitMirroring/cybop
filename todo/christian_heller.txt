@@ -11,6 +11,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        * Check if comparison functions should ALWAYS deliver true or false
+            currently, only set to true
+        * Feedback to Ronny Zingler
+
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
             DONE: ansi_escape_code, character_code, character_entity_reference, command
             CONTINUE: with directory "cyboi/"
