@@ -7,6 +7,12 @@
 		<Option execution_dir="../../../trunk" />
 		<Option pch_mode="2" />
 		<Option compiler="clang" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[Code::Blocks Projekdatei für CYBOI
+Autoren: Tobias Donix, Kevin Klein]]>
+			</notes>
+		</Option>
 		<Build>
 			<Target title="Debug">
 				<Option platforms="Unix;Mac;" />
@@ -15,7 +21,7 @@
 				<Option object_output="../../src/controller/" />
 				<Option type="1" />
 				<Option compiler="clang" />
-				<Option parameters="tui_control/run.cybol" />
+				<Option parameters="helloworld/run.cybol" />
 				<MakeCommands>
 					<Build command="$make" />
 					<CompileFile command="$make -f $makefile $file" />
