@@ -9,8 +9,7 @@
 		<Option compiler="clang" />
 		<Option show_notes="0">
 			<notes>
-				<![CDATA[Code::Blocks Projekdatei für CYBOI
-Autoren: Tobias Donix, Kevin Klein]]>
+				<![CDATA[Code::Blocks Projekdatei für CYBOI. Autoren: Tobias Donix, Kevin Klein.]]>
 			</notes>
 		</Option>
 		<Build>
