@@ -41,20 +41,85 @@
 #endif
 
 /**
- * Shows the userlog
+ * shows the Userlog
  *
  * Expected parametres:
  * - none
+ * 
+ * Options: -h , u, s, o
  *
  * Constraints:
- *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
  */
-void apply_userlog() {
+void apply_userlog(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the userlog");
+       log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply userlog.");
 
-    command_userlog();
+    // The noheader part.
+    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The no current part.
+    void* u = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The short part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The old part.
+    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+
+    // The noheader part model item.
+    void* hm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The nocurrent part model item.
+    void* um = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The short part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The old part model item.
+    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+
+
+    // The noheader part model item data and count.
+    void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The nocurrent part model item data and count.
+    void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The short part model item data and count.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The old part model item data and count.
+    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+
+
+    // Get noheader part.
+    get_part_name((void*) &h, p0, (void*) NOHEADER_USERLOG_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOHEADER_USERLOG_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get nocurrent part.
+    get_part_name((void*) &u, p0, (void*) NOCURRENT_USERLOG_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOCURRENT_USERLOG_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get short part.
+    get_part_name((void*) &s, p0, (void*) SHORT_USERLOG_COMMANDER_LOGIC_CYBOL_NAME, (void*) SHORT_USERLOG_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get old part.
+    get_part_name((void*) &o, p0, (void*) OLD_USERLOG_COMMANDER_LOGIC_CYBOL_NAME, (void*) OLD_USERLOG_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+
+
+    // Get noheader part model item.
+    copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get nocurrent part model item.
+    copy_array_forward((void*) &um, u, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get short part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get old part model item.
+    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get noheader part model item data and count.
+    copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get nocurrent part model item data and count.
+    copy_array_forward((void*) &umd, um, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get short part model item data and count.
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get old part model item data and count.
+    copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    command_userlog(hmd, umd, smd, omd);
 }
+
 
 /* USERLOG_SOURCE */
 #endif

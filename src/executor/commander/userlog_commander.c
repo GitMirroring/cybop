@@ -63,47 +63,140 @@
 #endif
 
 /**
-* show the user log.
+* shows the userlog.
+*
+* @param hmd the noheader model data
+* @param cmd the nocurrent model data
+* @param smd the short model data
+* @param omd the old model data
 *
 *
 */
-void command_userlog() {
+void command_userlog(void* hmd, void* cmd, void* smd, void* omd) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command userlog.");
+  log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command userlog.");
 
 
-    // The arguments item.
-    void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The arguments item data, count.
-    void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The arguments item.
+        void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The arguments item data, count.
+        void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Allocate arguments item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    
-            // Append command.
+        // Allocate arguments item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
+        // Append command.
 #ifdef __APPLE__
-            append_item_element(arg, (void*) USERLOG_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #elif WIN32
-            append_item_element(arg, (void*) USERLOG_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) USERLOG_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #else
-            append_item_element(arg, (void *) USERLOG_UNIX_COMMAND_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) USERLOG_UNIX_COMMAND_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) USERLOG_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif WIN32
+        append_item_element(arg, (void*) USERLOG_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif GNU_LINUX_OPERATING_SYSTEM
+        append_item_element(arg, (void*) USERLOG_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#else
+        append_item_element(arg, (void*) USERLOG_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERLOG_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 
-     // Get arguments item data, count.
-    copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        // The comparison result.
+        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Execute command line in shell.
-    execute(argd, argc);
+        compare_integer_unequal((void*) &r, hmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    // Deallocate arguments item.
-    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append noheader option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#ifdef __APPLE__
+            append_item_element(arg, (void*) NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+            append_item_element(arg, (void*) NOHEADER_USERLOG_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOHEADER_USERLOG_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(arg, (void*) NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+            append_item_element(arg, (void*) NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
+
+        }
+
+        // Reset comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, cmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append nocurrent option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#ifdef __APPLE__
+            append_item_element(arg, (void*) NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(arg, (void*) NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+            append_item_element(arg, (void*) NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
 }
+
+        // Reset comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, smd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append short option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#ifdef __APPLE__
+            append_item_element(arg, (void*) SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(arg, (void*) SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+            append_item_element(arg, (void*) SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
+
+        }
+
+        // Reset comparison result.
+        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+        compare_integer_unequal((void*) &r, omd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Append old option.
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#ifdef __APPLE__
+            append_item_element(arg, (void*) OLD_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OLD_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif WIN32
+
+#elif GNU_LINUX_OPERATING_SYSTEM
+            append_item_element(arg, (void*) OLD_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OLD_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+            append_item_element(arg, (void*) OLD_USERLOG_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) OLD_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#endif
+
+        }
+
+        // Get arguments item data, count.
+        copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+        // Execute command line in shell.
+        execute(argd, argc);
+
+        // Deallocate arguments item.
+        deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+}
+
 
 /* USERLOG_COMMANDER_SOURCE */
 #endif

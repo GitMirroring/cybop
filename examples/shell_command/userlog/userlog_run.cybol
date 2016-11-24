@@ -1,6 +1,10 @@
 <node>
 
     <node name="userlog" channel="inline" format="command/userlog" model="">
+	<node name="nohead" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="nocurrent" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="old" channel="inline" format="logicvalue/boolean" model="false"/>
         
     </node>
 

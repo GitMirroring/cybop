@@ -30,5 +30,22 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The noheader Userlog unix command option name. */
+static wchar_t* NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME = L"-h";
+static int* NOHEADER_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The nocurrent Userlog unix command option name. */
+static wchar_t* NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME = L"-u";
+static int* NOCURRENT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The short Userlog unix command option name. */
+static wchar_t* SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME = L"-s";
+static int* SHORT_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The old Userlog hostname unix command option name. */
+static wchar_t* OLD_USERLOG_UNIX_COMMAND_OPTION_NAME = L"-o";
+static int* OLD_USERLOG_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+
 /* USERLOG_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif
