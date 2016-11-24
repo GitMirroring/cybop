@@ -186,5 +186,25 @@ static int* IFCONFIG_UNIX_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MOD
 static wchar_t* ID_UNIX_COMMAND_MODEL = L"id";
 static int* ID_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The list tasks command model. */
+static wchar_t* MEMORY_FREE_UNIX_COMMAND_MODEL = L"free";
+static int* MEMORY_FREE_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The system messages command model. */
+static wchar_t* SYSTEM_MESSAGES_UNIX_COMMAND_MODEL = L"dmesg";
+static int* SYSTEM_MESSAGES_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The disk usage command model. */
+static wchar_t* DISK_USAGE_UNIX_COMMAND_MODEL = L"du";
+static int* DISK_USAGE_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The list open files command model. */
+static wchar_t* LIST_OPEN_FILES_UNIX_COMMAND_MODEL = L"lsof";
+static int* LIST_OPEN_FILES_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The present working directory command model. */
+static wchar_t* PWD_UNIX_COMMAND_MODEL = L"pwd";
+static int* PWD_UNIX_COMMAND_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* UNIX_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif

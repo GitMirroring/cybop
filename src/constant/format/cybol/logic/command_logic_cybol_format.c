@@ -346,16 +346,6 @@ static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/word-count";
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/memory-free logic cybol format.
- *
- * Shows the usage of the RAM.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/memory-free";
-static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The command/hostname logic cybol format.
  *
  * Shows the hostname of machine.
@@ -394,6 +384,56 @@ static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYB
  */
 static wchar_t* IFUP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifup";
 static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/memory-free logic cybol format.
+ *
+ * Shows the usage of the RAM.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/memory-free";
+static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/disk-usage logic cybol format.
+ *
+ * Shows the usage of a directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-usage";
+static int* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/list-open-files logic cybol format.
+ *
+ * Shows open files in operating system.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT = L"command/list-open-files";
+static int* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/pwd logic cybol format.
+ *
+ * Shows the path of the present working directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* PWD_COMMAND_LOGIC_CYBOL_FORMAT = L"command/pwd";
+static int* PWD_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/system-messages logic cybol format.
+ *
+ * Shows system messages from /var/log.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOL_FORMAT = L"command/system-messages";
+static int* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/who-am-i logic cybol format.

@@ -137,5 +137,9 @@ static int* IFCONFIG_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MO
 /** The ifconfi win32 command model. */
 static wchar_t* W_WIN32_COMMAND_MODEL = L"net user";
 static int* W_WIN32_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+/** The list tasks win32 command model. */
+static wchar_t* MEMORY_FREE_WIN32_COMMAND_MODEL = L"wmic OS get TotalVisibleMemorySize /Value";
+static int* MEMORY_FREE_WIN32_COMMAND_MODEL_COUNT = NUMBER_41_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* WIN32_COMMAND_MODEL_CONSTANT_SOURCE */
 #endif
