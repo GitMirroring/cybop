@@ -453,5 +453,12 @@ static int* SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT = NUMBER_2502_INTEGER_STATE_CYBO
 /** The current time logic cyboi format. */
 static int* CURRENT_TIME_LOGIC_CYBOI_FORMAT = NUMBER_2550_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+//
+// sort
+//
+
+/** The sort/quick logic cybol format. **/
+static int* QUICK_SORT_LOGIC_CYBOI_FORMAT = NUMBER_2600_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* LOGIC_CYBOI_FORMAT_CONSTANT_SOURCE */
 #endif

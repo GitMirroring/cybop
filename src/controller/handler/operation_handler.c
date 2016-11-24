@@ -94,6 +94,7 @@
 #include "../../applicator/represent/serialise.c"
 #include "../../applicator/run/run.c"
 #include "../../applicator/run/sleep.c"
+#include "../../applicator/sort/sorters.c"
 #include "../../applicator/time/time.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -1284,6 +1285,20 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_sleep(p0, p1, p3, p4, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT);
+        }
+    }
+
+    //
+    // sort
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_quicksort(p0, p1, p3, p4);
         }
     }
 

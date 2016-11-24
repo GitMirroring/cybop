@@ -44,6 +44,7 @@
 #include "../../../../constant/format/cybol/logic/randomise_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/represent_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/run_logic_cybol_format.c"
+#include "../../../../constant/format/cybol/logic/sort_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/time_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_state_cybol_format.c"
 #include "../../../../constant/format/cybol/state/application_vnd_state_cybol_format.c"
@@ -1723,6 +1724,20 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             overwrite_item_element(p0, (void*) SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        }
+    }
+
+    //
+    // sort
+    //
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_all_array((void*) &r, p1, (void*) QUICK_SORT_LOGIC_CYBOL_FORMAT, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) QUICK_SORT_LOGIC_CYBOL_FORMAT_COUNT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            overwrite_item_element(p0, (void*) QUICK_SORT_LOGIC_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
