@@ -1,7 +1,11 @@
 <node>
 
     <node name="who" channel="inline" format="command/ifconfig" model="">
-        
+	<node name="interface" channel="inline" format="text/plain" model="enp0s3"/>
+	<node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="all" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="down" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="up" channel="inline" format="logicvalue/boolean" model="false"/>	        
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
