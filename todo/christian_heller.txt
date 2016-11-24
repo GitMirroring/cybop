@@ -24,6 +24,7 @@ Stack
 _____
 
         CONTINUE WITH:
+        * Write cybol script for cleaning up examination directories, using stack variable for loop
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
 
