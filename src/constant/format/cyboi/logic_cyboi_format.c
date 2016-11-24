@@ -230,9 +230,6 @@ static int* IFCONFIG_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1333_INTEGER_STATE_CYBO
 /** The id command logic cyboi format. */
 static int* ID_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The memory free command logic cyboi format. */
-static int* MEMORY_FREE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1329_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The hostname command logic cyboi format. */
 static int* HOSTNAME_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1335_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

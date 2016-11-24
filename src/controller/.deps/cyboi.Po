@@ -2304,6 +2304,7 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/access_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/../../../../constant/model/cyboi/state/integer_state_cyboi_model.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/calculate_logic_cybol_format.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/sort_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/cast_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/communicate_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/compare_logic_cybol_format.c \
@@ -2516,6 +2517,7 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/randomise_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/represent_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/run_logic_cybol_format.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/sort_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/time_logic_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/state/application_state_cybol_format.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/state/application_vnd_state_cybol_format.c \
@@ -5857,6 +5859,26 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/memorise/../../constant/model/cyboi/state/boolean_state_cyboi_model.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/memorise/../../constant/name/cybol/logic/memory/destroy_memory_logic_cybol_name.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/memorise/../../executor/memoriser/deallocator/part_deallocator.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/memory_free.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/memory_free_commander_logic_cybol_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/memory_free_commander.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/memory_free_unix_command_option_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/hostname.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/hostname_commander_logic_cybol_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/hostname_commander.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/hostname_unix_command_option_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/userlog.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/userlog_commander_logic_cybol_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/userlog_commander.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/userlog_unix_command_option_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/touch.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/touch_commander_logic_cybol_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/touch_commander.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/touch_unix_command_option_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/ifup.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/ifup_commander_logic_cybol_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/ifup_commander.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/ifup_unix_command_option_name.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/modify/append.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/modify/../../constant/model/cyboi/log/level_log_cyboi_model.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/modify/../../constant/model/cyboi/log/message_log_cyboi_model.c \
@@ -5995,6 +6017,25 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/run/sleep.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/run/../../constant/name/cybol/logic/run/sleep_run_logic_cybol_name.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/run/../../executor/runner/sleeper.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/sorters.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/log/level_log_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/log/message_log_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/state/integer_state_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/state/pointer_state_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/name/cybol/logic/sort/sort_logic_cybol_name.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/name/cybol/logic/sort/../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/type/cyboi/state_cyboi_type.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/modifier/copier/array_copier.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/modifier/overwriter/part_overwriter.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/quicksorter.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../constant/model/cyboi/state/integer_state_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../constant/model/cyboi/state/pointer_state_cyboi_model.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../executor/memoriser/allocator/item_allocator.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../executor/runner/executor.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../constant/type/cyboi/state_cyboi_type.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../variable/reallocation_factor.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/accessor/getter/part/name_part_getter.c \
+ ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../logger/logger.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/time/time.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/time/../../constant/model/cyboi/log/level_log_cyboi_model.c \
  ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/time/../../constant/model/cyboi/log/message_log_cyboi_model.c \
@@ -10971,6 +11012,8 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/calculate_logic_cybol_format.c:
 
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/sort_logic_cybol_format.c:
+
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/cast_logic_cybol_format.c:
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../constant/format/cybol/logic/communicate_logic_cybol_format.c:
@@ -11394,6 +11437,8 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/represent_logic_cybol_format.c:
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/run_logic_cybol_format.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/sort_logic_cybol_format.c:
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/communicate/../../executor/communicator/../../executor/communicator/receiver/../../../executor/representer/../../executor/representer/deserialiser/cybol/../../../../executor/representer/deserialiser/cybol/../../../../tester/../executor/representer/serialiser/model_diagram/../../../../executor/representer/serialiser/cybol/../../../../constant/format/cybol/logic/time_logic_cybol_format.c:
 
@@ -18093,6 +18138,46 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/memorise/../../executor/memoriser/deallocator/part_deallocator.c:
 
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/memory_free.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/memory_free_commander_logic_cybol_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/memory_free_commander.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/memory_free_unix_command_option_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/hostname.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/hostname_commander_logic_cybol_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/hostname_commander.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/hostname_unix_command_option_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/userlog.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/userlog_commander_logic_cybol_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/userlog_commander.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/userlog_unix_command_option_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/touch.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/touch_commander_logic_cybol_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/touch_commander.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/touch_unix_command_option_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/ifup.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../constant/name/cybol/logic/commander/ifup_commander_logic_cybol_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/ifup_commander.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/command/../../executor/commander/../../constant/name/command_option/unix/ifup_unix_command_option_name.c:
+
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/modify/append.c:
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/modify/../../constant/model/cyboi/log/level_log_cyboi_model.c:
@@ -18368,6 +18453,44 @@ cyboi.o: cyboi.c /usr/include/stdc-predef.h \
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/run/../../constant/name/cybol/logic/run/sleep_run_logic_cybol_name.c:
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/run/../../executor/runner/sleeper.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/sorters.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/log/level_log_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/log/message_log_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/state/integer_state_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/model/cyboi/state/pointer_state_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/name/cybol/logic/sort/sort_logic_cybol_name.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/name/cybol/logic/sort/../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../constant/type/cyboi/state_cyboi_type.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/modifier/copier/array_copier.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/modifier/overwriter/part_overwriter.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/quicksorter.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../constant/model/cyboi/state/integer_state_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../constant/model/cyboi/state/pointer_state_cyboi_model.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../executor/memoriser/allocator/item_allocator.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../executor/runner/executor.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../constant/type/cyboi/state_cyboi_type.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/sorter/../../variable/reallocation_factor.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../executor/accessor/getter/part/name_part_getter.c:
+
+../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/sort/../../logger/logger.c:
 
 ../controller/../controller/../controller/../controller/checker/../../controller/checker/../../controller/../controller/handler/../../applicator/time/time.c:
 
