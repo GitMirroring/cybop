@@ -146,6 +146,26 @@ static int* LIST_TASKS_UNIX_COMMAND_MODEL_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_M
 static wchar_t* SPELLCHECK_UNIX_COMMAND_MODEL = L"aspell check";
 static int* SPELLCHECK_UNIX_COMMAND_MODEL_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The list tasks command model. */
+static wchar_t* MEMORY_FREE_UNIX_COMMAND_MODEL = L"free";
+static int* MEMORY_FREE_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The hostname unix command model. */
+static wchar_t* HOSTNAME_UNIX_COMMAND_MODEL = L"hostname";
+static int* HOSTNAME_UNIX_COMMAND_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The userlog unix command model. */
+static wchar_t* USERLOG_UNIX_COMMAND_MODEL = L"w";
+static int* USERLOG_UNIX_COMMAND_MODEL_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The touch unix command model. */
+static wchar_t* TOUCH_UNIX_COMMAND_MODEL = L"touch";
+static int* TOUCH_UNIX_COMMAND_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The ifup unix command model. */
+static wchar_t* IFUP_UNIX_COMMAND_MODEL = L"ifup";
+static int* IFUP_UNIX_COMMAND_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The whoami unix command model. */
 static wchar_t* WHO_AM_I_UNIX_COMMAND_MODEL = L"whoami";
 static int* WHO_AM_I_UNIX_COMMAND_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;

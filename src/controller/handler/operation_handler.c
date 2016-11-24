@@ -81,6 +81,11 @@
 #include "../../applicator/manipulate/manipulate.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
+#include "../../applicator/command/memory_free.c"
+#include "../../applicator/command/hostname.c"
+#include "../../applicator/command/userlog.c"
+#include "../../applicator/command/touch.c"
+#include "../../applicator/command/ifup.c"
 #include "../../applicator/modify/append.c"
 #include "../../applicator/modify/build.c"
 #include "../../applicator/modify/empty.c"
@@ -376,6 +381,46 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_clear_screen(p0, p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) HOSTNAME_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_hostname(p0, p1, p3, p4);
+        }
+    }
+
+     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) USERLOG_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_userlog();
+        }
+    }
+
+     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) TOUCH_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_touch(p0, p1, p3, p4);
+        }
+    }
+
+     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) IFUP_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_ifup();
         }
     }
 

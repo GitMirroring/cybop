@@ -346,6 +346,56 @@ static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/word-count";
 static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/memory-free logic cybol format.
+ *
+ * Shows the usage of the RAM.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/memory-free";
+static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/hostname logic cybol format.
+ *
+ * Shows the hostname of machine.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT = L"command/hostname";
+static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/userlog logic cybol format.
+ *
+ * Shows the users logged in to machine.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/userlog";
+static int* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/touch logic cybol format.
+ *
+ * creates new file.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT = L"command/touch";
+static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/ifup logic cybol format.
+ *
+ * Shows if the interface is available.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* IFUP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifup";
+static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/who-am-i logic cybol format.
  *
  * Display who am i.
@@ -394,6 +444,7 @@ static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
  */
 static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
 static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif
