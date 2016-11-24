@@ -1,0 +1,19 @@
+*** Procedure to add a new cybol operation to cyboi:
+		1 Write cybol example application
+			-> cd ~/cybop/examples/sort/
+		3 Add commands to file
+			-> cd ~/cybop/src/constant/format/cybol/logic/sort_logic_cybol_format.c
+		4 Add commands to file
+			-> cd ~/cybop/src/constant/format/cyboi/logic_cyboi_format.c
+		5 Add new file with options for each command to directory
+			-> cd ~/cybop/src/constant/name/cybol/logic/sort/
+		7 Add commands to file (check file from step number 3)
+			-> cd executor/representer/deserialiser/cybol/format_cybol_deserialiser.c
+		8 Add commands to file
+			-> cd ~/cybop/src/executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+		9 Add new file for each cybol operation to directory (check file from step number 2 & 5)
+			-> cd ~/cybop/src/executor/sorter/
+		10 Consider platform (unix or windows) using preprocessor defines
+		11 Add new file for each cybol operation to directory (this here calls file in 9)
+			-> cd ~/cybop/src/applicator/sort/
+		12 Add commands to file "controller/handler/operation_handler.c"
