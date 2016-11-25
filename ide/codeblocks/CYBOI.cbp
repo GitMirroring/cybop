@@ -20,7 +20,7 @@
 				<Option object_output="../../src/controller/" />
 				<Option type="1" />
 				<Option compiler="clang" />
-				<Option parameters="helloworld/run.cybol" />
+				<Option parameters="hello/run.cybol" />
 				<MakeCommands>
 					<Build command="$make" />
 					<CompileFile command="$make -f $makefile $file" />
