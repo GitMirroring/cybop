@@ -14,6 +14,9 @@
         * Check if comparison functions should ALWAYS deliver true or false
             currently, only set to true
         * Feedback to Ronny Zingler
+            - when introducing a cybol variable, it has an initial value
+            - so, where's the problem?
+            - the initial value remains unchanged if criteria do not apply
 
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
             DONE: ansi_escape_code, character_code, character_entity_reference, command
@@ -28,9 +31,11 @@ _____
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
 
-        * Use (deep) copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
-            replace existing testwise implementation which only allows copying of integer values
-
+        * Think through shallow and deep copying (PART_ELEMENT_STATE_CYBOI_TYPE versus POINTER_STATE_CYBOI_TYPE)
+        * Reflect if deep copying is necessary for stack memory at all
+        * Consider that variables might also be handed over as pointer/reference (shallow copy)
+        * Implement deep copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
+            and replace existing testwise implementation which only allows copying of integer values
         * Think through if also cybol operations may be given as stack variable, e.g. a model for a loop
             see file "handler.c" and compare with file "knowledge_part_getter.c"
 
