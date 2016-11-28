@@ -10,20 +10,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
---
-        * Alexander Heimann <alexander.heimann@cs14-1.ba-leipzig.de> (sort algorithms quick, bubble)
-        * Julius Krenkel <> (sort algorithms quick, bubble)
-        * Paul Müller <> (sort algorithms quick, bubble)
-        * Leonard Franke <> (cyboi shell commands)
-        * Jörg Broy <> (cyboi shell commands)
-        * Richard Lüdtke <> (cyboi shell commands)
-        * Florian Aurich <> (password_generator example)
-        * Andre Noldin <> (password_generator example)
-        * Ronny Zingler <> (cows and bulls/mastermind game example)
-        * Kevin Klein <> (Code::Blocks ide)
-        * Tobias Donix <> (Code::Blocks ide)
-        * Stefan Göldner <> (video tutorials)
---
 In chronological order ... oldest entry on top, newest on bottom ...
 
 Cybernetics Oriented Programming (CYBOP)
@@ -57,6 +43,9 @@ Cybernetics Oriented Language (CYBOL)
         * Markus Then <markus.then@gmx.de> (webstat example)
         * Stanley Sellig <stanley.sellig@cs13-1.ba-leipzig.de> (webstat example)
         * Nico Schallehn <nico.schallehn@cs13-2.ba-leipzig.de> (webstat example)
+        * Florian Aurich <florian.aurich@cs14-2.ba-leipzig.de> (password_generator example)
+        * Andre Noldin <andre.noldin@cs14-2.ba-leipzig.de> (password_generator example)
+        * Ronny Zingler <ronny.zingler@cs14-1.ba-leipzig.de> (bullsandcows mastermind game example)
 
 Cybernetics Oriented Interpreter (CYBOI)
         * Christian Heller <christian.heller@tuxtax.de> (overall design and implementation of cyboi, first in java, later in c)
@@ -89,6 +78,12 @@ Cybernetics Oriented Interpreter (CYBOI)
         * Maximilian Brenner <maximilian.brenner@cs12-2.ba-leipzig.de> (cyboi shell commands ping, grep, traceroute, diff, sort and cyboi operations square, squareroot)
         * Christopher Stoneking <christopher.stoneking@cs13-1.ba-leipzig.de> (cyboi shell commands ip, clear, man, date, cd, ps, df, cmp, kill, cat, whereis, find, sleep, aspell)
         * Christian Szech <christian.szech@cs13-2.ba-leipzig.de> (cyboi shell commands ip, clear, man, date, cd, ps, df, cmp, kill, cat, whereis, find, sleep, aspell)
+        * Alexander Heimann <alexander.heimann@cs14-1.ba-leipzig.de> (quick- and bubble sort algorithm)
+        * Julius Krenkel <julius.krenkel@cs14-1.ba-leipzig.de> (quick- and bubble sort algorithm)
+        * Paul Müller <paul.mueller@cs14-2.ba-leipzig.de> (quick- and bubble sort algorithm)
+        * Leonard Franke <leonard.franke@cs14-2.ba-leipzig.de> (cyboi shell commands)
+        * Jörg Broy <joerg.broy@cs14-1.ba-leipzig.de> (cyboi shell commands)
+        * Richard Lüdtke <richard.luedtke@cs14-2.ba-leipzig.de> (cyboi shell commands)
 
 CYBOP Project
         * Christian Heller <christian.heller@tuxtax.de> (administration, website, releases)
@@ -110,6 +105,7 @@ CYBOP Project
         * Jana Weigel <jana.weigel@stud.htwk-leipzig.de> (cybop book cover in 3d, cybop logo as svg)
         * Sebastian Wolff <sebastian.wolff@cs13-1.ba-leipzig.de> (german beginner's manual)
         * Tobias Thurow <tobias.thurow@cs13-2.ba-leipzig.de> (german beginner's manual)
+        * Stefan Göldner <stefan.goeldner@cs14-1.ba-leipzig.de> (video tutorials)
 
 Tools
         * Benjamin Teßmar <benjamin.tessmar@it2009.ba-leipzig.de> (cybol editor based on mono)
@@ -121,6 +117,8 @@ Tools
         * Sophia Kledzinski <sophia.kledzinski@cs12-2.ba-leipzig.de> (gui designer cybol_generator based on C++/Qt)
         * Patrick Hebner <patrick.hebner@cs13-1.ba-leipzig.de> (benchmark comparing c++, java, python, cybol)
         * Sebastian Kloppe <sebastian.kloppe@cs13-2.ba-leipzig.de> (benchmark comparing c++, java, python, cybol)
+        * Kevin Klein <kevin.klein@cs14-1.ba-leipzig.de> (Code::Blocks ide)
+        * Tobias Donix <tobias.donix@cs14-1.ba-leipzig.de> (Code::Blocks ide)
 
 Help and Support
         * Karl Berry <karl@freefriends.org> (feedback on improving project infrastructure and documentation)
