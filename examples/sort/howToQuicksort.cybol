@@ -1,0 +1,45 @@
+<node>
+<!-- declaration and initialisation of unsorted variable and result variable -->
+    <node name="variableUnsorted" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="unsorted"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseUnsorted" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".unsorted"/>
+        <node name="source" channel="inline" format="number/integer" model="5,8,4,7,6,9,3,2"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+    <node name="variableResult" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseResult" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="source" channel="inline" format="number/integer" model="0,0,0,0,0,0,0,0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+
+<!-- sorting of the unsorted variable using quicksort-->
+    <node name="sort" channel="inline" format="sort/quick" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".unsorted"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".result"/>
+    </node>
+
+<!-- show results -->
+    <node name="startupTerminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="printResult" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+<!-- shutdown application -->
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+</node>

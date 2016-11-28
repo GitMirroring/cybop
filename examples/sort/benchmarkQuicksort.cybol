@@ -1,0 +1,95 @@
+<node>
+<!-- declaration and initialisation of unsorted variable and result variable -->
+    <node name="variableUnsorted" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="unsorted"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseUnsorted" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".unsorted"/>
+        <node name="source" channel="inline" format="number/integer" model="5,8,8,7,6,9,3,2"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+    <node name="variableResult" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="result"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseResult" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="source" channel="inline" format="number/integer" model="0,0,0,0,0,0,0,0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+
+<!-- declaration and initialisation of time variables -->
+    <node name="variableBefore" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="before"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseBefore" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".before"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+    <node name="variableAfter" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="after"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseAfter" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".after"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+    <node name="variableDiff" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="diff"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node> 
+    <node name="initialiseDiff" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".diff"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+	</node>
+
+<!-- start terminal before time measurement -->
+    <node name="startupTerminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+<!-- sorting of the unsorted variable using quicksort-->
+    <node name="setTimeBefore" channel="inline" format="time/current" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".before"/>
+    </node>	
+    <node name="sort" channel="inline" format="sort/quick" model="">
+        <node name="input" channel="inline" format="path/knowledge" model=".unsorted"/>
+        <node name="output" channel="inline" format="path/knowledge" model=".result"/>
+    </node>
+    <node name="setTimeAfter" channel="inline" format="time/current" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".after"/>
+    </node>
+    <node name="calcTimeDiff" channel="inline" format="calculate/subtract" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".after"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".before"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    <node name="calcTimeDiff_copy" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".diff"/>
+        <node name="operand" channel="inline" format="path/knowledge" model=".after"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+<!-- show results -->
+    <node name="printDiff" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".diff"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+<!-- shutdown application -->
+    <node name="exit" channel="inline" format="live/exit" model=""/>
+</node>
