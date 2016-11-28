@@ -3,6 +3,7 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="CYBOI" />
+		<Option platforms="Unix;Mac;" />
 		<Option makefile_is_custom="1" />
 		<Option execution_dir="../../../trunk" />
 		<Option pch_mode="2" />
