@@ -375,6 +375,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_change_permission(p0, p1, p3, p4);
+        }
+    }
+
      if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) CLEAR_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -382,56 +392,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_clear_screen(p0, p1, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) HOSTNAME_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_hostname(p0, p1, p3, p4);
-        }
-    }
-
-     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) USERLOG_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_userlog(p0, p1, p3, p4);
-        }
-    }
-
-     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) TOUCH_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_touch(p0, p1, p3, p4);
-        }
-    }
-
-     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) IFUP_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_ifup();
-        }
-    }
-
-if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) NETSTAT_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_netstat(p0, p1, p3, p4);
         }
     }
 
@@ -467,6 +427,16 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p7, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_create_folder(p0, p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p7, (void*) DATE_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -487,61 +457,21 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p7, (void*) DIFF_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_diff(p0, p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p7, (void*) DISK_FREE_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_disk_free(p0, p1, p3, p4);
-        }
-    }
-
-if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) WHO_AM_I_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_who_am_i();
-        }
-    }
-
-if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) WHO_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_who(p0, p1, p2, p3);
-        }
-    }
-
-if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) TOP_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_top(p0, p1, p2, p3);
-        }
-    }
-
-if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) IFCONFIG_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_ifconfig(p0, p1, p2, p3, p4);
-        }
-    }
-
-if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) ID_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_id(p0, p1, p2, p3);
         }
     }
 
@@ -587,6 +517,16 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p7, (void*) GREP_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_grep(p0, p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p7, (void*) HELP_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -594,6 +534,47 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
             apply_help(p0, p1, p3, p4);
         }
     }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) HOSTNAME_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_hostname(p0, p1, p3, p4);
+        }
+    }
+
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) ID_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_id(p0, p1, p2, p3);
+        }
+    }
+
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) IFCONFIG_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_ifconfig(p0, p1, p2, p3);
+        }
+    }
+
+     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) IFUP_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_ifup();
+        }
+    }
+
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -635,53 +616,13 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) REMOVE_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_remove_file(p0, p1, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) NETSTAT_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_tape_archiver(p0, p1, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) CHANGE_PERMISSION_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_change_permission(p0, p1, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_word_count(p0, p1, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) CREATE_FOLDER_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_create_folder(p0, p1, p3, p4);
+            apply_netstat(p0, p1, p3, p4);
         }
     }
 
@@ -695,33 +636,14 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         }
     }
 
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) GREP_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_grep(p0, p1, p3, p4);
-        }
-    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p7, (void*) TRACEROUTE_COMMAND_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p7, (void*) REMOVE_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_traceroute(p0, p1, p3, p4);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) DIFF_COMMAND_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_diff(p0, p1, p3, p4);
+            apply_remove_file(p0, p1, p3, p4);
         }
     }
 
@@ -742,6 +664,87 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_spellcheck(p0, p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_tape_archiver(p0, p1, p3, p4);
+        }
+    }
+
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) TOP_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_top(p0, p1, p2, p3);
+        }
+    }
+
+     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) TOUCH_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_touch(p0, p1, p3, p4);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) TRACEROUTE_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_traceroute(p0, p1, p3, p4);
+        }
+    }
+
+
+     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) USERLOG_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_userlog(p0, p1, p3, p4);
+        }
+    }
+
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) WHO_AM_I_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_who_am_i();
+        }
+    }
+
+if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) WHO_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_who(p0, p1, p2, p3);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) WORD_COUNT_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_word_count(p0, p1, p3, p4);
         }
     }
 
