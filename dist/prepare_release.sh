@@ -40,11 +40,11 @@ readme_filter=README
 old_tabulator="	"
 new_tabulator="    "
 # The old and new copyright.
-old_copyright="Copyright (C) 1999-2014. Christian Heller."
-new_copyright="Copyright (C) 1999-2015. Christian Heller."
+old_copyright="Copyright (C) 1999-2015. Christian Heller."
+new_copyright="Copyright (C) 1999-2016. Christian Heller."
 # The old and new version.
-old_version="CYBOP 0.16.0 2014-03-31"
-new_version="CYBOP 0.17.0 2015-04-20"
+old_version="CYBOP 0.17.0 2015-04-20"
+new_version="CYBOP 0.18.0 2016-12-??"
 
 # Determine files.
 # CAUTION! The files without suffix HAVE TO BE

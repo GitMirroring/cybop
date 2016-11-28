@@ -22,7 +22,7 @@
 
         * Fix bug "bus error" caused by wrong loop index in file "lifo_array_name_finder.c",
             appearing on some machines when executing cybol example application "counter_stack_deep"
-        * Replace some constant values like {L'm', L'v'} with string like L"mv" in directories model
+        * Replace some constant values like {L'm', L'v'} with string like L"mv" in directory "model"
 
 2016-11-20  Christian Heller  <christian.heller@tuxtax.de>
 
@@ -48,7 +48,7 @@
 
 2016-11-07  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories channel, encoding, format, language, type
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories "channel", "encoding", "format", "language", "type"
 
 2016-05-20  Christian Heller  <christian.heller@tuxtax.de>
 

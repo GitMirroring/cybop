@@ -20,6 +20,7 @@ Test cybol applications
 Administrative Data
 ___________________
 
+Adapt file "dist/prepare_release.sh"
 Execute file "dist/prepare_release.sh"
 Adapt version in configure.ac
 Update and delete old todo/* files
