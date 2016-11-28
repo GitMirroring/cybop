@@ -20,7 +20,7 @@
 				<Option object_output="../../src/controller/" />
 				<Option type="1" />
 				<Option compiler="clang" />
-				<Option parameters="hello/run.cybol" />
+				<Option parameters="tui_control/run.cybol" />
 				<MakeCommands>
 					<Build command="$make" />
 					<CompileFile command="$make -f $makefile $file" />
@@ -118,10 +118,16 @@
 		<Unit filename="../../src/applicator/command/help.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/command/hostname.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/command/id.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/ifconfig.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/applicator/command/ifup.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/kill.c">
@@ -133,7 +139,13 @@
 		<Unit filename="../../src/applicator/command/list_tasks.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/command/memory_free.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/command/move_file.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/applicator/command/netstat.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/ping.c">
@@ -155,6 +167,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/traceroute.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/applicator/command/userlog.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/who.c">
