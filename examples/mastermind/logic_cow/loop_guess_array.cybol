@@ -1,0 +1,55 @@
+<node>
+
+
+    <node name="generate_reference" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.getcounteradress"/>
+    </node>
+
+    <!--<node name="print_adress_comp" channel="inline" format="communicate/send" model="">-->
+    <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
+    <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
+    <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+    <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
+    <!--<node name="message" channel="inline" format="path/reference" model=".app.var.comp_adress"/>-->
+    <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
+    <!--</node>-->
+
+    <!--<node name="print_adress_guess" channel="inline" format="communicate/send" model="">-->
+    <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
+    <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
+    <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+    <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
+    <!--<node name="message" channel="inline" format="path/reference" model=".app.var.guess_adress"/>-->
+    <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
+    <!--</node>-->
+
+    <!--<node name="print_adress_help" channel="inline" format="communicate/send" model="">-->
+    <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
+    <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
+    <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
+    <!--<node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>-->
+    <!--<node name="message" channel="inline" format="path/reference" model=".app.var.help_adress"/>-->
+    <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
+    <!--</node>-->
+
+
+
+    <node name="if-then-else" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="path/reference" model=".app.var.help_adress"/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.compare_comp_guess"/>
+    </node>
+
+    <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.counter_y"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".app.var.counter_y_b"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".app.var.counter_y"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".app.var.counter_y_max"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+</node>

@@ -1,0 +1,39 @@
+
+<node>
+    <node name="command" channel="inline" format="text/plain" model=""/>
+	<node name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="no_newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="exit_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="test" channel="inline" format="number/integer" model="1"/>
+    <node name="inkrement" channel="inline" format="number/integer" model="1"/>
+
+    <node name="seed" channel="inline" format="number/integer" model="0"/>
+
+    <node name="choice1_s" channel="inline" format="text/plain" model=""/>
+    <node name="choice2_s" channel="inline" format="text/plain" model=""/>
+    <node name="choice3_s" channel="inline" format="text/plain" model=""/>
+    <node name="choice4_s" channel="inline" format="text/plain" model=""/>
+
+    <node name="bull_default" channel="inline" format="number/integer" model="0"/>
+    <node name="bull" channel="inline" format="number/integer" model="0"/>
+
+    <node name="cow_default" channel="inline" format="number/integer" model="0"/>
+    <node name="cow" channel="inline" format="number/integer" model="0"/>
+
+    <!--loop-variables-->
+    <node name="counter_x" channel="inline" format="number/integer" model="0"/>
+    <node name="counter_x_max" channel="inline" format="number/integer" model="3"/>
+    <node name="counter_x_b" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="counter_y" channel="inline" format="number/integer" model="0"/>
+    <node name="counter_y_max" channel="inline" format="number/integer" model="3"/>
+    <node name="counter_y_b" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="comp_adress" channel="inline" format="text/plain" model=".app.comp_array.["/>
+    <node name="guess_adress" channel="inline" format="text/plain" model=".app.guess_array.["/>
+    <node name="help_adress" channel="inline" format="text/plain" model=".app.help_array.["/>
+
+    <node name="x_equal_y_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="win_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>

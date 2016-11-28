@@ -1,0 +1,6 @@
+<node>
+    <node name="flag1" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag2" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag3" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag4" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>
