@@ -85,11 +85,19 @@ void bubblesort(int *omd, int *elements) {
  * @param imc the input model count
  * @param omd the output model data
  * @param omc the output model count
- * 
+ * @param oms the output model size
  */
-void sorter_bubble(void* imd, void* imc, void* omd, void* omc) {
+void sorter_bubble(void* imd, void* imc, void* omd, void* omc, void* oms) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble.");
+
+    // Fill destination array in order to preserve input array values.
+    overwrite_array(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    // Call actual bubble sort algorithm.
+    bubblesort((int*) *((void**) omd), (int*) omc);
+   
+/*??    
    	
 	int i = -1;
 	if(*((int* ) imc) == *((int* ) omc))
@@ -101,6 +109,7 @@ void sorter_bubble(void* imd, void* imc, void* omd, void* omc) {
 	} 
 	else
 		fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
+*/
 }
 
 /* BUBBLE_SORTER_SOURCE */

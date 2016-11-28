@@ -69,6 +69,7 @@ void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
     // The output part model item data and count.
     void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* oms = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input part.
     get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
@@ -86,8 +87,9 @@ void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
     // Get output part model item data and count.
     copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &oms, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    sorter_quick(imd, imc, omd, omc);
+    sorter_quick(imd, imc, omd, omc, oms);
 }
 
 void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {
@@ -107,9 +109,10 @@ void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {
     // The input part model item data and count.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The output part model item data and count.
+    // The output part model item data, count, size.
     void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* oms = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input part.
     get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
@@ -127,8 +130,9 @@ void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {
     // Get output part model item data and count.
     copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &oms, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    sorter_bubble(imd, imc, omd, omc);
+    sorter_bubble(imd, imc, (void*) &omd, omc, oms);
 }
 
 /* SORTERS_SOURCE */

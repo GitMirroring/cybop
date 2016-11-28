@@ -78,13 +78,22 @@ void quicksort(int *a, int *e) {
  * @param imc the input model count
  * @param omd the output model data
  * @param omc the output model count
- * 
+ * @param oms the output model size
  */
-void sorter_quick(void* imd, void* imc, void* omd, void* omc) {
+void sorter_quick(void* imd, void* imc, void* omd, void* omc, void* oms) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort quick.");
-   	
-	int i = -1;
+
+    // Fill destination array in order to preserve input array values.
+    overwrite_array(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+    void* address = *((void**) omd) + (*((int*) omc) * sizeof(void*)) - 1;
+    // Call actual bubble sort algorithm.
+    quicksort((int*) *((void**) omd), (int*) address);
+//??    quicksort((int*) *((void**) omd), ((int*) *((void**) omd)) + (*((int*) omc) - 1));
+   
+/*??
+    int i = -1;
 	if(*((int* ) imc) == *((int* ) omc))
 	{	
 		while(++i < *((int* ) imc))
@@ -94,6 +103,7 @@ void sorter_quick(void* imd, void* imc, void* omd, void* omc) {
 	} 
 	else
 		fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
+*/
 }
 
 /* QUICK_SORTER_SOURCE */

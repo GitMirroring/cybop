@@ -1,0 +1,7 @@
+<node>
+
+    <node name="input" channel="inline" format="text/plain" model=""/>
+    <node name="operand" channel="inline" format="number/integer" model="0"/>
+    <node name="result" channel="inline" format="number/integer" model="0"/>
+
+</node>

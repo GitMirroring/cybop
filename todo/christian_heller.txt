@@ -18,6 +18,14 @@
             CONTINUE: with directory "cyboi/"
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories name
 
+Terminal input
+______________
+
+        * Adapt cyboi interpreter to provide different ways for receiving user input,
+            e.g. with canonical buffer or not, blocking or not etc.
+        * Try adapting file "set_attributes_unix_terminal_starter.c"
+        * Make cybol example application "addition_user_input" work
+
 Stack
 _____
 
