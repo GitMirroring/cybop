@@ -5,8 +5,7 @@
 	</node>
 
 
-	<node name="game_loop" channel="inline" format="flow/loop" model="">
-		<node name="break" channel="inline" format="path/knowledge" model=".app.var.win_flag"/>
+	<node name="start_prompt" channel="inline" format="flow/sequence" model="">
 		<node name="model" channel="inline" format="path/knowledge" model=".app.prompt_guess"/>
 	</node>
 

@@ -35,5 +35,8 @@
 
     <node name="x_equal_y_flag" channel="inline" format="logicvalue/boolean" model="false"/>
 
+    <node name="round_counter" channel="inline" format="number/integer" model="1"/>
+    <node name="max_round" channel="inline" format="number/integer" model="15"/>
     <node name="win_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="loose_flag" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
