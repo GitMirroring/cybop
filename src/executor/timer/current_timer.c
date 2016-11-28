@@ -52,7 +52,12 @@ void time_current(void* p0) {
 
         // Get current time of system.
         // CAUTION! In the GNU C Library, time_t is equivalent to long int.
-        *t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+        //*t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL) / 1000;
+	struct timespec start;
+	clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+	//*t = (start.tv_sec) * 1000000;
+	*t = (start.tv_nsec) / 1000;
+	//*t = (start.tv_sec) * 1000000 + (start.tv_nsec) / 1000;
 
     } else {
 

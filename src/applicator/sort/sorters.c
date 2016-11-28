@@ -35,6 +35,7 @@
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../executor/sorter/quicksorter.c"
+#include "../../executor/sorter/bubblesorter.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../logger/logger.c"
 
@@ -87,6 +88,47 @@ void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
     copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     sorter_quick(imd, imc, omd, omc);
+}
+
+void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply bubblesort.");
+
+    // The input part.
+    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output part.
+    void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The input part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output part model item.
+    void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The input part model item data and count.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* imc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The output part model item data and count.
+    void* omd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* omc = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // Get input part.
+    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get output part.
+    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+
+    // Get file part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get output part model item.
+    copy_array_forward((void*) &om, o, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get file part model item data and count.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &imc, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Get output part model item data and count.
+    copy_array_forward((void*) &omd, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+
+    sorter_bubble(imd, imc, omd, omc);
 }
 
 /* SORTERS_SOURCE */
