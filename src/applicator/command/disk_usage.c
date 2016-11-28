@@ -1,0 +1,134 @@
+/*
+ * Copyright (C) 1999-2015. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.17.0 2015-04-20
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef DISK_USAGE_SOURCE
+#define DISK_USAGE_SOURCE
+
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/name/cybol/logic/commander/disk_usage_commander_logic_cybol_name.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/commander/disk_usage_commander.c"
+#include "../../logger/logger.c"
+
+#ifndef _MSC_VER
+    #include <unistd.h>
+#endif
+
+/**
+ * Shows the disk usage of a directory.
+ *
+ * - human(optional): the human option (human-readable output)
+ * - summarize(optional): the summarize option (prints a summarize)
+ * - all(optional): the all option (prints all)
+ * - bytes(optional): the bytes option (prints sizes in bytes)
+ * - total(optional): the total option (prints total usage)
+ *
+ * Constraints:
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
+ */
+
+void apply_disk_usage(void* p0, void* p1, void* p2, void* p3) {
+
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the disk-usage of a directory.");
+
+    // The human part.
+    void* h = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The summarize part.
+    void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The all part.
+    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The bytes part.
+    void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The total part.
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+
+    // The human part.
+    void* hm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The summarize part.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The all part.
+    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The bytes part.
+    void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The total part.
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;    
+
+    // The human part.
+    void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The summarize part.
+    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The all part.
+    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The bytes part.
+    void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The total part.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    
+    // Get human part.
+    get_part_name((void*) &h, p0, (void*) HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get summarize part.
+    get_part_name((void*) &s, p0, (void*) SUMMARIZE_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SUMMARIZE_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get all part.
+    get_part_name((void*) &a, p0, (void*) ALL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get bytes part.
+    get_part_name((void*) &b, p0, (void*) BYTES_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) BYTES_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    // Get total part.
+    get_part_name((void*) &t, p0, (void*) TOTAL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) TOTAL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    
+    // Get human part model item.
+    copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get summarize part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get all part model item.
+    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get bytes part model item.
+    copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get total part model item.
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+
+    // Get human part model item.
+    copy_array_forward((void*) &hmd, hm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get summarize part model item.MOD
+    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get all part model item.
+    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get bytes part model item.
+    copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get total part model item.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+    command_disk_usage(hmd, smd, amd, bmd, tmd);
+}
+
+/* DISK_USAGE_SOURCE */
+#endif
