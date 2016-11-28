@@ -175,6 +175,16 @@ static wchar_t* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-free";
 static int* DISK_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/disk-usage logic cybol format.
+ *
+ * Shows the usage of a directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-usage";
+static int* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/display-content logic cybol format.
  *
  * Display the content of one or more text files
@@ -235,6 +245,46 @@ static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT  = L"command/help";
 static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/id logic cybol format.
+ *
+ * Display id.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
+static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/ifconfig logic cybol format.
+ *
+ * Display ifconfig.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifconfig";
+static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/ifup logic cybol format.
+ *
+ * Shows if the interface is available.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* IFUP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifup";
+static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/hostname logic cybol format.
+ *
+ * Shows the hostname of machine.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT = L"command/hostname";
+static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/kill logic cybol format.
  *
  * Kill a process.
@@ -256,6 +306,16 @@ static wchar_t* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT = L"command/l
 static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/list-open-files logic cybol format.
+ *
+ * Shows open files in operating system.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT = L"command/list-open-files";
+static int* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/list-tasks logic cybol format.
  *
  * List all the processes running on the computer.
@@ -264,6 +324,16 @@ static int* LIST_DIRECTORY_CONTENTS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_31
  */
 static wchar_t* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT = L"command/list-tasks";
 static int* LIST_TASKS_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/memory-free logic cybol format.
+ *
+ * Shows the usage of the RAM.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/memory-free";
+static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/move logic cybol format.
@@ -276,6 +346,16 @@ static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT  = L"command/move";
 static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The command/netstat logic cybol format.
+ *
+ * Display network informations.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/netstat";
+static int* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The command/ping logic cybol format.
  *
  * Pings a given host
@@ -284,6 +364,16 @@ static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  */
 static wchar_t* PING_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ping";
 static int* PING_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/pwd logic cybol format.
+ *
+ * Shows the path of the present working directory.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* PWD_COMMAND_LOGIC_CYBOL_FORMAT = L"command/pwd";
+static int* PWD_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/remove logic cybol format.
@@ -316,116 +406,6 @@ static wchar_t* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT = L"command/spellcheck";
 static int* SPELLCHECK_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/remove logic cybol format.
- *
- * Removes a file or directory.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = L"command/tape-archiver";
-static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/traceroute logic cybol format.
- *
- * displays packet routes to any reachable host
- *
- * This is a CYBOL extension.
- */
-static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/traceroute";
-static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/word count logic cybol format.
- *
- * Outputs the Number of rows, words and bytes for every file
- *
- * This is a CYBOL extension.
- */
-static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/word-count";
-static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/hostname logic cybol format.
- *
- * Shows the hostname of machine.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT = L"command/hostname";
-static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/userlog logic cybol format.
- *
- * Shows the users logged in to machine.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/userlog";
-static int* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/touch logic cybol format.
- *
- * creates new file.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT = L"command/touch";
-static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/ifup logic cybol format.
- *
- * Shows if the interface is available.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* IFUP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifup";
-static int* IFUP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/memory-free logic cybol format.
- *
- * Shows the usage of the RAM.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/memory-free";
-static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/disk-usage logic cybol format.
- *
- * Shows the usage of a directory.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/disk-usage";
-static int* DISK_USAGE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/list-open-files logic cybol format.
- *
- * Shows open files in operating system.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT = L"command/list-open-files";
-static int* LIST_OPEN_FILES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/pwd logic cybol format.
- *
- * Shows the path of the present working directory.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* PWD_COMMAND_LOGIC_CYBOL_FORMAT = L"command/pwd";
-static int* PWD_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The command/system-messages logic cybol format.
  *
  * Shows system messages from /var/log.
@@ -436,24 +416,14 @@ static wchar_t* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOL_FORMAT = L"command/system-me
 static int* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_23_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/who-am-i logic cybol format.
+ * The command/remove logic cybol format.
  *
- * Display who am i.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who-am-i";
-static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
- * The command/who logic cybol format.
- *
- * Display who.
+ * Removes a file or directory.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* WHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who";
-static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT = L"command/tape-archiver";
+static int* TAPE_ARCHIVER_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The command/top logic cybol format.
@@ -466,35 +436,64 @@ static wchar_t* TOP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/top";
 static int* TOP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/ifconfig logic cybol format.
+ * The command/touch logic cybol format.
  *
- * Display ifconfig.
+ * creates new file.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/ifconfig";
-static int* IFCONFIG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT = L"command/touch";
+static int* TOUCH_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/id logic cybol format.
+ * The command/traceroute logic cybol format.
  *
- * Display id.
+ * displays packet routes to any reachable host
  *
  * This is a CYBOL extension.
  */
-static wchar_t* ID_COMMAND_LOGIC_CYBOL_FORMAT = L"command/id";
-static int* ID_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/traceroute";
+static int* TRACEROUTE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The command/netstat logic cybol format.
+ * The command/userlog logic cybol format.
  *
- * Display network informations.
+ * Shows the users logged in to machine.
  *
  * This is a CYBOL extension.
  */
-static wchar_t* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/netstat";
-static int* NETSTAT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT = L"command/userlog";
+static int* USERLOG_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The command/who logic cybol format.
+ *
+ * Display who.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* WHO_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who";
+static int* WHO_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/who-am-i logic cybol format.
+ *
+ * Display who am i.
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT = L"command/who-am-i";
+static int* WHO_AM_I_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The command/word count logic cybol format.
+ *
+ * Outputs the Number of rows, words and bytes for every file
+ *
+ * This is a CYBOL extension.
+ */
+static wchar_t* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT = L"command/word-count";
+static int* WORD_COUNT_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMMAND_LOGIC_CYBOL_FORMAT_CONSTANT_SOURCE */
 #endif

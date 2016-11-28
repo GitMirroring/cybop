@@ -212,6 +212,9 @@ static int* DELAY_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1327_INTEGER_STATE_CYBOI_M
 /** The spellcheck command logic cyboi format. */
 static int* SPELLCHECK_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1328_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/** The memory free command logic cyboi format. */
+static int* MEMORY_FREE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1329_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /** The who am i command logic cyboi format. */
 static int* WHO_AM_I_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1330_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -227,9 +230,6 @@ static int* IFCONFIG_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1333_INTEGER_STATE_CYBO
 /** The id command logic cyboi format. */
 static int* ID_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1334_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The memory free command logic cyboi format. */
-static int* MEMORY_FREE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1329_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The hostname command logic cyboi format. */
 static int* HOSTNAME_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1335_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -242,9 +242,6 @@ static int* TOUCH_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1337_INTEGER_STATE_CYBOI_M
 /** The ifup command logic cyboi format. */
 static int* IFUP_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1338_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The netstat command logic cyboi format. */
-static int* NETSTAT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1343_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The disk usage command logic cyboi format. */
 static int* DISK_USAGE_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1339_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
@@ -256,6 +253,10 @@ static int* PWD_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1341_INTEGER_STATE_CYBOI_MOD
 
 /** The system messages command logic cyboi format. */
 static int* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1342_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The netstat command logic cyboi format. */
+static int* NETSTAT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1343_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 
 //
 // communicate
