@@ -10,6 +10,20 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+--
+        * Alexander Heimann <alexander.heimann@cs14-1.ba-leipzig.de> (sort algorithms quick, bubble)
+        * Julius Krenkel <> (sort algorithms quick, bubble)
+        * Paul Müller <> (sort algorithms quick, bubble)
+        * Leonard Franke <> (cyboi shell commands)
+        * Jörg Broy <> (cyboi shell commands)
+        * Richard Lüdtke <> (cyboi shell commands)
+        * Florian Aurich <> (password_generator example)
+        * Andre Noldin <> (password_generator example)
+        * Ronny Zingler <> (cows and bulls/mastermind game example)
+        * Kevin Klein <> (Code::Blocks ide)
+        * Tobias Donix <> (Code::Blocks ide)
+        * Stefan Göldner <> (video tutorials)
+--
 In chronological order ... oldest entry on top, newest on bottom ...
 
 Cybernetics Oriented Programming (CYBOP)

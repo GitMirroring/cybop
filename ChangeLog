@@ -18,22 +18,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2016-12-15  Christian Heller  <christian.heller@tuxtax.de>
-
-        * Add sort algorithms (quick, bubble) as cyboi operations of Alexander Heimann, Julius Krenkel, Paul Müller
-        * Add cyboi shell commands of Leonard Franke, Jörg Broy, Richard Lüdtke
-        * Add cybol example application game "cows and bulls" (mastermind) of Ronny Zingler
-        * Add ide "Code::Blocks" project file of Kevin Klein, Tobias Donix
-of Florian Aurich, Andre Noldin
-of Stefan Göldner
---
-        * Add cyboi shell commands and cyboi operations of Christopher Stoneking, Christian Szech
-        * Add cybol example application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
-        * Add cybol example application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
-        * Add cybol api update of Christian Schulz, Lena Braun
-        * Add german cybop manual update of Sebastian Wolff, Tobias Thurow
-        * Add benchmark tool comparing cybol with c++, java, python of Sebastian Kloppe, Patrick Hebner
-
 2016-11-28  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add cybol example application "addition_user_input"

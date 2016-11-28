@@ -11,12 +11,23 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+        CONTINUE:
         * Prepare release CYBOP 0.18.0
+        * Adapt file "AUTHORS" (email addresses and sorting in entries)
 
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
             DONE: ansi_escape_code, character_code, character_entity_reference, command
             CONTINUE: with directory "cyboi/"
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories name
+
+2016-12-15  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Add sort algorithms (quick, bubble) as cyboi operations of Alexander Heimann, Julius Krenkel, Paul Müller
+        * Add cyboi shell commands of Leonard Franke, Jörg Broy, Richard Lüdtke
+        * Add cybol example application "password_generator" of Florian Aurich, Andre Noldin
+        * Add cybol example application game "cows and bulls" (mastermind) of Ronny Zingler
+        * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
+        * Add video tutorials of Stefan Göldner
 
 Terminal input
 ______________
