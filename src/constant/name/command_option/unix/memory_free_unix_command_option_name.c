@@ -30,5 +30,25 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
+/** The human memory free unix command option name. */
+static wchar_t* HUMAN_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME = L"-h";
+static int* HUMAN_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The kilobytes memory free unix command option name. */
+static wchar_t* KILOBYTES_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME = L"-k";
+static int* KILOBYTES_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The megabytes memory free unix command option name. */
+static wchar_t* MEGABYTES_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME = L"-m";
+static int* MEGABYTES_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The gigabytes memory free unix command option name. */
+static wchar_t* GIGABYTES_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME = L"-g";
+static int* GIGABYTES_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/** The total memory free unix command option name. */
+static wchar_t* TOTAL_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME = L"-t";
+static int* TOTAL_MEMORY_FREE_UNIX_COMMAND_OPTION_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 /* MEMORY_FREE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

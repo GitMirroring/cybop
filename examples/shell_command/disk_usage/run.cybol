@@ -1,6 +1,11 @@
 <node>
 
     <node name="disk-usage" channel="inline" format="command/disk-usage" model="">
+	<node name="human" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="summarize" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="all" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="bytes" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="total" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>

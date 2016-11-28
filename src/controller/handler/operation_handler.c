@@ -32,10 +32,6 @@
 #include "../../applicator/access/indicate.c"
 #include "../../applicator/calculate/calculate.c"
 #include "../../applicator/cast/cast.c"
-#include "../../applicator/communicate/receive.c"
-#include "../../applicator/communicate/send.c"
-#include "../../applicator/compare/compare.c"
-#include "../../applicator/contain/contain.c"
 #include "../../applicator/command/archive_file.c"
 #include "../../applicator/command/change_directory.c"
 #include "../../applicator/command/change_permission.c"
@@ -48,28 +44,42 @@
 #include "../../applicator/command/delay.c"
 #include "../../applicator/command/diff.c"
 #include "../../applicator/command/disk_free.c"
+#include "../../applicator/command/disk_usage.c"
 #include "../../applicator/command/display_content.c"
 #include "../../applicator/command/echo_message.c"
 #include "../../applicator/command/find_command.c"
 #include "../../applicator/command/find_file.c"
 #include "../../applicator/command/grep.c"
 #include "../../applicator/command/help.c"
+#include "../../applicator/command/hostname.c"
 #include "../../applicator/command/id.c"
 #include "../../applicator/command/ifconfig.c"
+#include "../../applicator/command/ifup.c"
 #include "../../applicator/command/kill.c"
 #include "../../applicator/command/list_directory_contents.c"
+#include "../../applicator/command/list_open_files.c"
 #include "../../applicator/command/list_tasks.c"
+#include "../../applicator/command/memory_free.c"
 #include "../../applicator/command/move_file.c"
+#include "../../applicator/command/netstat.c"
 #include "../../applicator/command/ping.c"
+#include "../../applicator/command/present_working_directory.c"
 #include "../../applicator/command/remove_file.c"
 #include "../../applicator/command/sort.c"
 #include "../../applicator/command/spellcheck.c"
+#include "../../applicator/command/system_messages.c"
 #include "../../applicator/command/tape_archiver.c"
 #include "../../applicator/command/top.c"
+#include "../../applicator/command/touch.c"
 #include "../../applicator/command/traceroute.c"
-#include "../../applicator/command/who_am_i.c"
+#include "../../applicator/command/userlog.c"
 #include "../../applicator/command/who.c"
+#include "../../applicator/command/who_am_i.c"
 #include "../../applicator/command/word_count.c"
+#include "../../applicator/communicate/receive.c"
+#include "../../applicator/communicate/send.c"
+#include "../../applicator/compare/compare.c"
+#include "../../applicator/contain/contain.c"
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
@@ -81,12 +91,6 @@
 #include "../../applicator/manipulate/manipulate.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
-#include "../../applicator/command/memory_free.c"
-#include "../../applicator/command/hostname.c"
-#include "../../applicator/command/userlog.c"
-#include "../../applicator/command/touch.c"
-#include "../../applicator/command/ifup.c"
-#include "../../applicator/command/netstat.c"
 #include "../../applicator/modify/append.c"
 #include "../../applicator/modify/build.c"
 #include "../../applicator/modify/empty.c"
@@ -102,10 +106,13 @@
 #include "../../applicator/run/sleep.c"
 #include "../../applicator/sort/sorters.c"
 #include "../../applicator/time/time.c"
+#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../logger/logger.c"
+
+
+
 
 /**
  * Handles the operation.
@@ -477,6 +484,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p7, (void*) DISK_USAGE_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_disk_usage(p0, p1, p3, p4);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p7, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -598,6 +615,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p7, (void*) LIST_OPEN_FILES_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_list_open_files(p0, p1, p3, p4);
+        }
+    }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
         compare_integer_equal((void*) &r, p7, (void*) LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -606,6 +633,16 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) MEMORY_FREE_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_memory_free(p0, p1, p3, p4);
+        }
+    }
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) MOVE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -636,6 +673,15 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        compare_integer_equal((void*) &r, p7, (void*) PWD_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_pwd(p0, p1, p3, p4);
+        }
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -666,7 +712,17 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_spellcheck(p0, p1, p3, p4);
         }
     }
+    
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+        compare_integer_equal((void*) &r, p7, (void*) SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOI_FORMAT);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            apply_system_messages(p0, p1, p3, p4);
+        }
+    }
+    
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT);

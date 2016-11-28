@@ -8,9 +8,9 @@
 	<node name="total" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="exit" channel="inline" format="live/exit" model=""/>
-
 </node>
+
+<node name="exit" channel="inline" format="live/exit" model=""/>
 
 <!--
     This example executes a shell command.

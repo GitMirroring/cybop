@@ -1,6 +1,11 @@
 <node>
 
     <node name="list-open-files" channel="inline" format="command/list-open-files" model="">
+	<node name="listuid" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="listfilesize" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="listtasks" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="disabletcp" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="terselisting" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>

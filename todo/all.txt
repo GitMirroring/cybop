@@ -116,6 +116,7 @@ _____
               -> remove_file.c is a good example for this - has parameter and options
             * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
 
+	* Sort  shell-commands alphabetically e.g. in: "src/constant/model/command/unix_command_model.c" and in some other files
         * Implement standard algorithms for search, sort etc.
 
         * Add calculator functions for types datetime, duration

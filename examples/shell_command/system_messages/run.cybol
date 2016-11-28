@@ -1,6 +1,11 @@
 <node>
 
     <node name="system-messages" channel="inline" format="command/system-messages" model="">
+	<node name="human" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="ctime" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="kernel" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="color" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="userspace" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
