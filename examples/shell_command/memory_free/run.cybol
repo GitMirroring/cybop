@@ -1,7 +1,7 @@
 <node>
 
     <node name="memory-free" channel="inline" format="command/memory-free" model="">
-	<node name="human" channel="inline" format="logicvalue/boolean" model="false"/>
+	<node name="human" channel="inline" format="logicvalue/boolean" model="true"/>
 	<node name="kilobytes" channel="inline" format="logicvalue/boolean" model="false"/>
 	<node name="megabytes" channel="inline" format="logicvalue/boolean" model="false"/>
 	<node name="gigabytes" channel="inline" format="logicvalue/boolean" model="false"/>

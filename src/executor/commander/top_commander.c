@@ -95,7 +95,7 @@ void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
 
 	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		    // Append ALL option - Unix only.
+		    // Append BATCH option - Unix only.
 		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 	#ifdef __APPLE__
@@ -117,7 +117,7 @@ void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
 
 	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		    // Append ALL option - Unix only.
+		    // Append COMMAND option - Unix only.
 		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 	#ifdef __APPLE__
@@ -140,7 +140,7 @@ void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
 
 	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		    // Append ALL option - Unix only.
+		    // Append THREAD option - Unix only.
 		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 	#ifdef __APPLE__
@@ -162,7 +162,7 @@ void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
 
 	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		    // Append ALL option - Unix only.
+		    // Append IDLE option - Unix only.
 		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 	#ifdef __APPLE__
@@ -184,7 +184,7 @@ void command_top(void* bmd, void* cmd,void* hmd,void* imd,void* smd) {
 
 	if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-		    // Append ALL option - Unix only.
+		    // Append SECURE option - Unix only.
 		    append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
 	#ifdef __APPLE__

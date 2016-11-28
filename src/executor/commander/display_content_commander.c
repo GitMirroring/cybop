@@ -209,7 +209,8 @@ void command_display_content(void* pd, void* pc, void* ln, void* sqz, void* clr)
 
     
     // Execute command line in shell.
-    execute(argd, argc);
+	fwprintf(stdout, L"test %ls" , argd);    
+	execute(argd, argc);
     
     // Deallocate arguments item.
     deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

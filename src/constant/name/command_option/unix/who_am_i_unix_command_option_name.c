@@ -30,7 +30,7 @@
 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
-
+/* no options **/
 
 /* WHO_AM_I_COMMAND_OPTION_NAME_CONSTANT_SOURCE */
 #endif

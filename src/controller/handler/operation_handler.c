@@ -531,7 +531,7 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_ifconfig(p0, p1, p2, p3);
+            apply_ifconfig(p0, p1, p2, p3, p4);
         }
     }
 

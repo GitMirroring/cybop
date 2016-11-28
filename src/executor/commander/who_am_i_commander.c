@@ -62,16 +62,7 @@
     #include <unistd.h>
 #endif
 
-/**
- * Display free disk space.
- *
- * @param amd the all model data
- * @param hmd the human model data
- * @param kmd the kilobytes model data
- * @param lmd the local model data
- * @param mmd the megabytes model data
- * @param tmd the print type model data
- */
+
 void command_who_am_i() {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command who am i.");

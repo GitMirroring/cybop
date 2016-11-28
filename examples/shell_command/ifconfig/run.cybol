@@ -1,10 +1,10 @@
 <node>
 
-    <node name="who" channel="inline" format="command/ifconfig" model="">
-	<node name="interface" channel="inline" format="text/plain" model="enp0s3"/>
-	<node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="ifconfig" channel="inline" format="command/ifconfig" model="">
+	<node name="interface" channel="inline" format="text/plain" model=""/>
+	<node name="short" channel="inline" format="logicvalue/boolean" model="true"/>
 	<node name="all" channel="inline" format="logicvalue/boolean" model="false"/>
-	<node name="down" channel="inline" format="logicvalue/boolean" model="true"/>
+	<node name="down" channel="inline" format="logicvalue/boolean" model="false"/>
 	<node name="up" channel="inline" format="logicvalue/boolean" model="false"/>	        
     </node>
 
