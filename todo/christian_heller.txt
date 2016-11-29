@@ -11,7 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Investigate "segmentation fault" error caused by "sort" functions in "executor/sorter/"
+        * Investigate wrong values in sorted array delivered by "executor/sorter/" and cybol example application "sort"
 
         * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
             DONE: ansi_escape_code, character_code, character_entity_reference, command

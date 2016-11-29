@@ -46,7 +46,7 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
- * 
+ *
  */
 
 void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
@@ -89,7 +89,7 @@ void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
     copy_array_forward((void*) &omc, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &oms, om, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
 
-    sorter_quick(imd, imc, omd, omc, oms);
+    sorter_quick(imd, imc, (void*) &omd, omc, oms);
 }
 
 void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {

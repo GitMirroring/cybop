@@ -38,7 +38,6 @@
  *
  * Works space-economically over ONE
  * array.
- *
  */
 void quicksort(int *a, int *e) {
 
@@ -60,18 +59,18 @@ void quicksort(int *a, int *e) {
 		tmp = *k;
 		*k = *g;
 		*g = tmp;
-	
+
 	} while(g < k);
 	tmp = *g;
 	*g = *e;
-	*e = tmp;	
+	*e = tmp;
 
 	quicksort(a, k);
 	quicksort(g, e);
 }
 
 /*
- * Sortes numbers by quicksort-algorithm.
+ * Sorts numbers by quicksort-algorithm.
  * THIS: http://openbook.rheinwerk-verlag.de/c_von_a_bis_z/022_c_algorithmen_003.htm#mjde22312f4b61457b2efb0f9f17a7b269 sorts even own types (not restricted to int).
  *
  * @param imd the input model data
@@ -84,23 +83,37 @@ void sorter_quick(void* imd, void* imc, void* omd, void* omc, void* oms) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort quick.");
 
+fwprintf(stdout, L"TEST quick oms: %i\n", oms);
+fwprintf(stdout, L"TEST quick *oms: %i\n", *((int*) oms));
+fwprintf(stdout, L"TEST quick omc: %i\n", omc);
+fwprintf(stdout, L"TEST quick *omc: %i\n", *((int*) omc));
+fwprintf(stdout, L"TEST quick omd: %i\n", omd);
+fwprintf(stdout, L"TEST quick *omd: %i\n", *((int*) omd));
+fwprintf(stdout, L"TEST quick *omd: %i\n", **((int**) omd));
+
     // Fill destination array in order to preserve input array values.
     overwrite_array(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
-    void* address = *((void**) omd) + (*((int*) omc) * sizeof(void*)) - 1;
+fwprintf(stdout, L"TEST quick sizeof(int): %i\n", sizeof(int));
+fwprintf(stdout, L"TEST quick (*((int*) omc) - 1) * sizeof(int): %i\n", (*((int*) omc) - 1) * sizeof(int));
+fwprintf(stdout, L"TEST quick *((void**) omd) + ((*((int*) omc) - 1) * sizeof(int)): %i\n", *((void**) omd) + ((*((int*) omc) - 1) * sizeof(int)));
+
+    void* address = *((void**) omd) + ((*((int*) omc) - 1) * sizeof(int));
+fwprintf(stdout, L"TEST quick address: %i\n", address);
+
     // Call actual bubble sort algorithm.
     quicksort((int*) *((void**) omd), (int*) address);
 //??    quicksort((int*) *((void**) omd), ((int*) *((void**) omd)) + (*((int*) omc) - 1));
-   
+
 /*??
     int i = -1;
 	if(*((int* ) imc) == *((int* ) omc))
-	{	
+	{
 		while(++i < *((int* ) imc))
 			*((int* ) omd + i) = *((int* ) imd + i);
 
 		quicksort((int*) omd, (int*) omd + (*((int* ) omc) - 1));
-	} 
+	}
 	else
 		fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
 */
