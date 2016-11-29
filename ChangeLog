@@ -21,6 +21,7 @@
 2016-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Eliminate "segmentation fault" error caused by "sort" functions in "executor/sorter/" and cybol example application "sort"
+        * Investigate wrong values in sorted array delivered by "executor/sorter/" and cybol example application "sort"
 
 2016-11-28  Christian Heller  <christian.heller@tuxtax.de>
 

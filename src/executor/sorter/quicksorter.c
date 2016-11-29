@@ -89,11 +89,20 @@ fwprintf(stdout, L"TEST quick omc: %i\n", omc);
 fwprintf(stdout, L"TEST quick *omc: %i\n", *((int*) omc));
 fwprintf(stdout, L"TEST quick omd: %i\n", omd);
 fwprintf(stdout, L"TEST quick *omd: %i\n", *((int*) omd));
-fwprintf(stdout, L"TEST quick *omd: %i\n", **((int**) omd));
+fwprintf(stdout, L"TEST quick **omd: %i\n", **((int**) omd));
 
     // Fill destination array in order to preserve input array values.
     overwrite_array(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
+fwprintf(stdout, L"TEST quick oms: %i\n", oms);
+fwprintf(stdout, L"TEST quick *oms: %i\n", *((int*) oms));
+fwprintf(stdout, L"TEST quick omc: %i\n", omc);
+fwprintf(stdout, L"TEST quick *omc: %i\n", *((int*) omc));
+fwprintf(stdout, L"TEST quick omd: %i\n", omd);
+fwprintf(stdout, L"TEST quick *omd: %i\n", *((int*) omd));
+fwprintf(stdout, L"TEST quick **omd: %i\n", **((int**) omd));
+
+fwprintf(stdout, L"TEST quick sizeof(void*): %i\n", sizeof(void*));
 fwprintf(stdout, L"TEST quick sizeof(int): %i\n", sizeof(int));
 fwprintf(stdout, L"TEST quick (*((int*) omc) - 1) * sizeof(int): %i\n", (*((int*) omc) - 1) * sizeof(int));
 fwprintf(stdout, L"TEST quick *((void**) omd) + ((*((int*) omc) - 1) * sizeof(int)): %i\n", *((void**) omd) + ((*((int*) omc) - 1) * sizeof(int)));
@@ -106,16 +115,16 @@ fwprintf(stdout, L"TEST quick address: %i\n", address);
 //??    quicksort((int*) *((void**) omd), ((int*) *((void**) omd)) + (*((int*) omc) - 1));
 
 /*??
-    int i = -1;
-	if(*((int* ) imc) == *((int* ) omc))
-	{
-		while(++i < *((int* ) imc))
-			*((int* ) omd + i) = *((int* ) imd + i);
+        int i = -1;
+        if(*((int* ) imc) == *((int* ) omc))
+        {
+                while(++i < *((int* ) imc))
+                        *((int* ) *((int**) omd) + i) = *((int* ) imd + i);
 
-		quicksort((int*) omd, (int*) omd + (*((int* ) omc) - 1));
-	}
-	else
-		fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
+                quicksort((int*) *((int**) omd), (int*) *((int**) omd) + (*((int* ) omc) - 1));
+        }
+        else
+                fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
 */
 }
 
