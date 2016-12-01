@@ -29,11 +29,6 @@
         * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
         * Add video tutorials of Stefan Göldner
 
-Terminal
-________
-
-        * Think through blocking input for other channels besides terminal
-
 Stack
 _____
 
@@ -148,6 +143,10 @@ ___
 
 Sensing Threads
 _______________
+
+        * Think through blocking input for other channels
+        * See channel "terminal" as example (already implemented there)
+        * Provide endless loop e.g. in file "bsd_socket_reader.c", as done in file "stream_unix_terminal_reader.c"
 
         * Optimise signal (event) handling
             You don't need to get a character to block on a terminal or serial port.
