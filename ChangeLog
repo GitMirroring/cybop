@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-12-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide blocking input on channel "terminal" for "communicate/receive" operation
+        * Make cybol example application "addition_user_input" work
+
 2016-11-29  Christian Heller  <christian.heller@tuxtax.de>
 
         * Eliminate "segmentation fault" error caused by "sort" functions in "executor/sorter/" and cybol example application "sort"

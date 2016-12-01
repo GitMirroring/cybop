@@ -38,40 +38,56 @@
  * @param p0 the destination item
  * @param p1 the source file descriptor
  * @param p2 the source mutex
+ * @param p3 the blocking flag
  */
-void read_unix_terminal_stream(void* p0, void* p1, void* p2) {
+void read_unix_terminal_stream(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal.");
+    if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The loop break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The escape character flag.
-    // CAUTION! This variable HAS TO BE defined here,
-    // since it is used across many loop cycles.
-    int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The ansi escape code flag.
-    // CAUTION! This variable HAS TO BE defined here,
-    // since it is used across many loop cycles.
-    int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The input character.
-    //
-    // CAUTION! This variable HAS TO BE defined here,
-    // since it is used across many loop cycles.
-    //
-    // CAUTION! The initial value is set to WEOF,
-    // since it is returned by the fgetwc function by default.
-    // Hence, do NOT assign the following value:
-    // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
-    wint_t c = WEOF;
+        int* bl = (int*) p3;
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal stream.");
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        // The loop break flag.
+        int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The escape character flag.
+        // CAUTION! This variable HAS TO BE defined here,
+        // since it is used across many loop cycles.
+        int esc = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The ansi escape code flag.
+        // CAUTION! This variable HAS TO BE defined here,
+        // since it is used across many loop cycles.
+        int aec = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+        // The input character.
+        //
+        // CAUTION! This variable HAS TO BE defined here,
+        // since it is used across many loop cycles.
+        //
+        // CAUTION! The initial value is set to WEOF,
+        // since it is returned by the fgetwc function by default.
+        // Hence, do NOT assign the following value:
+        // wint_t c = *((wint_t*) NULL_UNICODE_CHARACTER_CODE_MODEL);
+        wint_t c = WEOF;
 
-            break;
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                if (*bl == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                    // Break loop only if break flag is set
+                    // AND blocking flag is false
+                    // (possibly reset inside when data were available).
+                    break;
+                }
+            }
+
+            read_unix_terminal_character(p0, p1, p2, p3, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
         }
 
-        read_unix_terminal_character(p0, p1, p2, (void*) &b, (void*) &esc, (void*) &aec, (void*) &c);
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal stream. The blocking flag is null.");
     }
 }
 

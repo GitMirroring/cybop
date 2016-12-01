@@ -15,6 +15,13 @@
 Design Decisions
 ================
 
+Language
+________
+
+the only difference between languages CLI and TUI is
+that for CLI, the cursor position is NOT reset to the origo
+since cursor positioning is NOT wanted for cli.
+
 Arithmetic Operands
 ___________________
 
@@ -521,4 +528,3 @@ Usage of solution 3 definition in a part at runtime:
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
     </node>
-

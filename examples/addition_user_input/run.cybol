@@ -31,18 +31,10 @@
     <node name="receive_input" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
-        <node name="language" channel="inline" format="meta/language" model="message/tui"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="message" channel="inline" format="path/knowledge" model=".app.input"/>
-    </node>
-
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree_1" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_addition_user_input_1.txt"/>
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <!-- CAUTION! This blocking flag causes the programme to wait until data are available at input. -->
+        <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!--
@@ -62,16 +54,6 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree_2" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_addition_user_input_2.txt"/>
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
-    </node>
-
     <!--
         CAUTION! The "result" integer vector has to be initialised BEFORE this operation.
         If result- and operand vectors had different sizes, they would NOT be added.
@@ -80,16 +62,6 @@
         <node name="result" channel="inline" format="path/knowledge" model=".app.result"/>
         <node name="operand" channel="inline" format="path/knowledge" model=".app.operand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </node>
-
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree_3" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_addition_user_input_3.txt"/>
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
     </node>
 
     <node name="print_result" channel="inline" format="communicate/send" model="">
@@ -114,4 +86,8 @@
     This example asks the user for input of an operand.
     It then adds that operand value to the result variable,
     which gets printed onto screen.
+
+    The special thing to consider is the "blocking" flag
+    handed over as argument to the "communicate/receive" operation.
+    It causes the programme to wait until data are available at input.
 -->

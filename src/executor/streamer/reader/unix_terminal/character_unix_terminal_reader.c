@@ -71,24 +71,25 @@
  * @param p0 the destination item
  * @param p1 the source file descriptor
  * @param p2 the source mutex
- * @param p3 the loop break flag
- * @param p4 the escape character flag
- * @param p5 the ansi escape code flag
- * @param p6 the input character
+ * @param p3 the blocking flag
+ * @param p4 the loop break flag
+ * @param p5 the escape character flag
+ * @param p6 the ansi escape code flag
+ * @param p7 the input character
  */
-void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p7 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        wint_t* c = (wint_t*) p6;
+        wint_t* c = (wint_t*) p7;
 
-        if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p6 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* aec = (int*) p5;
+            int* aec = (int*) p6;
 
-            if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+            if (p5 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-                int* esc = (int*) p4;
+                int* esc = (int*) p5;
 
                 if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -103,7 +104,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                         // is opened for both reading and writing.
                         // The initial contents of the file are unchanged and
                         // the initial file position is at the beginning of the file.
-//??                        void* fs = (void*) fdopen(*f, "r+");
+//??                            void* fs = (void*) fdopen(*f, "r+");
 
                         //?? TODO: For some reason, the file descriptor-to-stream conversion above does not work.
                         //?? It causes the terminal not to be able to "fgetwc" characters.
@@ -150,21 +151,21 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                                 if (*aec == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                                     // Reset ansi escape code flag.
-                                    copy_integer(p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    copy_integer(p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                     // Append source character to destination item.
-                                    append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                                    append_item_element(p0, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                                     // Set loop break flag.
                                     // An escape character followed by a left square bracket character
                                     // were received before. So this is an ansi escape code sequence.
                                     // Since all values have been received, the loop can be left now.
-                                    copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                 } else if (*esc == *TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                                     // Reset escape character flag.
-                                    copy_integer(p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    copy_integer(p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                     // An escape character was received before.
 
@@ -176,10 +177,10 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                                         // an ansi escape code.
 
                                         // Set ansi escape code flag.
-                                        copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                        copy_integer(p6, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                         // Append source character to destination item.
-                                        append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                                        append_item_element(p0, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                                     } else {
 
@@ -199,25 +200,32 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                                         pthread_mutex_unlock(p2);
 
                                         // Set loop break flag.
-                                        copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                        copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                                     }
 
                                 } else if (*c == *((wint_t*) ESCAPE_UNICODE_CHARACTER_CODE_MODEL)) {
 
                                     // Set escape character flag.
-                                    copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                    copy_integer(p5, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                     // Copy source character to destination character array.
-                                    append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                                    append_item_element(p0, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                                 } else {
 
                                     // Copy source character to destination character array.
-                                    append_item_element(p0, p6, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                                    append_item_element(p0, p7, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+                                    // Reset blocking flag.
+                                    // Some input has been received,
+                                    // so that waiting is not necessary anymore.
+                                    // In case the blocking flag is not needed or used,
+                                    // this resetting does NOT disturb or harm the programme.
+                                    copy_integer(p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
                                     // CAUTION! Do NOT set loop break flag here,
-                                    // if more than just one character are
-                                    // to be received in a sequence.
+                                    // if more than just one character are to be
+                                    // received in a sequence, e.g. an ansi escape code.
                                     // In this case, only a WEOF will break the loop.
                                 }
 
@@ -226,7 +234,7 @@ void read_unix_terminal_character(void* p0, void* p1, void* p2, void* p3, void* 
                                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read unix terminal character. The character reading failed.");
 
                                 // Set loop break flag.
-                                copy_integer(p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                                copy_integer(p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
                             }
 
                         } else {

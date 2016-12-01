@@ -29,14 +29,10 @@
         * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
         * Add video tutorials of Stefan Göldner
 
-Terminal input
-______________
+Terminal
+________
 
-        * Adapt cyboi interpreter to provide different ways for receiving user input,
-            e.g. with canonical buffer or not, blocking or not etc.
-        * Try adapting file "set_attributes_unix_terminal_starter.c"
-        * Make cybol example application "addition_user_input" work
-        * Inform Ronny Zingler in order to use this in his project "cowsandbulls"
+        * Think through blocking input for other channels besides terminal
 
 Stack
 _____

@@ -41,8 +41,9 @@
  *
  * @param p0 the destination item
  * @param p1 the internal memory data
+ * @param p2 the blocking flag
  */
-void read_unix_terminal(void* p0, void* p1) {
+void read_unix_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read unix terminal.");
 
@@ -56,7 +57,7 @@ void read_unix_terminal(void* p0, void* p1) {
     // Get mutex.
     copy_array_forward((void*) &m, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MUTEX_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    read_unix_terminal_stream(p0, f, m);
+    read_unix_terminal_stream(p0, f, m, p2);
 }
 
 /* UNIX_TERMINAL_READER_SOURCE */

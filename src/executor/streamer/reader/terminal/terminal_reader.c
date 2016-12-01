@@ -45,21 +45,22 @@
  *
  * @param p0 the destination item
  * @param p1 the internal memory data
+ * @param p2 the blocking flag
  */
-void read_terminal(void* p0, void* p1) {
+void read_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
 #ifdef __APPLE__
-    read_unix_terminal(p0, p1);
+    read_unix_terminal(p0, p1, p2);
 #elif WIN32
     //?? CAUTION! Possibly move this functionality into "win32_console_deserialiser".
     //?? See "write_terminal"!
 //??    read_win32_console(p0, p1);
 #elif GNU_LINUX_OPERATING_SYSTEM
-    read_unix_terminal(p0, p1);
+    read_unix_terminal(p0, p1, p2);
 #else
-    read_unix_terminal(p0, p1);
+    read_unix_terminal(p0, p1, p2);
 #endif
 }
 
