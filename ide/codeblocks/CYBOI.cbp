@@ -101,6 +101,9 @@
 		<Unit filename="../../src/applicator/command/disk_free.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/command/disk_usage.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/command/display_content.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -137,6 +140,9 @@
 		<Unit filename="../../src/applicator/command/list_directory_contents.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/command/list_open_files.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/command/list_tasks.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -152,6 +158,9 @@
 		<Unit filename="../../src/applicator/command/ping.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/command/present_working_directory.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/command/remove_file.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -161,10 +170,16 @@
 		<Unit filename="../../src/applicator/command/spellcheck.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/command/system_messages.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/command/tape_archiver.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/top.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/applicator/command/touch.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/applicator/command/traceroute.c">
@@ -266,6 +281,9 @@
 		<Unit filename="../../src/applicator/run/sleep.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/applicator/sort/sorters.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/applicator/time/time.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -351,6 +369,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/format/cybol/logic/run_logic_cybol_format.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/format/cybol/logic/sort_logic_cybol_format.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/format/cybol/logic/time_logic_cybol_format.c">
@@ -764,6 +785,9 @@
 		<Unit filename="../../src/constant/name/command_option/unix/disk_free_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/disk_usage_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/display_content_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -779,10 +803,16 @@
 		<Unit filename="../../src/constant/name/command_option/unix/help_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/hostname_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/id_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/ifconfig_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/ifup_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/kill_unix_command_option_name.c">
@@ -791,13 +821,25 @@
 		<Unit filename="../../src/constant/name/command_option/unix/list_directory_contents_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/list_open_files_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/list_tasks_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/memory_free_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/move_file_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/netstat_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/ping_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/present_working_directory_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/remove_file_unix_command_option_name.c">
@@ -812,10 +854,19 @@
 		<Unit filename="../../src/constant/name/command_option/unix/spellcheck_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/system_messages_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/tape_archiver_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/top_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/touch_unix_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/unix/userlog_unix_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/unix/who_am_i_unix_command_option_name.c">
@@ -860,6 +911,9 @@
 		<Unit filename="../../src/constant/name/command_option/win32/help_win32_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/command_option/win32/hostname_win32_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/command_option/win32/kill_win32_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -867,6 +921,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/win32/list_tasks_win32_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/win32/memory_free_win32_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/win32/move_file_win32_command_option_name.c">
@@ -882,6 +939,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/command_option/win32/tape_archiver_win32_command_option_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/command_option/win32/userlog_win32_command_option_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cyboi/authority/authority_cyboi_name.c">
@@ -1010,6 +1070,9 @@
 		<Unit filename="../../src/constant/name/cybol/logic/commander/disk_free_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/disk_usage_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/display_content_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -1028,10 +1091,16 @@
 		<Unit filename="../../src/constant/name/cybol/logic/commander/help_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/hostname_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/id_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/ifconfig_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/ifup_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/kill_commander_logic_cybol_name.c">
@@ -1040,13 +1109,25 @@
 		<Unit filename="../../src/constant/name/cybol/logic/commander/list_directory_contents_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/list_open_files_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/list_tasks_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/memory_free_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/move_file_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/netstat_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/ping_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/present_working_directory_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/remove_file_commander_logic_cybol_name.c">
@@ -1058,13 +1139,22 @@
 		<Unit filename="../../src/constant/name/cybol/logic/commander/spellcheck_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/system_messages_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/tape_archiver_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/top_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/touch_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/traceroute_commander_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/commander/userlog_commander_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/commander/who_am_i_commander_logic_cybol_name.c">
@@ -1161,6 +1251,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/run/sleep_run_logic_cybol_name.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/constant/name/cybol/logic/sort/sort_logic_cybol_name.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/constant/name/cybol/logic/timing/current_timing_logic_cybol_name.c">
@@ -1775,6 +1868,9 @@
 		<Unit filename="../../src/executor/commander/disk_free_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/commander/disk_usage_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/commander/display_content_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -1793,10 +1889,16 @@
 		<Unit filename="../../src/executor/commander/help_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/commander/hostname_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/commander/id_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/commander/ifconfig_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/commander/ifup_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/commander/kill_commander.c">
@@ -1805,13 +1907,25 @@
 		<Unit filename="../../src/executor/commander/list_directory_contents_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/commander/list_open_files_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/commander/list_tasks_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/commander/memory_free_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/commander/move_file_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/commander/netstat_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/commander/ping_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/commander/present_working_directory_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/commander/remove_file_commander.c">
@@ -1823,13 +1937,22 @@
 		<Unit filename="../../src/executor/commander/spellcheck_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/commander/system_messages_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/commander/tape_archiver_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/commander/top_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/commander/touch_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/commander/traceroute_commander.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/commander/userlog_commander.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/commander/who_am_i_commander.c">
@@ -3920,7 +4043,13 @@
 		<Unit filename="../../src/executor/searcher/name_finder/array_name_finder.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../../src/executor/searcher/name_finder/fifo_array_name_finder.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../../src/executor/searcher/name_finder/item_name_finder.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/searcher/name_finder/lifo_array_name_finder.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/searcher/name_finder/part_name_finder.c">
@@ -4482,6 +4611,12 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/searcher/selector/xml/end_tag_xml_selector.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/sorter/bubblesorter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../src/executor/sorter/quicksorter.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/streamer/reader.c">
