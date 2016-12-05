@@ -11,11 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
-            DONE: ansi_escape_code, character_code, character_entity_reference, command
-            CONTINUE: with directory "cyboi/"
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories name
-
 2016-12-??  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release CYBOP 0.18.0
@@ -94,6 +89,14 @@ ______
                 so that regular expression gets evaluated internally before copying the resulting string
         * Eliminate file "newline.txt" in cybol example application "webstat"
 
+Constants
+_________
+
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
+            DONE: ansi_escape_code, character_code, character_entity_reference, command
+            CONTINUE: with directory "cyboi/"
+        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories name
+
 GUI
 ___
 
@@ -144,9 +147,17 @@ ___
 Sensing Threads
 _______________
 
+        * Allow usage of multiple channels like terminal, x window system etc.
+        * Hand over an id in addition to channel in maintain/startup, e.g. 0, 1, 2 etc. for each terminal created
+        * Keep one array for each channel in cyboi, in which the id is the index
+        * Let id numbers be of type integer and begin at zero
+        * Read id as string from cybol files where it may be given as property, e.g. the id of a specific terminal
+
         * Think through blocking input for other channels
         * See channel "terminal" as example (already implemented there)
         * Provide endless loop e.g. in file "bsd_socket_reader.c", as done in file "stream_unix_terminal_reader.c"
+        * Remember that modal windows in gui are blocking other windows but not the input, since events are catched there anyway
+        * Remember that for channel "file/filesystem" only blocking mode exists
 
         * Optimise signal (event) handling
             You don't need to get a character to block on a terminal or serial port.
