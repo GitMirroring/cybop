@@ -1,6 +1,5 @@
 <node>
  	<node name="var" channel="file" format="element/part" model="bullsandcows/var/var.cybol"/>
- 	<node name="startgame" channel="file" format="element/part" model="bullsandcows/logic/startgame.cybol"/>
  	<node name="checknewgame" channel="file" format="element/part" model="bullsandcows/logic/checknewgame.cybol"/>
 	<node name="exit" channel="file" format="element/part" model="bullsandcows/exit.cybol"/>
 	<node name="initialise_game" channel="file" format="element/part" model="bullsandcows/logic/initialise_game.cybol"/>
@@ -9,11 +8,7 @@
 	<node name="comp_array" channel="file" format="element/part" model="bullsandcows/data/comp_array.cybol"/>
 	<node name="guess_array" channel="file" format="element/part" model="bullsandcows/data/guess_array.cybol"/>
 	<node name="help_array" channel="file" format="element/part" model="bullsandcows/data/help_array.cybol"/>
-	<node name="setchoices" channel="file" format="element/part" model="bullsandcows/logic/setchoices.cybol"/>
-	<node name="choice1" channel="file" format="element/part" model="bullsandcows/logic/choice1.cybol"/>
-	<node name="choice2" channel="file" format="element/part" model="bullsandcows/logic/choice2.cybol"/>
-	<node name="choice3" channel="file" format="element/part" model="bullsandcows/logic/choice3.cybol"/>
-	<node name="choice4" channel="file" format="element/part" model="bullsandcows/logic/choice4.cybol"/>
+	<node name="get_guess" channel="file" format="element/part" model="bullsandcows/logic/get_guess.cybol"/>
 	<node name="tointeger" channel="file" format="element/part" model="bullsandcows/logic/tointeger.cybol"/>
 	<node name="collect_bullsandcows" channel="file" format="element/part" model="bullsandcows/logic/collect_bullsandcows.cybol"/>
 	<node name="count_bull" channel="file" format="element/part" model="bullsandcows/logic_bull/count_bull.cybol"/>
