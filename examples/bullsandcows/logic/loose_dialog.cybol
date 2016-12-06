@@ -10,7 +10,7 @@
     </node>
 
     <node name="new_game" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.startgame"/>
+        <node name="model" channel="inline" format="path/knowledge" model=".app.checknewgame"/>
     </node>
 
 </node>

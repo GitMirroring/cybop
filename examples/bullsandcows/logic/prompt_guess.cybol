@@ -54,8 +54,16 @@
          <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
      </node>
 
-     <node name="sense_commands" channel="inline" format="live/sense" model="">
-         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-         <node name="handler" channel="inline" format="path/knowledge" model=".app.choice1"/>
+     <!--<node name="sense_commands" channel="inline" format="live/sense" model="">-->
+         <!--<node name="channel" channel="inline" format="meta/channel" model="terminal"/>-->
+         <!--<node name="handler" channel="inline" format="path/knowledge" model=".app.choice1"/>-->
+     <!--</node>-->
+
+     <node name="get_guess" channel="inline" format="flow/sequence" model="">
+         <node name="model" channel="inline" format="path/knowledge" model=".app.get_guess"/>
+     </node>
+
+     <node name="start_comparism" channel="inline" format="flow/sequence" model="">
+         <node name="model" channel="inline" format="path/knowledge" model=".app.tointeger"/>
      </node>
  </node>

@@ -79,13 +79,13 @@
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.loose_flag"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.loose_dialog"/>
-        <node name="false" channel="inline" format="path/knowledge" model=".app.prompt_guess"/>
+        <node name="false" channel="inline" format="path/knowledge" model=""/>
     </node>
 
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.win_flag"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.win_dialog"/>
-        <node name="false" channel="inline" format="path/knowledge" model=""/>
+        <node name="false" channel="inline" format="path/knowledge" model=".app.prompt_guess"/>
     </node>
 
 
