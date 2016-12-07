@@ -53,13 +53,13 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
 
     // The source property part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source property part name, format, model, properties item.
+    // The source property part name, format, type, model, properties item.
     void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source property part name, format, model, properties item data, count.
+    // The source property part name, format, type, model, properties item data, count.
     void* snd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* snc = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sfd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -111,7 +111,8 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     //?? Later, this will have to be replaced by a copy/clone function call.
     //?? See: copy_item(), copy_part() for cloning.
     //
-    overwrite_part_element(d, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+//??    overwrite_part_element(d, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(d, smd, std, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Copy destination variable part properties.
     //?? TODO! Not implemented yet.
     //?? Later, this will have to be replaced by a copy/clone function call.

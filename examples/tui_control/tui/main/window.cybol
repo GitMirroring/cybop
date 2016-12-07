@@ -8,7 +8,13 @@
         <node name="super" channel="inline" format="path/knowledge" model=".app.settings.menu"/>
         <node name="position" channel="inline" format="number/integer" model="5,5"/>
         <node name="size" channel="inline" format="number/integer" model="70,15"/>
-        <node name="focus" channel="inline" format="text/plain" model=".app.tui.main.menu.mc"/>
+        <!--
+            CAUTION! The format is "path/knowledge" and NOT "text/plain".
+            Otherwise, parts with format "path/reference" pointing to here
+            will not get processed correctly.
+            A knowledge path is treated like a character array anyway.
+        -->
+        <node name="focus" channel="inline" format="path/knowledge" model=".app.tui.main.menu.mc"/>
     </node>
     <node name="footer" channel="file" format="element/part" model="tui_control/tui/main/footer.cybol">
         <node name="super" channel="inline" format="path/knowledge" model=".app.settings.menu_footer"/>

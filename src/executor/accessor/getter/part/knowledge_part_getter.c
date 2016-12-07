@@ -53,6 +53,7 @@
  *   that points to an element;
  *   at first, the part name needs to be determined within the parametres;
  *   only then, that name can be used to determine the actual compound element
+ * - stack: the name of a variable on stack memory WITHOUT any . or # (e.g.: index)
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source part (pointer reference)
@@ -74,13 +75,6 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
         void* sfd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The reference part.
-        void* ref = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The reference part model item.
-        void* refm = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The reference part model item data, count.
-        void* refmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* refmc = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The temporary source data position and source count remaining.
         void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
         int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
@@ -148,12 +142,14 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // model=".application.record.name"
                 //
 
+                // The referenced part.
+                void* ref = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // Copy source data position.
                 copy_pointer((void*) &pathd, (void*) &smd);
                 // Copy source count remaining.
                 copy_integer((void*) &pathc, smc);
 
-                // Get reference knowledge part.
+                // Get referenced part.
                 // CAUTION! Hand over name as reference!
                 // CAUTION! A COPY of path data and count is forwarded here,
                 // so that the original values do NOT get changed.
@@ -162,25 +158,12 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // so that knowledge access works only once, but not anymore afterwards.
                 deserialise_knowledge((void*) &ref, p2, (void*) &pathd, (void*) &pathc, p2);
 
-                // Get reference part model item.
-                copy_array_forward((void*) &refm, ref, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-                // Get reference part model item data, count.
-                copy_array_forward((void*) &refmd, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-                copy_array_forward((void*) &refmc, refm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-                // Copy source data position.
-                copy_pointer((void*) &pathd, (void*) &refmd);
-                // Copy source count remaining.
-                copy_integer((void*) &pathc, refmc);
-
-                // Get actual referenced (ending with letter "d") knowledge part.
-                // CAUTION! Hand over name as reference!
-                // CAUTION! A COPY of path data and count is forwarded here,
-                // so that the original values do NOT get changed.
-                // This is IMPORTANT since otherwise, the original data position
-                // gets increased and the count remaining decreased to zero,
-                // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2);
+                // CAUTION! For this recursive function call to work correctly,
+                // cybol applications have to use the format "path/knowledge"
+                // for all paths that are built up inside as string.
+                // If using the format "text/plain", the block below may NOT
+                // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
+                get_part_knowledge(p0, (void*) &ref, p2, p3);
             }
         }
 
