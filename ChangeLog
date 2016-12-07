@@ -21,6 +21,8 @@
 2016-12-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise file "knowledge_part_getter.c" using a recursive function call
+        * Replace format "text/plain" with "path/knowledge" for some parts of cybol example application "tui_control"
+        * Make all data types (besides "element/part") work with stack memory
 
 2016-12-01  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -92,8 +92,7 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     // Allocate destination variable part.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-//??    allocate_part((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, std);
-    allocate_part((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    allocate_part((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, std);
 
     // Copy destination variable part name.
     overwrite_part_element(d, snd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
@@ -105,14 +104,10 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     overwrite_part_element(d, std, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     // Copy destination variable part model.
     //
-    //?? TODO! This is a TEMPORARY solution using the fixed INTEGER_NUMBER_STATE_CYBOI_TYPE.
-    //?? It assumes the model to be of type integer.
-    //?? Most stack variables probably are (loop variables, boolean values).
     //?? Later, this will have to be replaced by a copy/clone function call.
     //?? See: copy_item(), copy_part() for cloning.
     //
-//??    overwrite_part_element(d, smd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(d, smd, std, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    overwrite_part_element(d, smd, std, smc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Copy destination variable part properties.
     //?? TODO! Not implemented yet.
     //?? Later, this will have to be replaced by a copy/clone function call.

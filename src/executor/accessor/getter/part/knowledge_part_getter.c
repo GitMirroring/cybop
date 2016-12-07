@@ -78,6 +78,8 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
         // The temporary source data position and source count remaining.
         void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
         int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The temporary part.
+        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get source part format, model item.
         // CAUTION! It is necessary to find out about the format and model.
@@ -94,7 +96,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         //
-        // The following comparisons do, in this order, get a part model item as:
+        // The following comparisons do, in this order, get a part model item from/as:
         // - stack memory (a model containing the name of a value stored in stack memory)
         // - reference knowledge memory (a model pointing to another model containing a part name)
         // - knowledge memory (a model containing a hierarchical part name)
@@ -119,8 +121,15 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // <node name="result" channel="inline" format="path/stack" model="break"/>
                 //
 
-                // Get part referenced by stack memory variable name (path).
-                get_name_item_element(p0, p3, smd, smc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                // Get temporary part from stack memory.
+                get_name_item_element((void*) &p, p3, smd, smc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+                // CAUTION! For this recursive function call to work correctly,
+                // CYBOL applications have to use the format "path/knowledge"
+                // for all paths that are built up inside as string.
+                // If using the format "text/plain", the block below may NOT
+                // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
+                get_part_knowledge(p0, (void*) &p, p2, p3);
             }
         }
 
@@ -142,28 +151,26 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // model=".application.record.name"
                 //
 
-                // The referenced part.
-                void* ref = *NULL_POINTER_STATE_CYBOI_MODEL;
                 // Copy source data position.
                 copy_pointer((void*) &pathd, (void*) &smd);
                 // Copy source count remaining.
                 copy_integer((void*) &pathc, smc);
 
-                // Get referenced part.
+                // Get temporary part from knowledge memory.
                 // CAUTION! Hand over name as reference!
                 // CAUTION! A COPY of path data and count is forwarded here,
                 // so that the original values do NOT get changed.
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge((void*) &ref, p2, (void*) &pathd, (void*) &pathc, p2);
+                deserialise_knowledge((void*) &p, p2, (void*) &pathd, (void*) &pathc, p2);
 
                 // CAUTION! For this recursive function call to work correctly,
                 // cybol applications have to use the format "path/knowledge"
                 // for all paths that are built up inside as string.
                 // If using the format "text/plain", the block below may NOT
                 // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
-                get_part_knowledge(p0, (void*) &ref, p2, p3);
+                get_part_knowledge(p0, (void*) &p, p2, p3);
             }
         }
 
@@ -190,7 +197,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // Copy source count remaining.
                 copy_integer((void*) &pathc, smc);
 
-                // Get knowledge part referenced by a knowledge path.
+                // Get knowledge part from knowledge memory.
                 // CAUTION! Hand over name as reference!
                 // CAUTION! A COPY of path data and count is forwarded here,
                 // so that the original values do NOT get changed.
