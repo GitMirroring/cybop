@@ -33,14 +33,13 @@
 #include "../../../executor/memoriser/offset_adder.c"
 #include "../../../executor/modifier/copier/character_copier.c"
 #include "../../../executor/modifier/copier/complex_copier.c"
-// The module "content_part_copier.c" includes inside: part, item, array.
-#include "../../../executor/modifier/copier/content_part_copier.c"
 #include "../../../executor/modifier/copier/datetime_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/double_copier.c"
 #include "../../../executor/modifier/copier/duration_copier.c"
 #include "../../../executor/modifier/copier/fraction_copier.c"
 #include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/modifier/copier/part_copier.c"
 #include "../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../executor/modifier/copier/wide_character_copier.c"
 #include "../../../logger/logger.c"
@@ -102,44 +101,62 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            //
             // CAUTION! The type "element/part" IS important for activating
             // the rubbish (garbage) collection when calling modifier functions like:
-            // append, empty, insert, overwrite, remove.
-
-            // CAUTION! Both, the destination- as well as the source value
-            // will get interpreted as pointer reference inside.
+            // append, empty, fill, insert, overwrite, remove.
+            //
 
             // The comparison result.
-            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+            int r2 = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            compare_integer_unequal((void*) &r, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Evaluate flag indicating shallow or deep copy.
+            compare_integer_unequal((void*) &r2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+            if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+                //
                 // This is going to be a DEEP COPY, also called CLONING.
+                //
+                // In this case, the destination node already HAS TO EXIST.
+                // Only the source's child nodes are copied to the destination,
+                // but the destination part pointer itself is left untouched.
+                //
 
 fwprintf(stdout, L"TEST copy deep pre: %i\n", r);
-                copy_part_content(p0, p1);
+                // CAUTION! Both, the destination- as well as the source value
+                // will get interpreted as pointer reference inside.
+                copy_part(p0, p1);
 fwprintf(stdout, L"TEST copy deep post: %i\n", r);
 
             } else {
 
+                //
                 // This is going to be a SHALLOW COPY.
+                //
+                // In this case, the destination node POINTER gets OVERWRITTEN.
+                // Child nodes are NOT copied, since this is a shallow copy,
+                // so that the destination part points to the same children
+                // as the original source part.
+                //
+                // Why is shallow copying necessary?
+                //
+                // When inserting or removing elements to/from an array,
+                // the neighbour elements have to be moved.
+                // In these cases, only the pointer to a part is to be copied,
+                // but not a part's child parts.
+                //
+                // Therefore, do NOT offer shallow copying as a property (option)
+                // to cybol container operations like "overwrite" or "insert"!
+                // Take deep copying AS DEFAULT inside.
+                // Otherwise, the knowledge tree might get mixed up,
+                // e.g. with circular references. But it should always be a
+                // Directed Acyclic Graph (DAG) with unidirectional references.
+                //
 
-                //?? TODO: Just copying the pointer for shallow copy is NOT correct,
-                // since it will overwrite the destination element,
-                // which is lost and may never be destroyed,
-                // not even by the garbage collector, leading to a memory leak.
-                // Possible solution: Hand over flag indicating shallow or deep copy.
-                // A simple branch may distinguish between the two,
-                // Source children have to be processed anyway,
-                // but the destination nodes are to be:
-                // - created for deep copy
-                // - copied (appended) for shallow copy
-
-//?? fwprintf(stdout, L"TEST copy shallow pre: %i\n", r);
+                // CAUTION! Both, the destination- as well as the source value
+                // will get interpreted as pointer reference inside.
                 copy_pointer(p0, p1);
-//?? fwprintf(stdout, L"TEST copy shallow post: %i\n", r);
             }
         }
     }

@@ -37,8 +37,8 @@
 /**
  * Copies the pointer.
  *
- * @param p0 the destination
- * @param p1 the source
+ * @param p0 the destination (pointer reference)
+ * @param p1 the source (pointer reference)
  */
 void copy_pointer(void* p0, void* p1) {
 

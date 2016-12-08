@@ -61,6 +61,9 @@ void allocate_part(void* p0, void* p1, void* p2) {
         // showed that cybol applications did not work anymore.
         // Therefore, they are added for now but possibly removed in the future,
         // if it is verified that they are not needed at runtime anymore.
+        // However, they seem to be NECESSARY, since the XML parser
+        // creates parts that contain that data which are needed
+        // and processed afterwards in the CYBOL parser.
         //
 
         // The references, name, channel, encoding, language, format, type, model, properties.

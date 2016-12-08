@@ -27,16 +27,8 @@
 Stack
 _____
 
-        CONTINUE WITH:
-        * Write cybol script for cleaning up examination directories, using stack variable for loop
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
-        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
-
-        * Think through shallow and deep copying (PART_ELEMENT_STATE_CYBOI_TYPE versus POINTER_STATE_CYBOI_TYPE)
-        * Reflect if deep copying is necessary for stack memory at all
-        * Consider that variables might also be handed over as pointer/reference (shallow copy)
         * Implement deep copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
-            and replace existing testwise implementation which only allows copying of integer values
+            and replace existing testwise implementation which only allows copying of primitive values
         * Think through if also cybol operations may be given as stack variable, e.g. a model for a loop
             see file "handler.c" and compare with file "knowledge_part_getter.c"
 
@@ -44,23 +36,18 @@ _____
         * Delete these files later
         * Describe solution in file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
 
+        * Write cybol script for cleaning up examination directories, using stack variable for loop
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
+
 Clone
 _____
 
-        * Verify and complete "part_copier.c" and related files
-            //?? TODO: Just copying the pointer for shallow copy is NOT correct,
-            // since it will overwrite the destination element,
-            // which is lost and may never be destroyed,
-            // not even by the garbage collector, leading to a memory leak.
-            // Possible solution: Hand over flag indicating shallow or deep copy.
-            // A simple branch may distinguish between the two,
-            // Source children have to be processed anyway,
-            // but the destination nodes are to be:
-            // - created for deep copy
-            // - copied (appended) for shallow copy
+        * Implement cloning functionality, also called deep copying (PART_ELEMENT_STATE_CYBOI_TYPE),
+            in addition to the already existing shallow copying (POINTER_STATE_CYBOI_TYPE) in directory "executor/modifier/copier/"
 
-
-        * Think about whether to use "copy_part" or just "copy" in file "copier_tester.c"
+        * Continue file "copier_tester.c"
+        * Think about whether to use "copy_part" or just "copy"
         * CAUTION!
             Possibly, the source count sc MUST NOT be copied to destination size ds in file "item_copier.c" since otherwise, reallocation would be necessary!
             Do the single items have to be reallocated to the source items' size in file "part_copier.c"?
@@ -69,7 +56,13 @@ _____
         * Check why strange characters appear instead of "_" in cloned file using "copier_tester.c"
 
         * Continue with cybol example application "test"
-        * Add new property "deep" of format "logicvalue/boolean" to cybol operations "overwrite" and "append"
+        * NOT TO BE IMPLEMENTED: Add new property "deep" with format "logicvalue/boolean" to cybol operations "overwrite" and "append"
+            // Therefore, do NOT offer shallow copying as a property (option)
+            // to cybol container operations like "overwrite" or "insert"!
+            // Take deep copying AS DEFAULT inside.
+            // Otherwise, the knowledge tree might get mixed up,
+            // e.g. with circular references. But it should always be a
+            // Directed Acyclic Graph (DAG) with unidirectional references.
         * Adapt all "copy_array_forward" function calls
 
         * Test for memory leaks with valgrind

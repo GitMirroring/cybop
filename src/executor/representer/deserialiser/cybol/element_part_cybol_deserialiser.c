@@ -49,6 +49,8 @@
  */
 void deserialise_cybol_part_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part element.");
+
     // The source part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The model, properties.

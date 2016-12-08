@@ -18,11 +18,17 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-12-08  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue cloning functionality, also called deep copying (PART_ELEMENT_STATE_CYBOI_TYPE),
+            in addition to the already existing shallow copying (POINTER_STATE_CYBOI_TYPE), in directory "executor/modifier/copier/"
+
 2016-12-07  Christian Heller  <christian.heller@tuxtax.de>
 
         * Optimise file "knowledge_part_getter.c" using a recursive function call
         * Replace format "text/plain" with "path/knowledge" for some parts of cybol example application "tui_control"
-        * Make all data types (besides "element/part") work with stack memory
+        * Conclude that deep copying is necessary for stack memory, but also shallow knowledge/reference paths may be copied
+        * Make all data types work with stack memory, excluding "element/part" which needs cloning
 
 2016-12-01  Christian Heller  <christian.heller@tuxtax.de>
 
