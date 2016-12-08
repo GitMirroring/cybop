@@ -24,27 +24,12 @@
         * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
         * Add video tutorials of Stefan Göldner
 
-Stack
-_____
-
-        * Implement deep copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
-            and replace existing testwise implementation which only allows copying of primitive values
-        * Think through if also cybol operations may be given as stack variable, e.g. a model for a loop
-            see file "handler.c" and compare with file "knowledge_part_getter.c"
-
-        * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
-        * Delete these files later
-        * Describe solution in file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
-
-        * Write cybol script for cleaning up examination directories, using stack variable for loop
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
-        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
-
 Clone
 _____
 
-        * Implement cloning functionality, also called deep copying (PART_ELEMENT_STATE_CYBOI_TYPE),
-            in addition to the already existing shallow copying (POINTER_STATE_CYBOI_TYPE) in directory "executor/modifier/copier/"
+        * Complete cloning functionality in directory "executor/modifier/copier/"
+        * Hand over deep copying flag to function "copy_array_forward" where it is currently set to "false" by default, and adapt all source code
+        * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
 
         * Continue file "copier_tester.c"
         * Think about whether to use "copy_part" or just "copy"
@@ -66,6 +51,22 @@ _____
         * Adapt all "copy_array_forward" function calls
 
         * Test for memory leaks with valgrind
+
+Stack
+_____
+
+        * Implement deep copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
+            and replace existing testwise implementation which only allows copying of primitive values
+        * Think through if also cybol operations may be given as stack variable, e.g. a model for a loop
+            see file "handler.c" and compare with file "knowledge_part_getter.c"
+
+        * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
+        * Delete these files later
+        * Describe solution in file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
+
+        * Write cybol script for cleaning up examination directories, using stack variable for loop
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
 
 String
 ______
