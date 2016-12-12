@@ -24,18 +24,18 @@
         * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
         * Add video tutorials of Stefan Göldner
 
-Temporary
-_________
+General
+_______
 
         * Remove file "vorgehensweise.txt" in cybop root directory
+        * Create (alternatively) small tutorials for implementing various things, e.g. a new cybol operation or shell command, a de-/serialiser etc.
 
 Stack
 _____
 
-        * Use function "copy_part" for deep copying / cloning local stack variables in "controller/handler/element_properties_handler.c"
-            and replace existing testwise implementation which only allows copying of primitive values
-        * Think through if also cybol operations may be given as stack variable, e.g. a model for a loop
-            see file "handler.c" and compare with file "knowledge_part_getter.c"
+        * Replace function call "handle_properties" in file "element_part_handler.c" with "append_item_element"
+        * Hand over properties as array and let array functions inside care about looping and copying
+        * Remove file "element_properties_handler.c" (if the approach above turns out to work fine)
 
         * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
         * Delete these files later

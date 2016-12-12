@@ -25,6 +25,7 @@
         * Conclude not to provide a property (option) "deep" with format "logicvalue/boolean" to cybol operations "overwrite" and "append" etc.,
             and instead to take deep copying as default inside, since shallow copying might mix up the knowledge tree, e.g. with circular references
         * Add cybol example application "copier" for testing shallow- and deep copying
+        * Use function "copy_part" for cloning (deep copying) local stack variables in file "controller/handler/element_properties_handler.c"
 
 2016-12-08  Christian Heller  <christian.heller@tuxtax.de>
 

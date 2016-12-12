@@ -77,15 +77,6 @@ void copy_part(void* p0, void* p1) {
             // for rubbish (garbage) collection to work properly.
             //
 
-/*??
-            // The destination part name, format, type, model, properties item.
-            void* dn = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* df = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* dp = *NULL_POINTER_STATE_CYBOI_MODEL;
-*/
-
             // The source part name, format, type, model, properties item.
             void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -123,34 +114,13 @@ void copy_part(void* p0, void* p1) {
             // be negative or zero, but have at least a value of ONE.
             allocate_part(p0, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, std);
 
-/*??
-            // Get destination part name, format, type, model, properties item.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &dn, *d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &df, *d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &dt, *d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &dm, *d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &dp, *d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-
-            // Fill destination part name item.
-            overwrite_item_element(dn, snd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            // Fill destination part format item.
-            overwrite_item_element(df, sfd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            // Fill destination part type item.
-            overwrite_item_element(dt, std, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            // Fill destination part model item.
-            overwrite_item_element(dm, smd, std, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            // Fill destination part properties item.
-            overwrite_item_element(dp, spd, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, spc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-*/
-
             // Fill destination part name item.
             overwrite_part_element(*d, snd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
             // Fill destination part format item.
             overwrite_part_element(*d, sfd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
             // Fill destination part type item.
+            // CAUTION! Assigning the type IS ESSENTIAL for properly
+            // deallocating the part and its child parts later.
             overwrite_part_element(*d, std, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
             // Fill destination part model item.
             overwrite_part_element(*d, smd, std, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);

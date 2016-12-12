@@ -35,6 +35,7 @@
 #include "../../executor/memoriser/allocator/part_allocator.c"
 #include "../../executor/modifier/appender/item_appender.c"
 #include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/copier/part_copier.c"
 #include "../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../logger/logger.c"
 
@@ -53,65 +54,15 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
 
     // The source property part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source property part name, format, type, model, properties item.
-    void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sf = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The source property part name, format, type, model, properties item data, count.
-    void* snd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* snc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* sfd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* spd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* spc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The destination variable part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source property part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
-    // Get source property part name, format, model, properties item.
-    copy_array_forward((void*) &sn, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sf, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &st, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sp, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
-    // Get source property part name, format, model, properties item data, count.
-    copy_array_forward((void*) &snd, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &snc, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &sfd, sf, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &spd, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &spc, sp, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Allocate destination variable part.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_part((void*) &d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, std);
-
-    // Copy destination variable part name.
-    overwrite_part_element(d, snd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, snc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    // Copy destination variable part format.
-    overwrite_part_element(d, sfd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    // Copy destination variable part type.
-    // CAUTION! Assigning the type IS ESSENTIAL for properly
-    // deallocating the part and its child parts later.
-    overwrite_part_element(d, std, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
-    // Copy destination variable part model.
-    //
-    //?? Later, this will have to be replaced by a copy/clone function call.
-    //?? See: copy_item(), copy_part() for cloning.
-    //
-    overwrite_part_element(d, smd, std, smc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Copy destination variable part properties.
-    //?? TODO! Not implemented yet.
-    //?? Later, this will have to be replaced by a copy/clone function call.
-    //?? See: copy_item(), copy_part() for cloning.
+    // Clone (deep copy) source to destination.
+    // CAUTION! The destination part gets allocated inside.
+    copy_part((void*) &d, (void*) &s);
 
     //
     // Add destination variable part to stack memory.
