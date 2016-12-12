@@ -170,6 +170,13 @@ _______________
                 just like is done for the input/output in cyboi,
                 and the main event loop then checks for interrupt flags
 
+            Google-Suche nach "node.js c++ event-driven" lieferte z. B.:
+            http://stackoverflow.com/questions/36491385/how-is-asynchronous-javascript-interpreted-and-executed-in-node-js
+            (hier z. B. auch eine schöne Grafik enthalten)
+            http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-js
+            http://berb.github.io/diploma-thesis/original/055_events.html
+            http://garywoodfine.com/event-driven-architecture-node-js/
+
         ALL other comments below concerning THREADS might get deleted in case the asynchronous solution
         using callback of the operating system, as mentioned above and done in libuv of the Node.js project, works fine!
 
