@@ -33,9 +33,10 @@ _______
 Stack
 _____
 
-        * Replace function call "handle_properties" in file "element_part_handler.c" with "append_item_element"
+        CAUTION! The following does not function yet (example "counter_stack_deep") -- test why
+        * Replace function call "handle_properties" with "append_item_element" in file "element_part_handler.c"
         * Hand over properties as array and let array functions inside care about looping and copying
-        * Remove file "element_properties_handler.c" (if the approach above turns out to work fine)
+        * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
 
         * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
         * Delete these files later

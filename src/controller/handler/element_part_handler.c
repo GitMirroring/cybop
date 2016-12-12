@@ -110,6 +110,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         // Store variable values on stack memory (push).
         handle_properties(p2, p3, p6);
+//??        append_item_element(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
 //     //?? DELETE, only for testing!
 //     copy_integer((void*) &COUNT, mc);
