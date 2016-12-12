@@ -18,6 +18,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2016-12-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove file "item_copier.c", since copying happens only on array- or part level
+        * Verify file "copier_tester.c"
+        * Conclude not to provide a property (option) "deep" with format "logicvalue/boolean" to cybol operations "overwrite" and "append" etc.,
+            and instead to take deep copying as default inside, since shallow copying might mix up the knowledge tree, e.g. with circular references
+        * Add cybol example application "copier" for testing shallow- and deep copying
+
 2016-12-08  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue cloning functionality, also called deep copying (PART_ELEMENT_STATE_CYBOI_TYPE),

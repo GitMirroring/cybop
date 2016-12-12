@@ -1,0 +1,14 @@
+<node>
+
+    <node name="number_1" channel="inline" format="number/integer" model="7"/>
+    <node name="number_2" channel="inline" format="number/integer" model="123"/>
+    <node name="model_1" channel="file" format="element/part" model="copier/model.cybol"/>
+    <node name="model_2" channel="file" format="element/part" model="copier/model.cybol"/>
+    <node name="flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="clone_shallow" channel="inline" format="number/integer" model="0"/>
+<!--
+    <node name="clone_deep" channel="inline" format="element/part" model=""/>
+-->
+
+</node>

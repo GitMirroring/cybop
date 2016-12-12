@@ -122,6 +122,12 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
                 // Only the source's child nodes are copied to the destination,
                 // but the destination part pointer itself is left untouched.
                 //
+                // Why is deep copying necessary?
+                //
+                // For copying whole sub trees to another place.
+                //
+                // It is also used when storing variables on stack memory.
+                //
 
 fwprintf(stdout, L"TEST copy deep pre: %i\n", r);
                 // CAUTION! Both, the destination- as well as the source value

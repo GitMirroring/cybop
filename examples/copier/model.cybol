@@ -1,0 +1,18 @@
+<node>
+
+    <node name="node_1" channel="inline" format="number/integer" model="7"/>
+    <node name="node_2" channel="inline" format="number/fraction-decimal" model="3.4"/>
+    <node name="node_3" channel="inline" format="number/fraction-vulgar" model="5,2"/>
+    <node name="node_4" channel="inline" format="logicvalue/boolean" model="true">
+        <node name="property_1" channel="inline" format="text/plain" model="some text"/>
+        <node name="property_2" channel="inline" format="text/plain" model="some text"/>
+<!--
+        <node name="property_3" channel="file" format="element/part" model="copier/model.cybol"/>
+-->
+    </node>
+    <node name="node_5" channel="inline" format="number/complex-cartesian" model="5,10"/>
+<!--
+    <node name="node_6" channel="file" format="element/part" model="copier/model.cybol"/>
+-->
+
+</node>

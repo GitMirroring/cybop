@@ -108,7 +108,7 @@ void test_copier_part() {
     // Allocate clone tree parts.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-    allocate_part((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+//??    allocate_part((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     //
     // Assign name, format, type, model, properties.
@@ -210,7 +210,8 @@ void test_copier_part() {
     // Append parts to whole parts.
     // CAUTION! This is done in REVERSE order, so that
     // child nodes may be assigned to parent nodes easily.
-    //?? TODO: Clear up whether or not to use POINTER_STATE_CYBOI_TYPE instead of PART_ELEMENT_STATE_CYBOI_TYPE.
+    //?? TODO: Clear up whether or not to use POINTER_STATE_CYBOI_TYPE instead of PART_ELEMENT_STATE_CYBOI_TYPE,
+    //?? probably this should be POINTER_STATE_CYBOI_TYPE as shallow copy.
     append_part_element(o, (void*) &n1, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     append_part_element(n1, (void*) &n11, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     append_part_element(n11, (void*) &p11i, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
@@ -231,8 +232,7 @@ void test_copier_part() {
     test_part_as_model_diagram((void*) L"test_copier_part_original.txt", o);
 
 fwprintf(stdout, L"TEST pre: %i\n", c);
-    copy_part(c, o);
-//??    copy((void*) &c, (void*) &o, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    copy_part((void*) &c, (void*) &o);
 fwprintf(stdout, L"TEST post: %i\n", c);
 
     // Write clone tree root part as model diagram.

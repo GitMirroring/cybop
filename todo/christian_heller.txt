@@ -24,38 +24,15 @@
         * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
         * Add video tutorials of Stefan Göldner
 
-Clone
-_____
+Temporary
+_________
 
-        * Complete cloning functionality in directory "executor/modifier/copier/"
-        * Hand over deep copying flag to function "copy_array_forward" where it is currently set to "false" by default, and adapt all source code
-        * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
-
-        * Continue file "copier_tester.c"
-        * Think about whether to use "copy_part" or just "copy"
-        * CAUTION!
-            Possibly, the source count sc MUST NOT be copied to destination size ds in file "item_copier.c" since otherwise, reallocation would be necessary!
-            Do the single items have to be reallocated to the source items' size in file "part_copier.c"?
-            Possibly, use function "overwrite_item" instead of "copy_item" in file "part_copier.c"?
-                (bidirectional dependency between copy and overwrite requires forward declaration, in this case)
-        * Check why strange characters appear instead of "_" in cloned file using "copier_tester.c"
-
-        * Continue with cybol example application "test"
-        * NOT TO BE IMPLEMENTED: Add new property "deep" with format "logicvalue/boolean" to cybol operations "overwrite" and "append"
-            // Therefore, do NOT offer shallow copying as a property (option)
-            // to cybol container operations like "overwrite" or "insert"!
-            // Take deep copying AS DEFAULT inside.
-            // Otherwise, the knowledge tree might get mixed up,
-            // e.g. with circular references. But it should always be a
-            // Directed Acyclic Graph (DAG) with unidirectional references.
-        * Adapt all "copy_array_forward" function calls
-
-        * Test for memory leaks with valgrind
+        * Remove file "vorgehensweise.txt" in cybop root directory
 
 Stack
 _____
 
-        * Implement deep copying / cloning for local stack variables in "controller/handler/element_properties_handler.c"
+        * Use function "copy_part" for deep copying / cloning local stack variables in "controller/handler/element_properties_handler.c"
             and replace existing testwise implementation which only allows copying of primitive values
         * Think through if also cybol operations may be given as stack variable, e.g. a model for a loop
             see file "handler.c" and compare with file "knowledge_part_getter.c"
@@ -67,6 +44,15 @@ _____
         * Write cybol script for cleaning up examination directories, using stack variable for loop
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
+
+Clone
+_____
+
+        * Complete cloning functionality in directory "executor/modifier/copier/"
+        * Hand over deep copying flag to function "copy_array_forward" where it is currently set to "false" by default, and adapt all source code
+        * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
+        * Verify correct execution of cybol example application "copier"
+        * Test for memory leaks with valgrind
 
 String
 ______
