@@ -27,6 +27,7 @@
 General
 _______
 
+        * Verify name change in cybol example application "x" by André Noldin
         * Remove file "vorgehensweise.txt" in cybop root directory
         * Create (alternatively) small tutorials for implementing various things, e.g. a new cybol operation or shell command, a de-/serialiser etc.
 
