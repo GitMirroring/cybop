@@ -2771,9 +2771,6 @@
 		<Unit filename="../../src/executor/modifier/copier/complex_copier.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../../src/executor/modifier/copier/content_part_copier.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="../../src/executor/modifier/copier/copier.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -2790,9 +2787,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/modifier/copier/integer_copier.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="../../src/executor/modifier/copier/item_copier.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../../src/executor/modifier/copier/part_copier.c">
