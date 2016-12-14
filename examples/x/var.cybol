@@ -1,0 +1,51 @@
+<node>
+
+// Flags und Variablen setzen
+
+    <node name="seed" channel="inline" format="number/integer" model="0"/>
+
+
+    <node name="newpw_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="no_newpw_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="exit_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+
+
+    <node name="command" channel="inline" format="text/plain" model=""/>
+
+    <node name="flag_field_empty" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    // Flags Kleinbuchstaben, Grossbuchstaben, Zahlen, Sonderzeichen
+    <node name="flag_1" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_2" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_3" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_4" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_5" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_6" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_7" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_8" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_9" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="flag_klein_y" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_klein_n" channel="inline" format="logicvalue/boolean" model="false"/>
+    
+    <node name="flag_gross_y" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_gross_n" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="flag_zahlen_y" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_zahlen_n" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <node name="flag_sonder_y" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="flag_sonder_n" channel="inline" format="logicvalue/boolean" model="false"/>
+
+
+    // Variablen
+    <node name="laenge" channel="inline" format="number/integer" model=""/> 
+    <node name="klein" channel="inline" format="text/plain" model=""/>
+    <node name="gross" channel="inline" format="text/plain" model=""/>
+    <node name="zahlen" channel="inline" format="text/plain" model=""/>
+    <node name="sonder" channel="inline" format="text/plain" model=""/>
+    <node name="zufall" channel="inline" format="text/plain" model=""/>
+    
+
+
+</node>
