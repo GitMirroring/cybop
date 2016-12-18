@@ -31,6 +31,9 @@ Project
 _______
 
         * Reapply to become accepted as official GNU project; requirements to be fulfilled:
+            https://www.gnu.org/prep/standards/standards.html
+            http://inti.sourceforge.net/tutorial/libinti/autotoolsproject.html
+            https://www.st-andrews.ac.uk/~iam/docs/tutorial.html
             - Include the sources of all documents into the distributable tarball cybop-0.12.0/
               --> really? This will grow it up to 500 MB in size due to the images
             - Write an actual manual that is updated as necessary to reflect the current state of cybop;
