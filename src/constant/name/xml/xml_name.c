@@ -21,6 +21,7 @@
  *
  * @version CYBOP 0.17.0 2015-04-20
  * @author Christian Heller <christian.heller@tuxtax.de>
+ * @author Edson Silva <edsonlead@gmail.com>
  */
 
 #ifndef XML_NAME_CONSTANT_SOURCE
