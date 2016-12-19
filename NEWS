@@ -13,6 +13,39 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+CYBOP 0.18.0, 2016-12-21, Christian Heller  <christian.heller@tuxtax.de>
+        * CYBOI:
+            - Provide blocking input on channel "terminal" for "communicate/receive" operation
+            - Add cyboi shell commands and cyboi operations of Christopher Stoneking, Christian Szech
+            - Add cyboi shell commands of Leonard Franke, Jörg Broy, Richard Lüdtke
+            - Add sort algorithms (quick, bubble) as cyboi operations of Alexander Heimann, Julius Krenkel, Paul Müller
+            - Add new "chronology" language files for calendar systems
+            - Clean up directory "tester/" and related constants and functionality
+            - Introduce stack memory
+            - Adapt cyboi functions to offer part search by FIFO or LIFO principle
+            - Optimise file "knowledge_part_getter.c" using a recursive function call
+            - Complete cloning functionality (deep copying)
+        * CYBOL:
+            - Update cybol schema files
+            - Provide access to stack memory from within cybol via format "path/stack"
+            - Add cybol example application "counter_stack" for testing stack variables
+            - Add cybol example application "counter_stack_deep" for testing LIFO-principle with equally named stack variables within three nested loops
+            - Add cybol example application "copier" for testing shallow- and deep copying
+            - Add cybol example application "addition_user_input" for testing blocking terminal input
+            - Add cybol example application game "minesweeper" [Minenräumer] of Matthias Thurow
+            - Add cybol example application game "blackjack" [Siebzehn und Vier] of Dmitry Brodskiy, Sven Haueisen, Jan Wellner
+            - Add cybol example application game "bullsandcows" (mastermind) of Ronny Zingler
+            - Add cybol example application "password_generator" of Florian Aurich, Andre Noldin
+            - Add cybol example application "webstat" of Markus Then, Stanley Sellig, Nico Schallehn
+            - Create page links for retrieval of images and css file dynamically in cybol example application "presence", so that hostname (ip address) is correct
+            - Replace format "text/plain" with "path/knowledge" for some parts of cybol example application "tui_control"
+        * Project:
+            - Add german cybop manual update of Sebastian Wolff, Tobias Thurow
+            - Add cybol api update of Christian Schulz, Lena Braun
+            - Add doxygen configuration files in directory "doxygen/", for automatically generating source code api documentation with module dependencies
+            - Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
+            - Add benchmark tool comparing cybol with c++, java, python of Sebastian Kloppe, Patrick Hebner
+
 CYBOP 0.17.0, 2015-04-20, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
             - Prepare gui serialiser and layout serialiser

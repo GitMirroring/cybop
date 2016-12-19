@@ -37,19 +37,14 @@
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/allocator/part_allocator.c"
-#include "../../../executor/modifier/appender/part_appender.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-// CAUTION! Do NOT include the following file.
-// Otherwise, circular dependencies will occur.
-// Instead, it is mentioned as forward declaration below.
-// #include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
 
 //
 // Forward declaration.
 //
 
-void overwrite_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void overwrite_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Copies the part.

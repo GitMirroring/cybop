@@ -111,9 +111,6 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../logger/logger.c"
 
-
-
-
 /**
  * Handles the operation.
  *
@@ -491,7 +488,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_disk_usage(p0, p1, p3, p4);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) DISPLAY_CONTENT_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -622,7 +619,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_list_open_files(p0, p1, p3, p4);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) LIST_TASKS_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -642,7 +639,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_memory_free(p0, p1, p3, p4);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) MOVE_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -712,7 +709,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_spellcheck(p0, p1, p3, p4);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOI_FORMAT);
@@ -722,7 +719,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             apply_system_messages(p0, p1, p3, p4);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p7, (void*) TAPE_ARCHIVER_COMMAND_LOGIC_CYBOI_FORMAT);

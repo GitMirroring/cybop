@@ -29,10 +29,17 @@
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reference_counter.c"
+
+//
+// Forward declaration.
+//
+
+void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void overwrite_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Allocates the part.

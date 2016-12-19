@@ -101,23 +101,7 @@ _____
             http://de.wikipedia.org/wiki/Windows_PowerShell#Cmdlets
         * Create useful and uniform names for commands using pattern "verb-noun"
         * Procedure to add a new cybol operation to cyboi:
-            * Write cybol example application using shell command (in order to identify an operation name as well as necessary properties)
-            * Add shell commands to directory "constant/model/command/" (NOT necessary for standard cybol operations)
-              -> go here to change names (if different for Unix/Win32)
-            * Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
-            * Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
-            * Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
-              -> ALL options regardless of OS
-            * Add new file with options for each command to directory "constant/name/command_option/unix/" (or windows/) (NOT necessary for standard cybol operations)
-            * Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
-              -> check file from step number 3
-            * Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
-            * Add new file for each new command to directory "executor/commander/" (see example file "list_directory_contents_commander.c")
-              -> check file from step number 2 for name of command, file from number 5 or number 6 for names of options
-            * Consider platform (unix or windows) using preprocessor defines
-            * Add new file for each command (cybol operation) to directory "applicator/command/"
-              -> remove_file.c is a good example for this - has parameter and options
-            * Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
+            doc/development/add_new_cybol_operation.txt
 
 	* Sort  shell-commands alphabetically e.g. in: "src/constant/model/command/unix_command_model.c" and in some other files
         * Implement standard algorithms for search, sort etc.

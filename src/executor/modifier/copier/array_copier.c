@@ -42,7 +42,7 @@
 // Forward declarations.
 //
 
-void copy_offset(void* p0, void* p1, void* p2, void* p3, void* p4);
+#include "../../../executor/modifier/copier/copier.c"
 
 /**
  * Copies count source array elements into the destination array.

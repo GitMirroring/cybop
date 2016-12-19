@@ -33,6 +33,7 @@
 #include "../../constant/name/cybol/logic/modification/append_modification_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
+#include "../../executor/modifier/appender/part_appender.c"
 #include "../../logger/logger.c"
 
 /**

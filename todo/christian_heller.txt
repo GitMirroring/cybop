@@ -11,25 +11,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2016-12-??  Christian Heller  <christian.heller@tuxtax.de>
-
-        * Release CYBOP 0.18.0
-
-2016-12-15  Christian Heller  <christian.heller@tuxtax.de>
-
-        * Add sort algorithms (quick, bubble) as cyboi operations of Alexander Heimann, Julius Krenkel, Paul Müller
-        * Add cyboi shell commands of Leonard Franke, Jörg Broy, Richard Lüdtke
-        * Add cybol example application "password_generator" of Florian Aurich, Andre Noldin
-        * Add cybol example application game "bullsandcows" (mastermind) of Ronny Zingler
-        * Add ide "Code::Blocks" project file and user manual of Kevin Klein, Tobias Donix
-        * Add video tutorials of Stefan Göldner
-
 General
 _______
 
         * Verify name change in cybol example application "x" by André Noldin
-        * Remove file "vorgehensweise.txt" in cybop root directory
-        * Create (alternatively) small tutorials for implementing various things, e.g. a new cybol operation or shell command, a de-/serialiser etc.
+        * Install and try out Code::Blocks IDE, as soon as it is available in Debian stable
 
 Stack
 _____
