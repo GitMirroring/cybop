@@ -20,6 +20,10 @@ _______
 Stack
 _____
 
+        * Extend path handling so that stack variables can be resolved, e.g. in ".app.(stack_variable_in_path).xyz"
+        * Find solution for using format "path/reference" together with stack variables
+        * Add project overview of university of cooperative education as cybol example application to cybop svn ??
+
         CAUTION! The following does not function yet (example "counter_stack_deep") -- test why
         * Replace function call "handle_properties" with "append_item_element" in file "element_part_handler.c"
         * Hand over properties as array and let array functions inside care about looping and copying
