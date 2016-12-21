@@ -161,6 +161,7 @@ _______________
                 and they should SET A FLAG to signal when the worker has finished/is ready,
                 just like is done for the input/output in cyboi,
                 and the main event loop then checks for interrupt flags
+            ==> possibly also check out Tcl interpreter which claims to handle all i/o channels uniquely
 
             Google-Suche nach "node.js c++ event-driven" lieferte z. B.:
             http://stackoverflow.com/questions/36491385/how-is-asynchronous-javascript-interpreted-and-executed-in-node-js
