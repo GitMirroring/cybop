@@ -45,16 +45,16 @@
 // at EVERY option, even if that produces some redundant code.
 //
 #ifdef __APPLE__
-    #include "../../constant/name/command_option/unix/pwd_unix_command_option_name.c"
+    #include "../../constant/name/command_option/unix/present_working_directory_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #elif WIN32
-    #include "../../constant/name/command_option/win32/pwd_win32_command_option_name.c"
+    #include "../../constant/name/command_option/win32/present_working_directory_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../constant/name/command_option/unix/present_working_directory_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/name/command_option/unix/pwd_unix_command_option_name.c"
+    #include "../../constant/name/command_option/unix/present_working_directory_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 

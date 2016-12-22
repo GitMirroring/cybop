@@ -47,7 +47,7 @@
 // at EVERY option, even if that produces some redundant code.
 //
 #ifdef __APPLE__
-    #include "../../constant/name/command_option/unix/ifconfig_command_option_name.c"
+    #include "../../constant/name/command_option/unix/ifconfig_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #elif WIN32
     #include "../../constant/name/command_option/win32/ifconfig_win32_command_option_name.c"

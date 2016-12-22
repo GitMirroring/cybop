@@ -17,7 +17,7 @@ mkdir -p $build
 cd $build
 curl -OL http://ftpmirror.gnu.org/autoconf/autoconf-latest.tar.gz
 tar xzf autoconf-latest.tar.gz
-cd autoconf-latest
+cd autoconf-latest # respectivly the version which was downloaded
 ./configure --prefix=/usr/local
 make
 sudo make install
@@ -28,9 +28,9 @@ export PATH=/usr/local/bin
 # http://ftpmirror.gnu.org/automake
 
 cd $build
-curl -OL http://ftpmirror.gnu.org/automake/automake-1.14.tar.gz
-tar xzf automake-1.14.tar.gz
-cd automake-1.14
+curl -OL http://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
+tar xzf automake-1.15.tar.gz
+cd automake-1.15
 ./configure --prefix=/usr/local
 make
 sudo make install
@@ -40,9 +40,9 @@ sudo make install
 # http://ftpmirror.gnu.org/libtool
 
 cd $build
-curl -OL http://ftpmirror.gnu.org/libtool/libtool-2.4.2.tar.gz
-tar xzf libtool-2.4.2.tar.gz
-cd libtool-2.4.2
+curl -OL http://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.gz
+tar xzf libtool-2.4.6.tar.gz
+cd libtool-2.4.6
 ./configure --prefix=/usr/local
 make
 sudo make install

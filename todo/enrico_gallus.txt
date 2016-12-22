@@ -1,0 +1,24 @@
+#
+# Copyright (C) 1999-2016. Christian Heller.
+#
+# This file lists so-called "TODO" items, in other words open tasks
+# to be worked on in the future.
+#
+# Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+# CYBOP Developers <cybop-developers@nongnu.org>
+#
+# @version CYBOP 0.18.0 2016-12-21
+# @author Enrico Gallus <enrico.gallus@googlemail.com>
+#
+
+General
+_______
+
+        * Update cybol api specification with state and logic, which gets automatically generated into html
+            - see file "doc/books/cybol/api/readme.txt"
+            - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
+            - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
+        * Correct wrong entry in cybol api using operation "time/current" instead of "time/time"
+
+        * get rid of the tables in the generated html
+            * use css styles e.g. grid to style the documentation referring the structure

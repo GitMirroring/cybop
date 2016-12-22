@@ -210,6 +210,15 @@ ___________________________
 
     cd /home/cybop
 
+- Set the executable flag for the autogen file, e.g.:
+
+    chmod ugo+x /home/cybop/autogen.sh
+
+- Execute the configure files with:
+
+    ./autogen.sh
+    ./configure
+
 - Clean the object files of any previous compilation (this is optional):
 
     make clean
