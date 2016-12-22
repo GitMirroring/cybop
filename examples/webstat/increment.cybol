@@ -246,7 +246,7 @@
     <node name="receiver" channel="inline" format="text/plain" model="webstat/files/counter.html"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.webstat.counter"/>
     <node name="language" channel="inline" format="meta/language" model="text/html">
-	<node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="format" channel="inline" format="meta/format" model="element/part"/>
     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

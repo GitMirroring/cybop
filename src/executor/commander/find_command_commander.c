@@ -1,6 +1,6 @@
  
 /*
- * Copyright (C) 1999-2015. Christian Heller.
+ * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -20,7 +20,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.17.0 2015-04-20
+ * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -111,7 +111,7 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 #ifdef __APPLE__
             append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
-	    
+        
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -132,7 +132,7 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 #ifdef __APPLE__
             append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
-	    
+        
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -153,7 +153,7 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 #ifdef __APPLE__
             append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
-	    
+        
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -164,7 +164,7 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	    // Append source command.
+        // Append source command.
 #ifdef __APPLE__
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -189,7 +189,7 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 
         // Deallocate arguments item.
         deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-	
+    
   } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find command. The source path is null.");

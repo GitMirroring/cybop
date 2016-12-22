@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2015. Christian Heller.
+ * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOP 0.17.0 2015-04-20
+ * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -99,14 +99,14 @@ void command_pwd(void* lmd, void* pmd) {
             append_item_element(arg, (void*) PWD_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PWD_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 
-	// The comparison result. 
+    // The comparison result. 
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-	// Block begin
+    // Block begin
         compare_integer_unequal((void*) &r, lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-	  
+      
             // Append all option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
@@ -123,10 +123,10 @@ void command_pwd(void* lmd, void* pmd) {
 
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;    
-		
-	// Block end    
-	
-	// Block begin
+        
+    // Block end    
+    
+    // Block begin
         compare_integer_unequal((void*) &r, pmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -144,7 +144,7 @@ void command_pwd(void* lmd, void* pmd) {
             append_item_element(arg, (void*) PHYSICAL_PWD_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PHYSICAL_PWD_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
         }
-	
+    
      // Get arguments item data, count.
     copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);

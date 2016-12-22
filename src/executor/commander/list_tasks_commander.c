@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2015. Christian Heller.
+ * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.17.0 2015-04-20
+ * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -110,7 +110,7 @@ void command_list_tasks(void* ld, void* ad, void* vd) {
 #ifdef __APPLE__
             append_item_element(arg, (void*) KEYWORD_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KEYWORD_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
-	    
+        
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) KEYWORD_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KEYWORD_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -120,7 +120,7 @@ void command_list_tasks(void* ld, void* ad, void* vd) {
 
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-	
+    
     compare_integer_unequal((void*) &r, ad, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -131,7 +131,7 @@ void command_list_tasks(void* ld, void* ad, void* vd) {
 #ifdef __APPLE__
             append_item_element(arg, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #elif WIN32
-	    
+        
 #elif GNU_LINUX_OPERATING_SYSTEM
             append_item_element(arg, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_LIST_TASKS_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
@@ -141,7 +141,7 @@ void command_list_tasks(void* ld, void* ad, void* vd) {
 
         // Reset comparison result.
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-	
+    
     compare_integer_unequal((void*) &r, vd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -152,7 +152,7 @@ void command_list_tasks(void* ld, void* ad, void* vd) {
 #ifdef __APPLE__
 
 #elif WIN32
-	    append_item_element(arg, (void*) VERBOSE_LIST_TASKS_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBOSE_LIST_TASKS_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, (void*) VERBOSE_LIST_TASKS_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBOSE_LIST_TASKS_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #elif GNU_LINUX_OPERATING_SYSTEM
            
 #else

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2015. Christian Heller.
+ * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.17.0 2015-04-20
+ * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -51,42 +51,42 @@ void apply_who(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"who.");
 
-	// The ALL part.
+    // The ALL part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-	// The BATCH part.
+    // The BATCH part.
     void* b = *NULL_POINTER_STATE_CYBOI_MODEL;
-	// The DEAD part.
+    // The DEAD part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
-	// The LOGIN part.
+    // The LOGIN part.
     void* l = *NULL_POINTER_STATE_CYBOI_MODEL;
-	// The SHORT part.
+    // The SHORT part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-	// The option part model item.
+    // The option part model item.
     void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
-	// The option part model item data.
+    // The option part model item data.
     void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
-	// Get option part.
+    // Get option part.
     get_part_name((void*) &a, p0, (void*) ALL_WHO_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_WHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     get_part_name((void*) &b, p0, (void*) BOOT_WHO_COMMANDER_LOGIC_CYBOL_NAME, (void*) BOOT_WHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     get_part_name((void*) &d, p0, (void*) DEAD_WHO_COMMANDER_LOGIC_CYBOL_NAME, (void*) DEAD_WHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     get_part_name((void*) &l, p0, (void*) LOGIN_WHO_COMMANDER_LOGIC_CYBOL_NAME, (void*) LOGIN_WHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
     get_part_name((void*) &s, p0, (void*) SHORT_WHO_COMMANDER_LOGIC_CYBOL_NAME, (void*) SHORT_WHO_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-	// Get option part model item.
+    // Get option part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lm, l, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-	// Get option part model item data.
+    // Get option part model item data.
     copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 copy_array_forward((void*) &bmd, bm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

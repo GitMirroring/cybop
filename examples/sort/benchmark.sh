@@ -8,32 +8,32 @@ OUTPUT=''
 
 echo "Testing 'sort/quick'."
 while [ $CURRENT -lt $CYCLES ]
-	do
-	OUTPUT=`../../src/controller/cyboi benchmarkQuicksort.cybol`
-	OUTPUT=(${OUTPUT[@]})
-	OUTPUT="${OUTPUT[0]#0}"
-	QUICK=$((QUICK + OUTPUT))
-	if ! ((CURRENT % 1))
-		then
-		echo "$CURRENT% done."
-	fi
-	((CURRENT++))
+    do
+    OUTPUT=`../../src/controller/cyboi benchmarkQuicksort.cybol`
+    OUTPUT=(${OUTPUT[@]})
+    OUTPUT="${OUTPUT[0]#0}"
+    QUICK=$((QUICK + OUTPUT))
+    if ! ((CURRENT % 1))
+        then
+        echo "$CURRENT% done."
+    fi
+    ((CURRENT++))
 done
 ((QUICK/=$CYCLES))
 
 ((CURRENT=0))
 echo "Testing 'sort/bubble'."
 while [ $CURRENT -lt $CYCLES ]
-	do
-	OUTPUT=`../../src/controller/cyboi benchmarkBubblesort.cybol`
-	OUTPUT=(${OUTPUT[@]})
-	OUTPUT="${OUTPUT[0]#0}"
-	BUBBLE=$((BUBBLE + OUTPUT))
-	if ! ((CURRENT % 1))
-		then
-		echo "$CURRENT% done."
-	fi
-	((CURRENT++))
+    do
+    OUTPUT=`../../src/controller/cyboi benchmarkBubblesort.cybol`
+    OUTPUT=(${OUTPUT[@]})
+    OUTPUT="${OUTPUT[0]#0}"
+    BUBBLE=$((BUBBLE + OUTPUT))
+    if ! ((CURRENT % 1))
+        then
+        echo "$CURRENT% done."
+    fi
+    ((CURRENT++))
 done
 ((BUBBLE/=$CYCLES))
 

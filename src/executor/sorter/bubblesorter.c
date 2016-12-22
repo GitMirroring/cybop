@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2015. Christian Heller.
+ * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOP 0.17.0 2015-04-20
+ * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -41,38 +41,38 @@
  *
  */
 void swap(int *x, int *y){
-	int tmp = *x;
-	*x = *y;
-	*y = tmp;
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
 }
 
 void bubblesort(int *omd, int *elements) {
-	int n = *elements;
-	int* a1 = (int*) 0;
-	int* a2 = (int*) 0;
-	int newn = 1;
-	int i = 0;
+    int n = *elements;
+    int* a1 = (int*) 0;
+    int* a2 = (int*) 0;
+    int newn = 1;
+    int i = 0;
 
-	while (1)
-	{		
-		if (n <= 1) break;		
-		newn = 1;
-		i = 0;
-		
-		while (1)
-		{
-			if (i >= (n - 1)) break;
-			a1 = (omd + i);
-			a2 = (omd + i + 1);
-			if (*a1 > *a2)
-			{
-				swap(a1, a2);
-				newn = i + 1;				
-			}
-			i++;
-		}
-		n = newn;
-	}
+    while (1)
+    {        
+        if (n <= 1) break;        
+        newn = 1;
+        i = 0;
+        
+        while (1)
+        {
+            if (i >= (n - 1)) break;
+            a1 = (omd + i);
+            a2 = (omd + i + 1);
+            if (*a1 > *a2)
+            {
+                swap(a1, a2);
+                newn = i + 1;                
+            }
+            i++;
+        }
+        n = newn;
+    }
 
 }
 
@@ -98,17 +98,17 @@ void sorter_bubble(void* imd, void* imc, void* omd, void* omc, void* oms) {
     bubblesort((int*) *((void**) omd), (int*) omc);
    
 /*??    
-   	
-	int i = -1;
-	if(*((int* ) imc) == *((int* ) omc))
-	{	
-		while(++i < *((int* ) imc))
-			*((int* ) omd + i) = *((int* ) imd + i);
+       
+    int i = -1;
+    if(*((int* ) imc) == *((int* ) omc))
+    {    
+        while(++i < *((int* ) imc))
+            *((int* ) omd + i) = *((int* ) imd + i);
 
-		bubblesort((int*) omd, (int* ) omc);
-	} 
-	else
-		fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
+        bubblesort((int*) omd, (int* ) omc);
+    } 
+    else
+        fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
 */
 }
 

@@ -1,14 +1,14 @@
 <node>
 
     <node name="who" channel="inline" format="command/who" model="">
-	<node name="all" channel="inline" format="logicvalue/boolean" model="true"/>
-	<node name="boot" channel="inline" format="logicvalue/boolean" model="true"/>
-	<node name="dead" channel="inline" format="logicvalue/boolean" model="false"/>
-	<node name="login" channel="inline" format="logicvalue/boolean" model="false"/>
-	<node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="all" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="boot" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="dead" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="login" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="short" channel="inline" format="logicvalue/boolean" model="false"/>
 
 
-	        
+            
     </node>
 
     <node name="exit" channel="inline" format="live/exit" model=""/>
@@ -20,7 +20,7 @@
 -->
 
 <!--
-    Copyright (C) 1999-2015. Christian Heller.
+    Copyright (C) 1999-2016. Christian Heller.
 
     This knowledge model uses the Cybernetics Oriented Language (CYBOL).
 
@@ -40,6 +40,6 @@
     Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
     CYBOP Developers <cybop-developers@nongnu.org>
 
-    @version CYBOP 0.17.0 2015-04-20
+    @version CYBOP 0.18.0 2016-12-21
     @author Christian Heller <christian.heller@tuxtax.de>
 -->

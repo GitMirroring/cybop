@@ -1,6 +1,6 @@
  <node>
 
-	<node name="newline1" channel="inline" format="communicate/send" model="">
+    <node name="newline1" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -164,7 +164,7 @@
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-	<node name="false" channel="inline" format="path/knowledge" model=".app.print_pc_card_3"/>
+    <node name="false" channel="inline" format="path/knowledge" model=".app.print_pc_card_3"/>
 
     </node>
 

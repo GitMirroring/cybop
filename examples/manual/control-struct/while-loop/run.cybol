@@ -1,26 +1,26 @@
-<node>	
-	<!-- node: loop --> 
+<node>    
+    <!-- node: loop --> 
         <node name="loop" channel="inline" format="memorise/create" model="">
                 <node name="name" channel="inline" format="text/plain" model="loop"/> 
                 <node name="format" channel="inline" format="meta/format" model="element/part"/> 
                 <node name="element" channel="inline" format="text/plain" model="part"/> 
         </node> 
 
-	<!-- int: count  -->
-	<node name="create_count" channel="inline" format="memorise/create" model="">
-		<node name="name" channel="inline" format="text/plain" model="count"/>
+    <!-- int: count  -->
+    <node name="create_count" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="count"/>
                 <node name="format" channel="inline" format="meta/format" model="number/integer"/>
                 <node name="element" channel="inline" format="text/plain" model="part"/>
-		<node name="whole" channel="inline" format="path/knowledge" model=".loop"/>
-	</node>
-	<node name="init_count" channel="inline" format="modify/overwrite" model="">
-		<node name="destination" channel="inline" format="path/knowledge" model=".loop.count"/>
-		<node name="source" channel="inline" format="number/integer" model="0"/>
-		<node name="type" channel="inline" format="meta/type" model="number/integer"/>
-	</node>
-	
-	<!-- boolean: break -->
-	<node name="create_break" channel="inline" format="memorise/create" model="">
+        <node name="whole" channel="inline" format="path/knowledge" model=".loop"/>
+    </node>
+    <node name="init_count" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="path/knowledge" model=".loop.count"/>
+        <node name="source" channel="inline" format="number/integer" model="0"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+    
+    <!-- boolean: break -->
+    <node name="create_break" channel="inline" format="memorise/create" model="">
                 <node name="name" channel="inline" format="text/plain" model="break"/>
                 <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
                 <node name="element" channel="inline" format="text/plain" model="part"/>
@@ -32,13 +32,13 @@
                 <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
         </node>
 
-	<node name="startup" channel="inline" format="maintain/startup" model="">
-		<node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-	</node>
-	<node name="print_numbers" channel="inline" format="flow/loop" model="">
-        	<node name="break" channel="inline" format="path/knowledge" model=".loop.break"/>
-        	<node name="model" channel="file" format="element/part" model="manual/control-struct/while-loop/loop.cybol"/>
-	</node>
+    <node name="startup" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="print_numbers" channel="inline" format="flow/loop" model="">
+            <node name="break" channel="inline" format="path/knowledge" model=".loop.break"/>
+            <node name="model" channel="file" format="element/part" model="manual/control-struct/while-loop/loop.cybol"/>
+    </node>
 
-	<node name="shutdown" channel="inline" format="live/exit" model=""/>
+    <node name="shutdown" channel="inline" format="live/exit" model=""/>
 </node>

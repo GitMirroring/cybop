@@ -1,5 +1,5 @@
 <node>
-	<node name="get_time" channel="inline" format="time/current" model="">
+    <node name="get_time" channel="inline" format="time/current" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.var.seed"/>
     </node>
 

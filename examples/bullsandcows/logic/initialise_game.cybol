@@ -1,13 +1,13 @@
 <node>
-	
- 	<node name="set_comp_choices" channel="inline" format="flow/sequence" model="">
+    
+     <node name="set_comp_choices" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.random"/>
-	</node>
+    </node>
 
 
-	<node name="start_prompt" channel="inline" format="flow/sequence" model="">
-		<node name="model" channel="inline" format="path/knowledge" model=".app.prompt_guess"/>
-	</node>
+    <node name="start_prompt" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="path/knowledge" model=".app.prompt_guess"/>
+    </node>
 
 
 

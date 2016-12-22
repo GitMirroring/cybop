@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2015. Christian Heller.
+ * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * Christian Heller <christian.heller@tuxtax.de>
  *
- * @version CYBOP 0.17.0 2015-04-20
+ * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -41,32 +41,32 @@
  */
 void quicksort(int *a, int *e) {
 
-	int *g;
-	int *k;
-	int tmp;
-	if(e - a <= 1)
-		return;
-	g = a;
-	k = e - 1;
+    int *g;
+    int *k;
+    int tmp;
+    if(e - a <= 1)
+        return;
+    g = a;
+    k = e - 1;
 
-	do {
-		while((*g <= *e) && (g < e))
-			++g;
-		while((*k >= *e) && (k > a))
-			--k;
-		if(g > k)
-			break;
-		tmp = *k;
-		*k = *g;
-		*g = tmp;
+    do {
+        while((*g <= *e) && (g < e))
+            ++g;
+        while((*k >= *e) && (k > a))
+            --k;
+        if(g > k)
+            break;
+        tmp = *k;
+        *k = *g;
+        *g = tmp;
 
-	} while(g < k);
-	tmp = *g;
-	*g = *e;
-	*e = tmp;
+    } while(g < k);
+    tmp = *g;
+    *g = *e;
+    *e = tmp;
 
-	quicksort(a, k);
-	quicksort(g, e);
+    quicksort(a, k);
+    quicksort(g, e);
 }
 
 /*

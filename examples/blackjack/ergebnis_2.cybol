@@ -88,7 +88,7 @@
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.print_win"/>
-	<node name="false" channel="inline" format="path/knowledge" model=".app.print_loose"/>
+    <node name="false" channel="inline" format="path/knowledge" model=".app.print_loose"/>
     </node>
 
     // Ende
@@ -96,6 +96,6 @@
         <node name="model" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
     </node>
 
-	
+    
 
 </node>

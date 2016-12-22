@@ -1,7 +1,7 @@
 
 <node>
     <node name="command" channel="inline" format="text/plain" model=""/>
-	<node name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
+    <node name="newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="no_newgame_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="exit_flag" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="test" channel="inline" format="number/integer" model="1"/>

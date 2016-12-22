@@ -1,35 +1,35 @@
 <node>
-	<node name="result" channel="inline" format="memorise/create" model="">
-        	<node name="name" channel="inline" format="text/plain" model="result"/>
-        	<node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        	<node name="element" channel="inline" format="text/plain" model="part"/>
-	</node>
-	
-	<node name="initialise_result" channel="inline" format="communicate/receive" model="">
-        	<node name="channel" channel="inline" format="meta/channel" model="inline"/>
-        	<node name="language" channel="inline" format="meta/language" model="text/cybol"/> 
-        	<node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        	<node name="sender" channel="inline" format="text/plain" model="5"/>
-        	<node name="message" channel="inline" format="path/knowledge" model=".result"/>
-	</node>
+    <node name="result" channel="inline" format="memorise/create" model="">
+            <node name="name" channel="inline" format="text/plain" model="result"/>
+            <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+            <node name="element" channel="inline" format="text/plain" model="part"/>
+    </node>
+    
+    <node name="initialise_result" channel="inline" format="communicate/receive" model="">
+            <node name="channel" channel="inline" format="meta/channel" model="inline"/>
+            <node name="language" channel="inline" format="meta/language" model="text/cybol"/> 
+            <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+            <node name="sender" channel="inline" format="text/plain" model="5"/>
+            <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+    </node>
 
-	<node name="add" channel="inline" format="calculate/add" model="">
-		<node name="result" channel="inline" format="path/knowledge" model=".result"/>
-		<node name="operand" channel="inline" format="number/integer" model="3"/>
-		<node name="type" channel="inline" format="meta/type" model="number/integer"/>
-	</node>
+    <node name="add" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="operand" channel="inline" format="number/integer" model="3"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
 
-	<node name="startup" channel="inline" format="maintain/startup" model="">
-		<node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-	</node>
-	<node name="print" channel="inline" format="communicate/send" model="">
+    <node name="startup" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+    <node name="print" channel="inline" format="communicate/send" model="">
                 <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
                 <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
                 <node name="language" channel="inline" format="meta/language" model="message/cli"/>
                 <node name="format" channel="inline" format="meta/format" model="text/plain"/>
                 <node name="message" channel="inline" format="text/plain" model="Ergebnis: "/>
         </node>
-	<node name="print" channel="inline" format="communicate/send" model="">
+    <node name="print" channel="inline" format="communicate/send" model="">
                 <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
                 <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
                 <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -37,5 +37,5 @@
                 <node name="message" channel="inline" format="path/knowledge" model=".result"/>
                 <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
-	<node name="exit" channel="inline" format="live/exit" model="">
+    <node name="exit" channel="inline" format="live/exit" model="">
 </node>

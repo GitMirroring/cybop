@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2016. Christian Heller.
 #
 # This file adjusts the source code as follows:
 # - replace tabulator characters with four spaces each
@@ -10,7 +10,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.18.0 2016-12-21
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
@@ -44,7 +44,7 @@ old_copyright="Copyright (C) 1999-2015. Christian Heller."
 new_copyright="Copyright (C) 1999-2016. Christian Heller."
 # The old and new version.
 old_version="CYBOP 0.17.0 2015-04-20"
-new_version="CYBOP 0.18.0 2016-12-??"
+new_version="CYBOP 0.18.0 2016-12-21"
 
 # Determine files.
 # CAUTION! The files without suffix HAVE TO BE

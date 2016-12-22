@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2015. Christian Heller.
+# Copyright (C) 1999-2016. Christian Heller.
 #
 # This file specifies configuration settings.
 # It has to be processed with autoconf to produce a configure script.
@@ -7,7 +7,7 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.17.0 2015-04-20
+# @version CYBOP 0.18.0 2016-12-21
 # @author Didier Link <didier@famille-link.fr>
 # @author Christian Heller <christian.heller@tuxtax.de>
 # @author Tobias Köhler <tk@snake-universe.tk>
