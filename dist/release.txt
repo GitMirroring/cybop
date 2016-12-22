@@ -29,7 +29,7 @@ Update AUTHORS reading ChangeLog entries
 Update NEWS subsumpting ChangeLog entries
 Commit SVN
 Tag SVN
-Pack (make dist)
+Pack (make dist) -- DON'T WORRY on compile errors, the tar.gz is fine, test it, error probably caused by missing source files in controller/, see below
 Upload tarball file to sftp://USERNAME@download.savannah.gnu.org/releases/cybop
 
 
@@ -79,3 +79,4 @@ and files, since "make dist" creates a temporary directory,
 e.g. "cybop-0.14.0", which is later compressed using tar.gz.
 The problematic directories and files could be added to it,
 before starting the previously failed compression manually.
+
