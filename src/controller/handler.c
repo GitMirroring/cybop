@@ -160,7 +160,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge((void*) &ref, p2, (void*) &pathd, (void*) &pathc, p2);
+            deserialise_knowledge((void*) &ref, p2, (void*) &pathd, (void*) &pathc, p2, p3);
 
             // Get reference signal part model item.
             copy_array_forward((void*) &refm, ref, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -180,7 +180,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2);
+            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2, p3);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6);
@@ -207,7 +207,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2);
+            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2, p3);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6);

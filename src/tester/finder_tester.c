@@ -191,17 +191,17 @@ void test_finder_part_hierarchical() {
     //
 
     // Get part on first hierarchy level.
-    deserialise_knowledge((void*) &p1, application, (void*) &n1, (void*) &n1c, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &p1, application, (void*) &n1, (void*) &n1c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Get part on second hierarchy level.
-    deserialise_knowledge((void*) &p2, application, (void*) &n2, (void*) &n2c, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &p2, application, (void*) &n2, (void*) &n2c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Get meta property of part on second hierarchy level.
-    deserialise_knowledge((void*) &p3, application, (void*) &n3, (void*) &n3c, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &p3, application, (void*) &n3, (void*) &n3c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Get part of a part directly.
-    deserialise_knowledge((void*) &p4, p1, (void*) &n4, (void*) &n4c, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &p4, p1, (void*) &n4, (void*) &n4c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Get meta property of another part on a lower hierarchy level.
-    deserialise_knowledge((void*) &p5, p1, (void*) &n5, (void*) &n5c, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &p5, p1, (void*) &n5, (void*) &n5c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
     // Get meta property of a part directly.
-    deserialise_knowledge((void*) &p6, p4, (void*) &n6, (void*) &n6c, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &p6, p4, (void*) &n6, (void*) &n6c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
 
     //
     // Output determined result parts.

@@ -11,15 +11,9 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-General
-_______
-
-        * Install and try out Code::Blocks IDE, as soon as it is available in Debian stable
-
 Stack
 _____
 
-        * Extend path handling so that stack variables can be resolved, e.g. in ".app.(stack_variable_in_path).xyz"
         * Find solution for using format "path/reference" together with stack variables
         * Add project overview of university of cooperative education as cybol example application to cybop svn ??
 
@@ -44,6 +38,24 @@ _____
         * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
         * Verify correct execution of cybol example application "copier"
         * Test for memory leaks with valgrind
+
+Knowledge Path
+______________
+
+        * Enable references in knowledge path, by possibly just using TOW round parentheses ((.app.some.path.to.a.reference))
+
+        * Check if knowledge paths may be nested, e.g.:
+            .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
+          written instead as:
+            .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
+        * Provide syntax for accessing model via reference path, e.g.:
+            .app.choices.(.app.var.dbday)
+          written instead with DOUBLE round parentheses representing a path/reference as:
+            .app.choices.((.app.var.db.(.app.var.day2)))
+
+        * Implement usage of embedded indices, e.g.:
+            .app.addresses[.app.loop_index]
+        * Optimise cybol example applications using embedded index
 
 String
 ______
@@ -494,24 +506,10 @@ ___________
         * Consider multipart messages:
             https://en.wikipedia.org/wiki/MIME#Multipart_messages
 
-Knowledge Path
-______________
-
-        * Check if knowledge paths may be nested, e.g.:
-            .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
-          written instead as:
-            .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
-        * Provide syntax for accessing model via reference path, e.g.:
-            .app.choices.(.app.var.dbday)
-          written instead with DOUBLE round parentheses representing a path/reference as:
-            .app.choices.((.app.var.db.(.app.var.day2)))
-
-        * Implement usage of embedded indices, e.g.:
-            .app.addresses[.app.loop_index]
-        * Optimise cybol example applications using embedded index
-
 General CYBOI
 _____________
+
+        * Install and try out Code::Blocks IDE, as soon as it is available in Debian stable
 
         * Use "memcpy" function everywhere values are copied via pointer in all source code,
             e.g. in file "integer_copier.c" instead of:

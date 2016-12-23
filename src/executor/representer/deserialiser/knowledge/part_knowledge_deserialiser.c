@@ -47,8 +47,9 @@
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
  * @param p5 the knowledge memory part
+ * @param p6 the stack memory item
  */
-void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
 
@@ -76,7 +77,7 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
             break;
         }
 
-        select_knowledge_expression_begin(p0, p1, p2, p3, p4, p5);
+        select_knowledge_expression_begin(p0, p1, p2, p3, p4, p5, p6);
     }
 }
 

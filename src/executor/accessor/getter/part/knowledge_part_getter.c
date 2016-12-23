@@ -163,7 +163,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge((void*) &p, p2, (void*) &pathd, (void*) &pathc, p2);
+                deserialise_knowledge((void*) &p, p2, (void*) &pathd, (void*) &pathc, p2, p3);
 
                 // CAUTION! For this recursive function call to work correctly,
                 // cybol applications have to use the format "path/knowledge"
@@ -204,7 +204,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2);
+                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3);
             }
         }
 

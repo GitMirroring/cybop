@@ -44,7 +44,7 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
 
 /**
  * Deserialises a knowledge part by index.
@@ -57,8 +57,9 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4);
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
  * @param p5 the knowledge memory part
+ * @param p6 the stack memory item
  */
-void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part index.");
 
@@ -174,7 +175,7 @@ fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
                 // to p above, so that p now becomes the source.
                 // If it has a child part, then that will be assigned to the
                 // destination. Otherwise, the destination remains UNTOUCHED.
-                deserialise_knowledge(p0, p, p2, p3, p5);
+                deserialise_knowledge(p0, p, p2, p3, p5, p6);
 
             } else {
 

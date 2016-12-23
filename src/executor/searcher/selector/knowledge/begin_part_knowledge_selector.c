@@ -34,6 +34,7 @@
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/stack_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -69,8 +70,9 @@
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
  * @param p4 the knowledge memory part
+ * @param p5 the stack memory item
  */
-void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part begin.");
 
@@ -87,7 +89,7 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME, p4);
+            deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME, p4, p5);
         }
     }
 
@@ -97,14 +99,16 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME, p4);
+            deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME, p4, p5);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Move position by one if nothing was found.
-        move_position(p2, p3, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        // A special character indicating a model or property was NOT found.
+        // Therefore, the following characters are supposed to represent a stack variable name.
+
+        deserialise_knowledge_stack(p0, p2, p3, p5);
     }
 }
 

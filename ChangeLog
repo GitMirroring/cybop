@@ -21,6 +21,7 @@
 2016-12-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Rename temporary "x" into cybol example application "password_generator"
+        * Extend path handling with file "stack_knowledge_deserialiser.c", so that stack variables can be resolved, e.g. in ".app.(stack_variable_name).xyz"
 
 2016-12-21  Christian Heller  <christian.heller@tuxtax.de>
 
