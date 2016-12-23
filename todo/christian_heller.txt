@@ -14,7 +14,6 @@
 General
 _______
 
-        * Verify name change in cybol example application "x" by André Noldin
         * Install and try out Code::Blocks IDE, as soon as it is available in Debian stable
 
 Stack

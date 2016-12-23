@@ -1,5 +1,5 @@
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2016. Christian Heller.
 #
 # This file records the changes that are made to cybop.
 #
@@ -14,9 +14,13 @@
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.18.0 2016-12-21
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
+
+2016-12-23  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename temporary "x" into cybol example application "password_generator"
 
 2016-12-21  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -2,7 +2,7 @@
 
 //sleep
     <node name="execute_shell_script" channel="inline" format="run/run" model="">
-        <node name="programme" channel="file" format="text/plain" model="x/sleep_timer.sh"/>
+        <node name="programme" channel="file" format="text/plain" model="password_generator/sleep_timer.sh"/>
     </node>
 
     <node name="create_seed" channel="inline" format="memorise/create" model="">
@@ -42,13 +42,13 @@
     <node name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".number"/>
         <node name="minimum" channel="inline" format="number/integer" model="1"/>
-        <node name="maximum" channel="inline" format="number/integer" model="10"/>
+        <node name="maximum" channel="inline" format="number/integer" model="26"/>
     </node>
 
 //ASCII
     <node name="add" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".number"/>
-        <node name="operand" channel="inline" format="number/integer" model="47"/>
+        <node name="operand" channel="inline" format="number/integer" model="64"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
