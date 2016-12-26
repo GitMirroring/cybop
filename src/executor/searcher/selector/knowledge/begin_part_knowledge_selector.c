@@ -79,15 +79,13 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    //
-    // The "." or "#" indicate that a sub part's model or property, respectively, begins.
-    //
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         detect_array((void*) &r, p2, p3, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The "." indicates that a sub part's model begins.
 
             deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME, p4, p5);
         }
@@ -98,6 +96,8 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
         detect_array((void*) &r, p2, p3, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The "#" indicates that a sub part's property begins.
 
             deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME, p4, p5);
         }
