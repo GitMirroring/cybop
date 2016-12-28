@@ -171,7 +171,7 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
         } else {
 
             // The "." or "#" delimiter indicating the end of
-            // the part name string data was not found.
+            // the part name string data was NOT found.
 
             // Increment name string count.
             sc++;

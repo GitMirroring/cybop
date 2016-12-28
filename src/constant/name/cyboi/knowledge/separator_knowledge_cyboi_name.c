@@ -67,25 +67,11 @@ static wchar_t* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L")";
 static int* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The list separator knowledge cyboi name.
- *
- * It is standing between the base name and the index.
- *
- * Example:
- * patient_$0
- * patient_$1
- * patient_$...
- */
-/*??
-static wchar_t* LIST_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"_$";
-static int* LIST_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_2_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-*/
-
-/**
  * The model separator knowledge cyboi name.
  *
- * Example:
+ * Examples:
  * .app.gui.menubar.file.exit
+ * .app
  */
 static wchar_t* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L".";
 static int* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -95,9 +81,20 @@ static int* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_
  *
  * Example:
  * .app.gui.menubar#colour
+ * #colour
  */
 static wchar_t* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"#";
 static int* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The reference separator knowledge cyboi name.
+ *
+ * Examples:
+ * *.app.var.path
+ * .app.adr.[**.app.var.index].phone
+ */
+static wchar_t* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"*";
+static int* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The operation parametre separator knowledge cyboi name.

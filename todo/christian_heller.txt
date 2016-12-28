@@ -17,30 +17,27 @@ ______________
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
 
-        * Provide syntax for accessing model via reference path
+        * Provide syntax for accessing model via reference path, e.g.
+            **.part#property.[2].[(*.node.index)].node.(.node.name.(.nested.path.node)).(**.reference.node).link
         * Find solution for using format "path/reference" together with stack variables, e.g. implement with special character in knowledge path
-        * Enable references in knowledge path, by possibly just using TWO round parentheses ((.app.some.path.to.a.reference))
-        * NO! Best solution is to simply use parentheses for references, e.g. "(.app.model.path_to_some_element)"
 
         * Pseudo code for processing of knowledge paths:
 
-        1 Kind of path:
-            - if reference: in parentheses, e.g. (.app.var.path) or .app.adr.[((.app.var.index))].phone
-            - else direct: no special character, e.g. .app.adr.miller.phone or .app.adr.[2].phone
-
-        2 Kind of memory:
-            - if part: prefix . for knowledge whole-part hierarchy, e.g. .app
+        1 Kind of path / memory:
+            - if reference: prefix *, e.g. *.app.var.path or .app.adr.[**.app.var.index].phone
+                - note that references may be nested
+            - else if model part: prefix . for knowledge whole-part hierarchy, e.g. .app
                 - set flag
-            - else if property: prefix # for knowledge meta hierarchy, e.g. #colour
+            - else if property part: prefix # for knowledge meta hierarchy, e.g. #colour
                 - set flag
             - else stack: no prefix for stack memory variable, e.g. index
 
-        3 Kind of identification (if part or property above, not for stack variable):
-            - if index, e.g. .app.adr.[2]
+        2 Kind of identification (if part or property above, not for stack variable): OLD_NAME "begin_expression"
+            - if index, e.g. .app.adr.[2].phone
                 - set flag
-            - else name: e.g. .app.adr.miller
+            - else name: e.g. .app.adr.miller.phone
 
-        4 Kind of replacement:
+        3 Kind of replacement:
             - if path: in parentheses, for name e.g. .app.adr.(.app.var.lastname).phone, for index e.g. .app.adr.[(.app.var.index)].phone
                 then restart at 1
                 evaluate flags from steps 2 and 3 to call correct functions
@@ -49,7 +46,7 @@ ______________
         * Unify path formats "path/knowledge", "path/reference", "path/stack" to just "text/path" ??
             --> in this case all different formats will have to be realised through special characters like "(" or "((" etc.
 
-        * Check if knowledge paths may be nested, e.g.:
+        * Enable nesting in knowledge paths, e.g.:
             .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
           written instead as:
             .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link

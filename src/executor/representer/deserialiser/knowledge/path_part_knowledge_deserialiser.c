@@ -130,15 +130,6 @@ fwprintf(stdout, L"TEST deserialise path sd: %ls\n", (wchar_t*) sd);
 
             // Get name part with path from source whole part model OR properties,
             // depending on the source whole part element index p4.
-            //
-            // CAUTION! Hand over p (as pointer reference) instead of p0 here,
-            // since this is NOT the final name element yet.
-            // Otherwise, some part in between the hierarchy,
-            // which is a parent of the searched part,
-            // might wrongly get returned as result,
-            // e.g. if the last name does not exist.
-            // In order to avoid this, the p0 result parametre
-            // gets only assigned the final part elsewhere.
             deserialise_knowledge((void*) &n, p5, (void*) &sd, (void*) &sc, p5, p6);
             // Get name part model item.
             copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -161,8 +152,7 @@ fwprintf(stdout, L"TEST deserialise path nmd: %ls\n", (wchar_t*) nmd);
             // might wrongly get returned as result,
             // e.g. if the last name does not exist.
             // In order to avoid this, the p0 result parametre
-            // gets only assigned the final part in the
-            // block with break condition further above.
+            // gets only assigned the final part elsewhere.
             get_name_part_element((void*) &p, p1, nmd, nmc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
 /*??
