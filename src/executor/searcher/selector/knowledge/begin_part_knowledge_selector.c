@@ -121,7 +121,7 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
         // A special character indicating a model or property was NOT found.
         // Therefore, the following characters are supposed to represent a stack variable name.
 
-        deserialise_knowledge_stack(p0, p2, p3, p5);
+        deserialise_knowledge_stack(p0, p1, p2, p3, p4, p5);
     }
 }
 

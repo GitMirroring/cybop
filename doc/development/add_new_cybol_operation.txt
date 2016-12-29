@@ -10,7 +10,8 @@ calculate/add
 communicate/send
 
 Shell script operation incorporated into cybol as e.g.:
-
+command/disk-free
+command/grep
 
 Processing Steps
 ________________

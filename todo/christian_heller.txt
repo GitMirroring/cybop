@@ -11,6 +11,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+TODO
+____
+
+        * Add new cybol operations "inspect/stack", "inspect/knowledge", "inspect/system"
+            OR BETTER: additional language or format for "communicate/send" operation (comparable to language "text/model-diagram")
+        * See temporary cybol example application "counter_stack_TMP_NEW_PATH"
+        * Then test apps "counter_stack_TMP_NEW_PATH", "counter" and finally "lehre/systems_implementation/overview/project"
+
 Knowledge Path
 ______________
 
