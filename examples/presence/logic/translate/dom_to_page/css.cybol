@@ -7,59 +7,59 @@
 
     <!-- The standard parts. -->
     <node name="overwrite_scheme" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_scheme_suffix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme_suffix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_hostname_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_hostname" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_port_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_port" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_directory" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.directory"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The action parametre. -->
     <node name="append_parametre_action_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_action"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_action_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_action_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css#href"/>
+        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.head.css:href"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.action_send_css"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>

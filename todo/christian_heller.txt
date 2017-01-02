@@ -14,10 +14,21 @@
 TODO
 ____
 
-        * Add new cybol operations "inspect/stack", "inspect/knowledge", "inspect/system"
-            OR BETTER: additional language or format for "communicate/send" operation (comparable to language "text/model-diagram")
+        * Add the following to cybol example application "counter_stack" (or a similar one)
+
+    <!-- Write stack memory into file. -->
+    <node name="test_stack_memory" channel="inline" format="inspect/stack" model="">
+        <node name="file" channel="inline" format="text/plain" model="test_counter_stack_stack-memory.txt"/>
+    </node>
+
+        * Extend "send" operation with language "text/stack-diagram"
+        * Rename language "text/model-diagram" into "text/knowledge-diagram"
         * See temporary cybol example application "counter_stack_TMP_NEW_PATH"
-        * Then test apps "counter_stack_TMP_NEW_PATH", "counter" and finally "lehre/systems_implementation/overview/project"
+        * Test apps "counter_stack_TMP_NEW_PATH", "counter" and finally "lehre/systems_implementation/overview/project"
+
+        * Optimise file "handler.c" similar to "knowledge_part_getter.c" using a recursive function call for REFERENCE_PATH_STATE_CYBOI_FORMAT
+        * Find out whether or not it is possible to merge files "knowledge_part_getter.c" and "handler.c" (really makes sense!)
+            possibly by extracting and moving special code into separate file
 
 Knowledge Path
 ______________
@@ -44,6 +55,7 @@ ______________
             - if index, e.g. .app.adr.[2].phone
                 - set flag
             - else name: e.g. .app.adr.miller.phone
+            - rename "expression" into "identification"
 
         3 Kind of replacement:
             - if path: in parentheses, for name e.g. .app.adr.(.app.var.lastname).phone, for index e.g. .app.adr.[(.app.var.index)].phone

@@ -2,7 +2,7 @@
 
     <node name="set_navigation_destination" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.navigation"/>
-        <node name="source" channel="inline" format="text/plain" model="#next"/>
+        <node name="source" channel="inline" format="text/plain" model=":next"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 

@@ -9,34 +9,34 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <!--   down   -->
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.tui.window.menu.1_0#mine"/>
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.tui.window.menu.1_0:mine"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.add_mine"/>
     </node>
-    
+
     <node name="reset_bool" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <!--   right   -->
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.tui.window.menu.0_1#mine"/>
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.tui.window.menu.0_1:mine"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.add_mine"/>
     </node>
-    
+
     <node name="reset_bool" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <!--   down/right   -->
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.tui.window.menu.1_1#mine"/>
+        <node name="criterion" channel="inline" format="path/knowledge" model=".app.tui.window.menu.1_1:mine"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.add_mine"/>
     </node>
     <node name="reset_bool" channel="inline" format="modify/overwrite" model="">
@@ -44,7 +44,7 @@
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <!--   print number on selected field   -->
     <node name="are_mines_nearby" channel="inline" format="compare/unequal" model="">
         <node name="left" channel="inline" format="path/knowledge" model=".app.mine_count"/>
@@ -53,7 +53,7 @@
         <node name="result" channel="inline" format="path/knowledge" model=".app.bool"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
-    
+
     <node name="print_if_close_mines" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.bool"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.print_minecount"/>

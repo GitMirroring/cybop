@@ -1,4 +1,4 @@
-<!-- ### lese Datum aus (heute, gestern) ### -->
+<!-- lese Datum aus (heute, gestern) -->
 
 <node name="get_date" channel="inline" format="run/run" model="">
     <node name="programme" channel="inline" format="text/plain" model="date +%F | tr -d '\n' > webstat/tmp/date_today.txt; date -d yesterday +%F | tr -d '\n' > webstat/tmp/date_yesterday.txt"/>
@@ -11,7 +11,7 @@
     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
     <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_date_today"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.var.today"/>
-</node>  
+</node>
 
 <node name="receive_file_date_yesterday" channel="inline" format="communicate/receive" model="">
     <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -20,10 +20,10 @@
     <node name="format" channel="inline" format="meta/format" model="text/plain"/>
     <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_date_yesterday"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.var.yesterday"/>
-</node>  
-  
+</node>
 
-<!-- ### lese Zugriffe aus Datei ### -->
+
+<!-- lese Zugriffe aus Datei -->
 
 <!-- lese Zugriffe für heute -->
 
@@ -63,10 +63,10 @@
     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_today"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
-</node>   
+</node>
 
 
-<!-- ### lese Zugriffe für gestern ### -->
+<!-- lese Zugriffe für gestern -->
 
 <node name="reset_path_yesterday" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
@@ -103,10 +103,10 @@
     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_yesterday"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_yesterday"/>
-</node>   
+</node>
 
 
-<!-- ### lese Gesamtzugriffe ein ### -->
+<!-- lese Gesamtzugriffe ein -->
 <node name="reset_visits_total" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
     <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -119,22 +119,22 @@
     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     <node name="sender" channel="inline" format="path/knowledge" model=".app.var.file_path_total"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
-</node>   
+</node>
 
-### erhöhe Zähler
+<!-- erhöhe Zähler -->
 <node name="increment_today" channel="inline" format="calculate/add" model="">
     <node name="result" channel="inline" format="path/knowledge" model=".app.var.visits_today"/>
     <node name="operand" channel="inline" format="number/integer" model="1"/>
     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-</node>    
-    
+</node>
+
 <node name="increment_total" channel="inline" format="calculate/add" model="">
     <node name="result" channel="inline" format="path/knowledge" model=".app.var.visits_total"/>
     <node name="operand" channel="inline" format="number/integer" model="1"/>
     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
 </node>
 
-<!-- ### speicher Zaehler ### -->
+<!-- speicher Zaehler -->
 <node name="store_visits_today" channel="inline" format="communicate/send" model="">
     <node name="channel" channel="inline" format="meta/channel" model="file"/>
     <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -156,7 +156,7 @@
 </node>
 
 
-<!-- ### fuehre Loop fuer csv aus ### -->
+<!-- fuehre Loop fuer csv aus -->
 
   <node name="read_linefeed" channel="inline" format="communicate/receive" model="">
     <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -198,11 +198,11 @@
     <node name="message" channel="inline" format="path/knowledge" model=".app.var.csv_content"/>
     <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.file_path_csv_data"/>
     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>    
+</node>
 
-<!-- ### erstelle HTMl Seite ### -->
+<!-- erstelle HTMl Seite -->
 
-<!-- ### setze Aufrufe heute ### -->
+<!-- setze Aufrufe heute -->
 <node name="reset_row_content_today" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="path/knowledge" model=".app.webstat.counter.body.table.row_0.column_1"/>
     <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -215,7 +215,7 @@
     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
 </node>
 
-<!-- ### setze Aufrufe gestern ### -->
+<!-- setze Aufrufe gestern -->
 <node name="reset_row_content_yesterday" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="path/knowledge" model=".app.webstat.counter.body.table.row_1.column_1"/>
     <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -228,7 +228,7 @@
     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
 </node>
 
-<!-- ### setze Aufrufe total ### -->
+<!-- setze Aufrufe total -->
 <node name="reset_row_content_total" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="path/knowledge" model=".app.webstat.counter.body.table.row_2.column_1"/>
     <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -241,7 +241,7 @@
     <node name="format" channel="inline" format="meta/format" model="number/integer"/>
 </node>
 
-<!-- ### erstelle counter.html ### -->
+<!-- erstelle counter.html -->
 <node name="generate_html" channel="inline" format="communicate/send" model="">
     <node name="receiver" channel="inline" format="text/plain" model="webstat/files/counter.html"/>
     <node name="message" channel="inline" format="path/knowledge" model=".app.webstat.counter"/>

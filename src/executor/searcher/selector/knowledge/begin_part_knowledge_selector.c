@@ -66,7 +66,7 @@
 /**
  * Selects the knowledge part begin.
  *
- * @param p0 the destination name or part (pointer reference)
+ * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
@@ -77,20 +77,14 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part begin.");
 
+    //
+    // The order of comparisons is unimportant.
+    // It was chosen in a way to favour speed,
+    // that is characters often used are standing on top.
+    //
+
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        detect_array((void*) &r, p2, p3, (void*) REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The "*" indicates that a reference begins.
-
-            deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5);
-        }
-    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,9 +104,21 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // The "#" indicates that a sub part's property begins.
+            // The ":" indicates that a sub part's property begins.
 
             deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME, p4, p5);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        detect_array((void*) &r, p2, p3, (void*) REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // The "*" indicates that a reference begins.
+
+            deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5);
         }
     }
 

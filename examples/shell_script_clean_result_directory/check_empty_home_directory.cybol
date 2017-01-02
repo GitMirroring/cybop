@@ -9,17 +9,14 @@
     </node>
 
 <!--
-    # Counts the directories and files contained within the given sub directory.
-    #
-    # List all directories and files.
-    # The -a option is necessary to also list hidden directories, e.g. ".eclipse".
-    # Forward result list to "Word Count" programme.
-    # Count lines in result list.
-    # CAUTION! Argument "-l" means "lines" and NOT the number one.
-    #
-    n=$(ls -a home/klaus$j | wc -l);
+    Counts the directories and files contained within the given sub directory.
+    List all directories and files.
+    The -a option is necessary to also list hidden directories, e.g. ".eclipse".
+    Forward result list to "Word Count" programme.
+    Count lines in result list.
+    CAUTION! Argument "-l" means "lines" and NOT the number one.
 -->
-
+    <!-- n=$(ls -a home/klaus$j | wc -l); -->
     <node name="show_number" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="path/knowledge" model=".app.counted_files"/>
     </node>

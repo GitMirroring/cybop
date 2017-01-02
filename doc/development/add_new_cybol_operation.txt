@@ -13,28 +13,43 @@ Shell script operation incorporated into cybol as e.g.:
 command/disk-free
 command/grep
 
-Processing Steps
-________________
+Processing Steps for Native CYBOL Operation
+___________________________________________
 
-* Write cybol example application using shell command (in order to identify an operation name as well as necessary properties)
+* Write cybol example application using operation, in order to identify an operation name as well as necessary properties
 
-* Add shell commands to directory "constant/model/command/" (NOT necessary for standard cybol operations)
+* Add operation to file "constant/format/cybol/logic/command_logic_cybol_format.c"
+* Add operation to file "constant/format/cyboi/logic_cyboi_format.c"
+* Add file with cybol options for each new operation to directory "constant/name/cybol/logic/"
+
+* Add operation to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+* Add operation to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+
+* Add file for each new operation to directory "executor/"
+
+* Add file for each new operation to directory "applicator/"
+* Add operation to file "controller/handler/operation_handler.c"
+
+Processing Steps for Shell Script Operation
+___________________________________________
+
+* Write cybol example application using operation, in order to identify an operation name as well as necessary properties
+
+* Add operation to directory "constant/model/command/"
     -> go here to change names (if different for Unix/Win32)
-* Add commands to file "constant/format/cybol/logic/command_logic_cybol_format.c"
-* Add commands to file "constant/format/cyboi/logic_cyboi_format.c"
-* Add new file with options for each command to directory "constant/name/cybol/logic/commander/"
+* Add operation to file "constant/format/cybol/logic/command_logic_cybol_format.c"
+* Add operation to file "constant/format/cyboi/logic_cyboi_format.c"
+* Add file with cybol options for each new operation to directory "constant/name/cybol/logic/commander/"
     -> ALL options regardless of OS
-* Add new file with options for each command to directory "constant/name/command_option/unix/" (or windows/) (NOT necessary for standard cybol operations)
+* Add file with command options for each new operation to directory "constant/name/command_option/unix/" (or windows/)
 
-* Add commands to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
-    -> check file from step number 3
-* Add commands to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
+* Add operation to file "executor/representer/deserialiser/cybol/format_cybol_deserialiser.c"
+* Add operation to file "executor/representer/serialiser/cybol/format_cybol_serialiser.c"
 
-* Add new file for each new command to directory "executor/commander/" (see example file "list_directory_contents_commander.c")
-    -> check file from step number 2 for name of command, file from number 5 or number 6 for names of options
+* Add file for each new operation to directory "executor/commander/"
 * Consider platform (unix or windows) using preprocessor defines
 
-* Add new file for each command (cybol operation) to directory "applicator/command/"
-    -> remove_file.c is a good example for this - has parameter and options
-* Add commands to section with comment "command" in file "controller/handler/operation_handler.c"
+* Add file for each new operation to directory "applicator/command/"
+    -> "remove_file.c" is a good example for this, since it has a parametre and options
+* Add operation to section with comment "command" in file "controller/handler/operation_handler.c"
 

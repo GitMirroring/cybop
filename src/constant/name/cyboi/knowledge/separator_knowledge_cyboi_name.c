@@ -80,10 +80,10 @@ static int* MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_
  * The property separator knowledge cyboi name.
  *
  * Example:
- * .app.gui.menubar#colour
- * #colour
+ * .app.gui.menubar:colour
+ * :colour
  */
-static wchar_t* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"#";
+static wchar_t* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L":";
 static int* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**

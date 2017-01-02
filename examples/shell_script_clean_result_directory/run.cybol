@@ -57,14 +57,16 @@
     </node>
 
 <!--
+    The search is recursive by default.
+    Parameters: -type d means "directory"; -type f means "file".
+    CAUTION! Put "export" in quotation marks, because it would
+    otherwise be interpreted as keyword, by the shell!
+-->
+    <!-- find "export" -type f -exec chmod a-x {} \; -->
+<!--
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Entferne störendes und unnötiges Ausführbarkeitsrecht für alle Dateien."/>
     </node>
-    # The search is recursive by default.
-    # Parameters: -type d means "directory"; -type f means "file".
-    # CAUTION! Put "export" in quotation marks, because it would
-    # otherwise be interpreted as keyword, by the shell!
-    find "export" -type f -exec chmod a-x {} \;
 -->
 
     <node name="show_message" channel="inline" format="command/echo" model="">
