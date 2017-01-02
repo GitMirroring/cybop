@@ -26,21 +26,22 @@
 #ifndef SYSTEM_INSPECTOR_SOURCE
 #define SYSTEM_INSPECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../logger/logger.c"
 
 /**
- * Writes the knowledge memory content into the given file.
+ * Writes the system memory content into the given file.
  *
- * @param p0 the sum, which is the first summand BEFORE the operation
- * @param p1 the summand
+ * @param p0 the file name data
+ * @param p1 the file name count
+ * @param p2 the internal memory data
  */
-void inspect_knowledge(void* p0, void* p1) {
+void inspect_system(void* p0, void* p1, void* p2) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Inspect knowledge.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Inspect system.");
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -48,7 +49,7 @@ void inspect_knowledge(void* p0, void* p1) {
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not inspect knowledge. The TODO is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not inspect system. The TODO is null.");
     }
 }
 

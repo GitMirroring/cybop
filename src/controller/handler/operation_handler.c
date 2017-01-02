@@ -83,9 +83,7 @@
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
-#include "../../applicator/inspect/knowledge.c"
-#include "../../applicator/inspect/stack.c"
-#include "../../applicator/inspect/system.c"
+#include "../../applicator/inspect/inspect.c"
 #include "../../applicator/live/interrupt.c"
 #include "../../applicator/live/sense.c"
 #include "../../applicator/logify/logify.c"
@@ -1006,7 +1004,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_inspect_knowledge(p0, p1, p3, p4, p2);
+            apply_inspect(p0, p1, p3, p4, p2, p7);
         }
     }
 
@@ -1016,7 +1014,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_inspect_stack(p0, p1, p3, p4, p2);
+            apply_inspect(p0, p1, p3, p4, p2, p7);
         }
     }
 
@@ -1026,7 +1024,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_inspect_system(p0, p1, p3, p4, p2);
+            apply_inspect(p0, p1, p3, p4, p2, p7);
         }
     }
 

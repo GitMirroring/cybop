@@ -26,19 +26,20 @@
 #ifndef KNOWLEDGE_INSPECTOR_SOURCE
 #define KNOWLEDGE_INSPECTOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../logger/logger.c"
 
 /**
  * Writes the knowledge memory content into the given file.
  *
- * @param p0 the sum, which is the first summand BEFORE the operation
- * @param p1 the summand
+ * @param p0 the file name data
+ * @param p1 the file name count
+ * @param p2 the knowledge memory part
  */
-void inspect_knowledge(void* p0, void* p1) {
+void inspect_knowledge(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Inspect knowledge.");
 

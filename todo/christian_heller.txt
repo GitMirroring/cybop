@@ -21,14 +21,13 @@ ____
         <node name="file" channel="inline" format="text/plain" model="test_counter_stack_stack-memory.txt"/>
     </node>
 
+        * Continue files in directory "executor/inspector/"
         * Extend "send" operation with language "text/stack-diagram"
         * Rename language "text/model-diagram" into "text/knowledge-diagram"
         * See temporary cybol example application "counter_stack_TMP_NEW_PATH"
         * Test apps "counter_stack_TMP_NEW_PATH", "counter" and finally "lehre/systems_implementation/overview/project"
 
-        * Optimise file "handler.c" similar to "knowledge_part_getter.c" using a recursive function call for REFERENCE_PATH_STATE_CYBOI_FORMAT
-        * Find out whether or not it is possible to merge files "knowledge_part_getter.c" and "handler.c" (really makes sense!)
-            possibly by extracting and moving special code into separate file
+        * Rename "applicator/sort/sorters.c"
 
 Knowledge Path
 ______________
@@ -72,6 +71,11 @@ ______________
             .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
 
         * Optimise cybol example applications accordingly
+
+        * The following TWO tasks are NOT NECESSARY, since the following is realised through a unified "knowledge_path deserialiser":
+            - Optimise file "handler.c" similar to "knowledge_part_getter.c" using a recursive function call for REFERENCE_PATH_STATE_CYBOI_FORMAT
+            - Find out whether or not it is possible to merge files "knowledge_part_getter.c" and "handler.c" (really makes sense!)
+              possibly by extracting and moving special code into separate file
 
 Stack
 _____
