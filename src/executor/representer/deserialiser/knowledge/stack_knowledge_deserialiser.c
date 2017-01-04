@@ -38,7 +38,7 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+//?? void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Gets a knowledge part from stack memory.
@@ -49,8 +49,9 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  * @param p3 the knowledge path count remaining
  * @param p4 the knowledge memory part
  * @param p5 the stack memory item
+ * @param p6 the internal memory data
  */
-void deserialise_knowledge_stack(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_knowledge_stack(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -114,7 +115,7 @@ void deserialise_knowledge_stack(void* p0, void* p1, void* p2, void* p3, void* p
         // This is IMPORTANT since otherwise, the original data position
         // gets increased and the count remaining decreased to zero,
         // so that knowledge access works only once, but not anymore afterwards.
-        deserialise_knowledge(p0, (void*) &p, (void*) &pathd, (void*) &pathc, p4, p5);
+        deserialise_knowledge(p0, (void*) &p, (void*) &pathd, (void*) &pathc, p4, p5, p6);
 */
 
     } else {

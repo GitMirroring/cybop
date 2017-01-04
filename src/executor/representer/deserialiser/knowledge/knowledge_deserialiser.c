@@ -45,8 +45,9 @@
  * @param p3 the knowledge path count remaining
  * @param p4 the knowledge memory part
  * @param p5 the stack memory item
+ * @param p6 the internal memory data
  */
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge.");
 

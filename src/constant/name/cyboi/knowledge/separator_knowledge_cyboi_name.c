@@ -67,6 +67,17 @@ static wchar_t* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L")";
 static int* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The memory separator knowledge cyboi name.
+ *
+ * Examples:
+ * /knowledge
+ * /signal
+ * /stack
+ */
+static wchar_t* MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"/";
+static int* MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The model separator knowledge cyboi name.
  *
  * Examples:
@@ -100,9 +111,9 @@ static int* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_ST
  * The operation parametre separator knowledge cyboi name.
  *
  * Example:
- * <part name="menu" channel="file" type="text/cybol" model="menu/window.cybol">
- *     <property name="size" channel="inline" type="number/integer" model="20,50,300,200">
- * </part>
+ * <node name="menu" channel="file" format="text/cybol" model="menu/window.cybol">
+ *     <node name="size" channel="inline" type="number/integer" model="300,200"/>
+ * </node>
  */
 static wchar_t* VALUE_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L",";
 static int* VALUE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;

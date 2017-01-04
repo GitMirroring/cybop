@@ -45,7 +45,7 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Deserialises a knowledge part by path.
@@ -59,8 +59,9 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
  * @param p5 the knowledge memory part
  * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part path.");
 
@@ -130,7 +131,7 @@ fwprintf(stdout, L"TEST deserialise path sd: %ls\n", (wchar_t*) sd);
 
             // Get name part with path from source whole part model OR properties,
             // depending on the source whole part element index p4.
-            deserialise_knowledge((void*) &n, p5, (void*) &sd, (void*) &sc, p5, p6);
+            deserialise_knowledge((void*) &n, p5, (void*) &sd, (void*) &sc, p5, p6, p7);
             // Get name part model item.
             copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
             // Get name part model item data, count.
@@ -174,7 +175,7 @@ fwprintf(stdout, L"TEST deserialise path p: %i\n", p);
                 // to p above, so that p now becomes the source.
                 // If it has a child part, then that will be assigned to the
                 // destination. Otherwise, the destination remains UNTOUCHED.
-                deserialise_knowledge(p0, p, p2, p3, p5, p6);
+                deserialise_knowledge(p0, p, p2, p3, p5, p6, p7);
 
             } else {
 

@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PART_KNOWLEDGE_DESERIALISER_SOURCE
-#define PART_KNOWLEDGE_DESERIALISER_SOURCE
+#ifndef MEMORY_KNOWLEDGE_DESERIALISER_SOURCE
+#define MEMORY_KNOWLEDGE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -33,26 +33,23 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/begin_expression_knowledge_selector.c"
+#include "../../../../executor/searcher/selector/knowledge/memory_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Deserialises a knowledge part.
+ * Deserialises a knowledge memory.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the source whole part element index (one of:
- *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
- * @param p5 the knowledge memory part
- * @param p6 the stack memory item
- * @param p7 the internal memory data
+ * @param p4 the knowledge memory part
+ * @param p5 the stack memory item
+ * @param p6 the internal memory data
  */
-void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge memory.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -78,9 +75,9 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
             break;
         }
 
-        select_knowledge_expression_begin(p0, p1, p2, p3, p4, p5, p6, p7);
+        select_knowledge_memory(p0, p1, p2, p3, p4, p5, p6);
     }
 }
 
-/* PART_KNOWLEDGE_DESERIALISER_SOURCE */
+/* MEMORY_KNOWLEDGE_DESERIALISER_SOURCE */
 #endif

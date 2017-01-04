@@ -44,8 +44,9 @@
  * @param p3 the source message count
  * @param p4 the knowledge memory part
  * @param p5 the stack memory item
+ * @param p6 the internal memory data
  */
-void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response header.");
 
@@ -77,7 +78,7 @@ void serialise_http_response_header(void* p0, void* p1, void* p2, void* p3, void
             break;
         }
 
-        serialise_http_response_header_entry(p0, p1, (void*) &j, p4, p5);
+        serialise_http_response_header_entry(p0, p1, (void*) &j, p4, p5, p6);
 
         // Increment loop variable.
         j++;

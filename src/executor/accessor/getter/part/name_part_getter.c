@@ -43,8 +43,9 @@
  * @param p4 the source whole count
  * @param p5 the knowledge memory part
  * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void get_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void get_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part name.");
 
@@ -62,7 +63,7 @@ void get_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     get_name_array((void*) &s, p1, p2, p3, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Get actual destination part behind source model part.
-    get_part_knowledge(p0, (void*) &s, p5, p6);
+    get_part_knowledge(p0, (void*) &s, p5, p6, p7);
 }
 
 /* NAME_PART_GETTER_SOURCE */

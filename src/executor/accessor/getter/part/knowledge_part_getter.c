@@ -27,6 +27,7 @@
 #define KNOWLEDGE_PART_GETTER_SOURCE
 
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
@@ -59,8 +60,9 @@
  * @param p1 the source part (pointer reference)
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
+void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -163,7 +165,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge((void*) &p, p2, (void*) &pathd, (void*) &pathc, p2, p3);
+                deserialise_knowledge((void*) &p, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4);
 
                 // CAUTION! For this recursive function call to work correctly,
                 // cybol applications have to use the format "path/knowledge"
@@ -204,7 +206,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3) {
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3);
+                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4);
             }
         }
 

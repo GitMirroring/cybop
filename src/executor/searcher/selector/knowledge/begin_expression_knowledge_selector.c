@@ -75,8 +75,9 @@
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
  * @param p5 the knowledge memory part
  * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void select_knowledge_expression_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void select_knowledge_expression_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge expression begin.");
 
@@ -89,7 +90,7 @@ void select_knowledge_expression_begin(void* p0, void* p1, void* p2, void* p3, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part_index(p0, p1, p2, p3, p4, p5, p6);
+            deserialise_knowledge_part_index(p0, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
@@ -99,7 +100,7 @@ void select_knowledge_expression_begin(void* p0, void* p1, void* p2, void* p3, v
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            deserialise_knowledge_part_path(p0, p1, p2, p3, p4, p5, p6);
+            deserialise_knowledge_part_path(p0, p1, p2, p3, p4, p5, p6, p7);
         }
     }
 
@@ -108,7 +109,7 @@ void select_knowledge_expression_begin(void* p0, void* p1, void* p2, void* p3, v
         // A special character indicating a knowledge expression was NOT found.
         // Therefore, the following characters are supposed to represent a part name.
 
-        deserialise_knowledge_part_name(p0, p1, p2, p3, p4, p5, p6);
+        deserialise_knowledge_part_name(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
 
