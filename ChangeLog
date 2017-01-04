@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide new separator knowledge name constant "/", followed by one of "knowledge", "stack", "system", "signal", for memory access
+        * Extend knowledge deserialiser to retrieve all kinds of memory (knowledge, signal, stack)
+        * Use system memory to get pointer reference to memory entries
+
 2017-01-02  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace knowledge path character "#" for property access with ":"
