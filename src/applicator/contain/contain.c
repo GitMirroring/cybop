@@ -61,9 +61,10 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
- * @param p4 the operation type
+ * @param p4 the internal memory data
+ * @param p5 the operation type
  */
-void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply contain.");
 
@@ -96,17 +97,17 @@ void apply_contain(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get result part.
-    get_part_name((void*) &r, p0, (void*) RESULT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) RESULT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) RESULT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) RESULT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get value part.
-    get_part_name((void*) &v, p0, (void*) VALUE_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) VALUE_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &v, p0, (void*) VALUE_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) VALUE_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get left part.
-    get_part_name((void*) &lb, p0, (void*) LEFT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) LEFT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &lb, p0, (void*) LEFT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) LEFT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get right part.
-    get_part_name((void*) &rb, p0, (void*) RIGHT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) RIGHT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &rb, p0, (void*) RIGHT_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) RIGHT_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) TYPE_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TYPE_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) TYPE_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get selection part.
-    get_part_name((void*) &s, p0, (void*) SELECTION_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) SELECTION_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SELECTION_CONTAINMENT_LOGIC_CYBOL_NAME, (void*) SELECTION_CONTAINMENT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get result part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -132,7 +133,7 @@ fwprintf(stdout, L"TEST apply contain t: %i\n", t);
 fwprintf(stdout, L"TEST apply contain s: %i\n", s);
 */
 
-//??    contain(rmd, v, lb, rb, p4);
+//??    contain(rmd, v, lb, rb, p5);
 }
 
 /* CONTAIN_SOURCE */

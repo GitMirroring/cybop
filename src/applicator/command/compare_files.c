@@ -61,8 +61,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_compare_files(void* p0, void* p1, void* p2, void* p3) {
+void apply_compare_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
 
@@ -114,7 +115,6 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3) {
     // The path2 part model item data and count.
     void* pa2md = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pa2mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-
     // The print differing chars part model item data.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The print offset part model item data.
@@ -133,32 +133,30 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3) {
     void* wmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path1 part.
-    get_part_name((void*) &pa1, p0, (void*) PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &pa1, p0, (void*) PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_1_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get path2 part.
-    get_part_name((void*) &pa2, p0, (void*) PATH_2_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_2_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-
+    get_part_name((void*) &pa2, p0, (void*) PATH_2_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_2_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get print differing chars part.
-    get_part_name((void*) &d, p0, (void*) PRINT_DIFFERING_CHARS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRINT_DIFFERING_CHARS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &d, p0, (void*) PRINT_DIFFERING_CHARS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRINT_DIFFERING_CHARS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get print offset part.
-    get_part_name((void*) &o, p0, (void*) PRINT_OFFSET_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRINT_OFFSET_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &o, p0, (void*) PRINT_OFFSET_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) PRINT_OFFSET_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get silent part.
-    get_part_name((void*) &s, p0, (void*) SILENT_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) SILENT_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SILENT_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) SILENT_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get case insensitive part.
-    get_part_name((void*) &c, p0, (void*) CASE_INSENSITIVE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) CASE_INSENSITIVE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) CASE_INSENSITIVE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) CASE_INSENSITIVE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get compare unicode part.
-    get_part_name((void*) &u, p0, (void*) UNICODE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) UNICODE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &u, p0, (void*) UNICODE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) UNICODE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get compare ascii part.
-    get_part_name((void*) &a, p0, (void*) ASCII_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) ASCII_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &a, p0, (void*) ASCII_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) ASCII_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get display line numbers link part.
-    get_part_name((void*) &l, p0, (void*) DISPLAY_LINE_NUMBERS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) DISPLAY_LINE_NUMBERS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &l, p0, (void*) DISPLAY_LINE_NUMBERS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) DISPLAY_LINE_NUMBERS_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get compress whitespace part.
-    get_part_name((void*) &w, p0, (void*) COMPRESS_WHITESPACE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMPRESS_WHITESPACE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &w, p0, (void*) COMPRESS_WHITESPACE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMPRESS_WHITESPACE_COMPARE_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get path part model item.
     copy_array_forward((void*) &pa1m, pa1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get path part model item.
     copy_array_forward((void*) &pa2m, pa2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-
     // Get print differing chars part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get print offset part model item.
@@ -182,7 +180,6 @@ void apply_compare_files(void* p0, void* p1, void* p2, void* p3) {
     // Get path part model item data and count.
     copy_array_forward((void*) &pa2md, pa2m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pa2mc, pa2m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
     // Get print differing chars part model item data.
     copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     // Get print offset model item data.

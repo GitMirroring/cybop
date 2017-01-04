@@ -98,7 +98,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The only difference is the CLI FLAG handed over,
     // which is used to avoid cursor positioning,
     // since that is NOT wanted for cli.
-    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p8, p9, (void*) &l, p10, (void*) &a, p11);
+    serialise_tui_part_element_content(p0, op, p1, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p5, p6, p7, p8, p9, (void*) &l, p10, (void*) &a, p11);
 }
 
 /* INITIAL_TUI_SERIALISER_SOURCE */

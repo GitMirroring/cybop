@@ -45,17 +45,20 @@
  *
  * Expected parametres:
  * - none
- * 
+ *
  * Options: d, f, i, I, s
  *
  * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_hostname(void* p0, void* p1, void* p2, void* p3) {
+void apply_hostname(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-       log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply hostname.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply hostname.");
 
     // The dns part.
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -79,8 +82,6 @@ void apply_hostname(void* p0, void* p1, void* p2, void* p3) {
     // The short part model item.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
-
     // The dns part model item data and count.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The fqdn part model item data and count.
@@ -92,17 +93,16 @@ void apply_hostname(void* p0, void* p1, void* p2, void* p3) {
     // The short part model item data and count.
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
     // Get dns part.
-    get_part_name((void*) &d, p0, (void*) DNS_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) DNS_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &d, p0, (void*) DNS_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) DNS_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get fqdn part.
-    get_part_name((void*) &f, p0, (void*) FQDN_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) FQDN_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &f, p0, (void*) FQDN_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) FQDN_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get ip part.
-    get_part_name((void*) &i, p0, (void*) IP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) IP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) IP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) IP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get allip part.
-    get_part_name((void*) &a, p0, (void*) ALLIP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALLIP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &a, p0, (void*) ALLIP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALLIP_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get short part.
-    get_part_name((void*) &s, p0, (void*) SHORT_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) SHORT_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SHORT_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME, (void*) SHORT_HOSTNAME_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get dns part model item.
     copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -128,7 +128,6 @@ void apply_hostname(void* p0, void* p1, void* p2, void* p3) {
 
     command_hostname(dmd, fmd, imd, amd, smd);
 }
-
 
 /* HOSTNAME_SOURCE */
 #endif

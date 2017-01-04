@@ -49,9 +49,10 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
- * @param p4 the operation type
+ * @param p4 the internal memory data
+ * @param p5 the operation type
  */
-void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply get.");
 
@@ -61,12 +62,12 @@ void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get element part.
-    get_part_name((void*) &e, p0, (void*) ELEMENT_GET_ACCESS_LOGIC_CYBOL_NAME, (void*) ELEMENT_GET_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &e, p0, (void*) ELEMENT_GET_ACCESS_LOGIC_CYBOL_NAME, (void*) ELEMENT_GET_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get part part.
-    get_part_name((void*) &p, p0, (void*) PART_GET_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_GET_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PART_GET_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_GET_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get part element.
-    get(e, p, p4);
+    get(e, p, p5);
 }
 
 /* GET_SOURCE */

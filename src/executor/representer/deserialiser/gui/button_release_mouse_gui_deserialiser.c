@@ -39,7 +39,7 @@
 // Forward declarations.
 //
 
-void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11);
+void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12);
 
 /**
  * Deserialises a gui mouse button release event.
@@ -52,23 +52,24 @@ void deserialise_gui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
  * @param p5 the source properties count
  * @param p6 the knowledge memory part
  * @param p7 the stack memory item
- * @param p8 the event type data
- * @param p9 the event type count
- * @param p10 the button mask
- * @param p11 the mouse x coordinate
- * @param p12 the mouse y coordinate
- * @param p13 the format data
- * @param p14 the loop break flag
+ * @param p8 the internal memory data
+ * @param p9 the event type data
+ * @param p10 the event type count
+ * @param p11 the button mask
+ * @param p12 the mouse x coordinate
+ * @param p13 the mouse y coordinate
+ * @param p14 the format data
+ * @param p15 the loop break flag
  */
-void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14) {
+void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
 
-    if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+    if (p13 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        int* my = (int*) p12;
+        int* my = (int*) p13;
 
-        if (p11 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        if (p12 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            int* mx = (int*) p11;
+            int* mx = (int*) p12;
 
             log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise gui mouse button release.");
 
@@ -91,11 +92,11 @@ void deserialise_gui_mouse_button_release(void* p0, void* p1, void* p2, void* p3
             int h = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
             // Get position part.
-            get_part_name((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7);
+            get_part_name((void*) &p, p4, (void*) POSITION_GUI_STATE_CYBOL_NAME, (void*) POSITION_GUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
             // Get size part.
-            get_part_name((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7);
+            get_part_name((void*) &s, p4, (void*) SIZE_GUI_STATE_CYBOL_NAME, (void*) SIZE_GUI_STATE_CYBOL_NAME_COUNT, p5, p6, p7, p8);
             // Get action part.
-            get_part_name((void*) &a, p4, p8, p9, p5, p6, p7);
+            get_part_name((void*) &a, p4, p9, p10, p5, p6, p7, p8);
 
             // Get x, y coordinate from position part.
             // CAUTION! Do NOT use the "copy_array_forward" function here,
@@ -134,7 +135,7 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
                 // The gui element on which the mouse event occured
                 // has been detected, so that further elements on the
                 // same level do not have to be checked in the loop anymore.
-                copy_integer(p14, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+                copy_integer(p15, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
                 // Overwrite previous action of parent element
                 // with that of the contained child element.
@@ -146,7 +147,7 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
                 // Process embedded parts recursively.
                 // CAUTION! Call this function ONLY for elements
                 // which lie within the gui element's area.
-                deserialise_gui(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12, p13);
+                deserialise_gui(p0, p1, p2, p3, p6, p7, p8, p9, p10, p11, p12, p13, p14);
             }
 
         } else {

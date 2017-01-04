@@ -55,9 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-
-void apply_disk_usage(void* p0, void* p1, void* p2, void* p3) {
+void apply_disk_usage(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the disk-usage of a directory.");
 
@@ -81,7 +81,7 @@ void apply_disk_usage(void* p0, void* p1, void* p2, void* p3) {
     // The bytes part.
     void* bm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The total part.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The human part.
     void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -92,19 +92,19 @@ void apply_disk_usage(void* p0, void* p1, void* p2, void* p3) {
     // The bytes part.
     void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The total part.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;    
-    
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // Get human part.
-    get_part_name((void*) &h, p0, (void*) HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &h, p0, (void*) HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get summarize part.
-    get_part_name((void*) &s, p0, (void*) SUMMARIZE_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SUMMARIZE_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SUMMARIZE_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) SUMMARIZE_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get all part.
-    get_part_name((void*) &a, p0, (void*) ALL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &a, p0, (void*) ALL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get bytes part.
-    get_part_name((void*) &b, p0, (void*) BYTES_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) BYTES_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &b, p0, (void*) BYTES_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) BYTES_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get total part.
-    get_part_name((void*) &t, p0, (void*) TOTAL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) TOTAL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-    
+    get_part_name((void*) &t, p0, (void*) TOTAL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME, (void*) TOTAL_DISK_USAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+
     // Get human part model item.
     copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get summarize part model item.

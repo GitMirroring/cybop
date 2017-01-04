@@ -53,8 +53,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_diff(void* p0, void* p1, void* p2, void* p3) {
+void apply_diff(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply grep.");
 
@@ -76,9 +77,9 @@ void apply_diff(void* p0, void* p1, void* p2, void* p3) {
     void* f2mc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get first file part.
-    get_part_name((void*) &f1, p0, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &f1, p0, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE1_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get second file part.
-    get_part_name((void*) &f2, p0, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &f2, p0, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE2_DIFF_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get first file part model item.
     copy_array_forward((void*) &f1m, f1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

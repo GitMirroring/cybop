@@ -131,7 +131,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // for all paths that are built up inside as string.
                 // If using the format "text/plain", the block below may NOT
                 // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
-                get_part_knowledge(p0, (void*) &p, p2, p3);
+                get_part_knowledge(p0, (void*) &p, p2, p3, p4);
             }
         }
 
@@ -172,7 +172,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // for all paths that are built up inside as string.
                 // If using the format "text/plain", the block below may NOT
                 // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
-                get_part_knowledge(p0, (void*) &p, p2, p3);
+                get_part_knowledge(p0, (void*) &p, p2, p3, p4);
             }
         }
 

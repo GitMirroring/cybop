@@ -55,8 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_change_directory(void* p0, void* p1, void* p2, void* p3) {
+void apply_change_directory(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
 
@@ -78,7 +79,6 @@ void apply_change_directory(void* p0, void* p1, void* p2, void* p3) {
     // The change current drive part model item.
     void* cdm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
     // The path part model item data and count.
     void* pmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -90,13 +90,13 @@ void apply_change_directory(void* p0, void* p1, void* p2, void* p3) {
     void* cdmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) DIRECTORY_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get not follow symbolic link part.
-    get_part_name((void*) &nfl, p0, (void*) NOT_FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOT_FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &nfl, p0, (void*) NOT_FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOT_FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get follow symbolic link part.
-    get_part_name((void*) &fl, p0, (void*) FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &fl, p0, (void*) FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) FOLLOW_LINK_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get change current drive part.
-    get_part_name((void*) &cd, p0, (void*) CHANGE_DRIVE_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) CHANGE_DRIVE_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &cd, p0, (void*) CHANGE_DRIVE_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME, (void*) CHANGE_DRIVE_CHANGE_DIRECTORY_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

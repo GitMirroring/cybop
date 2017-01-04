@@ -20,9 +20,10 @@
 
 2017-01-04  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Provide new separator knowledge name constant "/", followed by one of "knowledge", "stack", "system", "signal", for memory access
-        * Extend knowledge deserialiser to retrieve all kinds of memory (knowledge, signal, stack)
-        * Use system memory to get pointer reference to memory entries
+        * Provide new knowledge path separator name constant "/", followed by one of "knowledge", "signal", "stack", for memory access
+        * Extend knowledge path deserialiser to retrieve all kinds of memory (knowledge, signal, stack)
+        * Forward internal system memory to most functions to be able to get pointer reference to memory entries
+        * Adapt cybol example application "counter" to use new path "/knowledge" for receiving file "app.cybol" directly into knowledge tree root
 
 2017-01-02  Christian Heller  <christian.heller@tuxtax.de>
 

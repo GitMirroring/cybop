@@ -55,9 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-
-void apply_list_open_files(void* p0, void* p1, void* p2, void* p3) {
+void apply_list_open_files(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the opened files.");
 
@@ -81,7 +81,7 @@ void apply_list_open_files(void* p0, void* p1, void* p2, void* p3) {
     // The disable-tasks part.
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terse-listing part.
-    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The list-uid part.
     void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -92,19 +92,19 @@ void apply_list_open_files(void* p0, void* p1, void* p2, void* p3) {
     // The disable-tasks part.
     void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The terse-listing part.
-    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;    
-    
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // Get list-uid part.
-    get_part_name((void*) &u, p0, (void*) LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &u, p0, (void*) LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_UID_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get list-file-size part.
-    get_part_name((void*) &s, p0, (void*) LIST_FILE_SIZE_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_FILE_SIZE_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) LIST_FILE_SIZE_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_FILE_SIZE_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get list-tasks part.
-    get_part_name((void*) &l, p0, (void*) LIST_TASKS_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_TASKS_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &l, p0, (void*) LIST_TASKS_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) LIST_TASKS_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get disable-tasks part.
-    get_part_name((void*) &d, p0, (void*) DISABLE_TCP_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) DISABLE_TCP_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &d, p0, (void*) DISABLE_TCP_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) DISABLE_TCP_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get terse-listing part.
-    get_part_name((void*) &t, p0, (void*) TERSE_LISTING_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) TERSE_LISTING_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-    
+    get_part_name((void*) &t, p0, (void*) TERSE_LISTING_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME, (void*) TERSE_LISTING_LIST_OPEN_FILES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+
     // Get list-uid part model item.
     copy_array_forward((void*) &um, u, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get list-file-size part model item.

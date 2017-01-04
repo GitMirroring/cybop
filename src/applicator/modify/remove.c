@@ -52,8 +52,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_remove(void* p0, void* p1, void* p2, void* p3) {
+void apply_remove(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove.");
 
@@ -81,11 +82,11 @@ void apply_remove(void* p0, void* p1, void* p2, void* p3) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part.
-    get_part_name((void*) &p, p0, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
-    get_part_name((void*) &c, p0, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get index part.
-    get_part_name((void*) &i, p0, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get part type, model.
     copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);

@@ -59,8 +59,9 @@
  * @param p13 the source properties count
  * @param p14 the knowledge memory part
  * @param p15 the stack memory item
+ * @param p16 the internal memory data
  */
-void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void serialise_gui_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui element.");
 
@@ -82,8 +83,8 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
     void* shmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get parts.
-    get_part_name((void*) &super, p12, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p13, p14, p15);
-    get_part_name((void*) &sh, p12, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p13, p14, p15);
+    get_part_name((void*) &super, p12, (void*) SUPER_CYBOL_NAME, (void*) SUPER_CYBOL_NAME_COUNT, p13, p14, p15, p16);
+    get_part_name((void*) &sh, p12, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, p13, p14, p15, p16);
 
     // Get super part model item.
     copy_array_forward((void*) &superm, super, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -98,7 +99,7 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
 
     if (sh == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        get_part_name((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p14, p15);
+        get_part_name((void*) &sh, supermd, (void*) SHAPE_GUI_STATE_CYBOL_NAME, (void*) SHAPE_GUI_STATE_CYBOL_NAME_COUNT, supermc, p14, p15, p16);
     }
 
     // Get part model items.
@@ -108,7 +109,7 @@ fwprintf(stdout, L"TEST serialise gui element: %i\n", p0);
     copy_array_forward((void*) &shmc, shm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     // Serialise context.
-    serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15);
+    serialise_gui_context(p0, p1, p2, p3, p4, p5, p12, p13, p14, p15, p16);
     // Serialise shape.
     serialise_gui_shape(p0, p1, p2, p3, p5, p8, p9, p10, p11, shmd, shmc);
     // Serialise text.

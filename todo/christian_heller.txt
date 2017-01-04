@@ -14,21 +14,11 @@
 TODO
 ____
 
-        * Add internal memory to all calls of function "get_part_name" in applicators etc.
-        * Use standard cybol "communicate/send" operation and give desired memory as "message" property, in order to write its content to a file
+        * Make stack memory item a part, so that its content may be written into a file using standard "communicate/send" operation
+        * ONLY AFTERWARDS: Test writing stack memory content into file using knowledge path "/stack"
 
---
+        * Remove anything related to cybol operation mime type category "inspect/" and "executor/inspector/"
 
-        * Add the following to cybol example application "counter_stack" (or a similar one)
-
-    <!-- Write stack memory into file. -->
-    <node name="test_stack_memory" channel="inline" format="inspect/stack" model="">
-        <node name="file" channel="inline" format="text/plain" model="test_counter_stack_stack-memory.txt"/>
-    </node>
-
-        * Continue files in directory "executor/inspector/"
-        * Extend "send" operation with language "text/stack-diagram"
-        * Rename language "text/model-diagram" into "text/knowledge-diagram"
         * See temporary cybol example application "counter_stack_TMP_NEW_PATH"
         * Test apps "counter_stack_TMP_NEW_PATH", "counter" and finally "lehre/systems_implementation/overview/project"
 

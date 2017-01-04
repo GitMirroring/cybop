@@ -37,7 +37,7 @@
 #include "../../logger/logger.c"
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
@@ -53,8 +53,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_grep(void* p0, void* p1, void* p2, void* p3) {
+void apply_grep(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply grep.");
 
@@ -76,9 +77,9 @@ void apply_grep(void* p0, void* p1, void* p2, void* p3) {
     void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get pattern part.
-    get_part_name((void*) &p, p0, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATTERN_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get file part.
-    get_part_name((void*) &f, p0, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &f, p0, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) FILE_GREP_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get pattern part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

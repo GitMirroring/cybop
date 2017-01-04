@@ -81,7 +81,7 @@ fwprintf(stdout, L"TEST serialise gui initial: %i\n", *((int*) p7));
     copy_array_forward((void*) &f, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) FONT_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DEVICE_CONTEXT_WIN32_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
-    serialise_gui_part_element_content(c, s, w, gc, f, dc, p0, p1, p2, p3, p4, p5, p7);
+    serialise_gui_part_element_content(c, s, w, gc, f, dc, p0, p1, p2, p3, p4, p5, p6, p7);
 }
 
 /* INITIAL_GUI_SERIALISER_SOURCE */

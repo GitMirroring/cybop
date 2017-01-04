@@ -49,13 +49,16 @@
  * - timestamp
  *
  * Constraints:
+ *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_touch(void* p0, void* p1, void* p2, void* p3) {
+void apply_touch(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-       log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply touch.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply touch.");
 
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -82,11 +85,11 @@ void apply_touch(void* p0, void* p1, void* p2, void* p3) {
     void* tmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_TOUCH_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PATH_TOUCH_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get reference part.
-    get_part_name((void*) &r, p0, (void*) REFERENCE_TOUCH_COMMANDER_LOGIC_CYBOL_NAME, (void*) REFERENCE_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) REFERENCE_TOUCH_COMMANDER_LOGIC_CYBOL_NAME, (void*) REFERENCE_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get timestamp part.
-    get_part_name((void*) &t, p0, (void*) TIMESTAMP_TOUCH_COMMANDER_LOGIC_CYBOL_NAME, (void*) TIMESTAMP_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TIMESTAMP_TOUCH_COMMANDER_LOGIC_CYBOL_NAME, (void*) TIMESTAMP_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

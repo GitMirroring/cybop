@@ -55,8 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_disk_free(void* p0, void* p1, void* p2, void* p3) {
+void apply_disk_free(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove file.");
 
@@ -100,17 +101,17 @@ void apply_disk_free(void* p0, void* p1, void* p2, void* p3) {
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get all part.
-    get_part_name((void*) &a, p0, (void*) ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &a, p0, (void*) ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get human part.
-    get_part_name((void*) &h, p0, (void*) HUMAN_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &h, p0, (void*) HUMAN_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get kilobytes part.
-    get_part_name((void*) &k, p0, (void*) KILOBYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) KILOBYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &k, p0, (void*) KILOBYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) KILOBYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get local part.
-    get_part_name((void*) &l, p0, (void*) LOCAL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) LOCAL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &l, p0, (void*) LOCAL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) LOCAL_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get megabytes part.
-    get_part_name((void*) &m, p0, (void*) MEGABYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MEGABYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &m, p0, (void*) MEGABYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) MEGABYTES_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) TYPE_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &t, p0, (void*) TYPE_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME, (void*) TYPE_DISK_FREE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get all part model item.
     copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

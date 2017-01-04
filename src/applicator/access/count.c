@@ -55,8 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_count(void* p0, void* p1, void* p2, void* p3) {
+void apply_count(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply count.");
 
@@ -86,13 +87,13 @@ void apply_count(void* p0, void* p1, void* p2, void* p3) {
     void* fmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get count part.
-    get_part_name((void*) &c, p0, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get part part.
-    get_part_name((void*) &p, p0, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get selection part.
-    get_part_name((void*) &s, p0, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get filter part.
-    get_part_name((void*) &f, p0, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &f, p0, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME, (void*) FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

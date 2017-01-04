@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2016. Christian Heller.
+    * Copyright (C) 1999-2016. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -55,8 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_find_command(void* p0, void* p1, void* p2, void* p3) {
+void apply_find_command(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply change directory.");
 
@@ -89,13 +90,13 @@ void apply_find_command(void* p0, void* p1, void* p2, void* p3) {
     void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get command part.
-    get_part_name((void*) &c, p0, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) COMMAND_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get print differing chars part.
-    get_part_name((void*) &b, p0, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &b, p0, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) BINARY_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get print offset part.
-    get_part_name((void*) &m, p0, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &m, p0, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) MANUAL_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get silent part.
-    get_part_name((void*) &s, p0, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME, (void*) SOURCE_FIND_COMMAND_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get command part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

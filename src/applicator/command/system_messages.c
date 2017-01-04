@@ -55,9 +55,9 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-
-void apply_system_messages(void* p0, void* p1, void* p2, void* p3) {
+void apply_system_messages(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shows the system-messages.");
 
@@ -81,7 +81,7 @@ void apply_system_messages(void* p0, void* p1, void* p2, void* p3) {
     // The color part.
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The userspace part.
-    void* um = *NULL_POINTER_STATE_CYBOI_MODEL;    
+    void* um = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // The human part.
     void* hmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -92,19 +92,19 @@ void apply_system_messages(void* p0, void* p1, void* p2, void* p3) {
     // The color part.
     void* lmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The userspace part.
-    void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;    
-    
+    void* umd = *NULL_POINTER_STATE_CYBOI_MODEL;
+
     // Get human part.
-    get_part_name((void*) &h, p0, (void*) HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &h, p0, (void*) HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) HUMAN_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get ctime part.
-    get_part_name((void*) &c, p0, (void*) CTIME_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) CTIME_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &c, p0, (void*) CTIME_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) CTIME_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get kernel part.
-    get_part_name((void*) &k, p0, (void*) KERNEL_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) KERNEL_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &k, p0, (void*) KERNEL_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) KERNEL_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get color part.
-    get_part_name((void*) &l, p0, (void*) COLOR_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) COLOR_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &l, p0, (void*) COLOR_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) COLOR_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get userspace part.
-    get_part_name((void*) &u, p0, (void*) USERSPACE_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) USERSPACE_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-    
+    get_part_name((void*) &u, p0, (void*) USERSPACE_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME, (void*) USERSPACE_SYSTEM_MESSAGES_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+
     // Get human part model item.
     copy_array_forward((void*) &hm, h, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get ctime part model item.

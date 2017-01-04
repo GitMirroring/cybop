@@ -53,7 +53,7 @@
 // Forward declarations.
 //
 
-void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13);
+void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14);
 
 /**
  * Serialises the part element content into tui.
@@ -68,14 +68,15 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p7 the source whole properties count
  * @param p8 the knowledge memory part
  * @param p9 the stack memory item
- * @param p10 the clear flag
- * @param p11 the newline flag
- * @param p12 the tree level
- * @param p13 the cli flag
- * @param p14 the original attributes
- * @param p15 the format data
+ * @param p10 the internal memory data
+ * @param p11 the clear flag
+ * @param p12 the newline flag
+ * @param p13 the tree level
+ * @param p14 the cli flag
+ * @param p15 the original attributes
+ * @param p16 the format data
  */
-void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15) {
+void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15, void* p16) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise tui part element content.");
 
@@ -93,20 +94,20 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p12, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    compare_integer_equal((void*) &r, p13, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // If this is the first tui element being processed (tree level zero),
         // then store the current original win32 console attributes.
-        serialise_win32_console_state(p14, p1);
+        serialise_win32_console_state(p15, p1);
 
     } else {
 
         // If this is any of the following tui elements,
         // then reset console to original attributes
         // before actually manipulating them below.
-        serialise_win32_console_reset(p1, p14);
+        serialise_win32_console_reset(p1, p15);
     }
 #endif
 
@@ -116,17 +117,17 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     allocate_item((void*) &s, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Clear terminal screen.
-    serialise_tui_clear(p0, p1, p10, p12);
+    serialise_tui_clear(p0, p1, p11, p13);
 
     // Append properties.
-    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p13);
+    serialise_tui_properties(p0, p1, p4, p5, p6, p7, p8, p9, p10, p14);
 
     // Increment tree level.
-    calculate_integer_add(p12, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_add(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
     // Append embedded model.
-    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15);
+    serialise_tui(s, p1, p2, p3, p4, p5, p8, p9, p10, p11, p12, p13, p14, p15, p16);
     // Decrement tree level.
-    calculate_integer_subtract(p12, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
+    calculate_integer_subtract(p13, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     // Get serialised item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -142,7 +143,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
 #endif
 
     // Append newline.
-    serialise_tui_newline(p0, p1, p11, p12);
+    serialise_tui_newline(p0, p1, p12, p13);
 
     // Reset terminal attributes in order to have
     // original settings in two situations:
@@ -154,7 +155,7 @@ void serialise_tui_part_element_content(void* p0, void* p1, void* p2, void* p3, 
     // once after serialisation, but EVERYTIME
     // after having painted a part here.
 #ifdef WIN32
-    serialise_win32_console_reset(p1, p14);
+    serialise_win32_console_reset(p1, p15);
 #else
     serialise_ansi_escape_code_reset(p0);
 #endif

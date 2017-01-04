@@ -47,8 +47,9 @@
  * @param p6 the source properties count
  * @param p7 the knowledge memory part
  * @param p8 the stack memory item
+ * @param p9 the internal memory data
  */
-void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p4 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -125,7 +126,7 @@ void serialise_x_window_system_context(void* p0, void* p1, void* p2, void* p3, v
                     allocate_item((void*) &fn, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
                     // Get properties.
-                    serialise_x_window_system_context_properties((void*) &fgr, (void*) &fgg, (void*) &fgb, (void*) &bgr, (void*) &bgg, (void*) &bgb, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, fn, p5, p6, p7, p8);
+                    serialise_x_window_system_context_properties((void*) &fgr, (void*) &fgg, (void*) &fgb, (void*) &bgr, (void*) &bgg, (void*) &bgb, (void*) &lw, (void*) &ls, (void*) &cs, (void*) &js, (void*) &fs, (void*) &fr, fn, p5, p6, p7, p8, p9);
 
                     //
                     // Set colour values.

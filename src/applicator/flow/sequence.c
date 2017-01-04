@@ -66,7 +66,7 @@ void apply_sequence(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, 
     void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get model part.
-    get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &m, p0, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME, (void*) MODEL_SEQUENCE_FLOW_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // The direct execution flag.
     // CAUTION! The flag has to be set to true, because otherwise,

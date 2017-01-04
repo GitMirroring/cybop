@@ -58,8 +58,9 @@
  * @param p4 the source properties count
  * @param p5 the knowledge memory part
  * @param p6 the stack memory item
+ * @param p7 the internal memory data
  */
-void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read file.");
 
@@ -102,7 +103,7 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
         void* bmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get binary mode flag part.
-        get_part_name((void*) &b, p3, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5, p6);
+        get_part_name((void*) &b, p3, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME, (void*) BINARY_MODE_RECEIVE_COMMUNICATION_LOGIC_CYBOL_NAME_COUNT, p4, p5, p6, p7);
         // Get binary mode flag part model item.
         copy_array_forward((void*) &bm, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
         // Get binary mode flag part model item data.

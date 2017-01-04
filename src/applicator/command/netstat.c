@@ -45,17 +45,19 @@
  *
  * Expected parametres:
  * - none
- * 
+ *
  * Options: -r, i, g, s, M, v, n, e, p, l, a, o, t
  *
  * Constraints:
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_netstat(void* p0, void* p1, void* p2, void* p3) {
+void apply_netstat(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-       log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply netstat.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply netstat.");
 
     // The routing table part.
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -84,7 +86,6 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3) {
     // The active connections part.
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
     // The routing table part model item.
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The interface part model item.
@@ -111,8 +112,6 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3) {
     void* om = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The active connections part model item.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
-
-
 
     // The routing table part model item data and count.
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -141,35 +140,32 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3) {
     // The active connections part model item data and count.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-
-
     // Get routing table part.
-    get_part_name((void*) &r, p0, (void*) ROUTINGTABLE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ROUTINGTABLE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) ROUTINGTABLE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ROUTINGTABLE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get interface part.
-    get_part_name((void*) &i, p0, (void*) INTERFACE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERFACE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INTERFACE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) INTERFACE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get groups part.
-    get_part_name((void*) &g, p0, (void*) GROUPS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) GROUPS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &g, p0, (void*) GROUPS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) GROUPS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get statistics part.
-    get_part_name((void*) &s, p0, (void*) STATISTICS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) STATISTICS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &s, p0, (void*) STATISTICS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) STATISTICS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get masquerade part.
-    get_part_name((void*) &m, p0, (void*) MASQUERADE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) MASQUERADE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &m, p0, (void*) MASQUERADE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) MASQUERADE_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get long part.
-    get_part_name((void*) &v, p0, (void*) LONG_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) LONG_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &v, p0, (void*) LONG_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) LONG_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get no hostname part.
-    get_part_name((void*) &n, p0, (void*) NOHOST_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOHOST_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &n, p0, (void*) NOHOST_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) NOHOST_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get extended part.
-    get_part_name((void*) &e, p0, (void*) EXTENDED_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) EXTENDED_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &e, p0, (void*) EXTENDED_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) EXTENDED_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get program names part.
-    get_part_name((void*) &p, p0, (void*) PROGNAMES_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) PROGNAMES_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PROGNAMES_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) PROGNAMES_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get listening sockets part.
-    get_part_name((void*) &l, p0, (void*) LISTENSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) LISTENSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &l, p0, (void*) LISTENSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) LISTENSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get all sockets part.
-    get_part_name((void*) &a, p0, (void*) ALLSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALLSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &a, p0, (void*) ALLSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ALLSOCKETS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get timers part.
-    get_part_name((void*) &o, p0, (void*) TIMERS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) TIMERS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &o, p0, (void*) TIMERS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) TIMERS_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get active connections part.
-    get_part_name((void*) &t, p0, (void*) ACTIVECONN_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ACTIVECONN_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
-
+    get_part_name((void*) &t, p0, (void*) ACTIVECONN_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME, (void*) ACTIVECONN_NETSTAT_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get routing table part model item.
     copy_array_forward((void*) &rm, r, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -227,7 +223,6 @@ void apply_netstat(void* p0, void* p1, void* p2, void* p3) {
 
     command_netstat(rmd, imd, gmd, smd, mmd, vmd, nmd, emd, pmd, lmd, amd, omd, tmd);
 }
-
 
 /* NETSTAT_SOURCE */
 #endif

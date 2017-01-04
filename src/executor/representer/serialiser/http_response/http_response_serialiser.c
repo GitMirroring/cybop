@@ -79,7 +79,7 @@ void serialise_http_response(void* p0, void* p1, void* p2, void* p3, void* p4, v
     //
     // CAUTION! The body has to be encoded FIRST, so that its count can be
     // determined, since it has to be given as http header value below.
-    serialise_http_response_body((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6);
+    serialise_http_response_body((void*) &ad, (void*) &ac, b, p1, p2, p3, p4, p5, p6, p7);
 
     // Serialise protocol.
     serialise_http_response_protocol(p0);

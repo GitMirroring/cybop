@@ -53,11 +53,11 @@
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
+ * @param p4 the internal memory data
  */
-void apply_find_file(void* p0, void* p1, void* p2, void* p3) {
+void apply_find_file(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply find file.");
-    printf("Bgin");
 
     // The path part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -89,13 +89,13 @@ void apply_find_file(void* p0, void* p1, void* p2, void* p3) {
     void* rmd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get path part.
-    get_part_name((void*) &p, p0, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &p, p0, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) PATH_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get name part.
-    get_part_name((void*) &n, p0, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &n, p0, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) NAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get insensitive part.
-    get_part_name((void*) &i, p0, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) INAME_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get recursive part.
-    get_part_name((void*) &r, p0, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &r, p0, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME, (void*) RECURSIVE_FIND_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);

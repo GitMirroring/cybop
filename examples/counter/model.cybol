@@ -5,20 +5,20 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.index"/>
+        <node name="message" channel="inline" format="path/knowledge" model=".index"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.index"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop index, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.break"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.index"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.count"/>
+        <node name="result" channel="inline" format="path/knowledge" model=".break"/>
+        <node name="left" channel="inline" format="path/knowledge" model=".index"/>
+        <node name="right" channel="inline" format="path/knowledge" model=".count"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

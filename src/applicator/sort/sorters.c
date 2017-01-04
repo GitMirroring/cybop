@@ -40,16 +40,15 @@
 #include "../../logger/logger.c"
 
 /*
- * Sortes numbers by chosen algorithm.
+ * Sorts numbers using quicksort algorithm.
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part
  * @param p3 the stack memory item
- *
+ * @param p4 the internal memory data
  */
-
-void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
+void apply_quicksort(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply quicksort.");
 
@@ -72,9 +71,9 @@ void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
     void* oms = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input part.
-    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get output part.
-    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get file part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -92,7 +91,16 @@ void apply_quicksort(void* p0, void* p1, void* p2, void *p3) {
     sorter_quick(imd, imc, (void*) &omd, omc, oms);
 }
 
-void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {
+/*
+ * Sorts numbers using bubblesort algorithm.
+ *
+ * @param p0 the parametres data
+ * @param p1 the parametres count
+ * @param p2 the knowledge memory part
+ * @param p3 the stack memory item
+ * @param p4 the internal memory data
+ */
+void apply_bubblesort(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply bubblesort.");
 
@@ -115,9 +123,9 @@ void apply_bubblesort(void* p0, void* p1, void* p2, void *p3) {
     void* oms = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get input part.
-    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &i, p0, (void*) INPUT_SORT_LOGIC_CYBOL_NAME, (void*) INPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get output part.
-    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3);
+    get_part_name((void*) &o, p0, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME, (void*) OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get file part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
