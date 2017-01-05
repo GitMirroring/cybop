@@ -9,8 +9,8 @@
         <node name="message" channel="inline" format="path/knowledge" model="/knowledge"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <!-- Write knowledge into file. -->
+    <node name="test_knowledge" channel="inline" format="communicate/send" model="">
         <node name="receiver" channel="inline" format="text/plain" model="test_counter.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

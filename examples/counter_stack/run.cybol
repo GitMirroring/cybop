@@ -1,27 +1,22 @@
 <node>
 
-    <node name="create_app" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="app"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
-    </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="counter_stack/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="path/knowledge" model="/knowledge"/>
     </node>
 
-    <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <!-- Write knowledge into file. -->
+    <node name="test_knowledge" channel="inline" format="communicate/send" model="">
         <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="path/knowledge" model="/knowledge"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -35,14 +30,24 @@
             <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
             <node name="index" channel="inline" format="number/integer" model="1"/>
             <node name="count" channel="inline" format="number/integer" model="10"/>
-            <node name="model" channel="inline" format="path/knowledge" model=".app.model"/>
+            <node name="model" channel="inline" format="path/knowledge" model=".model"/>
         </node>
     </node>
 -->
 
     <!-- Possibility 2: local variables specified in knowledge tree -->
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
+        <node name="model" channel="inline" format="path/knowledge" model=".logic"/>
+    </node>
+
+    <!-- Write stack into file. -->
+    <node name="test_stack" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack_stack-post.txt"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="path/knowledge" model="/stack"/>
     </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

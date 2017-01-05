@@ -14,13 +14,10 @@
 TODO
 ____
 
-        * Make stack memory item a part, so that its content may be written into a file using standard "communicate/send" operation
-        * ONLY AFTERWARDS: Test writing stack memory content into file using knowledge path "/stack"
-
         * Remove anything related to cybol operation mime type category "inspect/" and "executor/inspector/"
 
-        * See temporary cybol example application "counter_stack_TMP_NEW_PATH"
-        * Test apps "counter_stack_TMP_NEW_PATH", "counter" and finally "lehre/systems_implementation/overview/project"
+        * Debug temporary cybol example application "counter_stack_TMP_NEW_PATH" using new knowledge path "/stack" for writing/testing stack memory content into file
+        * Test apps "counter_stack_TMP_NEW_PATH" and finally "lehre/systems_implementation/overview/project"
 
         * Rename "applicator/sort/sorters.c"
 
@@ -58,7 +55,7 @@ ______________
             - else none: no special character, e.g. .app.adr.miller.phone
 
         * Unify path formats "path/knowledge", "path/reference", "path/stack" to just "text/path" ??
-            --> in this case all different formats will have to be realised through special characters like "(" or "((" etc.
+            --> in this case all different formats will have to be realised through special characters
 
         * Enable nesting in knowledge paths, e.g.:
             .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
@@ -71,6 +68,7 @@ ______________
             - Optimise file "handler.c" similar to "knowledge_part_getter.c" using a recursive function call for REFERENCE_PATH_STATE_CYBOI_FORMAT
             - Find out whether or not it is possible to merge files "knowledge_part_getter.c" and "handler.c" (really makes sense!)
               possibly by extracting and moving special code into separate file
+            --> optimise files "handler.c" and "knowledge_part_getter.c" after having improved knowledge path deserialiser
 
 Stack
 _____

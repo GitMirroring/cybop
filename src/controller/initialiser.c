@@ -44,7 +44,7 @@
 /**
  * Initialises the system with a startup signal.
  *
- * @param p0 the signal memory item
+ * @param p0 the signal memory model item
  * @param p1 the run source item
  * @param p2 the internal memory data
  */

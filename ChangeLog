@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-05  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Make stack memory and signal memory a part instead of just an item in file "manager.c" and related controller files
+        * Adapt cybol example application "counter" using new paths "/knowledge", "/stack", "/signal" for writing memory content into file using "communicate/send" operation
+
 2017-01-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Provide new knowledge path separator name constant "/", followed by one of "knowledge", "signal", "stack", for memory access
