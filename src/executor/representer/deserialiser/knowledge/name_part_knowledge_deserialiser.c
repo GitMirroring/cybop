@@ -76,6 +76,8 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
     // Also, the count has to be incremented below.
     void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     // The knowledge part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
@@ -104,23 +106,38 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
 
             // CAUTION! The function "select_knowledge_part_end" below
             // may have decremented the remaining count,
-            // if neither a "." nor a "#" delimiter were found.
+            // if neither a "." nor a ":" delimiter was found.
             //
             // This is regularly the case if a part was the
             // LAST IN THE HIERARCHY, having no further
             // child nodes to follow in the name.
 
-            // Get part with name from source whole part model OR properties,
-            // depending on the source whole part element index p4.
-            //
-            // CAUTION! Hand over p0 instead of p here,
+            compare_integer_equal((void*) &r, p4, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+
+            // CAUTION! Hand over p0 instead of p below,
             // since this IS the final name element.
             //
             // CAUTION! In case the remaining count is too small
             // or zero (name does not exist) right at the beginning,
             // then no knowledge part could be found before
             // and therefore, the destination remains UNTOUCHED.
-            get_name_part_element(p0, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The part is to be retrieved from stack memory.
+
+                // Get part with name from stack memory.
+                // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
+                get_name_item_element(p0, p6, sd, (void*) &sc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            } else {
+
+                // The part is to be retrieved from knowledge memory.
+
+                // Get part with name from source whole part model OR properties,
+                // depending on the source whole part element index p4.
+                get_name_part_element(p0, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
 
             // CAUTION! There is NO USE in processing the knowledge hierarchy
             // recursively further down here, since the part was the
@@ -130,7 +147,7 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
             break;
         }
 
-        // If a "." or "#" delimiter is found, then the break flag is set to "true".
+        // If a "." or ":" delimiter is found, then the break flag is set to "true".
         // CAUTION! This is done here in a "peek ahead" manner.
         // The position is NOT moved by one character forward.
         select_knowledge_part_end((void*) &b, p2, p3);
@@ -139,10 +156,9 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
 
             // This part IS followed by a child part.
 
-            // Get part with name from source whole part model OR properties,
-            // depending on the source whole part element index p4.
-            //
-            // CAUTION! Hand over p (as pointer reference) instead of p0 here,
+            compare_integer_equal((void*) &r, p4, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+
+            // CAUTION! Hand over p (as pointer reference) instead of p0 below,
             // since this is NOT the final name element yet.
             // Otherwise, some part in between the hierarchy,
             // which is a parent of the searched part,
@@ -151,7 +167,23 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
             // In order to avoid this, the p0 result parametre
             // gets only assigned the final part in the
             // block with break condition further above.
-            get_name_part_element((void*) &p, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The part is to be retrieved from stack memory.
+
+                // Get part with name from stack memory.
+                // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
+                get_name_item_element((void*) &p, p6, sd, (void*) &sc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            } else {
+
+                // The part is to be retrieved from knowledge memory.
+
+                // Get part with name from source whole part model OR properties,
+                // depending on the source whole part element index p4.
+                get_name_part_element((void*) &p, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
 
             // Process knowledge hierarchy recursively further down.
             //
@@ -171,7 +203,7 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
 
         } else {
 
-            // The "." or "#" delimiter indicating the end of
+            // The "." or ":" delimiter indicating the end of
             // the part name string data was NOT found.
 
             // Increment name string count.

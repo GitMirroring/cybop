@@ -14,15 +14,17 @@
 TODO
 ____
 
-        * Debug temporary cybol example application "counter_stack_TMP_NEW_PATH" using new knowledge path "/stack" for writing/testing stack memory content into file
-        * Test apps "counter_stack_TMP_NEW_PATH" and finally "lehre/systems_implementation/overview/project"
-
         * Rename "applicator/sort/sorters.c"
 
         * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
 Knowledge Path
 ______________
+
+        * Replace "path/reference" with "path/knowledge" in all cybol example applications and put "*" into path
+        * Remove old mime types "path/knowledge", "path/reference", "path/stack"
+        * Replace "path/knowledge" with "text/cybol-path" in all cybol example applications
+            (OR something similar --> investigate WWW for mime type e.g. for xpath)
 
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
@@ -54,9 +56,6 @@ ______________
                 evaluate flags from steps 2 and 3 to call correct functions
             - else none: no special character, e.g. .app.adr.miller.phone
 
-        * Unify path formats "path/knowledge", "path/reference", "path/stack" to just "text/path" ??
-            --> in this case all different formats will have to be realised through special characters
-
         * Enable nesting in knowledge paths, e.g.:
             .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
           written instead as:
@@ -64,16 +63,14 @@ ______________
 
         * Optimise cybol example applications accordingly
 
-        * The following TWO tasks are NOT NECESSARY, since the following is realised through a unified "knowledge_path deserialiser":
-            - Optimise file "handler.c" similar to "knowledge_part_getter.c" using a recursive function call for REFERENCE_PATH_STATE_CYBOI_FORMAT
-            - Find out whether or not it is possible to merge files "knowledge_part_getter.c" and "handler.c" (really makes sense!)
-              possibly by extracting and moving special code into separate file
-            --> optimise files "handler.c" and "knowledge_part_getter.c" after having improved knowledge path deserialiser
+        * Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
 
 Stack
 _____
 
-        * Make cybol example application "project_overview" work as soon as knowledge reference in stack variable gets handled (see task "knowledge path" above)
+        * Make cybol example application "project_overview" work as soon as knowledge reference in stack variable gets handled
+            see task "knowledge path" above
+            see local testwise copy, at work
         * Add project overview of university of cooperative education as cybol example application to cybop svn ??
 
         CAUTION! The following does not function yet (example "counter_stack_deep") -- test why

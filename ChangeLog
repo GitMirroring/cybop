@@ -21,6 +21,9 @@
 2017-01-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Remove cybol operations of mime category "inspect/", since all kinds of memory may now be accessed via knowledge path
+        * Adapt file "name_part_knowledge_deserialiser.c" to also consider stack memory, so that file "stack_knowledge_deserialiser.c" may get deleted
+        * Replace "path/stack" with "path/knowledge" in all cybol example applications
+        * Replace "path/reference" with "path/knowledge" in cybol example application "tui_control" and put "*" into path
 
 2017-01-05  Christian Heller  <christian.heller@tuxtax.de>
 

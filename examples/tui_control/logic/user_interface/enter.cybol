@@ -11,11 +11,17 @@
     </node>
     <node name="determine_real_command" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.tmp.character"/>
+<!--
         <node name="source" channel="inline" format="path/reference" model=".app.tmp.character"/>
+-->
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The format is "path/reference" and NOT "path/knowledge". -->
+        <node name="model" channel="inline" format="path/knowledge" model="*.app.tmp.character"/>
+<!--
         <node name="model" channel="inline" format="path/reference" model=".app.tmp.character"/>
+-->
     </node>
 </node>
