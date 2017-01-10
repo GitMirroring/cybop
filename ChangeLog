@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove cybol operations of mime category "inspect/", since all kinds of memory may now be accessed via knowledge path
+
 2017-01-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Make stack memory and signal memory a part instead of just an item in file "manager.c" and related controller files

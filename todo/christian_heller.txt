@@ -14,12 +14,12 @@
 TODO
 ____
 
-        * Remove anything related to cybol operation mime type category "inspect/" and "executor/inspector/"
-
         * Debug temporary cybol example application "counter_stack_TMP_NEW_PATH" using new knowledge path "/stack" for writing/testing stack memory content into file
         * Test apps "counter_stack_TMP_NEW_PATH" and finally "lehre/systems_implementation/overview/project"
 
         * Rename "applicator/sort/sorters.c"
+
+        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
 Knowledge Path
 ______________

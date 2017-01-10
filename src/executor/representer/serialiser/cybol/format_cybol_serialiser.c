@@ -35,7 +35,6 @@
 #include "../../../../constant/format/cybol/logic/convert_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/command_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/flow_logic_cybol_format.c"
-#include "../../../../constant/format/cybol/logic/inspect_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/live_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/logify_logic_cybol_format.c"
 #include "../../../../constant/format/cybol/logic/maintain_logic_cybol_format.c"
@@ -1495,40 +1494,6 @@ if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             append_item_element(p0, (void*) SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SEQUENCE_FLOW_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    //
-    // inspect
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) KNOWLEDGE_INSPECT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) KNOWLEDGE_INSPECT_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KNOWLEDGE_INSPECT_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) STACK_INSPECT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) STACK_INSPECT_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) STACK_INSPECT_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p1, (void*) SYSTEM_INSPECT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            append_item_element(p0, (void*) SYSTEM_INSPECT_LOGIC_CYBOL_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SYSTEM_INSPECT_LOGIC_CYBOL_FORMAT_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         }
     }
 

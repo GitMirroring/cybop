@@ -331,19 +331,6 @@ static int* LOOP_FLOW_LOGIC_CYBOI_FORMAT = NUMBER_1701_INTEGER_STATE_CYBOI_MODEL
 static int* SEQUENCE_FLOW_LOGIC_CYBOI_FORMAT = NUMBER_1702_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 //
-// inspect
-//
-
-/** The knowledge inspect logic cyboi format. */
-static int* KNOWLEDGE_INSPECT_LOGIC_CYBOI_FORMAT = NUMBER_1750_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The stack inspect logic cyboi format. */
-static int* STACK_INSPECT_LOGIC_CYBOI_FORMAT = NUMBER_1751_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/** The system inspect logic cyboi format. */
-static int* SYSTEM_INSPECT_LOGIC_CYBOI_FORMAT = NUMBER_1752_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-//
 // live
 //
 

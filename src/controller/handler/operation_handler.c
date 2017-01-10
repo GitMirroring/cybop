@@ -83,7 +83,6 @@
 #include "../../applicator/flow/branch.c"
 #include "../../applicator/flow/loop.c"
 #include "../../applicator/flow/sequence.c"
-#include "../../applicator/inspect/inspect.c"
 #include "../../applicator/live/interrupt.c"
 #include "../../applicator/live/sense.c"
 #include "../../applicator/logify/logify.c"
@@ -991,40 +990,6 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             apply_sequence(p0, p1, p3, p4, p2, p5, p6);
-        }
-    }
-
-    //
-    // inspect
-    //
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) KNOWLEDGE_INSPECT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_inspect(p0, p1, p3, p4, p2, p7);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) STACK_INSPECT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_inspect(p0, p1, p3, p4, p2, p7);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_equal((void*) &r, p7, (void*) SYSTEM_INSPECT_LOGIC_CYBOI_FORMAT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            apply_inspect(p0, p1, p3, p4, p2, p7);
         }
     }
 
