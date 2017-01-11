@@ -67,15 +67,13 @@ static wchar_t* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L")";
 static int* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The memory separator knowledge cyboi name.
+ * The knowledge memory separator knowledge cyboi name.
  *
- * Examples:
- * /knowledge
- * /signal
- * /stack
+ * Example:
+ * .
  */
-static wchar_t* MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"/";
-static int* MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* KNOWLEDGE_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L".";
+static int* KNOWLEDGE_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The model separator knowledge cyboi name.
@@ -106,6 +104,27 @@ static int* PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STA
  */
 static wchar_t* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"*";
 static int* REFERENCE_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The signal memory separator knowledge cyboi name.
+ *
+ * Example:
+ * |
+ */
+static wchar_t* SIGNAL_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"|";
+static int* SIGNAL_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
+ * The stack memory separator knowledge cyboi name.
+ *
+ * Examples:
+ * #
+ * #variable
+ * #variable.part:property
+ * #variable:property.part
+ */
+static wchar_t* STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"#";
+static int* STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The operation parametre separator knowledge cyboi name.

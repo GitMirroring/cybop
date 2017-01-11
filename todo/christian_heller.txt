@@ -11,27 +11,19 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-TODO
-____
-
-        * Rename "applicator/sort/sorters.c"
-
-        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
-
 Knowledge Path
 ______________
 
         * Replace "path/reference" with "path/knowledge" in all cybol example applications and put "*" into path
         * Remove old mime types "path/knowledge", "path/reference", "path/stack"
         * Replace "path/knowledge" with "text/cybol-path" in all cybol example applications
-            (OR something similar --> investigate WWW for mime type e.g. for xpath)
+        * Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
 
+        * Write short cybol example application for testing knowledge path variants
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
-
         * Provide syntax for accessing model via reference path, e.g.
             **.part#property.[2].[(*.node.index)].node.(.node.name.(.nested.path.node)).(**.reference.node).link
-        * Find solution for using format "path/reference" together with stack variables, e.g. implement with special character in knowledge path
 
         * Pseudo code for processing of knowledge paths:
 
@@ -62,8 +54,6 @@ ______________
             .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
 
         * Optimise cybol example applications accordingly
-
-        * Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
 
 Stack
 _____
@@ -548,6 +538,10 @@ ___________
 
 General CYBOI
 _____________
+
+        * Rename "applicator/sort/sorters.c"
+
+        * Eliminate bugs mentioned on project portal bug tracker at gnu savannah
 
         * Install and try out Code::Blocks IDE, as soon as it is available in Debian stable
 
