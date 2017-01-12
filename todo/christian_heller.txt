@@ -14,10 +14,7 @@
 Knowledge Path
 ______________
 
-        * Remove old mime types "path/knowledge", "path/reference", "path/stack"
-        * Replace "path/knowledge" with "text/cybol-path" in all cybol example applications
-        * Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
-
+        * ?? Adapt all cybol example applications using stack variables by adding a knowledge path prefix "#" ??
         * Write short cybol example application for testing knowledge path variants (similar to application "index_usage")
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
@@ -35,7 +32,7 @@ ______________
                 - set flag
             - else stack: no prefix for stack memory variable, e.g. index
 
-        2 Kind of identification (if part or property above, not for stack variable): OLD_NAME "begin_expression"
+        2 Kind of identification (if part or property above, not for stack variable): OLD_NAME "begin_expression" to be renamed somehow
             - if index, e.g. .app.adr.[2].phone
                 - set flag
             - else name: e.g. .app.adr.miller.phone
@@ -52,7 +49,7 @@ ______________
           written instead as:
             .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
 
-        * Optimise cybol example applications accordingly
+        * Optimise cybol example applications accordingly (many operations only adding path elements may get deleted in the future)
 
 Stack
 _____

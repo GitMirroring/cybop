@@ -1,7 +1,7 @@
 <node>
 
     <node name="determine_klaus_path" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.determine_klaus_path"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.determine_klaus_path"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
@@ -18,34 +18,34 @@
 -->
     <!-- n=$(ls -a home/klaus$j | wc -l); -->
     <node name="show_number" channel="inline" format="command/echo" model="">
-        <node name="message" channel="inline" format="path/knowledge" model=".app.counted_files"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.counted_files"/>
     </node>
 
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_branch_criterion" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.criterion"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.counted_files"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.standard_files"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.criterion"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.counted_files"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.standard_files"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="remove_empty_home_directory" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.criterion"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directory"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.criterion"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.remove_empty_home_directory"/>
     </node>
 
     <node name="increment_loop_count" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.index"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_loop_index" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.break"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.index"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.count"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

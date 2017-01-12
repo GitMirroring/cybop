@@ -15,7 +15,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.tui.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.tui.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
@@ -31,7 +31,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
@@ -44,7 +44,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
@@ -57,7 +57,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.seven"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
@@ -70,7 +70,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.eight"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
@@ -83,7 +83,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
@@ -96,7 +96,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.four"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
@@ -109,7 +109,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.five"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.one"/>
@@ -122,7 +122,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
@@ -135,7 +135,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.two"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
@@ -149,7 +149,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.nine"/>
@@ -162,7 +162,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
@@ -175,7 +175,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.square"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
@@ -188,7 +188,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.addition"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.six"/>
@@ -201,7 +201,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.subtraction"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
@@ -214,7 +214,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.squareroot"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
@@ -227,7 +227,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.negate"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.zero"/>
@@ -240,7 +240,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.multiplication"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.three"/>
@@ -253,7 +253,7 @@
         <node name="background" channel="inline" format="colour/terminal" model="blue"/>
         <node name="foreground" channel="inline" format="colour/terminal" model="yellow"/>
         <node name="bold" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.tui.menu_item"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.tui.menu_item"/>
         <node name="up" channel="inline" format="text/plain" model=".app.tui.main.menu.division"/>
         <node name="down" channel="inline" format="text/plain" model=".app.tui.main.menu.equals"/>
         <node name="left" channel="inline" format="text/plain" model=".app.tui.main.menu.modulo"/>

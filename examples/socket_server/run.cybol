@@ -12,7 +12,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="socket_server/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
@@ -21,7 +21,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_socket_server.txt"/>
     </node>
 
@@ -69,8 +69,8 @@
         <!-- Specify either service name OR id (port) number, NOT both. If both are given, then the port has higher priority. -->
         <node name="id" channel="inline" format="number/integer" model="1971"/>
         <node name="service" channel="inline" format="text/plain" model="http"/>
-        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handler"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
     </node>
 
 </node>

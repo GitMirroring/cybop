@@ -11,7 +11,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="addition_user_input/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
@@ -21,7 +21,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -32,7 +32,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.input"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.input"/>
         <!-- CAUTION! This blocking flag causes the programme to wait until data are available at input. -->
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -43,13 +43,13 @@
         cannot happen due to different dimension of the two operand arrays.
     -->
     <node name="reset_operand" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.operand"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.operand"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="deserialise_input" channel="inline" format="represent/deserialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.operand"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.input"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.operand"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.input"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
@@ -59,8 +59,8 @@
         If result- and operand vectors had different sizes, they would NOT be added.
     -->
     <node name="add_operand" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.result"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".app.operand"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.result"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".app.operand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
@@ -69,7 +69,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

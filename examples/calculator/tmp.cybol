@@ -6,11 +6,11 @@
     <node name="command" channel="inline" format="text/plain" model=""/>
     <node name="action" channel="inline" format="text/plain" model=""/>
     <!--
-        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
+        CAUTION! The path format is "text/cybol-path" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-    <node name="path" channel="inline" format="path/knowledge" model=""/>
+    <node name="path" channel="inline" format="text/cybol-path" model=""/>
 
     <node name="navigation" channel="inline" format="text/plain" model=""/>
 
@@ -23,10 +23,10 @@
     <node name="operand" channel="inline" format="number/integer" model=""/>
 
     <!--
-        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
+        CAUTION! The path format is "text/cybol-path" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-    <node name="operation" channel="inline" format="path/knowledge" model=".app.logic.functionality.calculate.add"/>
+    <node name="operation" channel="inline" format="text/cybol-path" model=".app.logic.functionality.calculate.add"/>
 
 </node>

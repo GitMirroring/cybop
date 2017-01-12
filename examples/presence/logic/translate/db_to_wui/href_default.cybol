@@ -7,170 +7,170 @@
 
     <!-- The standard parts. -->
     <node name="overwrite_scheme" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.scheme"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_scheme_suffix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.scheme_suffix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.scheme_suffix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_hostname_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.hostname_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_hostname" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.hostname"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.hostname"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_port_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.port_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_port" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.port"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.port"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_directory" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.directory"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.directory"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The year parametre. -->
     <node name="append_parametre_year_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_year"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_year"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_year_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_year_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.year_string"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.year_string"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The week parametre. -->
     <node name="append_parametre_week_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_separator"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_week_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_week"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_week"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_week_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_week_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.week_string"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.week_string"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The lecturer parametre. -->
     <node name="append_parametre_lecturer_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_separator"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_lecturer_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_lecturer"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_lecturer"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_lecturer_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_lecturer_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_lecturer.element.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.element.name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The day parametre. -->
     <node name="append_parametre_day_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_separator"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_day_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_day"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_day"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_day_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_day_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.day"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The choice parametre. -->
     <node name="append_parametre_choice_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_separator"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_choice_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_choice"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_choice"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_choice_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_choice_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.teaching:next"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.choices.teaching:next"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- The action parametre. -->
     <node name="append_parametre_action_separator" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_separator"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_separator"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_action_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_action"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_action"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_action_assignment" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.parametre_assignment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.parametre_assignment"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_parametre_action_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.uri.action_update"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.uri.action_update"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 

@@ -25,7 +25,10 @@
 
 #ifndef MODIFIER_TESTER
 #define MODIFIER_TESTER
-#include "copier/copier_tester.c"
+
+#include "../tester/copier/copier_tester.c"
+#include "../tester/part_as_model_diagram_tester.c"
+
 /**
  * Tests part modification on compound part.
  */

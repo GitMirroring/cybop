@@ -10,13 +10,13 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="ui/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
     <node name="startup" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.startup"/>
     </node>
     <node name="greet" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.greet_world"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.greet_world"/>
     </node>
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
@@ -24,11 +24,11 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_ui.txt"/>
     </node>
     <node name="sense" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.sense"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.sense"/>
     </node>
 </node>
 

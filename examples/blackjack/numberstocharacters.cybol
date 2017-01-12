@@ -3,257 +3,257 @@
 /// Werte aus field in field_print kopieren
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_1_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_1_smaller"/>
     </node>  
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_2_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_2_smaller"/>
     </node> 
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_3_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_3_smaller"/>
     </node> 
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_4_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_4_smaller"/>
     </node> 
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_5_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_5_smaller"/>
     </node> 
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_6_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_6_smaller"/>
     </node> 
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_7_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_7_smaller"/>
     </node> 
 
     <node name="copy1" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_8_smaller"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_8_smaller"/>
     </node> 
 
 //field_1
     
     <node name="comparison1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_1_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_1_J"/>
     </node>
 
     <node name="if-then-else2" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_1_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_1_10"/>
     </node>
 
     <node name="comparison2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else3" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_1_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_1_Q"/>
     </node>
 
     <node name="if-then-else4" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_1_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_1_10"/>
     </node>
 
     <node name="comparison3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else5" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_1_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_1_K"/>
     </node>
 
     <node name="if-then-else6" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_1_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_1_10"/>
     </node>
 
     <node name="comparison4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else7" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_1_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_1_A"/>
     </node>
 
     <node name="if-then-else8" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_1_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_1_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_1_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_1_11"/>
     </node>
 
     //field_2
 
     <node name="comparison6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else11" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_2_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_2_J"/>
     </node>
 
     <node name="if-then-else12" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_2_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_2_10"/>
     </node>
 
     <node name="comparison7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else13" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_2_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_2_Q"/>
     </node>
 
     <node name="if-then-else14" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_2_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_2_10"/>
     </node>
 
     <node name="comparison8" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_2_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_2_K"/>
     </node>
   
     <node name="if-then-else16" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_2_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_2_10"/>
     </node>
 
     <node name="comparison9" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else17" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_2_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_2_A"/>
     </node>
 
     <node name="if-then-else18" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_2_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_2_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_2_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_2_11"/>
     </node>
 
     //field_3
   
     <node name="comparison11" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else21" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_3_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_3_J"/>
     </node>
 
     <node name="if-then-else22" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_3_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_3_10"/>
     </node>
 
     <node name="comparison12" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else23" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_3_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_3_Q"/>
     </node>
 
     <node name="if-then-else24" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_3_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_3_10"/>
     </node>
 
     <node name="comparison13" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else25" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_3_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_3_K"/>
     </node>
 
     <node name="if-then-else26" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_3_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_3_10"/>
     </node>
 
     <node name="comparison14" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_3"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_3"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else27" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_3_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_3_A"/>
     </node>
 
     <node name="if-then-else28" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_3_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_3_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_3_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_3_11"/>
     </node>
 
 
@@ -261,373 +261,373 @@
 
 
     <node name="comparison16" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else31" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_4_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_4_J"/>
     </node>
 
     <node name="if-then-else32" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_4_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_4_10"/>
     </node>
 
     <node name="comparison17" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else33" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_4_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_4_Q"/>
     </node>
 
     <node name="if-then-else34" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_4_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_4_10"/>
     </node>
 
     <node name="comparison18" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else35" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_4_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_4_K"/>
     </node>
 
     <node name="if-then-else36" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_4_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_4_10"/>
     </node>
 
     <node name="comparison19" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_4"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_4"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else37" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_4_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_4_A"/>
     </node>
 
     <node name="if-then-else38" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_4_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_4_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_4_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_4_11"/>
     </node>
 
 
     //field_5
 
     <node name="comparison21" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else41" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_5_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_5_J"/>
     </node>
 
     <node name="if-then-else42" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_5_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_5_10"/>
     </node>
 
     <node name="comparison22" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else43" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_5_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_5_Q"/>
     </node>
 
     <node name="if-then-else44" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_5_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_5_10"/>
     </node>
 
     <node name="comparison23" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else45" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_5_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_5_K"/>
     </node>
 
     <node name="if-then-else46" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_5_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_5_10"/>
     </node>
 
     <node name="comparison24" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_5"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_5"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else47" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_5_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_5_A"/>
     </node>
 
     <node name="if-then-else48" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_5_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_5_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_5_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_5_11"/>
     </node>
 
 
     //field_6
 
     <node name="comparison26" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else51" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_6_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_6_J"/>
     </node>
 
     <node name="if-then-else52" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_6_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_6_10"/>
     </node>
 
     <node name="comparison27" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else53" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_6_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_6_Q"/>
     </node>
 
     <node name="if-then-else54" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_6_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_6_10"/>
     </node>
 
     <node name="comparison28" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else55" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_6_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_6_K"/>
     </node>
 
     <node name="if-then-else56" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_6_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_6_10"/>
     </node>
 
     <node name="comparison29" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_6"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_6"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else57" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_6_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_6_A"/>
     </node>
 
     <node name="if-then-else58" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_6_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_6_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_6_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_6_11"/>
     </node>
 
     //field_7
 
     <node name="comparison31" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else61" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_7_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_7_J"/>
     </node>
 
     <node name="if-then-else62" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_7_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_7_10"/>
     </node>
 
     <node name="comparison32" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else63" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_7_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_7_Q"/>
     </node>
 
     <node name="if-then-else64" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_7_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_7_10"/>
     </node>
 
     <node name="comparison33" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else65" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_7_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_7_K"/>
     </node>
 
     <node name="if-then-else66" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_7_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_7_10"/>
     </node>
 
     <node name="comparison34" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_7"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_7"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else67" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_7_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_7_A"/>
     </node>
 
     <node name="if-then-else68" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_7_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_7_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_7_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_7_11"/>
     </node>
 
     //field_8
 
     <node name="comparison36" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="11"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_J"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_J"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else71" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_8_J"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_8_J"/>
     </node>
 
     <node name="if-then-else72" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_J"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_8_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_J"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_8_10"/>
     </node>
 
     <node name="comparison37" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_Q"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_Q"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else73" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_8_Q"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_8_Q"/>
     </node>
 
     <node name="if-then-else74" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_Q"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_8_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_Q"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_8_10"/>
     </node>
 
     <node name="comparison38" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="13"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_K"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_K"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else75" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_8_K"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_8_K"/>
     </node>
 
     <node name="if-then-else76" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_K"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_8_10"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_K"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_8_10"/>
     </node>
 
     <node name="comparison39" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.field_8"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.field_8"/>
         <node name="right" channel="inline" format="number/integer" model="14"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_A"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_A"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else77" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_8_A"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_8_A"/>
     </node>
 
     <node name="if-then-else78" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.field_flag_8_A"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.mapping.fieldmapping_value_8_11"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.field_flag_8_A"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.mapping.fieldmapping_value_8_11"/>
     </node>
 
 </node>

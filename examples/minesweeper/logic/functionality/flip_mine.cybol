@@ -1,12 +1,12 @@
 <node>
 
     <node name="mark_field" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model="*.app.focused_field_text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.focused_field_text"/>
         <node name="source" channel="inline" format="text/plain" model="x"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="set_game_over" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.game_over"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.game_over"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
@@ -17,21 +17,21 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.game_over_window"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.game_over_window"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 -->
 
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.game_over"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.send_game_over_tui"/>
-        <node name="false" channel="inline" format="path/knowledge" model=".app.send_tui"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.game_over"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.send_game_over_tui"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=".app.send_tui"/>
     </node>
 
 <!--
     <node name="sense" channel="inline" format="live/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_game_over"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handler.handle_game_over"/>
     </node>
 -->
 

@@ -2,7 +2,7 @@
 
 // Wechsel zu print_auswahl
     <node name="print_auswahl" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.print_auswahl"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.print_auswahl"/>
     </node>
 
 </node>

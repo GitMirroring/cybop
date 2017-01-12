@@ -6,14 +6,14 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
     <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="source" channel="inline" format="number/byte" model=""/>
         <node name="type" channel="inline" format="meta/type" model="number/byte"/>
     </node>
 
 
     <node name="cast_byte" channel="inline" format="cast/byte" model="">
-    <node name="destination" channel="inline" format="path/knowledge" model=".part_2"/>
+    <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
     <node name="source" channel="inline" format="number/byte" model="123"/>
     <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -27,7 +27,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/byte"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".part_2"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

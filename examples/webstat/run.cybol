@@ -13,7 +13,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="webstat/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <!-- This is needed for printing messages on terminal. -->
@@ -26,8 +26,8 @@
         <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
         <node name="style" channel="inline" format="text/plain" model="stream"/>
         <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-        <node name="address" channel="inline" format="path/knowledge" model=".app.var.address"/>
-        <node name="id" channel="inline" format="path/knowledge" model=".app.var.port"/>
+        <node name="address" channel="inline" format="text/cybol-path" model=".app.var.address"/>
+        <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>
         <node name="mode" channel="inline" format="text/plain" model="server"/>
         <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="connexions" channel="inline" format="number/integer" model="5"/>
@@ -44,9 +44,9 @@
     
     <node name="sense_requests" channel="inline" format="live/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
-        <node name="id" channel="inline" format="path/knowledge" model=".app.var.port"/>
-        <node name="handler" channel="inline" format="path/knowledge" model=".app.handler"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".app.handler"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
     </node>
 
 </node>

@@ -15,7 +15,7 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
     <node name="initialise_sum" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".sum"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -26,7 +26,7 @@
         Therefore, the destination should be EMPTY.
     -->
     <node name="initialise_text" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".text"/>
         <node name="source" channel="inline" format="text/plain" model="7"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
@@ -36,18 +36,18 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".summand"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".summand"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_SERIALISATION_SUMMAND_PRE.txt"/>
     </node>
     <node name="deserialise_operand" channel="inline" format="represent/deserialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".summand"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".summand"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".text"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
     <node name="add_operand" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".sum"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".summand"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".sum"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".summand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- Write knowledge tree into file. -->
@@ -56,7 +56,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".summand"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".summand"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_SERIALISATION_SUMMAND_POST.txt"/>
     </node>
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -67,7 +67,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".sum"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <!--
@@ -77,7 +77,7 @@
         This can be achieved using the "modify/empty" or "modify/remove" cybol operation.
     -->
     <node name="remove" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".summand"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".summand"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

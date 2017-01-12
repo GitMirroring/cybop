@@ -5,7 +5,7 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
     <node name="initialise_result" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
@@ -13,7 +13,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
     <node name="compare" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="left" channel="inline" format="text/plain" model="Halli"/>
 <!--
         <node name="right" channel="inline" format="text/plain" model="Halli"/>
@@ -27,7 +27,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

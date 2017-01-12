@@ -1,47 +1,47 @@
 <node>
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.guess_array.choice1"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.guess_array.choice2"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
         <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.guess_array.choice3"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
         <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.guess_array.choice4"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 
     <node name="deserialise_choice1" channel="inline" format="represent/deserialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.guess_array.choice1"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.choice1_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.choice1_s"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
     <node name="deserialise_choice2" channel="inline" format="represent/deserialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.guess_array.choice2"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.choice2_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.choice2_s"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
     <node name="deserialise_choice3" channel="inline" format="represent/deserialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.guess_array.choice3"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.choice3_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.choice3_s"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
     <node name="deserialise_choice4" channel="inline" format="represent/deserialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.guess_array.choice4"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.choice4_s"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.choice4_s"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
@@ -51,7 +51,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.guess_array.choice1"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice1"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
     <!--</node>-->
     <!--<node name="print_choice2" channel="inline" format="communicate/send" model="">-->
@@ -59,7 +59,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.guess_array.choice2"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice2"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
     <!--</node>-->
     <!--<node name="print_choice3" channel="inline" format="communicate/send" model="">-->
@@ -67,7 +67,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.guess_array.choice3"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice3"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
     <!--</node>-->
     <!--<node name="print_choice4" channel="inline" format="communicate/send" model="">-->
@@ -75,11 +75,11 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.guess_array.choice4"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.guess_array.choice4"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
     <!--</node>-->
 
     <node name="start_collecting" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.collect_bullsandcows"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.collect_bullsandcows"/>
     </node>
 </node>

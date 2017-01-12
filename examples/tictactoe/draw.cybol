@@ -2,7 +2,7 @@
 
 // Wechsel zu printfield
     <node name="start_command" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.printfield"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.printfield"/>
     </node>
 
 
@@ -20,7 +20,7 @@
 
 // Wechsel zu .startgame
     <node name="start_command" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.startgame"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.startgame"/>
     </node>
 
 

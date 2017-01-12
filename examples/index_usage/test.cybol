@@ -7,6 +7,6 @@
         <node name="c" channel="file" format="element/part" model="index_usage/c.cybol"/>
     </node>
     <node name="node3" channel="inline" format="text/plain" model="node3"/>
-    <node name="reference" channel="inline" format="path/knowledge" model=".test.node2:c.node1:b"/>
+    <node name="reference" channel="inline" format="text/cybol-path" model=".test.node2:c.node1:b"/>
 
 </node>

@@ -14,12 +14,12 @@
 
     <!-- Initialisation -->
     <node name="initialise_date" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".date"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".date"/>
         <node name="source" channel="file" format="element/part" model="datetime/date.cybol"/>
         <node name="type" channel="inline" format="meta/type" model="element/part"/>
     </node>
     <node name="initialise_duration" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".duration"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".duration"/>
         <node name="source" channel="file" format="element/part" model="datetime/duration.cybol"/>
         <node name="type" channel="inline" format="meta/type" model="element/part"/>
     </node>
@@ -43,7 +43,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".date"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".date"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_date_line_end" channel="inline" format="communicate/send" model="">
@@ -69,7 +69,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="datetime/jd"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".date.jd"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".date.jd"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_special_date_line_end" channel="inline" format="communicate/send" model="">
@@ -95,7 +95,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".duration"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".duration"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_duration_line_end" channel="inline" format="communicate/send" model="">

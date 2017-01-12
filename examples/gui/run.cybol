@@ -5,7 +5,7 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="sender" channel="inline" format="text/plain" model="gui/app.cybol"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -18,7 +18,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_gui.txt"/>
     </node>
     <!-- TEST only. Necessary for displaying test messages on console. Delete later. -->
@@ -29,12 +29,12 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
     </node>
     <node name="send_display" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.refresh_display"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.refresh_display"/>
     </node>
     <node name="sense_display" channel="inline" format="live/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
-        <node name="handler" channel="inline" format="path/knowledge" model=".app.logic.handler"/>
-        <node name="root" channel="inline" format="path/knowledge" model=".app.gui.window"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handler"/>
+        <node name="root" channel="inline" format="text/cybol-path" model=".app.gui.window"/>
     </node>
 </node>
 

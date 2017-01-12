@@ -10,7 +10,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="indoor_climate/settings.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".settings"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".settings"/>
     </node>
     <!-- Test knowledge tree by writing it into a file. -->
 <!--
@@ -19,7 +19,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".settings"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".settings"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_indoor_climate.txt"/>
     </node>
 -->
@@ -27,9 +27,9 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
     <node name="startup_serial_port" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
-        <node name="filename" channel="inline" format="path/knowledge" model=".settings.device_filename"/>
-        <node name="baudrate" channel="inline" format="path/knowledge" model=".settings.device_baudrate"/>
+        <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
+        <node name="filename" channel="inline" format="text/cybol-path" model=".settings.device_filename"/>
+        <node name="baudrate" channel="inline" format="text/cybol-path" model=".settings.device_baudrate"/>
     </node>
     <node name="read_temperature" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="file" format="element/part" model="indoor_climate/read_temperature.cybol"/>
@@ -41,7 +41,7 @@
 -->
     <!-- This call MIGHT BE OPTIONAL, since all services are shutdown implicitly in the "live/exit" operation. -->
     <node name="shutdown_serial_port" channel="inline" format="maintain/shutdown" model="">
-        <node name="channel" channel="inline" format="path/knowledge" model=".settings.device"/>
+        <node name="channel" channel="inline" format="text/cybol-path" model=".settings.device"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 </node>

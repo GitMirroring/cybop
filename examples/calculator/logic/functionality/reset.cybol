@@ -6,7 +6,7 @@
         The result has to have exactly one integer number.
     -->
     <node name="reset_result" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.result"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -17,24 +17,24 @@
         cannot happen due to different dimension of the two operand arrays.
     -->
     <node name="reset_operand" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.tmp.operand"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.tmp.operand"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_new_operand" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.new_operand"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.new_operand"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="reset_operation" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.operation"/>
         <node name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_display" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.tui.main.menu.display.value"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -43,8 +43,8 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
-        <node name="area" channel="inline" format="path/knowledge" model=".app.tui.main.menu"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.main"/>
+        <node name="area" channel="inline" format="text/cybol-path" model=".app.tui.main.menu"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

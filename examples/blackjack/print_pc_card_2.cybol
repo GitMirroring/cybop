@@ -26,7 +26,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.field_1_print"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.field_1_print"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
@@ -47,7 +47,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.field_2_print"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.field_2_print"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -57,7 +57,7 @@
 
    //clear result
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".result_pc"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -75,18 +75,18 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
         <node name="sender" channel="inline" format="text/plain" model="0"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_pc"/>
     </node>
 
     <node name="add_player" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".result_pc"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_1"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_pc"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="add_player2" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".result_pc"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".app.var.field_2"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result_pc"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".app.var.field_2"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
@@ -105,7 +105,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result_pc"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -123,48 +123,48 @@
 //// Over 21 
 
     <node name="compare_pc_over_21" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_loose"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".result_pc"/>
         <node name="right" channel="inline" format="number/integer" model="21"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_loose"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.print_win"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_loose"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.print_win"/>
     </node>
 
 <node name="compare_pc_equals_21" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".result_pc"/>
         <node name="right" channel="inline" format="number/integer" model="21"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_win"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_win"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.print_loose"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_win"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.print_loose"/>
     </node>
 
     <node name="compare_pc_over_16" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_ende"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".result_pc"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_ende"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".result_pc"/>
         <node name="right" channel="inline" format="number/integer" model="16"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else15" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_ende"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.ergebnis"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_ende"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.ergebnis"/>
     </node>
    
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-    <node name="false" channel="inline" format="path/knowledge" model=".app.print_pc_card_3"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.stop_flag"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.exit.exit_app"/>
+    <node name="false" channel="inline" format="text/cybol-path" model=".app.print_pc_card_3"/>
 
     </node>
 

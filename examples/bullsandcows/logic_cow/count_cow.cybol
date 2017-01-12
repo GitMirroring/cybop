@@ -1,11 +1,11 @@
 <node>
     <node name="reset_cow" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.cow"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.cow_default"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.cow"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.cow_default"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="start_loops" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.start_loop_comp_array"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.start_loop_comp_array"/>
     </node>
 </node>

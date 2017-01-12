@@ -1,24 +1,24 @@
 <node>
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.tmp.command"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tmp.command"/>
     </node>
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="append_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.path"/>
         <node name="source" channel="inline" format="text/plain" model=".app.tui.about_actions."/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_command" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.tmp.command"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.tmp.command"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <!--
@@ -29,6 +29,6 @@
     -->
     <node name="send_command" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The path is NOT a reference. -->
-        <node name="model" channel="inline" format="path/knowledge" model=".app.tmp.path"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.tmp.path"/>
     </node>
 </node>

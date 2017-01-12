@@ -5,7 +5,7 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node> 
     <node name="initialiseUnsorted" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".unsorted"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".unsorted"/>
         <node name="source" channel="inline" format="number/integer" model="5,8,4,7,6,9,3,2"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -15,15 +15,15 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node> 
     <node name="initialiseResult" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="0,0,0,0,0,0,0,0"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     
     
     <node name="sort" channel="inline" format="sort/quick" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".unsorted"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".unsorted"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".result"/>
     </node>
     
 
@@ -35,7 +35,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".unsorted"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".unsorted"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="printResult" channel="inline" format="communicate/send" model="">
@@ -43,7 +43,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit" channel="inline" format="live/exit" model=""/>

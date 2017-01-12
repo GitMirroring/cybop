@@ -13,7 +13,7 @@
 
     // Wechsel zu .inputnewgame
     <node name="start_command" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.inputnewgame"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.inputnewgame"/>
     </node>
 
 </node>

@@ -17,13 +17,13 @@
     <node name="mesh" channel="inline" format="element/part" model="opengl/house.cybol"/>
   </node>
   <node name="camera" channel="inline" format="transform/move" model="">
-    <node name="camera" chanel="inline" format="path/knowledge" model="model_house" />
+    <node name="camera" chanel="inline" format="text/cybol-path" model="model_house" />
     <node name="position" chanel="inline" format="number/float" model="3.0f,0.5f,3.0f" />
     <node name="viewpoint" chanel="inline" format="number/float" model="0.0f,0.5f,0.0f" />
     <node name="fov" chanel="inline" format="number/float" model="45.0f" />
   </node>
   <node name="model_move" channel="inline" format="graphic/opengl_move_model" model="">
-    <node name="model" chanel="inline" format="path/knowledge" model="model_house" />
+    <node name="model" chanel="inline" format="text/cybol-path" model="model_house" />
     <node name="scale" chanel="inline" format="number/float" model="1.0f,1.0f,1.0f" />
     <node name="rotation" chanel="inline" format="number/float" model="0.0f,0.0f,0.0f" />
     <node name="translation" chanel="inline" format="number/float" model="0.0f,0.0f,0.0f" />

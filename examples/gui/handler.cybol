@@ -1,15 +1,15 @@
 <node>
     <!-- CAUTION! If the action was not reset here, then the last valid previous action would be executed again and again, neverendingly. -->
     <node name="reset_action" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.gui.action"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.gui.action"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="receive_action" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.gui.action"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.gui.window"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.gui.action"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.gui.window"/>
     </node>
     <!--
         CAUTION! Do NOT use the "communicate/send" operation with "signal" channel here.
@@ -21,7 +21,7 @@
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model="*.app.gui.action"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="*.app.gui.action"/>
     </node>
 </node>
 

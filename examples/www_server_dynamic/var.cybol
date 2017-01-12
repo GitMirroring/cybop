@@ -5,7 +5,7 @@
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".
-            The reason is that the format "path/knowledge" is used there,
+            The reason is that the format "text/cybol-path" is used there,
             which points to another (this) part ".app.var.webpage" whose properties are used.
         -->
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -14,7 +14,7 @@
         <!--
             CAUTION! The necessary "encoding" is added here DIRECTLY,
             since it does NOT work adding it as constraint at the operation "send".
-            The reason is that the format "path/knowledge" is used there,
+            The reason is that the format "text/cybol-path" is used there,
             which points to another (this) part ".app.var.webpage" whose properties are used.
         -->
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -22,10 +22,10 @@
     <node name="client_socket" channel="inline" format="number/integer" model="0"/>
 
     <!--
-        CAUTION! The path format is "path/knowledge" and NOT "text/plain".
+        CAUTION! The path format is "text/cybol-path" and NOT "text/plain".
         A knowledge path is treated like a character array anyway.
         So, text fragments may be added to it in the "handler.cybol" file.
     -->
-    <node name="path" channel="inline" format="path/knowledge" model=""/>
+    <node name="path" channel="inline" format="text/cybol-path" model=""/>
 
 </node>

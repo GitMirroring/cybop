@@ -13,19 +13,19 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.request"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -34,13 +34,13 @@
 
     <!-- CAUTION! Use "overwrite" here for initialisation and "append" only afterwards. -->
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="source" channel="inline" format="text/plain" model=".app.actions."/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_action" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
@@ -57,7 +57,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="print_action_label" channel="inline" format="communicate/send" model="">
@@ -73,7 +73,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model="*.app.var.path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="*.app.var.path"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -87,7 +87,7 @@
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model="*.app.var.path"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="*.app.var.path"/>
     </node>
 
 </node>

@@ -1,12 +1,12 @@
 <node>
     <!--   unused   -->
-    <node name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_down"/>
-    <node name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_up"/>
-    <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_right"/>
-    <node name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.move_arrow_left"/>
-    <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.enter_sub_menu"/>
-    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
-    <node name="e" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".app.logic.move_arrow_down"/>
+    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".app.logic.move_arrow_up"/>
+    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".app.logic.move_arrow_right"/>
+    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".app.logic.move_arrow_left"/>
+    <node name="enter" channel="inline" format="text/cybol-path" model=".app.logic.enter_sub_menu"/>
+    <node name="escape" channel="inline" format="text/cybol-path" model=".app.logic.exit_programme"/>
+    <node name="e" channel="inline" format="text/cybol-path" model=".app.logic.exit_programme"/>
 </node>
 
 <!--

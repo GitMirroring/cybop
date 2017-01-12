@@ -27,7 +27,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
@@ -58,7 +58,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.klein"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.klein"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
@@ -89,7 +89,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.gross"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.gross"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
@@ -120,7 +120,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.zahlen"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.zahlen"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
@@ -151,7 +151,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.sonder"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.sonder"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -178,15 +178,15 @@
 
 //loop
     <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.break"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.count"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.count"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="print_numbers" channel="inline" format="flow/loop" model="">
-        <node name="break" channel="inline" format="path/knowledge" model=".app.break"/>
-        <node name="model" channel="inline" format="path/knowledge" model=".app.model"/>
+        <node name="break" channel="inline" format="text/cybol-path" model=".app.break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.model"/>
     </node>
 
     <node name="newline8" channel="inline" format="communicate/send" model="">
@@ -212,7 +212,7 @@
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
     <node name="print_auswahl" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.exit"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.exit"/>
     </node>
 
 </node>

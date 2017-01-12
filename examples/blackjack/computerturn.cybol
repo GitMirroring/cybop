@@ -2,7 +2,7 @@
 
 // go to print pc 2. card
     <node name="start_printfield" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.print_pc_card_2"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.print_pc_card_2"/>
     </node>
 
 

@@ -3,7 +3,7 @@
     <node name="handler" channel="file" format="element/part" model="socket_server/handler.cybol"/>
 
     <node name="send_response" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
         <node name="message" channel="inline" format="text/plain" model="Hello, World!"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
 <!--

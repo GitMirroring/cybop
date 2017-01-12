@@ -5,7 +5,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.var.counter_x"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.var.counter_x"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>-->
     <!--</node>-->
     <!--<node name="print_number" channel="inline" format="communicate/send" model="">-->
@@ -21,20 +21,20 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.var.counter_y"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.var.counter_y"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
     <node name="reset_comparexy" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.x_equal_y_flag"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.x_equal_y_flag"/>
-        <node name="left" channel="inline" format="path/knowledge" model="*.app.var.comp_adress"/>
-        <node name="right" channel="inline" format="path/knowledge" model="*.app.var.guess_adress"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="*.app.var.comp_adress"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="*.app.var.guess_adress"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -44,18 +44,18 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model=".app.var.x_equal_y_flag"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.x_equal_y_flag"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.inkrement_cow"/>
-        <node name="false" channel="inline" format="path/knowledge" model=""/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.inkrement_cow"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
     </node>
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.x_equal_y_flag"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.set_visited"/>
-        <node name="false" channel="inline" format="path/knowledge" model=""/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.x_equal_y_flag"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.set_visited"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
     </node>
 </node>

@@ -1,31 +1,31 @@
 <node>
 
     <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.root"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.root"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.identify_prefix"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_identify" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.root"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.root"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.identify_source"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_prefix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.root"/>
         <node name="source" channel="inline" format="text/plain" model=".["/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_number" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.root"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.number"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.root"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.number"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_suffix" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.(.app.var.identify).element.root"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.(.app.var.identify).element.root"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>

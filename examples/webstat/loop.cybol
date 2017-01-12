@@ -2,54 +2,54 @@
 
     <!-- hole Datum -->
     <node name="reset_date_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.date_command"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="build_command_first_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.date_command"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="source" channel="inline" format="text/plain" model="date -d '-"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_count_text" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.count_text"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.count_text"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="serialise_count" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.count_text"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.count_text"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.count"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
     <node name="build_command_second_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.date_command"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.count_text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.count_text"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_command_third_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.date_command"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="source" channel="inline" format="text/plain" model=" days' +%F |  tr -d '\n' > "/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_command_fourth_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.date_command"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.date_path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.date_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="get_date" channel="inline" format="run/run" model="">
-        <node name="programme" channel="inline" format="path/knowledge" model=".app.var.date_command"/>
+        <node name="programme" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
     </node>
 
     <node name="reset_loop_date" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.loop_date"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -59,39 +59,39 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.date_path"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.loop_date"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.date_path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
     </node>
 
 
     <!-- lese Besuchszahl ein -->
 
     <node name="reset_loop_date_path" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.loop_date_path"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="build_loop_date_path_first_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.loop_date_path"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.statistics_root_path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.statistics_root_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_loop_date_path_second_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.loop_date_path"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.loop_date"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_loop_date_path_third_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.loop_date_path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
         <node name="source" channel="inline" format="text/plain" model=".txt"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_loop_visits" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.loop_visits"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_visits"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -100,8 +100,8 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.loop_date_path"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.loop_visits"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.loop_visits"/>
     </node>
 
 
@@ -109,26 +109,26 @@
     <!-- erstelle csv Zeile -->
 
     <node name="build_csv_content_first_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.csv_content"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.loop_date"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_csv_content_second_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.csv_content"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
         <node name="source" channel="inline" format="text/plain" model=","/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_csv_content_third_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.csv_content"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.loop_visits"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.loop_visits"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_csv_content_fourth_step" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.csv_content"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.linefeed"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.linefeed"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
@@ -140,15 +140,15 @@
 
 
     <node name="decrement_loop_count" channel="inline" format="calculate/subtract" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.count"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.break"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.break"/>
         <node name="left" channel="inline" format="number/integer" model="0"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.var.count"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.count"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

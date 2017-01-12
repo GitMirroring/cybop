@@ -2,7 +2,7 @@
 
 //Zeichen löschen
     <node name="reset_laenge" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -11,11 +11,11 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
     </node>
 
     <node name="sub" channel="inline" format="calculate/subtract" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="operand" channel="inline" format="number/integer" model="48"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -26,153 +26,153 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
     <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 //Abfrage 1
     <node name="comparison1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_1"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_1"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 2
     <node name="comparison2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="2"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_2"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_2"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 3
     <node name="comparison3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="3"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_3"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_3"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 4
     <node name="comparison4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="4"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_4"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_4"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 5
     <node name="comparison5" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="5"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_5"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_5"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 6
     <node name="comparison6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="6"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_6"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_6"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 7
     <node name="comparison7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="7"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_7"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_7"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 8
     <node name="comparison8" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_8"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_8"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 //Abfrage 9
     <node name="comparison9" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.laenge"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
         <node name="right" channel="inline" format="number/integer" model="9"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.flag_9"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_9"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 
 //If-Abfrage 1
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_1"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else2"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_1"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else2"/>
     </node>
 
 //If-Abfrage 2
     <node name="if-then-else2" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_2"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else3"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_2"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else3"/>
     </node>
 
 //If-Abfrage 3
     <node name="if-then-else3" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_3"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else4"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_3"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else4"/>
     </node>
 
 //If-Abfrage 4
     <node name="if-then-else4" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_4"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else5"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_4"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else5"/>
     </node>
 
 //If-Abfrage 5
     <node name="if-then-else5" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_5"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else6"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_5"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else6"/>
     </node>
 
 //If-Abfrage 6
     <node name="if-then-else6" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_6"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else7"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_6"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else7"/>
     </node>
 
 //If-Abfrage 7
     <node name="if-then-else7" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_7"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else8"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_7"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else8"/>
     </node>
 
 //If-Abfrage 8
     <node name="if-then-else8" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_8"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model="if-then-else9"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_8"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model="if-then-else9"/>
     </node>
 
 //If-Abfrage 9
     <node name="if-then-else9" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.flag_9"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.11_klein"/>
-        <node name="false" channel="inline" format="path/knowledge" model=""/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.flag_9"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.11_klein"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=""/>
     </node>
 
 

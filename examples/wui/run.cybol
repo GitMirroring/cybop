@@ -10,11 +10,11 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".wui"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
     </node>
     <node name="generate_html" channel="inline" format="communicate/send" model="">
         <node name="receiver" channel="inline" format="text/plain" model="wui.html"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".wui.index"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.index"/>
         <node name="language" channel="inline" format="meta/language" model="text/html">
             <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
@@ -27,7 +27,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".wui"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_wui.txt"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

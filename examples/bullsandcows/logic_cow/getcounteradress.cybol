@@ -1,56 +1,56 @@
 <node>
 
     <node name="reset_comp_adress" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.comp_adress"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.comp_adress"/>
         <node name="source" channel="inline" format="text/plain" model=".app.comp_array.["/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_guess_adress" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.guess_adress"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.guess_adress"/>
         <node name="source" channel="inline" format="text/plain" model=".app.guess_array.["/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_help_adress" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.help_adress"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.help_adress"/>
         <node name="source" channel="inline" format="text/plain" model=".app.help_array.["/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="serialise_counter_x" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.comp_adress"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.counter_x"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.comp_adress"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.counter_x"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
     <node name="serialise_counter_y" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.guess_adress"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.counter_y"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.guess_adress"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.counter_y"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
     <node name="serialise_counter_x2" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.help_adress"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.counter_x"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.help_adress"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.counter_x"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
     <node name="append_suffix_x" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.comp_adress"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.comp_adress"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_suffix_y" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.guess_adress"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.guess_adress"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_suffix_x2" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.help_adress"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.help_adress"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
@@ -60,7 +60,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model="*.app.var.comp_adress"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model="*.app.var.comp_adress"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
@@ -69,7 +69,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="number/integer"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model="*.app.var.guess_adress"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model="*.app.var.guess_adress"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 
@@ -78,7 +78,7 @@
         <!--<node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>-->
         <!--<node name="language" channel="inline" format="meta/language" model="message/cli"/>-->
         <!--<node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>-->
-        <!--<node name="message" channel="inline" format="path/knowledge" model="*.app.var.help_adress"/>-->
+        <!--<node name="message" channel="inline" format="text/cybol-path" model="*.app.var.help_adress"/>-->
         <!--<node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>-->
     <!--</node>-->
 

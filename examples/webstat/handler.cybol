@@ -13,13 +13,13 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.request"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.request"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
@@ -27,17 +27,17 @@
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
         <node name="language" channel="inline" format="meta/language" model="message/http-request"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.request"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.request"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
     </node>
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="source" channel="inline" format="text/plain" model="webstat/files"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_path" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.path"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.request:uri:path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.request:uri:path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
@@ -45,21 +45,21 @@
     <!-- Führe Statistik-Aktionen aus, wenn index.html angefordert wird -->
 
     <node name="reset_increment" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.increment"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.increment"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="compare" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.increment"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.increment"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="right" channel="inline" format="text/plain" model="webstat/files/index.html"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="if-then-else" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.increment"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.increment"/>
         <node name="true" channel="file" format="element/part" model="webstat/increment.cybol"/>
     </node>
 
@@ -81,19 +81,19 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_request" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="receive_file" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="language" channel="inline" format="meta/language" model="message/binary"/>
-        <node name="sender" channel="inline" format="path/knowledge" model=".app.var.path"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.path"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.file"/>
     </node>
 
     <node name="send_file" channel="inline" format="communicate/send" model="">
@@ -105,8 +105,8 @@
             Likewise, binary attachments such as images should NOT get encoded.
         -->
         <node name="language" channel="inline" format="meta/language" model="message/http-response"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
     </node>
 
 </node>

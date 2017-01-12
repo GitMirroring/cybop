@@ -1,34 +1,34 @@
 <node>
 
     <node name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu:focus"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.tui.main.menu:focus"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="assemble_current_element_background_2" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.character"/>
         <node name="source" channel="inline" format="text/plain" model=":background"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="unfocus_background" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model="*.app.tmp.character"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.settings.menu_item.background"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.tmp.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.settings.menu_item.background"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="assemble_current_element_foreground_1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu:focus"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.tui.main.menu:focus"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="assemble_current_element_foreground_2" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.character"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.character"/>
         <node name="source" channel="inline" format="text/plain" model=":foreground"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="unfocus_foreground" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model="*.app.tmp.character"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.settings.menu_item.foreground"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.tmp.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.settings.menu_item.foreground"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 

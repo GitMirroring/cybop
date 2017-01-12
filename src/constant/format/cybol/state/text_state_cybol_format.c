@@ -94,6 +94,23 @@ static wchar_t* CSS_TEXT_STATE_CYBOL_FORMAT = L"text/css";
 static int* CSS_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
+ * The text/cybol-path text state cybol format.
+ *
+ * A knowledge path pointing to:
+ * - the knowledge memory root .
+ * - the stack memory root #
+ * - the signal memory root |
+ * - a knowledge memory model part whereby tree node names are dot (.) separated
+ * - a knowledge memory property part whereby tree node names are colon (:) separated
+ * - a stack memory variable whereby names have the number sign (#) prefix
+ *
+ * Defined in CYBOL specification:
+ * http://www.nongnu.org/cybop/books/cybol/api.html
+ */
+static wchar_t* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT = L"text/cybol-path";
+static int* CYBOL_PATH_TEXT_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+/**
  * The text/html text state cybol format.
  *
  * HTML

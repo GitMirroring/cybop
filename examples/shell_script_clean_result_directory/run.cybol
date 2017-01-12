@@ -14,14 +14,14 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="shell_script_clean_result_directory/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Datei ohne interaktive Rückfrage gelesen und später gelöscht werden kann."/>
     </node>
     <node name="set_archive_rights" channel="inline" format="command/change-permission" model="">
-        <node name="path" channel="inline" format="path/knowledge" model=".app.archive"/>
+        <node name="path" channel="inline" format="text/cybol-path" model=".app.archive"/>
         <node name="user" channel="inline" format="text/plain" model="rw-"/>
         <node name="group" channel="inline" format="text/plain" model="rw-"/>
         <node name="other" channel="inline" format="text/plain" model="rw-"/>
@@ -34,8 +34,8 @@
         <node name="message" channel="inline" format="text/plain" model="Entpacke Inhalt des komprimierten Ergebnisverzeichnisses."/>
     </node>
     <node name="extract_archive" channel="inline" format="command/tape-archiver" model="">
-        <node name="source" channel="inline" format="path/knowledge" model=".app.archive"/>
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.extraction_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.archive"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.extraction_path"/>
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="gzip" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -47,7 +47,7 @@
         <node name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Unterverzeichnisse und Dateien ohne interaktive Rückfrage bearbeitet werden können."/>
     </node>
     <node name="set_content_rights" channel="inline" format="command/change-permission" model="">
-        <node name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
+        <node name="path" channel="inline" format="text/cybol-path" model=".app.export_path"/>
         <node name="user" channel="inline" format="text/plain" model="rwx"/>
         <node name="group" channel="inline" format="text/plain" model="rwx"/>
         <node name="other" channel="inline" format="text/plain" model="rwx"/>
@@ -73,8 +73,8 @@
         <node name="message" channel="inline" format="text/plain" model="Verschiebe Unterverzeichnis auf die aktuelle Ebene und benenne es um in 'home'."/>
     </node>
     <node name="move_sub_directory" channel="inline" format="command/move" model="">
-        <node name="source" channel="inline" format="path/knowledge" model=".app.klausur_path"/>
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.home_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.klausur_path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.home_path"/>
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -84,7 +84,7 @@
         <node name="message" channel="inline" format="text/plain" model="Lösche verbliebenen, nicht benötigten Inhalt rekursiv."/>
     </node>
     <node name="remove_remaining_directory" channel="inline" format="command/remove" model="">
-        <node name="path" channel="inline" format="path/knowledge" model=".app.export_path"/>
+        <node name="path" channel="inline" format="text/cybol-path" model=".app.export_path"/>
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -95,7 +95,7 @@
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Klausur user login Dateien."/>
     </node>
     <node name="remove_unneeded_files" channel="inline" format="command/remove" model="">
-        <node name="path" channel="inline" format="path/knowledge" model=".app.klausuruser_files"/>
+        <node name="path" channel="inline" format="text/cybol-path" model=".app.klausuruser_files"/>
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
@@ -106,35 +106,35 @@
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Verzeichnisse rekursiv."/>
     </node>
     <node name="remove_hidden_directories" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_directories"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.remove_hidden_directories"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse rekursiv."/>
     </node>
     <node name="remove_directories" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_directories"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.remove_directories"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Dateien."/>
     </node>
     <node name="remove_hidden_files" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_hidden_files"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.remove_hidden_files"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Dateien (backup files)."/>
     </node>
     <node name="remove_files" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_files"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.remove_files"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse."/>
     </node>
     <node name="remove_empty_home_directories" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.remove_empty_home_directories"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.remove_empty_home_directories"/>
     </node>
 
 <!--
@@ -143,7 +143,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="receiver" channel="inline" format="text/plain" model="test.txt"/>
     </node>
 -->

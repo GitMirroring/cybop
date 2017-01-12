@@ -1,13 +1,13 @@
 <node>
 
     <node name="set_navigation_destination" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.temporary.navigation"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.temporary.navigation"/>
         <node name="source" channel="inline" format="text/plain" model=":right"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="update_focus" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.user_interface.update_focus"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.update_focus"/>
     </node>
 
 </node>

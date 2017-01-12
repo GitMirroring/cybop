@@ -12,7 +12,7 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "format" property. -->
         <node name="sender" channel="inline" format="text/plain" model="1,1,1"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
@@ -21,7 +21,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_addition.txt"/>
     </node>
 
@@ -30,7 +30,7 @@
         If result- and operand vectors had different sizes, they would NOT be added.
     -->
     <node name="add_operand" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="1,2,3"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -43,7 +43,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

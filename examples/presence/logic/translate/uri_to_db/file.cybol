@@ -1,10 +1,10 @@
 <node>
 
     <node name="translate_directory_path" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_db.directory_path"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.uri_to_db.directory_path"/>
     </node>
     <node name="translate_file_path" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.uri_to_db.file_path"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.uri_to_db.file_path"/>
     </node>
 
 <!--
@@ -13,7 +13,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.directory"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="TEST_file_path" channel="inline" format="communicate/send" model="">
@@ -21,14 +21,14 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 -->
 
     <!-- TEMPORARY WORKAROUND -->
     <node name="create_folder" channel="inline" format="command/create-folder" model="">
-        <node name="path" channel="inline" format="path/knowledge" model=".app.var.directory"/>
+        <node name="path" channel="inline" format="text/cybol-path" model=".app.var.directory"/>
     </node>
 
 <!--
@@ -39,7 +39,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="message" channel="inline" format="text/plain" model="create"/>
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file"/>
     </node>
 --
     File d = new File("file/blu/bla/testdir");
@@ -78,8 +78,8 @@ Read more here: stat, mkdir
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.db"/>
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.db"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file"/>
     </node>
 
 </node>

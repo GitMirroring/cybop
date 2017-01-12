@@ -1,85 +1,85 @@
 <node>
 
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.border_right"/>
-        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </node>
-    
-    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.corner1"/>
-        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </node>
-    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.corner2"/>
-        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </node>
-    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.corner3"/>
-        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-    </node>
-    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.corner4"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.b1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.corner1"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.b2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.corner2"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.b3"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.corner3"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.b4"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.corner4"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.c1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.b1"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.c2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.b2"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.c3"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.b3"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.c4"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.b4"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+    
+    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.c1"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.c2"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.c3"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
+    </node>
+    <node name="set_app_var" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.c4"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>

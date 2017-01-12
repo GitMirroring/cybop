@@ -10,7 +10,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="fraction_calculation/model.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".model"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".model"/>
     </node>
     <node name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -20,12 +20,12 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".model"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".model"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_fraction_calculation_pre.txt"/>
     </node>
     <node name="add_operand" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".model.result"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".model.operand"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".model.operand"/>
         <node name="type" channel="inline" format="meta/type" model="number/fraction-vulgar"/>
     </node>
     <node name="test_knowledge_tree_post" channel="inline" format="communicate/send" model="">
@@ -33,7 +33,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".model"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".model"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_fraction_calculation_post.txt"/>
     </node>
     <node name="print_operation" channel="inline" format="communicate/send" model="">
@@ -49,7 +49,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/fraction-vulgar"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".model.result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".model.result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

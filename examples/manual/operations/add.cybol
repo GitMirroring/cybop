@@ -10,11 +10,11 @@
             <node name="language" channel="inline" format="meta/language" model="text/cybol"/> 
             <node name="format" channel="inline" format="meta/format" model="number/integer"/>
             <node name="sender" channel="inline" format="text/plain" model="5"/>
-            <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+            <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
     </node>
 
     <node name="add" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".result"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="operand" channel="inline" format="number/integer" model="3"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -34,7 +34,7 @@
                 <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
                 <node name="language" channel="inline" format="meta/language" model="message/cli"/>
                 <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-                <node name="message" channel="inline" format="path/knowledge" model=".result"/>
+                <node name="message" channel="inline" format="text/cybol-path" model=".result"/>
                 <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
     <node name="exit" channel="inline" format="live/exit" model="">

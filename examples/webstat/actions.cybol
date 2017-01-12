@@ -1,6 +1,6 @@
 <node>
 
-    <node name="send_index" channel="inline" format="path/knowledge" model=".app.index"/>
-    <node name="exit" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
+    <node name="send_index" channel="inline" format="text/cybol-path" model=".app.index"/>
+    <node name="exit" channel="inline" format="text/cybol-path" model=".app.logic.exit_programme"/>
 
 </node>

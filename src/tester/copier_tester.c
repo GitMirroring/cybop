@@ -38,6 +38,7 @@
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/modifier/copier/copier.c"
 #include "../logger/logger.c"
+#include "../tester/part_as_model_diagram_tester.c"
 
 /**
  * Tests the part copier.

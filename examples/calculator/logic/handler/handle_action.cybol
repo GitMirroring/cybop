@@ -1,18 +1,18 @@
 <node>
 
     <node name="copy_focused_part_name" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.action"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.tui.main.menu:focus"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.action"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.tui.main.menu:focus"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_action_property_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.action"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.action"/>
         <node name="source" channel="inline" format="text/plain" model=":action"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_action_reference" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.action"/>
-        <node name="source" channel="inline" format="path/knowledge" model="*.app.tmp.action"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.action"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="*.app.tmp.action"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
@@ -24,7 +24,7 @@
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
         <!-- CAUTION! The path is a REFERENCE. -->
-        <node name="model" channel="inline" format="path/knowledge" model="*.app.tmp.action"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="*.app.tmp.action"/>
     </node>
 
 </node>

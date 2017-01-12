@@ -8,43 +8,43 @@
         <node name="name" channel="inline" format="text/plain" model="summand_1"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="path/knowledge" model=".addition_application"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
     </node>
     <node name="create_summand_2" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="summand_2"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="path/knowledge" model=".addition_application"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
     </node>
     <node name="create_sum" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="sum"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="path/knowledge" model=".addition_application"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
     </node>
     <node name="initialise_summand_1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".addition_application.summand_1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".addition_application.summand_1"/>
         <node name="source" channel="inline" format="number/integer" model="3"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="initialise_summand_2" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".addition_application.summand_2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".addition_application.summand_2"/>
         <node name="source" channel="inline" format="number/integer" model="4"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="initialise_sum" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".addition_application.sum"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".addition_application.sum"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_operand_1" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".addition_application.sum"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".addition_application.summand_1"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".addition_application.sum"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".addition_application.summand_1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_operand_2" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".addition_application.sum"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".addition_application.summand_2"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".addition_application.sum"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".addition_application.summand_2"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -55,7 +55,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".addition_application.sum"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".addition_application.sum"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <!--
@@ -67,7 +67,7 @@
         <node name="element" channel="inline" format="text/plain" model="part"/>
     </node>
     <node name="initialise_count" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".count"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".count"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
@@ -77,8 +77,8 @@
         - filter: (an arbitrary string)
     -->
     <node name="count" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="path/knowledge" model=".count"/>
-        <node name="part" channel="inline" format="path/knowledge" model=".addition_application"/>
+        <node name="count" channel="inline" format="text/cybol-path" model=".count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".addition_application"/>
         <node name="selection" channel="inline" format="text/plain" model="subsequence"/>
         <node name="filter" channel="inline" format="text/plain" model="summand"/>
     </node>
@@ -87,7 +87,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".count"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".count"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <!-- Write knowledge tree into file. -->
@@ -96,7 +96,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".count"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".count"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_GET_COUNT.txt"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

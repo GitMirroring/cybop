@@ -1,209 +1,209 @@
 <node>
     <node name="reset_bool" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.bool"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="check_border_top1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_1"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_top2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_2"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_top3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_3"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_top4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_4"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_top5" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_5"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_top6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_6"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_top7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.0_7"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_top"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_top"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
     <node name="check_border_right1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.1_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_right2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.2_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_right3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.3_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_right4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.4_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_right5" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.5_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_right6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.6_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_right7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.7_8"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_right"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 
     <node name="check_border_bottom1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_1"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_bottom2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_2"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_bottom3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_3"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_bottom4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_4"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_bottom5" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_5"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_bottom6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_6"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_bottom7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.8_7"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 
 
     <node name="check_border_left1" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.1_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_left2" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.2_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_left3" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.3_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_left4" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.4_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_left5" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.5_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_left6" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.6_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="check_border_left7" channel="inline" format="compare/equal" model="">
-        <node name="left" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="right" channel="inline" format="text/plain" model=".app.tui.window.menu.7_0"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <node name="result" channel="inline" format="path/knowledge" model=".app.border_left"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.border_left"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
 

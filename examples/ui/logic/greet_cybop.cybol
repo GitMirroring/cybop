@@ -1,14 +1,14 @@
 <node>
     <node name="copy" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.domain.greeting"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.cybop"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.domain.greeting"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.cybop"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="translate" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate"/>
     </node>
     <node name="send" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.send"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.send"/>
     </node>
 </node>
 

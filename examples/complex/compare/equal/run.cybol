@@ -10,15 +10,15 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="complex/compare/equal/model.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".model"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".model"/>
     </node>
     <node name="startup_terminal_service" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".model.result"/>
-    <node name="left" channel="inline" format="path/knowledge" model=".model.left"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".model.right"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".model.result"/>
+    <node name="left" channel="inline" format="text/cybol-path" model=".model.left"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".model.right"/>
     <node name="type" channel="inline" format="meta/type" model="number/complex-cartesian"/>
     <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
@@ -36,7 +36,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="logicvalue/boolean"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".model.result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".model.result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

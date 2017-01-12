@@ -1,139 +1,139 @@
 <node>
 
     <node name="reset_bools" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset_bools"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.functionality.reset_bools"/>
     </node>
 
     <node name="mark_field" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model="*.app.focused_field_text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="*.app.focused_field_text"/>
         <node name="source" channel="inline" format="text/plain" model=""/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!--   check corners   -->
     <node name="check_corners" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_corner"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_corner"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.corner1"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_corner1"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.corner1"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_corner1"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.corner2"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_corner2"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.corner2"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_corner2"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.corner3"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_corner3"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.corner3"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_corner3"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.corner4"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_corner4"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.corner4"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_corner4"/>
     </node>
 
     <!--   check borders   -->
     <node name="check_borders" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_border"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_border"/>
     </node>
 
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.border_top"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_border_top"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.border_top"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_border_top"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.border_right"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_border_right"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.border_right"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_border_right"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_border_bottom"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_border_bottom"/>
     </node>
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.border_left"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_border_left"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.border_left"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines_border_left"/>
     </node>
 
     <!--   mittlere felder   -->
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.corner1"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c1"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.corner1"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c1"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.corner2"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c2"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.corner2"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c2"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.corner3"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c3"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.corner3"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c3"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.corner4"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c4"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.corner4"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c4"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.border_top"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b1"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.border_top"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b1"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.border_right"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b2"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.border_right"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b2"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.border_bottom"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b3"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.border_bottom"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b3"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/nor" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.border_left"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b4"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.border_left"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b4"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.c1"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c2"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.c1"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c2"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.c2"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c3"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.c2"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c3"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.c3"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.c4"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.c3"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.c4"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.c4"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b1"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.c4"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b1"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.b1"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b2"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.b1"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b2"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.b2"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b3"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.b2"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b3"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="operation" channel="inline" format="logify/and" model="">
-        <node name="input" channel="inline" format="path/knowledge" model=".app.b3"/>
-        <node name="output" channel="inline" format="path/knowledge" model=".app.b4"/>
+        <node name="input" channel="inline" format="text/cybol-path" model=".app.b3"/>
+        <node name="output" channel="inline" format="text/cybol-path" model=".app.b4"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.b4"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.b4"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.logic.functionality.check_mines"/>
     </node>
 
 </node>

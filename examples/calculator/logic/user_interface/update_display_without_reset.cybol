@@ -2,12 +2,12 @@
 
     <!-- The display HAS TO BE EMPTIED since otherwise, the result is appended to the old operand. -->
     <node name="reset_display" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.tui.main.menu.display.value"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="serialise_result" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.tui.main.menu.display.value"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.tmp.result"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.tui.main.menu.display.value"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.tmp.result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
     </node>
@@ -17,9 +17,9 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.main"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.main"/>
 <!--
-        <node name="area" channel="inline" format="path/knowledge" model=".app.tui.main.menu"/>
+        <node name="area" channel="inline" format="text/cybol-path" model=".app.tui.main.menu"/>
 -->
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>

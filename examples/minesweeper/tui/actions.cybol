@@ -1,13 +1,13 @@
 <node>
 
-    <node name="arrow-up" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_up"/>
-    <node name="arrow-down" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_down"/>
-    <node name="arrow-left" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_left"/>
-    <node name="arrow-right" channel="inline" format="path/knowledge" model=".app.logic.user_interface.select_right"/>
+    <node name="arrow-up" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.select_up"/>
+    <node name="arrow-down" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.select_down"/>
+    <node name="arrow-left" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.select_left"/>
+    <node name="arrow-right" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.select_right"/>
 
-    <node name="enter" channel="inline" format="path/knowledge" model=".app.logic.handler.handle_action"/>
+    <node name="enter" channel="inline" format="text/cybol-path" model=".app.logic.handler.handle_action"/>
 
-    <node name="escape" channel="inline" format="path/knowledge" model=".app.logic.shutdown"/>
-    <node name="e" channel="inline" format="path/knowledge" model=".app.logic.shutdown"/>
+    <node name="escape" channel="inline" format="text/cybol-path" model=".app.logic.shutdown"/>
+    <node name="e" channel="inline" format="text/cybol-path" model=".app.logic.shutdown"/>
 
 </node>

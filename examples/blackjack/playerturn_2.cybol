@@ -3,9 +3,9 @@
 /// ueberpruefen ob Game schon gewonnen/verloren wenn nicht weiter zu playerinput
 
     <node name="if-then-else1" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.var.stop_flag"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.exit.exit_app"/>
-    <node name="false" channel="inline" format="path/knowledge" model=".app.playerinput_2"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.var.stop_flag"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.exit.exit_app"/>
+    <node name="false" channel="inline" format="text/cybol-path" model=".app.playerinput_2"/>
 
     </node>
 

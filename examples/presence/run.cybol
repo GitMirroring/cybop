@@ -101,7 +101,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="presence/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <node name="log_create" channel="inline" format="communicate/send" model="">
@@ -113,10 +113,10 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="create_wui_choices" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.choices.rows"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.create.choices.rows"/>
     </node>
     <node name="create_wui_lecturers" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.create.lecturers.rows"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.create.lecturers.rows"/>
     </node>
 
 <!--
@@ -124,11 +124,11 @@
         <node name="channel" channel="inline" format="meta/channel" model="clock"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="datetime/jd"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.day"/>
     </node>
     <node name="get_calendar_week" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.week"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.day"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.week"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.day"/>
         <node name="format" channel="inline" format="meta/format" model="datetime/year-week"/>
         <node name="language" channel="inline" format="meta/language" model="??/??"/>
     </node>
@@ -143,22 +143,22 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="translate_dom_to_page_header_image" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_page.header_image"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.dom_to_page.header_image"/>
     </node>
     <node name="translate_dom_to_page_heraldic_symbol" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_page.heraldic_symbol"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.dom_to_page.heraldic_symbol"/>
     </node>
     <node name="translate_dom_to_page_css" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_page.css"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.dom_to_page.css"/>
     </node>
     <node name="translate_dom_to_page_icon" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_page.icon"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.dom_to_page.icon"/>
     </node>
     <node name="translate_dom_to_nav_backward" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_nav.backward"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.dom_to_nav.backward"/>
     </node>
     <node name="translate_dom_to_nav_forward" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.dom_to_nav.forward"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.dom_to_nav.forward"/>
     </node>
 
     <node name="log_navigate" channel="inline" format="communicate/send" model="">
@@ -170,7 +170,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="navigate_week" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.navigate.week"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.navigate.week"/>
     </node>
 
     <!-- Write knowledge tree into file. -->
@@ -180,7 +180,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_presence.txt"/>
     </node>
 -->
@@ -194,7 +194,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="startup" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.startup"/>
     </node>
 
 </node>

@@ -21,6 +21,10 @@
 2017-01-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace format "path/reference" with "path/knowledge" in all cybol example applications and add "*" as prefix in affected knowledge paths
+        * Add new format "text/cybol-path" to cyboi
+        * Remove old mime types "path/knowledge", "path/reference", "path/stack" from cyboi
+        * Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
+        * Replace "path/knowledge" with "text/cybol-path" in all cybol example applications
 
 2017-01-11  Christian Heller  <christian.heller@tuxtax.de>
 

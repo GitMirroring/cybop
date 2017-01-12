@@ -1,27 +1,27 @@
 <node>
 
     <node name="determine_button" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.temporary.character"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.tui.window.menu:focus"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.temporary.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="determine_button_value" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.temporary.character"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.temporary.character"/>
         <node name="source" channel="inline" format="text/plain" model=".value"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="compare" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model=".app.game_over"/>
-        <node name="true" channel="inline" format="path/knowledge" model=".app.send_game_over_tui"/>
-        <node name="false" channel="inline" format="path/knowledge" model=".app.send_tui"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model=".app.game_over"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".app.send_game_over_tui"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=".app.send_tui"/>
     </node>
     <!--<node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.window"/>
     </node>-->
 
 </node>

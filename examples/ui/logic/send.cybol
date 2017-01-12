@@ -15,7 +15,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.window"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.window"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 <!--
@@ -23,7 +23,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="language" channel="inline" format="meta/language" model="message/gui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.gui"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.gui"/>
     </node>
 -->
 <!--
@@ -31,12 +31,12 @@
         <node name="channel" channel="inline" format="meta/channel" model="display"/>
         <node name="language" channel="inline" format="meta/language" model="message/scene"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.scene"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.scene"/>
     </node>
 -->
     <node name="wui" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.wui.index"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.webpage"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.wui.index"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <!-- A beautification with indentation and newline is actually NOT useful for pure data transfer. -->
         <node name="language" channel="inline" format="meta/language" model="text/html">
@@ -49,7 +49,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.webpage"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_ui_wui.html"/>
     </node>
 <!--
@@ -60,14 +60,14 @@
         <!--
             CAUTION! It does NOT work adding the constraint "encoding" right here.
             It does properly appear in the knowledge tree, but is NOT recognised in the operation "send".
-            The reason is that the format "path/knowledge" points to another part ".app.var.webpage"
+            The reason is that the format "text/cybol-path" points to another part ".app.var.webpage"
             whose properties are used INSTEAD of those constraints that might be specified here.
             In order to verify this, one might use the format "text/plain" testwise,
             with which the constraints are recognised properly.
             Therefore, the necessary "encoding" is added at the part ".app.var.webpage" DIRECTLY.
         -->
-        <node name="message" channel="inline" format="path/knowledge" model=".app.var.webpage"/>
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.client_socket"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.webpage"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.client_socket"/>
     </node>
 -->
 

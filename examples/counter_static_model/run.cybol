@@ -10,7 +10,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="counter_static_model/domain.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
@@ -18,7 +18,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_COUNTER_STATIC_MODEL.txt"/>
     </node>
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -26,15 +26,15 @@
     </node>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_loop_count" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".domain.break"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".domain.count"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".domain.maximum"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".domain.break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".domain.count"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".domain.maximum"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
     <node name="print_numbers" channel="inline" format="flow/loop" model="">
-        <node name="break" channel="inline" format="path/knowledge" model=".domain.break"/>
-        <node name="model" channel="inline" format="path/knowledge" model=".domain.model"/>
+        <node name="break" channel="inline" format="text/cybol-path" model=".domain.break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".domain.model"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 </node>

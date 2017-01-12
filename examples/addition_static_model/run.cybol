@@ -12,7 +12,7 @@
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <!-- CAUTION! The message HAS TO BE of type "text/plain". It gets converted using the "type" property. -->
         <node name="sender" channel="inline" format="text/plain" model="addition_static_model/domain.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree_1" channel="inline" format="communicate/send" model="">
@@ -20,12 +20,12 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_STATIC_PRE.txt"/>
     </node>
     <node name="add_operand" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".domain.sum"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".domain.summand"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".domain.sum"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".domain.summand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- Write knowledge tree into file. -->
@@ -34,7 +34,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_STATIC_POST.txt"/>
     </node>
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -45,7 +45,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain.sum"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain.sum"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>

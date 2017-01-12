@@ -1,6 +1,6 @@
 <node>
     <node name="title" channel="inline" format="text/plain" model="Text User Interface (TUI) Application with Cursor Control">
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.menu_header"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.menu_header"/>
         <node name="position" channel="inline" format="number/integer" model="10,0"/>
         <node name="size" channel="inline" format="number/integer" model="58,1"/>
     </node>

@@ -11,7 +11,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="sender" channel="inline" format="text/plain" model="1"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".value"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".value"/>
     </node>
 
     <node name="startup" channel="inline" format="maintain/startup" model="">
@@ -22,7 +22,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".value"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".value"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="shutdown" channel="inline" format="live/exit" model=""/>

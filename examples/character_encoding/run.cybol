@@ -10,7 +10,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
         <node name="sender" channel="inline" format="text/plain" model="character_encoding/iso-8859-15.txt"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".text"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".text"/>
     </node>
     <!--
         Since printing on console does not display
@@ -26,7 +26,7 @@
 <!--
         <node name="message" channel="inline" format="text/plain" model="Ä"/>
 -->
-        <node name="message" channel="inline" format="path/knowledge" model=".text"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".text"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_CHARACTER_ENCODING.txt"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>

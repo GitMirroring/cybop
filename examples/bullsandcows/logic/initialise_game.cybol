@@ -1,12 +1,12 @@
 <node>
     
      <node name="set_comp_choices" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.random"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.random"/>
     </node>
 
 
     <node name="start_prompt" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.prompt_guess"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.prompt_guess"/>
     </node>
 
 

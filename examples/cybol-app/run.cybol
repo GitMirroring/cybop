@@ -7,7 +7,7 @@
     </node>
 
     <node name="initialise_app" channel="inline" format="communicate/receive" model="">
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
@@ -16,8 +16,8 @@
     </node>
 
     <node name="add" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.domain.sum"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".app.domain.summand"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.domain.sum"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".app.domain.summand"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
@@ -28,14 +28,14 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <node name="startup" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.startup"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.startup"/>
     </node>
     <node name="sense" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.sense"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.sense"/>
     </node>
 
 <!--

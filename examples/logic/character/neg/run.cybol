@@ -18,12 +18,12 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="logic/character/neg/data.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     <!-- Calculate -->
     <node name="calculate_result" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.operation"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.operation"/>
     </node>
 
     <!-- Print -->
@@ -32,7 +32,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/byte"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.result"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.result"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

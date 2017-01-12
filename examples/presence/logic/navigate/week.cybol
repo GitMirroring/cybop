@@ -2,23 +2,23 @@
 
     <!-- CAUTION! This is IMPORTANT since serialised values are appended below. -->
     <node name="empty_week" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="path/knowledge" model=".app.var.week_string"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.week_string"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="serialise_week" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.week_string"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.week"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.week_string"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.week"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
     <node name="translate_cal_to_wui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.cal_to_wui"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.cal_to_wui"/>
     </node>
 
     <node name="translate_db_to_wui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.db_to_wui.lecturers"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.db_to_wui.lecturers"/>
     </node>
 
 </node>

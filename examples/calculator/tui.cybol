@@ -1,12 +1,12 @@
 <node>
 
     <node name="main" channel="file" format="element/part" model="calculator/tui/main/window.cybol">
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.window"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.window"/>
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,24"/>
     </node>
     <node name="about" channel="file" format="element/part" model="calculator/tui/about/window.cybol">
-        <node name="super" channel="inline" format="path/knowledge" model=".app.settings.window"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.window"/>
         <node name="position" channel="inline" format="number/integer" model="0,0"/>
         <node name="size" channel="inline" format="number/integer" model="80,24"/>
     </node>

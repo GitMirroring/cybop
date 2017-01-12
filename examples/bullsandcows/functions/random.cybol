@@ -1,38 +1,38 @@
 <node>
     <node name="get_time" channel="inline" format="time/current" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
     <node name="set_seed" channel="inline" format="randomise/sow" model="">
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
     <node name="get_random1" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.comp_array.random1"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.comp_array.random1"/>
         <node name="minimum" channel="inline" format="number/integer" model="1"/>
         <node name="maximum" channel="inline" format="number/integer" model="6"/>
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
      <node name="get_random2" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.comp_array.random2"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.comp_array.random2"/>
         <node name="minimum" channel="inline" format="number/integer" model="1"/>
         <node name="maximum" channel="inline" format="number/integer" model="6"/>
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
      <node name="get_random3" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.comp_array.random3"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.comp_array.random3"/>
         <node name="minimum" channel="inline" format="number/integer" model="1"/>
         <node name="maximum" channel="inline" format="number/integer" model="6"/>
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
      <node name="get_random4" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.comp_array.random4"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.comp_array.random4"/>
         <node name="minimum" channel="inline" format="number/integer" model="1"/>
         <node name="maximum" channel="inline" format="number/integer" model="6"/>
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
     <node name="printarray1" channel="inline" format="communicate/send" model="">
@@ -40,7 +40,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.comp_array.random1"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random1"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="printarray2" channel="inline" format="communicate/send" model="">
@@ -48,7 +48,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.comp_array.random2"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random2"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="printarray3" channel="inline" format="communicate/send" model="">
@@ -56,7 +56,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.comp_array.random3"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random3"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="printarray4" channel="inline" format="communicate/send" model="">
@@ -64,7 +64,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.comp_array.random4"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.comp_array.random4"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 

@@ -11,7 +11,7 @@
         <node name="name" channel="inline" format="text/plain" model="print"/>
                 <node name="format" channel="inline" format="meta/format" model="element/part"/>
                 <node name="element" channel="inline" format="text/plain" model="part"/>
-            <node name="whole" channel="inline" format="path/knowledge" model=".domain"/>
+            <node name="whole" channel="inline" format="text/cybol-path" model=".domain"/>
     </node>
 
     <node name="init_print" channel="inline" format="communicate/receive" model="">
@@ -20,14 +20,14 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="manual/reference/print.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".domain.print"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".domain.print"/>
     </node>
     
     <node name="startup" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
     <node name="call_reference" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".domain.print"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".domain.print"/>
     </node>
     <node name="shutdown" channel="inline" format="live/exit" model=""/>
 </node>

@@ -37,24 +37,7 @@
 #include "../../../../logger/logger.c"
 
 /**
- * Gets the knowledge part by hierarchical name,
- * whereby the name may also be given as reference name.
- *
- * A name with missing prefix does not necessarily have to be
- * an error, since property (meta) names are given without prefix.
- * If the hierarchical name does not start with a prefix
- * (part separator '.' or meta separator '#'), then it is
- * used as is, in full length.
- *
- * The model may specify:
- * - direct: the element directly (e.g.: an integer or character value)
- * - knowledge: the hierarchical name of the element (e.g.: .app.gui.window.title)
- * - reference: the hierarchical name of the name of the element (e.g.: .app.name)
- *   where .app.name itself contains a hierarchical name
- *   that points to an element;
- *   at first, the part name needs to be determined within the parametres;
- *   only then, that name can be used to determine the actual compound element
- * - stack: the name of a variable on stack memory WITHOUT any . or # (e.g.: index)
+ * Gets the knowledge part by knowledge path.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source part (pointer reference)
@@ -80,8 +63,6 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The temporary source data position and source count remaining.
         void* pathd = *NULL_POINTER_STATE_CYBOI_MODEL;
         int pathc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The temporary part.
-        void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get source part format, model item.
         // CAUTION! It is necessary to find out about the format and model.
@@ -97,88 +78,9 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        //
-        // The following comparisons do, in this order, get a part model item from/as:
-        // - stack memory (a model containing the name of a value stored in stack memory)
-        // - reference knowledge memory (a model pointing to another model containing a part name)
-        // - knowledge memory (a model containing a hierarchical part name)
-        // - direct model
-        //
-
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, sfd, (void*) STACK_PATH_STATE_CYBOI_FORMAT);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // Get part as stack memory model.
-                //
-                // CAUTION! The format "path/stack" is processed as wchar_t inside.
-                // The "properties" are uninteresting, since a stack variable name
-                // cannot have constraints. That is, only the model is of interest.
-                // It contains the name of the stack variable to be retrieved.
-                //
-                // Example of a model containing a stack variable name:
-                // <node name="result" channel="inline" format="path/stack" model="break"/>
-                //
-
-                // Get temporary part from stack memory.
-                get_name_item_element((void*) &p, p3, smd, smc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                // CAUTION! For this recursive function call to work correctly,
-                // CYBOL applications have to use the format "path/knowledge"
-                // for all paths that are built up inside as string.
-                // If using the format "text/plain", the block below may NOT
-                // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
-                get_part_knowledge(p0, (void*) &p, p2, p3, p4);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, sfd, (void*) REFERENCE_PATH_STATE_CYBOI_FORMAT);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // Get part as reference knowledge.
-                //
-                // CAUTION! The format "path/reference" is processed as wchar_t inside.
-                // The "properties" are uninteresting, since a reference name cannot have
-                // constraints. That is, only the model is of interest. It contains the
-                // hierarchical name of the knowledge part to be retrieved.
-                //
-                // Example of a model pointing to another model containing a part name:
-                // model=".application.record.name"
-                //
-
-                // Copy source data position.
-                copy_pointer((void*) &pathd, (void*) &smd);
-                // Copy source count remaining.
-                copy_integer((void*) &pathc, smc);
-
-                // Get temporary part from knowledge memory.
-                // CAUTION! Hand over name as reference!
-                // CAUTION! A COPY of path data and count is forwarded here,
-                // so that the original values do NOT get changed.
-                // This is IMPORTANT since otherwise, the original data position
-                // gets increased and the count remaining decreased to zero,
-                // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge((void*) &p, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4);
-
-                // CAUTION! For this recursive function call to work correctly,
-                // cybol applications have to use the format "path/knowledge"
-                // for all paths that are built up inside as string.
-                // If using the format "text/plain", the block below may NOT
-                // be reached when comparing with KNOWLEDGE_PATH_STATE_CYBOI_FORMAT.
-                get_part_knowledge(p0, (void*) &p, p2, p3, p4);
-            }
-        }
-
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            compare_integer_equal((void*) &r, sfd, (void*) KNOWLEDGE_PATH_STATE_CYBOI_FORMAT);
+            compare_integer_equal((void*) &r, sfd, (void*) CYBOL_PATH_TEXT_STATE_CYBOI_FORMAT);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

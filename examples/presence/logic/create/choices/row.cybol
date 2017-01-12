@@ -3,46 +3,46 @@
     <!-- Reset. -->
     <!-- Initialisation IS necessary, since data might have got changed within another logic called below. -->
     <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.reset"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.reset"/>
         <node name="source" channel="inline" format="text/plain" model="choices"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_element" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.reset.stack.element"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.reset.stack.element"/>
     </node>
 
     <!-- Identification. -->
     <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_prefix"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.identify_prefix"/>
         <node name="source" channel="inline" format="text/plain" model=".app.domain."/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify_source"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.identify_source"/>
         <node name="source" channel="inline" format="text/plain" model="choices"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.identify"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.identify"/>
         <node name="source" channel="inline" format="text/plain" model="choices"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="identify_choice_number" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.number"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.identify.number"/>
     </node>
     <node name="identify_choice_root" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.identify.root"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.identify.root"/>
     </node>
     <node name="get_choice_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="path/knowledge" model=".app.var.choices.element.name"/>
-        <node name="part" channel="inline" format="path/knowledge" model="*.app.var.choices.element.root"/>
+        <node name="element" channel="inline" format="text/cybol-path" model=".app.var.choices.element.name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*.app.var.choices.element.root"/>
     </node>
 
     <node name="create_choice" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="path/knowledge" model=".app.var.choices.element.name"/>
+        <node name="name" channel="inline" format="text/cybol-path" model=".app.var.choices.element.name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="path/knowledge" model=".app.wui.index.body.choices.table"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".app.wui.index.body.choices.table"/>
     </node>
 
     <node name="initialise_choice_part" channel="inline" format="communicate/receive" model="">
@@ -51,7 +51,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="presence/wui/choices/row.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name)"/>
     </node>
     <node name="initialise_choice_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -59,31 +59,31 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="sender" channel="inline" format="text/plain" model="presence/wui/choices/row_properties.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name)"/>
     </node>
 
     <node name="overwrite_data" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name).data"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.choices.(.app.var.choices.element.name)"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name).data"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.choices.(.app.var.choices.element.name)"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_class" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name).data:class"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.choices.element.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.choices.table.(.app.var.choices.element.name).data:class"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.choices.element.name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- Loop test. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.choices.loop.index"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.choices.loop.index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.choices.loop.break"/>
-        <node name="left" channel="inline" format="path/knowledge" model=".app.var.choices.loop.index"/>
-        <node name="right" channel="inline" format="path/knowledge" model=".app.var.choices.loop.count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.choices.loop.break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model=".app.var.choices.loop.index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model=".app.var.choices.loop.count"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

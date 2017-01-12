@@ -4,7 +4,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.game_over_window"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.game_over_window"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="set_cursor" channel="inline" format="communicate/send" model="">
@@ -12,6 +12,6 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.tui.cursor"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.cursor"/>
     </node>
 </node>

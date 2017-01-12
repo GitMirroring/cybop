@@ -1,23 +1,23 @@
 <node>
     <node name="get_time" channel="inline" format="time/current" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
     <node name="set_seed" channel="inline" format="randomise/sow" model="">
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
 
     <node name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.var.commandPC"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.commandPC"/>
         <node name="minimum" channel="inline" format="number/integer" model="1"/>
         <node name="maximum" channel="inline" format="number/integer" model="9"/>
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.var.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
     </node>
 
     <node name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.var.command"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.commandPC"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.command"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.commandPC"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>

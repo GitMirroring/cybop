@@ -2,115 +2,115 @@
 
     <!--   reset variables   -->
     <node name="reset_r1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.r1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.r1"/>
         <node name="source" channel="inline" format="text/plain" model=""/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_r2" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.r2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.r2"/>
         <node name="source" channel="inline" format="text/plain" model=""/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!--   Zufallszahlen bestimmen   -->
     <node name="get_time1" channel="inline" format="time/current" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.seed"/>
     </node>
     <node name="inc_seed1_inc" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.r1_inc"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.r1_inc"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_to_seed1" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.seed"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".app.r1_inc"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.seed"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".app.r1_inc"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="set_seed1" channel="inline" format="randomise/sow" model="">
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.seed"/>
     </node>
     <node name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.random1"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.random1"/>
         <node name="minimum" channel="inline" format="number/integer" model="0"/>
         <node name="maximum" channel="inline" format="number/integer" model="8"/>
     </node>
     <node name="cast_r1" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.r1"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.random1"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.r1"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.random1"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
     <!--      -->
     <node name="get_time2" channel="inline" format="time/current" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.seed"/>
     </node>
     <node name="inc_seed2_inc" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.r2_inc"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.r2_inc"/>
         <node name="operand" channel="inline" format="number/integer" model="2"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="add_to_seed2" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.seed"/>
-        <node name="operand" channel="inline" format="path/knowledge" model=".app.r2_inc"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.seed"/>
+        <node name="operand" channel="inline" format="text/cybol-path" model=".app.r2_inc"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="set_seed2" channel="inline" format="randomise/sow" model="">
-        <node name="seed" channel="inline" format="path/knowledge" model=".app.seed"/>
+        <node name="seed" channel="inline" format="text/cybol-path" model=".app.seed"/>
     </node>
     <node name="get_random_number_2" channel="inline" format="randomise/retrieve" model="">
-        <node name="result" channel="inline" format="path/knowledge" model=".app.random2"/>
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.random2"/>
         <node name="minimum" channel="inline" format="number/integer" model="0"/>
         <node name="maximum" channel="inline" format="number/integer" model="8"/>
     </node>
     <node name="cast_r2" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.r2"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.random2"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.r2"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.random2"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
 
     <!--   Pfad für zufälliges Feld zusammenbauen   -->
     <node name="get_random_field1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.field"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/plain" model=".app.tui.window.menu."/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_random_field2" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.field"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.r1"/>
-        <node name="type" channel="inline" format="meta/type" model="path/knowledge"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.r1"/>
+        <node name="type" channel="inline" format="meta/type" model="text/cybol-path"/>
     </node>
     <node name="get_random_field3" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.field"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/plain" model="_"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_random_field4" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.field"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.r2"/>
-        <node name="type" channel="inline" format="meta/type" model="path/knowledge"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.r2"/>
+        <node name="type" channel="inline" format="meta/type" model="text/cybol-path"/>
     </node>
     <node name="get_field" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.focused_field_text"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.field"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.focused_field_text"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_field2" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.focused_field_text"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.focused_field_text"/>
         <node name="source" channel="inline" format="text/plain" model=".value"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_random_field5" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.field"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/plain" model=":mine"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- Minenfeld wird markiert  -->
     <node name="mine_set" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/knowledge" model="*.app.field"/>
-        <!--<node name="true" channel="inline" format="path/knowledge" model=".app.logic.set_mine"/>-->
-        <node name="false" channel="inline" format="path/knowledge" model=".app.logic.set_mine"/>
+        <node name="criterion" channel="inline" format="text/cybol-path" model="*.app.field"/>
+        <!--<node name="true" channel="inline" format="text/cybol-path" model=".app.logic.set_mine"/>-->
+        <node name="false" channel="inline" format="text/cybol-path" model=".app.logic.set_mine"/>
     </node>
 
 </node>

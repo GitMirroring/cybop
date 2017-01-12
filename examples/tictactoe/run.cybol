@@ -11,7 +11,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="tictactoe/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
     // Starten
@@ -125,7 +125,7 @@
 
     // Wechsel zu .startgame
     <node name="start_command" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.startgame"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.startgame"/>
     </node>
 
 </node>

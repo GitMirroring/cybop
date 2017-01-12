@@ -1,12 +1,12 @@
 <node>
     <node name="copy_to_box1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.box1"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.greeting"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.box1"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.greeting"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_to_box2" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.index.body.box2"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.domain.greeting"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.box2"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.greeting"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 </node>

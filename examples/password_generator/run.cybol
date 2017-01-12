@@ -13,7 +13,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="password_generator/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app"/>
     </node>
 
 
@@ -124,7 +124,7 @@
 
 // Wechsel zu .startpw
     <node name="start_command" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.startpw"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.startpw"/>
     </node>
 
 
