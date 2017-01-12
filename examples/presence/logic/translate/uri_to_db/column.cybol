@@ -35,7 +35,7 @@
     </node>
     <node name="get_weekday_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="path/knowledge" model=".app.var.uri_to_db.element.day"/>
-        <node name="part" channel="inline" format="path/reference" model=".app.var.uri_to_db.element.root"/>
+        <node name="part" channel="inline" format="path/knowledge" model="*.app.var.uri_to_db.element.root"/>
     </node>
 
     <node name="overwrite_db_entry" channel="inline" format="modify/overwrite" model="">

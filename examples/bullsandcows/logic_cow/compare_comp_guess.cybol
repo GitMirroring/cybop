@@ -33,8 +33,8 @@
 
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
         <node name="result" channel="inline" format="path/knowledge" model=".app.var.x_equal_y_flag"/>
-        <node name="left" channel="inline" format="path/reference" model=".app.var.comp_adress"/>
-        <node name="right" channel="inline" format="path/reference" model=".app.var.guess_adress"/>
+        <node name="left" channel="inline" format="path/knowledge" model="*.app.var.comp_adress"/>
+        <node name="right" channel="inline" format="path/knowledge" model="*.app.var.guess_adress"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

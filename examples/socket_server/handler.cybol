@@ -73,7 +73,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="path/reference" model=".app.var.path"/>
+        <node name="message" channel="inline" format="path/knowledge" model="*.app.var.path"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
@@ -87,7 +87,7 @@
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/reference" model=".app.var.path"/>
+        <node name="model" channel="inline" format="path/knowledge" model="*.app.var.path"/>
     </node>
 
 </node>

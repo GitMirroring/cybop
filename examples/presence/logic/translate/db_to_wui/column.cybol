@@ -35,7 +35,7 @@
     </node>
     <node name="get_weekday_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="path/knowledge" model=".app.var.db_to_wui_column.element.day"/>
-        <node name="part" channel="inline" format="path/reference" model=".app.var.db_to_wui_column.element.root"/>
+        <node name="part" channel="inline" format="path/knowledge" model="*.app.var.db_to_wui_column.element.root"/>
     </node>
 
     <!-- BEGIN: Optimise this in the future using: ((.path.with.reference)) -->
@@ -52,7 +52,7 @@
     </node>
     <node name="overwrite_dbday_reference_with_actual_model" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.var.unref"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.var.dbday"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.var.dbday"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 

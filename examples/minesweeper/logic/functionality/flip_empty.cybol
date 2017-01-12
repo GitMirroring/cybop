@@ -3,13 +3,13 @@
     <node name="reset_bools" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.functionality.reset_bools"/>
     </node>
-    
+
     <node name="mark_field" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/reference" model=".app.focused_field_text"/>
+        <node name="destination" channel="inline" format="path/knowledge" model="*.app.focused_field_text"/>
         <node name="source" channel="inline" format="text/plain" model=""/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
-    
+
     <!--   check corners   -->
     <node name="check_corners" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_corner"/>
@@ -30,12 +30,12 @@
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.corner4"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_corner4"/>
     </node>
-    
+
     <!--   check borders   -->
     <node name="check_borders" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_border"/>
     </node>
-    
+
     <node name="compare" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.border_top"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_border_top"/>
@@ -52,7 +52,7 @@
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.border_left"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines_border_left"/>
     </node>
-    
+
     <!--   mittlere felder   -->
     <node name="operation" channel="inline" format="logify/nor" model="">
         <node name="input" channel="inline" format="path/knowledge" model=".app.corner1"/>
@@ -94,7 +94,7 @@
         <node name="output" channel="inline" format="path/knowledge" model=".app.b4"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <node name="operation" channel="inline" format="logify/and" model="">
         <node name="input" channel="inline" format="path/knowledge" model=".app.c1"/>
         <node name="output" channel="inline" format="path/knowledge" model=".app.c2"/>
@@ -130,7 +130,7 @@
         <node name="output" channel="inline" format="path/knowledge" model=".app.b4"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <node name="compare" channel="inline" format="flow/branch" model="">
         <node name="criterion" channel="inline" format="path/knowledge" model=".app.b4"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.check_mines"/>

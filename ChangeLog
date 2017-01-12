@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace format "path/reference" with "path/knowledge" in all cybol example applications and add "*" as prefix in affected knowledge paths
+
 2017-01-11  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace memory root paths "/knowledge", "/stack", "/signal" with ".", "#", "|", respectively
@@ -26,8 +30,8 @@
 
         * Remove cybol operations of mime category "inspect/", since all kinds of memory may now be accessed via knowledge path
         * Adapt file "name_part_knowledge_deserialiser.c" to also consider stack memory, so that file "stack_knowledge_deserialiser.c" may get deleted
-        * Replace "path/stack" with "path/knowledge" in all cybol example applications
-        * Replace "path/reference" with "path/knowledge" in cybol example application "tui_control" and put "*" into path
+        * Replace format "path/stack" with "path/knowledge" in all cybol example applications
+        * Replace format "path/reference" with "path/knowledge" in cybol example application "tui_control" and add "*" as prefix in affected knowledge paths
 
 2017-01-05  Christian Heller  <christian.heller@tuxtax.de>
 

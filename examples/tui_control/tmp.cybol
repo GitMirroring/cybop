@@ -1,7 +1,7 @@
 <node>
     <!--
         CAUTION! The format is "path/knowledge" and NOT "text/plain".
-        Otherwise, parts with format "path/reference" pointing to here
+        Otherwise, parts with a reference path pointing to here
         will not get processed correctly.
         A knowledge path is treated like a character array anyway.
     -->
@@ -10,7 +10,7 @@
     <node name="command" channel="inline" format="text/plain" model=""/>
     <!--
         CAUTION! The format is "path/knowledge" and NOT "text/plain".
-        Otherwise, parts with format "path/reference" pointing to here
+        Otherwise, parts with a reference path pointing to here
         will not get processed correctly.
         A knowledge path is treated like a character array anyway.
     -->

@@ -23,7 +23,7 @@
     </node>
 
     <node name="determine_flipped_value" channel="inline" format="flow/branch" model="">
-        <node name="criterion" channel="inline" format="path/reference" model=".app.field"/>
+        <node name="criterion" channel="inline" format="path/knowledge" model="*.app.field"/>
         <node name="true" channel="inline" format="path/knowledge" model=".app.logic.functionality.flip_mine"/>
         <node name="false" channel="inline" format="path/knowledge" model=".app.logic.functionality.flip_empty"/>
     </node>

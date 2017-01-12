@@ -10,7 +10,7 @@
         <node name="size" channel="inline" format="number/integer" model="70,15"/>
         <!--
             CAUTION! The format is "path/knowledge" and NOT "text/plain".
-            Otherwise, parts with format "path/reference" pointing to here
+            Otherwise, parts with a reference path pointing to here
             will not get processed correctly.
             A knowledge path is treated like a character array anyway.
         -->

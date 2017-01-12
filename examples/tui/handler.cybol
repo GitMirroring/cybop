@@ -28,7 +28,7 @@
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
     <node name="send_command" channel="inline" format="flow/sequence" model="">
-        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
+        <!-- CAUTION! The path is NOT a reference. -->
         <node name="model" channel="inline" format="path/knowledge" model=".temporary.path"/>
     </node>
     <node name="sleep_for_some_time_so_that_the_output_can_be_read_by_the_user" channel="inline" format="run/run" model="">

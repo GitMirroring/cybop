@@ -11,7 +11,7 @@
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>
     <node name="print_mine_count" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/reference" model=".app.focused_field_text"/>
+        <node name="destination" channel="inline" format="path/knowledge" model="*.app.focused_field_text"/>
         <node name="source" channel="inline" format="path/knowledge" model=".app.mine_count_text"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>

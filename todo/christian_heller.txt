@@ -14,12 +14,11 @@
 Knowledge Path
 ______________
 
-        * Replace "path/reference" with "path/knowledge" in all cybol example applications and put "*" into path
         * Remove old mime types "path/knowledge", "path/reference", "path/stack"
         * Replace "path/knowledge" with "text/cybol-path" in all cybol example applications
         * Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
 
-        * Write short cybol example application for testing knowledge path variants
+        * Write short cybol example application for testing knowledge path variants (similar to application "index_usage")
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
         * Provide syntax for accessing model via reference path, e.g.
@@ -489,6 +488,8 @@ ___
             https://de.wikipedia.org/wiki/Content_Negotiation
         * Provide MIME sniffing if content type was not given in HTTP data; for processing order see:
             https://de.wikipedia.org/wiki/Internet_Media_Type
+            Find a list of mime types at:
+            https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
 
 Mathematics
 ___________

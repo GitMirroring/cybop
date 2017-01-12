@@ -1,4 +1,5 @@
 <node>
+
     <node name="create_test" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="test"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
@@ -12,6 +13,7 @@
         <node name="sender" channel="inline" format="text/plain" model="index_usage/test.cybol"/>
         <node name="message" channel="inline" format="path/knowledge" model=".test"/>
     </node>
+
     <!-- Write knowledge tree into file. -->
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -21,9 +23,11 @@
         <node name="message" channel="inline" format="path/knowledge" model=".test"/>
         <node name="receiver" channel="inline" format="text/plain" model="TEST_INDEX_USAGE.txt"/>
     </node>
+
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
+
     <!--
         Test knowledge path with node names.
     -->
@@ -117,6 +121,7 @@
         <node name="message" channel="inline" format="path/knowledge" model=".test.node2:c.node1:b"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <!--
         Test knowledge path with name of non-existing node.
     -->
@@ -135,6 +140,7 @@
         <node name="message" channel="inline" format="path/knowledge" model=".test.node1.nodex"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <!--
         Test knowledge path with indices.
     -->
@@ -153,6 +159,7 @@
         <node name="message" channel="inline" format="path/knowledge" model=".test.[1]:[2].[0]:[1]"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <!--
         Test reference path.
     -->
@@ -182,11 +189,13 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="path/reference"/>
-        <node name="message" channel="inline" format="path/reference" model=".test.reference"/>
+        <node name="format" channel="inline" format="meta/format" model="path/knowledge"/>
+        <node name="message" channel="inline" format="path/knowledge" model="*.test.reference"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>
 
 <!--
@@ -213,29 +222,4 @@
     | | +-node3 | text/plain | node3
     +-node3 | text/plain | node3
     +-reference | path/knowledge | .test.node2:c.node1:b
--->
-
-<!--
-    Copyright (C) 1999-2016. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.18.0 2016-12-21
-    @author Christian Heller <christian.heller@tuxtax.de>
 -->

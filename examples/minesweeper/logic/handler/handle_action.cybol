@@ -14,7 +14,7 @@
     </node>
     <node name="get_action_reference" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.temporary.action"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.temporary.action"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.temporary.action"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
@@ -25,7 +25,7 @@
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/reference" model=".app.temporary.action"/>
+        <node name="model" channel="inline" format="path/knowledge" model="*.app.temporary.action"/>
     </node>
 
     <!--<node name="send_tui" channel="inline" format="communicate/send" model="">

@@ -23,7 +23,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -34,7 +34,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
@@ -60,7 +60,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -71,7 +71,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
@@ -97,7 +97,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -108,7 +108,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
@@ -134,7 +134,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -144,7 +144,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -155,7 +155,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">
@@ -181,7 +181,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -191,7 +191,7 @@
     </node>
     <node name="get_mine_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.mine_path"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_mine_path" channel="inline" format="modify/append" model="">
@@ -202,7 +202,7 @@
 
     <node name="check_mine" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.bool"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.mine_path"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.mine_path"/>
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="add_mine_if_present" channel="inline" format="flow/branch" model="">

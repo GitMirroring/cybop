@@ -21,7 +21,7 @@
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/reference" model=".app.gui.action"/>
+        <node name="model" channel="inline" format="path/knowledge" model="*.app.gui.action"/>
     </node>
 </node>
 

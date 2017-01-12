@@ -12,7 +12,7 @@
     </node>
     <node name="get_action_reference" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="path/knowledge" model=".app.tmp.action"/>
-        <node name="source" channel="inline" format="path/reference" model=".app.tmp.action"/>
+        <node name="source" channel="inline" format="path/knowledge" model="*.app.tmp.action"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
@@ -23,8 +23,8 @@
         The "flow/sequence" operation ensures that the given model is executed directly.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">
-        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
-        <node name="model" channel="inline" format="path/reference" model=".app.tmp.action"/>
+        <!-- CAUTION! The path is a REFERENCE. -->
+        <node name="model" channel="inline" format="path/knowledge" model="*.app.tmp.action"/>
     </node>
 
 </node>

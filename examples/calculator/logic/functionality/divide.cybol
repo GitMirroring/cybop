@@ -18,7 +18,7 @@
     </node>
 
     <node name="execute_stored_operation" channel="inline" format="flow/sequence" model="">
-        <!-- CAUTION! The format is "path/knowledge" and NOT "path/reference". -->
+        <!-- CAUTION! The path is NOT a reference. -->
         <node name="model" channel="inline" format="path/knowledge" model=".app.tmp.operation"/>
     </node>
 
