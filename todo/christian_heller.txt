@@ -15,6 +15,12 @@ Knowledge Path
 ______________
 
         * ?? Adapt all cybol example applications using stack variables by adding a knowledge path prefix "#" ??
+        * NO, BETTER use "#" as prefix for a path pointing to an index as integer number, so that conversion becomes superfluous in cybol, e.g.
+            .model.[index_as_string]
+            .model.[#index_as_integer]
+            .model.[#*index_as_reference_to_an_integer]
+            .model:[#**:some_property.subnode]
+
         * Write short cybol example application for testing knowledge path variants (similar to application "index_usage")
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
