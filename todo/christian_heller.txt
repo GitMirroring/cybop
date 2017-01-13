@@ -21,6 +21,8 @@ ______________
             .model.[#*index_as_reference_to_an_integer]
             .model:[#**:some_property.subnode]
 
+        * Add handling for properties part itself, NOT a concrete property, i.e. with colon at end, e.g. ".model.item:", in order to get properties count via cybol operation "access/count"
+
         * Write short cybol example application for testing knowledge path variants (similar to application "index_usage")
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
             --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
