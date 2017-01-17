@@ -36,50 +36,48 @@
 #include "../../../../executor/searcher/selector/knowledge/begin_expression_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
+//
+// Forward declarations.
+//
+
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
+
 /**
  * Deserialises a knowledge part.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the source whole part element index (one of:
+ * @param p4 the knowledge memory part
+ * @param p5 the stack memory item
+ * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
- * @param p5 the knowledge memory part
- * @param p6 the stack memory item
- * @param p7 the internal memory data
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
 void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
 
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The new whole part.
+    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Get new whole part.
+    //
+    // CAUTION! Forward the source whole part element index p7 as argument here,
+    // since it identifies the memory to retrieve the part from.
+    deserialise_knowledge((void*) &p, p1, p2, p3, p4, p5, p6, p7);
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        select_knowledge_expression_begin(p0, p1, p2, p3, p4, p5, p6, p7);
-    }
+    // Process knowledge path hierarchy recursively further down,
+    // using new whole part.
+    //
+    // In case no further elements follow, the last part retrieved will be taken as result.
+    //
+    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+    // but NULL instead, since the next separator is unknown yet.
+    deserialise_knowledge(p0, (void*) &p, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* PART_KNOWLEDGE_DESERIALISER_SOURCE */

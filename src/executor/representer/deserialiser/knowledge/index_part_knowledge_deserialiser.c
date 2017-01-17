@@ -44,21 +44,22 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises a knowledge part by index.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the source whole part element index (one of:
+ * @param p4 the knowledge memory part
+ * @param p5 the stack memory item
+ * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
- * @param p5 the knowledge memory part
- * @param p6 the stack memory item
- * @param p7 the internal memory data
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
 void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 

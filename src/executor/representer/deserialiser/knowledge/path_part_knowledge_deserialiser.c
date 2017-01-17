@@ -45,40 +45,27 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises a knowledge part by path.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the source whole part element index (one of:
+ * @param p4 the knowledge memory part
+ * @param p5 the stack memory item
+ * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
- * @param p5 the knowledge memory part
- * @param p6 the stack memory item
- * @param p7 the internal memory data
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
 void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part path.");
 
-/*??
-fwprintf(stdout, L"TEST deserialise path count remaining: %i\n", *((int*) p3));
-fwprintf(stdout, L"TEST deserialise path data: %ls\n", (wchar_t*) *((void**) p2));
-*/
-
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The path string data, count.
-    // CAUTION! This variable IS necessary, since the knowledge path data
-    // position parametre is a pointer reference that cannot be handed over
-    // to some of the functions below, which expect a simple pointer.
-    // Also, the count has to be incremented below.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The name part model item.
@@ -86,127 +73,40 @@ fwprintf(stdout, L"TEST deserialise path data: %ls\n", (wchar_t*) *((void**) p2)
     // The name part model item data, count.
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The knowledge part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    // Initialise path string data.
-    copy_pointer((void*) &sd, p2);
+    // If a ")" delimiter is found, then the break flag is set to "true".
+    // Otherwise, the position is just moved by one character forward.
+    select_knowledge_path_end((void*) &b, p2, p3);
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // The closing parenthesis ")" indicating the end of
+    // the path string data WAS found.
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
+    // Get name part.
+    //
+    // CAUTION! Use the KNOWLEDGE MEMORY p4 as source whole part here,
+    // since this is a new path whose elements are to be processed
+    // starting from the knowledge memory tree root node.
+    //
+    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+    // but NULL instead, since the next separator is unknown yet.
+    deserialise_knowledge((void*) &n, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+    // Get name part model item.
+    copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get name part model item data, count.
+    copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        // If a ")" delimiter is found, then the break flag is set to "true".
-        // Otherwise, the position is just moved by one character forward.
-        select_knowledge_path_end((void*) &b, p2, p3);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-/*??
-fwprintf(stdout, L"TEST deserialise path sc: %i\n", sc);
-fwprintf(stdout, L"TEST deserialise path sd: %ls\n", (wchar_t*) sd);
-*/
-
-            // The closing parenthesis ")" indicating the end of
-            // the path string data WAS found.
-
-            // Get name part with path from source whole part model OR properties,
-            // depending on the source whole part element index p4.
-            deserialise_knowledge((void*) &n, p5, (void*) &sd, (void*) &sc, p5, p6, p7);
-            // Get name part model item.
-            copy_array_forward((void*) &nm, n, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-            // Get name part model item data, count.
-            copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-/*??
-fwprintf(stdout, L"TEST deserialise path nmc: %i\n", *((int*) nmc));
-fwprintf(stdout, L"TEST deserialise path nmd: %ls\n", (wchar_t*) nmd);
-*/
-
-            // Get part with name from source whole part model OR properties,
-            // depending on the source whole part element index p4.
-            //
-            // CAUTION! Hand over p (as pointer reference) instead of p0 here,
-            // since this might NOT be the final name element yet.
-            // Otherwise, some part in between the hierarchy,
-            // which is a parent of the searched part,
-            // might wrongly get returned as result,
-            // e.g. if the last name does not exist.
-            // In order to avoid this, the p0 result parametre
-            // gets only assigned the final part elsewhere.
-            get_name_part_element((void*) &p, p1, nmd, nmc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-/*??
-fwprintf(stdout, L"TEST deserialise path p: %i\n", p);
-*/
-
-            // If a "." or "#" delimiter is found, then the flag is set to "true".
-            // CAUTION! This is done here in a "peek ahead" manner.
-            // The position is NOT moved by one character forward.
-            select_knowledge_part_end((void*) &r, p2, p3);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // This part IS followed by a child part.
-
-                // Process knowledge hierarchy recursively further down.
-                //
-                // CAUTION! A part node of the source p1 was assigned
-                // to p above, so that p now becomes the source.
-                // If it has a child part, then that will be assigned to the
-                // destination. Otherwise, the destination remains UNTOUCHED.
-                deserialise_knowledge(p0, p, p2, p3, p5, p6, p7);
-
-            } else {
-
-                // This part is NOT followed by a child part.
-
-                // Copy pointer reference of the knowledge part retrieved
-                // to the destination part, since this IS the final name element.
-                //
-                // CAUTION! If no knowledge part could be found above,
-                // i.e. it is null, then leave the destination UNTOUCHED.
-                if (p != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    copy_pointer(p0, (void*) &p);
-                }
-            }
-
-            // CAUTION! A break statement is NOT needed here,
-            // since the loop stops in the next cycle,
-            // because the remaining count is zero.
-            // The variables sd and sc are not used there,
-            // so that errors may not occur.
-
-        } else {
-
-            // The closing parenthesis ")" indicating the end of
-            // the path string data was NOT found.
-
-            // Increment path string count.
-            sc++;
-        }
-    }
+    // Process knowledge path hierarchy recursively further down,
+    // using new whole part.
+    //
+    // CAUTION! Forward the source whole part element index p7 as argument here,
+    // since it identifies the memory to retrieve the part from.
+    // The memory delimiter was determined before and
+    // is still valid for the part name used here.
+    select_knowledge_memory(p0, p1, nmd, nmc, p5, p7);
 }
 
 /* PATH_PART_KNOWLEDGE_DESERIALISER_SOURCE */

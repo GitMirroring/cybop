@@ -40,14 +40,18 @@
  * Deserialises a knowledge path retrieving the specified part.
  *
  * @param p0 the destination name or part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
  * @param p4 the knowledge memory part
  * @param p5 the stack memory item
  * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge.");
 
@@ -75,7 +79,7 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             break;
         }
 
-        select_knowledge_part_begin(p0, p1, p2, p3, p4, p5, p6);
+        select_knowledge_part_begin(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
 

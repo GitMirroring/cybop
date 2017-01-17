@@ -18,6 +18,15 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-17  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Redesign knowledge deserialiser and knowledge selector
+
+2017-01-13  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Decide to NOT handle properties container itself, e.g. with colon at end like ".model.item:", since they are not a part, but just an item
+            (might have been useful to get properties count via cybol operation "access/count")
+
 2017-01-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace format "path/reference" with "path/knowledge" in all cybol example applications and add "*" as prefix in affected knowledge paths

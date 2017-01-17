@@ -14,14 +14,29 @@
 Knowledge Path
 ______________
 
+        * CONTINUE: Look through in "*_knowledge_deserialiser": index + path (rest is DONE already)
+            see file "begin_part_knowledge_selector.c"
+        * Hand over REFERENCE to file "knowledge_deserialiser.c" (search in all code), in files:
+            tester/finder_tester.c
+            controller/handler.c
+            executor/accessor/getter/part/knowledge_part_getter.c
+        * Thoughts:
+            - searching closing parenthesis is NOT right, since another opening parenthesis may follow to which the closing parenthesis belongs
+            - better use a "tree count" variable handed over as argument, to count the hierarchy level
+
+        * Make cybol example application "project_overview" work as soon as knowledge reference in stack variable gets handled
+            search for "TODO" in file "logic/generate/page.cybol"
+            see task "knowledge path" above
+            see local testwise copy, at work
+        * Add project overview of university of cooperative education as cybol example application to cybop svn ??
+
         * ?? Adapt all cybol example applications using stack variables by adding a knowledge path prefix "#" ??
         * NO, BETTER use "#" as prefix for a path pointing to an index as integer number, so that conversion becomes superfluous in cybol, e.g.
+            .model.[5]
             .model.[index_as_string]
             .model.[#index_as_integer]
             .model.[#*index_as_reference_to_an_integer]
             .model:[#**:some_property.subnode]
-
-        * Add handling for properties part itself, NOT a concrete property, i.e. with colon at end, e.g. ".model.item:", in order to get properties count via cybol operation "access/count"
 
         * Write short cybol example application for testing knowledge path variants (similar to application "index_usage")
         * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
@@ -61,11 +76,6 @@ ______________
 
 Stack
 _____
-
-        * Make cybol example application "project_overview" work as soon as knowledge reference in stack variable gets handled
-            see task "knowledge path" above
-            see local testwise copy, at work
-        * Add project overview of university of cooperative education as cybol example application to cybop svn ??
 
         CAUTION! The following does not function yet (example "counter_stack_deep") -- test why
         * Replace function call "handle_properties" with "append_item_element" in file "element_part_handler.c"

@@ -66,8 +66,9 @@
  * @param p0 the break flag
  * @param p1 the knowledge path data position (pointer reference)
  * @param p2 the knowledge path count remaining
+ * @param p3 the move flag
  */
-void select_knowledge_part_end(void* p0, void* p1, void* p2) {
+void select_knowledge_part_end(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part end.");
 
@@ -78,7 +79,7 @@ void select_knowledge_part_end(void* p0, void* p1, void* p2) {
 
         // CAUTION! Do NOT move the position, i.e. hand over FALSE as last parametre here.
         // The reason is that a potential new sub part's name or model or property, indicated by
-        // a "." or "#" character, respectively, yet have to be detected in another function.
+        // a "." or ":" character, respectively, have to be detected once again in another function.
         detect_array((void*) &r, p1, p2, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
@@ -92,8 +93,23 @@ void select_knowledge_part_end(void* p0, void* p1, void* p2) {
 
         // CAUTION! Do NOT move the position, i.e. hand over FALSE as last parametre here.
         // The reason is that a potential new sub part's name or model or property, indicated by
-        // a "." or "#" character, respectively, yet have to be detected in another function.
+        // a "." or ":" character, respectively, have to be detected once again in another function.
         detect_array((void*) &r, p1, p2, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PROPERTY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            // Set break flag.
+            copy_integer(p0, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        }
+    }
+
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // CAUTION! DO move the position, i.e. hand over TRUE as last parametre here.
+        // The reason is that a path end delimiter ")" has been detected.
+        // It does NOT have to be detected once again so that
+        // parsing should continue with the next character.
+        detect_array((void*) &r, p1, p2, (void*) END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, p3);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

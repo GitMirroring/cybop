@@ -41,20 +41,24 @@
 // Forward declarations.
 //
 
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
+void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
  * Deserialises a knowledge reference.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
  * @param p4 the knowledge memory part
  * @param p5 the stack memory item
  * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge reference.");
 
@@ -67,7 +71,7 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get knowledge path part.
-    deserialise_knowledge((void*) &p, p1, p2, p3, p4, p5, p6);
+    deserialise_knowledge((void*) &p, p1, p2, p3, p4, p5, p6, p7);
 
     // Get knowledge path part model item.
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -77,7 +81,12 @@ void deserialise_knowledge_reference(void* p0, void* p1, void* p2, void* p3, voi
 
     // Get destination part
     // using knowledge path part determined above.
-    deserialise_knowledge(p0, p1, (void*) &pmd, pmc, p4, p5, p6);
+    //
+    // CAUTION! Hand over pmd as REFERENCE.
+    //
+    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+    // but NULL instead, since the next separator is unknown yet.
+    deserialise_knowledge(p0, p1, (void*) &pmd, pmc, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 }
 
 /* REFERENCE_KNOWLEDGE_DESERIALISER_SOURCE */

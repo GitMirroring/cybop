@@ -69,14 +69,18 @@
  * Selects the knowledge part begin.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
  * @param p4 the knowledge memory part
  * @param p5 the stack memory item
  * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
+ *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -88,17 +92,19 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
         // CAUTION! The order of comparisons IS IMPORTANT.
         //
         // Memory root characters have to be tested first,
-        // with simple comparison functions.
+        // with simple COMPARISON functions, NOT detection.
+        // The reason is that the count/length matters here.
         //
         // Only afterwards, further comparisons may be done
         // using the function "detect_array",
         // which moves the data position pointer automatically.
         //
-        // The order of these remaining comparisons does not matter
+        // The order of these remaining comparisons does NOT matter
         // and was chosen in a way to favour speed,
         // that is characters often used are standing on top.
-        // The only exception are stack variables, which are
-        // taken as last option, if nothing else applies.
+        //
+        // The only exception are pure names without prefix,
+        // which are taken as last option, if nothing else applies.
         //
 
         // The comparison result.
@@ -151,13 +157,25 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+            detect_array((void*) &r, p2, p3, (void*) STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) STACK_MEMORY_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The "#" indicates that a stack variable name begins.
+
+                deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
             detect_array((void*) &r, p2, p3, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MODEL_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // The "." indicates that a sub part's model begins.
 
-                deserialise_knowledge_part(p0, p1, p2, p3, (void*) MODEL_PART_STATE_CYBOI_NAME, p4, p5, p6);
+                deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) MODEL_PART_STATE_CYBOI_NAME);
             }
         }
 
@@ -169,7 +187,29 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
                 // The ":" indicates that a sub part's property begins.
 
-                deserialise_knowledge_part(p0, p1, p2, p3, (void*) PROPERTIES_PART_STATE_CYBOI_NAME, p4, p5, p6);
+                deserialise_knowledge_part(p0, p1, p2, p3, p4, p5, p6, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            detect_array((void*) &r, p2, p3, (void*) BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                deserialise_knowledge_part_index(p0, p1, p2, p3, p4, p5, p6, p7);
+            }
+        }
+
+        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+            detect_array((void*) &r, p2, p3, (void*) BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The "(" indicates that a nested path containing a name begins.
+
+                deserialise_knowledge_part_path(p0, p1, p2, p3, p4, p5, p6, p7);
             }
         }
 
@@ -181,16 +221,18 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
 
                 // The "*" indicates that a reference begins.
 
-                deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5, p6);
+                deserialise_knowledge_reference(p0, p1, p2, p3, p4, p5, p6, p7);
             }
         }
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // A special character indicating a model or property was NOT found.
-            // Therefore, the following characters are supposed to represent a stack variable name.
+            // A special prefix character was NOT found.
+            // Therefore, the following characters are supposed to represent a name.
+            // If there are no further characters, then the source whole part
+            // itself will get copied to become the destination part.
 
-            deserialise_knowledge_part(p0, p1, p2, p3, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, p4, p5, p6);
+            deserialise_knowledge_part_name(p0, p1, p2, p3, p4, p5, p6, p7);
         }
 
     } else {

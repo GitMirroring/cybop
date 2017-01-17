@@ -38,51 +38,39 @@
 #include "../../../../executor/searcher/selector/knowledge/end_part_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
-//
-// Forward declarations.
-//
-
-void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
-
 /**
  * Gets a knowledge part by name.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part
+ * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the source whole part element index (one of:
+ * @param p4 the knowledge memory part
+ * @param p5 the stack memory item
+ * @param p6 the internal memory data
+ * @param p7 the source whole part element index:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
- *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties)
- * @param p5 the knowledge memory part
- * @param p6 the stack memory item
- * @param p7 the internal memory data
+ *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
+ *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
 void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
 
-/*??
-fwprintf(stdout, L"TEST deserialise name path data: %ls\n", (wchar_t*) *((void**) p2));
-fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
-*/
-
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The name string data, count.
+    // The name data, count.
     // CAUTION! This variable IS necessary, since the knowledge path data
     // position parametre is a pointer reference that cannot be handed over
     // to some of the functions below, which expect a simple pointer.
     // Also, the count has to be incremented below.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The knowledge part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Initialise name string data.
-    copy_pointer((void*) &sd, p2);
+    // Initialise name data.
+    copy_pointer((void*) &nd, p2);
 
     if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -102,112 +90,24 @@ fwprintf(stdout, L"TEST deserialise name path data: %i\n", *((int*) p3));
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // This part is NOT followed by a child part.
+            // The knowledge path end has been reached
+            // or a special delimiter was found.
 
-            // CAUTION! The function "select_knowledge_part_end" below
-            // may have decremented the remaining count,
-            // if neither a "." nor a ":" delimiter was found.
-            //
-            // This is regularly the case if a part was the
-            // LAST IN THE HIERARCHY, having no further
-            // child nodes to follow in the name.
-
-            compare_integer_equal((void*) &r, p4, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-
-            // CAUTION! Hand over p0 instead of p below,
-            // since this IS the final name element.
-            //
-            // CAUTION! In case the remaining count is too small
-            // or zero (name does not exist) right at the beginning,
-            // then no knowledge part could be found before
-            // and therefore, the destination remains UNTOUCHED.
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // The part is to be retrieved from stack memory.
-
-                // Get part with name from stack memory.
-                // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
-                get_name_item_element(p0, p6, sd, (void*) &sc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            } else {
-
-                // The part is to be retrieved from knowledge memory.
-
-                // Get part with name from source whole part model OR properties,
-                // depending on the source whole part element index p4.
-                get_name_part_element(p0, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
-
-            // CAUTION! There is NO USE in processing the knowledge hierarchy
-            // recursively further down here, since the part was the
-            // LAST IN THE HIERARCHY, having no further
-            // child nodes to follow in the knowledge path.
+            // Get part with the given name
+            // from the memory identified by p7.
+            select_knowledge_memory(p0, p1, nd, (void*) &nc, p4, p5, p6, p7);
 
             break;
         }
 
-        // If a "." or ":" delimiter is found, then the break flag is set to "true".
-        // CAUTION! This is done here in a "peek ahead" manner.
-        // The position is NOT moved by one character forward.
-        select_knowledge_part_end((void*) &b, p2, p3);
+        // Search for a delimiter.
+        select_knowledge_part_end_move((void*) &b, p2, p3, p7);
 
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // This part IS followed by a child part.
-
-            compare_integer_equal((void*) &r, p4, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
-
-            // CAUTION! Hand over p (as pointer reference) instead of p0 below,
-            // since this is NOT the final name element yet.
-            // Otherwise, some part in between the hierarchy,
-            // which is a parent of the searched part,
-            // might wrongly get returned as result,
-            // e.g. if the last name does not exist.
-            // In order to avoid this, the p0 result parametre
-            // gets only assigned the final part in the
-            // block with break condition further above.
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // The part is to be retrieved from stack memory.
-
-                // Get part with name from stack memory.
-                // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
-                get_name_item_element((void*) &p, p6, sd, (void*) &sc, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-
-            } else {
-
-                // The part is to be retrieved from knowledge memory.
-
-                // Get part with name from source whole part model OR properties,
-                // depending on the source whole part element index p4.
-                get_name_part_element((void*) &p, p1, sd, (void*) &sc, p4, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
-
-            // Process knowledge hierarchy recursively further down.
-            //
-            // CAUTION! A part node of the source p1 was assigned
-            // to p above, so that p now becomes the source.
-            // If it has a child part, then that will be assigned to the
-            // destination. Otherwise, the destination remains UNTOUCHED.
-            deserialise_knowledge(p0, p, p2, p3, p5, p6, p7);
-
-            // CAUTION! This break statement is IMPORTANT.
-            // Without it, memory access errors will occur.
-            // The sd and sc were already used to get a part above, but
-            // without this break, they would be used again in the next
-            // loop cycle's break condition (at the beginning of the loop),
-            // leading to an error, since they are outdated.
-            break;
-
-        } else {
-
-            // The "." or ":" delimiter indicating the end of
-            // the part name string data was NOT found.
-
-            // Increment name string count.
-            sc++;
+            // Increment name count,
+            // since a special delimiter was NOT found.
+            nc++;
         }
     }
 }

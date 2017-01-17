@@ -108,7 +108,7 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
                 // This is IMPORTANT since otherwise, the original data position
                 // gets increased and the count remaining decreased to zero,
                 // so that knowledge access works only once, but not anymore afterwards.
-                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4);
+                deserialise_knowledge(p0, p2, (void*) &pathd, (void*) &pathc, p2, p3, p4, *NULL_POINTER_STATE_CYBOI_MODEL);
             }
         }
 
