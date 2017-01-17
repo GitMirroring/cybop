@@ -28,7 +28,6 @@ ______________
             search for "TODO" in file "logic/generate/page.cybol"
             see task "knowledge path" above
             see local testwise copy, at work
-        * Add project overview of university of cooperative education as cybol example application to cybop svn ??
 
         * ?? Adapt all cybol example applications using stack variables by adding a knowledge path prefix "#" ??
         * NO, BETTER use "#" as prefix for a path pointing to an index as integer number, so that conversion becomes superfluous in cybol, e.g.
