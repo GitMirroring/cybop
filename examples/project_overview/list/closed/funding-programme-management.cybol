@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Funding Programme Management"/>
+    <node name="description" channel="inline" format="text/plain" model="Webanwendung zur Erfassung von Stiftungen für Projekte des Gebäudemanagements im Quartier Leipzig-Grünau"/>
+    <node name="technology" channel="inline" format="text/plain" model="HTML, CSS, Apache, PHP, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="MIT"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/gluecksbaerchi/fundingProgrammeManagement"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2014: Carolin Gümpel <carolin.guempel@cs14-2.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

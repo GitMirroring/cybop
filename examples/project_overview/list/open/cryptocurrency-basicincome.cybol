@@ -1,0 +1,22 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="cryptocurrency-basicincome"/>
+    <node name="description" channel="inline" format="text/plain" model="Kryptowährung: Grundeinkommensbezieherregistrierung (Weltweite Registrierung von Menschen über Telefonnummer)"/>
+    <node name="technology" channel="inline" format="text/plain" model="Ruby on Rails, Ruby, OverSIP, SIP, PostgreSQL; Quellcodeverwaltung mit Mercurial; Projektverwaltung mit Redmine"/>
+    <node name="licence" channel="inline" format="text/plain" model="Apache2"/>
+    <node name="portal" channel="inline" format="text/plain" model=""/>
+    <node name="contact" channel="inline" format="text/plain" model="Prof. Christian Heller.
+        Auf Wunsch kann das Entwicklungs-Team 6 h pro Woche Begleitung durch den Initiator des Cryptocurrency-Projekts erhalten.
+        Er ist Informatiker (MSc), hat > 10 Jahre Berufserfahrung und u. A. bei Google gearbeitet.
+        In Leipzig lebend, steht er für Fragen selbstverständlich zur Verfügung."/>
+    <node name="remark" channel="inline" format="text/plain" model="Eine Kryptowährung ähnlich zu BitCoin, aber anders realisiert als Fließendes Geld mit Umlaufimpuls und weltweitem (geringen) Grundeinkommen.
+        Ein zu lösendes Teilproblem ist, einerseits möglichst vielen Menschen die Registrierung zum Grundeinkommen zu ermöglichen,
+        andererseits zu verhindern, dass eine Person sich tausendfach registrieren kann und somit tausendfach Grundeinkommen beziehen könnte.
+        Eine neuartige Methode ist, dass es nur eine Registrierung pro Telefonnummer geben kann.
+        Zu diesem Zweck klingelt der Teilnehmer die Grundeinkommensregistrierungswebsite mit seinem Telefon an,
+        übermittelt damit seine Telefonnummer und beweist somit, dass er Verfügungsgewalt über diese Telefonnummer und ein gewisses Telefon-Guthaben hat.
+        Umgesetzt wird das ganze mit einem SIP-Account, der von der Ruby-on-Rails-Anwendung über OverSIP angesprochen wird.
+        Ein echter SIP-Account mit echter öffentlicher Telefonnummer wird gestellt.
+        http://leipzig.socialimpactlab.eu/index.php?id=922"/>
+
+</node>

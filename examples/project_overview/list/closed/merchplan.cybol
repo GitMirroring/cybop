@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Merchandise Planning and Control System (merchplan)"/>
+    <node name="description" channel="inline" format="text/plain" model="Kaufe, lagere, verkaufe und verwalte Rezepte und Lebensmittel in der Mensa"/>
+    <node name="technology" channel="inline" format="text/plain" model="C#, Mono, PostgreSQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="Quellen bei Prof. Christian Heller"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model="The University of Cooperative Education Leipzig hosts a refectory which is just one of many run by the Studentenwerk Leipzig. All of its subsidiaries use special software for buying, storing and selling food, receipes for cooking and utilities for other registration and planning issues. The project's aim is to one day be able to replace the commercial application with a Free/ Open Source Software (FOSS) solution, that can easily be adapted to in-house requirements. A first task is to analyse the domain and create a corresponding technical specification. Mrs. Schlange (refectory chief), who has offered her assistance, may be contacted and queried. The current Merchandise Planning and Control System (MPCS) consists of several modules: one for buying, another for warehousing, further modules for selling and billing, even one that contains receipes and gives automatic recommendations for cooking."/>
+
+</node>

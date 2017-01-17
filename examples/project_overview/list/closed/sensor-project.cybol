@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Sensor-Project"/>
+    <node name="description" channel="inline" format="text/plain" model="Environment displaying sensor values"/>
+    <node name="technology" channel="inline" format="text/plain" model="Arduino IDE, Bash, PHP, HTML, CSS, JavaScript, Docker, Icinga2, MariaDB"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/lblissett/Sensor-Project"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2014: Jörg Broy <Joerg.Broy@cs14-1.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

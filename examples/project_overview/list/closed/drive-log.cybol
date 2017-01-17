@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Drive Log"/>
+    <node name="description" channel="inline" format="text/plain" model="Mobile App für den Fahrassistenten der Firma ekoio"/>
+    <node name="technology" channel="inline" format="text/plain" model="Android, iOS, ekoio Webservice"/>
+    <node name="licence" channel="inline" format="text/plain" model="BSD"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://gitlab.com/kngp14/drive-log-android, https://gitlab.com/kngp14/drive-log-ios"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2014: Kevin Klein <kevin.klein@cs14-1.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="gefördert durch die IHK Leipzig"/>
+
+</node>

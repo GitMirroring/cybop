@@ -1,0 +1,26 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="cryptocurrency-core"/>
+    <node name="description" channel="inline" format="text/plain" model="Kryptowährung: Kern-Bibliothek"/>
+    <node name="technology" channel="inline" format="text/plain" model="JRuby, MsgPack; Quellcodeverwaltung mit Mercurial; Projektverwaltung mit Redmine"/>
+    <node name="licence" channel="inline" format="text/plain" model="Apache2"/>
+    <node name="portal" channel="inline" format="text/plain" model=""/>
+    <node name="contact" channel="inline" format="text/plain" model="Prof. Christian Heller.
+        Auf Wunsch kann das Entwicklungs-Team 6 h pro Woche Begleitung durch den Initiator des Cryptocurrency-Projekts erhalten.
+        Er ist Informatiker (MSc), hat > 10 Jahre Berufserfahrung und u. A. bei Google gearbeitet.
+        In Leipzig lebend, steht er für Fragen selbstverständlich zur Verfügung."/>
+    <node name="remark" channel="inline" format="text/plain" model="Eine Kryptowährung ähnlich zu BitCoin, aber anders realisiert als Fließendes Geld mit Umlaufimpuls und weltweitem (geringen) Grundeinkommen.
+        Ein zu lösendes Teilproblem ist, eine Bibliothek für Anwendungen bereitzustellen.
+        Die Bibliothek implementiert alle Funktionen, die für die Teilnehmen an der Cryptocurrency nötig sind.
+        Dazu gehören:
+        1 Generieren von kryptographischen Identitäten,
+        2 Generieren von Transaktionen,
+        3 Überprüfen von Transaktionen auf Korrektheit (sowohl dass die digitale Signatur stimmt als auch dass das zu belastende Konto genügend Deckung hat),
+        4 Auffinden von anderen Teilnehmern des Cryptocurrency-Netzwerks,
+        5 Kommunikation mit anderen Teilnehmern des Cryptocurrency-Netzwerks,
+        6 Automatische Verringerung des Guthabens zur Finanzierung des Grundeinkommens,
+        7 Gemeinschaftliche Bestätigung der angefallenen Transaktionen (Erstellung eines so genannten Blocks), regelmäßige Gutschrift auf ein Grundeinkommens-Sammelkonto,
+        8 Verarbeitung von Grundeinkommens-Auszahlungs-Transaktionen.
+        http://leipzig.socialimpactlab.eu/index.php?id=922"/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="SoCoBo"/>
+    <node name="description" channel="inline" format="text/plain" model="Social Cook Book"/>
+    <node name="technology" channel="inline" format="text/plain" model="HTML, CSS, JavaScript, Polymer, Firebase Backend as a Service (BaaS)"/>
+    <node name="licence" channel="inline" format="text/plain" model="MIT"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/flashback2k14/socobo-project"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2013: Thomas Fiedler <thfied@gmail.com>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

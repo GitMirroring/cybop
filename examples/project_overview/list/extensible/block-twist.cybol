@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="BlockTwist"/>
+    <node name="description" channel="inline" format="text/plain" model="Tetris-Spiel"/>
+    <node name="technology" channel="inline" format="text/plain" model="Delphi (Object Pascal)"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="Quellen bei Prof. Christian Heller"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2013: Dmitry Brodskiy <dmitry.brodskiy@cs13-1.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

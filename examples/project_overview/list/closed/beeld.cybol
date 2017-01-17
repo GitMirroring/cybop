@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Beeld"/>
+    <node name="description" channel="inline" format="text/plain" model="PDF Network Beamer zur Verteilung von PDF-Folien beim seitenweisen Umschalten vom Server zu Clients"/>
+    <node name="technology" channel="inline" format="text/plain" model="Java, Java FX GUI, PDFRenderer library (LGPL), log4j library (Apache Licence)"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU LGPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://sourceforge.net/projects/beeld/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2007: Martin Röbert <martin.roebert@it2007.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="http://www.beeld.de/"/>
+
+</node>

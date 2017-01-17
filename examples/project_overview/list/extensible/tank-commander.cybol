@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="TankCommander"/>
+    <node name="description" channel="inline" format="text/plain" model="Web-basiertes Spiel"/>
+    <node name="technology" channel="inline" format="text/plain" model="Python, HTML, CSS, JavaScript (Dojo Framework)"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv2"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/TankCommander"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Markus Hinkelmann <markus@mhinkelmann.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

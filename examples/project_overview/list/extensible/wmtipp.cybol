@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="WM-Tippspiel"/>
+    <node name="description" channel="inline" format="text/plain" model="Tippspiel zur Fußballweltmeisterschaft 2014 in Brasilien zur Erfassung der Tipps von Benutzern auf Spiele und Auswertung mit Punktevergabe"/>
+    <node name="technology" channel="inline" format="text/plain" model="PHP, AJAX, HTML, CSS, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="Quellen bei Prof. Christian Heller"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Sebastian Holtz <sebastian.holtz@it2011.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

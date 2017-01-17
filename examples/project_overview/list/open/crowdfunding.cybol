@@ -1,0 +1,23 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="crowdfunding"/>
+    <node name="description" channel="inline" format="text/plain" model="Crowdfunding Formular als CMS-Modul"/>
+    <node name="technology" channel="inline" format="text/plain" model="CMS, PHP"/>
+    <node name="licence" channel="inline" format="text/plain" model="Open Source, depending on CMS"/>
+    <node name="portal" channel="inline" format="text/plain" model=""/>
+    <node name="contact" channel="inline" format="text/plain" model="Dr. Ina Hoyer"/>
+    <node name="remark" channel="inline" format="text/plain" model="Projekte mit benötigter Investitionssumme als Übersicht darstellen.
+        Potentielle Spender/Unterstützer sollen eintragen können, wieviel Geld sie spenden würden.
+        Die Spende soll dann von der Gesamtinvestitionssumme abgezogen werden, so dass für alle sichtbar ist, wieviel Geld noch benötigt wird.
+        Darstellung:
+        1. Spalte = Aufgabe/Thema/Beschreibung - als statischer, weiter verlinkbarer Eintrag durch den Webseitenadministrator;
+        2. Spalte = benötigte Investitionskosten (Gesamtsumme) - als statischer Eintrag durch den Webseitenadministrator;
+        3. Spalte = Name, Vorname des Unterstützers X - als dynamischer Eintrag durch den User;
+        4. Spalte = Auswahlknopf (anonyme Spende, öffentliche Spende) - als dynamischer Eintrag durch den User;
+        5. Spalte = Eintrag des Unterstützers X (Internetuser) (Summe X) - als dynamischer Eintrag durch den User.
+        Danach automatische Errechnung Gesamtsumme(alt) - Summe X = Gesamtsumme(neu) sowie Löschung des Eingabewertes von Unterstützer X,
+        Darstellung des Namens (falls öffentliche Spende angeklickt) bzw. Eintrag in eine nicht sichtbare Datenbank,
+        wer welchen Beitrag gespendet hat.
+        Eine weitere Spalte, die die ursprüngliche Gesamtsumme immer anzeigt, damit man sehen kann, wieviel Spenden schon eingegangen sind."/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Gioco"/>
+    <node name="description" channel="inline" format="text/plain" model="Kindergartenverwaltungssoftware"/>
+    <node name="technology" channel="inline" format="text/plain" model="C#, .NET, MySQL, SVN"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="CloudForge, Quellen bei Prof. Christian Heller"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Björn Schapitz <bjoern.schapitz@it2011.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="BA-Shell"/>
+    <node name="description" channel="inline" format="text/plain" model="Selbstgeschriebene Shell-Umgebung (Clone)"/>
+    <node name="technology" channel="inline" format="text/plain" model="C++, Qt"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://sourceforge.net/projects/bashell/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2009: Kevin Kaiser <kevin.kaiser@it2009.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

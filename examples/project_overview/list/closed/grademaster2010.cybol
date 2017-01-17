@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="GradeMaster 2010 Notenverwaltung"/>
+    <node name="description" channel="inline" format="text/plain" model="Komfortable und benutzerfreundliche Verwaltung von Studentennoten via Weboberfläche"/>
+    <node name="technology" channel="inline" format="text/plain" model="Java, AJAX, GWT, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://code.google.com/p/grademaster2010/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2008: Mario Saban <mario.saban@it2008.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

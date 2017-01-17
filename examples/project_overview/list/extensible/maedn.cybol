@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="MAEDN"/>
+    <node name="description" channel="inline" format="text/plain" model="Mensch, ärgere Dich nicht! (Spiel)"/>
+    <node name="technology" channel="inline" format="text/plain" model="Java, XML"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv2"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/scottmietzsch/maedn"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2013: Phil Taubert <phil.taubert@cs13-1.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

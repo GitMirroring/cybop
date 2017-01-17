@@ -1,0 +1,18 @@
+<node>
+
+    <node name="crowdfunding" channel="file" format="element/part" model="project_overview/list/open/crowdfunding.cybol"/>
+    <node name="cryptocurrency-basicincome" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-basicincome.cybol"/>
+    <node name="cryptocurrency-core" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-core.cybol"/>
+    <node name="cryptocurrency-frontend" channel="file" format="element/part" model="project_overview/list/open/cryptocurrency-frontend.cybol"/>
+    <node name="fahrtenbuch" channel="file" format="element/part" model="project_overview/list/open/fahrtenbuch.cybol"/>
+    <node name="gnumed" channel="file" format="element/part" model="project_overview/list/open/gnumed.cybol"/>
+    <node name="lindentaler" channel="file" format="element/part" model="project_overview/list/open/lindentaler.cybol"/>
+    <node name="onlineportale" channel="file" format="element/part" model="project_overview/list/open/onlineportale.cybol"/>
+    <node name="openstreetmap" channel="file" format="element/part" model="project_overview/list/open/openstreetmap.cybol"/>
+    <node name="schwingungsanalyse" channel="file" format="element/part" model="project_overview/list/open/schwingungsanalyse.cybol"/>
+    <node name="stiftungen" channel="file" format="element/part" model="project_overview/list/open/stiftungen.cybol"/>
+    <node name="troposphaerenforschung" channel="file" format="element/part" model="project_overview/list/open/troposphaerenforschung.cybol"/>
+    <node name="umbrello" channel="file" format="element/part" model="project_overview/list/open/umbrello.cybol"/>
+    <node name="watchdog" channel="file" format="element/part" model="project_overview/list/open/watchdog.cybol"/>
+
+</node>

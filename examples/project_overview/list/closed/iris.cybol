@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Iris"/>
+    <node name="description" channel="inline" format="text/plain" model="Web-Anwendung zur automatischen Umwandlung handgeschriebener Ziffern in eine maschinenverarbeitbare Form (Bild -> Integer), mit Hilfe eines Künstlichen Neuronalen Netzes (Backpropagation)"/>
+    <node name="technology" channel="inline" format="text/plain" model="Java 8, Spring, Vaadin, Maven, Jenkins, TestNG + Mockito, Git, Gitter.im, Mongo DB"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/fluoxa/Iris"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2014: Jan Zschoche <jan.zschoche@gmx.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

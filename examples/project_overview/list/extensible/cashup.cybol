@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="CashUp"/>
+    <node name="description" channel="inline" format="text/plain" model="Verwaltung von: Urlaubskasse, Wohngemeinschaften mit geteiltem Budget, Veranstaltung"/>
+    <node name="technology" channel="inline" format="text/plain" model="PHP, JavaScript, HTML, CSS, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="FreeBSD"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/muexx/CashUp/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Alexander Müller <alexander.mueller@it2011.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="https://muexx.centaurus.uberspace.de/"/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="BikeBuilder"/>
+    <node name="description" channel="inline" format="text/plain" model="Online-Fahrrad-Konfigurator"/>
+    <node name="technology" channel="inline" format="text/plain" model="PHP, HTML, CSS, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://sourceforge.net/projects/bikeconfigurato/"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

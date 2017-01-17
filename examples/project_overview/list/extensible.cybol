@@ -1,0 +1,17 @@
+<node>
+
+    <node name="android-spielesammlung" channel="file" format="element/part" model="project_overview/list/extensible/android-spielesammlung.cybol"/>
+    <node name="bikebuilder" channel="file" format="element/part" model="project_overview/list/extensible/bikebuilder.cybol"/>
+    <node name="block-twist" channel="file" format="element/part" model="project_overview/list/extensible/block-twist.cybol"/>
+    <node name="bos-extension" channel="file" format="element/part" model="project_overview/list/extensible/bos-extension.cybol"/>
+    <node name="cashup" channel="file" format="element/part" model="project_overview/list/extensible/cashup.cybol"/>
+    <node name="gioco" channel="file" format="element/part" model="project_overview/list/extensible/gioco.cybol"/>
+    <node name="gvs2010" channel="file" format="element/part" model="project_overview/list/extensible/gvs2010.cybol"/>
+    <node name="his" channel="file" format="element/part" model="project_overview/list/extensible/his.cybol"/>
+    <node name="maedn" channel="file" format="element/part" model="project_overview/list/extensible/maedn.cybol"/>
+    <node name="netdoc" channel="file" format="element/part" model="project_overview/list/extensible/netdoc.cybol"/>
+    <node name="socobo" channel="file" format="element/part" model="project_overview/list/extensible/socobo.cybol"/>
+    <node name="tank-commander" channel="file" format="element/part" model="project_overview/list/extensible/tank-commander.cybol"/>
+    <node name="wmtipp" channel="file" format="element/part" model="project_overview/list/extensible/wmtipp.cybol"/>
+
+</node>

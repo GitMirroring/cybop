@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="gnumed"/>
+    <node name="description" channel="inline" format="text/plain" model="Erweiterung oder neues Modul für die GNUmed-Arztpraxisverwaltung"/>
+    <node name="technology" channel="inline" format="text/plain" model="Python, wxWindows"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://www.gnumed.org/"/>
+    <node name="contact" channel="inline" format="text/plain" model="Karsten Hilbert <karsten.hilbert@gmx.net>"/>
+    <node name="remark" channel="inline" format="text/plain" model="Since about five years, a number of developers from around the world cooperate to develop the GNUmed medical software. One of the main developers, Mr. Karsten Hilbert, himself medical doctor, is based in Leipzig. Many modules have been implemented, but much has to be done still. The aim of this project is to implement one module for the GNUmed system. After having got familiar with GNUmed's Entity Relationship Model (ERM) and module structure, development should begin right away, in an Extreme Programming (XP) manner. A technical specification document (Pflichtenheft) is NOT required. However, the GNUmed software architecture should be well-documented and the class design described on a few pages, including some figures with commented Unified Modeling Language (UML) diagrams. As GNUmed is developed in the Python programming language, developers should ideally have some pre-knowledge of Python, its modules and library. Development should happen on a GNU/Linux machine, with Debian being the recommended (but not required) distribution."/>
+
+</node>

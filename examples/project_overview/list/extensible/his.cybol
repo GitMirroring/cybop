@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Hardware Inventory System (HIS)"/>
+    <node name="description" channel="inline" format="text/plain" model="Verwalte die Hardware einer Einrichtung"/>
+    <node name="technology" channel="inline" format="text/plain" model="Ruby on Rails, PostgreSQL, Java, Swing"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/it2010-ba-projects/HIS-Rails; ALT: http://sourceforge.net/projects/hisystem/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2010: Silvio Wehner"/>
+    <node name="remark" channel="inline" format="text/plain" model="ursprünglich Java-Projekt, später durch Web-Frontend mit Ruby on Rails erweitert"/>
+
+</node>

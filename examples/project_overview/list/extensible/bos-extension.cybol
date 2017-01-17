@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Branch of Study (BOS) Typo3 Extension"/>
+    <node name="description" channel="inline" format="text/plain" model="Übersichtliche Anzeige aller Studienrichtungen an der Berufsakademie Sachsen für http://www.ba-sachsen.de/; Filtermöglichkeiten: Studienbereich (z.B. Wirtschaft, Soziales, Technik), Stichworte, Direktsuche; Verweis zur jeweiligen Studienakademie / Studienrichtung; Rechtevergabe (Eintrag nur vom berechtigten Nutzer zu pflegen)"/>
+    <node name="technology" channel="inline" format="text/plain" model="Typo3, PHP, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://bos-extension.sourceforge.net/"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model="Ansprechpartner: Herr Schulz, Prof. Brunner"/>
+
+</node>

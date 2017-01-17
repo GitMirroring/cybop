@@ -1,0 +1,52 @@
+<node>
+
+    <node name="count_categories" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="category_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".list"/>
+    </node>
+
+    <node name="TEST" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="category_count"/>
+        <node name="source" channel="inline" format="number/integer" model="7"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="test_stack_variable" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="category_count"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="test_stack" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_stack.txt"/>
+    </node>
+
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="category_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="category_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="category_count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="flow/branch" model="">
+        <node name="criterion" channel="inline" format="text/cybol-path" model="category_break"/>
+        <node name="true" channel="inline" format="text/cybol-path" model=".logic.show_failure"/>
+        <node name="false" channel="inline" format="text/cybol-path" model=".logic.show_success"/>
+    </node>
+
+    <node name="loop_categories" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="category_break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.category"/>
+    </node>
+
+</node>

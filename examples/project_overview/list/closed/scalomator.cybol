@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Scalomator"/>
+    <node name="description" channel="inline" format="text/plain" model="Simulation endlicher Automaten"/>
+    <node name="technology" channel="inline" format="text/plain" model="Scala (Java-kompatibel), XML"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/wookietreiber/scalomator"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2009: Christian Krause, Nils Foken, Peter Kossek"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

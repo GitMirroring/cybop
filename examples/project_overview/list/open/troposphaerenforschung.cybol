@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="troposphaerenforschung"/>
+    <node name="description" channel="inline" format="text/plain" model="Kategorisierung von Messdaten der Troposphärenforschung per Mindmap"/>
+    <node name="technology" channel="inline" format="text/plain" model=""/>
+    <node name="licence" channel="inline" format="text/plain" model=""/>
+    <node name="portal" channel="inline" format="text/plain" model=""/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2007: Daniel Böhmer <boehmer@tropos.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="Am Leibniz-Institut für Troposphärenforschung läuft ein DFG-Projekt. Ein von der DFG gekauftes Messflugzeug soll von zahlreichen Forschergruppen benutzt und die gesammelten Messdaten in einer Datenbank erfasst werden. Um den Datenbestand zu überblicken, gibt es mehrere Systeme. Ein Hilfsmittel ist die Einordnung in Kategorien. Diese sind hierarchisch in einem Baum angeordnet. Man kann unbegrenzt viele Kategorien auswählen und muss auch keine Blätter auswählen, sondern kann Oberkategorien wählen. Es handelt sich dabei aktuell um ~1500 Einträge (Knoten und Blätter). Die Problematik besteht unter anderem darin, dass bei einer Textsuche bspw. nach "water" vielerlei Kategorien zutreffen, im Beispiel unterhalb von "atmosphere" und "oceans" u.v.m. Selbstverständlich werden eigene Werkzeuge entwickelt, um auf die Kategorien zugreifen zu können. Werkzeug, dass die Kategorien ähnlich einer Mindmap grafisch anzeigt. Damit man aber bei 1500 Elementen nicht den Überblick verliert, müsste immer nur ein Ausschnitt angezeigt werden, den man verschieben und hinein- oder herauszoomen kann. Etwas ähnliches ist das "Wonderwheel" von Google. Es käme hinzu, dass die einzelnen Elemente (de)aktiviert werden können, so dass der aktuelle Datensatz der Kategorie (nicht) zugeordnet wird. Die Hoffnung ist, dass eines Tages ein universelles Werkzeug entsteht, das alle Arten von Informationen durchsuchbar machen kann, die baumartig angeordnet sind. Es gibt Ansätze und Rudimente solcher Tools im Web, aber leider nichts von hoher Qualität."/>
+
+</node>

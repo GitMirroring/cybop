@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Robbey Elektromotorsteuerung für Roboter"/>
+    <node name="description" channel="inline" format="text/plain" model="Steuerung eines Elektromotors (Drehzahl) mit Hilfe eines Mikrokontrollers"/>
+    <node name="technology" channel="inline" format="text/plain" model="C mit Inline-Assembler-Befehlen; Werkzeuge: avr-gcc. avrdude, avr-libc, WinAVR, Eagle, AutoCAD 2011; Hardware: AVR RISC Mikrokontroller u.A."/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://neptun.ba-leipzig.de/repos/robbey/"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

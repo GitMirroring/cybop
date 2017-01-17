@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Schwingungsanalyse"/>
+    <node name="description" channel="inline" format="text/plain" model="Software zur Messdatenerfassung für einen Laborversuch zur Schwingungsanalyse"/>
+    <node name="technology" channel="inline" format="text/plain" model="C"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="Linux-Treiber der Messkarte DataTranslation 9837 <http://ftp.datx.com/Public/DataAcq/LinuxDrivers-NotSupported/>"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model="Ansprechpartner: Herr Matthias Bach <matthias.bach@ba-leipzig.de>"/>
+
+</node>

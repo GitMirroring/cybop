@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Gefängnisverwaltungssoftware GVS2010"/>
+    <node name="description" channel="inline" format="text/plain" model="Software zur Verwaltung eines Gefängnisses"/>
+    <node name="technology" channel="inline" format="text/plain" model=".Net Framework, C#, Visual Basic, MSSQL Server Express 2005"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU LGPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://sourceforge.net/projects/gvs2010/"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

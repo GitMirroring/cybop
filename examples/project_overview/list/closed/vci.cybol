@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Visual Collaboration Interface (VCI)"/>
+    <node name="description" channel="inline" format="text/plain" model="Web-basierte, Plug-In-freie Softwarelösung zur visuellen Kommunikation von Clients in Echtzeit"/>
+    <node name="technology" channel="inline" format="text/plain" model="HTML, JavaScript, nodeJS, KineticJS (grafische 2D-Darstellung), jQuery, Subversion, MongoDB (NoSQL-Datenbank), JSON"/>
+    <node name="licence" channel="inline" format="text/plain" model="MPLv2"/>
+    <node name="portal" channel="inline" format="text/plain" model="YouTRACK (Fehlerverfolgungssystem)"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2010: Falco Prescher, Tobias Köhler"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="lindentaler"/>
+    <node name="description" channel="inline" format="text/plain" model="Erweiterung des CMS der Leipziger Regionalwährung Lindentaler, PDF-Export für Anzeigen (einzeln und alle in der Rubrik), evtl. im Buchformat"/>
+    <node name="technology" channel="inline" format="text/plain" model="PHP (Erweiterung als separate Klasse)"/>
+    <node name="licence" channel="inline" format="text/plain" model=""/>
+    <node name="portal" channel="inline" format="text/plain" model="http://www.lindentaler.org/"/>
+    <node name="contact" channel="inline" format="text/plain" model="Silvio Seidel <silvio.seidel@gmx.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model="Testsystem: http://www.a-test-cms.de/"/>
+
+</node>

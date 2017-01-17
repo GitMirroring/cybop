@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="IdeaWatcher"/>
+    <node name="description" channel="inline" format="text/plain" model="Website zur Sammlung und Bewertung verschiedenster Ideen"/>
+    <node name="technology" channel="inline" format="text/plain" model="HTML, CSS, JavaScript, Java"/>
+    <node name="licence" channel="inline" format="text/plain" model="BSD 3-clause Clear License"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/Geopras/IdeaWatcher"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2014: Georg Andrassy <georg.andrassy@cs14-1.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

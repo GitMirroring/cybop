@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Birthday Contact Reminder (BiCoR)"/>
+    <node name="description" channel="inline" format="text/plain" model="Manage dates of birth on multiple platforms (iOS, Android)"/>
+    <node name="technology" channel="inline" format="text/plain" model="Ruby on Rails, REST interface, C++, Objective C, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv2"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://quiet-crag-9089.herokuapp.com/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Markus Hinkelmann <markus@mhinkelmann.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

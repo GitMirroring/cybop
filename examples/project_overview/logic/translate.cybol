@@ -1,0 +1,52 @@
+<node>
+
+    <!--
+        These entries use stack variables, given as properties.
+        The reason is that nested loops are used.
+        Furthermore, using the stack is mostly faster than accessing the knowledge tree.
+    -->
+
+    <node name="list" channel="file" format="element/part" model="project_overview/logic/translate/list.cybol">
+
+        <!-- The loop parametres. -->
+        <node name="list_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="list_count" channel="inline" format="number/integer" model="0"/>
+        <node name="list_index" channel="inline" format="number/integer" model="0"/>
+        <!-- The element. -->
+        <!-- CAUTION! Do NOT use "text/plain" as format here, but "text/cybol-path" instead. -->
+        <node name="list_root" channel="inline" format="text/cybol-path" model=""/>
+        <node name="list_number" channel="inline" format="text/plain" model=""/>
+        <node name="list_name" channel="inline" format="text/plain" model=""/>
+        <!-- Only needed for html page generation. -->
+        <node name="list_file" channel="inline" format="text/plain" model=""/>
+
+        <!-- The loop parametres. -->
+        <node name="category_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="category_count" channel="inline" format="number/integer" model="0"/>
+        <node name="category_index" channel="inline" format="number/integer" model="0"/>
+        <!-- The element. -->
+        <!-- CAUTION! Do NOT use "text/plain" as format here, but "text/cybol-path" instead. -->
+        <node name="category_root" channel="inline" format="text/cybol-path" model=""/>
+        <node name="category_number" channel="inline" format="text/plain" model=""/>
+        <node name="category_name" channel="inline" format="text/plain" model=""/>
+        <!-- Only needed for html page generation. -->
+        <node name="category_file" channel="inline" format="text/plain" model=""/>
+
+        <!-- The loop parametres. -->
+        <node name="project_break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="project_count" channel="inline" format="number/integer" model="0"/>
+        <node name="project_index" channel="inline" format="number/integer" model="0"/>
+        <!-- The element. -->
+        <!-- CAUTION! Do NOT use "text/plain" as format here, but "text/cybol-path" instead. -->
+        <node name="project_root" channel="inline" format="text/cybol-path" model=""/>
+        <node name="project_number" channel="inline" format="text/plain" model=""/>
+        <node name="project_name" channel="inline" format="text/plain" model=""/>
+        <!-- Only needed for html page generation. -->
+        <node name="project_file" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="category" channel="file" format="element/part" model="project_overview/logic/translate/category.cybol"/>
+
+    <node name="project" channel="file" format="element/part" model="project_overview/logic/translate/project.cybol"/>
+
+</node>

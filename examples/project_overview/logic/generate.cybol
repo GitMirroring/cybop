@@ -1,0 +1,6 @@
+<node>
+
+    <node name="wui" channel="file" format="element/part" model="project_overview/logic/generate/wui.cybol"/>
+    <node name="page" channel="file" format="element/part" model="project_overview/logic/generate/page.cybol"/>
+
+</node>

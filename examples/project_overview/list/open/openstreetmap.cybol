@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="openstreetmap"/>
+    <node name="description" channel="inline" format="text/plain" model="Für ein OpenStreetMap Projekt soll eine Schnittstelle zu Mobiltelefonen entwickelt werden; andere Projekte im Umfeld sind ebenfalls denkbar; Ziel: Abbildung der Unternehmen einer Region auf einer Landkarte"/>
+    <node name="technology" channel="inline" format="text/plain" model="PHP"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://www.regionalentwicklung.de/angebote/software-fuer-die-regionalwirtschaft/"/>
+    <node name="contact" channel="inline" format="text/plain" model="Norbert Rost <norbert.rost@regionalentwicklung.de>, Prof. Christian Heller"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

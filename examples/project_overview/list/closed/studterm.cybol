@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="StudTerm"/>
+    <node name="description" channel="inline" format="text/plain" model="Druck der Verlängerung der Gültigkeit des Studentenausweises mit Anzeige von Statusdaten auf einem Display; Abfrage Kartennummer (im Drucker integrierter RFID-Reader); Abfrage Studenten- und Semesterstatus aus LDAP (modular, umstellbar auf andere Datenquelle); einfacher Druckertreiber (Druckerstatus überwachen, ggf. Reset usw.); Druck der Gültigkeit in Abhängigkeit vom Status; Ausgabe von Informationen auf dem per USB angebundenen Display (Drucker bereit, Semesterbeitrag bezahlt / nicht bezahlt, Löschkopf wird aufgewärmt usw.)"/>
+    <node name="technology" channel="inline" format="text/plain" model="auf kleinem Rechner lauffähig (NSLU2 von Linksys mit Debian oder OpenWRT); Support bei Linux-Installation wird gegeben; Programmiersprache frei wählbar; Beispiele zur Ansteuerung Drucker / RFID-Reader vorhanden; für Ansteuerung des Displays gibt es eine Bibliothek und Beispiele"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model=""/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Marius Klotke <marius.klotke@it2011.ba-leipzig.de>, Herr Martin Schulz, Prof. Ingolf Brunner"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

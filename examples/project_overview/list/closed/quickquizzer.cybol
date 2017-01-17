@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="QuickQuizzer (Q²)"/>
+    <node name="description" channel="inline" format="text/plain" model="Multi-player Web Browser Game"/>
+    <node name="technology" channel="inline" format="text/plain" model="XAMP, C++, Qt, JavaScript, node.js, HTML, CSS"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/Normo/Q2_QuickQuizzer"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2010: Norman Bestfleisch <norman.bestfleisch@it2010.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

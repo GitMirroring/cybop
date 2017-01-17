@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="GoogleMaps Application (GooMApps)"/>
+    <node name="description" channel="inline" format="text/plain" model="Verwende GoogleMaps in einem Web Browser"/>
+    <node name="technology" channel="inline" format="text/plain" model="HTML, CSS, Ajax (JavaScript, XML, DOM), JSON, Server2Go (Serverumgebung mit Apache, PHP, MySQL)"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://sourceforge.net/projects/googlemapsapp/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2007: Daniel Hundt <daniel.hundt@it2007.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

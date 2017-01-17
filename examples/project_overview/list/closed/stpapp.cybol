@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="StpApp"/>
+    <node name="description" channel="inline" format="text/plain" model="Stundenplanverwaltung"/>
+    <node name="technology" channel="inline" format="text/plain" model="PHP, Java-Script, HTML, (WEB, Apache, Titanium-Appcelerator), MySQL, JSON"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPL, GNU FDL"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://stpapp.ba-leipzig.de/ http://stpapp.ba-leipzig.de/app http://stpapp.ba-leipzig.de/beamer http://stpapp.ba-leipzig.de/svn/"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Aleksej Tokarev <aleksej.tokarev@it2011.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

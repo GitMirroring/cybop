@@ -1,0 +1,10 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Lizenz">
+        <node name="tag" channel="inline" format="text/plain" model="th"/>
+    </node>
+    <node name="content" channel="inline" format="text/plain" model="">
+        <node name="tag" channel="inline" format="text/plain" model="td"/>
+    </node>
+
+</node>

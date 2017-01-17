@@ -1,0 +1,24 @@
+<node>
+
+    <node name="overwrite_category" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="project_root"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="category_root"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_prefix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="project_root"/>
+        <node name="source" channel="inline" format="text/plain" model=".["/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_number" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="project_root"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="project_number"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="project_root"/>
+        <node name="source" channel="inline" format="text/plain" model="]"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+</node>

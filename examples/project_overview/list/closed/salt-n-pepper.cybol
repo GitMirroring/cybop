@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="Salt'n'Pepper Browserspiel"/>
+    <node name="description" channel="inline" format="text/plain" model="Browserspiel mit strategischen und ökonomischen Inhalten"/>
+    <node name="technology" channel="inline" format="text/plain" model="Java, GWT, HTML5, CSS, JS, WebGL, Jetty, MYSQL oder db4o, WebStorage"/>
+    <node name="licence" channel="inline" format="text/plain" model="Apache License 2.0"/>
+    <node name="portal" channel="inline" format="text/plain" model="http://code.google.com/p/saltnpepper/"/>
+    <node name="contact" channel="inline" format="text/plain" model=""/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

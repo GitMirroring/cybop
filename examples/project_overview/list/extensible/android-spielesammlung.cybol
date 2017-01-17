@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="android-spielesammlung"/>
+    <node name="description" channel="inline" format="text/plain" model="Spielesammlung als Apps für mobile Endgeräte unter Android"/>
+    <node name="technology" channel="inline" format="text/plain" model="Java, Android, XML"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU LGPL"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/SethosII/android-spielesammlung"/>
+    <node name="contact" channel="inline" format="text/plain" model="IT 2011: Martin Kimmel <martin.kimmel@it2011.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>

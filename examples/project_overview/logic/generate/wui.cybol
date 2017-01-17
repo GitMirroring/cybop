@@ -1,0 +1,22 @@
+<node>
+
+    <node name="count_page" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="list_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".wui"/>
+    </node>
+
+    <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
+    <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model="list_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="list_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="list_count"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="selection" channel="inline" format="text/plain" model="all"/>
+    </node>
+
+    <node name="loop_page" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model="list_break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.generate.page"/>
+    </node>
+
+</node>

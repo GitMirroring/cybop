@@ -1,0 +1,11 @@
+<node>
+
+    <node name="name" channel="inline" format="text/plain" model="sudoFoo"/>
+    <node name="description" channel="inline" format="text/plain" model="Deployment of algorithms capable of producing valid Sudoku puzzles"/>
+    <node name="technology" channel="inline" format="text/plain" model="C, Powershell, Java, Neo4j, MySQL"/>
+    <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3"/>
+    <node name="portal" channel="inline" format="text/plain" model="https://github.com/flipcc/sudoFoo"/>
+    <node name="contact" channel="inline" format="text/plain" model="CS 2014: Paul Müller <paul.mueller@cs14-2.ba-leipzig.de>"/>
+    <node name="remark" channel="inline" format="text/plain" model=""/>
+
+</node>
