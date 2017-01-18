@@ -23,23 +23,30 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE
-#define BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE
+#ifndef BEGIN_KNOWLEDGE_SELECTOR_SOURCE
+#define BEGIN_KNOWLEDGE_SELECTOR_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
+#include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/representer/deserialiser/knowledge/index_part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/path_part_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/reference_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -66,7 +73,7 @@
 //
 
 /**
- * Selects the knowledge part begin.
+ * Selects the knowledge begin.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part (pointer reference)
@@ -80,13 +87,13 @@
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         void** d = (void**) p2;
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part begin.");
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge begin.");
 
         //
         // CAUTION! The order of comparisons IS IMPORTANT.
@@ -232,14 +239,14 @@ void select_knowledge_part_begin(void* p0, void* p1, void* p2, void* p3, void* p
             // If there are no further characters, then the source whole part
             // itself will get copied to become the destination part.
 
-            deserialise_knowledge_part_name(p0, p1, p2, p3, p4, p5, p6, p7);
+            deserialise_knowledge_name(p0, p1, p2, p3, p4, p5, p6, p7);
         }
 
     } else {
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge part begin. The knowledge path data position is null.");
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge begin. The knowledge path data position is null.");
     }
 }
 
-/* BEGIN_PART_KNOWLEDGE_SELECTOR_SOURCE */
+/* BEGIN_KNOWLEDGE_SELECTOR_SOURCE */
 #endif

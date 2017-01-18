@@ -23,22 +23,18 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MOVE_END_PART_KNOWLEDGE_SELECTOR_SOURCE
-#define MOVE_END_PART_KNOWLEDGE_SELECTOR_SOURCE
+#ifndef MOVE_KNOWLEDGE_SELECTOR_SOURCE
+#define MOVE_KNOWLEDGE_SELECTOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/searcher/selector/knowledge/end_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Selects the knowledge part end with the move depending on the given flag.
+ * Selects the knowledge end with the move depending on the given flag.
  *
  * @param p0 the break flag
  * @param p1 the knowledge path data position (pointer reference)
@@ -49,9 +45,9 @@
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  *           - *NULL_POINTER_STATE_CYBOI_MODEL if none of the above applies
  */
-void select_knowledge_part_end_move(void* p0, void* p1, void* p2, void* p3) {
+void select_knowledge_move(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part end move.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge move.");
 
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -63,7 +59,7 @@ void select_knowledge_part_end_move(void* p0, void* p1, void* p2, void* p3) {
         // so that the delimiter ")" may be detected once again.
         //
 
-        select_knowledge_part_end((void*) &b, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_knowledge_end((void*) &b, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
@@ -76,9 +72,9 @@ void select_knowledge_part_end_move(void* p0, void* p1, void* p2, void* p3) {
         // further characters may get processed down the knowledge path hierarchy.
         //
 
-        select_knowledge_part_end((void*) &b, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_knowledge_end((void*) &b, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 
-/* MOVE_END_PART_KNOWLEDGE_SELECTOR_SOURCE */
+/* MOVE_KNOWLEDGE_SELECTOR_SOURCE */
 #endif

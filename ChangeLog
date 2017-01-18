@@ -21,6 +21,7 @@
 2017-01-18  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue knowledge deserialiser and knowledge selector for path () and index []
+        * Rename some files in knowledge deserialiser and knowledge selector
 
 2017-01-17  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -19,6 +19,8 @@ ______________
             controller/handler.c
             executor/accessor/getter/part/knowledge_part_getter.c
 
+        * Eliminate loop in file "knowledge_deserialiser.c" ??
+
         * Make cybol example application "project_overview" work
             - use knowledge reference in stack variable
             - adapt stack variables by adding knowledge path prefix "#"
@@ -26,11 +28,19 @@ ______________
             - adapt knowledge paths to new definition
 
         * Write short cybol example application for testing knowledge path variants (see similar application "index_usage"):
-            .model.[.path.to.index_as_integer]
-            .model.[#index_as_integer_on_stack]
-            .model.[*#reference_to_an_index_as_integer_on_stack]
-            .model:[**:some_property.subnode]
-            .model.[.path.to.index_as_string]
+            #
+            .
+            :
+            |
+            #variable_on_stack
+            .(.node.name)
+            .(.node.(.nested.path.name))
+            .[.path.to.index_as_integer]
+            .[.x.[.y]]
+            .[#index_as_integer_on_stack]
+            .[*#reference_to_an_index_as_integer_on_stack]
+            :[**:some_property.subnode]
+            .[.path.to.index_as_string]
             .app.addresses.[.app.loop_index]
             .app.model.[.app.var.dialogue_number].label
             **.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link

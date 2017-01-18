@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/begin_part_knowledge_selector.c"
+#include "../../../../executor/searcher/selector/knowledge/begin_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -79,7 +79,7 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             break;
         }
 
-        select_knowledge_part_begin(p0, p1, p2, p3, p4, p5, p6, p7);
+        select_knowledge_begin(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
 

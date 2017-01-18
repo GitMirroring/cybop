@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef END_PART_KNOWLEDGE_SELECTOR_SOURCE
-#define END_PART_KNOWLEDGE_SELECTOR_SOURCE
+#ifndef END_KNOWLEDGE_SELECTOR_SOURCE
+#define END_KNOWLEDGE_SELECTOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -61,16 +61,16 @@
 //
 
 /**
- * Selects the knowledge part end.
+ * Selects the knowledge end.
  *
  * @param p0 the break flag
  * @param p1 the knowledge path data position (pointer reference)
  * @param p2 the knowledge path count remaining
  * @param p3 the move flag
  */
-void select_knowledge_part_end(void* p0, void* p1, void* p2, void* p3) {
+void select_knowledge_end(void* p0, void* p1, void* p2, void* p3) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge part end.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge end.");
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -132,5 +132,5 @@ void select_knowledge_part_end(void* p0, void* p1, void* p2, void* p3) {
     }
 }
 
-/* END_PART_KNOWLEDGE_SELECTOR_SOURCE */
+/* END_KNOWLEDGE_SELECTOR_SOURCE */
 #endif

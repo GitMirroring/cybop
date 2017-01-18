@@ -23,23 +23,23 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE
-#define NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE
+#ifndef NAME_KNOWLEDGE_DESERIALISER_SOURCE
+#define NAME_KNOWLEDGE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/name_getter/part_name_getter.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/end_part_knowledge_selector.c"
+#include "../../../../executor/searcher/selector/knowledge/move_knowledge_selector.c"
+#include "../../../../executor/searcher/selector/knowledge/memory_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
- * Gets a knowledge part by name.
+ * Gets a knowledge name.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part (pointer reference)
@@ -53,9 +53,9 @@
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge name.");
 
     // The break flag.
     int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -99,7 +99,7 @@ void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, voi
         }
 
         // Search for a delimiter.
-        select_knowledge_part_end_move((void*) &b, p2, p3, p7);
+        select_knowledge_move((void*) &b, p2, p3, p7);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -110,5 +110,5 @@ void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, voi
     }
 }
 
-/* NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE */
+/* NAME_KNOWLEDGE_DESERIALISER_SOURCE */
 #endif
