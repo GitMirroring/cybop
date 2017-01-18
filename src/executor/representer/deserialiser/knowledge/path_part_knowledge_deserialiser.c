@@ -29,16 +29,9 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/accessor/getter/part_getter.c"
-#include "../../../../executor/accessor/name_getter/part_name_getter.c"
-#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
-#include "../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
-#include "../../../../executor/searcher/selector/knowledge/end_path_knowledge_selector.c"
-#include "../../../../executor/searcher/selector/knowledge/end_part_knowledge_selector.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/searcher/selector/knowledge/memory_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -73,15 +66,6 @@ void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, voi
     // The name part model item data, count.
     void* nmd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* nmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-    // If a ")" delimiter is found, then the break flag is set to "true".
-    // Otherwise, the position is just moved by one character forward.
-    select_knowledge_path_end((void*) &b, p2, p3);
-
-    // The closing parenthesis ")" indicating the end of
-    // the path string data WAS found.
 
     // Get name part.
     //
@@ -99,8 +83,8 @@ void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, voi
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Process knowledge path hierarchy recursively further down,
-    // using new whole part.
+    // Get destination part with the given name from source whole part
+    // using the memory identified by the source whole part element index.
     //
     // CAUTION! Forward the source whole part element index p7 as argument here,
     // since it identifies the memory to retrieve the part from.

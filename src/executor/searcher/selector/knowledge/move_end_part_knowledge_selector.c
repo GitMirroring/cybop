@@ -63,7 +63,7 @@ void select_knowledge_part_end_move(void* p0, void* p1, void* p2, void* p3) {
         // so that the delimiter ")" may be detected once again.
         //
 
-        select_knowledge_part_end((void*) &b, p2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_knowledge_part_end((void*) &b, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     } else {
 
@@ -76,7 +76,7 @@ void select_knowledge_part_end_move(void* p0, void* p1, void* p2, void* p3) {
         // further characters may get processed down the knowledge path hierarchy.
         //
 
-        select_knowledge_part_end((void*) &b, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+        select_knowledge_part_end((void*) &b, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 }
 

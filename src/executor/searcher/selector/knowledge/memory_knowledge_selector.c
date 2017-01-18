@@ -28,43 +28,14 @@
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../logger/logger.c"
---
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
-#include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/knowledge/reference_knowledge_deserialiser.c"
-#include "../../../../executor/searcher/detector/array_detector.c"
-#include "../../../../executor/searcher/mover/position_mover.c"
-
-//
-// CAUTION! This comment is valid for all "select" functions below.
-//
-// The comparison result HAS TO BE ZERO (r == 0),
-// if a detection is to be taking place!
-//
-// Many "detect" functions are called in a sequence, below.
-// If the result of one detection function was positive (r == 1), then that
-// function increments the current position and decrements the remaining count.
-// In this case, further detection functions following afterwards might detect
-// further characters and CHANGE the current position and remaining count,
-// and so forth, which would have the effect of "JUMPING" over some characters
-// and produce WRONG RESULTS!
-//
-// Therefore, the checks for (r == 0) below avoid another detection,
-// if the result already has a value unequal zero.
-//
-// CAUTION! If a detection was successful, then the current position and remaining count
-// were already adapted within the corresponding "detect" function (as called below),
-// so that they now point to the first character FOLLOWING the detected character sequence.
-// Any "decode" function called afterwards can rely on this and start processing right away.
-//
+#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/accessor/name_getter/item_name_getter.c"
+#include "../../../../executor/accessor/name_getter/part_name_getter.c"
+#include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Get destination part with the given name from source whole part

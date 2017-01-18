@@ -65,150 +65,45 @@ void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part index.");
 
-/*??
-fwprintf(stdout, L"TEST deserialise index path data: %ls\n", (wchar_t*) *((void**) p2));
-fwprintf(stdout, L"TEST deserialise index path data: %i\n", *((int*) p3));
-*/
-
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The index string data, count.
-    // CAUTION! This variable IS necessary, since the knowledge path data
-    // position parametre is a pointer reference that cannot be handed over
-    // to some of the functions below, which expect a simple pointer.
-    // Also, the count has to be incremented below.
-    void* sd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    int sc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The index item.
+    // The index part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index item data.
-    void* id = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The knowledge part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The index part model item.
+    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The index part model item data.
+    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Initialise index string data.
-    copy_pointer((void*) &sd, p2);
+    // Get index part.
+    //
+    // CAUTION! Use the KNOWLEDGE MEMORY p4 as source whole part here,
+    // since this is a new path whose elements are to be processed
+    // starting from the knowledge memory tree root node.
+    //
+    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+    // but NULL instead, since the next separator is unknown yet.
+    deserialise_knowledge((void*) &i, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    // Get index part model item.
+    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get index part model item data.
+    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
-
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        // If a "]" delimiter is found, then the break flag is set to "true".
-        // Otherwise, the position is just moved by one character forward.
-        select_knowledge_index_end((void*) &b, p2, p3);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // The closing bracket "]" indicating the end of
-            // the index string data WAS found.
-
-            // Allocate temporary index item.
-            // CAUTION! Due to memory allocation handling, the size MUST NOT
-            // be negative or zero, but have at least a value of ONE.
-            // CAUTION! Initialise integer items with a size of ONE,
-            // in order to avoid later reallocation when overwriting
-            // the element and to thus increase efficiency.
-            allocate_item((void*) &i, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-            // Deserialise index.
-            deserialise_cybol_integer_value(i, sd, (void*) &sc, (void*) NUMBER_10_INTEGER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-
-            // Get temporary index item data.
-            // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-            // Inside the structure, arrays may have been reallocated,
-            // with elements pointing to different memory areas now.
-            copy_array_forward((void*) &id, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-            // Get part with index from source whole part model OR properties,
-            // depending on the source whole part element index p4.
-            //
-            // CAUTION! Hand over p (as pointer reference) instead of p0 here,
-            // since this is NOT the final name element yet.
-            // Otherwise, some part in between the hierarchy,
-            // which is a parent of the searched part,
-            // might wrongly get returned as result,
-            // e.g. if the last name does not exist.
-            // In order to avoid this, the p0 result parametre
-            // gets only assigned the final part elsewhere.
-            //
-            // CAUTION! Do NOT use the "copy_array_forward" function,
-            // since it is low-level and does not check array boundaries!
-            get_part_metadata((void*) &p, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, id, p4);
-
-/*??
-fwprintf(stdout, L"TEST deserialise index id: %i\n", *((int*) id));
-fwprintf(stdout, L"TEST deserialise index p: %i\n", p);
-*/
-
-            // Deallocate temporary index item.
-            deallocate_item((void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-
-            // If a "." or "#" delimiter is found, then the flag is set to "true".
-            // CAUTION! This is done here in a "peek ahead" manner.
-            // The position is NOT moved by one character forward.
-            select_knowledge_part_end((void*) &r, p2, p3);
-
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                // This part IS followed by a child part.
-
-                // Process knowledge hierarchy recursively further down.
-                //
-                // CAUTION! A part node of the source p1 was assigned
-                // to p above, so that p now becomes the source.
-                // If it has a child part, then that will be assigned to the
-                // destination. Otherwise, the destination remains UNTOUCHED.
-                deserialise_knowledge(p0, p, p2, p3, p5, p6, p7);
-
-            } else {
-
-                // This part is NOT followed by a child part.
-
-                // Copy pointer reference of the knowledge part retrieved
-                // to the destination part, since this IS the final name element.
-                //
-                // CAUTION! If no knowledge part could be found above,
-                // i.e. it is null, then leave the destination UNTOUCHED.
-                if (p != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-                    copy_pointer(p0, (void*) &p);
-                }
-            }
-
-            // CAUTION! A break statement is NOT needed here,
-            // since the loop stops in the next cycle,
-            // because the remaining count is zero.
-            // The variables sd and sc are not used there,
-            // so that errors may not occur.
-
-        } else {
-
-            // The closing bracket "]" indicating the end of
-            // the index string data was NOT found.
-
-            // Increment index string count.
-            sc++;
-        }
-    }
+    // Get destination part with the given index
+    // from source whole part model OR properties OR stack memory,
+    // depending on the source whole part element index p7.
+    //
+    // CAUTION! Forward the source whole part element index p7 as argument here,
+    // since it identifies the memory to retrieve the part from.
+    // The memory delimiter was determined before and
+    // is still valid for the part index used here.
+    //
+    // CAUTION! The stack memory argument p5 is NOT needed here,
+    // since it is forbidden to access arbitrary stack variables via index.
+    // Otherwise, the whole stack order might get ignored,
+    // which is not wanted.
+    //
+    // CAUTION! Do NOT use the "copy_array_forward" function,
+    // since it is low-level and does not check array boundaries!
+    get_part_metadata(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, imd, p7);
 }
 
 /* INDEX_PART_KNOWLEDGE_DESERIALISER_SOURCE */

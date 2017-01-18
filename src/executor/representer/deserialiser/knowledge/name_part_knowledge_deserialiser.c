@@ -66,8 +66,6 @@ void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, voi
     // Also, the count has to be incremented below.
     void* nd = *NULL_POINTER_STATE_CYBOI_MODEL;
     int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The comparison result.
-    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Initialise name data.
     copy_pointer((void*) &nd, p2);

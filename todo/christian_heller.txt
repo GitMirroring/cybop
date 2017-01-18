@@ -14,64 +14,31 @@
 Knowledge Path
 ______________
 
-        * CONTINUE: Look through in "*_knowledge_deserialiser": index + path (rest is DONE already)
-            see file "begin_part_knowledge_selector.c"
-        * Hand over REFERENCE to file "knowledge_deserialiser.c" (search in all code), in files:
+        * CAUTION! Runtime pointer ERRORS might be caused by local parametre p1 handed over as REFERENCE to function "deserialise_knowledge", in files:
             tester/finder_tester.c
             controller/handler.c
             executor/accessor/getter/part/knowledge_part_getter.c
-        * Thoughts:
-            - searching closing parenthesis is NOT right, since another opening parenthesis may follow to which the closing parenthesis belongs
-            - better use a "tree count" variable handed over as argument, to count the hierarchy level
 
-        * Make cybol example application "project_overview" work as soon as knowledge reference in stack variable gets handled
-            search for "TODO" in file "logic/generate/page.cybol"
-            see task "knowledge path" above
-            see local testwise copy, at work
+        * Make cybol example application "project_overview" work
+            - use knowledge reference in stack variable
+            - adapt stack variables by adding knowledge path prefix "#"
+            - search for "TODO" in file "logic/generate/page.cybol"
+            - adapt knowledge paths to new definition
 
-        * ?? Adapt all cybol example applications using stack variables by adding a knowledge path prefix "#" ??
-        * NO, BETTER use "#" as prefix for a path pointing to an index as integer number, so that conversion becomes superfluous in cybol, e.g.
-            .model.[5]
-            .model.[index_as_string]
-            .model.[#index_as_integer]
-            .model.[#*index_as_reference_to_an_integer]
-            .model:[#**:some_property.subnode]
+        * Write short cybol example application for testing knowledge path variants (see similar application "index_usage"):
+            .model.[.path.to.index_as_integer]
+            .model.[#index_as_integer_on_stack]
+            .model.[*#reference_to_an_index_as_integer_on_stack]
+            .model:[**:some_property.subnode]
+            .model.[.path.to.index_as_string]
+            .app.addresses.[.app.loop_index]
+            .app.model.[.app.var.dialogue_number].label
+            **.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
+        * CAUTION! It is NOT PERMITTED to give a string as index: .model.[5]
 
-        * Write short cybol example application for testing knowledge path variants (similar to application "index_usage")
-        * Permit direct knowledge path to index, e.g. ".app.model.[(.app.var.dialogue_number)].label" or ".app.addresses.[(.app.loop_index)]"
-            --> the parentheses seem to be necessary, since not only "." and "#" but also no prefix at all is possible, the latter for stack variable names
-        * Provide syntax for accessing model via reference path, e.g.
-            **.part#property.[2].[(*.node.index)].node.(.node.name.(.nested.path.node)).(**.reference.node).link
-
-        * Pseudo code for processing of knowledge paths:
-
-        1 Kind of path / memory:
-            - if reference: prefix *, e.g. *.app.var.path or .app.adr.[**.app.var.index].phone
-                - note that references may be nested
-            - else if model part: prefix . for knowledge whole-part hierarchy, e.g. .app
-                - set flag
-            - else if property part: prefix # for knowledge meta hierarchy, e.g. #colour
-                - set flag
-            - else stack: no prefix for stack memory variable, e.g. index
-
-        2 Kind of identification (if part or property above, not for stack variable): OLD_NAME "begin_expression" to be renamed somehow
-            - if index, e.g. .app.adr.[2].phone
-                - set flag
-            - else name: e.g. .app.adr.miller.phone
-            - rename "expression" into "identification"
-
-        3 Kind of replacement:
-            - if path: in parentheses, for name e.g. .app.adr.(.app.var.lastname).phone, for index e.g. .app.adr.[(.app.var.index)].phone
-                then restart at 1
-                evaluate flags from steps 2 and 3 to call correct functions
-            - else none: no special character, e.g. .app.adr.miller.phone
-
-        * Enable nesting in knowledge paths, e.g.:
-            .app.wui.index.body.lecturers.table.(.app.var.name).(app.var.day2).link
-          written instead as:
-            .app.wui.index.body.lecturers.table.(.app.var.(.app.var.GET_NAME_HERE)).(app.var.day2).link
-
-        * Optimise cybol example applications accordingly (many operations only adding path elements may get deleted in the future)
+        * Optimise cybol example applications accordingly
+            - many operations only adding path elements or an index may get deleted in the future
+            - use prefix "#" for stack variables
 
 Stack
 _____

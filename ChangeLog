@@ -18,9 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-18  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Continue knowledge deserialiser and knowledge selector for path () and index []
+
 2017-01-17  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Redesign knowledge deserialiser and knowledge selector
+        * Redesign knowledge deserialiser and knowledge selector in order to enable nested paths
         * Add cybol example application "project_overview"
 
 2017-01-13  Christian Heller  <christian.heller@tuxtax.de>
