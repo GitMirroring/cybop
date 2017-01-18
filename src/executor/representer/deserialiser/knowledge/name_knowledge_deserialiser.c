@@ -93,7 +93,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // Get part with the given name
             // from the memory identified by p7.
-            select_knowledge_memory(p0, p1, nd, (void*) &nc, p4, p5, p6, p7);
+            select_knowledge_memory(p0, p1, nd, (void*) &nc, p5, p7);
 
             break;
         }

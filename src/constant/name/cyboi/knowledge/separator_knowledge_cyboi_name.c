@@ -34,37 +34,37 @@
  * The begin index separator knowledge cyboi name.
  *
  * Example:
- * .app.wui.index.body.table.row.[2].data
+ * .app.wui.[.path.to.index].data
  */
 static wchar_t* BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"[";
 static int* BEGIN_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The begin path separator knowledge cyboi name.
+ * The begin name separator knowledge cyboi name.
  *
  * Example:
- * .app.wui.(.app.var.page_name).body.table.row
+ * .app.wui.(.path.to.name).data
  */
-static wchar_t* BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"(";
-static int* BEGIN_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* BEGIN_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"(";
+static int* BEGIN_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The end index separator knowledge cyboi name.
  *
  * Example:
- * .app.wui.index.body.table.row.[2].data
+ * .app.wui.[.path.to.index].data
  */
 static wchar_t* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L"]";
 static int* END_INDEX_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The end path separator knowledge cyboi name.
+ * The end name separator knowledge cyboi name.
  *
  * Example:
- * .app.wui.(.app.var.page_name).body.table.row
+ * .app.wui.(.path.to.name).data
  */
-static wchar_t* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L")";
-static int* END_PATH_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+static wchar_t* END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME = L")";
+static int* END_NAME_SEPARATOR_KNOWLEDGE_CYBOI_NAME_COUNT = NUMBER_1_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
  * The knowledge memory separator knowledge cyboi name.

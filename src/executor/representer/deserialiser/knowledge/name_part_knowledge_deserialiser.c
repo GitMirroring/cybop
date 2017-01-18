@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef PATH_PART_KNOWLEDGE_DESERIALISER_SOURCE
-#define PATH_PART_KNOWLEDGE_DESERIALISER_SOURCE
+#ifndef NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE
+#define NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -45,7 +45,7 @@
 void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Deserialises a knowledge part by path.
+ * Deserialises a knowledge part by name.
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part (pointer reference)
@@ -59,9 +59,9 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part path.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
 
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,5 +97,5 @@ void deserialise_knowledge_part_path(void* p0, void* p1, void* p2, void* p3, voi
     select_knowledge_memory(p0, p1, nmd, nmc, p5, p7);
 }
 
-/* PATH_PART_KNOWLEDGE_DESERIALISER_SOURCE */
+/* NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE */
 #endif
