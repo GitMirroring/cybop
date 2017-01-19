@@ -528,3 +528,54 @@ Usage of solution 3 definition in a part at runtime:
     <node name="execute_logic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="path/knowledge" model=".app.logic"/>
     </node>
+
+Knowledge Path
+______________
+
+MIME Type for cybol knowledge paths: "text/cybol-path"
+
+Symbols:
+
+#   stack memory
+.   knowledge memory model
+:   knowledge memory properties
+|   signal memory
+*   part identified by reference, which reads the given path containing another path pointing to the actual model
+()  part identified by name, which is given as path to a model of format "text/plain"
+[]  part identified by index, which is given as path to a model of format "number/integer"
+
+Memory Examples:
+
+#           stack memory root
+.           knowledge memory root model
+:           knowledge memory root properties
+|           signal memory root
+
+Simple Examples:
+
+#variable_on_stack
+.path.to.model
+.path.to:property
+*.part.containing.path
+**.double_reference.child_node
+
+Part Access Examples:
+
+.(.node.name).child.node
+.(.node.(.nested.path.name)).subnode
+
+.[#index_as_integer_on_stack]
+.[.path.to.index_as_integer].some.child
+.[.x.[.y]]
+
+Complex Examples:
+
+.[.path.to.index_as_integer]
+.[*#reference_to_an_index_on_stack]
+:[**:some_property.subnode]
+.app.addresses.[#loop_index]
+.app.model.[.app.var.dialogue_number].label
+**.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
+
+CAUTION! It is NOT PERMITTED to give a string as index: .model.[5]
+

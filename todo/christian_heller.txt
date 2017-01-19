@@ -27,24 +27,8 @@ ______________
             - search for "TODO" in file "logic/generate/page.cybol"
             - adapt knowledge paths to new definition
 
-        * Write short cybol example application for testing knowledge path variants (see similar application "index_usage"):
-            #
-            .
-            :
-            |
-            #variable_on_stack
-            .(.node.name)
-            .(.node.(.nested.path.name))
-            .[.path.to.index_as_integer]
-            .[.x.[.y]]
-            .[#index_as_integer_on_stack]
-            .[*#reference_to_an_index_as_integer_on_stack]
-            :[**:some_property.subnode]
-            .[.path.to.index_as_string]
-            .app.addresses.[.app.loop_index]
-            .app.model.[.app.var.dialogue_number].label
-            **.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
-        * CAUTION! It is NOT PERMITTED to give a string as index: .model.[5]
+        * Write short cybol example application "knowledge_path" for testing its variants (see similar application "index_usage")
+        * See file "src/design_decisions.txt" for knowledge path examples
 
         * Optimise cybol example applications accordingly
             - many operations only adding path elements or an index may get deleted in the future
