@@ -43,7 +43,7 @@
  * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the knowledge memory part
+ * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the stack memory item
  * @param p6 the internal memory data
  * @param p7 the source whole part element index:

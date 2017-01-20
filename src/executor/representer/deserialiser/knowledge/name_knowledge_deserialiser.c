@@ -45,15 +45,13 @@
  * @param p1 the source whole part (pointer reference)
  * @param p2 the knowledge path data position (pointer reference)
  * @param p3 the knowledge path count remaining
- * @param p4 the knowledge memory part
- * @param p5 the stack memory item
- * @param p6 the internal memory data
- * @param p7 the source whole part element index:
+ * @param p4 the stack memory item
+ * @param p5 the source whole part element index:
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
  */
-void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge name.");
 
@@ -92,14 +90,14 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
             // or a special delimiter was found.
 
             // Get part with the given name
-            // from the memory identified by p7.
-            select_knowledge_memory(p0, p1, nd, (void*) &nc, p5, p7);
+            // from the memory identified by p5.
+            select_knowledge_memory(p0, p1, nd, (void*) &nc, p4, p5);
 
             break;
         }
 
         // Search for a delimiter.
-        select_knowledge_move((void*) &b, p2, p3, p7);
+        select_knowledge_move((void*) &b, p2, p3, p5);
 
         if (b == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

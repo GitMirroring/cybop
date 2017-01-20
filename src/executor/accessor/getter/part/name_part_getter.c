@@ -41,7 +41,7 @@
  * @param p2 the part name data
  * @param p3 the part name count
  * @param p4 the source whole count
- * @param p5 the knowledge memory part
+ * @param p5 the knowledge memory part (pointer reference)
  * @param p6 the stack memory item
  * @param p7 the internal memory data
  */
