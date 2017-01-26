@@ -80,7 +80,11 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
         copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     }
 
+fwprintf(stdout, L"TEST deserialise knowledge name nd: %ls\n", (wchar_t*) nd);
+
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+fwprintf(stdout, L"TEST deserialise knowledge name nc: %i\n", nc);
 
         compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 

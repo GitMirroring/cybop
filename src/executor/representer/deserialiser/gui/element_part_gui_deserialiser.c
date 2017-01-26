@@ -42,7 +42,7 @@
  * @param p1 the destination properties item
  * @param p2 the source gui element data
  * @param p3 the source gui element index
- * @param p4 the knowledge memory part
+ * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the stack memory item
  * @param p6 the internal memory data
  * @param p7 the event type data

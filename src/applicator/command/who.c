@@ -44,13 +44,13 @@
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the knowledge memory part
+ * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  */
 void apply_who(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"who.");
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply who.");
 
     // The ALL part.
     void* a = *NULL_POINTER_STATE_CYBOI_MODEL;

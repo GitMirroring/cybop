@@ -42,7 +42,7 @@
  * @param p5 the size height
  * @param p6 the layout properties data
  * @param p7 the layout properties count
- * @param p8 the knowledge memory part
+ * @param p8 the knowledge memory part (pointer reference)
  * @param p9 the stack memory item
  * @param p10 the internal memory data
  * @param p11 the layout data

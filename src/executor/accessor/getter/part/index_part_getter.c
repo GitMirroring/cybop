@@ -42,7 +42,7 @@
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole data
  * @param p2 the source whole index of the part
- * @param p3 the knowledge memory part
+ * @param p3 the knowledge memory part (pointer reference)
  * @param p4 the stack memory item
  * @param p5 the internal memory data
  */

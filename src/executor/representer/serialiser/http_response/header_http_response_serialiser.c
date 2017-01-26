@@ -42,7 +42,7 @@
  * @param p1 the source properties data
  * @param p2 the source properties count
  * @param p3 the source message count
- * @param p4 the knowledge memory part
+ * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the stack memory item
  * @param p6 the internal memory data
  */

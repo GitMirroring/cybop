@@ -36,6 +36,33 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".model"/>
     </node>
 
+    <node name="TEST_0_print_number" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="number/integer" model="1971"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="TEST_1_print_number" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".index"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="TEST_2_print_number" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".count"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
 </node>

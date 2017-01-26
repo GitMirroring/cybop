@@ -49,7 +49,7 @@
  *
  * @param p0 the signal part
  * @param p1 the internal memory data
- * @param p2 the knowledge memory part
+ * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory model item
  * @param p4 the signal memory model item
  * @param p5 the direct execution flag
@@ -125,7 +125,7 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
             // This is IMPORTANT since otherwise, the original data position
             // gets increased and the count remaining decreased to zero,
             // so that knowledge access works only once, but not anymore afterwards.
-            deserialise_knowledge((void*) &part, (void*) &p2, (void*) &pathd, (void*) &pathc, p2, p3, p1, *NULL_POINTER_STATE_CYBOI_MODEL);
+            deserialise_knowledge((void*) &part, p2, (void*) &pathd, (void*) &pathc, p2, p3, p1, *NULL_POINTER_STATE_CYBOI_MODEL);
 
             // Handle signal.
             handle(part, p1, p2, p3, p4, p5, p6);

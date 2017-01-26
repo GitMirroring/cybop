@@ -117,7 +117,7 @@
  * @param p0 the properties parametres data
  * @param p1 the properties parametres count
  * @param p2 the internal memory data
- * @param p3 the knowledge memory part
+ * @param p3 the knowledge memory part (pointer reference)
  * @param p4 the stack memory part
  * @param p5 the signal memory item
  * @param p6 the shutdown flag
@@ -127,8 +127,8 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
     log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL_COUNT);
 
-//?? fwprintf(stdout, L"TEST handle operation: %i\n", p7);
-//?? fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p7));
+fwprintf(stdout, L"TEST handle operation: %i\n", p7);
+fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p7));
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

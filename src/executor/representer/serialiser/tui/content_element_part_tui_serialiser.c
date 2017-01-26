@@ -66,7 +66,7 @@ void serialise_tui(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
  * @param p5 the source properties count
  * @param p6 the source whole properties data
  * @param p7 the source whole properties count
- * @param p8 the knowledge memory part
+ * @param p8 the knowledge memory part (pointer reference)
  * @param p9 the stack memory item
  * @param p10 the internal memory data
  * @param p11 the clear flag

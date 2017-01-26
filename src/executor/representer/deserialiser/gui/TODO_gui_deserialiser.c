@@ -47,7 +47,7 @@
  * @param p1 the destination properties item
  * @param p2 the source root window data
  * @param p3 the source root window count
- * @param p4 the knowledge memory part
+ * @param p4 the knowledge memory part (pointer reference)
  * @param p5 the internal memory data
  * @param p6 the format
  * @param p7 the language

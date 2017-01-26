@@ -95,6 +95,9 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge begin.");
 
+fwprintf(stdout, L"TEST select knowledge begin *p3: %i\n", *((int*) p3));
+fwprintf(stdout, L"TEST select knowledge begin *p2: %ls\n", *((wchar_t**) p2));
+
         //
         // CAUTION! The order of comparisons IS IMPORTANT.
         //

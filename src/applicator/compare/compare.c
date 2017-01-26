@@ -57,7 +57,7 @@
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
- * @param p2 the knowledge memory part
+ * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the internal memory data
  * @param p5 the operation type
@@ -117,12 +117,6 @@ void apply_compare(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get selection part model item data, count.
     copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-// fwprintf(stdout, L"TEST apply compare r: %i\n", r);
-// fwprintf(stdout, L"TEST apply compare lo: %i\n", lo);
-// fwprintf(stdout, L"TEST apply compare ro: %i\n", ro);
-// fwprintf(stdout, L"TEST apply compare t: %i\n", t);
-// fwprintf(stdout, L"TEST apply compare s: %i\n", s);
 
     compare(rmd, lo, ro, p5, tmd, smd, smc);
 }

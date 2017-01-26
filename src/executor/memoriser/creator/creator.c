@@ -38,7 +38,7 @@
  * Creates a part or property.
  *
  * @param p0 the whole part
- * @param p1 the knowledge memory part
+ * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the name data
  * @param p3 the name count
  * @param p4 the format data

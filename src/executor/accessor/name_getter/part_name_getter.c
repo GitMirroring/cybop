@@ -49,11 +49,14 @@ void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
     // The source whole item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
+fwprintf(stdout, L"TEST get name part element pre s: %i\n", s);
     // Get source whole item.
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
+fwprintf(stdout, L"TEST get name part element post s: %i\n", s);
 
     // Get destination part with given name from source whole data item.
     get_name_item_element(p0, s, p2, p3, p5);
+fwprintf(stdout, L"TEST get name part element END s: %i\n", s);
 }
 
 /**

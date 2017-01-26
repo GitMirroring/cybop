@@ -57,7 +57,7 @@
  * @param p3 the source properties count
  * @param p4 the source whole properties data
  * @param p5 the source whole properties count
- * @param p6 the knowledge memory part
+ * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
  * @param p9 the cli flag

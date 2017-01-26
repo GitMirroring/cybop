@@ -62,7 +62,7 @@
  * @param p12 the font
  * @param p13 the source properties data
  * @param p14 the source properties count
- * @param p15 the knowledge memory part
+ * @param p15 the knowledge memory part (pointer reference)
  * @param p16 the stack memory item
  * @param p17 the internal memory data
  */

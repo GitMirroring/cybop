@@ -44,7 +44,7 @@
  * @param p2 the signal properties data
  * @param p3 the signal properties count
  * @param p4 the internal memory data
- * @param p5 the knowledge memory part
+ * @param p5 the knowledge memory part (pointer reference)
  * @param p6 the stack memory item
  * @param p7 the signal memory item
  * @param p8 the direct execution flag

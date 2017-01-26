@@ -59,7 +59,7 @@
  * @param p15 the source properties count
  * @param p16 the clear flag
  * @param p17 the newline flag
- * @param p18 the knowledge memory part
+ * @param p18 the knowledge memory part (pointer reference)
  * @param p19 the stack memory item
  * @param p20 the internal memory data
  */

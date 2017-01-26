@@ -41,7 +41,7 @@
  * @param p0 the win32 device context
  * @param p1 the source properties data
  * @param p2 the source properties count
- * @param p3 the knowledge memory part
+ * @param p3 the knowledge memory part (pointer reference)
  */
 void serialise_win32_display_context(void* p0, void* p1, void* p2, void* p3) {
 

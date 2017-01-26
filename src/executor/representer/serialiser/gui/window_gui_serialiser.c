@@ -61,7 +61,7 @@
  * @param p6 the source size height
  * @param p7 the source properties data
  * @param p8 the source properties count
- * @param p9 the knowledge memory part
+ * @param p9 the knowledge memory part (pointer reference)
  * @param p10 the stack memory item
  * @param p11 the internal memory data
  */

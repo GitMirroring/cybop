@@ -39,7 +39,7 @@
  * @param p3 the source model count
  * @param p4 the source properties data
  * @param p5 the source properties count
- * @param p6 the knowledge memory part
+ * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the event type data
  * @param p8 the event type count
  * @param p9 the button mask

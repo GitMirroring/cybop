@@ -45,7 +45,7 @@
  * @param p3 the source element (child) height
  * @param p4 the position x
  * @param p5 the position y
- * @param p6 the knowledge memory part
+ * @param p6 the knowledge memory part (pointer reference)
  * @param p7 the stack memory item
  * @param p8 the internal memory data
  * @param p9 the layout data

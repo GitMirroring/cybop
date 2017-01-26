@@ -48,7 +48,7 @@
  * @param p4 the source model count
  * @param p5 the source properties data
  * @param p6 the source properties count
- * @param p7 the knowledge memory part
+ * @param p7 the knowledge memory part (pointer reference)
  * @param p8 the stack memory item
  * @param p9 the internal memory data
  */

@@ -14,10 +14,6 @@
 Knowledge Path
 ______________
 
-        * CONTINUE: Add "(pointer reference)" to "knowledge memory part" in function comment wherever function "get_part_name" is called, e.g. in all applicators
-            Verify if knowledge memory part gets handed over correctly as reference
-            DONE: knowledge deserialiser AND selector
-
         * CAUTION! Runtime pointer ERRORS might be caused by local parametre p1 handed over as REFERENCE to function "deserialise_knowledge"
         * Think through how to forward knowledge path argument as REFERENCE, in files calling function "deserialise_knowledge":
             executor/accessor/getter/part/knowledge_part_getter.c

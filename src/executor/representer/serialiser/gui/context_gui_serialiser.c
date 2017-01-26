@@ -51,7 +51,7 @@
  * @param p5 the win32 device context
  * @param p6 the source properties data
  * @param p7 the source properties count
- * @param p8 the knowledge memory part
+ * @param p8 the knowledge memory part (pointer reference)
  * @param p9 the stack memory item
  * @param p10 the internal memory data
  */

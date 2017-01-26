@@ -38,7 +38,7 @@
  * Creates an element (part or property).
  *
  * @param p0 the whole part
- * @param p1 the knowledge memory part
+ * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the name data
  * @param p3 the name count
  * @param p4 the format data
@@ -46,68 +46,77 @@
  */
 void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Create element.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The type item.
-    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type item data.
-    void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The element (part or property).
-    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void** k = (void**) p1;
 
-    // Allocate temporary type item.
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    // CAUTION! Initialise integer items with a size of ONE,
-    // in order to avoid later reallocation when overwriting
-    // the element and to thus increase efficiency.
-    allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    // Deserialise format type into cyboi runtime type.
-    deserialise_cybol_type(t, p4);
-    // Get type item data.
-    // CAUTION! Retrieve data ONLY AFTER having called desired functions!
-    // Inside the structure, arrays may have been reallocated,
-    // with elements pointing to different memory areas now.
-    copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Create element.");
 
-    // Allocate element (part or property).
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_part((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
-    // Fill element (part or property).
-    overwrite_part_element(e, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(e, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
-    overwrite_part_element(e, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+        // The type item.
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The type item data.
+        void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The element (part or property).
+        void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Deallocate temporary type item.
-    deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Allocate temporary type item.
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        // CAUTION! Initialise integer items with a size of ONE,
+        // in order to avoid later reallocation when overwriting
+        // the element and to thus increase efficiency.
+        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Deserialise format type into cyboi runtime type.
+        deserialise_cybol_type(t, p4);
+        // Get type item data.
+        // CAUTION! Retrieve data ONLY AFTER having called desired functions!
+        // Inside the structure, arrays may have been reallocated,
+        // with elements pointing to different memory areas now.
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+        // Allocate element (part or property).
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_part((void*) &e, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, td);
+        // Fill element (part or property).
+        overwrite_part_element(e, p2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p3, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) NAME_PART_STATE_CYBOI_NAME);
+        overwrite_part_element(e, p4, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+        overwrite_part_element(e, td, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
-        // A whole part exists.
+        // Deallocate temporary type item.
+        deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add element to whole model.");
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        // Append element (handed over as array reference) to whole model (being a part itself).
-        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-        // This is necessary in order to activate rubbish (garbage) collection.
-        append_part_element(p0, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+            // A whole part exists.
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add element to whole model.");
+
+            // Append element (handed over as array reference) to whole model (being a part itself).
+            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+            // This is necessary in order to activate rubbish (garbage) collection.
+            append_part_element(p0, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+
+        } else {
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add element to knowledge memory root model.");
+
+            // The whole part is null.
+            //
+            // CAUTION! The new element allocated above HAS TO BE added to the
+            // knowledge memory tree, so that it can be deallocated properly at
+            // system shutdown and is not lost somewhere in Random Access Memory (RAM).
+            // Therefore, if the whole part is null, the knowledge memory is used instead.
+
+            // Append element (handed over as array reference) to knowledge memory root model (being a part itself).
+            // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
+            // This is necessary in order to activate rubbish (garbage) collection.
+            append_part_element(*k, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+        }
 
     } else {
 
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Add element to knowledge memory root model.");
-
-        // The whole part is null.
-        //
-        // CAUTION! The new element allocated above HAS TO BE added to the
-        // knowledge memory tree, so that it can be deallocated properly at
-        // system shutdown and is not lost somewhere in Random Access Memory (RAM).
-        // Therefore, if the whole part is null, the knowledge memory is used instead.
-
-        // Append element (handed over as array reference) to knowledge memory root model (being a part itself).
-        // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
-        // This is necessary in order to activate rubbish (garbage) collection.
-        append_part_element(p1, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not create element. The knowledge memory part is null.");
     }
 }
 

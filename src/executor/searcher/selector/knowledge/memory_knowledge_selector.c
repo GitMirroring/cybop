@@ -60,6 +60,8 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge memory.");
 
+fwprintf(stdout, L"TEST select knowledge memory *p5: %i\n", *((int*) p5));
+
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
@@ -83,7 +85,8 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                 // Get part with name from source whole part model OR properties,
                 // depending on the source whole part element index p5.
-                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
 
@@ -95,7 +98,8 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
                 // Get part with name from source whole part model OR properties,
                 // depending on the source whole part element index p5.
-                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
 
