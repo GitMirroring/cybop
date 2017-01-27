@@ -30,10 +30,8 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/begin_knowledge_selector.c"
+#include "../../../../executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../../executor/searcher/selector/knowledge/root_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -55,31 +53,24 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge.");
 
-    // The break flag.
-    int b = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    if (p3 == *NULL_POINTER_STATE_CYBOI_MODEL) {
+    //
+    // Compare if knowledge path count remaining contains at least one character.
+    //
+    // CAUTION! This comparison IS IMPORTANT and has to be done right HERE.
+    // The knowledge path count remaining p3 is NOT checked by
+    // the "detect_array" functions inside "select_knowledge_begin".
+    //
+    // CAUTION! Use a GREATER comparison and NOT smaller or equal etc.
+    // In case p3 is null, the comparison result r remains false that way.
+    //
+    compare_integer_greater((void*) &r, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
-        // CAUTION! If the loop count handed over as parametre is NULL,
-        // then the break flag will NEVER be set to true, because the loop
-        // variable comparison does (correctly) not consider null values.
-        // Therefore, in this case, the break flag is set to true already here.
-        // Initialising the break flag with true will NOT work either, since it:
-        // a) will be left untouched if a comparison operand is null;
-        // b) would have to be reset to true in each loop cycle.
-        copy_integer((void*) &b, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-    }
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-        if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            break;
-        }
-
-        select_knowledge_begin(p0, p1, p2, p3, p4, p5, p6, p7);
+        select_knowledge_root(p0, p1, p2, p3, p4, p5, p6, p7);
     }
 }
 

@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace loop in file "knowledge_deserialiser.c" with simple condition
+        * Factor out memory comparison sections of file "begin_knowledge_selector.c" to new file "root_knowledge_selector.c"
+
 2017-01-26  Christian Heller  <christian.heller@tuxtax.de>
 
         * Adapt function argument "knowledge memory part" to be handed over as pointer reference wherever it appears

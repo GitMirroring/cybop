@@ -75,7 +75,6 @@ void get_part_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4) {
         copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
 if (sfd == *NULL_POINTER_STATE_CYBOI_MODEL) {
     fwprintf(stdout, L"TEST get part knowledge sfd: %i\n", sfd);
 } else {
@@ -87,7 +86,6 @@ if (smc == *NULL_POINTER_STATE_CYBOI_MODEL) {
     fwprintf(stdout, L"TEST get part knowledge *smc: %i\n", *((int*) smc));
 }
 fwprintf(stdout, L"TEST get part knowledge smd: %ls\n", (wchar_t*) smd);
-*/
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -129,11 +127,11 @@ fwprintf(stdout, L"TEST get part knowledge smd: %ls\n", (wchar_t*) smd);
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             //
-            // Get source part as DIRECT model (inline),
-            // i.e. DO NOT interpret the model as path.
+            // Get source part as DIRECT model (inline literal),
+            // i.e. DO NOT interpret the model as knowledge path.
             //
-            // CAUTION! The source part was already retrieved above.
-            // Therefore, the pointer to it is just copied here.
+            // CAUTION! The source part was handed over as parametre,
+            // so that it may just be copied here.
             //
             // CAUTION! The pointer handed over has a size of one
             // and thus does NOT need to be resized,

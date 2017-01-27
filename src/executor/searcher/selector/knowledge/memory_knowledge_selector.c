@@ -85,8 +85,8 @@ fwprintf(stdout, L"TEST select knowledge memory *p5: %i\n", *((int*) p5));
 
                 // Get part with name from source whole part model OR properties,
                 // depending on the source whole part element index p5.
-//??                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-                get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??                get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
 
@@ -98,8 +98,8 @@ fwprintf(stdout, L"TEST select knowledge memory *p5: %i\n", *((int*) p5));
 
                 // Get part with name from source whole part model OR properties,
                 // depending on the source whole part element index p5.
-//??                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-                get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+//??                get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
             }
         }
 

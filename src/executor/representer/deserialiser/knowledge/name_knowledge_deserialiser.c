@@ -84,7 +84,7 @@ fwprintf(stdout, L"TEST deserialise knowledge name nd: %ls\n", (wchar_t*) nd);
 
     while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-fwprintf(stdout, L"TEST deserialise knowledge name nc: %i\n", nc);
+//?? fwprintf(stdout, L"TEST deserialise knowledge name nc: %i\n", nc);
 
         compare_integer_smaller_or_equal((void*) &b, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 

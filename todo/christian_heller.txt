@@ -14,23 +14,24 @@
 Knowledge Path
 ______________
 
+        * Check if there is an issue with looping and branching, so that only sequence works with the new knowledge path syntax
+
+        * Check what to hand over in file "memory_knowledge_selector.c" to file "part_name_getter.c": *s or p1 ??
+
         * CAUTION! Runtime pointer ERRORS might be caused by local parametre p1 handed over as REFERENCE to function "deserialise_knowledge"
-        * Think through how to forward knowledge path argument as REFERENCE, in files calling function "deserialise_knowledge":
+        * Think through how to forward knowledge path argument as REFERENCE, in files calling function "deserialise_knowledge(":
             executor/accessor/getter/part/knowledge_part_getter.c
             controller/handler.c
             tester/finder_tester.c
 
-        * Eliminate loop in file "knowledge_deserialiser.c" ??
-
+        * Adapt all cybol example applications to new knowledge path syntax
         * Make cybol example application "project_overview" work
             - use knowledge reference in stack variable
             - adapt stack variables by adding knowledge path prefix "#"
             - search for "TODO" in file "logic/generate/page.cybol"
             - adapt knowledge paths to new definition
-
         * Write short cybol example application "knowledge_path" for testing its variants (see similar application "index_usage")
         * See file "src/design_decisions.txt" for knowledge path examples
-
         * Optimise cybol example applications accordingly
             - many operations only adding path elements or an index may get deleted in the future
             - use prefix "#" for stack variables
