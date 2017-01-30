@@ -1,0 +1,15 @@
+<node>
+
+    <node name="a" channel="inline" format="text/plain" model="a"/>
+
+    <node name="b" channel="inline" format="text/plain" model="b"/>
+
+    <node name="c" channel="inline" format="text/plain" model="c"/>
+
+    <node name="d" channel="inline" format="text/plain" model="d">
+        <node name="p" channel="inline" format="text/plain" model="p"/>
+    </node>
+
+    <node name="e" channel="inline" format="text/plain" model="e"/>
+
+</node>

@@ -14,7 +14,10 @@
 Knowledge Path
 ______________
 
-        * Write short cybol example application "knowledge_path" for testing its variants (see similar applications "knowledge_tree_access" and "index_usage")
+        * Continue cybol example application "cybol-path" for testing knowledge path variants
+        * Delete outdated cybol example application "knowledge_tree_access"
+        * Delete outdated cybol example application "index_usage"
+
         * Check functionality of knowledge memory deserialiser
         * Adapt all cybol example applications to new knowledge path syntax
         * Make cybol example application "project_overview" work

@@ -1,0 +1,18 @@
+<node>
+
+    <node name="a" channel="inline" format="text/plain" model="a"/>
+
+    <node name="b" channel="file" format="element/part" model="cybol-path/b.cybol">
+        <node name="a" channel="inline" format="text/plain" model="a"/>
+    </node>
+
+    <node name="c" channel="inline" format="number/integer" model="1"/>
+    <node name="d" channel="inline" format="number/integer" model="2"/>
+
+    <node name="e" channel="inline" format="text/plain" model="f"/>
+    <node name="f" channel="inline" format="text/plain" model="b"/>
+
+    <node name="g" channel="inline" format="text/cybol-path" model=".b.d:p"/>
+    <node name="h" channel="inline" format="text/cybol-path" model=".g"/>
+
+</node>
