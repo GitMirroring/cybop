@@ -104,7 +104,7 @@ void check(void* p0) {
             break;
         }
 
-        check_signal(p0, k, stm, sm, sl, (void*) &f);
+        check_signal(p0, (void*) &k, stm, sm, sl, (void*) &f);
     }
 }
 

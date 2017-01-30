@@ -51,13 +51,6 @@ void get_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get part index.");
 
     // The source model part.
-    //
-    // It may be one of:
-    // - a model directly
-    // - a knowledge path pointing to a model
-    // - a reference pointing to a knowledge path
-    // - a name pointing to a variable on stack
-    //
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source model part at index.

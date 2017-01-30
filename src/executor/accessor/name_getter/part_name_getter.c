@@ -46,27 +46,11 @@ void get_name_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get name part element.");
 
-fwprintf(stdout, L"TEST get name part element name data p2: %ls\n", (wchar_t*) p2);
-fwprintf(stdout, L"TEST get name part element name count p3: %i\n", *((int*) p3));
-
     // The source whole item.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-//?? -- TEST BEGIN
-    void* sn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* snd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* snc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &sn, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &snd, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &snc, sn, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    fwprintf(stdout, L"TEST get name part element snd: %ls\n", (wchar_t*) snd);
-    fwprintf(stdout, L"TEST get name part element snc: %i\n", *((int*) snc));
-//?? -- TEST END
-
     // Get source whole item.
     copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p4);
-
-fwprintf(stdout, L"TEST get name part element s: %i\n", s);
 
     // Get destination part with given name from source whole data item.
     get_name_item_element(p0, s, p2, p3, p5);

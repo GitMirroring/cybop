@@ -29,6 +29,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../../../executor/modifier/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -57,22 +58,50 @@ void deserialise_knowledge_part(void* p0, void* p1, void* p2, void* p3, void* p4
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part.");
 
     // The new whole part.
-    void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* w = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The element part.
+    void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get new whole part.
     //
-    // CAUTION! Forward the source whole part element index p7 as argument here,
+    // CAUTION! Forward the source whole part element INDEX p7 as argument here,
     // since it identifies the memory to retrieve the part from.
-    deserialise_knowledge((void*) &p, p1, p2, p3, p4, p5, p6, p7);
+    deserialise_knowledge((void*) &w, p1, p2, p3, p4, p5, p6, p7);
 
+    // Get element part.
+    //
     // Process knowledge path hierarchy recursively further down,
     // using new whole part.
     //
-    // In case no further elements follow, the last part retrieved will be taken as result.
-    //
     // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
     // but NULL instead, since the next separator is unknown yet.
-    deserialise_knowledge(p0, (void*) &p, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
+    deserialise_knowledge((void*) &e, (void*) &w, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+    //
+    // CAUTION! The order of below comparisons IS IMPORTANT.
+    // If an element (child) was found, then it has
+    // higher priority than the whole (parent) found before.
+    //
+
+    if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // The knowledge path contains another element to follow.
+
+        // Take the element (child) as result.
+        copy_pointer(p0, (void*) &e);
+
+    } else if (w != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        // The knowledge path does NOT contain further elements.
+        // Its end has been reached.
+
+        // Take the whole (parent) as result,
+        // since it is the last existing part in the hierarchy.
+        copy_pointer(p0, (void*) &w);
+    }
+
+    // If both, the whole and the element are null,
+    // then nothing will be done and p0 remains untouched.
 }
 
 /* PART_KNOWLEDGE_DESERIALISER_SOURCE */

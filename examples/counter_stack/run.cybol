@@ -11,7 +11,7 @@
 
     <!-- Write knowledge into file. -->
     <node name="test_knowledge" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack-heap.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
@@ -42,7 +42,7 @@
 
     <!-- Write stack into file. -->
     <node name="test_stack" channel="inline" format="communicate/send" model="">
-        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack_stack-post.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack-stack_post.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>

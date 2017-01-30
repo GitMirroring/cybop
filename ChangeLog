@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-01-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Debug knowledge memory deserialiser pointer error caused by wrong knowledge memory pointer forwarded in file "checker.c"
+        * Debug knowledge memory deserialiser empty return value error caused by forgotten copy function in file "part_knowledge_deserialiser.c"
+        * Replace number sign with colon in model diagram serialiser
+
 2017-01-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Replace loop in file "knowledge_deserialiser.c" with simple condition

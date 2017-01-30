@@ -61,50 +61,59 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  */
 void deserialise_knowledge_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part index.");
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-    // The index part.
-    void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model item.
-    void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model item data.
-    void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void** s = (void**) p1;
 
-    // Get index part.
-    //
-    // CAUTION! Use the KNOWLEDGE MEMORY p4 as source whole part here,
-    // since this is a new path whose elements are to be processed
-    // starting from the knowledge memory tree root node.
-    //
-    // CAUTION! Hand over the knowledge memory as REFERENCE,
-    // since it might get copied inside.
-    //
-    // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
-    // but NULL instead, since the next separator is unknown yet.
-    deserialise_knowledge((void*) &i, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part index.");
 
-    // Get index part model item.
-    copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get index part model item data.
-    copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        // The index part.
+        void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The index part model item.
+        void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The index part model item data.
+        void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get destination part with the given index
-    // from source whole part model OR properties OR stack memory,
-    // depending on the source whole part element index p7.
-    //
-    // CAUTION! Forward the source whole part element index p7 as argument here,
-    // since it identifies the memory to retrieve the part from.
-    // The memory delimiter was determined before and
-    // is still valid for the part index used here.
-    //
-    // CAUTION! The stack memory argument p5 is NOT needed here,
-    // since it is forbidden to access arbitrary stack variables via index.
-    // Otherwise, the whole stack order might get ignored,
-    // which is not wanted.
-    //
-    // CAUTION! Do NOT use the "copy_array_forward" function,
-    // since it is low-level and does not check array boundaries!
-    get_part_metadata(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, imd, p7);
+        // Get index part.
+        //
+        // CAUTION! Use the KNOWLEDGE MEMORY p4 as source whole part here,
+        // since this is a new path whose elements are to be processed
+        // starting from the knowledge memory tree root node.
+        //
+        // CAUTION! Hand over the knowledge memory as REFERENCE,
+        // since it might get copied inside.
+        //
+        // CAUTION! Do NOT forward the source whole part element index p7 as argument here,
+        // but NULL instead, since the next separator is unknown yet.
+        deserialise_knowledge((void*) &i, p4, p2, p3, p4, p5, p6, *NULL_POINTER_STATE_CYBOI_MODEL);
+
+        // Get index part model item.
+        copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+        // Get index part model item data.
+        copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+
+        // Get destination part with the given index
+        // from source whole part model OR properties OR stack memory,
+        // depending on the source whole part element index p7.
+        //
+        // CAUTION! Forward the source whole part element index p7 as argument here,
+        // since it identifies the memory to retrieve the part from.
+        // The memory delimiter was determined before and
+        // is still valid for the part index used here.
+        //
+        // CAUTION! The stack memory argument p5 is NOT needed here,
+        // since it is forbidden to access arbitrary stack variables via index.
+        // Otherwise, the whole stack order might get ignored,
+        // which is not wanted.
+        //
+        // CAUTION! Do NOT use the "copy_array_forward" function,
+        // since it is low-level and does not check array boundaries!
+        get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, imd, p7);
+
+    } else {
+
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not deserialise knowledge part index. The source whole part is null.");
+    }
 }
 
 /* INDEX_PART_KNOWLEDGE_DESERIALISER_SOURCE */

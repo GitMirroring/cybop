@@ -70,7 +70,7 @@
  * The current solution implemented here is number 1.
  *
  * @param p0 the internal memory data
- * @param p1 the knowledge memory part
+ * @param p1 the knowledge memory part (pointer reference)
  * @param p2 the stack memory item
  * @param p3 the signal memory item
  * @param p4 the signal memory sleep time
