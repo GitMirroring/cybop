@@ -1,7 +1,7 @@
 <node>
 
     <!-- a -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_model" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -11,7 +11,7 @@
     </node>
 
     <!-- a -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_sub_model" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -21,7 +21,7 @@
     </node>
 
     <!-- a -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_property" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -31,7 +31,7 @@
     </node>
 
     <!-- 1 - b -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -41,7 +41,7 @@
     </node>
 
     <!-- 2 - 1 - b -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -51,7 +51,7 @@
     </node>
 
     <!-- f - a -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -61,7 +61,7 @@
     </node>
 
     <!-- f - b - p -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -71,7 +71,7 @@
     </node>
 
     <!-- p -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -81,7 +81,7 @@
     </node>
 
     <!-- .b.d:p -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
@@ -91,7 +91,7 @@
     </node>
 
     <!-- p -->
-    <node name="print" channel="inline" format="communicate/send" model="">
+    <node name="test_TODO" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
