@@ -14,16 +14,6 @@
 Knowledge Path
 ______________
 
-        * CHECK:
-            - nested index [] is ok
-            - name and nested name () fail --> conversion format "number/integer" given for "communicate/send" operation?
-            - a instead of b as result --> was property symbol : used instead of . ?
-
-        * Continue cybol example application "cybol-path" for testing knowledge path variants
-        * Delete outdated cybol example application "knowledge_tree_access"
-        * Delete outdated cybol example application "index_usage"
-
-        * Check functionality of knowledge memory deserialiser
         * Adapt all cybol example applications to new knowledge path syntax
         * Make cybol example application "project_overview" work
             - use knowledge reference in stack variable

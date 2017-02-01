@@ -18,6 +18,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-02-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Move memory prefix constants into file "memory_separator_knowledge_cyboi_name.c"
+        * Fix processing of multiple knowledge path references by using a path copy in file "reference_knowledge_deserialiser.c"
+        * Rename cybol example application "index_usage" into "cybol-path_1"
+        * Rename cybol example application "cybol-path" into "cybol-path_2"
+
 2017-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
         * Debug knowledge memory deserialiser pointer error caused by wrong knowledge memory pointer forwarded in file "checker.c"

@@ -5,7 +5,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="cybol-path/app.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="cybol-path_2/app.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
@@ -23,7 +23,7 @@
     </node>
 
     <node name="test_paths" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="file" format="element/part" model="cybol-path/test.cybol">
+        <node name="model" channel="file" format="element/part" model="cybol-path_2/test.cybol">
             <node name="x" channel="inline" format="number/integer" model="1"/>
             <node name="y" channel="inline" format="text/plain" model="p"/>
             <node name="z" channel="inline" format="text/cybol-path" model=".g"/>

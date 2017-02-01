@@ -10,7 +10,7 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="sender" channel="inline" format="text/plain" model="index_usage/test.cybol"/>
+        <node name="sender" channel="inline" format="text/plain" model="cybol-path_1/test.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".test"/>
     </node>
 
