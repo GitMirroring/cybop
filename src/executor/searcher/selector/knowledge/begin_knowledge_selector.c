@@ -35,9 +35,8 @@
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/representer/deserialiser/knowledge/index_part_knowledge_deserialiser.c"
+#include "../../../../executor/representer/deserialiser/knowledge/identification_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
-#include "../../../../executor/representer/deserialiser/knowledge/name_part_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/reference_knowledge_deserialiser.c"
 #include "../../../../executor/searcher/detector/array_detector.c"
@@ -144,7 +143,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
             // The "[" indicates that a nested path containing an index begins.
 
-            deserialise_knowledge_part_index(p0, p1, p2, p3, p4, p5, p6, p7);
+            deserialise_knowledge_identification(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
@@ -156,7 +155,7 @@ void select_knowledge_begin(void* p0, void* p1, void* p2, void* p3, void* p4, vo
 
             // The "(" indicates that a nested path containing a name begins.
 
-            deserialise_knowledge_part_name(p0, p1, p2, p3, p4, p5, p6, p7);
+            deserialise_knowledge_identification(p0, p1, p2, p3, p4, p5, p6, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 

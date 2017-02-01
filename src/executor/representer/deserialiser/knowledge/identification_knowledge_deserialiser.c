@@ -23,8 +23,8 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE
-#define NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE
+#ifndef IDENTIFICATION_KNOWLEDGE_DESERIALISER_SOURCE
+#define IDENTIFICATION_KNOWLEDGE_DESERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -35,7 +35,7 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../executor/searcher/selector/knowledge/memory_knowledge_selector.c"
+#include "../../../../executor/searcher/selector/knowledge/identification_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -45,7 +45,7 @@
 void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7);
 
 /**
- * Deserialises a knowledge part by name.
+ * Deserialises a knowledge part identification (name or index).
  *
  * @param p0 the destination part (pointer reference)
  * @param p1 the source whole part (pointer reference)
@@ -58,10 +58,11 @@ void deserialise_knowledge(void* p0, void* p1, void* p2, void* p3, void* p4, voi
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
+ * @param p8 the index flag (true if index; false otherwise, i.e. name)
  */
-void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void deserialise_knowledge_identification(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge part name.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise knowledge identification.");
 
     // The name part.
     void* n = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -90,15 +91,16 @@ void deserialise_knowledge_part_name(void* p0, void* p1, void* p2, void* p3, voi
     copy_array_forward((void*) &nmd, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &nmc, nm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-    // Get destination part with the given name from source whole part
-    // using the memory identified by the source whole part element index.
+    // Get destination part with the given identification
+    // from source whole part model OR properties OR stack memory,
+    // depending on the source whole part element index p7.
     //
     // CAUTION! Forward the source whole part element index p7 as argument here,
     // since it identifies the memory to retrieve the part from.
     // The memory delimiter was determined before and
     // is still valid for the part name used here.
-    select_knowledge_memory(p0, p1, nmd, nmc, p5, p7);
+    select_knowledge_identification(p0, p1, nmd, nmc, p5, p7, p8);
 }
 
-/* NAME_PART_KNOWLEDGE_DESERIALISER_SOURCE */
+/* IDENTIFICATION_KNOWLEDGE_DESERIALISER_SOURCE */
 #endif

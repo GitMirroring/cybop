@@ -14,6 +14,9 @@
 Knowledge Path
 ______________
 
+        * Permit usage of integer literal as index in knowledge path
+        * Add files "identification_knowledge_selector.c" and "index_knowledge_deserialiser.c"
+
         * Adapt all cybol example applications to new knowledge path syntax
         * Make cybol example application "project_overview" work
             - use knowledge reference in stack variable

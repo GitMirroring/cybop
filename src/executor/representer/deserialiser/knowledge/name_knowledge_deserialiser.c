@@ -34,8 +34,8 @@
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/searcher/selector/knowledge/identification_knowledge_selector.c"
 #include "../../../../executor/searcher/selector/knowledge/move_knowledge_selector.c"
-#include "../../../../executor/searcher/selector/knowledge/memory_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -95,7 +95,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // Get part with the given name
             // from the memory identified by p5.
-            select_knowledge_memory(p0, p1, nd, (void*) &nc, p4, p5);
+            select_knowledge_identification(p0, p1, nd, (void*) &nc, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             break;
         }

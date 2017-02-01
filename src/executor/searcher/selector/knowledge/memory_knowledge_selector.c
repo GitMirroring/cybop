@@ -43,7 +43,7 @@
  * using the memory identified by the source whole part element index.
  *
  * @param p0 the destination part (pointer reference)
- * @param p1 the source whole part (pointer reference)
+ * @param p1 the source whole part
  * @param p2 the part name data
  * @param p3 the part name count
  * @param p4 the stack memory item
@@ -54,70 +54,65 @@
  */
 void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        void** s = (void**) p1;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge memory.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge memory.");
 
 //?? fwprintf(stdout, L"TEST select knowledge memory *p5: %i\n", *((int*) p5));
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p5, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Get part with name from stack memory.
-                // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
-                get_name_item_element(p0, p4, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            // Get part with name from stack memory.
+            // CAUTION! The last argument is true to indicate last-in-first-out (lifo) retrieval.
+            get_name_item_element(p0, p4, p2, p3, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) MODEL_PART_STATE_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p5, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Get part with name from source whole part model OR properties,
-                // depending on the source whole part element index p5.
-                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            // Get part with name from source whole part model OR properties,
+            // depending on the source whole part element index p5.
+            get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_equal((void*) &r, p5, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+        compare_integer_equal((void*) &r, p5, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
 
-            if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-                // Get part with name from source whole part model OR properties,
-                // depending on the source whole part element index p5.
-                get_name_part_element(p0, *s, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-            }
+            // Get part with name from source whole part model OR properties,
+            // depending on the source whole part element index p5.
+            get_name_part_element(p0, p1, p2, p3, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
         }
+    }
 
-        if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Copy source whole part to become the destination part.
-            //
-            // This case happens regularly with the last part in a path hierarchy.
-            // If the knowledge path ends and no further elements follow,
-            // then the previously retrieved part (now being the whole p1)
-            // is the last in the hierarchy and to be taken as result.
-            //
-            // CAUTION! Hand over the REFERENCE p1 here,
-            // and NOT the simple pointer *s.
-            copy_pointer(p0, p1);
-        }
+        // Copy source whole part to become the destination part.
+        //
+        // This case happens regularly with the last part in a path hierarchy.
+        // If the knowledge path ends and no further elements follow,
+        // then the previously retrieved part (now being the whole p1)
+        // is the last in the hierarchy and to be taken as result.
+        //
+        // CAUTION! Hand over the REFERENCE p1 here,
+        // and NOT the simple pointer *s.
 
-    } else {
+fwprintf(stdout, L"TEST select knowledge memory TODO TODO !!: %i\n", p5);
 
-        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge memory. The source whole part is null.");
+//?? TODO: Delete this? Whole is already copied to destination in file "part_knowledge_deserialiser.c"
+//??        copy_pointer(p0, p1);
     }
 }
 

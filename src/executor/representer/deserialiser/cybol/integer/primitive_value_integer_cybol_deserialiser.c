@@ -44,6 +44,7 @@
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../../executor/modifier/inserter/item_inserter.c"
+#include "../../../../../executor/representer/deserialiser/cybol/integer/value_integer_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 
 /**
