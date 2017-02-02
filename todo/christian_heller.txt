@@ -14,8 +14,12 @@
 Knowledge Path
 ______________
 
-        * Permit usage of integer literal as index in knowledge path
-        * Add files "identification_knowledge_selector.c" and "index_knowledge_deserialiser.c"
+        * Complete knowledge path deserialiser for usage of integer literal as index
+        CONTINUE:
+        * Search for function call of "select_knowledge_identification("
+        * Replace second last argument (NULL) with literal flag
+        * Think through if "source whole part element index" might be used instead of additional literal flag
+            (if null, i.e. NO memory, i.e. literal -- so the literal flag might be superfluous)
 
         * Adapt all cybol example applications to new knowledge path syntax
         * Make cybol example application "project_overview" work

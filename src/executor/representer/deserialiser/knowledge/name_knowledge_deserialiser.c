@@ -95,7 +95,7 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
 
             // Get part with the given name
             // from the memory identified by p5.
-            select_knowledge_identification(p0, p1, nd, (void*) &nc, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            select_knowledge_identification(p0, p1, nd, (void*) &nc, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             break;
         }

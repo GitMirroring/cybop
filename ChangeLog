@@ -25,6 +25,7 @@
         * Rename cybol example application "index_usage" into "cybol-path_1"
         * Rename cybol example application "cybol-path" into "cybol-path_2"
         * Merge files "name_part_knowledge_deserialiser.c" and "index_part_knowledge_deserialiser.c" into new file "identification_knowledge_deserialiser.c"
+        * Prepare knowledge path deserialiser for usage of integer literal as index
 
 2017-01-30  Christian Heller  <christian.heller@tuxtax.de>
 
