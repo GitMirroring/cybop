@@ -568,6 +568,9 @@ Part Access Examples:
 .[.path.to.index_as_integer].some.child
 .[.x.[.y]]
 
+It is also permitted to give a string as index:
+.model.[5]
+
 Complex Examples:
 
 .[.path.to.index_as_integer]
@@ -577,5 +580,4 @@ Complex Examples:
 .app.model.[.app.var.dialogue_number].label
 **.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
 
-CAUTION! It is NOT PERMITTED to give a string as index: .model.[5]
 
