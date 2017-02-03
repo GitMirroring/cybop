@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-02-03  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Decide to not allow integer literal as index in cybol knowledge paths, for reasons explained in design document
+        * Clean up knowledge path deserialiser
+
 2017-02-01  Christian Heller  <christian.heller@tuxtax.de>
 
         * Move memory prefix constants into file "memory_separator_knowledge_cyboi_name.c"

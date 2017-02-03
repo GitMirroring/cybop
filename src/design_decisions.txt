@@ -580,4 +580,22 @@ Complex Examples:
 .app.model.[.app.var.dialogue_number].label
 **.part#property.[#index_on_stack].[*.node.index].node.(.node.name.(.nested.path.node)).(**.double_reference.node).link
 
+CAUTION! It is NOT permitted to give an integer literal as index, e.g.: .model.[5]
+
+Reasons:
+
+- it was tried to implement this, but it would lead to improper source code
+- cybol knowledge paths can be considered to consist of variables as in classical programmes
+- variables with prefixes . and : reference heap memory
+- variables with the prefix # reference stack memory
+- literals are in general forbidden in cybol knowledge paths, all are variable names only
+- in all cybol example applications written up to now, the index was used dynamically,
+  coming from a variable -- so it does not seem necessary to introduce constant integer literals as index
+
+- integer literals as index could be parsed and converted into a local variable without problem
+- but since there is no actual knowledge model behind, the reference to a local variable would have to be returned (forbidden)
+- returning the index is important for passing it to the next recursive call of function "deserialise_knowledge"
+- of course, one could introduce an additional function argument (parametre) or allocate something additional,
+  but this would be improper, blow up source code and make it dirty
+- it just does not feel right or necessary
 

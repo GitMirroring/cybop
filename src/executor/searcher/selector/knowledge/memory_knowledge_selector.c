@@ -99,20 +99,12 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        // Copy source whole part to become the destination part.
-        //
-        // This case happens regularly with the last part in a path hierarchy.
-        // If the knowledge path ends and no further elements follow,
-        // then the previously retrieved part (now being the whole p1)
-        // is the last in the hierarchy and to be taken as result.
-        //
-        // CAUTION! Hand over the REFERENCE p1 here,
-        // and NOT the simple pointer *s.
+        log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge memory. The source whole part element index is unknown.");
 
-fwprintf(stdout, L"TEST select knowledge memory TODO TODO !!: %i\n", p5);
+fwprintf(stdout, L"WARNING select knowledge memory p2: %ls\n", (wchar_t*) p2);
+fwprintf(stdout, L"WARNING select knowledge memory *p3: %i\n", *((int*) p3));
 
-//?? TODO: Delete this? Whole is already copied to destination in file "part_knowledge_deserialiser.c"
-//??        copy_pointer(p0, p1);
+fwprintf(stdout, L"WARNING select knowledge memory p5: %i\n", p5);
     }
 }
 

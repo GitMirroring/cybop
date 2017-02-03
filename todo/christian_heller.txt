@@ -11,26 +11,26 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+Hints for migrating cybol application to new knowledge path syntax
+__________________________________________________________________
+
+        * Replace OLD property prefix "#" with ":"
+        * Adapt stack variables by adding knowledge path prefix "#"
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
 Knowledge Path
 ______________
 
-        * Complete knowledge path deserialiser for usage of integer literal as index
-        CONTINUE:
-        * Search for function call of "select_knowledge_identification("
-        * Replace second last argument (NULL) with literal flag
-        * Think through if "source whole part element index" might be used instead of additional literal flag
-            (if null, i.e. NO memory, i.e. literal -- so the literal flag might be superfluous)
-
-        * Adapt all cybol example applications to new knowledge path syntax
-        * Make cybol example application "project_overview" work
-            - use knowledge reference in stack variable
-            - adapt stack variables by adding knowledge path prefix "#"
+        * Migrate cybol example application "project_overview" to new knowledge path syntax
+            - replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             - search for "TODO" in file "logic/generate/page.cybol"
-            - adapt knowledge paths to new definition
-        * See file "src/design_decisions.txt" for knowledge path examples
-        * Optimise cybol example applications accordingly
-            - many operations only adding path elements or an index may get deleted in the future
-            - use prefix "#" for stack variables
+            - remove all "TEST" and "test" nodes, e.g. in file "logic/translate/list.cybol"
+        * Migrate cybol api documentation application to new knowledge path syntax
+        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
+        * Write cybol script for cleaning up examination directories, using stack variable for loop
+        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
 
 Stack
 _____
@@ -45,11 +45,6 @@ _____
         * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
         * Delete these files later
         * Describe solution in file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
-
-        * Write cybol script for cleaning up examination directories, using stack variable for loop
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
-        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
-        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
 
 Clone
 _____

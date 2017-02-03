@@ -1,11 +1,10 @@
 <node>
 
     <!--
-        These entries use stack variables, given as properties.
+        This entry uses stack variables, given as properties.
         The reason is that nested loops are used.
         Furthermore, using the stack is mostly faster than accessing the knowledge tree.
     -->
-
     <node name="list" channel="file" format="element/part" model="project_overview/logic/translate/list.cybol">
 
         <!-- The loop parametres. -->

@@ -36,7 +36,6 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part_getter.c"
 #include "../../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
-#include "../../../../executor/searcher/selector/knowledge/literal_knowledge_selector.c"
 #include "../../../../executor/searcher/selector/knowledge/memory_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 
@@ -52,10 +51,9 @@
  *           - MODEL_PART_STATE_CYBOI_NAME for structural parts
  *           - PROPERTIES_PART_STATE_CYBOI_NAME for meta properties
  *           - NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL for stack variables
- * @param p6 the literal flag (true if literal; false otherwise)
- * @param p7 the index flag (true if index; false otherwise, i.e. name)
+ * @param p6 the index flag (true if index; false otherwise, i.e. name)
  */
-void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -63,24 +61,19 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
 
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Select knowledge identification.");
 
-//?? fwprintf(stdout, L"TEST select knowledge identification *p7: %i\n", *((int*) p7));
+//?? fwprintf(stdout, L"TEST select knowledge identification *p6: %i\n", *((int*) p6));
 
         // The comparison result.
         int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            compare_integer_unequal((void*) &r, p7, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // The index flag IS set.
                 // Treat part name data as index.
-
-                // The index.
-                int i = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
-
-                select_knowledge_literal((void*) &i, p2, p3, p6);
 
                 // CAUTION! The stack memory argument p4 is NOT needed here,
                 // since it is forbidden to access arbitrary stack variables via index.
@@ -89,7 +82,7 @@ void select_knowledge_identification(void* p0, void* p1, void* p2, void* p3, voi
                 //
                 // CAUTION! Do NOT use the "copy_array_forward" function,
                 // since it is low-level and does not check array boundaries!
-                get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i, p5);
+                get_part_metadata(p0, *s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2, p5);
             }
         }
 

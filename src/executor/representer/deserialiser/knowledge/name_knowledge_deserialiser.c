@@ -93,9 +93,20 @@ void deserialise_knowledge_name(void* p0, void* p1, void* p2, void* p3, void* p4
             // The knowledge path end has been reached
             // or a special delimiter was found.
 
-            // Get part with the given name
-            // from the memory identified by p5.
-            select_knowledge_identification(p0, p1, nd, (void*) &nc, p4, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            if (nc > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                //
+                // CAUTION! Only call function below if a name EXISTS.
+                // Calling the function with an empty name anyway,
+                // would not cause errors and just be ignored inside,
+                // returning null values.
+                // However, this comparison here is done to improve performance.
+                //
+
+                // Get part with the given name
+                // from the memory identified by p5.
+                select_knowledge_identification(p0, p1, nd, (void*) &nc, p4, p5, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            }
 
             break;
         }

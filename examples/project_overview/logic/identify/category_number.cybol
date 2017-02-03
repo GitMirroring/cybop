@@ -7,12 +7,12 @@
         Therefore, the result variable HAS TO BE emptied beforehand.
     -->
     <node name="empty" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model="category_number"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="#category_number"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="serialise_index" channel="inline" format="represent/serialise" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="category_number"/>
-        <node name="source" channel="inline" format="text/cybol-path" model="category_index"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#category_number"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#category_index"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
     </node>

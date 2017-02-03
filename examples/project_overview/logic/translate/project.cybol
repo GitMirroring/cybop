@@ -7,8 +7,8 @@
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.project_root"/>
     </node>
     <node name="get_list_project_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model="project_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*project_root"/>
+        <node name="element" channel="inline" format="text/cybol-path" model="#project_name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*#project_root"/>
     </node>
 
     <node name="create_wui_toc_project" channel="inline" format="flow/sequence" model="">
@@ -20,15 +20,15 @@
 
     <!-- Loop test. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="project_index"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#project_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="project_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="project_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="project_count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#project_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#project_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#project_count"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>
