@@ -1,10 +1,10 @@
 <node>
 
     <node name="create_wui_content_part" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="path/knowledge" model=".app.var.part.name"/>
+        <node name="name" channel="inline" format="text/cybol-path" model=".var.part.name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name)"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name)"/>
     </node>
 
     <node name="initialise_wui_content_part_part" channel="inline" format="communicate/receive" model="">
@@ -13,7 +13,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="api/wui/content/part.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name)"/>
     </node>
     <node name="initialise_wui_content_part_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -21,32 +21,32 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="sender" channel="inline" format="text/plain" model="api/wui/content/part/part_properties.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name)"/>
     </node>
 
     <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).anchor.heading"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).anchor.heading"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).anchor#name"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.var.part.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).anchor:name"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.part.name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_description" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).description.text"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).description"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).description.text"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).description"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_format" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).format.text"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).format"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).format.text"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).format"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_example" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="path/knowledge" model=".app.wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).example.text"/>
-        <node name="source" channel="inline" format="path/knowledge" model=".app.spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).example"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).example.text"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".spec.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).example"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 

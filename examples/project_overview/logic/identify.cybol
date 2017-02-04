@@ -1,13 +1,5 @@
 <node>
 
-    <node name="category_number" channel="file" format="element/part" model="project_overview/logic/identify/category_number.cybol"/>
-    <node name="category_root" channel="file" format="element/part" model="project_overview/logic/identify/category_root.cybol"/>
-
-    <node name="project_number" channel="file" format="element/part" model="project_overview/logic/identify/project_number.cybol"/>
-    <node name="project_root" channel="file" format="element/part" model="project_overview/logic/identify/project_root.cybol"/>
-
-    <node name="page_number" channel="file" format="element/part" model="project_overview/logic/identify/page_number.cybol"/>
-    <node name="page_root" channel="file" format="element/part" model="project_overview/logic/identify/page_root.cybol"/>
     <node name="page_file" channel="file" format="element/part" model="project_overview/logic/identify/page_file.cybol"/>
 
 </node>

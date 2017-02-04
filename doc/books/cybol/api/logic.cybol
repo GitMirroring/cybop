@@ -11,8 +11,8 @@
             <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app.wui"/>
-        <node name="receiver" channel="inline" format="path/knowledge" model=".app.var.file"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".var.file"/>
     </node>
 
     <node name="show_failure" channel="inline" format="communicate/send" model="">

@@ -1,14 +1,8 @@
 <node>
 
-    <node name="identify_page_number" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.page_number"/>
-    </node>
-    <node name="identify_page_root" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.page_root"/>
-    </node>
     <node name="get_page_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#list_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*#list_root"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*.wui.[#list_index]"/>
     </node>
     <node name="identify_page_file" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.page_file"/>
@@ -21,7 +15,6 @@
             <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <!-- !!! TODO !!! DIRECT NAME IN PATH TAKEN FROM STACK -->
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#list_name)"/>
         <node name="receiver" channel="inline" format="text/cybol-path" model="#list_file"/>
     </node>

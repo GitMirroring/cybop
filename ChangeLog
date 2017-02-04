@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-02-04  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Migrate cybol example application "project_overview" to new knowledge path syntax
+        * Migrate cybol api documentation application to new knowledge path syntax
+
 2017-02-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Decide to not allow integer literal as index in cybol knowledge paths, for reasons explained in design document

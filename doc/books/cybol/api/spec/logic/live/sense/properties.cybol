@@ -10,7 +10,7 @@
         <node name="name" channel="inline" format="text/plain" model="handler"/>
         <node name="description" channel="inline" format="text/plain" model="the handler (usually a receive operation) that parses an input and filters out a command that the system is to react to"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="format" channel="inline" format="text/plain" model="path/knowledge"/>
+        <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
 </node>

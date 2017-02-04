@@ -1,14 +1,8 @@
 <node>
 
-    <node name="identify_list_category_number" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.category_number"/>
-    </node>
-    <node name="identify_list_category_root" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.category_root"/>
-    </node>
     <node name="get_category_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#category_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*#category_root"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*.list.[#category_index]"/>
     </node>
 
     <node name="create_wui_page" channel="inline" format="memorise/create" model="">
@@ -74,7 +68,7 @@
     <!-- Project translation. -->
     <node name="count_projects" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#project_count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*#category_root"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*.list.[#category_index]"/>
     </node>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">

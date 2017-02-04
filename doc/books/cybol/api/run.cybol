@@ -1,29 +1,12 @@
 <node>
 
-    <node name="create" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="app"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
-    </node>
     <node name="initialise" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="api/app.cybol"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
-    </node>
-
-    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    </node>
-
-    <node name="translate_spec_to_wui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.translate.spec"/>
-    </node>
-
-    <node name="generate_html" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="path/knowledge" model=".app.logic.generate"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
     </node>
 
     <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
@@ -31,8 +14,95 @@
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="path/knowledge" model=".app"/>
-        <node name="receiver" channel="inline" format="text/plain" model="api_knowledge_tree.txt"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_api.txt"/>
+    </node>
+
+    <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+    </node>
+
+    <node name="TEST_stack_variable" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+<!--
+        <node name="message" channel="inline" format="text/cybol-path" model="#test"/>
+-->
+        <node name="message" channel="inline" format="number/integer" model="0"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="translate_spec_to_wui" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.spec"/>
+    </node>
+
+    <node name="TEST_stack_variable" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+<!--
+        <node name="message" channel="inline" format="text/cybol-path" model="#test"/>
+-->
+        <node name="message" channel="inline" format="number/integer" model="1"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="generate_html" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.generate"/>
+    </node>
+
+    <node name="TEST_stack_variable" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+<!--
+        <node name="message" channel="inline" format="text/cybol-path" model="#test"/>
+-->
+        <node name="message" channel="inline" format="number/integer" model="2"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="test_stack" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_api_stack.txt"/>
+    </node>
+
+    <node name="TEST_stack_variable" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+<!--
+        <node name="message" channel="inline" format="text/cybol-path" model="#test"/>
+-->
+        <node name="message" channel="inline" format="number/integer" model="3"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="TEST" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#test"/>
+        <node name="source" channel="inline" format="number/integer" model="7"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="TEST_stack_variable" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+<!--
+        <node name="message" channel="inline" format="text/cybol-path" model="#test"/>
+-->
+        <node name="message" channel="inline" format="number/integer" model="4"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
@@ -46,30 +116,4 @@
     - category
     - part
     - property
--->
-
-<!--
-    Copyright (C) 1999-2014. Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-
-    CYBOL is free software: you can redistribute it and/or modify it
-    under the terms of the GNU General Public License as published
-    by the Free Software Foundation, either version 3 of the License,
-    or (at your option) any later version.
-
-    CYBOL is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty
-    of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    See the GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with CYBOL. If not, see <http://www.gnu.org/licenses/>.
-
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-    CYBOP Developers <cybop-developers@nongnu.org>
-
-    @version CYBOP 0.16.0 2014-03-31
-    @author Enrico Gallus <enrico.gallus@googlemail.com>
-    @author Christian Heller <christian.heller@tuxtax.de>
 -->

@@ -17,7 +17,7 @@
         not find all resources anymore, if they meanwhile have been manipulated by the other signal.
         The "flow/sequence" operation ensures that the given model is executed directly.
 
-        CAUTION! Use path/reference format here, since the action is just
+        CAUTION! Use path REFERENCE here, since the action is just
         a string pointing to the actual model to be executed.
     -->
     <node name="execute_action" channel="inline" format="flow/sequence" model="">

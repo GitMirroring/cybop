@@ -2,6 +2,12 @@
 
     <node name="spec" channel="file" format="element/part" model="api/spec.cybol"/>
     <node name="var" channel="file" format="element/part" model="api/var.cybol"/>
+<!--
     <node name="logic" channel="file" format="element/part" model="api/logic.cybol"/>
+-->
+
+    <node name="logic" channel="file" format="element/part" model="api/logic.cybol">
+        <node name="test" channel="inline" format="number/integer" model="5"/>
+    </node>
 
 </node>

@@ -1,14 +1,8 @@
 <node>
 
-    <node name="identify_list_project_number" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.project_number"/>
-    </node>
-    <node name="identify_list_project_root" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.project_root"/>
-    </node>
     <node name="get_list_project_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#project_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*#project_root"/>
+        <node name="part" channel="inline" format="text/cybol-path" model="*.list.[#category_index].[#project_index]"/>
     </node>
 
     <node name="create_wui_toc_project" channel="inline" format="flow/sequence" model="">

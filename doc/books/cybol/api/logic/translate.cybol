@@ -1,6 +1,13 @@
 <node>
 
     <node name="spec" channel="file" format="element/part" model="api/logic/translate/spec.cybol"/>
+
+<!--
+    <node name="spec" channel="file" format="element/part" model="api/logic/translate/spec.cybol">
+        <node name="test" channel="inline" format="number/integer" model="6"/>
+    </node>
+-->
+
     <node name="topic" channel="file" format="element/part" model="api/logic/translate/topic.cybol"/>
     <node name="category" channel="file" format="element/part" model="api/logic/translate/category.cybol"/>
     <node name="part" channel="file" format="element/part" model="api/logic/translate/part.cybol"/>
