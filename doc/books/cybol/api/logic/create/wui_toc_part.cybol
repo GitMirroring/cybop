@@ -1,10 +1,10 @@
 <node>
 
     <node name="create_wui_toc_part_link" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/cybol-path" model=".var.part.name"/>
+        <node name="name" channel="inline" format="text/cybol-path" model="#part_name"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name)"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name)"/>
     </node>
 
     <node name="initialise_wui_toc_part_part" channel="inline" format="communicate/receive" model="">
@@ -13,7 +13,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="api/wui/toc/container.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name).(.app#part_name)"/>
     </node>
     <node name="initialise_wui_toc_part_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -21,27 +21,27 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="sender" channel="inline" format="text/plain" model="api/wui/toc/container_properties.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name).(.app#part_name)"/>
     </node>
 
     <node name="overwrite_container_heading" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).heading"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.part.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name).(.app#part_name).heading"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_anchor_sharp" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).heading:href"/>
-        <node name="source" channel="inline" format="text/plain" model=":"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name).(.app#part_name).heading:href"/>
+        <node name="source" channel="inline" format="text/plain" model="#"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <!-- CAUTION! Use "append" and NOT "overwrite" here! -->
     <node name="overwrite_anchor_name" channel="inline" format="modify/append" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name).heading:href"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".var.part.name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name).(.app#part_name).heading:href"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#part_name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_anchor_class" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app.var.topic.name).(.app.var.category.name).(.app.var.part.name):class"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.toc.(.app#topic_name).(.app#category_name).(.app#part_name):class"/>
         <node name="source" channel="inline" format="text/plain" model="part_toc"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>

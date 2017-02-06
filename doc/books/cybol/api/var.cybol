@@ -1,11 +1,5 @@
 <node>
 
-    <node name="spec" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <node name="topic" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <node name="category" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <node name="part" channel="file" format="element/part" model="api/var/variables.cybol"/>
-    <node name="property" channel="file" format="element/part" model="api/var/variables.cybol"/>
-
     <node name="file" channel="inline" format="text/plain" model="api.html"/>
     <node name="title" channel="inline" format="text/plain" model="CYBOL Version 2016-03-07 API Specification"/>
 

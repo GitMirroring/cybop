@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-02-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Compare destination- and source type in file "applicator/modify/overwrite.c" to prevent memory errors
+        * Continue migrating cybol api documentation application to new knowledge path syntax (use stack variables, replace manually assembled paths a la [index])
+
 2017-02-04  Christian Heller  <christian.heller@tuxtax.de>
 
         * Migrate cybol example application "project_overview" to new knowledge path syntax

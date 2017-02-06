@@ -83,7 +83,10 @@ void apply_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The adjust part.
     void* ad = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model item.
+    // The destination part type item.
+    void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type, model item.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model item.
     void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -96,7 +99,10 @@ void apply_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The adjust part model item.
     void* adm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model item count.
+    // The destination part type item data.
+    void* dtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type, model item data, count.
+    void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model item data.
     void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -124,7 +130,10 @@ void apply_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get adjust part.
     get_part_name((void*) &ad, p0, (void*) ADJUST_OVERWRITE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) ADJUST_OVERWRITE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get source part model item.
+    // Get destination part type item.
+    copy_array_forward((void*) &dt, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get source part type, model item.
+    copy_array_forward((void*) &st, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get type part model item.
     copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
@@ -137,7 +146,10 @@ void apply_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get adjust part model item.
     copy_array_forward((void*) &adm, ad, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get source part model item count.
+    // Get destination part type item data.
+    copy_array_forward((void*) &dtd, dt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get source part type, model item data, count.
+    copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
     // Get type part model item data.
     copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
@@ -174,63 +186,36 @@ void apply_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Set adjust flag to the value that was given as parametre.
     copy_integer((void*) &adjust, admd);
 
-/*??
-//?? TEST BEGIN
-fwprintf(stdout, L"TEST overwrite d*: %i\n", d);
-fwprintf(stdout, L"TEST overwrite s*: %i\n", s);
-    void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* dmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* smd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &dm, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dmd, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &dmc, dm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &smd, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST overwrite dmd: %i\n", dmd);
-fwprintf(stdout, L"TEST overwrite *dmd: %i\n", *((int*) dmd));
-fwprintf(stdout, L"TEST overwrite dmc: %i\n", dmc);
-fwprintf(stdout, L"TEST overwrite *dmc: %i\n", *((int*) dmc));
-fwprintf(stdout, L"TEST overwrite s: %i\n", s);
-fwprintf(stdout, L"TEST overwrite sm: %i\n", sm);
-fwprintf(stdout, L"TEST overwrite smd: %i\n", smd);
-fwprintf(stdout, L"TEST overwrite smd als wchar_t: %ls\n", (wchar_t*) smd);
-fwprintf(stdout, L"TEST overwrite smd als char: %s\n", (char*) smd);
-fwprintf(stdout, L"\n");
-fwprintf(stdout, L"TEST overwrite *smd: %i\n", *((int*) smd));
-fwprintf(stdout, L"TEST overwrite smc: %i\n", smc);
-fwprintf(stdout, L"TEST overwrite *smc: %i\n", *((int*) smc));
-fwprintf(stdout, L"TEST overwrite tmd: %i\n", tmd);
-fwprintf(stdout, L"TEST overwrite *tmd: %i\n", *((int*) tmd));
-fwprintf(stdout, L"TEST overwrite *cmd: %i\n", cmd);
-//?? fwprintf(stdout, L"TEST overwrite cmd: %i\n", *((int*) cmd));
-fwprintf(stdout, L"TEST overwrite dimd: %i\n", dimd);
-//?? fwprintf(stdout, L"TEST overwrite dimd: %i\n", *((int*) dimd));
-fwprintf(stdout, L"TEST overwrite simd: %i\n", simd);
-//?? fwprintf(stdout, L"TEST overwrite simd: %i\n", *((int*) simd));
-fwprintf(stdout, L"TEST overwrite admd: %i\n", admd);
-//?? fwprintf(stdout, L"TEST overwrite admd: %i\n", *((int*) admd));
-fwprintf(stdout, L"TEST overwrite count: %i\n", count);
-fwprintf(stdout, L"TEST overwrite destination_index: %i\n", destination_index);
-fwprintf(stdout, L"TEST overwrite source_index: %i\n", source_index);
-fwprintf(stdout, L"TEST overwrite adjust: %i\n", adjust);
-//?? TEST END
-*/
+    //
+    // CAUTION! The following comparisons ARE IMPORTANT.
+    //
+    // If a wrong knowledge path is given, e.g. with non-existing node-names,
+    // then a cybol operation might write data into a wrong destination,
+    // e.g. source data of format "text/plain" (type wide character)
+    // into a destination of format "element/part" (type pointer).
+    //
+    // Therefore, the destination- and source type
+    // as well as the given type property are compared here.
+    //
 
-    // Overwrite the destination- with the source part.
-    overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
+    if (*((int*) dtd) == *((int*) std)) {
 
-/*??
-//?? TEST BEGIN
-fwprintf(stdout, L"TEST overwrite POST dmd: %i\n", dmd);
-fwprintf(stdout, L"TEST overwrite POST *dmd: %i\n", *((int*) dmd));
-fwprintf(stdout, L"TEST overwrite POST dmc: %i\n", dmc);
-fwprintf(stdout, L"TEST overwrite POST *dmc: %i\n", *((int*) dmc));
-fwprintf(stdout, L"TEST overwrite POST smd: %i\n", smd);
-fwprintf(stdout, L"TEST overwrite POST *smd: %i\n", *((int*) smd));
-fwprintf(stdout, L"TEST overwrite POST smc: %i\n", smc);
-fwprintf(stdout, L"TEST overwrite POST *smc: %i\n", *((int*) smc));
-//?? TEST END
-*/
+        if (*((int*) dtd) == *((int*) tmd)) {
+
+            // Overwrite the destination- with the source part.
+            overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply overwrite. The destination type and given type are different.");
+            fwprintf(stdout, L"ERROR: Could not apply overwrite. The destination type: %i and given type: %i are different.\n", *((int*) dtd), *((int*) tmd));
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply overwrite. The destination type and source type are different.");
+        fwprintf(stdout, L"ERROR: Could not apply overwrite. The destination type: %i and source type: %i are different.\n", *((int*) dtd), *((int*) std));
+    }
 }
 
 /* OVERWRITE_SOURCE */
