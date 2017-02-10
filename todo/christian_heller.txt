@@ -31,6 +31,13 @@ ______________
         CONTINUE WITH:
 
         * Migrate cybol api documentation application to new knowledge path syntax
+            - CAUTION! The part name is determined correctly in file "getter.c", but NOT assigned properly to the stack variable
+                --> stack variable access otherwise works fine, e.g. in "counter_stack_deep"
+                --> possibly, only "int" stack values are copied fine but NOT wchar_t values (strings)
+                --> NO, this is NOT the reason, since also the "count" as int value is NOT determined correctly
+                --> in file "getter.c" the source AS WELL AS destination contain CORRECT VALUES
+                --> when assigning the result testwise to ".spec_name", all works fine, but NOT with "#spec_name" on stack
+                --> check out cybol-path deserialiser once more
             - debug memory access error
             - see test messages in file "api/logic/translate/spec.cybol"
 

@@ -7,7 +7,7 @@
         <node name="spec_index" channel="inline" format="number/integer" model="0"/>
         <node name="spec_break" channel="inline" format="logicvalue/boolean" model="false"/>
         <!-- The element. -->
-        <node name="spec_name" channel="inline" format="text/plain" model=""/>
+        <node name="spec_name" channel="inline" format="text/plain" model="BLU BLA EMPTY"/>
 
         <!-- The loop parametres. -->
         <node name="topic_count" channel="inline" format="number/integer" model="0"/>
