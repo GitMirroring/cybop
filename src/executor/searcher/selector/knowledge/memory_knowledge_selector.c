@@ -101,10 +101,10 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not select knowledge memory. The source whole part element index is unknown.");
 
-fwprintf(stdout, L"WARNING select knowledge memory p2: %ls\n", (wchar_t*) p2);
-fwprintf(stdout, L"WARNING select knowledge memory *p3: %i\n", *((int*) p3));
+fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. p2: %ls\n", (wchar_t*) p2);
+fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. *p3: %i\n", *((int*) p3));
 
-fwprintf(stdout, L"WARNING select knowledge memory p5: %i\n", p5);
+fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. p5: %i\n", p5);
     }
 }
 

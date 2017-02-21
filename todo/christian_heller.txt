@@ -36,8 +36,12 @@ ______________
                 --> possibly, only "int" stack values are copied fine but NOT wchar_t values (strings)
                 --> NO, this is NOT the reason, since also the "count" as int value is NOT determined correctly
                 --> in file "getter.c" the source AS WELL AS destination contain CORRECT VALUES
-                --> when assigning the result testwise to ".spec_name", all works fine, but NOT with "#spec_name" on stack
-                --> check out cybol-path deserialiser once more
+                --> when assigning the result testwise to ".spec_name" (defined in file "app.cybol"), all works fine, but NOT with "#spec_name" on stack
+                --> check out cybol-path deserialiser once more --> all seems ok
+                --> variable value gets assigned fine in "get.c" and "getter.c", but is lost when accessing the stack variable in the next cybol operation
+                --> check out creation/copying and removal of stack variables again!
+                --> or: are there more than just one stack variable with equal name?
+                --> WRITE independent test application and stepwise extend it
             - debug memory access error
             - see test messages in file "api/logic/translate/spec.cybol"
 
