@@ -230,7 +230,11 @@ if (*((int*) fmd) == *INTEGER_NUMBER_STATE_CYBOI_FORMAT) {
 }
 */
 
+fwprintf(stdout, L"TEST apply send mmd pre POINTER: %i\n", mmd);
+
     send_data(rm, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, cmd, emd, lmd, lpd, lpc, fmd, td, mmd, mmc, mpd, mpc, (void*) &m, clmd, nlmd, ntmd, p2, p3, p4);
+
+fwprintf(stdout, L"TEST apply send mmd post POINTER: %i\n", mmd);
 
     // Deallocate type item.
     deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);

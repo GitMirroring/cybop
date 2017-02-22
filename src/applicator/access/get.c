@@ -75,6 +75,7 @@ void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 fwprintf(stdout, L"TEST apply get emc pre: %i\n", *((int*) emc));
 fwprintf(stdout, L"TEST apply get emd pre: %ls\n", (wchar_t*) emd);
+fwprintf(stdout, L"TEST apply get emd pre POINTER: %i\n", emd);
 //?? TEST END
 
     // Get part element.
@@ -86,6 +87,7 @@ fwprintf(stdout, L"TEST apply get emd pre: %ls\n", (wchar_t*) emd);
     copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 fwprintf(stdout, L"TEST apply get emc post: %i\n", *((int*) emc));
 fwprintf(stdout, L"TEST apply get emd post: %ls\n", (wchar_t*) emd);
+fwprintf(stdout, L"TEST apply get emd post POINTER: %i\n", emd);
 //?? TEST END
 }
 

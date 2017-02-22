@@ -42,6 +42,11 @@ ______________
                 --> check out creation/copying and removal of stack variables again!
                 --> or: are there more than just one stack variable with equal name?
                 --> WRITE independent test application and stepwise extend it
+                ==> DIFFERENT pointers appear in "access/get" and "communicate/send"
+                --> stack variables are allocated too often, with each cybol operation call
+                --> WHY is "TEST handle properties element" executed again and again?
+                ==> in file "element_part_handler.c" call function "handle_properties" only for type "part/element" --> filter with if-else ??
+                --> do this OUTSIDE LOOP, e.g. in "handler.c" or "part_handler.c"
             - debug memory access error
             - see test messages in file "api/logic/translate/spec.cybol"
 

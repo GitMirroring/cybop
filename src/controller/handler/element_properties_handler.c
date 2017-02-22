@@ -64,6 +64,8 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     // CAUTION! The destination part gets allocated inside.
     copy_part((void*) &d, (void*) &s);
 
+fwprintf(stdout, L"TEST handle properties element d POINTER: %i\n", d);
+
     //
     // Add destination variable part to stack memory.
     //
