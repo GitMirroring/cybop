@@ -21,19 +21,18 @@ __________________________________________________________________
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
 
-        * Hint: strange behaviour with red bars in menu of cybol application "tui_control"
+        * Fix strange behaviour with red bars in menu of cybol application "tui_control"
             is caused by (necessary!) type comparison at end of file "applicator/modify/overwrite.c",
             but the errors are in the cybol application "tui_control"
 
-Knowledge Path
-______________
+        * Debug cybol example applications that send via channel "signal"
+            - no reaction, signal does not arrive in signal_memory
+            - see file "controller/checker/signal_checker.c", call of function "receive_data"
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
-
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
-
+            - Consider file "tmp/cybop_stack.pdf"
         * Write cybol script for cleaning up examination directories, using stack variable for loop
-
         * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
 
 Stack
@@ -45,10 +44,6 @@ _____
         * Replace function call "handle_properties" with "append_item_element" in file "part_handler.c"
         * Hand over properties as array and let array functions inside care about looping and copying
         * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
-
-        * Read files "tmp/cybop_stack.pdf" and "tmp/stack_design.pdf"
-        * Delete these files later
-        * Describe solution in file "src/design_decisions.txt"; possibly BOTH solutions 2 and 3 can be covered by just ONE implementation
 
 Clone
 _____
