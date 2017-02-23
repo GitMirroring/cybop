@@ -1,5 +1,4 @@
 <node name="exit_button" channel="inline" format="text/plain" model="Exit">
     <node name="cell" channel="inline" format="text/plain" model="east"/>
-    <node name="left-release" channel="inline" format="path/knowledge"
-      model=".app.logic.exit_programme"/>
+    <node name="left-release" channel="inline" format="path/knowledge" model=".app.logic.exit_programme"/>
 </node>

@@ -22,3 +22,53 @@ _______
 
         * get rid of the tables in the generated html
             * use css styles e.g. grid to style the documentation referring the structure
+
+
+STATE
+_____
+
+* Add formats of primitive types, e.g.:
+
+    number/integer
+    number/fraction-decimal
+    number/fraction-vulgar
+    text/plain
+    logicvalue/boolean
+
+
+LOGIC
+_____
+
+get-channel       erledigt
+get-encoding      erledigt
+get-format        erledigt
+get-language      erledigt
+get-name          erledigt
+get-type          erledigt
+indicate-empty    erledigt
+indicate-exists   erledigt
+get-model         in Bearbeitung
+get-properties    in Bearbeitung
+get-reference     in Bearbeitung
+
+cast-byte         noch nicht implementiert
+cast-character    geht nicht (?)
+cast-double       erledigt
+cast-integer      erledigt
+
+sequence          erledigt
+live/exit         erledigt
+maintain          erledigt
+run/sleep         erledigt
+
+compare/small                       Beispiel fehlt
+compare/smaller-or-equal            Beispiel fehlt
+time/time                           Beispiel fehlt
+
+modify/build           offen
+modify/fill            offen
+modify/insert          offen
+
+convert-Funktionen     offen
+manipulate-Funktionen  offen
+

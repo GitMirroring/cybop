@@ -1,6 +1,9 @@
 <node>
+
     <node name="name" channel="inline" format="text/plain" model="wui"/>
     <node name="description" channel="inline" format="text/plain" model="A web user interface element."/>
     <node name="example" channel="file" format="text/plain" model="api/spec/state/user_interface/web/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model=""/>
     <node name="properties" channel="file" format="element/part" model="api/spec/state/user_interface/web/properties.cybol"/>
+
 </node>

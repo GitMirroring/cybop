@@ -28,28 +28,6 @@ __________________________________________________________________
 Knowledge Path
 ______________
 
-        CONTINUE WITH:
-
-        * Migrate cybol api documentation application to new knowledge path syntax
-            - CAUTION! The part name is determined correctly in file "getter.c", but NOT assigned properly to the stack variable
-                --> stack variable access otherwise works fine, e.g. in "counter_stack_deep"
-                --> possibly, only "int" stack values are copied fine but NOT wchar_t values (strings)
-                --> NO, this is NOT the reason, since also the "count" as int value is NOT determined correctly
-                --> in file "getter.c" the source AS WELL AS destination contain CORRECT VALUES
-                --> when assigning the result testwise to ".spec_name" (defined in file "app.cybol"), all works fine, but NOT with "#spec_name" on stack
-                --> check out cybol-path deserialiser once more --> all seems ok
-                --> variable value gets assigned fine in "get.c" and "getter.c", but is lost when accessing the stack variable in the next cybol operation
-                --> check out creation/copying and removal of stack variables again!
-                --> or: are there more than just one stack variable with equal name?
-                --> WRITE independent test application and stepwise extend it
-                ==> DIFFERENT pointers appear in "access/get" and "communicate/send"
-                --> stack variables are allocated too often, with each cybol operation call
-                --> WHY is "TEST handle properties element" executed again and again?
-                ==> in file "element_part_handler.c" call function "handle_properties" only for type "part/element" --> filter with if-else ??
-                --> do this OUTSIDE LOOP, e.g. in "handler.c" or "part_handler.c"
-            - debug memory access error
-            - see test messages in file "api/logic/translate/spec.cybol"
-
         * Migrate cybol example application "project_overview" to new knowledge path syntax
             - debug non-functioning stack variables (they exist but can't store values)
             - remove all "TEST" and "test" nodes, e.g. in file "logic/translate/list.cybol" etc.
@@ -68,7 +46,7 @@ _____
         * Check if there is an issue with looping and branching, so that only sequence works with stack variables
 
         CAUTION! The following does not function yet (example "counter_stack_deep") -- test why
-        * Replace function call "handle_properties" with "append_item_element" in file "element_part_handler.c"
+        * Replace function call "handle_properties" with "append_item_element" in file "part_handler.c"
         * Hand over properties as array and let array functions inside care about looping and copying
         * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
 

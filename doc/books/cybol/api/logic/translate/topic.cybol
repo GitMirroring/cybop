@@ -5,6 +5,25 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.[#topic_index]"/>
     </node>
 
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST topic"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#topic_name"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+-->
+
     <!-- Loop reset. -->
     <!--
         CAUTION! The count has to be reset even though it gets calculated below.
@@ -27,28 +46,10 @@
         <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
-<node name="TEST" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="message" channel="inline" format="text/plain" model="TEST topic pre"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
-
     <!-- Model creation. -->
     <node name="create_wui_toc_topic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_toc_topic"/>
     </node>
-
-<node name="TEST" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="message" channel="inline" format="text/plain" model="TEST topic post"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
 
     <node name="create_wui_content_topic" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.create.wui_content_topic"/>

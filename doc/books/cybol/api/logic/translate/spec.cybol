@@ -1,6 +1,6 @@
 <node>
 
-    <node name="TEST_stack" channel="inline" format="communicate/send" model="">
+    <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
@@ -9,45 +9,18 @@
         <node name="receiver" channel="inline" format="text/plain" model="test_api_stack.txt"/>
     </node>
 
-<!-- TEST BEGIN -->
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST spec name pre:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#spec_name"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-<!-- TEST END -->
-
-<!--
-    <node name="TEST" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#spec_name"/>
-        <node name="source" channel="inline" format="text/plain" model="HUHU HAHA"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>
--->
-
     <node name="get_spec_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#spec_name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec"/>
     </node>
 
-<!-- TEST BEGIN -->
+<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/cli"/>
         <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST spec name post:"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST spec"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="TEST" channel="inline" format="communicate/send" model="">
@@ -58,7 +31,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model="#spec_name"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
-<!-- TEST END -->
+-->
 
     <!-- Loop reset. -->
     <!--
@@ -93,24 +66,6 @@
         <node name="count" channel="inline" format="text/cybol-path" model="#topic_count"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec"/>
     </node>
-<!-- TEST BEGIN -->
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST topic count:"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#topic_count"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-<!-- TEST END -->
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
         <node name="result" channel="inline" format="text/cybol-path" model="#topic_break"/>
@@ -126,28 +81,10 @@
         <node name="false" channel="inline" format="text/cybol-path" model=".logic.show_success"/>
     </node>
 
-<node name="TEST" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="message" channel="inline" format="text/plain" model="TEST spec pre"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
-
     <node name="loop_topics" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#topic_break"/>
         <node name="model" channel="inline" format="text/cybol-path" model=".logic.translate.topic"/>
     </node>
-
-<node name="TEST" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="message" channel="inline" format="text/plain" model="TEST spec post"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
 
     <!-- Loop test. -->
     <!-- It is NOT necessary, since this spec is NOT a child of some parent. -->

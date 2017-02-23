@@ -13,7 +13,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
         <node name="sender" channel="inline" format="text/plain" model="api/wui/content/topic.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app#topic_name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name)"/>
     </node>
     <node name="initialise_wui_content_topic_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
@@ -21,16 +21,16 @@
         <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
         <node name="format" channel="inline" format="meta/format" model="element/property"/>
         <node name="sender" channel="inline" format="text/plain" model="api/wui/content/topic/topic_properties.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app#topic_name)"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name)"/>
     </node>
 
     <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app#topic_name).anchor.heading"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).anchor.heading"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#topic_name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(.app#topic_name).anchor:name"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).anchor:name"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#topic_name"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>

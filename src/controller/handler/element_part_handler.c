@@ -33,11 +33,8 @@
 #include "../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../controller/handler/properties_handler.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/integer_copier.c"
-#include "../../executor/modifier/remover/item_remover.c"
 #include "../../executor/streamer/writer/signal/signal_writer.c"
 #include "../../logger/logger.c"
 
@@ -52,34 +49,26 @@ void handle(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6
  *
  * @param p0 the signal model data (operation)
  * @param p1 the signal model index
- * @param p2 the signal properties data (local stack variables)
- * @param p3 the signal properties count
- * @param p4 the internal memory data
- * @param p5 the knowledge memory part (pointer reference)
- * @param p6 the stack memory item
- * @param p7 the signal memory item
- * @param p8 the direct execution flag
- * @param p9 the shutdown flag
+ * @param p2 the internal memory data
+ * @param p3 the knowledge memory part (pointer reference)
+ * @param p4 the stack memory item
+ * @param p5 the signal memory item
+ * @param p6 the direct execution flag
+ * @param p7 the shutdown flag
  */
-void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
+void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle part element.");
 
     // The signal part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The signal properties count old value.
-    int pc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    // The stack memory item count.
-    void* mc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The stack memory item count old value.
-    int mc_old = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get signal part with given index.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
     // Evaluate direct execution flag.
-    compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -89,72 +78,8 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // WITHOUT adding it to the signal memory.
         //
 
-        // Copy signal properties count.
-        // It is later to be used as count for variable value removal.
-        // Within the "handle" function called below, it may happen
-        // that the properties and their count get changed.
-        // Therefore, the OLD value is saved here.
-        copy_integer((void*) &pc_old, p3);
-        // Determine stack memory item count.
-        copy_array_forward((void*) &mc, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-        // Copy stack memory item count.
-        // It is later to be used as index for variable value removal.
-        // Therefore, the OLD value is saved here.
-        copy_integer((void*) &mc_old, mc);
-
-//     //?? DELETE, only for testing!
-//     int COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-//     copy_integer((void*) &COUNT, mc);
-//     fwprintf(stdout, L"TEST handle part element 0 mc_old: %i\n", mc_old);
-//     fwprintf(stdout, L"TEST handle part element 0 COUNT: %i\n", COUNT);
-
-        // Store variable values on stack memory (push).
-        handle_properties(p2, p3, p6);
-//??        append_item_element(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
-//     //?? DELETE, only for testing!
-//     copy_integer((void*) &COUNT, mc);
-//     fwprintf(stdout, L"TEST handle part element 1 mc_old: %i\n", mc_old);
-//     fwprintf(stdout, L"TEST handle part element 1 COUNT: %i\n", COUNT);
-
         // Handle signal.
-        handle(s, p4, p5, p6, p7, p8, p9);
-
-//     //?? DELETE, only for testing!
-//     copy_integer((void*) &COUNT, mc);
-//     fwprintf(stdout, L"TEST handle part element 2 mc_old: %i\n", mc_old);
-//     fwprintf(stdout, L"TEST handle part element 2 COUNT: %i\n", COUNT);
-
-        // Remove variable values from stack memory (pop).
-        //
-        // Solution 1: Read properties again
-        //
-        // CAUTION! The properties might have been changed within
-        // the logic executed within the "handle" function above.
-        // Therefore, they should NOT be accessed a second time here,
-        // in order to remove temporary values from stack memory,
-        // since the number and type of properties might have changed,
-        // which would otherwise lead to SEVERE MEMORY ERRORS.
-        //
-        // Solution 2: Add empty marker element to stack
-        //
-        // - INEFFICIENT since added for each function call
-        // - added even for logic not using temporary values on stack
-        // - consumes additional time and memory
-        //
-        // Solution 3: Remember number of values added
-        //
-        // - seems to be the easiest solution
-        // - the exact same number of values that was added to stack
-        //   (signal properties count) is removed from it again here
-        // - the former (mc_old) stack memory item count is used as index for removal
-        //
-        remove_item(p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) &pc_old, (void*) &mc_old);
-
-//     //?? DELETE, only for testing!
-//     copy_integer((void*) &COUNT, mc);
-//     fwprintf(stdout, L"TEST handle part element 3 mc_old: %i\n", mc_old);
-//     fwprintf(stdout, L"TEST handle part element 3 COUNT: %i\n", COUNT);
+        handle(s, p2, p3, p4, p5, p6, p7);
 
     } else {
 
@@ -174,19 +99,7 @@ void handle_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // the response time requirement.
         //
 
-        //
-        // CAUTION! Do NOT store any properties in stack memory!
-        // There is no guarantee as to when the signal gets
-        // actually processed from the signal memory (queue).
-        // External interrupts such as from a socket communication
-        // or mouse events might occur and be processed first.
-        // In this case, the order of stack memory entries
-        // would get MIXED UP.
-        // Therefore, the stack memory may ONLY be used with
-        // DIRECT handling of signals as done in the "if" branch above.
-        //
-
-        write_signal(p4, (void*) &s);
+        write_signal(p2, (void*) &s);
     }
 }
 

@@ -66,29 +66,8 @@ void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     // Get part part.
     get_part_name((void*) &p, p0, (void*) PART_GET_ACCESS_LOGIC_CYBOL_NAME, (void*) PART_GET_ACCESS_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-//?? TEST BEGIN
-    void* em = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* emc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST apply get emc pre: %i\n", *((int*) emc));
-fwprintf(stdout, L"TEST apply get emd pre: %ls\n", (wchar_t*) emd);
-fwprintf(stdout, L"TEST apply get emd pre POINTER: %i\n", emd);
-//?? TEST END
-
     // Get part element.
     get(e, p, p5);
-
-//?? TEST BEGIN
-    copy_array_forward((void*) &em, e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &emd, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &emc, em, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-fwprintf(stdout, L"TEST apply get emc post: %i\n", *((int*) emc));
-fwprintf(stdout, L"TEST apply get emd post: %ls\n", (wchar_t*) emd);
-fwprintf(stdout, L"TEST apply get emd post POINTER: %i\n", emd);
-//?? TEST END
 }
 
 /* GET_SOURCE */
