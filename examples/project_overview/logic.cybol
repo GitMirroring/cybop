@@ -1,7 +1,6 @@
 <node>
 
     <node name="create" channel="file" format="element/part" model="project_overview/logic/create.cybol"/>
-    <node name="identify" channel="file" format="element/part" model="project_overview/logic/identify.cybol"/>
     <node name="translate" channel="file" format="element/part" model="project_overview/logic/translate.cybol"/>
     <node name="generate" channel="file" format="element/part" model="project_overview/logic/generate.cybol"/>
 

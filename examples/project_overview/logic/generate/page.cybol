@@ -1,11 +1,38 @@
 <node>
 
     <node name="get_page_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model="#list_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*.wui.[#list_index]"/>
+        <node name="element" channel="inline" format="text/cybol-path" model="#page_name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".wui.[#page_index]"/>
     </node>
-    <node name="identify_page_file" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.identify.page_file"/>
+
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST page page name:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#page_name"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+-->
+
+    <node name="overwrite_page_file_name" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#page_file"/>
+        <node name="source" channel="inline" format="text/cybol-path" model="#page_name"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+    <node name="append_page_file_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model="#page_file"/>
+        <node name="source" channel="inline" format="text/plain" model=".html"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="send" channel="inline" format="communicate/send" model="">
@@ -15,21 +42,21 @@
             <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
         </node>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#list_name)"/>
-        <node name="receiver" channel="inline" format="text/cybol-path" model="#list_file"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#page_name)"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model="#page_file"/>
     </node>
 
     <!-- Loop test. -->
     <node name="increment_index" channel="inline" format="calculate/add" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#list_index"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#page_index"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <!-- CAUTION! The break condition has to be GREATER-OR-EQUAL-tested AFTER having incremented the loop count, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">
-        <node name="result" channel="inline" format="text/cybol-path" model="#list_break"/>
-        <node name="left" channel="inline" format="text/cybol-path" model="#list_index"/>
-        <node name="right" channel="inline" format="text/cybol-path" model="#list_count"/>
+        <node name="result" channel="inline" format="text/cybol-path" model="#page_break"/>
+        <node name="left" channel="inline" format="text/cybol-path" model="#page_index"/>
+        <node name="right" channel="inline" format="text/cybol-path" model="#page_count"/>
         <node name="type" channel="inline" format="meta/type" model="number/integer"/>
         <node name="selection" channel="inline" format="text/plain" model="all"/>
     </node>

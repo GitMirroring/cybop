@@ -2,8 +2,27 @@
 
     <node name="get_category_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#category_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*.list.[#category_index]"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".list.[#category_index]"/>
     </node>
+
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST category name:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#category_name"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+-->
 
     <node name="create_wui_page" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/cybol-path" model="#category_name"/>
@@ -68,7 +87,7 @@
     <!-- Project translation. -->
     <node name="count_projects" channel="inline" format="access/count" model="">
         <node name="count" channel="inline" format="text/cybol-path" model="#project_count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model="*.list.[#category_index]"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".list.[#category_index]"/>
     </node>
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">

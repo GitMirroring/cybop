@@ -1,7 +1,7 @@
 <node>
 
     <node name="name" channel="inline" format="text/plain" model="Umbrello Extension - UML 2.x Diagrams"/>
-    <node name="description" channel="inline" format="text/plain" model="Erweitere "Umbrello" UML-Werkzeug durch Implementierung eines neuen Diagrammtypes nach UML 2.x"/>
+    <node name="description" channel="inline" format="text/plain" model="Erweitere Umbrello UML-Werkzeug durch Implementierung eines neuen Diagrammtypes nach UML 2.x"/>
     <node name="technology" channel="inline" format="text/plain" model="C/C++ with Qt- and KDE Libraries"/>
     <node name="licence" channel="inline" format="text/plain" model="GNU GPLv3, GNU FDL"/>
     <node name="portal" channel="inline" format="text/plain" model="http://www.kde.org/"/>

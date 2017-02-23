@@ -1,29 +1,8 @@
 <node>
 
-    <node name="count_categories" channel="inline" format="access/count" model="">
-        <node name="count" channel="inline" format="text/cybol-path" model="#category_count"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".list"/>
-    </node>
-
-    <node name="TEST" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#category_count"/>
-        <node name="source" channel="inline" format="number/integer" model="7"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-    </node>
-
-    <node name="test_stack_variable" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
 <!--
-        <node name="message" channel="inline" format="text/cybol-path" model="#category_count"/>
 -->
-        <node name="message" channel="inline" format="number/integer" model="12"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    <node name="test_stack" channel="inline" format="communicate/send" model="">
+    <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
@@ -31,6 +10,30 @@
         <node name="message" channel="inline" format="text/cybol-path" model="#"/>
         <node name="receiver" channel="inline" format="text/plain" model="test_project_overview_stack.txt"/>
     </node>
+
+    <node name="count_categories" channel="inline" format="access/count" model="">
+        <node name="count" channel="inline" format="text/cybol-path" model="#category_count"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".list"/>
+    </node>
+
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/plain" model="TEST list category count:"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#category_count"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+-->
 
     <!-- The break condition has to be GREATER-OR-EQUAL-tested ONCE BEFORE calling the loop, since this is a post-test loop. -->
     <node name="compare_index" channel="inline" format="compare/greater-or-equal" model="">

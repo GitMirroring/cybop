@@ -22,7 +22,8 @@
 
         * Find bug that stack variables were allocated repeatedly for each element of a part
         * Move stack handling from file "element_part_handler.c" to "part_handler.c"
-        * Migrate cybol api documentation application to new knowledge path syntax
+        * Migrate cybol api documentation application to new knowledge path syntax with mime type "text/cybol-path"
+        * Migrate cybol example application "project_overview" to new knowledge path syntax with mime type "text/cybol-path"
 
 2017-02-06  Christian Heller  <christian.heller@tuxtax.de>
 

@@ -28,10 +28,6 @@ __________________________________________________________________
 Knowledge Path
 ______________
 
-        * Migrate cybol example application "project_overview" to new knowledge path syntax
-            - debug non-functioning stack variables (they exist but can't store values)
-            - remove all "TEST" and "test" nodes, e.g. in file "logic/translate/list.cybol" etc.
-
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
 
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.

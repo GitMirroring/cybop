@@ -1,10 +1,6 @@
 <node>
 
-    <!--
-        This entry uses stack variables, given as properties.
-        The reason is that nested loops are used.
-        Furthermore, using the stack is mostly faster than accessing the knowledge tree.
-    -->
+    <!-- This entry uses stack variables, given as properties. -->
     <node name="list" channel="file" format="element/part" model="project_overview/logic/translate/list.cybol">
 
         <!-- The loop parametres. -->
@@ -14,8 +10,6 @@
         <!-- The element. -->
         <!-- CAUTION! Do NOT use "text/plain" as format here, but "text/cybol-path" instead. -->
         <node name="list_name" channel="inline" format="text/plain" model=""/>
-        <!-- Only needed for html page generation. -->
-        <node name="list_file" channel="inline" format="text/plain" model=""/>
 
         <!-- The loop parametres. -->
         <node name="category_break" channel="inline" format="logicvalue/boolean" model="false"/>

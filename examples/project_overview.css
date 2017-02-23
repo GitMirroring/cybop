@@ -1,0 +1,110 @@
+/*
+ * Copyright (C) 2014-2014. Christian Heller.
+ *
+ * This style sheet defines layout information for the cybol specification.
+ *
+ * Colours:
+ * - yellow: #FFFFC0
+ * - blue: #000099
+ * - light blue: #C0C0FF
+ * - green: #309D4A
+ * - orange: #FFDCA8
+ *
+ * @author Christian Heller <christian.heller@ba-leipzig.de>
+ */
+
+* html div {
+    /* The workaround for the 3 pixel bug of Internet Explorer up to version 6. */
+    height: 1em;
+}
+
+/*
+ * Reset default margin and padding,
+ * which most browsers have by default.
+ */
+document, html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#toc {
+    float: left;
+    position: fixed;
+    overflow-y: scroll;
+    width: 200px;
+    height: 95%;
+    padding: 10px;
+    font-size: 8pt;
+}
+
+#toc h1 {
+    text-align: left;
+    font-size: 10pt;
+}
+
+#toc a {
+    display: block;
+    text-decoration: none;
+}
+
+#toc a:link {
+    color: #000000;
+}
+
+#toc a:visited {
+    color: #808080;
+}
+
+#toc a:hover {
+    background-color: #309D4A;
+    color: #000000;
+}
+
+#toc a:active {
+    background-color: #309D4A;
+    color: #FFFFFF;
+}
+
+#content {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    width: 800px;
+    font-size: 10pt;
+}
+
+#content h1 {
+    padding: 10px;
+    text-align: center;
+    font-size: 14pt;
+}
+
+#content h2 {
+    margin-top: 50px;
+    background-color: #309D4A;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: left;
+    font-size: 14pt;
+}
+
+.project {
+    background-color: #FFFFC0;
+    border-collapse: collapse;
+    font-size: 9pt;
+}
+
+.project tr {
+    text-align: left;
+    vertical-align: top;
+}
+
+.project th {
+    width: 150px;
+    padding: 2px;
+}
+
+.project td {
+    width: 600px;
+    padding: 2px;
+}

@@ -1,5 +1,0 @@
-<node>
-
-    <node name="page_file" channel="file" format="element/part" model="project_overview/logic/identify/page_file.cybol"/>
-
-</node>
