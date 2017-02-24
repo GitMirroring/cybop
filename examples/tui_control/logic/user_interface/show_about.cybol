@@ -1,19 +1,25 @@
 <node>
 
-    <node name="translate" channel="inline" format="text/cybol-path" model=".app.logic.translation.translate_appinfo_to_about"/>
+    <node name="translate" channel="inline" format="flow/sequence" model="">
+        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translation.translate_appinfo_to_about"/>
+    </node>
+
+<!--
+    <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translation.translate_appinfo_to_about"/>
+-->
 
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
         <node name="language" channel="inline" format="meta/language" model="message/tui"/>
         <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".app.tui.about"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".tui.about"/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="sense" channel="inline" format="live/sense" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="handler" channel="inline" format="text/cybol-path" model=".app.logic.handler.handle_about"/>
+        <node name="handler" channel="inline" format="text/cybol-path" model=".logic.handler.handle_about"/>
     </node>
 
 </node>

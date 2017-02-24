@@ -5,11 +5,13 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 -->
+
 <!--
     <node name="shutdown_terminal" channel="inline" format="maintain/shutdown" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 -->
+
 <!--
     CAUTION! The memory MUST NOT be destroyed here!
     Otherwise, also THIS model is destroyed in memory so that the exit operation
@@ -22,9 +24,10 @@
     operating system and each application is started with its own instance of CYBOI,
     the exit operation is the last one to be called. It cleans up all memory, too.
     <node name="destroy_app" channel="inline" format="memorise/destroy" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".app"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="."/>
     </node>
 -->
+
     <node name="clean_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

@@ -1,5 +1,7 @@
 <node>
-    <node name="enter" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.hide_about"/>
-    <node name="escape" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.hide_about"/>
-    <node name="o" channel="inline" format="text/cybol-path" model=".app.logic.user_interface.hide_about"/>
+
+    <node name="enter" channel="inline" format="text/cybol-path" model=".logic.user_interface.hide_about"/>
+    <node name="escape" channel="inline" format="text/cybol-path" model=".logic.user_interface.hide_about"/>
+    <node name="o" channel="inline" format="text/cybol-path" model=".logic.user_interface.hide_about"/>
+
 </node>

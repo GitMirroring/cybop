@@ -1,11 +1,14 @@
 <node>
+
     <node name="start_mc" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="mc"/>
     </node>
+
     <node name="start_dosemu" channel="inline" format="run/run" model="">
         <node name="programme" channel="inline" format="text/plain" model="xdosemu"/>
 <!--
         <node name="programme" channel="inline" format="text/plain" model="dosemu.bin -E 'call c:\a\apwxms.exe christian\' -X"/>
 -->
     </node>
+
 </node>

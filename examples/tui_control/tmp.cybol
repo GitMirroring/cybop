@@ -1,4 +1,5 @@
 <node>
+
     <!--
         CAUTION! The format is "text/cybol-path" and NOT "text/plain".
         Otherwise, parts with a reference path pointing to here
@@ -6,8 +7,11 @@
         A knowledge path is treated like a character array anyway.
     -->
     <node name="character" channel="inline" format="text/cybol-path" model=""/>
+
     <node name="integer" channel="inline" format="number/integer" model=""/>
+
     <node name="command" channel="inline" format="text/plain" model=""/>
+
     <!--
         CAUTION! The format is "text/cybol-path" and NOT "text/plain".
         Otherwise, parts with a reference path pointing to here
@@ -15,5 +19,7 @@
         A knowledge path is treated like a character array anyway.
     -->
     <node name="path" channel="inline" format="text/cybol-path" model=""/>
+
     <node name="navigation" channel="inline" format="text/plain" model=""/>
+
 </node>

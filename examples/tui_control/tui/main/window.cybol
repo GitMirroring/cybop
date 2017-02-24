@@ -1,11 +1,13 @@
 <node>
+
     <node name="header" channel="file" format="element/part" model="tui_control/tui/main/header.cybol">
-        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.menu_header"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_header"/>
         <node name="position" channel="inline" format="number/integer" model="1,1"/>
         <node name="size" channel="inline" format="number/integer" model="78,1"/>
     </node>
+
     <node name="menu" channel="file" format="element/part" model="tui_control/tui/main/menu.cybol">
-        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.menu"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu"/>
         <node name="position" channel="inline" format="number/integer" model="5,5"/>
         <node name="size" channel="inline" format="number/integer" model="70,15"/>
         <!--
@@ -14,11 +16,13 @@
             will not get processed correctly.
             A knowledge path is treated like a character array anyway.
         -->
-        <node name="focus" channel="inline" format="text/cybol-path" model=".app.tui.main.menu.mc"/>
+        <node name="focus" channel="inline" format="text/cybol-path" model=".tui.main.menu.mc"/>
     </node>
+
     <node name="footer" channel="file" format="element/part" model="tui_control/tui/main/footer.cybol">
-        <node name="super" channel="inline" format="text/cybol-path" model=".app.settings.menu_footer"/>
+        <node name="super" channel="inline" format="text/cybol-path" model=".settings.menu_footer"/>
         <node name="position" channel="inline" format="number/integer" model="1,22"/>
         <node name="size" channel="inline" format="number/integer" model="78,1"/>
     </node>
+
 </node>

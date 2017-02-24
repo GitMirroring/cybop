@@ -21,9 +21,10 @@ __________________________________________________________________
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
 
-        * Fix strange behaviour with red bars in menu of cybol application "tui_control"
-            is caused by (necessary!) type comparison at end of file "applicator/modify/overwrite.c",
-            but the errors are in the cybol application "tui_control"
+        * Investigate cybol application "tui_control"
+            - error messages due to type comparison at end of file "applicator/modify/overwrite.c"
+            - is operation "flow/sequence" really neccessary in file "show_about.cybol" OR can operation "translate" be called pure?
+            - possibly optimise some variables in tmp by using stack variables
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.

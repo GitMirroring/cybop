@@ -1,4 +1,5 @@
 <node>
+
     <node name="window" channel="file" format="element/part" model="tui_control/settings/window.cybol"/>
     <node name="menu" channel="file" format="element/part" model="tui_control/settings/menu.cybol"/>
     <node name="menu_header" channel="file" format="element/part" model="tui_control/settings/menu_header.cybol"/>
@@ -8,4 +9,5 @@
     <node name="label" channel="file" format="element/part" model="tui_control/settings/label.cybol"/>
     <node name="button" channel="file" format="element/part" model="tui_control/settings/button.cybol"/>
     <node name="selection" channel="file" format="element/part" model="tui_control/settings/selection.cybol"/>
+
 </node>
