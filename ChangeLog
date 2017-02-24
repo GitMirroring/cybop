@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-02-24  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix bug in file "executor/streamer/writer/signal/signal_writer.c" where signal memory part was used instead of signal memory part model item
+        * Make cybol example applications using channel "signal" work again thereby
+
 2017-02-23  Christian Heller  <christian.heller@tuxtax.de>
 
         * Find bug that stack variables were allocated repeatedly for each element of a part

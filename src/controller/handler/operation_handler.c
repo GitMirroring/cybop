@@ -118,7 +118,7 @@
  * @param p1 the properties parametres count
  * @param p2 the internal memory data
  * @param p3 the knowledge memory part (pointer reference)
- * @param p4 the stack memory part
+ * @param p4 the stack memory item
  * @param p5 the signal memory item
  * @param p6 the shutdown flag
  * @param p7 the operation format

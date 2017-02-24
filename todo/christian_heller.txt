@@ -25,10 +25,6 @@ __________________________________________________________________
             is caused by (necessary!) type comparison at end of file "applicator/modify/overwrite.c",
             but the errors are in the cybol application "tui_control"
 
-        * Debug cybol example applications that send via channel "signal"
-            - no reaction, signal does not arrive in signal_memory
-            - see file "controller/checker/signal_checker.c", call of function "receive_data"
-
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
             - Consider file "tmp/cybop_stack.pdf"

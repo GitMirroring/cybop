@@ -48,14 +48,22 @@ void write_signal(void* p0, void* p1) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write signal.");
 
-    // The signal memory item.
+    // The signal memory part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The signal memory part model item.
+    void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get signal memory item.
+    // Get signal memory part.
     copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIGNAL_MEMORY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    // Get signal memory part model item.
+    copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     //
     // Add signal part to signal memory.
+    //
+    // CAUTION! Do NOT add to the signal memory PART,
+    // but to the signal memory part model ITEM instead,
+    // which was determined above.
     //
     // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
     // The signal memory just holds references to knowledge memory parts (signals),
@@ -74,7 +82,7 @@ void write_signal(void* p0, void* p1) {
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
     //
-    append_item_element(s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    append_item_element(sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* SIGNAL_WRITER_SOURCE */
