@@ -241,54 +241,54 @@ ___________________________
 
 - Execute cyboi and give the "run.cybol" file of an application as argument, e.g.:
 
-    /home/cybop/src/controller/cyboi exit/run.cybol
-    /home/cybop/src/controller/cyboi exit_signal/run.cybol
-    /home/cybop/src/controller/cyboi exit_cybol_file/run.cybol
-    /home/cybop/src/controller/cyboi shell_output/run.cybol
-    /home/cybop/src/controller/cyboi shell_output_file/run.cybol
-    /home/cybop/src/controller/cyboi shell_output_sequence/run.cybol
-    /home/cybop/src/controller/cyboi if-else/run.cybol
-    /home/cybop/src/controller/cyboi shell_output_branch/run.cybol
-    /home/cybop/src/controller/cyboi shell_output_loop/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_execution/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_list_directory_contents/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_echo_message/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_copy_file/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_move_file/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_remove_file/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_tape_archiver_unpack/run.cybol
-    /home/cybop/src/controller/cyboi shell_command_tape_archiver_pack/run.cybol
-    /home/cybop/src/controller/cyboi programme_execution/run.cybol
-    /home/cybop/src/controller/cyboi addition/run.cybol
-    /home/cybop/src/controller/cyboi addition_dynamic_model/run.cybol
-    /home/cybop/src/controller/cyboi addition_dynamic_model_with_root/run.cybol
-    /home/cybop/src/controller/cyboi addition_static_model/run.cybol
-    /home/cybop/src/controller/cyboi double/run.cybol
-    /home/cybop/src/controller/cyboi date/run.cybol
-    /home/cybop/src/controller/cyboi get_count/run.cybol
-    /home/cybop/src/controller/cyboi counter/run.cybol
-    /home/cybop/src/controller/cyboi counter_static_model/run.cybol
-    /home/cybop/src/controller/cyboi counter_storage/run.cybol
-    /home/cybop/src/controller/cyboi time_output_1/run.cybol
-    /home/cybop/src/controller/cyboi time_output_2/run.cybol
-    /home/cybop/src/controller/cyboi time_output_3/run.cybol
-    /home/cybop/src/controller/cyboi addition_using_indices/run.cybol
-    /home/cybop/src/controller/cyboi index_usage/run.cybol
-    /home/cybop/src/controller/cyboi knowledge_tree_access/run.cybol
-    /home/cybop/src/controller/cyboi helloworld/run.cybol
-    /home/cybop/src/controller/cyboi tui/run.cybol
-    /home/cybop/src/controller/cyboi tui_control/run.cybol
-    /home/cybop/src/controller/cyboi gui/run.cybol
-    /home/cybop/src/controller/cyboi wui/run.cybol
-    /home/cybop/src/controller/cyboi ui/run.cybol
-    /home/cybop/src/controller/cyboi addition_using_serialisation/run.cybol
-    /home/cybop/src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
-    /home/cybop/src/controller/cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
-    /home/cybop/src/controller/cyboi socket_server
-    /home/cybop/src/controller/cyboi socket_client
-    /home/cybop/src/controller/cyboi www_server_static
-    /home/cybop/src/controller/cyboi www_server_dynamic
-    /home/cybop/src/controller/cyboi presence/run.cybol
+    ../src/controller/cyboi exit/run.cybol
+    ../src/controller/cyboi exit_signal/run.cybol
+    ../src/controller/cyboi exit_cybol_file/run.cybol
+    ../src/controller/cyboi shell_output/run.cybol
+    ../src/controller/cyboi shell_output_file/run.cybol
+    ../src/controller/cyboi shell_output_sequence/run.cybol
+    ../src/controller/cyboi if-else/run.cybol
+    ../src/controller/cyboi shell_output_branch/run.cybol
+    ../src/controller/cyboi shell_output_loop/run.cybol
+    ../src/controller/cyboi shell_command_execution/run.cybol
+    ../src/controller/cyboi shell_command_list_directory_contents/run.cybol
+    ../src/controller/cyboi shell_command_echo_message/run.cybol
+    ../src/controller/cyboi shell_command_copy_file/run.cybol
+    ../src/controller/cyboi shell_command_move_file/run.cybol
+    ../src/controller/cyboi shell_command_remove_file/run.cybol
+    ../src/controller/cyboi shell_command_tape_archiver_unpack/run.cybol
+    ../src/controller/cyboi shell_command_tape_archiver_pack/run.cybol
+    ../src/controller/cyboi programme_execution/run.cybol
+    ../src/controller/cyboi addition/run.cybol
+    ../src/controller/cyboi addition_dynamic_model/run.cybol
+    ../src/controller/cyboi addition_dynamic_model_with_root/run.cybol
+    ../src/controller/cyboi addition_static_model/run.cybol
+    ../src/controller/cyboi double/run.cybol
+    ../src/controller/cyboi date/run.cybol
+    ../src/controller/cyboi get_count/run.cybol
+    ../src/controller/cyboi counter/run.cybol
+    ../src/controller/cyboi counter_static_model/run.cybol
+    ../src/controller/cyboi counter_storage/run.cybol
+    ../src/controller/cyboi time_output_1/run.cybol
+    ../src/controller/cyboi time_output_2/run.cybol
+    ../src/controller/cyboi time_output_3/run.cybol
+    ../src/controller/cyboi addition_using_indices/run.cybol
+    ../src/controller/cyboi index_usage/run.cybol
+    ../src/controller/cyboi knowledge_tree_access/run.cybol
+    ../src/controller/cyboi helloworld/run.cybol
+    ../src/controller/cyboi tui/run.cybol
+    ../src/controller/cyboi tui_control/run.cybol
+    ../src/controller/cyboi gui/run.cybol
+    ../src/controller/cyboi wui/run.cybol
+    ../src/controller/cyboi ui/run.cybol
+    ../src/controller/cyboi addition_using_serialisation/run.cybol
+    ../src/controller/cyboi indoor_climate/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
+    ../src/controller/cyboi adc/run.cybol (CAUTION! Works only together with the corresponding microcontroller device via usb serial port.)
+    ../src/controller/cyboi socket_server
+    ../src/controller/cyboi socket_client
+    ../src/controller/cyboi www_server_static
+    ../src/controller/cyboi www_server_dynamic
+    ../src/controller/cyboi presence/run.cybol
 
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi character_encoding/run.cybol
 *NOT FUNCTIONING YET*    /home/cybop/src/controller/cyboi document_generator/run.cybol
@@ -303,6 +303,12 @@ cybop/tools/field_description_xdt_model_generator/
 cybop/tools/xdt_field_description_serialiser_generator/
 
 cybop/doc/books/cybol/api/
+CAUTION! Always first change into the super directory
+and execute cyboi from there, e.g.:
+cd cybop/doc/books/cybol
+../../../src/controller/cyboi api/run.cybol
+OR:
+../../../src/controller/cyboi --knowledge=api/run.cybol
 
 Source of the following cybol-generated website:
 http://www.ba-leipzig.de/index.php?id=153
