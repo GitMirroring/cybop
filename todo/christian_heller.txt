@@ -51,6 +51,17 @@ _____
         * Verify correct execution of cybol example application "copier"
         * Test for memory leaks with valgrind
 
+Logger
+______
+
+        * Debug memory error when logging with "debug" log level (all other levels work fine)
+            see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
+        * Check if error is caused by decrementing rubbish (garbage) collection references
+            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
+        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
+
+        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
+
 String
 ______
 
@@ -668,17 +679,6 @@ ________
 
         * Add error messages for logic operations with overflow (nand, nor, xnor, not, neg)
         * Fix error occuring while printing byte values in terminal applications
-
-Logger
-______
-
-        * Debug memory error when logging with "debug" log level (all other levels work fine)
-            see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
-        * Check if error is caused by decrementing rubbish (garbage) collection references
-            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
-        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
-
-        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
 
 Memory
 ______
