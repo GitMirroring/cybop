@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-02-26  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Show error message whenever a wrong file path is used or non-existing file is to be accessed in "executor/streamer/"
+
 2017-02-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix bug in file "executor/streamer/writer/signal/signal_writer.c" where signal memory part was used instead of signal memory part model item
