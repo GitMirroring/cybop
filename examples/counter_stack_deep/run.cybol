@@ -10,7 +10,7 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
-    <node name="test_knowledge_tree" channel="inline" format="communicate/send" model="">
+    <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack_deep.txt"/>
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

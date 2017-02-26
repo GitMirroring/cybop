@@ -1,5 +1,16 @@
 <node>
 
+<!--
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="test_counter_stack_deep_stack-inside-third-loop.txt"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
+    </node>
+-->
+
     <node name="print_number" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
