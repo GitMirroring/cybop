@@ -7,6 +7,7 @@
     <node name="communicate" channel="file" format="element/part" model="api/spec/logic/communicate.cybol"/>
     <node name="compare" channel="file" format="element/part" model="api/spec/logic/compare.cybol"/>
     <node name="convert" channel="file" format="element/part" model="api/spec/logic/convert.cybol"/>
+    <node name="file" channel="file" format="element/part" model="api/spec/logic/file.cybol"/>
     <node name="flow" channel="file" format="element/part" model="api/spec/logic/flow.cybol"/>
     <node name="live" channel="file" format="element/part" model="api/spec/logic/live.cybol"/>
     <node name="logify" channel="file" format="element/part" model="api/spec/logic/logify.cybol"/>

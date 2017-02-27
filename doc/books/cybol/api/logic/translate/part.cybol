@@ -6,25 +6,6 @@
         <node name="part" channel="inline" format="text/cybol-path" model=".spec.[#topic_index].[#category_index].[#part_index]"/>
     </node>
 
-<!--
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST part"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#part_name"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
--->
-
     <!-- Loop reset. -->
     <!--
         CAUTION! The count has to be reset even though it gets calculated below.

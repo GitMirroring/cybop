@@ -1,37 +1,9 @@
 <node>
 
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
-        <node name="format" channel="inline" format="meta/format" model="element/part"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#"/>
-        <node name="receiver" channel="inline" format="text/plain" model="test_api_stack.txt"/>
-    </node>
-
     <node name="get_spec_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#spec_name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".spec"/>
     </node>
-
-<!--
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/plain" model="TEST spec"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-    <node name="TEST" channel="inline" format="communicate/send" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="message/cli"/>
-        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-        <node name="message" channel="inline" format="text/cybol-path" model="#spec_name"/>
-        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
--->
 
     <!-- Loop reset. -->
     <!--
