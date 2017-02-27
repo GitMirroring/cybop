@@ -15,6 +15,7 @@
         <node name="sender" channel="inline" format="text/plain" model="api/wui/content/part.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name)"/>
     </node>
+    
     <node name="initialise_wui_content_part_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>

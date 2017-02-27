@@ -146,23 +146,22 @@ document, html, body {
     font-size: 10pt;
 }
 
-.property_table {
-    background-color: #FFFFC0;
+.exampleGrid {
+    display: table;
+    width: 100%;
+    background: #FFFFC0;
     border-collapse: collapse;
-    font-size: 9pt;
 }
-
-.property_table tr {
-    text-align: left;
-    vertical-align: top;
+.gridRow { display: table-row; }
+.gridHead { 
+    display: table-header-group;
+    font-weight: bold;
 }
-
-.property_table th {
-    padding: 2px;
-}
-
-.property_table td {
-    padding: 2px;
+.gridCell, .gridHead { 
+    padding-left: 1px;
+    padding-right: 1px;
+    display: table-cell;
+    border: 1px solid #000;
 }
 
 .part_example {
