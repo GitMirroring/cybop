@@ -23,6 +23,11 @@ _______
         * get rid of the tables in the generated html
             * use css styles e.g. grid to style the documentation referring the structure
 
+        * var.cybol uses hardcoded date -> should be replaced by the new date type
+        
+        * ATM, the spec/logic.cybol and spec/state.cybol contains a listing of all underlying files in the respectiv folder
+          * try to use command/list-directory-contents to reduce impact on maintenance
+
 
 STATE
 _____
