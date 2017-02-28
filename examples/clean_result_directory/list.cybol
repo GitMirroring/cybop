@@ -1,0 +1,8 @@
+<node>
+
+    <node name="hidden_directories" channel="file" format="element/part" model="clean_result_directory/list/hidden_directories.cybol"/>
+    <node name="directories" channel="file" format="element/part" model="clean_result_directory/list/directories.cybol"/>
+    <node name="hidden_files" channel="file" format="element/part" model="clean_result_directory/list/hidden_files.cybol"/>
+    <node name="files" channel="file" format="element/part" model="clean_result_directory/list/files.cybol"/>
+
+</node>

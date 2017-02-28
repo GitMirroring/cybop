@@ -41,13 +41,13 @@
         <node name="message" channel="inline" format="text/plain" model="Entpacke Inhalt des komprimierten Ergebnisverzeichnisses"/>
     </node>
     <node name="extract_archive" channel="inline" format="command/tape-archiver" model="">
-        <node name="source" channel="inline" format="text/cybol-path" model=".archive"/>
         <node name="destination" channel="inline" format="text/cybol-path" model=".extraction_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".archive"/>
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="gzip" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
@@ -68,23 +68,24 @@
     Parameters: -type d means "directory"; -type f means "file".
     CAUTION! Put "export" in quotation marks, because it would
     otherwise be interpreted as keyword, by the shell!
+    find "export" -type f -exec chmod a-x {} \;
 -->
-    <!-- find "export" -type f -exec chmod a-x {} \; -->
 <!--
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Entferne störendes und unnötiges Ausführbarkeitsrecht für alle Dateien"/>
     </node>
 -->
+    <!-- find "export" -type f -exec chmod a-x {} \; -->
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Verschiebe Unterverzeichnis auf die aktuelle Ebene und benenne es um in 'home'"/>
     </node>
     <node name="move_sub_directory" channel="inline" format="command/move" model="">
-        <node name="source" channel="inline" format="text/cybol-path" model=".klausur_path"/>
         <node name="destination" channel="inline" format="text/cybol-path" model=".home_path"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".klausur_path"/>
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
@@ -95,7 +96,7 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
@@ -106,33 +107,33 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Verzeichnisse rekursiv"/>
     </node>
-    <node name="model" channel="inline" format="text/cybol-path" model=".remove_hidden_directories"/>
+    <node name="remove_hidden_directories" channel="inline" format="text/cybol-path" model=".remove_hidden_directories"/>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse rekursiv"/>
     </node>
-    <node name="model" channel="inline" format="text/cybol-path" model=".remove_directories"/>
+    <node name="remove_directories" channel="inline" format="text/cybol-path" model=".remove_directories"/>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Dateien"/>
     </node>
-    <node name="model" channel="inline" format="text/cybol-path" model=".remove_hidden_files"/>
+    <node name="remove_hidden_files" channel="inline" format="text/cybol-path" model=".remove_hidden_files"/>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Dateien (backup files)"/>
     </node>
-    <node name="model" channel="inline" format="text/cybol-path" model=".remove_files"/>
+    <node name="remove_files" channel="inline" format="text/cybol-path" model=".remove_files"/>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse"/>
     </node>
-    <node name="model" channel="inline" format="text/cybol-path" model=".remove_empty_home_directories"/>
+    <node name="remove_empty_home_directories" channel="inline" format="text/cybol-path" model=".remove_empty_home_directories"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 
@@ -149,5 +150,5 @@
 
     ACHTUNG! Damit das Script funktioniert, muss die komprimierte Archivdatei:
     (1) ins übergeordnete Verzeichnis kopiert und
-    (2) in "archiv.tar.gz" umbenannt werden.
+    (2) in "archive.tar.gz" umbenannt werden.
 -->

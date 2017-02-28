@@ -23,6 +23,8 @@ __________________________________________________________________
 
         CONTINUE WITH:
         * Rewrite cybol example application "clean_result_directory" using stack variable at least for loop
+            - change "verbal" into "verbose", also in cyboi interpreter
+            - change "tape_archiver" into a verb, also in cyboi interpreter
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.

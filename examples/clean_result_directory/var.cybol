@@ -1,0 +1,29 @@
+<node>
+
+    <!-- The directory and file names. -->
+    <node name="archive" channel="inline" format="text/plain" model="./archive.tar.gz"/>
+    <node name="extraction_path" channel="inline" format="text/plain" model="."/>
+    <node name="export_path" channel="inline" format="text/plain" model="./export"/>
+    <node name="home_path" channel="inline" format="text/plain" model="./home"/>
+    <node name="klausur_path" channel="inline" format="text/plain" model="./export/home/klausur"/>
+    <node name="klausuruser_files" channel="inline" format="text/plain" model="./home/klausuruser-login*"/>
+
+    <node name="klaus_path" channel="inline" format="text/plain" model=""/>
+
+    <!-- The loop parametres. There are 50 sub directories for users klaus1 to klaus50. -->
+    <node name="count" channel="inline" format="number/integer" model="50"/>
+    <node name="index" channel="inline" format="number/integer" model="1"/>
+    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+
+    <!--
+        The variable is compared with number 2 because listing all files using
+        "ls -a" also lists the current directory "." and parent directory "..".
+        Therefore, otherwise empty directories still have these two entries.
+    -->
+    <node name="standard_files" channel="inline" format="number/integer" model="2"/>
+    <!-- The number of directories and files contained within the given sub directory. -->
+    <node name="counted_files" channel="inline" format="number/integer" model="0"/>
+    <!-- The branch parametres. -->
+    <node name="criterion" channel="inline" format="logicvalue/boolean" model="false"/>
+
+</node>

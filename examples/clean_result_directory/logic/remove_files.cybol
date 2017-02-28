@@ -5,7 +5,7 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="remove" channel="inline" format="command/remove" model="">
@@ -13,7 +13,7 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="remove" channel="inline" format="command/remove" model="">
@@ -21,7 +21,7 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="remove" channel="inline" format="command/remove" model="">
@@ -29,7 +29,7 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="remove" channel="inline" format="command/remove" model="">
@@ -37,7 +37,7 @@
         <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
 </node>
