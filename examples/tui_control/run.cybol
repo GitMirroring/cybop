@@ -19,9 +19,7 @@
         <node name="receiver" channel="inline" format="text/plain" model="test_tui_control.txt"/>
     </node>
 
-    <node name="startup" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.lifecycle.startup"/>
-    </node>
+    <node name="startup" channel="inline" format="text/cybol-path" model=".logic.lifecycle.startup"/>
 
 </node>
 

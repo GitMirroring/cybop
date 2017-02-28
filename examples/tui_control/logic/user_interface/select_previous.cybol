@@ -1,13 +1,11 @@
 <node>
 
     <node name="set_navigation_destination" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".tmp.navigation"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.navigation"/>
         <node name="source" channel="inline" format="text/plain" model=":previous"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
-    <node name="update_tui" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.user_interface.update"/>
-    </node>
+    <node name="update_tui" channel="inline" format="text/cybol-path" model=".logic.user_interface.update"/>
 
 </node>

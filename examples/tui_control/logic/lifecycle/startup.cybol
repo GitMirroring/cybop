@@ -4,9 +4,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
-    <node name="focus_current_menu_item" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.user_interface.focus"/>
-    </node>
+    <node name="focus_current_menu_item" channel="inline" format="text/cybol-path" model=".logic.user_interface.focus"/>
 
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

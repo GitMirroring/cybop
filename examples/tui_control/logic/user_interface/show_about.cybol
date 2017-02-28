@@ -1,12 +1,6 @@
 <node>
 
-    <node name="translate" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.translation.translate_appinfo_to_about"/>
-    </node>
-
-<!--
     <node name="translate" channel="inline" format="text/cybol-path" model=".logic.translation.translate_appinfo_to_about"/>
--->
 
     <node name="send" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

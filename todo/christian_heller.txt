@@ -21,15 +21,12 @@ __________________________________________________________________
         * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
             --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
 
-        * Investigate cybol application "tui_control"
-            - error messages due to type comparison at end of file "applicator/modify/overwrite.c"
-            - is operation "flow/sequence" really neccessary in file "show_about.cybol" OR can operation "translate" be called pure?
-            - possibly optimise some variables in tmp by using stack variables
+        CONTINUE WITH:
+        * Rewrite cybol example application "clean_result_directory" using stack variable at least for loop
 
         * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
         * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
             - Consider file "tmp/cybop_stack.pdf"
-        * Write cybol script for cleaning up examination directories, using stack variable for loop
         * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
 
 Stack

@@ -3,7 +3,7 @@
     <node name="appinfo" channel="file" format="element/part" model="tui_control/appinfo.cybol"/>
     <node name="logic" channel="file" format="element/part" model="tui_control/logic.cybol"/>
     <node name="settings" channel="file" format="element/part" model="tui_control/settings.cybol"/>
-    <node name="tmp" channel="file" format="element/part" model="tui_control/tmp.cybol"/>
+    <node name="var" channel="file" format="element/part" model="tui_control/var.cybol"/>
     <node name="tui" channel="file" format="element/part" model="tui_control/tui.cybol"/>
 
 </node>

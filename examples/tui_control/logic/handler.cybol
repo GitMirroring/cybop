@@ -1,6 +1,11 @@
 <node>
 
-    <node name="handle_main" channel="file" format="element/part" model="tui_control/logic/handler/handle_main.cybol"/>
-    <node name="handle_about" channel="file" format="element/part" model="tui_control/logic/handler/handle_about.cybol"/>
+    <node name="handle_main" channel="file" format="element/part" model="tui_control/logic/handler/handle_main.cybol">
+        <node name="command" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="handle_about" channel="file" format="element/part" model="tui_control/logic/handler/handle_about.cybol">
+        <node name="command" channel="inline" format="text/plain" model=""/>
+    </node>
 
 </node>

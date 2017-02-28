@@ -1,12 +1,10 @@
 <node>
 
-    <node name="unfocus_part" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.user_interface.unfocus"/>
-    </node>
+    <node name="unfocus_part" channel="inline" format="text/cybol-path" model=".logic.user_interface.unfocus"/>
 
     <node name="assemble_next_element_name" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".tmp.navigation"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".var.navigation"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <!-- Use element name assembled before to get the real element that the name points to. -->
@@ -16,9 +14,7 @@
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
-    <node name="focus_part" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".logic.user_interface.focus"/>
-    </node>
+    <node name="focus_part" channel="inline" format="text/cybol-path" model=".logic.user_interface.focus"/>
 
     <node name="send_tui" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

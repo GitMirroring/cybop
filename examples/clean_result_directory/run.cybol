@@ -1,0 +1,153 @@
+<node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Starte Anwendung zum Bereinigen des Archivs"/>
+    </node>
+
+    <node name="initialise_app" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="sender" channel="inline" format="text/plain" model="clean_result_directory/app.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+    </node>
+
+<!--
+-->
+    <node name="TEST" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="message" channel="inline" format="text/cybol-path" model="."/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_clean_result_directory.txt"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Datei ohne interaktive Rückfrage gelesen und später gelöscht werden kann"/>
+    </node>
+    <node name="set_archive_rights" channel="inline" format="command/change-permission" model="">
+        <node name="path" channel="inline" format="text/cybol-path" model=".archive"/>
+        <node name="user" channel="inline" format="text/plain" model="rw-"/>
+        <node name="group" channel="inline" format="text/plain" model="rw-"/>
+        <node name="other" channel="inline" format="text/plain" model="rw-"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Entpacke Inhalt des komprimierten Ergebnisverzeichnisses"/>
+    </node>
+    <node name="extract_archive" channel="inline" format="command/tape-archiver" model="">
+        <node name="source" channel="inline" format="text/cybol-path" model=".archive"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".extraction_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="gzip" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="unpack" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Setze Lese- und Schreibrechte, damit Unterverzeichnisse und Dateien ohne interaktive Rückfrage bearbeitet werden können"/>
+    </node>
+    <node name="set_content_rights" channel="inline" format="command/change-permission" model="">
+        <node name="path" channel="inline" format="text/cybol-path" model=".export_path"/>
+        <node name="user" channel="inline" format="text/plain" model="rwx"/>
+        <node name="group" channel="inline" format="text/plain" model="rwx"/>
+        <node name="other" channel="inline" format="text/plain" model="rwx"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+<!--
+    The search is recursive by default.
+    Parameters: -type d means "directory"; -type f means "file".
+    CAUTION! Put "export" in quotation marks, because it would
+    otherwise be interpreted as keyword, by the shell!
+-->
+    <!-- find "export" -type f -exec chmod a-x {} \; -->
+<!--
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Entferne störendes und unnötiges Ausführbarkeitsrecht für alle Dateien"/>
+    </node>
+-->
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Verschiebe Unterverzeichnis auf die aktuelle Ebene und benenne es um in 'home'"/>
+    </node>
+    <node name="move_sub_directory" channel="inline" format="command/move" model="">
+        <node name="source" channel="inline" format="text/cybol-path" model=".klausur_path"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model=".home_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche verbliebenen, nicht benötigten Inhalt rekursiv"/>
+    </node>
+    <node name="remove_remaining_directory" channel="inline" format="command/remove" model="">
+        <node name="path" channel="inline" format="text/cybol-path" model=".export_path"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Klausur user login Dateien"/>
+    </node>
+    <node name="remove_unneeded_files" channel="inline" format="command/remove" model="">
+        <node name="path" channel="inline" format="text/cybol-path" model=".klausuruser_files"/>
+        <node name="force" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="interactive" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbal" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Verzeichnisse rekursiv"/>
+    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".remove_hidden_directories"/>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse rekursiv"/>
+    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".remove_directories"/>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte versteckte Dateien"/>
+    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".remove_hidden_files"/>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Dateien (backup files)"/>
+    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".remove_files"/>
+
+    <node name="show_message" channel="inline" format="command/echo" model="">
+        <node name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse"/>
+    </node>
+    <node name="model" channel="inline" format="text/cybol-path" model=".remove_empty_home_directories"/>
+
+    <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
+</node>
+
+<!--
+    This application cleans the result directory of an examination
+    at the University of Cooperative Education Leipzig
+    http://www.ba-leipzig.de/
+
+    Shell Script zum Löschen nicht benötigter Verzeichnisse
+    und Dateien aus dem Ergebnisverzeichnis einer Klausur,
+    welches in Form eines komprimierten Archives vorliegt.
+
+    ACHTUNG! Damit das Script funktioniert, muss die komprimierte Archivdatei:
+    (1) ins übergeordnete Verzeichnis kopiert und
+    (2) in "archiv.tar.gz" umbenannt werden.
+-->
