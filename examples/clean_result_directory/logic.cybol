@@ -1,9 +1,10 @@
 <node>
 
-    <node name="remove_hidden_directories" channel="file" format="element/part" model="clean_result_directory/logic/remove_hidden_directories.cybol"/>
-    <node name="remove_directories" channel="file" format="element/part" model="clean_result_directory/logic/remove_directories.cybol"/>
-    <node name="remove_hidden_files" channel="file" format="element/part" model="clean_result_directory/logic/remove_hidden_files.cybol"/>
-    <node name="remove_files" channel="file" format="element/part" model="clean_result_directory/logic/remove_files.cybol"/>
+    <node name="remove" channel="file" format="element/part" model="clean_result_directory/logic/remove.cybol">
+        <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="count" channel="inline" format="number/integer" model="0"/>
+        <node name="index" channel="inline" format="number/integer" model="0"/>
+    </node>
 
     <node name="remove_empty_home_directories" channel="file" format="element/part" model="clean_result_directory/logic/remove_empty_home_directories.cybol"/>
 
