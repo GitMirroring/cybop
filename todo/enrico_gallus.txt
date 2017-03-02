@@ -14,17 +14,16 @@
 General
 _______
 
-        * Update cybol api specification with state and logic, which gets automatically generated into html
-            - see file "doc/books/cybol/api/readme.txt"
-            - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
-            - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
-        * Correct wrong entry in cybol api using operation "time/current" instead of "time/time"
-
         * var.cybol uses hardcoded date -> should be replaced by the new date type
         
         * ATM, the spec/logic.cybol and spec/state.cybol contains a listing of all underlying files in the respectiv folder
-          * try to use command/list-directory-contents to reduce impact on maintenance
+            - try to use command/list-directory-contents to reduce impact on maintenance
 
+
+* Update cybol api specification with state and logic, which gets automatically generated into html
+    - see below
+    - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
+    - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
 
 STATE
 _____

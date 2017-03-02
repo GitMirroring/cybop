@@ -28,6 +28,12 @@
 
 #include <time.h>
 
+#ifdef __APPLE__
+#include <mach/clock.h>
+#include <mach/mach.h>
+#endif
+
+
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -53,11 +59,26 @@ void time_current(void* p0) {
         // Get current time of system.
         // CAUTION! In the GNU C Library, time_t is equivalent to long int.
         //*t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL) / 1000;
-    struct timespec start;
-    clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-    //*t = (start.tv_sec) * 1000000;
-    *t = (start.tv_nsec) / 1000;
-    //*t = (start.tv_sec) * 1000000 + (start.tv_nsec) / 1000;
+
+        // OS X does not have clock_gettime, use clock_get_time
+        #ifdef __APPLE__
+
+            clock_serv_t cclock;
+            mach_timespec_t mts;
+            host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
+            clock_get_time(cclock, &mts);
+            mach_port_deallocate(mach_task_self(), cclock);
+            *t = (mts.tv_nsec) / 1000;
+
+        #else
+
+            struct timespec start;
+            clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+            //*t = (start.tv_sec) * 1000000;
+            *t = (start.tv_nsec) / 1000;
+            //*t = (start.tv_sec) * 1000000 + (start.tv_nsec) / 1000;
+
+        #endif
 
     } else {
 

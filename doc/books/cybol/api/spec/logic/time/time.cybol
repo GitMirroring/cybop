@@ -1,7 +1,0 @@
-  <node>
-    <node name="name" channel="inline" format="text/plain" model="time"/>
-    <node name="description" channel="inline" format="text/plain" model="Retrieves the current time from the system."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/time/time/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="time/time"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/time/time/properties.cybol"/>
-</node>

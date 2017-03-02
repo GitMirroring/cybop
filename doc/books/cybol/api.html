@@ -9622,7 +9622,7 @@
                     <div>
                         <a name="time">
                             <h3>
-                                time
+                                current
                             </h3>
                         </a>
                         <div>
@@ -9638,7 +9638,7 @@
                                 Format
                             </h5>
                             <p>
-                                time/time
+                                time/current
                             </p>
                         </div>
                         <div>
@@ -9646,6 +9646,9 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;retrieveCurrentTime&#x22; channel=&#x22;inline&#x22; format=&#x22;time/current&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.model&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -9672,64 +9675,16 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        channel
+                                        result
                                     </div>
                                     <div class="gridCell">
-                                        the channel on which to startup a service (terminal, display, tcp_socket, unix_socket, ...)
+                                        retrieves the current time in nano second divided by 1000 and put it the the model. Model type needs to be integer.
                                     </div>
                                     <div class="gridCell">
                                         true
                                     </div>
                                     <div class="gridCell">
                                         path/* | meta/channel
-                                    </div>
-                                    <div class="gridCell">
-                                    </div>
-                                </div>
-                                <div class="gridRow">
-                                    <div class="gridCell">
-                                        namespace
-                                    </div>
-                                    <div class="gridCell">
-                                        Only if service is www, cyboi or similar! The namespace of the socket
-                                    </div>
-                                    <div class="gridCell">
-                                        false
-                                    </div>
-                                    <div class="gridCell">
-                                        text/plain
-                                    </div>
-                                    <div class="gridCell">
-                                    </div>
-                                </div>
-                                <div class="gridRow">
-                                    <div class="gridCell">
-                                        style
-                                    </div>
-                                    <div class="gridCell">
-                                        Only if service is www, cyboi or similar! The namespace of the socket
-                                    </div>
-                                    <div class="gridCell">
-                                        false
-                                    </div>
-                                    <div class="gridCell">
-                                        text/plain
-                                    </div>
-                                    <div class="gridCell">
-                                    </div>
-                                </div>
-                                <div class="gridRow">
-                                    <div class="gridCell">
-                                        address
-                                    </div>
-                                    <div class="gridCell">
-                                        Only if service is www, cyboi or similar! The address of hosts communicating with this system via socket.
-                                    </div>
-                                    <div class="gridCell">
-                                        false
-                                    </div>
-                                    <div class="gridCell">
-                                        text/plain
                                     </div>
                                     <div class="gridCell">
                                     </div>
