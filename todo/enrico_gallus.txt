@@ -135,6 +135,10 @@ left                added
 none                added
 right               added
 
+CONVERT
+encode              added
+decode              added
+
 sequence          erledigt
 live/exit         erledigt
 maintain          erledigt
@@ -146,6 +150,5 @@ modify/build           offen
 modify/fill            offen
 modify/insert          offen
 
-convert-Funktionen     offen
 manipulate-Funktionen  offen
 

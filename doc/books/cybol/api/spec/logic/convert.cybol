@@ -1,4 +1,4 @@
 <node>
-    <node name="decode (TODO)" channel="file" format="element/part" model="api/spec/logic/convert/decode.cybol"/>
-    <node name="encode (TODO)" channel="file" format="element/part" model="api/spec/logic/convert/encode.cybol"/>
+    <node name="decode" channel="file" format="element/part" model="api/spec/logic/convert/decode.cybol"/>
+    <node name="encode" channel="file" format="element/part" model="api/spec/logic/convert/encode.cybol"/>
 </node>
