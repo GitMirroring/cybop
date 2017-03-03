@@ -52,8 +52,8 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#get-model">
-                            get-model
+                        <a href="#get-model  (OBSOLETE)">
+                            get-model  (OBSOLETE)
                         </a>
                     </div>
                     <div class="part_toc">
@@ -62,13 +62,13 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#get-properties">
-                            get-properties
+                        <a href="#get-properties (OBSOLETE)">
+                            get-properties (OBSOLETE)
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#get-reference">
-                            get-reference
+                        <a href="#get-reference (OBSOLETE)">
+                            get-reference (OBSOLETE)
                         </a>
                     </div>
                     <div class="part_toc">
@@ -107,6 +107,11 @@
                         </a>
                     </div>
                     <div class="part_toc">
+                        <a href="#modulo">
+                            modulo
+                        </a>
+                    </div>
+                    <div class="part_toc">
                         <a href="#multiply">
                             multiply
                         </a>
@@ -117,13 +122,8 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#reduce (TODO)">
-                            reduce (TODO)
-                        </a>
-                    </div>
-                    <div class="part_toc">
-                        <a href="#remainder (TODO)">
-                            remainder (TODO)
+                        <a href="#reduce (OBSOLETE)">
+                            reduce (OBSOLETE)
                         </a>
                     </div>
                     <div class="part_toc">
@@ -1183,7 +1183,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="get-model">
+                        <a name="get-model  (OBSOLETE)">
                             <h3>
                                 get-model
                             </h3>
@@ -1327,7 +1327,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="get-properties">
+                        <a name="get-properties (OBSOLETE)">
                             <h3>
                                 get-properties
                             </h3>
@@ -1381,7 +1381,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="get-reference">
+                        <a name="get-reference (OBSOLETE)">
                             <h3>
                                 get-reference
                             </h3>
@@ -2035,6 +2035,113 @@
                         </div>
                     </div>
                     <div>
+                        <a name="modulo">
+                            <h3>
+                                modulo
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Calculate the module of a given value.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                calculate/modulo
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;node name=&#x22;modulo&#x22; channel=&#x22;inline&#x22; format=&#x22;calculate/modulo&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;operand&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
+    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        The result of the modulo operation.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/*
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        operand
+                                    </div>
+                                    <div class="gridCell">
+                                        The factor for the modulo.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/*
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        The number type. It has to be identical for all parametres.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
                         <a name="multiply">
                             <h3>
                                 multiply
@@ -2249,7 +2356,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="reduce (TODO)">
+                        <a name="reduce (OBSOLETE)">
                             <h3>
                                 reduce
                             </h3>
@@ -2259,7 +2366,7 @@
                                 Description
                             </h5>
                             <p>
-                                Not implemented yet.
+                                Not implemented yet. !REVIEW! Can be deleted?
                             </p>
                         </div>
                         <div>
@@ -2268,60 +2375,6 @@
                             </h5>
                             <p>
                                 calculate/reduce
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <div class="exampleGrid">
-                                <div class="gridRow">
-                                    <div class="gridHead">
-                                        name
-                                    </div>
-                                    <div class="gridHead">
-                                        description
-                                    </div>
-                                    <div class="gridHead">
-                                        required
-                                    </div>
-                                    <div class="gridHead">
-                                        format
-                                    </div>
-                                    <div class="gridHead">
-                                        model
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a name="remainder (TODO)">
-                            <h3>
-                                remainder
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                                Not implemented yet.
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
-                                calculate/remainder
                             </p>
                         </div>
                         <div>

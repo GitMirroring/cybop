@@ -41,19 +41,31 @@ LOGIC
 _____
 
 ACCESS
-get-channel       done
-get-encoding      adjusted
-get-format        done
-get-index         added
-get-language      done
-get-name          done
-get-type          adjusted
-indicate-empty    done
-indicate-exists   done
-get-model         ?propably obsolete?
-get-properties    ?propably obsolete?
-get-reference     ?propably obsolete?
+get-channel         done
+get-encoding        adjusted
+get-format          done
+get-index           added
+get-language        done
+get-name            done
+get-type            adjusted
+indicate-empty      done
+indicate-exists     done
+get-model           ?propably obsolete -> should be removed?
+get-properties      ?propably obsolete -> should be removed?
+get-reference       ?propably obsolete -> should be removed?
 
+CALCULATE
+absolute            done
+add                 done
+divide              done
+modulo              added
+multiply            done
+negate              done
+reduce              ?propably obsolete -> should be removed?
+remainder           removed
+subtract            done
+
+CAST
 cast-byte         noch nicht implementiert
 cast-character    geht nicht (?)
 cast-double       erledigt
