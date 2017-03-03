@@ -33,7 +33,7 @@
         <node name="group" channel="inline" format="text/plain" model="rw-"/>
         <node name="other" channel="inline" format="text/plain" model="rw-"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -59,7 +59,7 @@
         <node name="group" channel="inline" format="text/plain" model="rwx"/>
         <node name="other" channel="inline" format="text/plain" model="rwx"/>
         <node name="recursive" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="verbose" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="verbose" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="silent" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
@@ -113,12 +113,12 @@
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche nicht benötigte Verzeichnisse und Dateien rekursiv"/>
     </node>
-    <node name="remove" channel="inline" format="text/cybol-path" model=".logic.remove"/>
+    <node name="remove_superfluous_directories_and_files" channel="inline" format="text/cybol-path" model=".logic.remove_superfluous"/>
 
     <node name="show_message" channel="inline" format="command/echo" model="">
         <node name="message" channel="inline" format="text/plain" model="Lösche leere home Verzeichnisse"/>
     </node>
-    <node name="remove_empty_home_directories" channel="inline" format="text/cybol-path" model=".logic.remove_empty_home_directories"/>
+    <node name="remove_empty_home_directories" channel="inline" format="text/cybol-path" model=".logic.remove_empty"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

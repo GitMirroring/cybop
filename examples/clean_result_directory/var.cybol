@@ -10,11 +10,6 @@
 
     <node name="klaus_path" channel="inline" format="text/plain" model=""/>
 
-    <!-- The loop parametres. There are 50 sub directories for users klaus1 to klaus50. -->
-    <node name="count" channel="inline" format="number/integer" model="50"/>
-    <node name="index" channel="inline" format="number/integer" model="1"/>
-    <node name="break" channel="inline" format="logicvalue/boolean" model="false"/>
-
     <!--
         The variable is compared with number 2 because listing all files using
         "ls -a" also lists the current directory "." and parent directory "..".
