@@ -66,10 +66,10 @@ remainder           removed
 subtract            done
 
 CAST
-cast-byte         noch nicht implementiert
-cast-character    geht nicht (?)
-cast-double       erledigt
-cast-integer      erledigt
+cast-byte           adjusted
+cast-character      adjusted
+cast-double         done
+cast-integer        done
 
 sequence          erledigt
 live/exit         erledigt

@@ -137,8 +137,8 @@
                         cast
                     </a>
                     <div class="part_toc">
-                        <a href="#byte (TODO)">
-                            byte (TODO)
+                        <a href="#byte">
+                            byte
                         </a>
                     </div>
                     <div class="part_toc">
@@ -2524,7 +2524,7 @@
                         </h2>
                     </a>
                     <div>
-                        <a name="byte (TODO)">
+                        <a name="byte">
                             <h3>
                                 byte
                             </h3>
@@ -2534,7 +2534,7 @@
                                 Description
                             </h5>
                             <p>
-                                Not implemented yet.
+                                Casts a value from one type to another.
                             </p>
                         </div>
                         <div>
@@ -2550,6 +2550,11 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;cast_byte&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/byte&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;number/byte&#x22; model=&#x22;123&#x22;/&#x3E;
+    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2572,6 +2577,54 @@
                                     </div>
                                     <div class="gridHead">
                                         model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination
+                                    </div>
+                                    <div class="gridCell">
+                                        The knowledge model to cast to.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/*
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        source
+                                    </div>
+                                    <div class="gridCell">
+                                        The knowledge model to cast from.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/*
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        The source type.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
                                     </div>
                                 </div>
                             </div>
@@ -2604,6 +2657,11 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;cast_character&#x22; channel=&#x22;inline&#x22; format=&#x22;cast/character&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_2&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.part_1&#x22;/&#x3E;
+    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;text/plain&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -2626,6 +2684,54 @@
                                     </div>
                                     <div class="gridHead">
                                         model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination
+                                    </div>
+                                    <div class="gridCell">
+                                        The knowledge model to cast to.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/*
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        source
+                                    </div>
+                                    <div class="gridCell">
+                                        The knowledge model to cast from.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/*
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        The source type.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
                                     </div>
                                 </div>
                             </div>
