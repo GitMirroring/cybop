@@ -933,6 +933,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         }
     }
 
+/*??
     //
     // convert
     //
@@ -956,6 +957,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             encode(p0, p1);
         }
     }
+*/
 
     //
     // flow
