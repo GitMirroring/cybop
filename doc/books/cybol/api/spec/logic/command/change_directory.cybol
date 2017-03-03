@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="change-directory"/>
+    <node name="description" channel="inline" format="text/plain" model="Changes the directory."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/command/change_directory/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="command/change-directory"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/command/change_directory/properties.cybol"/>
+</node> 

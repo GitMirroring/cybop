@@ -71,6 +71,52 @@ cast-character      adjusted
 cast-double         done
 cast-integer        done
 
+COMMAND
+archive             adjusted
+change-directory    added
+change-permission   done
+clear               added
+compare-files       added (needs to be defined)
+config-network      added (needs to be defined)
+copy                adjusted
+create-folder       done
+date                added (needs to be defined)
+delay               added (needs to be defined)
+diff                done
+disk-free           added (needs to be defined)
+disk-usage          added (needs to be defined)
+display-content     adjusted
+echo                adjusted
+find-command        added (needs to be defined)
+find-file           added (needs to be defined) ?doesn't this belong to file category?
+grep                done
+help                added (needs to be defined)
+id                  added (needs to be defined)
+ifconfig            added (needs to be defined)
+ifup                added (needs to be defined)
+hostname            added (needs to be defined)
+kill                added (needs to be defined)
+list-directory-contents added (needs to be defined)
+list-open-files     added (needs to be defined)
+list-tasks          added (needs to be defined)
+memory-free         added (needs to be defined)
+move                adjusted
+netstat             added (needs to be defined)
+ping                done
+pwd                 added (needs to be defined)
+remove              adjusted
+sort                added (needs to be defined)
+spellcheck          added (needs to be defined)
+system-messages     added (needs to be defined)
+tape-archiver       adjusted
+top                 added (needs to be defined)
+touch               added (needs to be defined)
+traceroute          added (needs to be defined)
+userlog             added (needs to be defined)
+who                 added (needs to be defined)
+who-am-i            added (needs to be defined)
+word-count          adjusted
+
 sequence          erledigt
 live/exit         erledigt
 maintain          erledigt

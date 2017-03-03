@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="directory-contents"/>
-    <node name="description" channel="inline" format="text/plain" model="Lists the directory contents."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/command/directory_contents/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="command/list-directory-contents"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/command/directory_contents/properties.cybol"/>
-</node> 

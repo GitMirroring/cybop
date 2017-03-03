@@ -1,4 +1,4 @@
-<node name="copy_file" channel="inline" format="command/copy" model="">
+<node name="copy" channel="inline" format="command/copy" model="">
     <node name="source" channel="inline" format="text/plain"
       model="./shell_command_copy_file/original.txt"/>
     <node name="destination" channel="inline" format="text/plain"

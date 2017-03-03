@@ -1,0 +1,30 @@
+<node>
+    <node name="path" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="path"/>
+        <node name="description" channel="inline" format="text/plain" model="the listing for the given path (the default is the current directory)"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="text/plain"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+	<node name="squeze" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="squeze"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+	<node name="number-lines" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="number-lines"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="clear" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="clear"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+</node>
