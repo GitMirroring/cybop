@@ -722,8 +722,13 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#sleep">
-                            sleep
+                        <a href="#sleep-nano">
+                            sleep-nano
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#sleep-second">
+                            sleep-second
                         </a>
                     </div>
                 </div>
@@ -732,8 +737,8 @@
                         time
                     </a>
                     <div class="part_toc">
-                        <a href="#time">
-                            time
+                        <a href="#current">
+                            current
                         </a>
                     </div>
                 </div>
@@ -12892,9 +12897,9 @@
                         </div>
                     </div>
                     <div>
-                        <a name="sleep">
+                        <a name="sleep-nano">
                             <h3>
-                                sleep
+                                sleep-nano
                             </h3>
                         </a>
                         <div>
@@ -12902,7 +12907,7 @@
                                 Description
                             </h5>
                             <p>
-                                Puts the executing thread to sleep for at least x microseconds (the actual duration may differ depending on the systems load and timer accuracy)
+                                Puts the executing thread to sleep for at least x nanoseconds (the actual duration may differ depending on the systems load and timer accuracy)
                             </p>
                         </div>
                         <div>
@@ -12910,7 +12915,7 @@
                                 Format
                             </h5>
                             <p>
-                                run/sleep
+                                run/sleep-nano
                             </p>
                         </div>
                         <div>
@@ -12950,7 +12955,80 @@
                                         duration
                                     </div>
                                     <div class="gridCell">
-                                        The amount of microseconds to sleep
+                                        The amount of nanoseconds to sleep
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/channel
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="sleep-second">
+                            <h3>
+                                sleep-second
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Puts the executing thread to sleep for at least x seconds (the actual duration may differ depending on the systems load and timer accuracy)
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                run/sleep-second
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;node name=&#x22;sleep&#x22; channel=&#x22;inline&#x22; format=&#x22;run/sleep-second&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;duration&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_sleep&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        duration
+                                    </div>
+                                    <div class="gridCell">
+                                        The amount of seconds to sleep
                                     </div>
                                     <div class="gridCell">
                                         true
@@ -12972,7 +13050,7 @@
                         </h2>
                     </a>
                     <div>
-                        <a name="time">
+                        <a name="current">
                             <h3>
                                 current
                             </h3>

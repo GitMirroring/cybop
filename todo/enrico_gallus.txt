@@ -192,6 +192,13 @@ RANDOMISE
 retrieve            added
 sow                 added
 
-run/sleep         erledigt
+REPRESENT
+deserialise         done
+serialise           done
+
+RUN
+run                 done
+sleep-nano          done
+sleep-second        done
 
 time/time                           Beispiel fehlt
