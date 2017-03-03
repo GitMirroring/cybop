@@ -32,7 +32,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /**
- * The macintosh newline text model.
+ * The macintosh newline text model until version 9
  *
  * carriage return (cr)
  */
