@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="both"/>
+    <node name="description" channel="inline" format="text/plain" model="Compare if bounded area contains value."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/contain/both/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="contain/both"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/contain/both/properties.cybol"/>
+</node>

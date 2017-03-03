@@ -117,13 +117,29 @@ who                 added (needs to be defined)
 who-am-i            added (needs to be defined)
 word-count          adjusted
 
+COMMUNICATE
+receive             adjusted
+send                adjusted
+
+COMPARE
+equal               done
+greater             done
+greater-or-equal    done
+smaller             adjusted
+smaller-or-equal    adjusted
+unequal             done
+
+CONTAIN (added)
+both                added
+left                added
+none                added
+right               added
+
 sequence          erledigt
 live/exit         erledigt
 maintain          erledigt
 run/sleep         erledigt
 
-compare/small                       Beispiel fehlt
-compare/smaller-or-equal            Beispiel fehlt
 time/time                           Beispiel fehlt
 
 modify/build           offen

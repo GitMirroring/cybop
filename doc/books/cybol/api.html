@@ -417,18 +417,43 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#smaller (TODO)">
-                            smaller (TODO)
+                        <a href="#smaller">
+                            smaller
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#smaller-or-equal (TODO)">
-                            smaller-or-equal (TODO)
+                        <a href="#smaller-or-equal">
+                            smaller-or-equal
                         </a>
                     </div>
                     <div class="part_toc">
                         <a href="#unequal">
                             unequal
+                        </a>
+                    </div>
+                </div>
+                <div class="category_toc">
+                    <a href="#contain">
+                        contain
+                    </a>
+                    <div class="part_toc">
+                        <a href="#both">
+                            both
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#left">
+                            left
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#none">
+                            none
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#right">
+                            right
                         </a>
                     </div>
                 </div>
@@ -6386,6 +6411,7 @@
                                         false
                                     </div>
                                     <div class="gridCell">
+                                        ???
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -6568,6 +6594,7 @@
                                         false
                                     </div>
                                     <div class="gridCell">
+                                        ???
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -6583,6 +6610,7 @@
                                         false
                                     </div>
                                     <div class="gridCell">
+                                        ???
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -6614,6 +6642,7 @@
                                         false
                                     </div>
                                     <div class="gridCell">
+                                        ???
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -7100,7 +7129,7 @@
                         </div>
                     </div>
                     <div>
-                        <a name="smaller (TODO)">
+                        <a name="smaller">
                             <h3>
                                 smaller
                             </h3>
@@ -7126,6 +7155,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;compare_smaller&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/smaller&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#break&#x22;/&#x3E;
+    &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#index&#x22;/&#x3E;
+    &#x3C;node name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#count&#x22;/&#x3E;
+    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+    &#x3C;node name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -7150,11 +7186,91 @@
                                         model
                                     </div>
                                 </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        the knowledge model, in which the result is stored (of type boolean)
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        left
+                                    </div>
+                                    <div class="gridCell">
+                                        the left operand
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        right
+                                    </div>
+                                    <div class="gridCell">
+                                        the right operand
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        the operand type which is equal for both operands
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        selection
+                                    </div>
+                                    <div class="gridCell">
+                                        the area of two strings or number vectors to be compared
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <a name="smaller-or-equal (TODO)">
+                        <a name="smaller-or-equal">
                             <h3>
                                 smaller-or-equal
                             </h3>
@@ -7180,6 +7296,13 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;compare_smaller&#x22; channel=&#x22;inline&#x22; format=&#x22;compare/smaller-or-equal&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#break&#x22;/&#x3E;
+    &#x3C;node name=&#x22;left&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#index&#x22;/&#x3E;
+    &#x3C;node name=&#x22;right&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;#count&#x22;/&#x3E;
+    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+    &#x3C;node name=&#x22;selection&#x22; channel=&#x22;inline&#x22; format=&#x22;text/plain&#x22; model=&#x22;all&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -7202,6 +7325,86 @@
                                     </div>
                                     <div class="gridHead">
                                         model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        the knowledge model, in which the result is stored (of type boolean)
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        left
+                                    </div>
+                                    <div class="gridCell">
+                                        the left operand
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        right
+                                    </div>
+                                    <div class="gridCell">
+                                        the right operand
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        the operand type which is equal for both operands
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        selection
+                                    </div>
+                                    <div class="gridCell">
+                                        the area of two strings or number vectors to be compared
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
                                     </div>
                                 </div>
                             </div>
@@ -7335,6 +7538,549 @@
                                     </div>
                                     <div class="gridCell">
                                         the area of two strings or number vectors to be compared
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a name="contain">
+                        <h2>
+                            contain
+                        </h2>
+                    </a>
+                    <div>
+                        <a name="both">
+                            <h3>
+                                both
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Compare if bounded area contains value.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                contain/both
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        the knowledge model, in which the result is stored
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        left
+                                    </div>
+                                    <div class="gridCell">
+                                        the left part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        right
+                                    </div>
+                                    <div class="gridCell">
+                                        the right part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        the type which is equal for both parts
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        selection
+                                    </div>
+                                    <div class="gridCell">
+                                        ???
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="left">
+                            <h3>
+                                left
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Compare if bounded area contains value.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                contain/left
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        the knowledge model, in which the result is stored
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        left
+                                    </div>
+                                    <div class="gridCell">
+                                        the left part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        right
+                                    </div>
+                                    <div class="gridCell">
+                                        the right part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        the type which is equal for both parts
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        selection
+                                    </div>
+                                    <div class="gridCell">
+                                        ???
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="none">
+                            <h3>
+                                none
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Compare if bounded area contains value.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                contain/none
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        the knowledge model, in which the result is stored
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        left
+                                    </div>
+                                    <div class="gridCell">
+                                        the left part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        right
+                                    </div>
+                                    <div class="gridCell">
+                                        the right part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        the type which is equal for both parts
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        selection
+                                    </div>
+                                    <div class="gridCell">
+                                        ???
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="right">
+                            <h3>
+                                right
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Compare if bounded area contains value.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                contain/right
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        the knowledge model, in which the result is stored
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        left
+                                    </div>
+                                    <div class="gridCell">
+                                        the left part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        right
+                                    </div>
+                                    <div class="gridCell">
+                                        the right part
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | number/* | text/plain
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        type
+                                    </div>
+                                    <div class="gridCell">
+                                        the type which is equal for both parts
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        selection
+                                    </div>
+                                    <div class="gridCell">
+                                        ???
                                     </div>
                                     <div class="gridCell">
                                         true
