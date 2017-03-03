@@ -1,19 +1,19 @@
 <node>
-	<node name="part" channel="inline" format="text/plain" model="">
+    <node name="part" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="part"/>
         <node name="description" channel="inline" format="text/plain" model="the part"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="count" channel="inline" format="text/plain" model="">
+    <node name="count" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="count"/>
         <node name="description" channel="inline" format="text/plain" model="If null, ALL elements will be removed. The number of elements to be removed."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="number/integer"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="index" channel="inline" format="text/plain" model="">
+    <node name="index" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="index"/>
         <node name="description" channel="inline" format="text/plain" model="If null, the index of the LAST element will be used instead. The index from where to start removing elements from."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>

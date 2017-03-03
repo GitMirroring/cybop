@@ -6,35 +6,35 @@
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="source" channel="inline" format="text/plain" model="">
+    <node name="source" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="source"/>
         <node name="description" channel="inline" format="text/plain" model="the source part"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="type" channel="inline" format="text/plain" model="">
+    <node name="type" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="type"/>
         <node name="description" channel="inline" format="text/plain" model="the type of data."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="meta/type"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="count" channel="inline" format="text/plain" model="">
+    <node name="count" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="count"/>
         <node name="description" channel="inline" format="text/plain" model="If null, the part model count will be used instead. The number of elements to be inserted."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="number/integer"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="destination_index" channel="inline" format="text/plain" model="">
+    <node name="destination_index" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="index"/>
         <node name="description" channel="inline" format="text/plain" model="If null, an index of zero will be used instead. The destination index from which to start copying elements to."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="number/integer"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="source_index" channel="inline" format="text/plain" model="">
+    <node name="source_index" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="index"/>
         <node name="description" channel="inline" format="text/plain" model="If null, an index of zero will be used instead. The source index from which to start copying elements from."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>

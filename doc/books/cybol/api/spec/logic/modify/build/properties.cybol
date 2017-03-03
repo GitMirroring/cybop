@@ -1,19 +1,19 @@
 <node>
-	<node name="result" channel="inline" format="text/plain" model="">
+    <node name="result" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="description" channel="inline" format="text/plain" model="The knowledge part where to store the resulting composed name."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="base" channel="inline" format="text/plain" model="">
+    <node name="base" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="base"/>
         <node name="description" channel="inline" format="text/plain" model="the base name"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/plain"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-	<node name="index" channel="inline" format="text/plain" model="">
+    <node name="index" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="index"/>
         <node name="description" channel="inline" format="text/plain" model="The index to add to the base name."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>

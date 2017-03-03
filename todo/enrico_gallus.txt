@@ -159,15 +159,36 @@ or                  adjusted
 xnor                added
 xor                 added
 
+MAINTAIN
+shutdown            done
+startup             done
 
-maintain          erledigt
+MANIPULATE
+check               adjusted (no example)
+clear               adjusted (no example)
+rotate-left         adjusted (no example)
+rotate-right        adjusted (no example)
+set                 adjusted (no example)
+shift-left          adjusted (no example)
+shift-right         adjusted (no example)
+toggle              adjusted (no example)
+
+MEMORISE
+create              done
+destroy             done
+pop                 added (but undefined)
+push                added (but undefined)
+
+MODIFY
+append              done
+build               added (but undefined)
+empty               adjusted
+fill                undefined
+insert              undefined
+overwrite           !example and property definition doesn't match!
+remove              done
+
+
 run/sleep         erledigt
 
 time/time                           Beispiel fehlt
-
-modify/build           offen
-modify/fill            offen
-modify/insert          offen
-
-manipulate-Funktionen  offen
-

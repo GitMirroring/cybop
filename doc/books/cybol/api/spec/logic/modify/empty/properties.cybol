@@ -1,9 +1,23 @@
 <node>
-	<node name="part" channel="inline" format="text/plain" model="">
+    <node name="part" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="part"/>
         <node name="description" channel="inline" format="text/plain" model="the part"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="model" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="model"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="meta/type"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+    <node name="properties" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="properties"/>
+        <node name="description" channel="inline" format="text/plain" model="???"/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="format" channel="inline" format="text/plain" model="???"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
 </node>

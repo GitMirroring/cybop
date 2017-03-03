@@ -1,4 +1,6 @@
 <node>
     <node name="create" channel="file" format="element/part" model="api/spec/logic/memorise/create.cybol"/>
     <node name="destroy" channel="file" format="element/part" model="api/spec/logic/memorise/destroy.cybol"/>
+    <node name="pop" channel="file" format="element/part" model="api/spec/logic/memorise/pop.cybol"/>
+    <node name="push" channel="file" format="element/part" model="api/spec/logic/memorise/push.cybol"/>
 </node>

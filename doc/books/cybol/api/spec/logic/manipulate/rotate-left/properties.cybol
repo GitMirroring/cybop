@@ -20,14 +20,14 @@
         <node name="format" channel="inline" format="text/plain" model="path/* | meta/type"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-        <node name="count" channel="inline" format="text/plain" model="">
+    <node name="count" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="count"/>
         <node name="description" channel="inline" format="text/plain" model="The number of values to be manipulated (if null, the value part model count will be used instead)."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="format" channel="inline" format="text/plain" model="path/* | number/*"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-        <node name="index" channel="inline" format="text/plain" model="">
+    <node name="index" channel="inline" format="text/plain" model="">
         <node name="name" channel="inline" format="text/plain" model="index"/>
         <node name="description" channel="inline" format="text/plain" model="The index from which to start manipulating values (if null, an index of zero will be used instead)."/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
