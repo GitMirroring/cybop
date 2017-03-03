@@ -1,5 +1,3 @@
-<node name="result" channel="inline" format="number/byte" model="65"/>
-<node name="operand" channel="inline" format="number/byte" model="80"/>
 <node name="operation" channel="inline" format="logify/and" model="">
     <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
     <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>

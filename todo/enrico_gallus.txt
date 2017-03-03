@@ -136,11 +136,30 @@ none                added
 right               added
 
 CONVERT
-encode              added
-decode              added
+encode              added (lacking of definition)
+decode              added (lacking of definition)
 
-sequence          erledigt
-live/exit         erledigt
+FLOW
+sequence            done
+branch              done
+loop                done
+
+LIVE
+exit                done
+interrupt           done
+sense               done
+
+LOGIFY
+and                 adjusted
+nand                added
+neg                 added
+nor                 added
+not                 adjusted
+or                  adjusted
+xnor                added
+xor                 added
+
+
 maintain          erledigt
 run/sleep         erledigt
 

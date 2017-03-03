@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="neg"/>
+    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation NEG."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/logify/neg/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="logify/neg"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/logify/neg/properties.cybol"/>
+</node>

@@ -1,7 +1,0 @@
-<node>
-    <node name="archive-file" channel="file" format="element/part" model="api/spec/logic/file/archive-file.cybol"/>
-    <node name="copy-file" channel="file" format="element/part" model="api/spec/logic/file/copy-file.cybol"/>
-    <node name="copy-file-unix-shell (TODO)" channel="file" format="element/part" model="api/spec/logic/file/copy-file-unix-shell.cybol"/>
-    <node name="copy-file-win32-command (TODO)" channel="file" format="element/part" model="api/spec/logic/file/copy-file-win32-command.cybol"/>
-    <node name="list-directory-contents (TODO)" channel="file" format="element/part" model="api/spec/logic/file/list-directory-contents.cybol"/>
-</node>

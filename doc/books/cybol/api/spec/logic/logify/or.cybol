@@ -1,8 +1,6 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="or"/>
-    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation OR.
-	The 'output' parametre represents the first operand;
-  the 'input' parametre the second."/>
+    <node name="description" channel="inline" format="text/plain" model="Applies the boolean logic operation OR."/>
     <node name="example" channel="file" format="text/plain" model="api/spec/logic/logify/or/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="logify/or"/>
     <node name="properties" channel="file" format="element/part" model="api/spec/logic/logify/or/properties.cybol"/>
