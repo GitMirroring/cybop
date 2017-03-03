@@ -40,17 +40,19 @@ _____
 LOGIC
 _____
 
-get-channel       erledigt
-get-encoding      erledigt
-get-format        erledigt
-get-language      erledigt
-get-name          erledigt
-get-type          erledigt
-indicate-empty    erledigt
-indicate-exists   erledigt
-get-model         in Bearbeitung
-get-properties    in Bearbeitung
-get-reference     in Bearbeitung
+ACCESS
+get-channel       done
+get-encoding      adjusted
+get-format        done
+get-index         added
+get-language      done
+get-name          done
+get-type          adjusted
+indicate-empty    done
+indicate-exists   done
+get-model         ?propably obsolete?
+get-properties    ?propably obsolete?
+get-reference     ?propably obsolete?
 
 cast-byte         noch nicht implementiert
 cast-character    geht nicht (?)

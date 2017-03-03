@@ -1,4 +1,4 @@
 <node name="set_handler_commands_reading" channel="inline" format="live/sense" model="">
     <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
-    <node name="handler" channel="inline" format="path/knowledge" model=".app.handler"/>
+    <node name="handler" channel="inline" format="text/cybol-path" model=".app.handler"/>
 </node>

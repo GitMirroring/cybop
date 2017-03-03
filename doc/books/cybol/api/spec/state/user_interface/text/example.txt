@@ -2,7 +2,7 @@
     <node name="position" channel="inline" format="number/integer" model="0,0"/>
     <node name="size" channel="inline" format="number/integer" model="80,15"/>
     <node name="background" channel="inline" format="colour/terminal" model="green"/>
-    <node name="foreground" channel="inline" format="path/knowledge" model=".app.settings.foreground"/>
+    <node name="foreground" channel="inline" format="text/cybol-path" model=".app.settings.foreground"/>
     <node name="bold" channel="inline" format="logicvalue/boolean" model="true"/>
     <!-- This property is evaluated by win32 console only. -->
     <node name="intense" channel="inline" format="logicvalue/boolean" model="false"/>

@@ -4,6 +4,7 @@
     <node name="get-channel" channel="file" format="element/part" model="api/spec/logic/access/get-channel.cybol"/>
     <node name="get-encoding" channel="file" format="element/part" model="api/spec/logic/access/get-encoding.cybol"/>
     <node name="get-format" channel="file" format="element/part" model="api/spec/logic/access/get-format.cybol"/>
+    <node name="get-index" channel="file" format="element/part" model="api/spec/logic/access/get-index.cybol"/>
     <node name="get-language" channel="file" format="element/part" model="api/spec/logic/access/get-language.cybol"/>
     <node name="get-model" channel="file" format="element/part" model="api/spec/logic/access/get-model.cybol"/>
     <node name="get-name" channel="file" format="element/part" model="api/spec/logic/access/get-name.cybol"/>

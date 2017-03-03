@@ -1,6 +1,6 @@
 <node>
     <node name="name" channel="inline" format="text/plain" model="get-model"/>
-    <node name="description" channel="inline" format="text/plain" model="Get a part's model."/>
+    <node name="description" channel="inline" format="text/plain" model="Get a part's model. !REVIEW! Looks like this is not supported. Should it be removed?"/>
     <node name="example" channel="file" format="text/plain" model="api/spec/logic/access/get-model/example.txt"/>
     <node name="format" channel="inline" format="text/plain" model="access/get-model"/>
     <node name="properties" channel="file" format="element/part" model="api/spec/logic/access/get-model/properties.cybol"/>

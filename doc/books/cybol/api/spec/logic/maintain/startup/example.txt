@@ -7,8 +7,8 @@
     <node name="namespace" channel="inline" format="text/plain" model="ipv4"/>
     <node name="style" channel="inline" format="text/plain" model="stream"/>
     <node name="protocol" channel="inline" format="text/plain" model="tcp"/>
-    <node name="address" channel="inline" format="path/knowledge" model=".app.var.address"/>
-    <node name="id" channel="inline" format="path/knowledge" model=".app.var.port"/>
+    <node name="address" channel="inline" format="text/cybol-path" model=".app.var.address"/>
+    <node name="id" channel="inline" format="text/cybol-path" model=".app.var.port"/>
     <node name="mode" channel="inline" format="text/plain" model="server"/>
     <node name="blocking" channel="inline" format="logicvalue/boolean" model="false"/>
     <node name="connexions" channel="inline" format="number/integer" model="1"/>

@@ -1,7 +1,0 @@
-<node>
-    <node name="name" channel="inline" format="text/plain" model="indicate"/>
-    <node name="description" channel="inline" format="text/plain" model="Indicates if data are empty, i.e. the count is zero. Indicates if data exist, i.e. the count is greater than zero."/>
-    <node name="example" channel="file" format="text/plain" model="api/spec/logic/access/indicate/example.txt"/>
-    <node name="format" channel="inline" format="text/plain" model="access/indicate"/>
-    <node name="properties" channel="file" format="element/part" model="api/spec/logic/access/indicate/properties.cybol"/>
-</node>
