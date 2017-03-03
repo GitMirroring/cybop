@@ -683,6 +683,21 @@
                     </div>
                 </div>
                 <div class="category_toc">
+                    <a href="#randomise">
+                        randomise
+                    </a>
+                    <div class="part_toc">
+                        <a href="#retrieve">
+                            retrieve
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#sow">
+                            sow
+                        </a>
+                    </div>
+                </div>
+                <div class="category_toc">
                     <a href="#represent">
                         represent
                     </a>
@@ -12333,6 +12348,210 @@
                                     </div>
                                     <div class="gridCell">
                                         number/integer
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a name="randomise">
+                        <h2>
+                            randomise
+                        </h2>
+                    </a>
+                    <div>
+                        <a name="retrieve">
+                            <h3>
+                                retrieve
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Retrieve next pseudo-random number in the series.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                randomise/retrieve
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;node name=&#x22;get_random_number_1&#x22; channel=&#x22;inline&#x22; format=&#x22;randomise/retrieve&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;result&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.var.field_1&#x22;/&#x3E;
+    &#x3C;node name=&#x22;minimum&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;2&#x22;/&#x3E;
+    &#x3C;node name=&#x22;maximum&#x22; channel=&#x22;inline&#x22; format=&#x22;number/integer&#x22; model=&#x22;14&#x22;/&#x3E;
+    &#x3C;node name=&#x22;seed&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.var.seed&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        result
+                                    </div>
+                                    <div class="gridCell">
+                                        The path where the retrieved random value is written to.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        text/cybol-path
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        minimum
+                                    </div>
+                                    <div class="gridCell">
+                                        The lower bound of the to generate value. (inclusive)
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        maximum
+                                    </div>
+                                    <div class="gridCell">
+                                        The upper bound of the to generate value.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        meta/type
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        seed
+                                    </div>
+                                    <div class="gridCell">
+                                        The path to the seed used for generating the random value.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        text/cybol-path
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="sow">
+                            <h3>
+                                sow
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Sow a seed for a new series of pseudo-random numbers.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                randomise/sow
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;node name=&#x22;set_seed&#x22; channel=&#x22;inline&#x22; format=&#x22;randomise/sow&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;seed&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.app.var.seed&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        seed
+                                    </div>
+                                    <div class="gridCell">
+                                        The path where the seed is written to.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        text/cybol-path
                                     </div>
                                     <div class="gridCell">
                                     </div>

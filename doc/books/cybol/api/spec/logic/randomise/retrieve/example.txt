@@ -1,0 +1,6 @@
+<node name="get_random_number_1" channel="inline" format="randomise/retrieve" model="">
+    <node name="result" channel="inline" format="text/cybol-path" model=".app.var.field_1"/>
+    <node name="minimum" channel="inline" format="number/integer" model="2"/>
+    <node name="maximum" channel="inline" format="number/integer" model="14"/>
+    <node name="seed" channel="inline" format="text/cybol-path" model=".app.var.seed"/>
+</node>

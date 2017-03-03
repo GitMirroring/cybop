@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="sow"/>
+    <node name="description" channel="inline" format="text/plain" model="Sow a seed for a new series of pseudo-random numbers."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/randomise/sow/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="randomise/sow"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/randomise/sow/properties.cybol"/>
+</node>

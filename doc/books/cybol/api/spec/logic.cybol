@@ -15,6 +15,7 @@
     <node name="manipulate" channel="file" format="element/part" model="api/spec/logic/manipulate.cybol"/>
     <node name="memorise" channel="file" format="element/part" model="api/spec/logic/memorise.cybol"/>
     <node name="modify" channel="file" format="element/part" model="api/spec/logic/modify.cybol"/>
+    <node name="randomise" channel="file" format="element/part" model="api/spec/logic/randomise.cybol"/>
     <node name="represent" channel="file" format="element/part" model="api/spec/logic/represent.cybol"/>
     <node name="run" channel="file" format="element/part" model="api/spec/logic/run.cybol"/>
     <node name="time" channel="file" format="element/part" model="api/spec/logic/time.cybol"/>

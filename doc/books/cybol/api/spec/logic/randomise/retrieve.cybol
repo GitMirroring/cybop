@@ -1,0 +1,7 @@
+<node>
+    <node name="name" channel="inline" format="text/plain" model="retrieve"/>
+    <node name="description" channel="inline" format="text/plain" model="Retrieve next pseudo-random number in the series."/>
+    <node name="example" channel="file" format="text/plain" model="api/spec/logic/randomise/retrieve/example.txt"/>
+    <node name="format" channel="inline" format="text/plain" model="randomise/retrieve"/>
+    <node name="properties" channel="file" format="element/part" model="api/spec/logic/randomise/retrieve/properties.cybol"/>
+</node>

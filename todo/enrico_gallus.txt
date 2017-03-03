@@ -188,6 +188,9 @@ insert              undefined
 overwrite           !example and property definition doesn't match!
 remove              done
 
+RANDOMISE
+retrieve            added
+sow                 added
 
 run/sleep         erledigt
 
