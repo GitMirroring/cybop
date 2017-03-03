@@ -64,6 +64,13 @@
 static wchar_t* QUICK_SORT_LOGIC_CYBOL_FORMAT = L"sort/quick";
 static int* QUICK_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
+/**
+ * The sort/bubble logic cybol format.
+ *
+ * Sort numbers via bubble-algorithm.
+ *
+ * This is a CYBOL extension.
+ */
 static wchar_t* BUBBLE_SORT_LOGIC_CYBOL_FORMAT = L"sort/bubble";
 static int* BUBBLE_SORT_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

@@ -1,0 +1,4 @@
+<node name="sort" channel="inline" format="sort/quick" model="">
+    <node name="output" channel="inline" format="text/cybol-path" model=".result"/>
+    <node name="input" channel="inline" format="text/cybol-path" model=".unsorted"/>
+</node>

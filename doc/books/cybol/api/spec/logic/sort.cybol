@@ -1,0 +1,4 @@
+<node>
+    <node name="bubble" channel="file" format="element/part" model="api/spec/logic/sort/bubble.cybol"/>
+    <node name="quick" channel="file" format="element/part" model="api/spec/logic/sort/quick.cybol"/>
+</node>

@@ -201,4 +201,9 @@ run                 done
 sleep-nano          done
 sleep-second        done
 
-time/time                           Beispiel fehlt
+SORT
+bubble
+quick
+
+TIME
+time/current        done

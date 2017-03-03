@@ -733,6 +733,21 @@
                     </div>
                 </div>
                 <div class="category_toc">
+                    <a href="#sort">
+                        sort
+                    </a>
+                    <div class="part_toc">
+                        <a href="#bubble">
+                            bubble
+                        </a>
+                    </div>
+                    <div class="part_toc">
+                        <a href="#quick">
+                            quick
+                        </a>
+                    </div>
+                </div>
+                <div class="category_toc">
                     <a href="#time">
                         time
                     </a>
@@ -12853,6 +12868,9 @@
                                 Example
                             </h5>
                             <p class="part_example">
+&#x3C;node name=&#x22;execute_shell_script&#x22; channel=&#x22;inline&#x22; format=&#x22;run/run&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;programme&#x22; channel=&#x22;file&#x22; format=&#x22;text/plain&#x22; model=&#x22;password_generator/sleep_timer.sh&#x22;/&#x3E;
+&#x3C;/node&#x3E;
                             </p>
                         </div>
                         <div>
@@ -13029,6 +13047,193 @@
                                     </div>
                                     <div class="gridCell">
                                         The amount of seconds to sleep
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/channel
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a name="sort">
+                        <h2>
+                            sort
+                        </h2>
+                    </a>
+                    <div>
+                        <a name="bubble">
+                            <h3>
+                                bubble
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Sort numbers via bubble-algorithm.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                sort/bubble
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;node name=&#x22;sort&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/bubble&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;input&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.unsorted&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        output
+                                    </div>
+                                    <div class="gridCell">
+                                        The path where the sort numbers will be written to.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/channel
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        input
+                                    </div>
+                                    <div class="gridCell">
+                                        The path where the numbers for the are taken from.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/channel
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a name="quick">
+                            <h3>
+                                quick
+                            </h3>
+                        </a>
+                        <div>
+                            <h5>
+                                Description
+                            </h5>
+                            <p>
+                                Sort numbers via quicksort-algorithm.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Format
+                            </h5>
+                            <p>
+                                sort/quick
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Example
+                            </h5>
+                            <p class="part_example">
+&#x3C;node name=&#x22;sort&#x22; channel=&#x22;inline&#x22; format=&#x22;sort/quick&#x22; model=&#x22;&#x22;&#x3E;
+    &#x3C;node name=&#x22;output&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.result&#x22;/&#x3E;
+    &#x3C;node name=&#x22;input&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.unsorted&#x22;/&#x3E;
+&#x3C;/node&#x3E;
+                            </p>
+                        </div>
+                        <div>
+                            <h5>
+                                Properties
+                            </h5>
+                            <div class="exampleGrid">
+                                <div class="gridRow">
+                                    <div class="gridHead">
+                                        name
+                                    </div>
+                                    <div class="gridHead">
+                                        description
+                                    </div>
+                                    <div class="gridHead">
+                                        required
+                                    </div>
+                                    <div class="gridHead">
+                                        format
+                                    </div>
+                                    <div class="gridHead">
+                                        model
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        output
+                                    </div>
+                                    <div class="gridCell">
+                                        The path where the sort numbers will be written to.
+                                    </div>
+                                    <div class="gridCell">
+                                        true
+                                    </div>
+                                    <div class="gridCell">
+                                        path/* | meta/channel
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        input
+                                    </div>
+                                    <div class="gridCell">
+                                        The path where the numbers for the are taken from.
                                     </div>
                                     <div class="gridCell">
                                         true
