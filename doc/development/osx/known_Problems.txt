@@ -3,10 +3,6 @@ ____________
 
 - Hello World example works
 - ANSI Escape sequences works
-- Some command line examples like counter doesn't work
-	- The program doesn't crash
-	- Function is called: fwprintf(stdout, L"TEST logger %s .\n ", (char *) p1); will create a output, but first part of the text is not visible
-		- https://devforums.apple.com/thread/220123?tstart=0
 - The user input doesn't work
 	- It's not possible for the user to enter text
 
