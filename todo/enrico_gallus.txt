@@ -14,10 +14,15 @@
 General
 _______
 
-        * var.cybol uses hardcoded date -> should be replaced by the new date type
+        * var.cybol uses hardcoded date -> should be replaced by the new date type (current date seems not to be supported ATM)
+
         
         * ATM, the spec/logic.cybol and spec/state.cybol contains a listing of all underlying files in the respectiv folder
             - try to use command/list-directory-contents to reduce impact on maintenance
+
+        * parsing the CYBOI source code to generate the API would be the most effective method
+            - constant/format/cybol/logic/ and constant/format/cybol/state/ needs to be read (maybe some kind of JavaDoc, maybe Regex expressions)
+            - this needs additional investigation. probably new commands are necessary
 
 
 * Update cybol api specification with state and logic, which gets automatically generated into html
