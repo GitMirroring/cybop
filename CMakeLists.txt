@@ -1,6 +1,6 @@
 # --- CMake configuration --- #
 # set minimum required cmake version
-cmake_minimum_required(VERSION 3.8.0)
+cmake_minimum_required(VERSION 3.0.2)
 
 # set project name
 project(cyboi)
