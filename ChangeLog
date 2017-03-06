@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Optimise cybol example application "counter_stack_deep"
+
 2017-03-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Continue cybol example application "clean_result_directory"

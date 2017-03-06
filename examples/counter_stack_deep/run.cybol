@@ -23,9 +23,7 @@
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
 
-    <node name="execute_loop" channel="inline" format="flow/sequence" model="">
-        <node name="model" channel="inline" format="text/cybol-path" model=".loop_1"/>
-    </node>
+    <node name="execute_loop" channel="inline" format="text/cybol-path" model=".loop_1"/>
 
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
 

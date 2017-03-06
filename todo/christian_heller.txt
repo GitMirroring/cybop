@@ -11,33 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Hints for migrating cybol application to new knowledge path syntax
-__________________________________________________________________
-
-        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
-        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
-        * Adapt stack variables by adding knowledge path prefix "#"
-        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-
-        CONTINUE WITH:
-        * Rewrite cybol example application "clean_result_directory"
-            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
-            - change "verbal" into "verbose", also in cyboi interpreter
-            - change "tape_archiver" into a verb, also in cyboi interpreter
-
-        * Optimise cybol example application "presence" using stack properties instead of duplicate loop indices etc.
-        * Optimise resmedicinae application "xdt2html" using stack properties instead of duplicate loop indices etc.
-            - Consider file "tmp/cybop_stack.pdf"
-        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
-
 Stack
 _____
 
         * Check if there is an issue with looping and branching, so that only sequence works with stack variables
 
         CAUTION! The following does not function yet (example "counter_stack_deep") -- test why
+        (probably, this is an old problem not existing anymore; it was caused by creating stack variables inside instead of outside the part element)
         * Replace function call "handle_properties" with "append_item_element" in file "part_handler.c"
         * Hand over properties as array and let array functions inside care about looping and copying
         * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
@@ -61,6 +41,31 @@ ______
         * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
 
         * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
+
+CYBOL Application
+_________________
+
+        * Rewrite cybol example application "clean_result_directory"
+            - make pipes work in cyboi, before continuing, needed for: n=$(ls -a $1 | wc -l);
+            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
+            - change "verbal" into "verbose", also in cyboi interpreter
+            - change "tape_archiver" into a verb, also in cyboi interpreter
+        * Optimise cybol example application "presence"
+            - make datetime work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html"
+            - make deep copy work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+            - consider file "tmp/cybop_stack.pdf"
+        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
+
+        Hints for migrating cybol application to new knowledge path syntax:
+        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
+        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
+        * Adapt stack variables by adding knowledge path prefix "#"
+        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
 
 String
 ______

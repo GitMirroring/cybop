@@ -11,7 +11,7 @@
 
     <node name="print_numbers" channel="inline" format="flow/loop" model="">
         <node name="break" channel="inline" format="text/cybol-path" model="#break"/>
-        <node name="model" channel="inline" format="text/cybol-path" model=".model_3"/>
+        <node name="model" channel="inline" format="text/cybol-path" model="#model"/>
     </node>
 
 </node>
