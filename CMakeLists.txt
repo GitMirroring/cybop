@@ -47,6 +47,14 @@ ENDIF(UNIX)
 FIND_PACKAGE ( Threads REQUIRED )
 target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT}) # link posix thread library to cyboi target
 
+# --- CTest Configuration --- #
+
+# include the cmake file for the tests project
+include(test/CMakeLists.txt)
+
+# include the CTest
+include(CTest)
+
 # --- CPack Configuration --- #
 
 #set project specific vars
