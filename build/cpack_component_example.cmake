@@ -34,9 +34,10 @@ INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/COPYING DESTINATION . COMPONENT cybop)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/INSTALL DESTINATION . COMPONENT cybop)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/NEWS DESTINATION . COMPONENT cybop)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README DESTINATION . COMPONENT cybop)
+#INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build/manpages/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
 
 # TODO: cybol defintion (include/exclude) definition is quite obsolote, what should be included, how should the structure look like?
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/admin/cybol.5.gz DESTINATION . COMPONENT cybol)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cybol.5.gz DESTINATION . COMPONENT cybol)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/schema/cybol.dtd DESTINATION doc/books/schema/cybol COMPONENT cybol)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/schema/cybol.ebnf DESTINATION doc/books/schema/cybol COMPONENT cybol)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/schema/cybol_with_types.xsd DESTINATION doc/books/schema/cybol COMPONENT cybol)
@@ -46,7 +47,6 @@ INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/examples/ DESTINATION examples COM
 # TODO: cyboi defintion (include/exclude) definition is quite obsolote, what should be included, how should the structure look like?
 INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/admin/ DESTINATION admin COMPONENT cyboi)
 INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/ DESTINATION src COMPONENT cyboi)
-
 
 # set the component information
 set(CPACK_COMPONENTS_ALL cybop cyboi cybol)

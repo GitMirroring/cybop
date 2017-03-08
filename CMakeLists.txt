@@ -3,13 +3,15 @@
 cmake_minimum_required(VERSION 3.0.2)
 
 # set project name
-project(cyboi C)
+project(cybop C)
+
+set (BINARY_NAME cyboi)
 
 # set output directory to controller-subdirectory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/src/controller)
 
 # define the binary to be create by make
-add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/src/controller/cyboi.c)
+add_executable(${BINARY_NAME} ${PROJECT_SOURCE_DIR}/src/controller/cyboi.c)
 
 # --- libraries linking --- #
 include(build/libraries.cmake)
@@ -19,8 +21,6 @@ include(build/codestyling.cmake)
 
 # --- CTest Configuration --- #
 include(test/CMakeLists.txt)
-include(CTest)
 
 # --- CPack Configuration --- #
-include(build/cpack.cmake)
-include(CPack)
+include(build/packaging.cmake)
