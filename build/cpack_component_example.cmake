@@ -17,7 +17,7 @@ SET(CPACK_PACKAGE_VERSION_PATCH "0")
 # it differs from what got released in the last 0.18.0 cybop zip
 # what should be included, what's about all the papers and so on?
 # we can include directories using file patterns but need to know the expected result
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/Controller/cyboi DESTINATION . COMPONENT cybop)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/controller/cyboi DESTINATION . COMPONENT cybop)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.html  DESTINATION doc/books/cybol COMPONENT cybop)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.css  DESTINATION doc/books/cybol COMPONENT cybop)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/cybol_2007-07-31.pdf  DESTINATION doc/books/cybol COMPONENT cybop)

@@ -18,7 +18,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-2017-03-06  Enrico Gallus <enrico.gallus@gmail.com>
+2017-03-08  Enrico Gallus <enrico.gallus@gmail.com>
 
         * Fix several issues around the cmake scripts
         * Merge and convert "arithmetiser_tester" and "integer_calculator_tester"
