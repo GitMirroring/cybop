@@ -14,12 +14,10 @@
 PROJECT
 _______
 
-        * Try out CMake 3.1 with GUI as tool for build system
-        * "Each subdirectory added by the command must also contain a CMakeLists.txt file as the entry point to that directory."
-            Really? Each subdir? Not good!
-        * Do NOT use it for in-source, but rather for OUT-OF-SOURCE builds (builddir != sourcedir)
-        * Remove automake scripts afterwards
         * Use "CPack" tool to create installers as: executable installer (for Windows using "NSIS" tool), rpm, deb, tar, tar.gz, self-extracting tar file
+            - Check if the DEB CPACK_GENERATOR works as expected
+        * Remove automake scripts afterwards
+        * Write/Adjust install instruction
 
 CYBOI
 _______
@@ -35,6 +33,7 @@ _______
 WUI
 _______
         * Check why parallel access of more than one client is not possible, even though the number of possible clients is greater zero at socket startup
+            - http://www.adampetersen.se/Patterns%20in%20C%205,%20REACTOR.pdf
 
 API
 _______
@@ -49,11 +48,10 @@ _______
             - constant/format/cybol/logic/ and constant/format/cybol/state/ needs to be read (maybe some kind of JavaDoc, maybe Regex expressions)
             - this needs additional investigation. probably new commands are necessary
 
-
-* Update cybol api specification with state and logic, which gets automatically generated into html
-    - see below
-    - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
-    - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
+        * Update cybol api specification with state and logic, which gets automatically generated into html
+            - see below
+            - additional table column for constraints in file "properties.cybol", e.g. for "communicate/send"?
+            - "example.txt" and "properties.cybol" incomplete: all channels, format (communicate/send,convert/decode, file/*, from flow/* to the end), all models
 
 STATE
 _____

@@ -14,7 +14,6 @@ SET(CPACK_PACKAGE_VERSION_PATCH "0")
 # TODO: what should be included, what's about all the papers and so on?
 # we can include directories using file patterns and so on, the more generic,
 # the less adjustments we need to do here later on when the files change
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/controller/cyboi DESTINATION .)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.html DESTINATION doc/books/cybol)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.css DESTINATION doc/books/cybol)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
@@ -34,7 +33,7 @@ INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README DESTINATION .)
 
 # --- setup packaging configuration --- #
 if(UNIX AND NOT APPLE)
-    set(CPACK_GENERATOR "TGZ;DEB")
+    set(CPACK_GENERATOR "TGZ")
 elseif (APPLE)
     set(CPACK_GENERATOR "TGZ")
 else()
