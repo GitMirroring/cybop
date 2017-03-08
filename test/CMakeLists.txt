@@ -7,11 +7,11 @@ set(CTEST_OUTPUT_ON_FAILURE	ON)
 # TODO: would be great to add an executable for all the c files we found in the test
 # so we don't need to adjust this config if we add new test files
 add_executable(constant_test test/constant/constant_tester.c)
-#add_executable(integer_calculator_test test/executor/calculator/integer_calculator_tester.c)
+add_executable(integer_calculator_test test/executor/calculator/integer_calculator_tester.c)
 add_executable(variable_test test/variable/variable_tester.c)
 
 add_test(constant_test test/constant_test)
-#add_test(integer_calculator_test test/integer_calculator_test)
+add_test(integer_calculator_test test/integer_calculator_test)
 add_test(variable_test test/variable_test)
 
 # --- load global CTest configuration --- #
