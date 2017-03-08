@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+        Copyright (c) 1999-2016. Christian Heller.
+        http://www.cybop.org/
+        - Cybernetics Oriented Programming -
+    /-->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="date" content="2017-03-08"/>
+    <meta name="author" content="Christian Heller &lt;christian.heller@tuxtax.de&gt;"/>
+    <title>CYBOP Code Conventions</title>
+</head>
+<body>
+    <h1>Code Conventions</h1>
+    <h2>General Issues</h2>
+    <ol>
+        <li>Use spaces and never tab characters</li>
+        <li>Indent code by 4 spaces (editors offer to set indentation to 4 spaces)</li>
+        <li>Make use of spaces and white lines to separate code logically</li>
+        <li>Comment all code exhaustively</li>
+    </ol>
+    <h2>CYBOL</h2>
+    <ol>
+        <li>Follow the XML syntax</li>
+        <li>Use only the one given tag (node) and four given attributes (name, channel, format, model)</li>
+        <li>See examples: cybop/examples/</li>
+        <li>See syntax: cybop/doc/books/cybol/syntax/</li>
+        <li>See schema: cybop/doc/books/cybol/schema/</li>
+        <li>Example Model State:
+            <pre>
+    &#60;node&#62;
+
+        &#60;node name="count" channel="inline" format="number/integer" model="10"/&#62;
+        &#60;node name="index" channel="inline" format="number/integer" model="1"/&#62;
+        &#60;node name="break" channel="inline" format="logicvalue/boolean" model="false"/&#62;
+        &#60;node name="model" channel="file" format="element/part" model="counter/model.cybol"/&#62;
+
+    &#60;/node&#62;
+            </pre>
+        </li>
+        <li>Example Model Logic:
+            <pre>
+    &#60;node&#62;
+
+        &#60;node name="print_number" channel="inline" format="communicate/send" model=""&#62;
+            &#60;node name="channel" channel="inline" format="meta/channel" model="terminal"/&#62;
+            &#60;node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/&#62;
+            &#60;node name="language" channel="inline" format="meta/language" model="message/cli"/&#62;
+            &#60;node name="format" channel="inline" format="meta/format" model="number/integer"/&#62;
+            &#60;node name="message" channel="inline" format="text/cybol-path" model=".index"/&#62;
+            &#60;node name="newline" channel="inline" format="logicvalue/boolean" model="true"/&#62;
+        &#60;/node&#62;
+
+        &#60;node name="increment_loop_count" channel="inline" format="calculate/add" model=""&#62;
+            &#60;node name="result" channel="inline" format="text/cybol-path" model=".index"/&#62;
+            &#60;node name="operand" channel="inline" format="number/integer" model="1"/&#62;
+            &#60;node name="type" channel="inline" format="meta/type" model="number/integer"/&#62;
+        &#60;/node&#62;
+
+        &#60;node name="compare_loop_count" channel="inline" format="compare/greater" model=""&#62;
+            &#60;node name="result" channel="inline" format="text/cybol-path" model=".break"/&#62;
+            &#60;node name="left" channel="inline" format="text/cybol-path" model=".index"/&#62;
+            &#60;node name="right" channel="inline" format="text/cybol-path" model=".count"/&#62;
+            &#60;node name="type" channel="inline" format="meta/type" model="number/integer"/&#62;
+            &#60;node name="selection" channel="inline" format="text/plain" model="all"/&#62;
+        &#60;/node&#62;
+
+    &#60;/node&#62;
+            </pre>
+        </li>
+    </ol>
+    <h2>CYBOI</h2>
+    <ol>
+        <li>Follow the C syntax</li>
+        <li>Follow the Java Code Conventions
+            (<a href="http://www.oracle.com/technetwork/java/codeconvtoc-136057.html">HTML</a>
+            | <a href="http://www.oracle.com/technetwork/java/codeconventions-150003.pdf">PDF</a>)</li>
+        <li>Document each function in JavaDoc style</li>
+        <li>Consider the following exceptions, differing from Java Code Conventions</li>
+        <li>Name all functions and variables in small letters</li>
+        <li>Separate subwords with underscore</li>
+        <li>Use the void return type, i.e. return nothing from a function</li>
+        <li>Hand over all arguments/parametres as void pointer</li>
+        <li>Define all unchangeable values (string, integer etc.) as constant in cybop/src/constant/</li>
+        <li>Use data arrays together with their element count and size, no null-terminated strings</li>
+        <li>Put the opening brackets to the end of a line, not on an extra line</li>
+        <li>Check pointers for null before accessing them</li>
+        <li>Use only if-else conditions, never switch-case statements</li>
+        <li>Use only while loops, never do-while or for loops</li>
+        <li>Use only endless loops and place the loop break condition inside the loop body</li>
+        <li>Use only break conditions in a loop, never the continue keyword</li>
+        <li>Example:
+            <pre>
+    /**
+     * This is an example procedure.
+     *
+     * It does nothing.
+     *
+     * @param p0 the first parametre is an integer
+     * @param p1 the second parametre is a character
+     * @param p2 the third parametre is a pointer, for example a char pointer (string)
+     */
+    void example_function(void* p0, void* p1, void* p2) {
+
+        if (p2 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            // Cast void pointer parametre to its actual type.
+            wchar_t** s = (wchar_t**) p2;
+
+            // Use the string by dereferencing s.
+            fwprintf(stdout, L"The string value is: %ls\n", *s);
+
+            if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                // Cast void pointer parametre to its actual type.
+                wchar_t* c = (wchar_t*) p1;
+
+                // Use the character by dereferencing c.
+                *c = 32;
+
+                if (p0 != NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                    // Cast void pointer parametre to its actual type.
+                    int* i = (int*) p0;
+
+                    // Use the integer by dereferencing i.
+                    *i = *i + 10;
+
+                    // An example loop.
+                    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
+                    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                        if (j >= *NUMBER_10_INTEGER_STATE_CYBOI_MODEL) {
+
+                            break;
+                        }
+
+                        j++;
+                    }
+
+                } else {
+
+                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute function. The parametre p0 is null.");
+                }
+
+            } else {
+
+                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute function. The parametre p1 is null.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute function. The parametre p2 is null.");
+        }
+    }
+            </pre>
+        </li>
+    </ol>
+</body>
+</html>
