@@ -7,6 +7,10 @@ project(cybop C)
 
 set (BINARY_NAME cyboi)
 
+IF (UNIX AND NOT APPLE)
+    add_definitions(-DGNU_LINUX_OPERATING_SYSTEM)
+ENDIF()
+
 # set output directory to controller-subdirectory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/src/controller)
 
