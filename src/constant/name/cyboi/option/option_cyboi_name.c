@@ -46,10 +46,6 @@ static int* LOG_FILE_OPTION_CYBOI_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODE
 static wchar_t* LOG_LEVEL_OPTION_CYBOI_NAME = L"--loglevel";
 static int* LOG_LEVEL_OPTION_CYBOI_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/** The "--test" option cyboi name. */
-static wchar_t* TEST_OPTION_CYBOI_NAME = L"--test";
-static int* TEST_OPTION_CYBOI_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 /** The "--version" option cyboi name. */
 static wchar_t* VERSION_OPTION_CYBOI_NAME = L"--version";
 static int* VERSION_OPTION_CYBOI_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -105,14 +105,11 @@ _____
         * Write short cybol application for testing
         * Test conversion using differently encoded text files
 
-        * Create unit test functions in files of directory "tester/"
-        * Adapt the following files only if new test files are introduced
-            "constant/model/cyboi/option/test_unit_option_cyboi_model.c"
-            "constant/model/cyboi/test/test_cyboi_model.c"
-            "executor/searcher/selector/command_line/test_unit_command_line_selector.c"
-            "controller/tester.c"
-        * Process test functions with e.g. "cyboi --test=calculator"
-        * Let them produce an "OK" or "ERROR", in the style of JUnit
+        * Create unit test functions in files of directory "test/"
+            - use assert.h check if expect != actual in the style of JUnit
+            - add new tests having a main function which results 0 in case that all test are successful
+            - register the c-files in the CMakeLists.txt of the test-directory
+            - the c-files which are under test/tester still needs to be transformed
 
         * Create different layout manager algorithms for positioning of graphical components (arithmetics, similar to Swing and Qt)
         * Provide graphical standard components (geometry, similar to Swing), e.g. "button", chosen via "component" property in cybol

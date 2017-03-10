@@ -160,8 +160,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             // Decode source message into temporary model, properties item.
             deserialise_xml(m, p, p2, p3);
 
-            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
-
             // Get temporary model, properties item data, count.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
             // Inside the structure, arrays may have been reallocated,
@@ -179,8 +177,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
             deallocate_item((void*) &m, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
             deallocate_item((void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
-
-//??            test_item_as_model_diagram((void*) L"TEST_DESERIALISE_HTTP_RESPONSE.txt", *NULL_POINTER_STATE_CYBOI_MODEL, t, m, p);
         }
     }
 
@@ -265,8 +261,6 @@ void deserialise(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             deserialise_uri(p0, p1, p2, p3);
-
-//?? test_item_as_model_diagram((void*) L"TEST_DESERIALISE_URI.txt", *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p0, p1);
         }
     }
 

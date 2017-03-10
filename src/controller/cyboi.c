@@ -38,7 +38,6 @@
 #include "../controller/manager.c"
 #include "../controller/optionaliser.c"
 #include "../controller/orienter.c"
-#include "../controller/tester.c"
 #include "../controller/unglobaliser.c"
 #include "../logger/logger.c"
 #include "../variable/log_setting.c"
@@ -213,11 +212,6 @@ fwprintf(stdout, L"TEST PART_REFERENCE_COUNTER BEGIN: %i\n", *PART_REFERENCE_COU
 
             // Print help message on screen.
             help((void*) stdout);
-
-        } else if (m == *TEST_OPERATION_MODE_CYBOI_MODEL) {
-
-            // Call test unit function.
-            test((void*) &t);
 
         } else if (m == *KNOWLEDGE_OPERATION_MODE_CYBOI_MODEL) {
 

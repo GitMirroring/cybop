@@ -50,13 +50,6 @@
  * "All programs should support two standard options: '--version' and '--help'."
  * Therefore, this function checks for these two command line argument options.
  *
- * A further option that was added is '--test'. It is just to ease cyboi
- * development because that way, programmers can easily call test functions
- * by specifying a special test unit, e.g.:
- * - all
- * - calculator
- * - comparator
- *
  * The standard option used to run cybol applications is '--knowledge'.
  * Behind it, the cybol file name needs to be given as argument.
  * The cyboi interpreter then starts up the system.

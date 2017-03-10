@@ -35,10 +35,6 @@
 #include "../../../../executor/representer/deserialiser/cybol/part_cybol_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xml/xml_deserialiser.c"
 
-//?? TEMPORARY FOR TESTING! DELETE LATER!
-#include "../../../../tester/data_as_model_diagram_tester.c"
-#include "../../../../tester/item_as_model_diagram_tester.c"
-
 //
 // Forward declarations.
 //
@@ -95,13 +91,6 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
     copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-/*??
-    //?? TEST: Delete the following block later!
-    // CAUTION! Since the temporary model and properties are of PART_ELEMENT_STATE_CYBOI_TYPE,
-    // the PART_ELEMENT_STATE_CYBOI_FORMAT may be used as parametre here.
-    test_data_as_model_diagram((void*) L"TEST_DESERIALISE_XML.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, md, mc, pd, pc);
-*/
-
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p4, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT);
@@ -111,15 +100,6 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
             // Deserialise temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol_part_element_content(p0, md, mc, pd, pc, t, f);
-
-/*??
-            //?? TEST: Delete the following block later!
-            void* p0d = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* p0c = *NULL_POINTER_STATE_CYBOI_MODEL;
-            copy_array_forward((void*) &p0d, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &p0c, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL_PART.txt", (void*) L"[selected_node]", (void*) NUMBER_20_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, p0d, p0c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-*/
         }
     }
 
@@ -132,15 +112,6 @@ void deserialise_cybol_element(void* p0, void* p1, void* p2, void* p3, void* p4)
             // Deserialise temporary model, properties item into cyboi model using temporary type, format.
             // Basically, tags (structural data) and attributes (meta data) are swapped in meaning.
             deserialise_cybol_part_element_content(p1, md, mc, pd, pc, t, f);
-
-/*??
-            //?? TEST: Delete the following block later!
-            void* p1d = *NULL_POINTER_STATE_CYBOI_MODEL;
-            void* p1c = *NULL_POINTER_STATE_CYBOI_MODEL;
-            copy_array_forward((void*) &p1d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void*) &p1c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-            test_data_as_model_diagram((void*) L"TEST_DESERIALISE_CYBOL_PROPERTY.txt", (void*) L"[selected_node]", (void*) NUMBER_24_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, p1d, p1c, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL);
-*/
         }
     }
 

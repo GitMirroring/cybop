@@ -21,6 +21,8 @@
 2017-03-10  Enrico Gallus <enrico.gallus@gmail.com>
 
         * Simplify string constant in the constant directory using a python script
+        * move all tester c-files to the test-directory
+        * removed all the test model, names which have been used, removed unused references to test-files
 
 2017-03-08  Enrico Gallus <enrico.gallus@gmail.com>
 

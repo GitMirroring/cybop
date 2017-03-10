@@ -35,7 +35,6 @@
 #include "../../../../executor/modifier/appender/item_appender.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../executor/searcher/selector/command_line/log_level_command_line_selector.c"
-#include "../../../../executor/searcher/selector/command_line/test_unit_command_line_selector.c"
 
 /**
  * Selects the cyboi operation mode.
@@ -107,20 +106,6 @@ void select_command_line_mode(void* p0, void* p1, void* p2, void* p3, void* p4, 
 
             // Set log level.
             select_command_line_log_level(p2, p5, p6);
-        }
-    }
-
-    if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-        compare_all_array((void*) &r, p7, (void*) TEST_OPTION_CYBOI_NAME, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p8, (void*) TEST_OPTION_CYBOI_NAME_COUNT);
-
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-            // Set test unit.
-            select_command_line_test_unit(p3, p5, p6);
-
-            // Set test operation mode.
-            copy_integer(p0, (void*) TEST_OPERATION_MODE_CYBOI_MODEL);
         }
     }
 
