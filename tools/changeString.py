@@ -3,11 +3,29 @@
 import itertools
 import os
 import sys
-''' should convert the following block into
-#/** The kbv test number field xdt cyboi name. */
+''' should convert the following block
+/** The kbv test number field xdt cyboi name. */
 #static wchar_t KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_ARRAY[] = {L'k', L'b', L'v', L'_', L't', L'e', L's', L't', L'_', L'n', L'u', L'm', L'b', L'e', L'r'};
 #static wchar_t* KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME = KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_ARRAY;
 #static int* KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+into
+
+/** The kbv test number field xdt cyboi name. */
+static wchar_t* KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME = L"kbv_test_number";
+static int* KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
+should also work if the javadoc is span over several lines like
+
+/** 
+* The kbv test number field xdt cyboi name. 
+*
+* This is another javdoc entry
+*/
+#static wchar_t KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_ARRAY[] = {L'k', L'b', L'v', L'_', L't', L'e', L's', L't', L'_', L'n', L'u', L'm', L'b', L'e', L'r'};
+#static wchar_t* KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME = KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_ARRAY;
+#static int* KBV_TEST_NUMBER_FIELD_XDT_CYBOI_NAME_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
+
 
 '''
 
