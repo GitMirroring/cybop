@@ -34,7 +34,6 @@
 * No options
 */
 
-
 /* CLEAR_SCREEN_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
 

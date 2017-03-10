@@ -31,6 +31,8 @@
 
 #include "../../src/constant/model/cyboi/state/mathematics_state_cyboi_model.c"
 #include "../../src/constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../src/constant/model/cybol/border/border_cybol_model.c"
+#include "../../src/constant/model/cybol/colour/terminal_colour_cybol_model.c"
 
 /**
  * Tests the mathematical state model constants.
@@ -60,12 +62,40 @@ void test_pointer_state_model() {
 }
 
 /**
+ * Tests the border model constants.
+ */
+void test_border_model() {
+
+    assert(L"ascii" == ASCII_LINE_BORDER_CYBOL_MODEL);
+    assert(L"double" == DOUBLE_LINE_BORDER_CYBOL_MODEL);
+    assert(L"round" == ROUND_LINE_BORDER_CYBOL_MODEL);
+    assert(L"simple" == SIMPLE_LINE_BORDER_CYBOL_MODEL);
+}
+
+/**
+ * Tests the colour model constants.
+ */
+void test_colour_model() {
+
+    assert(L"black" == BLACK_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"blue" == BLUE_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"cyan" == CYAN_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"green" == GREEN_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"magenta" == MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"red" == RED_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"white" == WHITE_TERMINAL_COLOUR_CYBOL_MODEL);
+    assert(L"yellow" == YELLOW_TERMINAL_COLOUR_CYBOL_MODEL);
+}
+
+/**
  * Tests the constant values and usage.
  */
 int main() {
 
     test_mathematics_state_model();
     test_pointer_state_model();
+    test_border_model();
+    test_colour_model();
 
     return 0;
 }

@@ -30,8 +30,7 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The super cybol name. */
-static wchar_t SUPER_CYBOL_NAME_ARRAY[] = {L's', L'u', L'p', L'e', L'r'};
-static wchar_t* SUPER_CYBOL_NAME = SUPER_CYBOL_NAME_ARRAY;
+static wchar_t* SUPER_CYBOL_NAME = L"super";
 static int* SUPER_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SUPER_CYBOL_NAME_CONSTANT_SOURCE */

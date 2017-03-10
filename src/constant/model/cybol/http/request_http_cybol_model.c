@@ -31,78 +31,63 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The get request http cybol model. */
-static wchar_t GET_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'g', L'e', L't'};
-static wchar_t* GET_REQUEST_HTTP_CYBOL_MODEL = GET_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* GET_REQUEST_HTTP_CYBOL_MODEL = L"get";
 static int* GET_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The post request http cybol model. */
-static wchar_t POST_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'p', L'o', L's', L't'};
-static wchar_t* POST_REQUEST_HTTP_CYBOL_MODEL = POST_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* POST_REQUEST_HTTP_CYBOL_MODEL = L"post";
 static int* POST_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The head request http cybol model. */
-static wchar_t HEAD_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'h', L'e', L'a', L'd'};
-static wchar_t* HEAD_REQUEST_HTTP_CYBOL_MODEL = HEAD_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* HEAD_REQUEST_HTTP_CYBOL_MODEL = L"head";
 static int* HEAD_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The put request http cybol model. */
-static wchar_t PUT_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'p', L'u', L't'};
-static wchar_t* PUT_REQUEST_HTTP_CYBOL_MODEL = PUT_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* PUT_REQUEST_HTTP_CYBOL_MODEL = L"put";
 static int* PUT_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The delete request http cybol model. */
-static wchar_t DELETE_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'd', L'e', L'l', L'e', L't', L'e'};
-static wchar_t* DELETE_REQUEST_HTTP_CYBOL_MODEL = DELETE_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* DELETE_REQUEST_HTTP_CYBOL_MODEL = L"delete";
 static int* DELETE_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The trace request http cybol model. */
-static wchar_t TRACE_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L't', L'r', L'a', L'c', L'e'};
-static wchar_t* TRACE_REQUEST_HTTP_CYBOL_MODEL = TRACE_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* TRACE_REQUEST_HTTP_CYBOL_MODEL = L"trace";
 static int* TRACE_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The options request http cybol model. */
-static wchar_t OPTIONS_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'o', L'p', L't', L'i', L'o', L'n', L's'};
-static wchar_t* OPTIONS_REQUEST_HTTP_CYBOL_MODEL = OPTIONS_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* OPTIONS_REQUEST_HTTP_CYBOL_MODEL = L"options";
 static int* OPTIONS_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The connect request http cybol model. */
-static wchar_t CONNECT_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'c', L'o', L'n', L'n', L'e', L'c', L't'};
-static wchar_t* CONNECT_REQUEST_HTTP_CYBOL_MODEL = CONNECT_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* CONNECT_REQUEST_HTTP_CYBOL_MODEL = L"connect";
 static int* CONNECT_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The propfind webdav request http cybol model. */
-static wchar_t PROPFIND_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'p', L'r', L'o', L'p', L'f', L'i', L'n', L'd'};
-static wchar_t* PROPFIND_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = PROPFIND_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* PROPFIND_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"propfind";
 static int* PROPFIND_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The proppatch webdav request http cybol model. */
-static wchar_t PROPPATCH_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'p', L'r', L'o', L'p', L'p', L'a', L't', L'c', L'h'};
-static wchar_t* PROPPATCH_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = PROPPATCH_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* PROPPATCH_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"proppatch";
 static int* PROPPATCH_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The mkcol webdav request http cybol model. */
-static wchar_t MKCOL_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'm', L'k', L'c', L'o', L'l'};
-static wchar_t* MKCOL_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = MKCOL_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* MKCOL_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"mkcol";
 static int* MKCOL_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The copy webdav request http cybol model. */
-static wchar_t COPY_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'c', L'o', L'p', L'y'};
-static wchar_t* COPY_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = COPY_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* COPY_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"copy";
 static int* COPY_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The move webdav request http cybol model. */
-static wchar_t MOVE_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'm', L'o', L'v', L'e'};
-static wchar_t* MOVE_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = MOVE_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* MOVE_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"move";
 static int* MOVE_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The lock webdav request http cybol model. */
-static wchar_t LOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'l', L'o', L'c', L'k'};
-static wchar_t* LOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = LOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* LOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"lock";
 static int* LOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The unlock webdav request http cybol model. */
-static wchar_t UNLOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY[] = {L'u', L'n', L'l', L'o', L'c', L'k'};
-static wchar_t* UNLOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = UNLOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_ARRAY;
+static wchar_t* UNLOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL = L"unlock";
 static int* UNLOCK_WEBDAV_REQUEST_HTTP_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* REQUEST_HTTP_CYBOL_MODEL_CONSTANT_SOURCE */

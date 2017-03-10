@@ -31,10 +31,8 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The time parameter for the delay logic in cybol. */
-static wchar_t TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L't', L'i', L'm', L'e'};
-static wchar_t* TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME = TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME = L"time";
 static int* TIME_DELAY_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DELAY_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
- 

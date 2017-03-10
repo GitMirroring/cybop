@@ -31,8 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The programme run logic cybol name. */
-static wchar_t PROGRAMME_RUN_LOGIC_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'o', L'g', L'r', L'a', L'm', L'm', L'e'};
-static wchar_t* PROGRAMME_RUN_LOGIC_CYBOL_NAME = PROGRAMME_RUN_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* PROGRAMME_RUN_LOGIC_CYBOL_NAME = L"programme";
 static int* PROGRAMME_RUN_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PROGRAMME_RUN_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

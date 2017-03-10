@@ -34,7 +34,5 @@
 * No options
 */
 
-
 /* IFUP_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
-

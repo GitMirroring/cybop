@@ -31,13 +31,11 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The result indicate access logic cybol name. */
-static wchar_t RESULT_INDICATE_ACCESS_LOGIC_CYBOL_NAME_ARRAY[] = {L'r', L'e', L's', L'u', L'l', L't'};
-static wchar_t* RESULT_INDICATE_ACCESS_LOGIC_CYBOL_NAME = RESULT_INDICATE_ACCESS_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* RESULT_INDICATE_ACCESS_LOGIC_CYBOL_NAME = L"result";
 static int* RESULT_INDICATE_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The part indicate access logic cybol name. */
-static wchar_t PART_INDICATE_ACCESS_LOGIC_CYBOL_NAME_ARRAY[] = {L'p', L'a', L'r', L't'};
-static wchar_t* PART_INDICATE_ACCESS_LOGIC_CYBOL_NAME = PART_INDICATE_ACCESS_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* PART_INDICATE_ACCESS_LOGIC_CYBOL_NAME = L"part";
 static int* PART_INDICATE_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INDICATE_ACCESS_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

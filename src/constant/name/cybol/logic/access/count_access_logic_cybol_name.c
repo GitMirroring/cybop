@@ -31,23 +31,19 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The count count access logic cybol name. */
-static wchar_t COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'o', L'u', L'n', L't'};
-static wchar_t* COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME = COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME = L"count";
 static int* COUNT_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The part count access logic cybol name. */
-static wchar_t PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY[] = {L'p', L'a', L'r', L't'};
-static wchar_t* PART_COUNT_ACCESS_LOGIC_CYBOL_NAME = PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* PART_COUNT_ACCESS_LOGIC_CYBOL_NAME = L"part";
 static int* PART_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The selection count access logic cybol name. */
-static wchar_t SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY[] = {L's', L'e', L'l', L'e', L'c', L't', L'i', L'o', L'n'};
-static wchar_t* SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME = SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME = L"selection";
 static int* SELECTION_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The filter count access logic cybol name. */
-static wchar_t FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY[] = {L'f', L'i', L'l', L't', L'e', L'r'};
-static wchar_t* FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME = FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME = L"filter";
 static int* FILTER_COUNT_ACCESS_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COUNT_ACCESS_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

@@ -31,18 +31,15 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The button-press mouse state cybol name. */
-static wchar_t BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'u', L't', L't', L'o', L'n', L'-', L'p', L'r', L'e', L's', L's'};
-static wchar_t* BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME = BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME = L"button-press";
 static int* BUTTON_PRESS_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The button-release mouse state cybol name. */
-static wchar_t BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'u', L't', L't', L'o', L'n', L'-', L'r', L'e', L'l', L'e', L'a', L's', L'e'};
-static wchar_t* BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME = BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME = L"button-release";
 static int* BUTTON_RELEASE_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_14_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The motion-notify mouse state cybol name. */
-static wchar_t MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_ARRAY[] = {L'm', L'o', L't', L'i', L'o', L'n', L'-', L'n', L'o', L't', L'i', L'f', L'y'};
-static wchar_t* MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME = MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME = L"motion-notify";
 static int* MOTION_NOTIFY_MOUSE_STATE_CYBOL_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* MOUSE_STATE_CYBOL_NAME_CONSTANT_SOURCE */

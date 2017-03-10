@@ -31,18 +31,15 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The result calculation logic cybol name. */
-static wchar_t RESULT_CALCULATION_LOGIC_CYBOL_NAME_ARRAY[] = {L'r', L'e', L's', L'u', L'l', L't'};
-static wchar_t* RESULT_CALCULATION_LOGIC_CYBOL_NAME = RESULT_CALCULATION_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* RESULT_CALCULATION_LOGIC_CYBOL_NAME = L"result";
 static int* RESULT_CALCULATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The operand calculation logic cybol name. */
-static wchar_t OPERAND_CALCULATION_LOGIC_CYBOL_NAME_ARRAY[] = {L'o', L'p', L'e', L'r', L'a', L'n', L'd'};
-static wchar_t* OPERAND_CALCULATION_LOGIC_CYBOL_NAME = OPERAND_CALCULATION_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* OPERAND_CALCULATION_LOGIC_CYBOL_NAME = L"operand";
 static int* OPERAND_CALCULATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The type calculation logic cybol name. */
-static wchar_t TYPE_CALCULATION_LOGIC_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_CALCULATION_LOGIC_CYBOL_NAME = TYPE_CALCULATION_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* TYPE_CALCULATION_LOGIC_CYBOL_NAME = L"type";
 static int* TYPE_CALCULATION_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CALCULATION_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

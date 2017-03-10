@@ -31,43 +31,35 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The black terminal colour cybol model. */
-static wchar_t BLACK_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'b', L'l', L'a', L'c', L'k'};
-static wchar_t* BLACK_TERMINAL_COLOUR_CYBOL_MODEL = BLACK_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* BLACK_TERMINAL_COLOUR_CYBOL_MODEL = L"black";
 static int* BLACK_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The blue terminal colour cybol model. */
-static wchar_t BLUE_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'b', L'l', L'u', L'e'};
-static wchar_t* BLUE_TERMINAL_COLOUR_CYBOL_MODEL = BLUE_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* BLUE_TERMINAL_COLOUR_CYBOL_MODEL = L"blue";
 static int* BLUE_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The cyan blue (china blue) terminal colour cybol model. */
-static wchar_t CYAN_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'c', L'y', L'a', L'n'};
-static wchar_t* CYAN_TERMINAL_COLOUR_CYBOL_MODEL = CYAN_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* CYAN_TERMINAL_COLOUR_CYBOL_MODEL = L"cyan";
 static int* CYAN_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The green terminal colour cybol model. */
-static wchar_t GREEN_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'g', L'r', L'e', L'e', L'n'};
-static wchar_t* GREEN_TERMINAL_COLOUR_CYBOL_MODEL = GREEN_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* GREEN_TERMINAL_COLOUR_CYBOL_MODEL = L"green";
 static int* GREEN_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The magenta (violet, purple, mauve) terminal colour cybol model. */
-static wchar_t MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'm', L'a', L'g', L'e', L'n', L't', L'a'};
-static wchar_t* MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL = MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL = L"magenta";
 static int* MAGENTA_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The red terminal colour cybol model. */
-static wchar_t RED_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'r', L'e', L'd'};
-static wchar_t* RED_TERMINAL_COLOUR_CYBOL_MODEL = RED_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* RED_TERMINAL_COLOUR_CYBOL_MODEL = L"red";
 static int* RED_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The white terminal colour cybol model. */
-static wchar_t WHITE_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'w', L'h', L'i', L't', L'e'};
-static wchar_t* WHITE_TERMINAL_COLOUR_CYBOL_MODEL = WHITE_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* WHITE_TERMINAL_COLOUR_CYBOL_MODEL = L"white";
 static int* WHITE_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The yellow terminal colour cybol model. */
-static wchar_t YELLOW_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY[] = {L'y', L'e', L'l', L'l', L'o', L'w'};
-static wchar_t* YELLOW_TERMINAL_COLOUR_CYBOL_MODEL = YELLOW_TERMINAL_COLOUR_CYBOL_MODEL_ARRAY;
+static wchar_t* YELLOW_TERMINAL_COLOUR_CYBOL_MODEL = L"yellow";
 static int* YELLOW_TERMINAL_COLOUR_CYBOL_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TERMINAL_COLOUR_CYBOL_MODEL_CONSTANT_SOURCE */

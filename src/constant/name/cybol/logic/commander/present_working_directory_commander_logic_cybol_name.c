@@ -31,13 +31,11 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The logical option for the present working directory logic in cybol. */
-static wchar_t LOGICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'l', L'o', L'g', L'i', L'c', L'a', L'l'};
-static wchar_t* LOGICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME = LOGICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* LOGICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME = L"logical";
 static int* LOGICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The physical option for the present working directory logic in cybol. */
-static wchar_t PHYSICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'p', L'h', L'y', L's', L'i', L'c', L'a', L'l'};
-static wchar_t* PHYSICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME = PHYSICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* PHYSICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME = L"physical";
 static int* PHYSICAL_PWD_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* PWD_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

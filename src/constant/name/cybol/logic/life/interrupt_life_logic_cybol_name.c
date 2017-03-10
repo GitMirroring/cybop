@@ -31,8 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The channel interrupt life logic cybol name. */
-static wchar_t CHANNEL_INTERRUPT_LIFE_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'h', L'a', L'n', L'n', L'e', L'l'};
-static wchar_t* CHANNEL_INTERRUPT_LIFE_LOGIC_CYBOL_NAME = CHANNEL_INTERRUPT_LIFE_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* CHANNEL_INTERRUPT_LIFE_LOGIC_CYBOL_NAME = L"channel";
 static int* CHANNEL_INTERRUPT_LIFE_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* INTERRUPT_LIFE_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

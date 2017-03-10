@@ -31,13 +31,11 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The input sort logic cybol name. */
-static wchar_t INPUT_SORT_LOGIC_CYBOL_NAME_ARRAY[] = {L'i', L'n', L'p', L'u', L't'};
-static wchar_t* INPUT_SORT_LOGIC_CYBOL_NAME = INPUT_SORT_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* INPUT_SORT_LOGIC_CYBOL_NAME = L"input";
 static int* INPUT_SORT_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The output sort logic cybol name. */
-static wchar_t OUTPUT_SORT_LOGIC_CYBOL_NAME_ARRAY[] = {L'o', L'u', L't', L'p', L'u', L't'};
-static wchar_t* OUTPUT_SORT_LOGIC_CYBOL_NAME = OUTPUT_SORT_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* OUTPUT_SORT_LOGIC_CYBOL_NAME = L"output";
 static int* OUTPUT_SORT_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SORT_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

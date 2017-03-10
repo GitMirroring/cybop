@@ -31,43 +31,35 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The ftp scheme uri model. */
-static wchar_t FTP_SCHEME_URI_MODEL_ARRAY[] = {L'f', L't', L'p'};
-static wchar_t* FTP_SCHEME_URI_MODEL = FTP_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* FTP_SCHEME_URI_MODEL = L"ftp";
 static int* FTP_SCHEME_URI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The http scheme uri model. */
-static wchar_t HTTP_SCHEME_URI_MODEL_ARRAY[] = {L'h', L't', L't', L'p'};
-static wchar_t* HTTP_SCHEME_URI_MODEL = HTTP_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* HTTP_SCHEME_URI_MODEL = L"http";
 static int* HTTP_SCHEME_URI_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The ldap scheme uri model. */
-static wchar_t LDAP_SCHEME_URI_MODEL_ARRAY[] = {L'l', L'd', L'a', L'p'};
-static wchar_t* LDAP_SCHEME_URI_MODEL = LDAP_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* LDAP_SCHEME_URI_MODEL = L"ldap";
 static int* LDAP_SCHEME_URI_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The mailto scheme uri model. */
-static wchar_t MAILTO_SCHEME_URI_MODEL_ARRAY[] = {L'm', L'a', L'i', L'l', L't', L'o'};
-static wchar_t* MAILTO_SCHEME_URI_MODEL = MAILTO_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* MAILTO_SCHEME_URI_MODEL = L"mailto";
 static int* MAILTO_SCHEME_URI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The news scheme uri model. */
-static wchar_t NEWS_SCHEME_URI_MODEL_ARRAY[] = {L'n', L'e', L'w', L's'};
-static wchar_t* NEWS_SCHEME_URI_MODEL = NEWS_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* NEWS_SCHEME_URI_MODEL = L"news";
 static int* NEWS_SCHEME_URI_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The tel scheme uri model. */
-static wchar_t TEL_SCHEME_URI_MODEL_ARRAY[] = {L't', L'e', L'l'};
-static wchar_t* TEL_SCHEME_URI_MODEL = TEL_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* TEL_SCHEME_URI_MODEL = L"tel";
 static int* TEL_SCHEME_URI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The telnet scheme uri model. */
-static wchar_t TELNET_SCHEME_URI_MODEL_ARRAY[] = {L't', L'e', L'l', L'n', L'e', L't'};
-static wchar_t* TELNET_SCHEME_URI_MODEL = TELNET_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* TELNET_SCHEME_URI_MODEL = L"telnet";
 static int* TELNET_SCHEME_URI_MODEL_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The urn scheme uri model. */
-static wchar_t URN_SCHEME_URI_MODEL_ARRAY[] = {L'u', L'r', L'n'};
-static wchar_t* URN_SCHEME_URI_MODEL = URN_SCHEME_URI_MODEL_ARRAY;
+static wchar_t* URN_SCHEME_URI_MODEL = L"urn";
 static int* URN_SCHEME_URI_MODEL_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SCHEME_URI_MODEL_CONSTANT_SOURCE */

@@ -31,58 +31,47 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The background tui state cybol name. */
-static wchar_t BACKGROUND_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'a', L'c', L'k', L'g', L'r', L'o', L'u', L'n', L'd'};
-static wchar_t* BACKGROUND_TUI_STATE_CYBOL_NAME = BACKGROUND_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* BACKGROUND_TUI_STATE_CYBOL_NAME = L"background";
 static int* BACKGROUND_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The blink tui state cybol name. */
-static wchar_t BLINK_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'l', L'i', L'n', L'k'};
-static wchar_t* BLINK_TUI_STATE_CYBOL_NAME = BLINK_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* BLINK_TUI_STATE_CYBOL_NAME = L"blink";
 static int* BLINK_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The bold tui state cybol name. */
-static wchar_t BOLD_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'o', L'l', L'd'};
-static wchar_t* BOLD_TUI_STATE_CYBOL_NAME = BOLD_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* BOLD_TUI_STATE_CYBOL_NAME = L"bold";
 static int* BOLD_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The border tui state cybol name. */
-static wchar_t BORDER_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'b', L'o', L'r', L'd', L'e', L'r'};
-static wchar_t* BORDER_TUI_STATE_CYBOL_NAME = BORDER_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* BORDER_TUI_STATE_CYBOL_NAME = L"border";
 static int* BORDER_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The foreground tui state cybol name. */
-static wchar_t FOREGROUND_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'f', L'o', L'r', L'e', L'g', L'r', L'o', L'u', L'n', L'd'};
-static wchar_t* FOREGROUND_TUI_STATE_CYBOL_NAME = FOREGROUND_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* FOREGROUND_TUI_STATE_CYBOL_NAME = L"foreground";
 static int* FOREGROUND_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_10_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The hidden tui state cybol name. */
-static wchar_t HIDDEN_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'h', L'i', L'd', L'd', L'e', L'n'};
-static wchar_t* HIDDEN_TUI_STATE_CYBOL_NAME = HIDDEN_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* HIDDEN_TUI_STATE_CYBOL_NAME = L"hidden";
 static int* HIDDEN_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The intense tui state cybol name. */
-static wchar_t INTENSE_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'i', L'n', L't', L'e', L'n', L's', L'e'};
-static wchar_t* INTENSE_TUI_STATE_CYBOL_NAME = INTENSE_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* INTENSE_TUI_STATE_CYBOL_NAME = L"intense";
 static int* INTENSE_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The inverse tui state cybol name. */
-static wchar_t INVERSE_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'i', L'n', L'v', L'e', L'r', L's', L'e'};
-static wchar_t* INVERSE_TUI_STATE_CYBOL_NAME = INVERSE_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* INVERSE_TUI_STATE_CYBOL_NAME = L"inverse";
 static int* INVERSE_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The position tui state cybol name. */
-static wchar_t POSITION_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'p', L'o', L's', L'i', L't', L'i', L'o', L'n'};
-static wchar_t* POSITION_TUI_STATE_CYBOL_NAME = POSITION_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* POSITION_TUI_STATE_CYBOL_NAME = L"position";
 static int* POSITION_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The size tui state cybol name. */
-static wchar_t SIZE_TUI_STATE_CYBOL_NAME_ARRAY[] = {L's', L'i', L'z', L'e'};
-static wchar_t* SIZE_TUI_STATE_CYBOL_NAME = SIZE_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* SIZE_TUI_STATE_CYBOL_NAME = L"size";
 static int* SIZE_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The underline tui state cybol name. */
-static wchar_t UNDERLINE_TUI_STATE_CYBOL_NAME_ARRAY[] = {L'u', L'n', L'd', L'e', L'r', L'l', L'i', L'n', L'e'};
-static wchar_t* UNDERLINE_TUI_STATE_CYBOL_NAME = UNDERLINE_TUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* UNDERLINE_TUI_STATE_CYBOL_NAME = L"underline";
 static int* UNDERLINE_TUI_STATE_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TUI_STATE_CYBOL_NAME_CONSTANT_SOURCE */

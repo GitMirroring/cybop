@@ -31,18 +31,15 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The tag wui state cybol name. */
-static wchar_t TAG_WUI_STATE_CYBOL_NAME_ARRAY[] = {L't', L'a', L'g'};
-static wchar_t* TAG_WUI_STATE_CYBOL_NAME = TAG_WUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* TAG_WUI_STATE_CYBOL_NAME = L"tag";
 static int* TAG_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The preformatted wui state cybol name. */
-static wchar_t PREFORMATTED_WUI_STATE_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'e', L'f', L'o', L'r', L'm', L'a', L't', L't', L'e', L'd'};
-static wchar_t* PREFORMATTED_WUI_STATE_CYBOL_NAME = PREFORMATTED_WUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* PREFORMATTED_WUI_STATE_CYBOL_NAME = L"preformatted";
 static int* PREFORMATTED_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The property wui state cybol name. */
-static wchar_t PROPERTY_WUI_STATE_CYBOL_NAME_ARRAY[] = {L'p', L'r', L'o', L'p', L'e', L'r', L't', L'y'};
-static wchar_t* PROPERTY_WUI_STATE_CYBOL_NAME = PROPERTY_WUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* PROPERTY_WUI_STATE_CYBOL_NAME = L"property";
 static int* PROPERTY_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* TAG_WUI_CYBOL_NAME_CONSTANT_SOURCE */

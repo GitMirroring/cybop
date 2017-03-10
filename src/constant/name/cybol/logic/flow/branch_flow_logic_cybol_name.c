@@ -31,18 +31,15 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The criterion branch flow logic cybol name. */
-static wchar_t CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'r', L'i', L't', L'e', L'r', L'i', L'o', L'n'};
-static wchar_t* CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME = CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME = L"criterion";
 static int* CRITERION_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The true branch flow logic cybol name. */
-static wchar_t TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME_ARRAY[] = {L't', L'r', L'u', L'e'};
-static wchar_t* TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME = TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME = L"true";
 static int* TRUE_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The false branch flow logic cybol name. */
-static wchar_t FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME_ARRAY[] = {L'f', L'a', L'l', L's', L'e'};
-static wchar_t* FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME = FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME = L"false";
 static int* FALSE_BRANCH_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* BRANCH_FLOW_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

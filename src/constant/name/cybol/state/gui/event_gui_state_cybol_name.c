@@ -31,18 +31,15 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The enter-notify event gui state cybol name. */
-static wchar_t ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'e', L'n', L't', L'e', L'r', L'-', L'n', L'o', L't', L'i', L'f', L'y'};
-static wchar_t* ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME = ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME = L"enter-notify";
 static int* ENTER_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The expose event gui state cybol name. */
-static wchar_t EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'e', L'x', L'p', L'o', L's', L'e'};
-static wchar_t* EXPOSE_EVENT_GUI_STATE_CYBOL_NAME = EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* EXPOSE_EVENT_GUI_STATE_CYBOL_NAME = L"expose";
 static int* EXPOSE_EVENT_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The leave-notify event gui state cybol name. */
-static wchar_t LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_ARRAY[] = {L'l', L'e', L'a', L'v', L'e', L'-', L'n', L'o', L't', L'i', L'f', L'y'};
-static wchar_t* LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME = LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME = L"leave-notify";
 static int* LEAVE_NOTIFY_EVENT_GUI_STATE_CYBOL_NAME_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* EVENT_GUI_STATE_CYBOL_NAME_CONSTANT_SOURCE */

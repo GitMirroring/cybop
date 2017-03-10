@@ -31,18 +31,15 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The destination cast logic cybol name. */
-static wchar_t DESTINATION_CAST_LOGIC_CYBOL_NAME_ARRAY[] = {L'd', L'e', L's', L't', L'i', L'n', L'a', L't', L'i', L'o', L'n'};
-static wchar_t* DESTINATION_CAST_LOGIC_CYBOL_NAME = DESTINATION_CAST_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* DESTINATION_CAST_LOGIC_CYBOL_NAME = L"destination";
 static int* DESTINATION_CAST_LOGIC_CYBOL_NAME_COUNT = NUMBER_11_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The source cast logic cybol name. */
-static wchar_t SOURCE_CAST_LOGIC_CYBOL_NAME_ARRAY[] = {L's', L'o', L'u', L'r', L'c', L'e'};
-static wchar_t* SOURCE_CAST_LOGIC_CYBOL_NAME = SOURCE_CAST_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* SOURCE_CAST_LOGIC_CYBOL_NAME = L"source";
 static int* SOURCE_CAST_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The type cast logic cybol name. */
-static wchar_t TYPE_CAST_LOGIC_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_CAST_LOGIC_CYBOL_NAME = TYPE_CAST_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* TYPE_CAST_LOGIC_CYBOL_NAME = L"type";
 static int* TYPE_CAST_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CAST_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

@@ -31,13 +31,11 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The part element create logic cybol model. */
-static wchar_t PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_ARRAY[] = {L'p', L'a', L'r', L't'};
-static wchar_t* PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL = PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_ARRAY;
+static wchar_t* PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL = L"part";
 static int* PART_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The property element create logic cybol model. */
-static wchar_t PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_ARRAY[] = {L'p', L'r', L'o', L'p', L'e', L'r', L't', L'y'};
-static wchar_t* PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL = PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_ARRAY;
+static wchar_t* PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL = L"property";
 static int* PROPERTY_ELEMENT_CREATE_LOGIC_CYBOL_MODEL_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ELEMENT_CREATE_LOGIC_CYBOL_MODEL_CONSTANT_SOURCE */

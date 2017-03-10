@@ -31,8 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The model destroy memory logic cybol name. */
-static wchar_t MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
-static wchar_t* MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME = MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME = L"model";
 static int* MODEL_DESTROY_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DESTROY_MEMORY_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

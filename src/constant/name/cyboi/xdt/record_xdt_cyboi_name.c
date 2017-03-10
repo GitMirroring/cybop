@@ -47,102 +47,83 @@
 //
 
 /** The medical practice data record xdt cyboi name. */
-static wchar_t MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'm', L'e', L'd', L'i', L'c', L'a', L'l', L'_', L'p', L'r', L'a', L'c', L't', L'i', L'c', L'e', L'_', L'd', L'a', L't', L'a'};
-static wchar_t* MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME = MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME = L"medical_practice_data";
 static int* MEDICAL_PRACTICE_DATA_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_21_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The data medium header record xdt cyboi name. */
 /*?? This constant is (probably) not needed.
-static wchar_t DATA_MEDIUM_HEADER_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'd', L'a', L't', L'a', L'_', L'm', L'e', L'd', L'i', L'u', L'm', L'_', L'h', L'e', L'a', L'd', L'e', L'r'};
-static wchar_t* DATA_MEDIUM_HEADER_RECORD_XDT_CYBOI_NAME = DATA_MEDIUM_HEADER_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* DATA_MEDIUM_HEADER_RECORD_XDT_CYBOI_NAME = L"data_medium_header";
 static int* DATA_MEDIUM_HEADER_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 
 /** The data medium footer record xdt cyboi name. */
 /*?? This constant is not needed.
-static wchar_t DATA_MEDIUM_FOOTER_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'd', L'a', L't', L'a', L'_', L'm', L'e', L'd', L'i', L'u', L'm', L'_', L'f', L'o', L'o', L't', L'e', L'r'};
-static wchar_t* DATA_MEDIUM_FOOTER_RECORD_XDT_CYBOI_NAME = DATA_MEDIUM_FOOTER_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* DATA_MEDIUM_FOOTER_RECORD_XDT_CYBOI_NAME = L"data_medium_footer";
 static int* DATA_MEDIUM_FOOTER_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 
 /** The package header record xdt cyboi name. */
-static wchar_t PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'h', L'e', L'a', L'd', L'e', L'r'};
-static wchar_t* PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME = PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME = L"header";
 static int* PACKAGE_HEADER_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The package footer record xdt cyboi name. */
-static wchar_t PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'f', L'o', L'o', L't', L'e', L'r'};
-static wchar_t* PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME = PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME = L"footer";
 static int* PACKAGE_FOOTER_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The medical treatment record xdt cyboi name. */
-static wchar_t MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'm', L'e', L'd', L'i', L'c', L'a', L'l', L'_', L't', L'r', L'e', L'a', L't', L'm', L'e', L'n', L't'};
-static wchar_t* MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME = MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME = L"medical_treatment";
 static int* MEDICAL_TREATMENT_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The referral case record xdt cyboi name. */
-static wchar_t REFERRAL_CASE_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'r', L'e', L'f', L'e', L'r', L'r', L'a', L'l', L'_', L'c', L'a', L's', L'e'};
-static wchar_t* REFERRAL_CASE_RECORD_XDT_CYBOI_NAME = REFERRAL_CASE_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* REFERRAL_CASE_RECORD_XDT_CYBOI_NAME = L"referral_case";
 static int* REFERRAL_CASE_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The medical treatment with cottage hospital affiliation record xdt cyboi name. */
-static wchar_t MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'm', L'e', L'd', L'i', L'c', L'a', L'l', L'_', L't', L'r', L'e', L'a', L't', L'm', L'e', L'n', L't', L'_', L'w', L'i', L't', L'h', L'_', L'c', L'o', L't', L't', L'a', L'g', L'e', L'_', L'h', L'o', L's', L'p', L'i', L't', L'a', L'l', L'_', L'a', L'f', L'f', L'i', L'l', L'i', L'a', L't', L'i', L'o', L'n'};
-static wchar_t* MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME = MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME = L"medical_treatment_with_cottage_hospital_affiliation";
 static int* MEDICAL_TREATMENT_WITH_COTTAGE_HOSPITAL_AFFILIATION_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_51_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The medical emergency service record xdt cyboi name. */
-static wchar_t MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'm', L'e', L'd', L'i', L'c', L'a', L'l', L'_', L'e', L'm', L'e', L'r', L'g', L'e', L'n', L'c', L'y', L'_', L's', L'e', L'r', L'v', L'i', L'c', L'e'};
-static wchar_t* MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME = MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME = L"medical_emergency_service";
 static int* MEDICAL_EMERGENCY_SERVICE_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The private billing record xdt cyboi name. */
-static wchar_t PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'p', L'r', L'i', L'v', L'a', L't', L'e', L'_', L'b', L'i', L'l', L'l', L'i', L'n', L'g'};
-static wchar_t* PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME = PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME = L"private_billing";
 static int* PRIVATE_BILLING_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The employers' liability insurance association billing record xdt cyboi name. */
-static wchar_t EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'e', L'm', L'p', L'l', L'o', L'y', L'e', L'r', L's', L'_', L'l', L'i', L'a', L'b', L'i', L'l', L'i', L't', L'y', L'_', L'i', L'n', L's', L'u', L'r', L'a', L'n', L'c', L'e', L'_', L'a', L's', L's', L'o', L'c', L'i', L'a', L't', L'i', L'o', L'n', L'_', L'b', L'i', L'l', L'l', L'i', L'n', L'g'};
-static wchar_t* EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME = EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME = L"employers_liability_insurance_association_billing";
 static int* EMPLOYERS_LIABILITY_INSURANCE_ASSOCIATION_BILLING_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_49_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The unstructured cases record xdt cyboi name. */
-static wchar_t UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'u', L'n', L's', L't', L'r', L'u', L'c', L't', L'u', L'r', L'e', L'd', L'_', L'c', L'a', L's', L'e', L's'};
-static wchar_t* UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME = UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME = L"unstructured_cases";
 static int* UNSTRUCTURED_CASES_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_18_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The patient master data record xdt cyboi name. */
-static wchar_t PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'p', L'a', L't', L'i', L'e', L'n', L't', L'_', L'm', L'a', L's', L't', L'e', L'r', L'_', L'd', L'a', L't', L'a'};
-static wchar_t* PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME = PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME = L"patient_master_data";
 static int* PATIENT_MASTER_DATA_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The medical treatment data record xdt cyboi name. */
-static wchar_t MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'm', L'e', L'd', L'i', L'c', L'a', L'l', L'_', L't', L'r', L'e', L'a', L't', L'm', L'e', L'n', L't', L'_', L'd', L'a', L't', L'a'};
-static wchar_t* MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME = MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME = L"medical_treatment_data";
 static int* MEDICAL_TREATMENT_DATA_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The patient master data request record xdt cyboi name. */
-static wchar_t PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'p', L'a', L't', L'i', L'e', L'n', L't', L'_', L'm', L'a', L's', L't', L'e', L'r', L'_', L'd', L'a', L't', L'a', L'_', L'r', L'e', L'q', L'u', L'e', L's', L't'};
-static wchar_t* PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME = PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME = L"patient_master_data_request";
 static int* PATIENT_MASTER_DATA_REQUEST_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_27_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The patient master data transfer record xdt cyboi name. */
-static wchar_t PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'p', L'a', L't', L'i', L'e', L'n', L't', L'_', L'm', L'a', L's', L't', L'e', L'r', L'_', L'd', L'a', L't', L'a', L'_', L't', L'r', L'a', L'n', L's', L'f', L'e', L'r'};
-static wchar_t* PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME = PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME = L"patient_master_data_transfer";
 static int* PATIENT_MASTER_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_28_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The examination request record xdt cyboi name. */
-static wchar_t EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'e', L'x', L'a', L'm', L'i', L'n', L'a', L't', L'i', L'o', L'n', L'_', L'r', L'e', L'q', L'u', L'e', L's', L't'};
-static wchar_t* EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME = EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME = L"examination_request";
 static int* EXAMINATION_REQUEST_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_19_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The examination data transfer record xdt cyboi name. */
-static wchar_t EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'e', L'x', L'a', L'm', L'i', L'n', L'a', L't', L'i', L'o', L'n', L'_', L'd', L'a', L't', L'a', L'_', L't', L'r', L'a', L'n', L's', L'f', L'e', L'r'};
-static wchar_t* EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME = EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME = L"examination_data_transfer";
 static int* EXAMINATION_DATA_TRANSFER_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_25_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The examination data display record xdt cyboi name. */
-static wchar_t EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME_ARRAY[] = {L'e', L'x', L'a', L'm', L'i', L'n', L'a', L't', L'i', L'o', L'n', L'_', L'd', L'a', L't', L'a', L'_', L'd', L'i', L's', L'p', L'l', L'a', L'y'};
-static wchar_t* EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME = EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME_ARRAY;
+static wchar_t* EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME = L"examination_data_display";
 static int* EXAMINATION_DATA_DISPLAY_RECORD_XDT_CYBOI_NAME_COUNT = NUMBER_24_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* RECORD_XDT_CYBOI_NAME_CONSTANT_SOURCE */

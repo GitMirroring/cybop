@@ -32,8 +32,7 @@
 
 /** The align attribute wui state cybol name. */
 /*??
-static wchar_t ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME_ARRAY[] = {L'a', L'l', L'i', L'g', L'n'};
-static wchar_t* ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME = ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME_ARRAY;
+static wchar_t* ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME = L"align";
 static int* ALIGN_ATTRIBUTE_WUI_STATE_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 

@@ -32,8 +32,7 @@
 
 /** The command run logic cybol name. */
 /*??
-static wchar_t COMMAND_RUN_LOGIC_CYBOL_NAME_ARRAY[] = {L'c', L'o', L'm', L'm', L'a', L'n', L'd'};
-static wchar_t* COMMAND_RUN_LOGIC_CYBOL_NAME = COMMAND_RUN_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* COMMAND_RUN_LOGIC_CYBOL_NAME = L"command";
 static int* COMMAND_RUN_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 */
 

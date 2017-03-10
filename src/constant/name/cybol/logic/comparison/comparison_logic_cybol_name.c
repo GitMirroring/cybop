@@ -31,28 +31,23 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The result comparison logic cybol name. */
-static wchar_t RESULT_COMPARISON_LOGIC_CYBOL_NAME_ARRAY[] = {L'r', L'e', L's', L'u', L'l', L't'};
-static wchar_t* RESULT_COMPARISON_LOGIC_CYBOL_NAME = RESULT_COMPARISON_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* RESULT_COMPARISON_LOGIC_CYBOL_NAME = L"result";
 static int* RESULT_COMPARISON_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The left comparison logic cybol name. */
-static wchar_t LEFT_COMPARISON_LOGIC_CYBOL_NAME_ARRAY[] = {L'l', L'e', L'f', L't'};
-static wchar_t* LEFT_COMPARISON_LOGIC_CYBOL_NAME = LEFT_COMPARISON_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* LEFT_COMPARISON_LOGIC_CYBOL_NAME = L"left";
 static int* LEFT_COMPARISON_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The right comparison logic cybol name. */
-static wchar_t RIGHT_COMPARISON_LOGIC_CYBOL_NAME_ARRAY[] = {L'r', L'i', L'g', L'h', L't'};
-static wchar_t* RIGHT_COMPARISON_LOGIC_CYBOL_NAME = RIGHT_COMPARISON_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* RIGHT_COMPARISON_LOGIC_CYBOL_NAME = L"right";
 static int* RIGHT_COMPARISON_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The type comparison logic cybol name. */
-static wchar_t TYPE_COMPARISON_LOGIC_CYBOL_NAME_ARRAY[] = {L't', L'y', L'p', L'e'};
-static wchar_t* TYPE_COMPARISON_LOGIC_CYBOL_NAME = TYPE_COMPARISON_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* TYPE_COMPARISON_LOGIC_CYBOL_NAME = L"type";
 static int* TYPE_COMPARISON_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The selection comparison logic cybol name. */
-static wchar_t SELECTION_COMPARISON_LOGIC_CYBOL_NAME_ARRAY[] = {L's', L'e', L'l', L'e', L'c', L't', L'i', L'o', L'n'};
-static wchar_t* SELECTION_COMPARISON_LOGIC_CYBOL_NAME = SELECTION_COMPARISON_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* SELECTION_COMPARISON_LOGIC_CYBOL_NAME = L"selection";
 static int* SELECTION_COMPARISON_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* COMPARISON_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

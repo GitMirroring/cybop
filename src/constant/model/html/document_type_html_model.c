@@ -38,8 +38,7 @@
  * It was introduced with the html5 specification:
  * http://www.w3.org/TR/html-markup/
  */
-static wchar_t HTML_DOCUMENT_TYPE_HTML_MODEL_ARRAY[] = {L'<', L'!', L'D', L'O', L'C', L'T', L'Y', L'P', L'E', L' ', L'h', L't', L'm', L'l', L'>'};
-static wchar_t* HTML_DOCUMENT_TYPE_HTML_MODEL = HTML_DOCUMENT_TYPE_HTML_MODEL_ARRAY;
+static wchar_t* HTML_DOCUMENT_TYPE_HTML_MODEL = L"<!DOCTYPE html>";
 static int* HTML_DOCUMENT_TYPE_HTML_MODEL_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* DOCUMENT_TYPE_HTML_MODEL_CONSTANT_SOURCE */

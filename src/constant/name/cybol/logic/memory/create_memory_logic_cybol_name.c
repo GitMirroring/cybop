@@ -31,23 +31,19 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The name create memory logic cybol name. */
-static wchar_t NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY[] = {L'n', L'a', L'm', L'e'};
-static wchar_t* NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME = NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME = L"name";
 static int* NAME_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The format create memory logic cybol name. */
-static wchar_t FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY[] = {L'f', L'o', L'r', L'm', L'a', L't'};
-static wchar_t* FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME = FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME = L"format";
 static int* FORMAT_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The element create memory logic cybol name. */
-static wchar_t ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY[] = {L'e', L'l', L'e', L'm', L'e', L'n', L't'};
-static wchar_t* ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME = ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME = L"element";
 static int* ELEMENT_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The whole create memory logic cybol name. */
-static wchar_t WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY[] = {L'w', L'h', L'o', L'l', L'e'};
-static wchar_t* WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME = WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME = L"whole";
 static int* WHOLE_CREATE_MEMORY_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* CREATE_MEMORY_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

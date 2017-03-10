@@ -31,8 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The duration sleep run logic cybol name. */
-static wchar_t DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME_ARRAY[] = {L'd', L'u', L'r', L'a', L't', L'i', L'o', L'n'};
-static wchar_t* DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME = DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME = L"duration";
 static int* DURATION_SLEEP_RUN_LOGIC_CYBOL_NAME_COUNT = NUMBER_8_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* SLEEP_RUN_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

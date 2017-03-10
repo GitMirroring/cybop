@@ -31,8 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The process ID parameter for the kill command in cybol. */
-static wchar_t PID_KILL_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'p', L'i', L'd'};
-static wchar_t* PID_KILL_COMMANDER_LOGIC_CYBOL_NAME = PID_KILL_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* PID_KILL_COMMANDER_LOGIC_CYBOL_NAME = L"pid";
 static int* PID_KILL_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_3_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* KILL_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

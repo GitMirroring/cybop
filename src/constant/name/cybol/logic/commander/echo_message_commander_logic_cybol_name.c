@@ -31,8 +31,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The message parameter for the echo logic in cybol. */
-static wchar_t MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_ARRAY[] = {L'm', L'e', L's', L's', L'a', L'g', L'e'};
-static wchar_t* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME = MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME = L"message";
 static int* MESSAGE_ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* ECHO_MESSAGE_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */

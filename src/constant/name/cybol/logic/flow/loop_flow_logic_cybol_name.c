@@ -31,13 +31,11 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 
 /** The break loop flow logic cybol name. */
-static wchar_t BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_ARRAY[] = {L'b', L'r', L'e', L'a', L'k'};
-static wchar_t* BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME = BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME = L"break";
 static int* BREAK_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The model loop flow logic cybol name. */
-static wchar_t MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_ARRAY[] = {L'm', L'o', L'd', L'e', L'l'};
-static wchar_t* MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME = MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_ARRAY;
+static wchar_t* MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME = L"model";
 static int* MODEL_LOOP_FLOW_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /* LOOP_FLOW_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
