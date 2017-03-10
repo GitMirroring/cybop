@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-10  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Let last preprocessor branch report an error instead of using linux as fallback OS
+        * Replace preprocessor macros with posix-compliant ones
+
 2017-03-10  Enrico Gallus <enrico.gallus@gmail.com>
 
         * Simplify string constant in the constant directory using a python script
