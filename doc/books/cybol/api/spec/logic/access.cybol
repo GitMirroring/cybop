@@ -6,10 +6,7 @@
     <node name="get-format" channel="file" format="element/part" model="api/spec/logic/access/get-format.cybol"/>
     <node name="get-index" channel="file" format="element/part" model="api/spec/logic/access/get-index.cybol"/>
     <node name="get-language" channel="file" format="element/part" model="api/spec/logic/access/get-language.cybol"/>
-    <node name="get-model  (OBSOLETE)" channel="file" format="element/part" model="api/spec/logic/access/get-model.cybol"/>
     <node name="get-name" channel="file" format="element/part" model="api/spec/logic/access/get-name.cybol"/>
-    <node name="get-properties (OBSOLETE)" channel="file" format="element/part" model="api/spec/logic/access/get-properties.cybol"/>
-    <node name="get-reference (OBSOLETE)" channel="file" format="element/part" model="api/spec/logic/access/get-reference.cybol"/>
     <node name="get-type" channel="file" format="element/part" model="api/spec/logic/access/get-type.cybol"/>
     <node name="indicate-empty" channel="file" format="element/part" model="api/spec/logic/access/indicate-empty.cybol"/>
     <node name="indicate-exists" channel="file" format="element/part" model="api/spec/logic/access/indicate-exists.cybol"/>

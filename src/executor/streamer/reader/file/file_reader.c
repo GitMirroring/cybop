@@ -211,7 +211,7 @@ void read_file(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void*
 
         } else {
 
-            fwprintf(stdout, L"Could not read file. The file descriptor is null. f: %i\n", f);
+            fwprintf(stdout, L"Could not read file. The file descriptor is null. file: %s\n", (char*) td);
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not read file. The file descriptor is null.");
         }
 

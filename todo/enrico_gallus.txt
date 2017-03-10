@@ -78,9 +78,9 @@ get-name            done
 get-type            adjusted
 indicate-empty      done
 indicate-exists     done
-get-model           ?propably obsolete -> should be removed?
-get-properties      ?propably obsolete -> should be removed?
-get-reference       ?propably obsolete -> should be removed?
+get-model           removed
+get-properties      removed
+get-reference       removed
 
 CALCULATE
 absolute            done
