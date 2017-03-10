@@ -28,14 +28,15 @@
 
 #include <stdint.h> // for uint32_t
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <netinet/in.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <netinet/in.h>
 #else
-    #include <netinet/in.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -78,7 +79,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-#ifndef WIN32
+#ifndef (_WIN32) || defined(__CYGWIN__)
         // This data type is used to store an IPv6 address.
         // It stores 128 bits of data, which can be
         // accessed via a union in a variety of ways.

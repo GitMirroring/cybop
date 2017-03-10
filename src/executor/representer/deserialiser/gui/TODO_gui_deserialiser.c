@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add Cocoa support
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/streamer/reader/win32_display/win32_display_reader.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
 #else
-    #include "../../../../executor/streamer/reader/xcb/xcb_reader.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -56,14 +57,15 @@ void read_display(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read display.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add Cocoa support
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     read_win32_display(p0, p1, p2, p3, p4, p5, p6, p7);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
 #else
-    read_xcb(p0, p1, p2, p3, p4, p5, p6, p7);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

@@ -33,14 +33,15 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/representer/deserialiser/win32_console/win32_console_deserialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
 #else
-    #include "../../../../executor/representer/deserialiser/ansi_escape_code/ansi_escape_code_deserialiser.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -54,14 +55,15 @@ void deserialise_tui(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise tui.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     deserialise_ansi_escape_code(p0, p1, p2);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    deserialise_ansi_escape_code(p0, p1, p2);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     deserialise_win32_console(p0, p1, p2);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    deserialise_ansi_escape_code(p0, p1, p2);
 #else
-    deserialise_ansi_escape_code(p0, p1, p2);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

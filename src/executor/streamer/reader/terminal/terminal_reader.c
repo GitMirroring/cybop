@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/streamer/reader/win32_console/win32_console_reader.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
 #else
-    #include "../../../../executor/streamer/reader/unix_terminal/unix_terminal_reader.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -51,16 +52,17 @@ void read_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read terminal.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     read_unix_terminal(p0, p1, p2);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    read_unix_terminal(p0, p1, p2);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     //?? CAUTION! Possibly move this functionality into "win32_console_deserialiser".
     //?? See "write_terminal"!
 //??    read_win32_console(p0, p1);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    read_unix_terminal(p0, p1, p2);
 #else
-    read_unix_terminal(p0, p1, p2);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

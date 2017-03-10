@@ -152,14 +152,15 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
                     // Get character from source input stream of serial port.
                     // ssize_t e = read(*f, (void*) c, ts);
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                     ssize_t e = read(*f, (void*) &c, ts);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                    ssize_t e = read(*f, (void*) &c, ts);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                     int e = read(*f, (void*) &c, ts);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                    ssize_t e = read(*f, (void*) &c, ts);
 #else
-                    ssize_t e = read(*f, (void*) &c, ts);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
                     // Unlock serial port mutex.
@@ -189,8 +190,8 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                     // error occurred; otherwise, it is minus one.
                     if (e > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
-// fwprintf(stdout, L"TEST read serial port read character c[0]: %i\n", c[0]);
-fwprintf(stdout, L"TEST read serial port read character c: %i %c\n", c, c);
+    // fwprintf(stdout, L"TEST read serial port read character c[0]: %i\n", c[0]);
+    fwprintf(stdout, L"TEST read serial port read character c: %i %c\n", c, c);
 
                         // The maximum comparison result.
                         int rmax = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;

@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/lifeguard/sensor/winsock/accept_winsock_sensor.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
 #else
-    #include "../../../../executor/lifeguard/sensor/bsd_socket/accept_bsd_socket_sensor.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -50,14 +51,15 @@ void sense_socket_accept(void* p0, void* p1) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense socket accept.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     sense_bsd_socket_accept(p0, p1);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    sense_bsd_socket_accept(p0, p1);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     sense_winsock_accept(p0, p1);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    sense_bsd_socket_accept(p0, p1);
 #else
-    sense_bsd_socket_accept(p0, p1);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

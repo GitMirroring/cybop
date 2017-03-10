@@ -37,15 +37,15 @@
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../logger/logger.c"
 
-
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/starter/win32_console/open_win32_console_starter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
 #else
-    #include "../../../../executor/maintainer/starter/unix_terminal/open_unix_terminal_starter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -95,14 +95,15 @@ void startup_terminal_open(void* p0) {
         copy_array_forward(p0, (void*) &ip, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         copy_array_forward(p0, (void*) &op, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
         startup_unix_terminal_open(ip, op, p0);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+        startup_unix_terminal_open(ip, op, p0);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
         startup_win32_console_open(ip, op, p0);
-#elif GNU_LINUX_OPERATING_SYSTEM
-        startup_unix_terminal_open(ip, op, p0);
 #else
-        startup_unix_terminal_open(ip, op, p0);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
     } else {
 

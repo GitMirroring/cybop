@@ -30,13 +30,14 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/representer/serialiser/x_window_system/cleanup_context_x_window_system_serialiser.c"
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add support for Cocoa
-#elif WIN32
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/x_window_system/cleanup_context_x_window_system_serialiser.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-    #include "../../../../executor/representer/serialiser/x_window_system/cleanup_context_x_window_system_serialiser.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -53,13 +54,14 @@ void serialise_gui_context_cleanup(void* p0, void* p1, void* p2, void* p3, void*
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui context cleanup.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    serialise_x_window_system_context_cleanup(p0, p1, p2, p3, p4);
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add support for Cocoa
-#elif WIN32
-#elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_context_cleanup(p0, p1, p2, p3, p4);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-    serialise_x_window_system_context_cleanup(p0, p1, p2, p3, p4);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

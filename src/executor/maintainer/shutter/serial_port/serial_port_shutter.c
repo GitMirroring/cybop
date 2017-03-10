@@ -27,15 +27,19 @@
 #define SERIAL_PORT_SHUTTER_SOURCE
 
 #include <stdio.h>
-#ifdef __APPLE__
+
+/*??
+#if defined(__linux__) || defined(__unix__)
     #include <termios.h>
-#elif WIN32
-    //Not needed
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
     #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Not needed
 #else
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+*/
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"

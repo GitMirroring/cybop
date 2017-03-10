@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add cocoa support for Apple
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/streamer/writer/win32_display/win32_display_writer.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
 #else
-    #include "../../../../executor/streamer/writer/xcb/xcb_writer.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -49,14 +50,15 @@ void write_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write display.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    write_xcb(p0);
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add cocoa support for Apple
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     write_win32_display(p0);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    write_xcb(p0);
 #else
-    write_xcb(p0);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

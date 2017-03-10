@@ -77,15 +77,16 @@ void interrupt_thread(void* p0, void* p1) {
             // It is processed in the interrupt_service_system_signal_handler
             // procedure, situated in the following module:
             // controller/manager/system_signal_handler_manager.c
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             pthread_kill(*t, SIGUSR1);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            pthread_kill(*t, SIGUSR1);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             // Pthread-Win32 only supports a zero value!
             // ...
-#elif GNU_LINUX_OPERATING_SYSTEM
-            pthread_kill(*t, SIGUSR1);
 #else
-            pthread_kill(*t, SIGUSR1);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Wait for thread to finish.

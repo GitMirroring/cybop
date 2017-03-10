@@ -30,15 +30,16 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/starter/winsock/create_winsock_starter.c"
     #include "../../../../executor/maintainer/starter/winsock/initialise_winsock_starter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
 #else
-    #include "../../../../executor/maintainer/starter/bsd_socket/create_bsd_socket_starter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -54,24 +55,26 @@ void startup_socket_create(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket create.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     // Nothing to be done here.
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    // Nothing to be done here.
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     startup_winsock_initialise();
-#elif GNU_LINUX_OPERATING_SYSTEM
-    // Nothing to be done here.
 #else
-    // Nothing to be done here.
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     startup_bsd_socket_create(p0, p1, p2, p3, p4);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    startup_bsd_socket_create(p0, p1, p2, p3, p4);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     startup_winsock_create(p0, p1, p2, p3, p4);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    startup_bsd_socket_create(p0, p1, p2, p3, p4);
 #else
-    startup_bsd_socket_create(p0, p1, p2, p3, p4);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

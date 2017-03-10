@@ -45,24 +45,18 @@
 void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
-#ifdef __APPLE__
-    //??Check OPENGL Support for APPLE    
-#elif WIN32
-    //??Check OPENGL Support for WIN32
-#elif GNU_LINUX_OPERATING_SYSTEM
+#if defined(__linux__) || defined(__unix__)
     // Shutdown display AT LAST.
     // The opengl environment needed a window
     // to have something to paint on.
     shutdown_display(p0, p1, p2);
-    
-    /* GNU_LINUX_OPERATING_SYSTEM */
+#elif defined(__APPLE__) && defined(__MACH__)
+    //?? Check OpenGL Support for Apple
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    //?? Check OpenGL Support for Win32
 #else
-    // Shutdown display AT LAST.
-    // The opengl environment needed a window
-    // to have something to paint on.
-    shutdown_display(p0, p1, p2);
-    
-    /* GNU_LINUX_OPERATING_SYSTEM */
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

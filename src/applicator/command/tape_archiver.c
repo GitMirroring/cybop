@@ -36,14 +36,15 @@
 #include "../../executor/commander/tape_archiver_commander.c"
 #include "../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/model/command/unix_command_model.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/model/command/unix_command_model.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER

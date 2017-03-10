@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/maintainer/shutter/bsd_socket/close_bsd_socket_shutter.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/maintainer/shutter/bsd_socket/close_bsd_socket_shutter.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/shutter/winsock/winsock_shutter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/shutter/bsd_socket/close_bsd_socket_shutter.c"
 #else
-    #include "../../../../executor/maintainer/shutter/bsd_socket/close_bsd_socket_shutter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -49,14 +50,15 @@ void shutdown_socket_close(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown socket close.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     shutdown_bsd_socket_close(p0);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    shutdown_bsd_socket_close(p0);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     shutdown_winsock(p0);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    shutdown_bsd_socket_close(p0);
 #else
-    shutdown_bsd_socket_close(p0);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

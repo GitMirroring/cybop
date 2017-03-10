@@ -26,17 +26,17 @@
 #ifndef SOCKET_TYPE_SIZE_GLOBALISER_SOURCE
 #define SOCKET_TYPE_SIZE_GLOBALISER_SOURCE
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
     #include <sys/un.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <netinet/in.h>
+    #include <sys/un.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <netinet/in.h>
-    #include <sys/un.h>
 #else
-    #include <netinet/in.h>
-    #include <sys/un.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../variable/type_size/socket_type_size.c"
@@ -67,31 +67,28 @@ void globalise_type_size_socket() {
     // the "sockaddr_un" structure can be calculated as sum.
     //
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
     *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
     *IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
     *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
     *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
+    *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
+    *IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
+    *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
+    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
 //??    *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
     *IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
 //??    *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
     // CAUTION! The local unix domain socket AF_LOCAL or AF_UNIX
     // with ID 1 does NOT exist in windows operating system.
-#elif GNU_LINUX_OPERATING_SYSTEM
-    *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
-    *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
-    *IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
-    *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
-    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
 #else
-    *IPV4_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in_addr);
-    *IPV6_HOST_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct in6_addr);
-    *IPV4_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in);
-    *IPV6_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = sizeof (struct sockaddr_in6);
-    *LOCAL_SOCKET_ADDRESS_SOCKET_TYPE_SIZE = *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE + *NUMBER_108_INTEGER_STATE_CYBOI_MODEL;
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

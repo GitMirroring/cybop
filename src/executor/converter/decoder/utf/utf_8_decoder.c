@@ -207,10 +207,6 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
             // and the destination wide character array will have LESS entries (count)
             // than the destination size that was set before. In this case,
             // the destination size will be too big, but that doesn't matter.
-            //
-            // CAUTION! Do NOT easily change the order of function calls.
-            // The source count multiplication has to be done BEFORE
-            // adding the old destination count value.
             calculate_integer_add((void*) &nds, p2);
 
             if (nds > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -284,15 +280,16 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
                     // anonymous state only known to the function internally is used instead.
                     // It just indicates where conversion is started.
                     int n = -1;
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                     n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                    n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                     int len = MultiByteToWideChar(65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, 0);
                     n =  MultiByteToWideChar(65001, 0, (LPCSTR) sd, *sc, (LPWSTR) dd, len);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                    n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
 #else
-                    n = mbsnrtowcs((wchar_t*) dd, (const char**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
                     if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
@@ -304,12 +301,12 @@ void decode_utf_8(void* p0, void* p1, void* p2) {
 
                         if (errno == EILSEQ) {
 
-fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
+                            fwprintf(stdout, L"Error: Could not decode utf-8. The input string contains an invalid multibyte sequence. EILSEQ errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. The input string contains an invalid multibyte sequence.");
 
                         } else {
 
-fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
+                            fwprintf(stdout, L"Error: Could not decode utf-8. An unknown error occured. UNKNOWN errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not decode utf-8. An unknown error occured.");
                         }
                     }

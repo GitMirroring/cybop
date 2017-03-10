@@ -45,17 +45,17 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/model/command/unix_command_model.c"
     #include "../../constant/name/command_option/unix/disk_free_unix_command_option_name.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/disk_free_unix_command_option_name.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/disk_free_unix_command_option_name.c"
 #else
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/disk_free_unix_command_option_name.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
@@ -76,166 +76,169 @@ void command_disk_free(void* amd, void* hmd, void* kmd, void* lmd, void* mmd, vo
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command disk free.");
 
-        // The arguments item.
-        void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The arguments item data, count.
-        void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The arguments item.
+    void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The arguments item data, count.
+    void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Allocate arguments item.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate arguments item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-#ifdef __APPLE__
-        append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif WIN32
-    
-#elif GNU_LINUX_OPERATING_SYSTEM
-        append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#if defined(__linux__) || defined(__unix__)
+    append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif defined(__APPLE__) && defined(__MACH__)
+    append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-        append_item_element(arg, (void*) DISK_FREE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DISK_FREE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_unequal((void*) &r, amd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, amd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Append all option.
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Append all option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
-            append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-    
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-        }
+    }
 
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_unequal((void*) &r, hmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, hmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Append human option.
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Append human option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
-            append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-        }
+    }
 
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_unequal((void*) &r, kmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, kmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Append kilobytes option.
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Append kilobytes option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
-            append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-        
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KILOBYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-        }
+    }
 
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        compare_integer_unequal((void*) &r, lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    compare_integer_unequal((void*) &r, lmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // Append local option.
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        // Append local option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
-            append_item_element(arg, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-            // ... not exist
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        // ... not exist
 #else
-            append_item_element(arg, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) LOCAL_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-        }
-        
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    }
 
-        compare_integer_unequal((void*) &r, mmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    compare_integer_unequal((void*) &r, mmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            // Append megabytes option.
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef __APPLE__
-            append_item_element(arg, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-            // ... not exist
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Append megabytes option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        // ... not exist
 #else
-            append_item_element(arg, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MEGABYTES_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-        }
-        
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    }
 
-        compare_integer_unequal((void*) &r, tmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+    compare_integer_unequal((void*) &r, tmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            // Append print type option.
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef __APPLE__
-            append_item_element(arg, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-            // ... not exist
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        // Append print type option.
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        // ... not exist
 #else
-            append_item_element(arg, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TYPE_DISK_FREE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-        }
-        
-        // Reset comparison result.
-        r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    }
 
-        // Get arguments item data, count.
-        copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    // Reset comparison result.
+    r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-        // Execute command line in shell.
-        execute(argd, argc);
+    // Get arguments item data, count.
+    copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-        // Deallocate arguments item.
-        deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Execute command line in shell.
+    execute(argd, argc);
+
+    // Deallocate arguments item.
+    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* DISK_FREE_COMMANDER_SOURCE */

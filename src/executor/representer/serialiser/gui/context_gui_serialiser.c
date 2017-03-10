@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add support for Cocoa
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/representer/serialiser/win32_display/context_win32_display_serialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
 #else
-    #include "../../../../executor/representer/serialiser/x_window_system/context_x_window_system_serialiser.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -59,14 +60,15 @@ void serialise_gui_context(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise gui context.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8, p9, p10);
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Add support for Cocoa
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     serialise_win32_display_context(p5, p6, p7, p8);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8, p9, p10);
 #else
-    serialise_x_window_system_context(p0, p1, p2, p3, p4, p6, p7, p8, p9, p10);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

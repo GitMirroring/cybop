@@ -172,14 +172,15 @@ void sense(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6)
             // Therefore, the function "sense_unix_terminal" and NOT
             // "sense_terminal" is called here.
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             // Not needed.
-#elif GNU_LINUX_OPERATING_SYSTEM
-            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
 #else
-            sense_message(p0, (void*) TERMINAL_THREAD, (void*) &sense_unix_terminal);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Set enable flag.

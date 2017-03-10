@@ -65,20 +65,19 @@
 void startup_opengl(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup opengl.");
-#ifdef __APPLE__
-    //??Check OPENGL Support for APPLE
-#elif WIN32
-    //??Check OPENGL Support for WIN32
-#elif GNU_LINUX_OPERATING_SYSTEM
+
+#if defined(__linux__) || defined(__unix__)
     // Startup display AT FIRST.
     // The opengl environment needs a window
     // to have something to paint on.
     startup_display(p0);
+#elif defined(__APPLE__) && defined(__MACH__)
+    // Check OpenGL support for Apple
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Check OpenGL support for Win32
 #else
-    // Startup display AT FIRST.
-    // The opengl environment needs a window
-    // to have something to paint on.
-    startup_display(p0);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

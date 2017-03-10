@@ -31,15 +31,15 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/representer/serialiser/win32_console/clear_win32_console_serialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
 #else
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/clear_ansi_escape_code_serialiser.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -71,18 +71,16 @@ void serialise_tui_clear(void* p0, void* p1, void* p2, void* p3) {
         // Only clear terminal screen if clear flag is set.
         if (c != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            
-            
-        #ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             serialise_ansi_escape_code_clear(p0);
-        #elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            serialise_ansi_escape_code_clear(p0);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             serialise_win32_console_clear(p1);
-        #elif GNU_LINUX_OPERATING_SYSTEM
-            serialise_ansi_escape_code_clear(p0);
-        #else
-            serialise_ansi_escape_code_clear(p0);
-        #endif
-            
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
         }
     }
 }

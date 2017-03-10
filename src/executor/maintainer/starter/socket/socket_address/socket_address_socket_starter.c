@@ -33,21 +33,22 @@
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/maintainer/starter/socket/socket_address/inet_socket_address_socket_starter.c"
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-#ifndef WIN32
+#ifndef _WIN32
     #include "../../../../../executor/maintainer/starter/socket/socket_address/inet6_socket_address_socket_starter.c"
 #endif
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     // CAUTION! The local or unix domain sockets are
     // NOT implemented in the windows operating system.
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
 #else
-    #include "../../../../../executor/maintainer/starter/socket/socket_address/local_socket_address_socket_starter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -126,7 +127,7 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-#ifndef WIN32
+#ifndef _WIN32
                     startup_socket_socket_address_inet6(p0, p1, p4, p5, p6);
 #endif
                 }
@@ -148,15 +149,16 @@ void startup_socket_socket_address(void* p0, void* p1, void* p2, void* p3, void*
 
                 if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                     startup_socket_socket_address_local(p0, p1, p2, p3);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                    startup_socket_socket_address_local(p0, p1, p2, p3);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                     // CAUTION! The local or unix domain sockets are
                     // NOT implemented in the windows operating system.
-#elif GNU_LINUX_OPERATING_SYSTEM
-                    startup_socket_socket_address_local(p0, p1, p2, p3);
 #else
-                    startup_socket_socket_address_local(p0, p1, p2, p3);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
                 }
             }

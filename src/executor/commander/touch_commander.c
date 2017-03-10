@@ -44,18 +44,18 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/name/command_option/unix/touch_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/name/command_option/unix/touch_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/name/command_option/win32/touch_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/name/command_option/unix/touch_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/name/command_option/unix/touch_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
@@ -63,17 +63,15 @@
 #endif
 
 /**
-* creates new file.
-*
-* @param pmd the path model data
-* @param pmc the path model count
-* @param rmd the reference model data
-* @param rmc the reference model count
-* @param tmd the timestamp model data
-* @param tmc the timestamp model count
-*
-*
-*/
+ * Creates new file.
+ *
+ * @param pmd the path model data
+ * @param pmc the path model count
+ * @param rmd the reference model data
+ * @param rmc the reference model count
+ * @param tmd the timestamp model data
+ * @param tmc the timestamp model count
+ */
 void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* tmc) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command touch.");
@@ -92,14 +90,15 @@ void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* 
         allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         // Append command.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
         append_item_element(arg, (void*) TOUCH_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TOUCH_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) TOUCH_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TOUCH_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
         append_item_element(arg, (void*) TOUCH_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TOUCH_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif GNU_LINUX_OPERATING_SYSTEM
-        append_item_element(arg, (void*) TOUCH_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TOUCH_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
-        append_item_element(arg, (void*) TOUCH_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TOUCH_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
         // The comparison result.
@@ -112,14 +111,15 @@ void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* 
             // Append reference option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            append_item_element(arg, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             append_item_element(arg, (void*) REFERENCE_TOUCH_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_TOUCH_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-            append_item_element(arg, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) REFERENCE_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, rmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, rmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
@@ -135,17 +135,17 @@ void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* 
             // Append timestamp option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) TIMESTAMP_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TIMESTAMP_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
             append_item_element(arg, (void*) TIMESTAMP_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TIMESTAMP_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) TIMESTAMP_TOUCH_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) TIMESTAMP_TOUCH_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#ifndef WIN32
+#ifndef _WIN32
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, tmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, tmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #endif
@@ -155,18 +155,18 @@ void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* 
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Append path.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
         append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-        append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
         // Get arguments item data, count.
@@ -184,5 +184,6 @@ void command_touch(void* pmd, void* pmc, void* rmd, void* rmc, void* tmd, void* 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command touch. The path is null.");
     }
 }
+
 /* TOUCH_COMMANDER_SOURCE */
 #endif

@@ -30,14 +30,15 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../../executor/maintainer/starter/winsock/bind_winsock_starter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
 #else
-    #include "../../../../../executor/maintainer/starter/bsd_socket/bind_bsd_socket_starter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -51,14 +52,15 @@ void startup_socket_server_bind(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup socket server bind.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     startup_bsd_socket_bind(p0, p1, p2);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    startup_bsd_socket_bind(p0, p1, p2);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     startup_winsock_bind(p0, p1, p2);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    startup_bsd_socket_bind(p0, p1, p2);
 #else
-    startup_bsd_socket_bind(p0, p1, p2);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

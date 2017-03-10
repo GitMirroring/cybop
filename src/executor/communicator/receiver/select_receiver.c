@@ -138,14 +138,15 @@ void receive_select(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
             // Use void* buffer for win32, since it uses
             // a special INPUT_RECORD structure for storage.
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             copy_pointer(p0, p4);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            copy_pointer(p0, p4);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             copy_pointer(p0, p2);
-#elif GNU_LINUX_OPERATING_SYSTEM
-            copy_pointer(p0, p4);
 #else
-            copy_pointer(p0, p4);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
         }
     }

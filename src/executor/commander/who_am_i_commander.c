@@ -45,58 +45,56 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/model/command/unix_command_model.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/model/command/unix_command_model.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
     #include <unistd.h>
 #endif
 
-
 void command_who_am_i() {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command who am i.");
 
-        // The arguments item.
-        void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
-        // The arguments item data, count.
-        void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
-        void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The arguments item.
+    void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The arguments item data, count.
+    void* argd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* argc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Allocate arguments item.
-        // CAUTION! Due to memory allocation handling, the size MUST NOT
-        // be negative or zero, but have at least a value of ONE.
-        allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Allocate arguments item.
+    // CAUTION! Due to memory allocation handling, the size MUST NOT
+    // be negative or zero, but have at least a value of ONE.
+    allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-#ifdef __APPLE__
-        append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif WIN32
-
-#elif GNU_LINUX_OPERATING_SYSTEM
-        append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#if defined(__linux__) || defined(__unix__)
+    append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#elif defined(__APPLE__) && defined(__MACH__)
+    append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-        append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
+    // Get arguments item data, count.
+    copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
+    // Execute command line in shell.
+    execute(argd, argc);
 
-        // Get arguments item data, count.
-        copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-        copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-        // Execute command line in shell.
-        execute(argd, argc);
-
-        // Deallocate arguments item.
-        deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    // Deallocate arguments item.
+    deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
 /* WHO_AM_I_COMMANDER_SOURCE */

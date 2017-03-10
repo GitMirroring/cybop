@@ -33,13 +33,15 @@
 // Initialisation happens in directory "controller/globaliser/".
 //
 
-#ifdef __APPLE__
-#elif WIN32
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     /** The window class extended display type size. */
     static int WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY[1];
     static int* WNDCLASSEX_DISPLAY_TYPE_SIZE = WNDCLASSEX_DISPLAY_TYPE_SIZE_ARRAY;
-#elif GNU_LINUX_OPERATING_SYSTEM
 #else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /* DISPLAY_TYPE_SIZE_SOURCE */

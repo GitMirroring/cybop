@@ -44,18 +44,18 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/model/command/unix_command_model.c"
     #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/name/command_option/win32/copy_file_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
 #else
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/copy_file_unix_command_option_name.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
@@ -79,11 +79,11 @@
  */
 void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, void* imd, void* paamd, void* plmd, void* rmd, void* umd, void* vmd) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command copy file.");
-
     if (dmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         if (smc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command copy file.");
 
             // The arguments item.
             void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -97,14 +97,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Append command.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             append_item_element(arg, (void*) XCOPY_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) XCOPY_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
-            append_item_element(arg, (void*) COPY_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COPY_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // The comparison result.
@@ -117,14 +118,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append force option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) FORCE_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -138,14 +140,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append interactive option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -159,14 +162,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append preserve all attributes option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_ALL_ATTRIBUTES_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -180,14 +184,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append preserve links option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRESERVE_LINKS_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -201,14 +206,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append recursive option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) RECURSIVE_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) RECURSIVE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -222,14 +228,15 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append update option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) UPDATE_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) UPDATE_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -243,17 +250,18 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
                 // Append verbal option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) VERBAL_COPY_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_COPY_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-#ifdef WIN32
+#ifdef _WIN32
             } else {
 
                 // Append non verbal option.
@@ -263,23 +271,21 @@ void command_copy_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             }
 
             // Append source and destination path.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             // ...
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, smd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, smc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, dmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, dmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Get arguments item data, count.

@@ -29,6 +29,7 @@
 #include <errno.h>
 #include <locale.h>
 #include <wchar.h>
+
 #ifdef WIN32
     #include <windows.h>
 #endif
@@ -169,7 +170,7 @@
 //
 
 /**
- * Encodes an UTF-32 (TODO: 16 Bit) wide character vector into an UTF-8 multibyte character stream.
+ * Encodes a UTF-32 wide character vector into a UTF-8 multibyte character stream.
  *
  * @param p0 the destination item
  * @param p1 the source data
@@ -215,8 +216,8 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
             // the destination size will be too big, but that doesn't matter.
             //
             // CAUTION! Do NOT easily change the order of function calls.
-            // The source count multiplication has to be done BEFORE
-            // adding the old destination count value.
+            // The source count multiplication has to be done AFTER
+            // having added the old destination count value.
             calculate_integer_add((void*) &nds, p2);
             calculate_integer_multiply((void*) &nds, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
@@ -291,14 +292,17 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
                     // anonymous state only known to the function internally is used instead.
                     // It just indicates where conversion is started.
                     int n = -1;
-                    #ifdef __APPLE__
-                        n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-                    #elif WIN32
-                        int len = WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, NULL, 0, NULL, NULL);
-                        n =  WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
-                    #elif GNU_LINUX_OPERATING_SYSTEM
-                        n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
-                    #endif
+#if defined(__linux__) || defined(__unix__)
+                    n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+                    n = wcsnrtombs((char*) dd, (const wchar_t**) &sd, tsc, tds, (mbstate_t*) *NULL_POINTER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+                    int len = WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, NULL, 0, NULL, NULL);
+                    n =  WideCharToMultiByte (CP_UTF8, 0, (LPCWSTR) sd, *sc, (LPSTR) dd, len, NULL, NULL);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
                     if (n >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -309,17 +313,17 @@ void encode_utf_8(void* p0, void* p1, void* p2) {
 
                         if (errno == EILSEQ) {
 
-                            fwprintf(stdout, L"TEST ERROR EILSEQ errno: %i\n", errno);
+                            fwprintf(stdout, L"Error: Could not encode utf-8. An invalid wide character was encountered. EILSEQ errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An invalid wide character was encountered.");
 
                         } else if (errno == EINVAL) {
 
-                            fwprintf(stdout, L"TEST ERROR EINVAL errno: %i\n", errno);
+                            fwprintf(stdout, L"Error: Could not encode utf-8. The conversion state is invalid. EINVAL errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. The conversion state is invalid.");
 
                         } else {
 
-                            fwprintf(stdout, L"TEST ERROR UNKNOWN errno: %i\n", errno);
+                            fwprintf(stdout, L"Error: Could not encode utf-8. An unknown error occured. UNKNOWN errno: %i\n", errno);
                             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not encode utf-8. An unknown error occured.");
                         }
                     }

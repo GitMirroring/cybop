@@ -26,14 +26,15 @@
 #ifndef PROTOCOL_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define PROTOCOL_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <netinet/in.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <netinet/in.h>
 #else
-    #include <netinet/in.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../variable/symbolic_name/protocol_socket_symbolic_name.c"
@@ -51,37 +52,7 @@
  */
 void globalise_symbolic_name_socket_protocol() {
 
-#ifdef __APPLE__
-    *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IP; // 0 Dummy protocol for TCP
-    *ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMP; // 1 Internet Control Message Protocol
-    *IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IGMP; // 2 Internet Group Management Protocol
-    *IPIP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IPIP; // 4 IPIP tunnels (older KA9Q tunnels use 94)
-    *TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_TCP; // 6 Transmission Control Protocol
-    *EGP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_EGP; // 8 Exterior Gateway Protocol
-    *PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_PUP; // 12 PUP protocol
-    *UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDP; // 17 User Datagram Protocol
-    *IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IDP; // 22 XNS IDP protocol
-    //*DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_DCCP; // 33 Datagram Congestion Control Protocol
-    *IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IPV6; // 41 IPv6-in-IPv4 tunnelling
-    *RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RSVP; // 46 RSVP protocol
-    *GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_GRE; // 47 Cisco GRE tunnels (rfc 1701,1702)
-    *ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ESP; // 50 Encapsulation Security Payload protocol
-    *AH_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_AH; // 51 Authentication Header protocol
-    //*BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_BEETPH; // 94 IP option pseudo header for BEET
-    *PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_PIM; // 103 Protocol Independent Multicast
-    //*COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_COMP; // 108 Compression Header protocol
-    *SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_SCTP; // 132 Stream Control Transport Protocol
-    //*UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDPLITE; // 136 UDP-Lite (RFC 3828)
-    *RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RAW; // 255 Raw IP packets
-#elif WIN32
-    *ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMP; // 1 Internet Control Message Protocol (ICMP)
-    *IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IGMP; // 2 Internet Group Management Protocol (IGMP)
-//??    *RFCOMM_BTHPROTO_PROTOCOL_SOCKET_SYMBOLIC_NAME = BTHPROTO_RFCOMM; // 3 Bluetooth Radio Frequency Communications (Bluetooth RFCOMM)
-    *TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_TCP; // 6 Transmission Control Protocol (TCP)
-    *UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDP; // 17 User Datagram Protocol (UDP)
-//??    *ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMPV6; // 58 Internet Control Message Protocol Version 6 (ICMPv6)
-//??    *RM_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RM; // 113 PGM protocol for reliable multicast (RM)
-#elif GNU_LINUX_OPERATING_SYSTEM
+#if defined(__linux__) || defined(__unix__)
     *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IP; // 0 Dummy protocol for TCP
     *ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMP; // 1 Internet Control Message Protocol
     *IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IGMP; // 2 Internet Group Management Protocol
@@ -103,7 +74,7 @@ void globalise_symbolic_name_socket_protocol() {
     *SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_SCTP; // 132 Stream Control Transport Protocol
     *UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDPLITE; // 136 UDP-Lite (RFC 3828)
     *RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RAW; // 255 Raw IP packets
-#else
+#elif defined(__APPLE__) && defined(__MACH__)
     *IP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IP; // 0 Dummy protocol for TCP
     *ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMP; // 1 Internet Control Message Protocol
     *IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IGMP; // 2 Internet Group Management Protocol
@@ -113,18 +84,29 @@ void globalise_symbolic_name_socket_protocol() {
     *PUP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_PUP; // 12 PUP protocol
     *UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDP; // 17 User Datagram Protocol
     *IDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IDP; // 22 XNS IDP protocol
-    *DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_DCCP; // 33 Datagram Congestion Control Protocol
+    //*DCCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_DCCP; // 33 Datagram Congestion Control Protocol
     *IPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IPV6; // 41 IPv6-in-IPv4 tunnelling
     *RSVP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RSVP; // 46 RSVP protocol
     *GRE_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_GRE; // 47 Cisco GRE tunnels (rfc 1701,1702)
     *ESP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ESP; // 50 Encapsulation Security Payload protocol
     *AH_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_AH; // 51 Authentication Header protocol
-    *BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_BEETPH; // 94 IP option pseudo header for BEET
+    //*BEETPH_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_BEETPH; // 94 IP option pseudo header for BEET
     *PIM_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_PIM; // 103 Protocol Independent Multicast
-    *COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_COMP; // 108 Compression Header protocol
+    //*COMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_COMP; // 108 Compression Header protocol
     *SCTP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_SCTP; // 132 Stream Control Transport Protocol
-    *UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDPLITE; // 136 UDP-Lite (RFC 3828)
+    //*UDPLITE_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDPLITE; // 136 UDP-Lite (RFC 3828)
     *RAW_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RAW; // 255 Raw IP packets
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    *ICMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMP; // 1 Internet Control Message Protocol (ICMP)
+    *IGMP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_IGMP; // 2 Internet Group Management Protocol (IGMP)
+//??    *RFCOMM_BTHPROTO_PROTOCOL_SOCKET_SYMBOLIC_NAME = BTHPROTO_RFCOMM; // 3 Bluetooth Radio Frequency Communications (Bluetooth RFCOMM)
+    *TCP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_TCP; // 6 Transmission Control Protocol (TCP)
+    *UDP_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_UDP; // 17 User Datagram Protocol (UDP)
+//??    *ICMPV6_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_ICMPV6; // 58 Internet Control Message Protocol Version 6 (ICMPv6)
+//??    *RM_PROTOCOL_SOCKET_SYMBOLIC_NAME = IPPROTO_RM; // 113 PGM protocol for reliable multicast (RM)
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

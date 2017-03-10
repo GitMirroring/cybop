@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/streamer/reader/winsock/winsock_reader.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
 #else
-    #include "../../../../executor/streamer/reader/bsd_socket/bsd_socket_reader.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 //
@@ -69,14 +70,15 @@ void read_socket_buffer(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Read socket buffer.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     read_bsd_socket(p0, p1, p2, p3, p4);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    read_bsd_socket(p0, p1, p2, p3, p4);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     read_winsock(p0, p1, p2, p3, p4);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    read_bsd_socket(p0, p1, p2, p3, p4);
 #else
-    read_bsd_socket(p0, p1, p2, p3, p4);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

@@ -30,14 +30,15 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/streamer/writer/winsock/winsock_writer.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
 #else
-    #include "../../../../executor/streamer/writer/bsd_socket/bsd_socket_writer.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 //
@@ -68,14 +69,15 @@ void write_socket_buffer(void* p0, void* p1, void* p2, void* p3) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write socket buffer.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     write_bsd_socket(p0, p1, p2, p3);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    write_bsd_socket(p0, p1, p2, p3);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     write_winsock(p0, p1, p2, p3);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    write_bsd_socket(p0, p1, p2, p3);
 #else
-    write_bsd_socket(p0, p1, p2, p3);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

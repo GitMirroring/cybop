@@ -30,15 +30,16 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
-    //#include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
-    //?? Add cocoa support for apple
-#elif WIN32
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
+#elif defined(__APPLE__) && defined(__MACH__)
+//??    #include "../../../../executor/maintainer/starter/darwin_display/darwin_display_starter.c"
+    // Add cocoa support for apple
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/starter/win32_display/win32_display_starter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
 #else
-    #include "../../../../executor/maintainer/starter/x_window_system/x_window_system_starter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -50,15 +51,16 @@ void startup_display(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup display.");
 
-#ifdef __APPLE__
-    //startup_darwin_display(p0);
-    //?? Add cocoa support for apple
-#elif WIN32
+#if defined(__linux__) || defined(__unix__)
+    startup_x_window_system(p0);
+#elif defined(__APPLE__) && defined(__MACH__)
+//??    startup_darwin_display(p0);
+    // Add cocoa support for apple
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     startup_win32_display(p0);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    startup_x_window_system(p0);
 #else
-    startup_x_window_system(p0);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

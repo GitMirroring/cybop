@@ -28,10 +28,14 @@
 
 #include <stdio.h>
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <sys/ioctl.h>
     #include <termios.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <sys/ioctl.h>
+    #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <windows.h>
     // source: sys/termios.h
     #define IGNPAR          0000004
@@ -41,12 +45,8 @@
     #define VMIN            6
     #define VTIME           5
     #define TCSANOW         0
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <sys/ioctl.h>
-    #include <termios.h>
 #else
-    #include <sys/ioctl.h>
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -67,14 +67,7 @@
  */
 void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
-#ifdef __APPLE__
-    //?? Check the status for apple - maybe some problems with some librarys
-
-#elif WIN32
-    // not ported to WIN32 at the moment ...
-
-#elif GNU_LINUX_OPERATING_SYSTEM
-
+#if defined(__linux__) || defined(__unix__)
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -236,7 +229,13 @@ void startup_serial_port_attributes_set(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes set. The file descriptor data is null.");
     }
+#elif defined(__APPLE__) && defined(__MACH__)
+    //?? Check the status for apple - maybe some problems with some librarys
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    //?? TODO
 #else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

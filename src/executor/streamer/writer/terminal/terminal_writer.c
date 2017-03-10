@@ -44,15 +44,16 @@ void write_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Write terminal.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     write_terminal_file(p0, p1, p2);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    write_terminal_file(p0, p1, p2);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     // Serialise tui DIRECTLY using win32 console function calls.
     // Therefore, encode and write are superfluous.
-#elif GNU_LINUX_OPERATING_SYTEM
-    write_terminal_file(p0, p1, p2);
 #else
-    write_terminal_file(p0, p1, p2);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

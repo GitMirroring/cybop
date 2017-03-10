@@ -29,14 +29,15 @@
 #include <errno.h>
 #include <stdio.h>
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <termios.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     //?? Add Win support
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
 #else
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -70,16 +71,17 @@ void shutdown_serial_port_close(void* p0) {
 
         int e = -1;
         // Close file descriptor.
-        #ifdef __APPLE__
-            e = close(*d);
-        #elif WIN32
-            //?? TODO: Use handle instead of file descriptor here!
-            //??            e = CloseHandle(*d);
-        #elif GNU_LINUX_OPERATING_SYSTEM
-            e = close(*d);
-        #else
-            e = close(*d);
-        #endif
+#if defined(__linux__) || defined(__unix__)
+        e = close(*d);
+#elif defined(__APPLE__) && defined(__MACH__)
+        e = close(*d);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        //?? TODO: Use handle instead of file descriptor here!
+        //??    e = CloseHandle(*d);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
         // The normal return value from "close" is zero;
         // a value of minus one is returned in case of failure.
@@ -101,22 +103,22 @@ void shutdown_serial_port_close(void* p0) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. EIO.");
 
-                #ifdef __APPLE__
-                    } else if (errno == EDQUOT) {
+#if defined(__linux__) || defined(__unix__)
+            } else if (errno == EDQUOT) {
+
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
 
-                #elif WIN32
-                        //?? Add WIN support
-                #elif GNU_LINUX_OPERATING_SYSTEM
-                    } else if (errno == EDQUOT) {
+#elif defined(__APPLE__) && defined(__MACH__)
+            } else if (errno == EDQUOT) {
+
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
 
-                #else
-                    } else if (errno == EDQUOT) {
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. When the file is accessed by NFS, these errors from write can sometimes not be detected until close.");
-
-                #endif
-
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+                //?? Add Win32 support
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
             } else {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port close. An unknown error occured.");

@@ -28,17 +28,17 @@
 
 #include <stdio.h>
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <sys/ioctl.h>
     #include <termios.h>
-#elif WIN32
-    //?? Add WIN32 support
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
     #include <sys/ioctl.h>
     #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Add Win32 support
 #else
-    #include <sys/ioctl.h>
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -57,17 +57,6 @@
  */
 void startup_serial_port_status_get(void* p0) {
 
-#ifdef __APPLE__
-
-    //??Check support for apple - differnet librarys
-
-#elif WIN32
-
-    // not ported to WIN32 at the moment ...
-    //?? Add WIN32 support
-
-#elif GNU_LINUX_OPERATING_SYSTEM
-
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -77,7 +66,16 @@ void startup_serial_port_status_get(void* p0) {
         // The serial port status.
         int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // Get serial port status.
+#if defined(__linux__) || defined(__unix__)
         int e = ioctl(*d, TIOCMGET, &s);
+#elif defined(__APPLE__) && defined(__MACH__)
+        //?? Check support for apple, different libraries
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        //?? Add WIN32 support
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
         if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -95,8 +93,6 @@ void startup_serial_port_status_get(void* p0) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status get. The serial port file descriptor data is null.");
     }
-#else
-#endif
 }
 
 /* GET_STATUS_SERIAL_PORT_STARTER_SOURCE */

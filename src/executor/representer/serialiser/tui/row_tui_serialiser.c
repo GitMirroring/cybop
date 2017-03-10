@@ -36,21 +36,19 @@
 #include "../../../../executor/representer/serialiser/tui/horizontal_position_tui_serialiser.c"
 #include "../../../../logger/logger.c"
 
-
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
     #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
+    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/representer/serialiser/win32_console/character_win32_console_serialiser.c"
     #include "../../../../executor/representer/serialiser/win32_console/position_win32_console_serialiser.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
 #else
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/character_ansi_escape_code_serialiser.c"
-    #include "../../../../executor/representer/serialiser/ansi_escape_code/position_ansi_escape_code_serialiser.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-
 
 /**
  * Serialises the row into tui.
@@ -119,27 +117,29 @@ void serialise_tui_row(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
 
         // Determine horizontal position of x coordinate.
         serialise_tui_position_horizontal((void*) &lp, (void*) &cp, (void*) &rp, (void*) &x, (void*) &li, (void*) &ri);
-        #ifdef __APPLE__
-            serialise_ansi_escape_code_position(p0, (void*) &x, p10);
-        #elif WIN32
-            serialise_win32_console_position(p1, (void*) &x, p10);
-        #elif GNU_LINUX_OPERATING_SYSTEM
-            serialise_ansi_escape_code_position(p0, (void*) &x, p10);
-        #else
-            serialise_ansi_escape_code_position(p0, (void*) &x, p10);
-        #endif
-        
+#if defined(__linux__) || defined(__unix__)
+        serialise_ansi_escape_code_position(p0, (void*) &x, p10);
+#elif defined(__APPLE__) && defined(__MACH__)
+        serialise_ansi_escape_code_position(p0, (void*) &x, p10);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        serialise_win32_console_position(p1, (void*) &x, p10);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
+
         serialise_tui_character((void*) &ch, p2, p3, p4, p5, p6, p7, (void*) &lp, (void*) &cp, (void*) &rp, p11, p12, p13);
 
-        #ifdef __APPLE__
-            serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-        #elif WIN32
-            serialise_win32_console_character(p1, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-        #elif GNU_LINUX_OPERATING_SYSTEM
-            serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-        #else
-            serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-        #endif
+#if defined(__linux__) || defined(__unix__)
+        serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+#elif defined(__APPLE__) && defined(__MACH__)
+        serialise_ansi_escape_code_character(p0, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        serialise_win32_console_character(p1, (void*) &ch, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
         // Increment loop variable.
         x++;

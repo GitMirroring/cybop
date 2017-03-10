@@ -30,14 +30,15 @@
 #include <stdlib.h> // malloc
 #include <string.h> // memset
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <netinet/in.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <netinet/in.h>
 #else
-    #include <netinet/in.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"

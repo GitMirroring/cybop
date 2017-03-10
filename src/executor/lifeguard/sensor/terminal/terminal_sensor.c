@@ -34,23 +34,21 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
     // since its input gets sensed in the corresponding sensing thread.
     // Therefore, the following include is disabled.
     // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following include is disabled.
+    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/lifeguard/sensor/win32_console/win32_console_sensor.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following include is disabled.
-    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
 #else
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following include is disabled.
-    // #include "../../../../executor/lifeguard/sensor/unix_terminal/unix_terminal_sensor.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -64,23 +62,21 @@ void sense_terminal(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sense terminal.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
     // since its input gets sensed in the corresponding sensing thread.
     // Therefore, the following function call is disabled.
     // sense_unix_terminal(p0, p1, p2);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
+    // since its input gets sensed in the corresponding sensing thread.
+    // Therefore, the following function call is disabled.
+    // sense_unix_terminal(p0, p1, p2);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     sense_win32_console(p0, p1, p2);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following function call is disabled.
-    // sense_unix_terminal(p0, p1, p2);
 #else
-    // CAUTION! Calling a sensing function for unix terminal is NOT necessary,
-    // since its input gets sensed in the corresponding sensing thread.
-    // Therefore, the following function call is disabled.
-    // sense_unix_terminal(p0, p1, p2);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

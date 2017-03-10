@@ -26,14 +26,15 @@
 #ifndef STYLE_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 #define STYLE_SOCKET_SYMBOLIC_NAME_GLOBALISER_SOURCE
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <sys/socket.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <sys/socket.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <sys/socket.h>
 #else
-    #include <sys/socket.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../variable/symbolic_name/style_socket_symbolic_name.c"
@@ -51,15 +52,15 @@
  */
 void globalise_symbolic_name_socket_style() {
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     *STREAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_STREAM; // 1 SOCK_STREAM
     *DATAGRAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DGRAM; // 2 SOCK_DGRAM
     *RAW_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RAW; // 3 SOCK_RAW
     *RDM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RDM; // 4 SOCK_RDM
     *SEQPACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_SEQPACKET; // 5 SOCK_SEQPACKET
-    //*DCCP_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DCCP; // 6 SOCK_DCCP
-    //*PACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_PACKET; // 10 SOCK_PACKET
-#elif WIN32
+    *DCCP_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DCCP; // 6 SOCK_DCCP
+    *PACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_PACKET; // 10 SOCK_PACKET
+#elif defined(__APPLE__) && defined(__MACH__)
     *STREAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_STREAM; // 1 SOCK_STREAM
     *DATAGRAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DGRAM; // 2 SOCK_DGRAM
     *RAW_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RAW; // 3 SOCK_RAW
@@ -67,22 +68,17 @@ void globalise_symbolic_name_socket_style() {
     *SEQPACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_SEQPACKET; // 5 SOCK_SEQPACKET
 //??    *DCCP_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DCCP; // 6 SOCK_DCCP
 //??    *PACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_PACKET; // 10 SOCK_PACKET
-#elif GNU_LINUX_OPERATING_SYSTEM
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     *STREAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_STREAM; // 1 SOCK_STREAM
     *DATAGRAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DGRAM; // 2 SOCK_DGRAM
     *RAW_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RAW; // 3 SOCK_RAW
     *RDM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RDM; // 4 SOCK_RDM
     *SEQPACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_SEQPACKET; // 5 SOCK_SEQPACKET
-    *DCCP_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DCCP; // 6 SOCK_DCCP
-    *PACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_PACKET; // 10 SOCK_PACKET
+//??    *DCCP_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DCCP; // 6 SOCK_DCCP
+//??    *PACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_PACKET; // 10 SOCK_PACKET
 #else
-    *STREAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_STREAM; // 1 SOCK_STREAM
-    *DATAGRAM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DGRAM; // 2 SOCK_DGRAM
-    *RAW_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RAW; // 3 SOCK_RAW
-    *RDM_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_RDM; // 4 SOCK_RDM
-    *SEQPACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_SEQPACKET; // 5 SOCK_SEQPACKET
-    *DCCP_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_DCCP; // 6 SOCK_DCCP
-    *PACKET_STYLE_SOCKET_SYMBOLIC_NAME = SOCK_PACKET; // 10 SOCK_PACKET
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

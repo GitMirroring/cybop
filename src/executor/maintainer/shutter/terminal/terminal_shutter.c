@@ -36,14 +36,15 @@
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/shutter/win32_console/win32_console_shutter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
 #else
-    #include "../../../../executor/maintainer/shutter/unix_terminal/unix_terminal_shutter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -77,14 +78,15 @@ void shutdown_terminal(void* p0, void* p1, void* p2) {
         // Interrupt terminal service thread.
         interrupt_thread(p1, p2);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
         shutdown_unix_terminal(ip, op, p0);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+        shutdown_unix_terminal(ip, op, p0);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
         shutdown_win32_console(ip, op, p0);
-#elif GNU_LINUX_OPERATING_SYSTEM
-        shutdown_unix_terminal(ip, op, p0);
 #else
-        shutdown_unix_terminal(ip, op, p0);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
         // Deallocate input- and output array.

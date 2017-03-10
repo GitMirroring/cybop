@@ -28,15 +28,16 @@
 
 #include <stdint.h> // for uint32_t
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <netinet/in.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <netinet/in.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>
 //??    #include <Winsock2.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <netinet/in.h>
 #else
-    #include <netinet/in.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -167,7 +168,7 @@ void startup_socket_host_address_inet(void* p0, void* p1, void* p2) {
             copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports "Winsock2.h".
-#ifndef WIN32
+#ifndef _WIN32
             // Convert internet address from presentation (textual)
             // to network (binary) format, the latter being an integer.
             //

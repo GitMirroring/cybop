@@ -46,18 +46,18 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/name/command_option/unix/help_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/name/command_option/unix/help_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/name/command_option/win32/help_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/name/command_option/unix/help_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/name/command_option/unix/help_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
@@ -65,7 +65,7 @@
 #endif
 
 /**
- *Get help.
+ * Get help.
  *
  * @param cd the command data
  * @param cc the command count
@@ -86,14 +86,15 @@ void command_help(void* cd, void* cc) {
     allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Append command.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     append_item_element(arg, (void*) HELP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    append_item_element(arg, (void*) HELP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     append_item_element(arg, (void*) HELP_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    append_item_element(arg, (void*) HELP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
-    append_item_element(arg, (void*) HELP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
     if (cc != *NULL_POINTER_STATE_CYBOI_MODEL) {

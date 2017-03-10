@@ -29,14 +29,15 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <termios.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <io.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
 #else
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -57,7 +58,7 @@
  */
 void startup_serial_port_open(void* p0, void* p1, void* p2) {
 
-#ifndef WIN32
+#if defined(__linux__) || defined(__unix__)
     // The serial port file descriptor item.
     void* sp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The serial port file descriptor item data.
@@ -253,7 +254,11 @@ fwprintf(stdout, L"TEST open *spdi: %i\n", *spdi);
         log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port open. The serial port file descriptor item already exists.");
         fwprintf(stdout, L"%s\n", "Could not startup serial port open. The serial port file descriptor item already exists.");
     }
-//All UNIX like OS
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

@@ -26,130 +26,71 @@
 #ifndef SET_STATUS_SERIAL_PORT_STARTER_SOURCE
 #define SET_STATUS_SERIAL_PORT_STARTER_SOURCE
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    #include <stdio.h>
+    #include <sys/ioctl.h>
+    #include <termios.h>
+
+    #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
+    #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+    #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+    #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+    #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
+    #include "../../../../constant/type/cyboi/state_cyboi_type.c"
+    #include "../../../../logger/logger.c"
+
+/**
+ * Starts up the serial port status setter.
+ *
+ * @param p0 the file descriptor data
+ * @param p1 the status
+ */
+void startup_serial_port_status_set(void* p0, void* p1) {
+
+    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        int* s = (int*) p1;
+
+        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            int* d = (int*) p0;
+
+            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
+
+            // Turn on DTR.
+            *s |= TIOCM_DTR;
+            // Turn on RTS.
+            *s |= TIOCM_RTS;
+
+            // Set serial port status.
+            int e = ioctl(*d, TIOCMSET, s);
+
+            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+
+                // Close serial port on error.
+                close(*d);
+
+                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. Could not set serial port status.");
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port file descriptor data is null.");
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port status is null.");
+    }
+}
+#elif defined(__APPLE__) && defined(__MACH__)
     //?? Check for Apple - maybe some problems in the library
-#elif WIN32
-    //currently not supported
-#elif GNU_LINUX_OPERATING_SYSTEM
-#include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
-
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../logger/logger.c"
-
-/**
- * Starts up the serial port status setter.
- *
- * @param p0 the file descriptor data
- * @param p1 the status
- */
-void startup_serial_port_status_set(void* p0, void* p1) {
-    
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        
-        int* s = (int*) p1;
-        
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-            
-            int* d = (int*) p0;
-            
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
-            
-            // Turn on DTR.
-            *s |= TIOCM_DTR;
-            // Turn on RTS.
-            *s |= TIOCM_RTS;
-            
-            // Set serial port status.
-            int e = ioctl(*d, TIOCMSET, s);
-            
-            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                
-                // Close serial port on error.
-                close(*d);
-                
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. Could not set serial port status.");
-            }
-            
-        } else {
-            
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port file descriptor data is null.");
-        }
-        
-    } else {
-        
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port status is null.");
-    }
-}
-
-/* GNU_LINUX_OPERATING_SYSTEM */
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    //?? TODO
 #else
-#include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
-
-#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
-#include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../logger/logger.c"
-
-/**
- * Starts up the serial port status setter.
- *
- * @param p0 the file descriptor data
- * @param p1 the status
- */
-void startup_serial_port_status_set(void* p0, void* p1) {
-    
-    if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-        
-        int* s = (int*) p1;
-        
-        if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-            
-            int* d = (int*) p0;
-            
-            log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
-            
-            // Turn on DTR.
-            *s |= TIOCM_DTR;
-            // Turn on RTS.
-            *s |= TIOCM_RTS;
-            
-            // Set serial port status.
-            int e = ioctl(*d, TIOCMSET, s);
-            
-            if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                
-                // Close serial port on error.
-                close(*d);
-                
-                log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. Could not set serial port status.");
-            }
-            
-        } else {
-            
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port file descriptor data is null.");
-        }
-        
-    } else {
-        
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. The serial port status is null.");
-    }
-}
-
-/* Other UNIX based systems */
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-
 
 /* SET_STATUS_SERIAL_PORT_STARTER_SOURCE */
 #endif

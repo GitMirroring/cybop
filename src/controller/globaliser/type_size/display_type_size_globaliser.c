@@ -26,11 +26,13 @@
 #ifndef DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
 #define DISPLAY_TYPE_SIZE_GLOBALISER_SOURCE
 
-#ifdef __APPLE__
-#elif WIN32
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include <windows.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
 #else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../variable/type_size/display_type_size.c"
@@ -40,11 +42,13 @@
  */
 void globalise_type_size_display() {
 
-#ifdef __APPLE__
-#elif WIN32
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     *WNDCLASSEX_DISPLAY_TYPE_SIZE = sizeof (WNDCLASSEX);
-#elif GNU_LINUX_OPERATING_SYSTEM
 #else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

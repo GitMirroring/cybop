@@ -30,15 +30,16 @@
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../logger/logger.c"
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    #include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
+#elif defined(__APPLE__) && defined(__MACH__)
     //#include "../../../../executor/maintainer/shutter/darwin_display/darwin_display_shutter.c"
     //?? Add cocoa support for Apple
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../../../executor/maintainer/shutter/win32_display/win32_display_shutter.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
 #else
-    #include "../../../../executor/maintainer/shutter/x_window_system/x_window_system_shutter.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 /**
@@ -52,15 +53,16 @@ void shutdown_display(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown display.");
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
+    shutdown_x_window_system(p0, p1, p2);
+#elif defined(__APPLE__) && defined(__MACH__)
     //shutdown_darwin_display(p0);
     //?? Add cocoa support for Apple
-#elif WIN32
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     shutdown_win32_display(p0);
-#elif GNU_LINUX_OPERATING_SYSTEM
-    shutdown_x_window_system(p0, p1, p2);
 #else
-    shutdown_x_window_system(p0, p1, p2);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 }
 

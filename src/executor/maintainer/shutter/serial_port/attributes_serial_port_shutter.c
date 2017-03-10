@@ -29,14 +29,15 @@
 #include <errno.h>
 #include <stdio.h>
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <termios.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     //?? No import required?
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
 #else
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -55,9 +56,6 @@
  */
 void shutdown_serial_port_attributes(void* p0, void* p1) {
 
-#ifdef WIN32
-    //?? WIN Support required?
-#else
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -92,7 +90,16 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
             //            Its meaning is to inhibit alteration of the state of the serial port hardware.
             //            It is a BSD extension; it is only supported on BSD systems and the GNU system.
             //            Using TCSASOFT is exactly the same as setting the CIGNORE bit in the c_cflag member of the structure termios-p points to.
+#if defined(__linux__) || defined(__unix__)
             int e = tcsetattr(*d, TCSANOW, (struct termios*) o);
+#elif defined(__APPLE__) && defined(__MACH__)
+            int e = tcsetattr(*d, TCSANOW, (struct termios*) o);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+            //?? WIN Support required?
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
             if (e < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -134,8 +141,6 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not shutdown serial port attributes. The serial port file descriptor data is null.");
     }
-/* GNU_LINUX_OPERATING_SYSTEM */
-#endif
 }
 
 /* ATTRIBUTES_SERIAL_PORT_SHUTTER_SOURCE */

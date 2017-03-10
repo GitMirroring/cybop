@@ -44,29 +44,30 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/model/command/unix_command_model.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/model/command/unix_command_model.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
-#include <unistd.h>
+    #include <unistd.h>
 #endif
 
 /**
-* Searches for a pattern in a file.
-*
-* @param pmd the pattern model data
-* @param pmc the pattern model count
-* @param fmd the file model data
-* @param fmc the file model count
-*
-*/
+ * Searches for a pattern in a file.
+ *
+ * @param pmd the pattern model data
+ * @param pmc the pattern model count
+ * @param fmd the file model data
+ * @param fmc the file model count
+ *
+ */
 void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command grep.");
@@ -87,46 +88,47 @@ void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
             allocate_item((void *) &arg, (void *) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Append command.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) GREP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            append_item_element(arg, (void*) GREP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             append_item_element(arg, (void*) FIND_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) GREP_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) GREP_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #else
-            append_item_element(arg, (void *) GREP_UNIX_COMMAND_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) GREP_UNIX_COMMAND_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Append pattern.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    #elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
             append_item_element(arg, (void*) QUOTATION_MARK_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-    #elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, pmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    #else
-            append_item_element(arg, (void *) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, pmd, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pmc, (void *) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Append file.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, fmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    #elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, fmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    #elif GNU_LINUX_OPERATING_SYSTEM
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, fmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-    #else
-            append_item_element(arg, (void *) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void *) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, fmd, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, fmc, (void *) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Get arguments item data, count.
@@ -138,9 +140,12 @@ void command_grep(void* pmd, void* pmc, void* fmd, void* fmc) {
 
             // Deallocate arguments item.
             deallocate_item((void *) &arg, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+
         } else {
+
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The file is null.");
         }
+
     } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not execute command grep. The pattern is null.");

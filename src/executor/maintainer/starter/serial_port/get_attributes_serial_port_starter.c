@@ -28,11 +28,15 @@
 
 #include <stdio.h>
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include <sys/ioctl.h>
     #include <termios.h>
-#elif WIN32
-// source: sys/termios.h
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <sys/ioctl.h>
+    #include <termios.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // source: sys/termios.h
     #define NCCS        20
 
     typedef unsigned int    tcflag_t;
@@ -50,12 +54,8 @@
     };
 
     #define TCGETA          0x5405
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include <sys/ioctl.h>
-    #include <termios.h>
 #else
-    #include <sys/ioctl.h>
-    #include <termios.h>
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -76,9 +76,7 @@
  * @param p2 the internal memory data
  */
 void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
-#ifdef WIN32
-    //?? Port to WIN32
-#else
+
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* d = (int*) p0;
@@ -104,7 +102,16 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
             copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
             // Get original attributes.
+#if defined(__linux__) || defined(__unix__)
             int e = tcgetattr(*d, (struct termios*) a);
+#elif defined(__APPLE__) && defined(__MACH__)
+            int e = tcgetattr(*d, (struct termios*) a);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    //?? Port to Win32
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
             if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -141,7 +148,6 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port attributes get. The serial port file descriptor data is null.");
     }
-#endif
 }
 
 /* GET_ATTRIBUTES_SERIAL_PORT_STARTER_SOURCE */
