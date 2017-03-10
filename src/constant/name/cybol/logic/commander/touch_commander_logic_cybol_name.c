@@ -29,30 +29,28 @@
 #include <stddef.h>
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+
 /**
-* The path for the touch logic cybol name.
-*
-*/
+ * The path for the touch logic cybol name.
+ */
 static wchar_t* PATH_TOUCH_COMMANDER_LOGIC_CYBOL_NAME = L"path";
 static int* PATH_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_4_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
-* The reference for the touch logic cybol name.
-*
-* It indicates the timestamp of another file used instead of standard.
-*/
+ * The reference for the touch logic cybol name.
+ *
+ * It indicates the timestamp of another file used instead of standard.
+ */
 static wchar_t* REFERENCE_TOUCH_COMMANDER_LOGIC_CYBOL_NAME = L"reference";
 static int* REFERENCE_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
-* The timestamp for the touch logic cybol name.
-*
-* It indicates the timestamp for the file.
-*/
+ * The timestamp for the touch logic cybol name.
+ *
+ * It indicates the timestamp for the file.
+ */
 static wchar_t* TIMESTAMP_TOUCH_COMMANDER_LOGIC_CYBOL_NAME = L"timestamp";
 static int* TIMESTAMP_TOUCH_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_9_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-
 /* TOUCH_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE */
 #endif
-

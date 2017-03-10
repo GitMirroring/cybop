@@ -29,38 +29,55 @@
 #include <stddef.h>
 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-/**Starts top in Batch mode, which could be useful  for  sending output  from  top  to  other  programs or to a file.  In this
-mode, top will not accept input and runs until the iterations
-limit  you've  set with the `-n' command-line option or until
-killed.*/
+
+/**
+ * Starts top in Batch mode, which could be useful
+ * for sending output from top to other programmes
+ * or to a file.
+ *
+ * In this mode, top will not accept input and runs
+ * until the iterations limit you've set with the
+ * '-n' command-line option or until killed.
+ */
 static wchar_t* BATCH_TOP_COMMANDER_LOGIC_CYBOL_NAME = L"batch";
 static int* BATCH_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**Starts top with  the  last  remembered  `c'  state  reversed.
-Thus,  if  top  was  displaying command lines, now that field
-will show program names, and visa versa.  See the `c'  inter‐
-active command for additional information.*/
+/**
+ * Starts top with the last remembered 'c' state reversed.
+ *
+ * Thus, if top was displaying command lines, now that field
+ * will show programme names, and visa versa.
+ *
+ * See the 'c' interactive command for additional information.
+ */
 static wchar_t* COMMAND_TOP_COMMANDER_LOGIC_CYBOL_NAME = L"command";
 static int* COMMAND_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_7_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**Instructs top to display individual  threads.   Without  this
-command-line  option  a  summation  of  all  threads  in each
-process is shown.  Later this can be  changed  with  the  `H'
-interactive command.*/
+/**
+ * Instructs top to display individual threads.
+ *
+ * Without this command-line option, a summation of all threads
+ * in each process is shown. Later this can be changed with the
+ * 'H' interactive command.
+ */
 static wchar_t* THREAD_TOP_COMMANDER_LOGIC_CYBOL_NAME = L"thread";
 static int* THREAD_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**Starts top with the last remembered `i' state reversed.  When
-this toggle is Off, tasks that have not used  any  CPU  since
-the last update will not be displayed.  For additional infor‐
-mation regarding this toggle see topic  4c.  TASK  AREA  Com‐
-mands, SIZE. */
+/**
+ * Starts top with the last remembered 'i' state reversed.
+ *
+ * When this toggle is off, tasks that have not used any CPU
+ * since the last update will not be displayed.
+ */
 static wchar_t* IDLE_TOP_COMMANDER_LOGIC_CYBOL_NAME = L"idle";
 static int* IDLE_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_5_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-/**Starts top with secure mode forced, even for root.  This mode
-is far better controlled  through  the  system  configuration
-file (see topic 6. FILES). */
+/**
+ * Starts top with secure mode forced, even for root.
+ *
+ * This mode is far better controlled through the
+ * system configuration file.
+ */
 static wchar_t* SECURE_TOP_COMMANDER_LOGIC_CYBOL_NAME = L"secure";
 static int* SECURE_TOP_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 

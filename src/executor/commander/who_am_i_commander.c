@@ -47,15 +47,12 @@
 //
 #ifdef __APPLE__
     #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/who_am_i_unix_command_option_name.c"
 #elif WIN32
     #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
     #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/who_am_i_unix_command_option_name.c"
 #else
     #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/who_am_i_unix_command_option_name.c"
 #endif
 
 #ifndef _MSC_VER
@@ -82,14 +79,14 @@ void command_who_am_i() {
 #ifdef __APPLE__
         append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #elif WIN32
-    
+
 #elif GNU_LINUX_OPERATING_SYSTEM
         append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
         append_item_element(arg, (void*) WHO_AM_I_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) WHO_AM_I_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #endif
 
-        
+
 
         // Get arguments item data, count.
         copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);

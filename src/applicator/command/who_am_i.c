@@ -26,10 +26,10 @@
 #ifndef WHO_AM_I_SOURCE
 #define WHO_AM_I_SOURCE
 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/commander/who_am_i_commander_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/commander/who_am_i_commander.c"
@@ -45,7 +45,6 @@
 void apply_who_am_i() {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"who am i.");
-
 
     command_who_am_i();
 }

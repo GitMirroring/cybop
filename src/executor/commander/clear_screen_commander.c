@@ -28,9 +28,9 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator/item_allocator.c"
 #include "../../executor/runner/executor.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../variable/reallocation_factor.c"
 
 //
@@ -45,16 +45,12 @@
 // at EVERY option, even if that produces some redundant code.
 //
 #ifdef __APPLE__
-    #include "../../constant/name/command_option/unix/clear_screen_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #elif WIN32
-    #include "../../constant/name/command_option/win32/clear_screen_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/name/command_option/unix/clear_screen_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/name/command_option/unix/clear_screen_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
 #endif
 
@@ -82,7 +78,7 @@ void command_clear_screen() {
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
     allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    
+
             // Append command.
 #ifdef __APPLE__
             append_item_element(arg, (void*) CLEAR_SCREEN_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CLEAR_SCREEN_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
