@@ -27,41 +27,44 @@
 #ifndef SLEEPER_TESTER
 #define SLEEPER_TESTER
 
-#include "time.h"
+#include <assert.h>
 #include "math.h"
-#include "../../../executor/runner/sleeper.c"
-#include "../../../constant/format/cyboi/logic_cyboi_format.c"
+#include "time.h"
+
+#include "../../../src/constant/format/cyboi/logic_cyboi_format.c"
+#include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../src/executor/memoriser/allocator/array_allocator.c"
+#include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../src/executor/modifier/copier/array_copier.c"
+#include "../../../src/executor/modifier/emptier/array_emptier.c"
+#include "../../../src/executor/modifier/overwriter/part_overwriter.c"
+#include "../../../src/executor/runner/sleeper.c"
 
 void test_sleep_duration() {
-
-    fwprintf(stdout, L"TEST - sleep for one second\n");
 
     void* dur = NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
     void* type = SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT;
 
     time_t start = time(0);
+    
     sleep_duration(dur, type);
+    
     time_t end = time(0);
 
     int t = (int)difftime(end,start);
 
-    if (t < *NUMBER_1_INTEGER_STATE_CYBOI_MODEL) {
-        fwprintf(stdout, L"ERROR - expected to be greater than 1 second but was: %d\n", t);
-    }
-    else {
-        fwprintf(stdout, L"OK - slept for %d seconds\n", t);
-    }
+    assert(t >= *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 }
 
-/**
- * Tests the sleeper.
- *
- * Sub test procedure calls can be activated/ deactivated here
- * by simply commenting/ uncommenting the corresponding lines.
- */
-void test_sleeper() {
-    fwprintf(stdout, L"TEST sleep test.\n");
+int main() {
+
     test_sleep_duration();
+
+    return 0;
 }
 
 /* SLEEPER_TESTER */
