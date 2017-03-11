@@ -48,18 +48,18 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
     #include "../../constant/model/command/unix_command_model.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
+    #include "../../constant/model/command/unix_command_model.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/name/command_option/win32/move_file_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
 #else
-    #include "../../constant/name/command_option/unix/move_file_unix_command_option_name.c"
-    #include "../../constant/model/command/unix_command_model.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
@@ -79,11 +79,11 @@
  */
 void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, void* imd, void* vmd) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command move file.");
-
     if (dmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         if (smc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command move file.");
 
             // The arguments item.
             void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -99,14 +99,15 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Append command.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) MOVE_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MOVE_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            append_item_element(arg, (void*) MOVE_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MOVE_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             append_item_element(arg, (void*) MOVE_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MOVE_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) MOVE_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MOVE_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 #else
-            append_item_element(arg, (void*) MOVE_FILE_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MOVE_FILE_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
             // Reset comparison result.
@@ -118,14 +119,15 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
 
                 // Append force option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FORCE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -138,14 +140,15 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
 
                 // Append interactive option.
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+                append_item_element(arg, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
                 append_item_element(arg, (void*) INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_MOVE_FILE_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif GNU_LINUX_OPERATING_SYSTEM
-                append_item_element(arg, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 #else
-                append_item_element(arg, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTERACTIVE_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -157,17 +160,16 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Append verbal option.
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
                 append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
                 append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
                 append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-                append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                append_item_element(arg, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) VERBAL_MOVE_FILE_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
             }
 
@@ -181,10 +183,14 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             void* pd = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* pc = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             pd = smd;
             pc = smc;
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            pd = smd;
+            pc = smc;
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             // Allocate path item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
@@ -196,17 +202,14 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             // Get path item data, count.
             copy_array_forward((void*) &pd, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &pc, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-#elif GNU_LINUX_OPERATING_SYSTEM
-            pd = smd;
-            pc = smc;
 #else
-            pd = smd;
-            pc = smc;
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, pd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, pc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#ifdef WIN32
+
+#ifdef _WIN32
             // Deallocate path item.
             deallocate_item((void*) &p, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 #endif
@@ -221,10 +224,14 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             void* p1d = *NULL_POINTER_STATE_CYBOI_MODEL;
             void* p1c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             p1d = dmd;
             p1c = dmc;
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+            p1d = dmd;
+            p1c = dmc;
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
             // Allocate path item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
@@ -236,17 +243,14 @@ void command_move_file(void* smd, void* smc, void* dmd, void* dmc, void* fmd, vo
             // Get path item data, count.
             copy_array_forward((void*) &p1d, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
             copy_array_forward((void*) &p1c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-
-#elif GNU_LINUX_OPERATING_SYSTEM
-            p1d = dmd;
-            p1c = dmc;
 #else
-            p1d = dmd;
-            p1c = dmc;
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
+
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
             append_item_element(arg, p1d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p1c, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#ifdef WIN32
+
+#ifdef _WIN32
             // Deallocate path item.
             deallocate_item((void*) &p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 #endif
