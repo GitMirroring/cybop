@@ -21,41 +21,7 @@ _______
 
 CYBOI
 _______
-        * Simplify string constants using double quotes instead of apostrophed characters in an array:
 
-            FEEDBACK necessary:
-            * REQUEST_HTTP_CYBOL_MODEL_CONSTANT_SOURCE contains same as WEBDAV_REQUEST_METHOD_HTTP_MODEL_CONSTANT_SOURCE -> should be cleaned up
-            * handling localization? field_description_xdt_model.c uses german expressions!?
-            * empty files should be removed:
-                - CLEAR_SCREEN_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - CREATE_FOLDER_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - DELAY_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - ECHO_MESSAGE_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - HELP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - IFUP_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - KILL_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - WHO_AM_I_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - CLEAR_SCREEN_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - DELAY_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - ECHO_MESSAGE_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - HELP_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - MEMORY_FREE_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - USERLOG_WIN32_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-                - who_am_i_commander_logic_cybol_name.c
-
-            * WHO_AM_I_COMMAND_OPTION_NAME_CONSTANT_SOURCE define WHO_AM_I_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-            * WHO_COMMAND_OPTION_NAME_CONSTANT_SOURCE define WHO_UNIX_COMMAND_OPTION_NAME_CONSTANT_SOURCE
-
-            * really strange javadoc
-                - touch_commander_logic_cybol_name.c 
-                - TOP_COMMANDER_LOGIC_CYBOL_NAME_CONSTANT_SOURCE
-            * only one commented out entry should be removed
-                - attribute_wui_state_cybol_name.c
-                - command_run_logic_cybol_name.c
-
-            * did not touch:
-                - character_reference_name.c
-        
         * extract the tester files to the new "test" directory
             - create an appropiate folder structure to easily identify unittests
             - convert the existing tester files to the new approach using assert

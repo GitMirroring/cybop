@@ -43,7 +43,7 @@ def createNewDefinition(lines, indexLastElement):
     rareName = lines[indexLastElement - 2]
     leftIndexName = rareName.find('{') + 1
     rightIndexName = rareName.find('}') - 1
-    name = rareName[leftIndexName:rightIndexName].replace('\'', '').replace(' ', '').replace(',', '').replace('L', '')
+    name = rareName[leftIndexName:rightIndexName].replace('\'', '').replace(' ', '').replace(',', '').replace('L\'', '')
     rareDefinition = lines[indexLastElement - 1]
     rightIndexDef = rareDefinition.find(' =')
     definition = rareDefinition[0:rightIndexDef]

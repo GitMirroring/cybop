@@ -95,14 +95,6 @@ ______
 
         * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
 
-Constants
-_________
-
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories model
-            DONE: ansi_escape_code, character_code, character_entity_reference, command
-            CONTINUE: with directory "cyboi/"
-        * Replace all constant values like {L'm', L'v'} with string like L"mv" in directories name
-
 GUI
 ___
 
