@@ -35,9 +35,8 @@ Debian packages for compilation:
     (freeglut3-dev ??)
     (libxi ??)
     (libxmu ??)
-    libtool
     mesa etc.
-    xlibs-dev (now possibly contained in xorg-dev)
+    libxcb (xlibs not used anymore)
     xorg-dev
 
 Debian packages for development:
