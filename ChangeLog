@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-12  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Remove autotools configuration files, since they got replaced with CMake
+
 2017-03-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Let last preprocessor branch report an error instead of using linux as fallback OS
