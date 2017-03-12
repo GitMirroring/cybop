@@ -32,6 +32,7 @@
     #include <netinet/in.h>
 #elif defined(__APPLE__) && defined(__MACH__)
     #include <netinet/in.h>
+    #include <arpa/inet.h>
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
     #include <winsock.h>

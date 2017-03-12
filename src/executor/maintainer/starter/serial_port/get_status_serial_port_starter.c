@@ -44,6 +44,7 @@
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/internal_memory_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
@@ -66,8 +67,9 @@ void startup_serial_port_status_get(void* p0) {
         // The serial port status.
         int s = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
         // Get serial port status.
+        int e = *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL;
 #if defined(__linux__) || defined(__unix__)
-        int e = ioctl(*d, TIOCMGET, &s);
+        e = ioctl(*d, TIOCMGET, &s);
 #elif defined(__APPLE__) && defined(__MACH__)
         //?? Check support for apple, different libraries
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.

@@ -67,8 +67,8 @@ void cast_double_integer_to_double_with_type() {
 
 int main() {
 
-    test_caster_integer_double();
-    test_caster_integer_double_type();
+    cast_double_from_integer();
+    cast_double_integer_to_double_with_type();
 
     return 0;
 }
