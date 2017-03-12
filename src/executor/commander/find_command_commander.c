@@ -1,4 +1,3 @@
- 
 /*
  * Copyright (C) 1999-2016. Christian Heller.
  *
@@ -46,17 +45,18 @@
 // Therefore, it makes sense to distinguish between platforms
 // at EVERY option, even if that produces some redundant code.
 //
-#ifdef __APPLE__
+
+#if defined(__linux__) || defined(__unix__)
     #include "../../constant/model/command/unix_command_model.c"
     #include "../../constant/name/command_option/unix/find_command_unix_command_option_name.c"
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include "../../constant/model/command/unix_command_model.c"
+    #include "../../constant/name/command_option/unix/find_command_unix_command_option_name.c"
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
     #include "../../constant/model/command/win32_command_model.c"
-#elif GNU_LINUX_OPERATING_SYSTEM
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/find_command_unix_command_option_name.c"
 #else
-    #include "../../constant/model/command/unix_command_model.c"
-    #include "../../constant/name/command_option/unix/find_command_unix_command_option_name.c"
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
 #ifndef _MSC_VER
@@ -64,8 +64,8 @@
 #endif
 
 /**
- * Display info on a command.
- * 
+ * Displays information on a command.
+ *
  * @param cmd the command model data
  * @param cmc the command model count
  * @param bmd the binary model data
@@ -74,9 +74,9 @@
  */
 void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd) {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command find command.");
-    
     if (cmc != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command find command.");
 
         // The arguments item.
         void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -89,13 +89,15 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
         // be negative or zero, but have at least a value of ONE.
         allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // Append command.
-#ifdef __APPLE__
+        // Append command.
+#if defined(__linux__) || defined(__unix__)
         append_item_element(arg, (void*) FIND_COMMAND_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_COMMAND_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
         append_item_element(arg, (void*) FIND_COMMAND_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_COMMAND_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-        append_item_element(arg, (void*) FIND_COMMAND_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FIND_COMMAND_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
         // The comparison result.
@@ -108,14 +110,14 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
             // Append all option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-        
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
             append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) BINARY_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
         }
 
@@ -129,14 +131,14 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
             // Append human option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-        
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
             append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) MANUAL_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
         }
 
@@ -150,14 +152,14 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
             // Append kilobytes option.
             append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
             append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-        
-#elif GNU_LINUX_OPERATING_SYSTEM
+#elif defined(__APPLE__) && defined(__MACH__)
             append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SOURCE_FIND_COMMAND_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
         }
 
@@ -165,19 +167,16 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
         r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
         // Append source command.
-#ifdef __APPLE__
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-#elif WIN32
-            // ...
-#elif GNU_LINUX_OPERATING_SYSTEM
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
+#if defined(__linux__) || defined(__unix__)
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+#elif defined(__APPLE__) && defined(__MACH__)
+        append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #else
-            append_item_element(arg, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-            append_item_element(arg, cmd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, cmc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
-
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
         // Get arguments item data, count.
@@ -189,7 +188,7 @@ void command_find_command(void* cmd, void* cmc, void* bmd, void* mmd, void* smd)
 
         // Deallocate arguments item.
         deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    
+
   } else {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not find command. The source path is null.");
