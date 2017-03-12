@@ -79,7 +79,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
 //?? TODO: This ifndef can be removed as soon as the mingw compiler supports ipv6.
-#ifndef (_WIN32) || defined(__CYGWIN__)
+#ifndef _WIN32
         // This data type is used to store an IPv6 address.
         // It stores 128 bits of data, which can be
         // accessed via a union in a variety of ways.
