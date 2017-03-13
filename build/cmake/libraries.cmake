@@ -1,5 +1,5 @@
 # set module path for library finds
-SET (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/build")
+SET (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake")
 
 # --- link necessary libraries --- #
 

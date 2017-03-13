@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-12  Enrico Gallus <enrico.gallus@gmail.com>
+
+        * Fix build for mac os x after preprocesor changes
+
 2017-03-12  Christian Heller  <christian.heller@tuxtax.de>
 
         * Remove autotools configuration files, since they got replaced with CMake

@@ -7,24 +7,20 @@ project(cybop C)
 
 set (BINARY_NAME cyboi)
 
-IF (UNIX AND NOT APPLE)
-    add_definitions(-DGNU_LINUX_OPERATING_SYSTEM)
-ENDIF()
-
 # set output directory to controller-subdirectory
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/src/controller)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../src/controller)
 
 # define the binary to be create by make
-add_executable(${BINARY_NAME} ${PROJECT_SOURCE_DIR}/src/controller/cyboi.c)
+add_executable(${BINARY_NAME} ${PROJECT_SOURCE_DIR}/../src/controller/cyboi.c)
 
 # --- libraries linking --- #
-include(build/libraries.cmake)
+include(cmake/libraries.cmake)
 
 # --- codestyling Configuration --- #
-include(build/codestyling.cmake)
+include(cmake/codestyling.cmake)
 
 # --- CTest Configuration --- #
-include(test/CMakeLists.txt)
+include(${PROJECT_SOURCE_DIR}/../test/CMakeLists.txt)
 
 # --- CPack Configuration --- #
-include(build/packaging.cmake)
+include(cmake/packaging.cmake)

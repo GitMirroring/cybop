@@ -16,11 +16,12 @@ _______
 
         * Use "CPack" tool to create installers as: executable installer (for Windows using "NSIS" tool), rpm, deb, tar, tar.gz, self-extracting tar file
             - Check if the DEB CPACK_GENERATOR works as expected
-        * Remove automake scripts afterwards
-        * Write/Adjust install instruction
+            - INSTALL-File: 'CYBOP Packaging' should be replaced by cpack
 
 CYBOI
 _______
+
+        * tests need to be adjusted to the new preprocessor
 
         * extract the tester files to the new "test" directory
             - create an appropiate folder structure to easily identify unittests
