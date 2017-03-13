@@ -42,7 +42,7 @@
  * @param p1 the service thread
  * @param p2 the service thread interrupt
  */
-void shutdown_opengl(void* p0, void* p1, void* p2, void* p3) {
+void shutdown_opengl(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Shutdown opengl.");
 #if defined(__linux__) || defined(__unix__)

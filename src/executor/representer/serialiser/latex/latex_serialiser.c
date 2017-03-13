@@ -33,8 +33,8 @@
  * Serialises the model into latex.
  *
  * @param p0 the destination latex item
- * @param p3 the source model data
- * @param p4 the source model count
+ * @param p1 the source model data
+ * @param p2 the source model count
  */
 void serialise_latex(void* p0, void* p1, void* p2) {
 }

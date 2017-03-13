@@ -20,6 +20,12 @@
 
 2017-03-12  Enrico Gallus <enrico.gallus@gmail.com>
 
+        * Move CMakeList.txt and .clang-format to build
+        * Adjust INSTALL
+        * Include doxygen to cmake
+
+2017-03-12  Enrico Gallus <enrico.gallus@gmail.com>
+
         * Fix build for mac os x after preprocesor changes
 
 2017-03-12  Christian Heller  <christian.heller@tuxtax.de>

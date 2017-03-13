@@ -84,8 +84,8 @@
  *
  * @param w the window where the message occured
  * @param m the message
- * @param p the additional message parametres of type WPARAM
- * @param l the additional message parametres of type LPARAM
+ * @param wp the additional message parametres of type WPARAM
+ * @param lp the additional message parametres of type LPARAM
  */
 LRESULT CALLBACK deserialise_win32_display_message_callback(HWND w, UINT m, WPARAM wp, LPARAM lp) {
 
