@@ -15,6 +15,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${ROOT_DIR}/src/controller)
 # define the binary to be create by make
 add_executable(${BINARY_NAME} ${ROOT_DIR}/src/controller/cyboi.c)
 
+# --- doxygen definition --- #
+include(cmake/doxygen.cmake)
+
 # --- libraries linking --- #
 include(cmake/libraries.cmake)
 

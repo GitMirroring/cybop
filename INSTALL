@@ -317,6 +317,17 @@ __________________
 
     make cppcheck
 
+CYBOP doxygen
+__________________
+
+- Change into cybop's build directory e.g.:
+
+    cd /home/cybop/build
+
+- Run the doxygen
+
+    make doc
+
 CYBOP Distribution
 __________________
 
