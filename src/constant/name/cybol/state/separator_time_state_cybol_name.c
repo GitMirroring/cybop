@@ -59,7 +59,7 @@
 
 /**
  * The time element separator date state cybol name.
- * 
+ *
  * It separates time elements.
  *
  * Symbol: :
@@ -69,7 +69,7 @@ static int* TIME_ELEMENT_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGE
 
 /**
  * The fraction separator date state cybol name.
- * 
+ *
  * It separates the integer part of a number and decimal fraction.
  *
  * Symbol: ,
@@ -79,9 +79,9 @@ static int* FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_ST
 
 /**
  * The alternative fraction separator date state cybol name.
- * 
+ *
  * It separates the integer part of a number and decimal fraction.
- * 
+ *
  * CAUTION! The FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME should
  * be used instead of this alternative.
  *
@@ -92,14 +92,14 @@ static int* ALTERNATIVE_FRACTION_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_
 
 /**
  * The positive offset time zone separator date state cybol name.
- * 
+ *
  * The Coordinated Universal Time (UTC) is the world time used nowadays.
  * It is identical to the West European Time (WET),
  * also still called Greenwich Mean Time (GMT).
  *
  * Time zones around the world are expressed
  * as positive or negative offsets from utc.
- * 
+ *
  * A positive offset means "earlier than utc",
  * which is the time zone of a location or country
  * east of London/Great Britain/the utc time zone.
@@ -111,14 +111,14 @@ static int* POSITIVE_OFFSET_TIME_ZONE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NU
 
 /**
  * The negative offset time zone separator date state cybol name.
- * 
+ *
  * The Coordinated Universal Time (UTC) is the world time used nowadays.
  * It is identical to the West European Time (WET),
  * also still called Greenwich Mean Time (GMT).
  *
  * Time zones around the world are expressed
  * as positive or negative offsets from utc.
- * 
+ *
  * A negative offset means "later than utc",
  * which is the time zone of a location or country
  * west of London/Great Britain/the utc time zone.

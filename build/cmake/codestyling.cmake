@@ -1,7 +1,7 @@
 # additional target to perform clang-format run, requires clang-format
 
 # get all project files
-file(GLOB_RECURSE ALL_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c)
+file(GLOB_RECURSE ALL_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.c)
 
 # --- clang-format target --- #
 add_custom_target(
@@ -21,6 +21,6 @@ add_custom_target(
         --library=qt.cfg
         --template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)"
         --verbose
-        --quiet
+        #--quiet
         ${ALL_SOURCE_FILES}
 )

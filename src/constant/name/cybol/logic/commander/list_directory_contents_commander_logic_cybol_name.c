@@ -115,7 +115,7 @@ static int* SORT_BY_EXTENSION_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL
 /**
  * The export list directory contents file logic cybol name.
  *
- * Writes the command output into a file. 
+ * Writes the command output into a file.
  */
 static wchar_t* EXPORT_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME = L"export";
 static int* EXPORT_LIST_DIRECTORY_CONTENTS_FILE_COMMANDER_LOGIC_CYBOL_NAME_COUNT = NUMBER_6_INTEGER_STATE_CYBOI_MODEL_ARRAY;

@@ -12230,8 +12230,8 @@ static int* ID_3049_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_
 static wchar_t* ID_3050_FIELD_DESCRIPTION_XDT_MODEL = L"Kürzel / lfd. Nr.";
 static int* ID_3050_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_17_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 F
-/** The id 3051 field description xdt model. */
-static wchar_t* ID_3051_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
+    /** The id 3051 field description xdt model. */
+    static wchar_t* ID_3051_FIELD_DESCRIPTION_XDT_MODEL = L"Unbekannte Feldkennung";
 static int* ID_3051_FIELD_DESCRIPTION_XDT_MODEL_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /** The id 3052 field description xdt model. */

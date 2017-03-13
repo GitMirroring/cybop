@@ -34,9 +34,9 @@
 //
 // The following constants were defined according to the standard:
 // ISO 8601:2004
-// 
+//
 // Examples:
-// 
+//
 // 2005-08-09T18:31:42P3Y6M4DT12H30M17S bestimmt eine Zeitspanne von 3 Jahren, 6 Monaten, 4 Tagen 12 Stunden, 30 Minuten und 17 Sekunden ab dem 9. August 2005 "kurz nach halb sieben Abends"
 // P3Y6M4DT12H30M17S                    die gleiche Zeitspanne wie das erste Beispiel, allerdings ohne ein bestimmtes Startdatum zu definieren
 // P1D                                  "Bis morgen zur jetzigen Uhrzeit."
@@ -49,7 +49,7 @@
 
 /**
  * The year separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of years.
  *
@@ -60,7 +60,7 @@ static int* YEAR_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_ST
 
 /**
  * The month separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of months.
  *
@@ -71,7 +71,7 @@ static int* MONTH_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_S
 
 /**
  * The week separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of weeks.
  *
@@ -82,7 +82,7 @@ static int* WEEK_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_ST
 
 /**
  * The day separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of days.
  *
@@ -93,7 +93,7 @@ static int* DAY_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STA
 
 /**
  * The time separator duration state cybol name.
- * 
+ *
  * It is the designator that precedes the
  * time components of the representation.
  *
@@ -104,7 +104,7 @@ static int* TIME_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_ST
 
 /**
  * The hour separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of hours.
  *
@@ -115,7 +115,7 @@ static int* HOUR_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_ST
 
 /**
  * The minute separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of minutes.
  *
@@ -126,7 +126,7 @@ static int* MINUTE_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_
 
 /**
  * The second separator duration state cybol name.
- * 
+ *
  * It is the designator that follows the value
  * for the number of seconds.
  *
@@ -137,7 +137,7 @@ static int* SECOND_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_
 
 /**
  * The fraction separator duration state cybol name.
- * 
+ *
  * It is the designator that precedes the
  * decimal fraction of a second.
  *
@@ -148,7 +148,7 @@ static int* FRACTION_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGE
 
 /**
  * The start-end separator duration state cybol name.
- * 
+ *
  * It separates a start- and an end date
  * and has the meaning of "to".
  *
@@ -159,7 +159,7 @@ static int* START_END_SEPARATOR_DURATION_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEG
 
 /**
  * The alternative start-end separator duration state cybol name.
- * 
+ *
  * It separates a start- and an end date
  * and has the meaning of "to".
  *

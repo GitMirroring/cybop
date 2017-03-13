@@ -257,7 +257,6 @@ static int* SYSTEM_MESSAGES_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1342_INTEGER_STA
 /** The netstat command logic cyboi format. */
 static int* NETSTAT_COMMAND_LOGIC_CYBOI_FORMAT = NUMBER_1343_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-
 //
 // communicate
 //
@@ -315,7 +314,6 @@ static int* DECODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_1600_INTEGER_STATE_CYBOI_
 
 /** The encode convert logic cyboi format. */
 static int* ENCODE_CONVERT_LOGIC_CYBOI_FORMAT = NUMBER_1601_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
 
 //
 // flow

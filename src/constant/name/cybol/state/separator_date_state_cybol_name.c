@@ -82,13 +82,13 @@
 
 /**
  * The ce separator date state cybol name.
- * 
+ *
  * It indicates that a date lies after (or "in") an epoch (era).
  *
  * CE is the abbreviation for Common/Current/Christian Era.
  * It is an alternative naming of the traditional
  * calendar era Anno Domini, abbreviated AD.
- * 
+ *
  * "2013 CE" corresponds to "AD 2013"
  *
  * Symbol: +
@@ -98,15 +98,15 @@ static int* CE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_CY
 
 /**
  * The bce separator date state cybol name.
- * 
+ *
  * It indicates that a date lies before an epoch (era).
- * 
+ *
  * BCE is the abbreviation for Before the Common/Current/Christian Era.
  * It is an alternative naming of the traditional
  * calendar era Before Christ, abbreviated BC.
- * 
+ *
  * "399 BCE" corresponds to "399 BC"
- * 
+ *
  * Symbol: -
  */
 static wchar_t* BCE_SEPARATOR_DATE_STATE_CYBOL_NAME = HYPHEN_MINUS_UNICODE_CHARACTER_CODE_MODEL_ARRAY;
@@ -114,7 +114,7 @@ static int* BCE_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_C
 
 /**
  * The date element separator date state cybol name.
- * 
+ *
  * It separates date elements.
  *
  * Symbol: -
@@ -124,7 +124,7 @@ static int* DATE_ELEMENT_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGE
 
 /**
  * The week separator date state cybol name.
- * 
+ *
  * It indicates that a week value is following.
  *
  * Symbol: W
@@ -134,7 +134,7 @@ static int* WEEK_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_
 
 /**
  * The time separator date state cybol name.
- * 
+ *
  * It separates date and time.
  *
  * Symbol: T
@@ -146,7 +146,7 @@ static int* TIME_SEPARATOR_DATE_STATE_CYBOL_NAME_COUNT = NUMBER_1_INTEGER_STATE_
  * The duration separator date state cybol name.
  *
  * Symbol: P
- * 
+ *
  * It is placed at the start of the duration representation
  * and may thus separate a date and duration.
  * The duration designator is historically called "period".

@@ -241,7 +241,7 @@ static int* GREP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBO
  *
  * This is a CYBOL extension.
  */
-static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT  = L"command/help";
+static wchar_t* HELP_COMMAND_LOGIC_CYBOL_FORMAT = L"command/help";
 static int* HELP_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
@@ -294,7 +294,6 @@ static int* HOSTNAME_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_16_INTEGER_STATE_
 static wchar_t* KILL_COMMAND_LOGIC_CYBOL_FORMAT = L"command/kill";
 static int* KILL_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
-
 /**
  * The command/list-directory-contents logic cybol format.
  *
@@ -342,7 +341,7 @@ static int* MEMORY_FREE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_19_INTEGER_STA
  *
  * This is a CYBOL extension.
  */
-static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT  = L"command/move";
+static wchar_t* MOVE_COMMAND_LOGIC_CYBOL_FORMAT = L"command/move";
 static int* MOVE_COMMAND_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**

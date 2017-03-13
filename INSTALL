@@ -289,13 +289,28 @@ http://www.resmedicinae.org/
 CYBOP Testing
 __________________
 
-- Change into cybop's root directory subdirecotory 'build' e.g.:
+- Change into cybop's build directory e.g.:
 
     cd /home/cybop/build
 
 - Run the tests:
 
     ctest
+
+CYBOP Codestyling
+__________________
+
+- Change into cybop's build directory e.g.:
+
+    cd /home/cybop/build
+
+- Run the code styling clangformat which uses the .clang-format configuration:
+
+    make clangformat
+
+- Run the code analyzer cppcheck:
+
+    make cppcheck
 
 CYBOP Distribution
 __________________
@@ -306,7 +321,7 @@ __________________
     SET(CPACK_PACKAGE_VERSION_MINOR "19")
     SET(CPACK_PACKAGE_VERSION_PATCH "0")
 
-- Change into cybop's root directory subdirecotory 'build' e.g.:
+- Change into cybop's build directory e.g.:
 
     cd /home/cybop/build
 

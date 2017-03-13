@@ -21,7 +21,7 @@
  *
  * @version CYBOP 0.18.0 2016-12-21
  * @author Christian Heller <christian.heller@tuxtax.de>
- * @author Franziska Wehner> 
+ * @author Franziska Wehner>
  */
 
 #ifndef APPLICATION_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
@@ -236,7 +236,7 @@ static int* ODA_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Adobe PDF files
  * Registered.
- * Suffixes: pdf 
+ * Suffixes: pdf
  */
 static wchar_t* PDF_APPLICATION_STATE_CYBOL_FORMAT = L"application/pdf";
 static int* PDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_CYBOI_MODEL_ARRAY;
@@ -246,7 +246,7 @@ static int* PDF_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_15_INTEGER_STATE_C
  *
  * Adobe PostScript files
  * Registered.
- * Suffixes: ai, eps, ps 
+ * Suffixes: ai, eps, ps
  */
 static wchar_t* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT = L"application/postscript";
 static int* POSTSCRIPT_APPLICATION_STATE_CYBOL_FORMAT_COUNT = NUMBER_22_INTEGER_STATE_CYBOI_MODEL_ARRAY;

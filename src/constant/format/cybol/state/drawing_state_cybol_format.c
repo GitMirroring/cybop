@@ -23,7 +23,7 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  * @author Franziska Wehner
  */
- 
+
 #ifndef DRAWING_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 #define DRAWING_STATE_CYBOL_FORMAT_CONSTANT_SOURCE
 
