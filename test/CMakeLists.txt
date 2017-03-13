@@ -1,5 +1,4 @@
 # --- set output configuration --- #
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 set(CTEST_OUTPUT_ON_FAILURE	ON)
 
