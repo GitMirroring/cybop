@@ -28,24 +28,26 @@
 
 #include <assert.h>
 #include "../../../src/constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../src/constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../src/constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../src/executor/comparator/all/array_all_comparator.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
-#include "../../../src/executor/comparator/basic/array_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/part_comparator.c"
-#include "../../../src/executor/comparator/prefix/part_prefix_comparator.c"
-#include "../../../src/executor/comparator/suffix/part_suffix_comparator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../src/executor/comparator/all/array_all_comparator.c"
+#include "../../../src/executor/comparator/basic/array_comparator.c"
+#include "../../../src/executor/comparator/basic/part_comparator.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
 #include "../../../src/executor/modifier/copier/array_copier.c"
 #include "../../../src/executor/modifier/emptier/array_emptier.c"
 #include "../../../src/executor/modifier/overwriter/part_overwriter.c"
+#include "../../../src/executor/comparator/prefix/part_prefix_comparator.c"
+#include "../../../src/executor/comparator/suffix/part_suffix_comparator.c"
 
 void compare_all_array_should_succeed() {
 

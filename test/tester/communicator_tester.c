@@ -26,25 +26,16 @@
 #ifndef COMMUNICATOR_TESTER
 #define COMMUNICATOR_TESTER
 
-#ifdef __APPLE__
+#if defined(__linux__) || defined(__unix__)
 #include <termios.h>
-#elif WIN32
+#elif defined(__APPLE__) && defined(__MACH__)
+#include <termios.h>
+#elif defined(_WIN32) || defined(__CYGWIN__)
 #include <windows.h>
-#elif GNU_LINUX_OPERATING_SYSTEM
-#include <termios.h>
 #else
-#include <termios.h>
+   #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
 
-// The opengl library OpenGL32.
-//?? #include <GL/gl.h>
-// The opengl utility library GLu32.
-//?? #include <GL/glu.h>
-// The opengl tools library.
-//?? #include <GL/glut.h>
-//?? Didier Link <didier@famille-link.fr> said that glut.h would suffice
-//?? and freeglut.h would not be needed.
-//?? #include <GL/freeglut.h>
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
@@ -409,7 +400,7 @@ void test_communicator_console_input() {
 
     log_write((void*) stdout, L"Test communicator console input:\n");
 
-#ifdef WIN32
+#ifdef _WIN32
 //?? Add Win32 support
 #else
     // The terminal device name.
@@ -490,7 +481,6 @@ void test_communicator_console_input() {
             log_write((void*) stdout, L"Could not store old termios settings.\n");
         }
     }
-// GNU_LINUX_OPERATING_SYSTEM
 #endif
 }
 
