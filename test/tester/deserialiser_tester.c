@@ -1,28 +1,27 @@
-
- /*
- * Copyright (C) 1999-2016. Christian Heller.
- *
- * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
- *
- * CYBOI is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published
- * by the Free Software Foundation, either version 3 of the License,
- * or (at your option) any later version.
- *
- * CYBOI is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty
- * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
- *
- * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
- * CYBOP Developers <cybop-developers@nongnu.org>
- *
- * @version CYBOP 0.18.0 2016-12-21
- * @author Christian Heller <christian.heller@tuxtax.de>
- */
+/*
+* Copyright (C) 1999-2016. Christian Heller.
+*
+* This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+*
+* CYBOI is free software: you can redistribute it and/or modify it
+* under the terms of the GNU General Public License as published
+* by the Free Software Foundation, either version 3 of the License,
+* or (at your option) any later version.
+*
+* CYBOI is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty
+* of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* See the GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+*
+* Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+* CYBOP Developers <cybop-developers@nongnu.org>
+*
+* @version CYBOP 0.18.0 2016-12-21
+* @author Christian Heller <christian.heller@tuxtax.de>
+*/
 #ifndef DESERIALISER_TESTER
 #define DESERIALISER_TESTER
 
@@ -30,12 +29,11 @@
 #include <stdlib.h>
 
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
+#include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../../../executor/representer/deserialiser.c"
-
 
 /**
  * Tests the representer number byte.
@@ -104,12 +102,10 @@ void test_representer_number_byte() {
     // Deallocate multi destination item.
     deallocate_item((void*) &d2, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE);
 }
-void test_deserialiser()
-{
+void test_deserialiser() {
     //@todo:Find segmentation fault.
     fwprintf(stdout, L"TODO: Find segmentation fault.\n");
-    //test_representer_number_byte();
+    // test_representer_number_byte();
 }
 /*DESERIALISER_TESTER*/
 #endif
-

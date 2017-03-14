@@ -26,9 +26,8 @@
 #ifndef SIZE_DETERMINER_TESTER
 #define SIZE_DETERMINER_TESTER
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../executor/memoriser/size_determiner.c"
 #include "../../../logger/logger.c"
 
@@ -75,7 +74,7 @@ void test_accessor_assigner() {
     double v = 3.5;
 
     fwprintf(stdout, L"Double before assigner: %f\n", d);
-//??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
+    //??    assign((void*) &d, (void*) &v, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE);
     fwprintf(stdout, L"Double after assigner: %f\n", d);
 }
 
@@ -104,14 +103,14 @@ void test_array_setter() {
     fwprintf(stdout, L"s1c: %i\n", s1c);
     fwprintf(stdout, L"i1: %i\n", i1);
 
-//??    overwrite_array(d, (void*) s1, (void*) &s1c, (void*) &i1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(d, (void*) s1, (void*) &s1c, (void*) &i1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"d string 2: %ls\n", (wchar_t*) d);
     fwprintf(stdout, L"s2: %ls\n", s2);
     fwprintf(stdout, L"s2c: %i\n", s2c);
     fwprintf(stdout, L"i2: %i\n", i2);
 
-//??    overwrite_array(d, (void*) s2, (void*) &s2c, (void*) &i2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(d, (void*) s2, (void*) &s2c, (void*) &i2, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"d string 3: %ls\n", (wchar_t*) d);
 

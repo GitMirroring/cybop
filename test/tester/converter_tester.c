@@ -26,8 +26,8 @@
 #ifndef CONVERTER_TESTER
 #define CONVERTER_TESTER
 
-#include "encoder/encoder_tester.c"
 #include "decoder/decoder_tester.c"
+#include "encoder/encoder_tester.c"
 
 /**
  * Tests the integer-to-wide character conversion.

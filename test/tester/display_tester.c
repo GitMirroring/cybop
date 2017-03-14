@@ -46,7 +46,7 @@
 
 #include <xcb/xcb.h>
 #ifdef WIN32
-    int initWSA(void);
+int initWSA(void);
 #endif
 
 #include "../constant/type/cyboi/state_cyboi_type.c"
@@ -60,58 +60,46 @@ void test_display_drawing() {
     fwprintf(stdout, L"TEST display drawing.\n");
 
     // Geometric objects.
-    xcb_point_t points[] = {
-        { 10, 10 },
-        { 10, 20 },
-        { 20, 10 },
-        { 20, 20 }};
+    xcb_point_t points[] = {{10, 10}, {10, 20}, {20, 10}, {20, 20}};
 
-    xcb_point_t polyline[] = {
-        { 50, 10 },
-        { 5, 20 }, // rest of points are relative
-        { 25, -20 },
-        { 10, 10 }};
+    xcb_point_t polyline[] = {{50, 10},
+                              {5, 20}, // rest of points are relative
+                              {25, -20},
+                              {10, 10}};
 
-    xcb_segment_t segments[] = {
-        { 100, 10, 140, 30 },
-        { 110, 25, 130, 60 }};
+    xcb_segment_t segments[] = {{100, 10, 140, 30}, {110, 25, 130, 60}};
 
-    xcb_rectangle_t rectangles[] = {
-        { 10, 50, 40, 20 },
-        { 80, 50, 10, 40 }};
+    xcb_rectangle_t rectangles[] = {{10, 50, 40, 20}, {80, 50, 10, 40}};
 
-    xcb_arc_t arcs[] = {
-        { 10, 100, 60, 40, 0, 90 << 6 },
-        { 90, 100, 55, 40, 0, 270 << 6 }};
-    
+    xcb_arc_t arcs[] = {{10, 100, 60, 40, 0, 90 << 6}, {90, 100, 55, 40, 0, 270 << 6}};
+
 #ifdef __APPLE__
-    //?? TODO: Add support for Cocoa
+//?? TODO: Add support for Cocoa
 #elif WIN32
-    int screenNum,i;
+    int screenNum, i;
     int rc;
 
     rc = initWSA();
-    if(rc != 0)
-    {
-        fprintf(stderr,"Unable to load Winsock: %d\n",rc);
+    if (rc != 0) {
+        fprintf(stderr, "Unable to load Winsock: %d\n", rc);
         return -1;
     }
 
     // Open connection to x server.
-    xcb_connection_t *connection = xcb_connect ("127.0.0.1:0.0", &screenNum);
+    xcb_connection_t* connection = xcb_connect("127.0.0.1:0.0", &screenNum);
     if (!connection) {
-        fprintf (stderr, "ERROR: can't connect to an X server\n");
+        fprintf(stderr, "ERROR: can't connect to an X server\n");
         return -1;
     }
 
     // Get first screen.
-    xcb_screen_iterator_t iter = xcb_setup_roots_iterator (xcb_get_setup (connection));
+    xcb_screen_iterator_t iter = xcb_setup_roots_iterator(xcb_get_setup(connection));
 
     for (i = 0; i < screenNum; ++i) {
-        xcb_screen_next (&iter);
+        xcb_screen_next(&iter);
     }
 
-    xcb_screen_t *screen = iter.data;
+    xcb_screen_t* screen = iter.data;
 #elif GNU_LINUX_OPERATING_SYSTEM
     // Open connection to x server.
     xcb_connection_t* connection = xcb_connect(NULL, NULL);
@@ -128,7 +116,7 @@ void test_display_drawing() {
     xcb_drawable_t window = screen->root;
     xcb_gcontext_t foreground = xcb_generate_id(connection);
     uint32_t mask = XCB_GC_FOREGROUND | XCB_GC_GRAPHICS_EXPOSURES;
-    uint32_t values[2] = { screen->black_pixel, 0 };
+    uint32_t values[2] = {screen->black_pixel, 0};
 
     xcb_create_gc(connection, foreground, window, mask, values);
 
@@ -139,16 +127,16 @@ void test_display_drawing() {
     values[0] = screen->white_pixel;
     values[1] = XCB_EVENT_MASK_EXPOSURE;
 
-    xcb_create_window(connection, // connection
-        XCB_COPY_FROM_PARENT, // depth (same as root)
-        window, // window id
-        screen->root, // parent window
-        0, 0, // x, y
-        150, 150, // width, height
-        10, // border_width
-        XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
-        screen->root_visual, // visual
-        mask, values); // masks
+    xcb_create_window(connection,                    // connection
+                      XCB_COPY_FROM_PARENT,          // depth (same as root)
+                      window,                        // window id
+                      screen->root,                  // parent window
+                      0, 0,                          // x, y
+                      150, 150,                      // width, height
+                      10,                            // border_width
+                      XCB_WINDOW_CLASS_INPUT_OUTPUT, // class
+                      screen->root_visual,           // visual
+                      mask, values);                 // masks
 
     // Map window on the screen and flush.
     xcb_map_window(connection, window);
@@ -161,32 +149,32 @@ void test_display_drawing() {
 
         switch (event->response_type & ~0x80) {
 
-            case XCB_EXPOSE:
+        case XCB_EXPOSE:
 
-                // Draw points.
-                xcb_poly_point(connection, XCB_COORD_MODE_ORIGIN, window, foreground, 4, points);
+            // Draw points.
+            xcb_poly_point(connection, XCB_COORD_MODE_ORIGIN, window, foreground, 4, points);
 
-                // Draw polygonal line.
-                xcb_poly_line(connection, XCB_COORD_MODE_PREVIOUS, window, foreground, 4, polyline);
+            // Draw polygonal line.
+            xcb_poly_line(connection, XCB_COORD_MODE_PREVIOUS, window, foreground, 4, polyline);
 
-                // Draw segements.
-                xcb_poly_segment(connection, window, foreground, 2, segments);
+            // Draw segements.
+            xcb_poly_segment(connection, window, foreground, 2, segments);
 
-                // Draw rectangles.
-                xcb_poly_rectangle(connection, window, foreground, 2, rectangles);
+            // Draw rectangles.
+            xcb_poly_rectangle(connection, window, foreground, 2, rectangles);
 
-                // Draw arcs.
-                xcb_poly_arc(connection, window, foreground, 2, arcs);
+            // Draw arcs.
+            xcb_poly_arc(connection, window, foreground, 2, arcs);
 
-                // Flush request.
-                xcb_flush(connection);
+            // Flush request.
+            xcb_flush(connection);
 
-                break;
+            break;
 
-            default:
+        default:
 
-                // Unknown event type, ignore it.
-                break;
+            // Unknown event type, ignore it.
+            break;
         }
 
         free(event);

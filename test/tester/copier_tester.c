@@ -109,7 +109,7 @@ void test_copier_part() {
     // Allocate clone tree parts.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-//??    allocate_part((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    //??    allocate_part((void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     //
     // Assign name, format, type, model, properties.
@@ -232,9 +232,9 @@ void test_copier_part() {
     // Write original tree root part as model diagram.
     test_part_as_model_diagram((void*) L"test_copier_part_original.txt", o);
 
-fwprintf(stdout, L"TEST pre: %i\n", c);
+    fwprintf(stdout, L"TEST pre: %i\n", c);
     copy_part((void*) &c, (void*) &o);
-fwprintf(stdout, L"TEST post: %i\n", c);
+    fwprintf(stdout, L"TEST post: %i\n", c);
 
     // Write clone tree root part as model diagram.
     test_part_as_model_diagram((void*) L"test_copier_part_clone.txt", c);

@@ -37,18 +37,18 @@
  */
 void test_integral_type_sizes() {
 
-    //assert(sizeof (signed char) == *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE && "signed char");
+    // assert(sizeof (signed char) == *SIGNED_CHARACTER_INTEGRAL_TYPE_SIZE && "signed char");
     assert(0 == *UNSIGNED_CHARACTER_INTEGRAL_TYPE_SIZE && "unsigned char");
     assert(0 == *SIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE && "signed short int");
-    //assert(sizeof (unsigned short int) == *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned short int");
+    // assert(sizeof (unsigned short int) == *UNSIGNED_SHORT_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned short int");
     assert(0 == *SIGNED_INTEGER_INTEGRAL_TYPE_SIZE && "signed int");
-    //assert(sizeof (unsigned int) == *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned int");
-    //assert(sizeof (signed long int) == *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "signed long int");
-    //assert(sizeof (unsigned long int) == *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned long int");
+    // assert(sizeof (unsigned int) == *UNSIGNED_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned int");
+    // assert(sizeof (signed long int) == *SIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "signed long int");
+    // assert(sizeof (unsigned long int) == *UNSIGNED_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned long int");
     assert(0 == *SIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "signed long long int");
-    //assert(sizeof (unsigned long long int) == *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned long long int");
+    // assert(sizeof (unsigned long long int) == *UNSIGNED_LONG_LONG_INTEGER_INTEGRAL_TYPE_SIZE && "unsigned long long int");
     assert(0 == *WIDE_CHARACTER_INTEGRAL_TYPE_SIZE && "wchar_t");
-    //assert(sizeof (unsigned long DWORD) == *DOUBLE_WORD_INTEGRAL_TYPE_SIZE && "unsigned long DWORD");
+    // assert(sizeof (unsigned long DWORD) == *DOUBLE_WORD_INTEGRAL_TYPE_SIZE && "unsigned long DWORD");
 }
 
 /**
@@ -65,7 +65,7 @@ void test_pointer_type_sizes() {
 void test_real_type_sizes() {
 
     assert(0 == *DOUBLE_REAL_TYPE_SIZE && "double");
-    //assert(sizeof (long double) == *LONG_DOUBLE_REAL_TYPE_SIZE && "long double");
+    // assert(sizeof (long double) == *LONG_DOUBLE_REAL_TYPE_SIZE && "long double");
 }
 
 /**

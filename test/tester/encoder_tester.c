@@ -31,7 +31,7 @@
 #include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 
 #ifdef WIN32
-    #define swprintf _snwprintf
+#define swprintf _snwprintf
 #endif
 
 /**
@@ -61,7 +61,7 @@ void test_converter_serialise_integer_vector() {
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-//    serialise_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+    //    serialise_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     fwprintf(stdout, L"Encoded character array: %ls\n", d);
     fwprintf(stdout, L"Encoded character array count: %i\n", dc);
@@ -96,7 +96,7 @@ void test_converter_serialise_integer() {
 
     // Use compound count as index to create the element name suffix,
     // because the element is added at the end of the compound container.
-//    serialise_cybol_integer((void*) &dd, (void*) &dc, (void*) &ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    //    serialise_cybol_integer((void*) &dd, (void*) &dc, (void*) &ds, (void*) &s, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
     fwprintf(stdout, L"Test: Destination character array: %ls\n", (wchar_t*) dd);
     fwprintf(stdout, L"Test: Destination character array count: %i\n", dc);
@@ -109,7 +109,6 @@ void test_converter_serialise_integer() {
     deallocate_array((void*) &dd, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &ds, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 }
 
-
 /*
  * Start the test.
  */
@@ -117,7 +116,6 @@ void test_converter_encoder() {
 
     test_converter_serialise_integer_vector();
     test_converter_serialise_integer();
-
 }
 
 /* CONVERTER_ENCODER_TESTER */

@@ -24,9 +24,9 @@
  */
 #include <assert.h>
 
+#include "../../../src/constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../src/constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../src/executor/calculator/basic/integer/absolute_integer_calculator.c"
 #include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../src/executor/calculator/basic/integer/divide_integer_calculator.c"
@@ -47,48 +47,48 @@
 #ifndef INTEGER_CALCULATOR_TESTER_SOURCE
 #define INTEGER_CALCULATOR_TESTER_SOURCE
 
-void calculate_integer_absolute_should_abs_value(){
+void calculate_integer_absolute_should_abs_value() {
 
     int result = 0;
     int operand = -5;
     int expected = 5;
 
-    calculate_integer_absolute((void*)&result, (void*)&operand);
+    calculate_integer_absolute((void*) &result, (void*) &operand);
 
     assert(result == expected);
 }
 
-void calculate_integer_absolute_should_keep_positiv(){
+void calculate_integer_absolute_should_keep_positiv() {
 
     int result = 0;
     int operand = 5;
     int expected = 5;
 
-    calculate_integer_absolute((void*)&result, (void*)&operand);
+    calculate_integer_absolute((void*) &result, (void*) &operand);
 
     assert(result == expected);
 }
 
-void calculate_integer_absolute_should_do_nothing_if_source_is_null(){
+void calculate_integer_absolute_should_do_nothing_if_source_is_null() {
 
     int result = 0;
     int expected = 0;
 
-    calculate_integer_absolute((void*)&result, NULL);
+    calculate_integer_absolute((void*) &result, NULL);
 
     assert(result == expected);
 }
 
-void calculate_integer_absolute_should_do_nothing_if_destination_is_null(){
+void calculate_integer_absolute_should_do_nothing_if_destination_is_null() {
 
     int operand = -5;
 
-    calculate_integer_absolute(NULL, (void*)&operand);
+    calculate_integer_absolute(NULL, (void*) &operand);
 
     assert(-5 == operand);
 }
 
-void test_calculate_integer_add(){
+void test_calculate_integer_add() {
 
     int* result = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
     int* operand = NUMBER_500_INTEGER_STATE_CYBOI_MODEL;
@@ -99,7 +99,7 @@ void test_calculate_integer_add(){
     assert(*result == *expected);
 }
 
-void test_calculate_integer_divide(){
+void test_calculate_integer_divide() {
 
     int* result = NUMBER_5000_INTEGER_STATE_CYBOI_MODEL;
     int* operand = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
@@ -110,7 +110,7 @@ void test_calculate_integer_divide(){
     assert(*result == *expected);
 }
 
-void test_calculate_integer_modulo(){
+void test_calculate_integer_modulo() {
 
     int* result = NUMBER_13_INTEGER_STATE_CYBOI_MODEL;
     int* operand = NUMBER_4_INTEGER_STATE_CYBOI_MODEL;
@@ -121,18 +121,18 @@ void test_calculate_integer_modulo(){
     assert(*result == *expected);
 }
 
-void test_calculate_integer_multiply(){
+void test_calculate_integer_multiply() {
 
     int* result = NUMBER_1000_INTEGER_STATE_CYBOI_MODEL;
     int* operand = NUMBER_5_INTEGER_STATE_CYBOI_MODEL;
     int expected = 5000;
 
-    calculate_integer_multiply((void *) result, (void*) operand);
+    calculate_integer_multiply((void*) result, (void*) operand);
 
     assert(*result == expected);
 }
 
-void test_calculate_integer_negate(){
+void test_calculate_integer_negate() {
 
     int* result = NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int* operand = NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
@@ -143,7 +143,7 @@ void test_calculate_integer_negate(){
     assert(*result == expected);
 }
 
-void test_calculate_integer_subtract(){
+void test_calculate_integer_subtract() {
 
     int result = 1000;
     int operand = 500;
@@ -154,7 +154,7 @@ void test_calculate_integer_subtract(){
     assert(result == expected);
 }
 
-int main(){
+int main() {
 
     calculate_integer_absolute_should_abs_value();
     calculate_integer_absolute_should_keep_positiv();

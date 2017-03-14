@@ -26,7 +26,6 @@
 #ifndef POINTER_TESTER
 #define POINTER_TESTER
 
-
 /**
  * Tests the pointer null value as subroutine.
  */
@@ -110,7 +109,7 @@ void test_pointer_return() {
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get character from character array.
-//??    get_array_elements((void*) &r, c, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    get_array_elements((void*) &r, c, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Print result (character array).
     fwprintf(stdout, L"r: %ls\n", (wchar_t*) r);
@@ -155,13 +154,13 @@ void test_character_array_single_element() {
     // Create character array.
     allocate_array((void*) &c, (void*) &cs, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-/*?? TODO!
-    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    overwrite_array(c, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    overwrite_array(c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-*/
+    /*?? TODO!
+        overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_B_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        overwrite_array(c, (void*) LATIN_CAPITAL_LETTER_C_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        overwrite_array(c, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+        overwrite_array(c, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    */
 
     // Print out array contents.
     log_write((void*) stdout, (wchar_t*) c);
@@ -210,7 +209,7 @@ void test_character_array_multiple_elements() {
     int* ss = ssa;
 
     // The destination index to which to copy the source array.
-//??    overwrite_array(d, (void*) s, (void*) ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(d, (void*) s, (void*) ss, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) d);
 
@@ -220,14 +219,14 @@ void test_character_array_multiple_elements() {
     int ossa[] = {14};
     int* oss = ossa;
 
-//??    overwrite_array(d, (void*) os, (void*) oss, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(d, (void*) os, (void*) oss, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) d);
 
     // The remove index.
     int ri = *NUMBER_12_INTEGER_STATE_CYBOI_MODEL;
 
-//??    remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    remove_array_elements(d, (void*) &ds, (void*) &ri, (void*) NUMBER_7_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) d);
 
@@ -245,7 +244,7 @@ void test_character_array_multiple_elements() {
     void* r = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Test getting a reference.
-//??    get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    get_array_elements((void*) &r, d, (void*) NUMBER_8_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     log_write((void*) stdout, (wchar_t*) r);
 
@@ -288,29 +287,29 @@ void test_integer_array() {
     // Both possibilities should have the same functionality and results.
     //
 
-/*??
-    // Decode (parse) test value and assign to test knowledge model.
-    deserialise((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) test, (void*) &testc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
+    /*??
+        // Decode (parse) test value and assign to test knowledge model.
+        deserialise((void*) &m, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) test, (void*) &testc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    */
 
-/*?? TODO!
-    // Set test values.
-    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
+    /*?? TODO!
+        // Set test values.
+        overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        overwrite_array((void*) &m, (void*) mc, (void*) ms, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) mc, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    */
 
     // The result values read out from the integer vector.
     int* result0 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int* result1 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int* result2 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-/*??
-    // Get result values.
-    get((void*) &result0, m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    get((void*) &result1, m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    get((void*) &result2, m, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
+    /*??
+        // Get result values.
+        get((void*) &result0, m, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        get((void*) &result1, m, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        get((void*) &result2, m, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    */
 
     fwprintf(stdout, L"post mc: %i\n", *mc);
     fwprintf(stdout, L"post ms: %i\n", *ms);
@@ -368,13 +367,13 @@ void test_pointer_array() {
 
     // Set character array in pointer array.
     // Hand over character array as reference, because pointer array is expected!
-//??    overwrite_array(p, (void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    //??    overwrite_array(p, (void*) &c, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"p[0] after set: %i\n", p[0]);
     fwprintf(stdout, L"p[1] after set: %i\n", p[1]);
 
     // Get character array from pointer array.
-//??    get_array_elements((void*) &r, p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    //??    get_array_elements((void*) &r, p, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
 
     // Print result (character array).
     fwprintf(stdout, L"r pointer: %i\n", *r);
@@ -406,13 +405,13 @@ void test_pointer_array_with_null_values() {
 
     allocate_array((void*) &a, (void*) &as, (void*) POINTER_STATE_CYBOI_TYPE);
 
-/*?? TODO!
-    overwrite_array(a, (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    overwrite_array(a, (void*) (void*) &NUMBER_333_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    overwrite_array(a, (void*) (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    overwrite_array(a, (void*) (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    overwrite_array(a, (void*) (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-*/
+    /*?? TODO!
+        overwrite_array(a, (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        overwrite_array(a, (void*) (void*) &NUMBER_333_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        overwrite_array(a, (void*) (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        overwrite_array(a, (void*) (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        overwrite_array(a, (void*) (void*) &COMMERCIAL_AT_UNICODE_CHARACTER_CODE_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    */
 
     // The result values.
     char** r0 = (char**) NULL_POINTER_STATE_CYBOI_MODEL;
@@ -421,13 +420,13 @@ void test_pointer_array_with_null_values() {
     void* r3 = *NULL_POINTER_STATE_CYBOI_MODEL;
     char** r4 = (char**) NULL_POINTER_STATE_CYBOI_MODEL;
 
-/*??
-    get_array_elements((void*) &r0, a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    get_array_elements((void*) &r1, a, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    get_array_elements((void*) &r2, a, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    get_array_elements((void*) &r3, a, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-    get_array_elements((void*) &r4, a, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
-*/
+    /*??
+        get_array_elements((void*) &r0, a, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        get_array_elements((void*) &r1, a, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        get_array_elements((void*) &r2, a, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        get_array_elements((void*) &r3, a, (void*) NUMBER_3_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+        get_array_elements((void*) &r4, a, (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE);
+    */
 
     fwprintf(stdout, L"Result pointer as string r0: %s\n", *r0);
     fwprintf(stdout, L"Result pointer as integer r1: %i\n", **r1);
@@ -475,26 +474,26 @@ void test_pointer_addition() {
     wchar_t* wc = (wchar_t*) malloc(*NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
     unsigned long* ul = (unsigned long*) malloc(*NUMBER_10_INTEGER_STATE_CYBOI_MODEL);
 
-    // Calculate void pointer addresses using various formulas and casts.
+// Calculate void pointer addresses using various formulas and casts.
 #ifdef _MSC_VER
     // No support for void pointer arithmetic in VS!
-    void* v0 = v; // unchanged
-    void* v1 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-    void* v2 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v0 = v;                                                            // unchanged
+    void* v1 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
+    void* v2 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     void* v3 = (void*) (((size_t) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-    void* v4 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-    void* v5 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v4 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
+    void* v5 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     void* v6 = (void*) (((size_t) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-    void* v7 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v7 = (void*) ((size_t) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
 #else
-    void* v0 = v; // unchanged
-    void* v1 = v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    void* v2 = (void*) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    void* v3 = ((void*) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    void* v4 = (void*) (v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
-    void* v5 = (void*) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    void* v6 = ((void*) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    void* v7 = (void*) (v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    void* v0 = v;                                                            // unchanged
+    void* v1 = v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;                      // increased by 1
+    void* v2 = (void*) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;              // increased by 1
+    void* v3 = ((void*) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;            // increased by 1
+    void* v4 = (void*) (v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);            // increased by 1
+    void* v5 = (void*) v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;              // increased by 1
+    void* v6 = ((void*) v) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;            // increased by 1
+    void* v7 = (void*) (v + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);            // increased by 1
 #endif
 
     fwprintf(stdout, L"void pointer v0: %i\n", v0);
@@ -507,18 +506,18 @@ void test_pointer_addition() {
     fwprintf(stdout, L"void pointer v7: %i\n", v7);
 
     // Calculate int pointer addresses using various formulas and casts.
-    int* i0 = i; // unchanged
-    int* i1 = i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
-    int* i2 = (int*) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
+    int* i0 = i;                                                // unchanged
+    int* i1 = i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;          // increased by 4
+    int* i2 = (int*) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;   // increased by 4
     int* i3 = ((int*) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
     int* i4 = (int*) (i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 #ifdef _MSC_VER
     // No support for void pointer arithmetic in VS!
-    int* i5 = (void*) ((size_t) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    int* i5 = (void*) ((size_t) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     int* i6 = (void*) (((size_t) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
-    int* i5 = (void*) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    int* i6 = ((void*) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
+    int* i5 = (void*) i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;               // increased by 1
+    int* i6 = ((void*) i) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;             // increased by 1
 #endif
     int* i7 = (void*) (i + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 
@@ -532,18 +531,18 @@ void test_pointer_addition() {
     fwprintf(stdout, L"int pointer i7: %i\n", i7);
 
     // Calculate double pointer addresses using various formulas and casts.
-    double* d0 = d; // unchanged
-    double* d1 = d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 8
-    double* d2 = (double*) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 8
+    double* d0 = d;                                                   // unchanged
+    double* d1 = d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;             // increased by 8
+    double* d2 = (double*) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;   // increased by 8
     double* d3 = ((double*) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 8
     double* d4 = (double*) (d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 8
 #ifdef _MSC_VER
     // No support for void pointer arithmetic in VS!
-    double* d5 = (void*) ((size_t) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    double* d5 = (void*) ((size_t) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     double* d6 = (void*) (((size_t) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
-    double* d5 = (void*) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    double* d6 = ((void*) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
+    double* d5 = (void*) d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;            // increased by 1
+    double* d6 = ((void*) d) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;          // increased by 1
 #endif
     double* d7 = (void*) (d + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 8
 
@@ -557,17 +556,17 @@ void test_pointer_addition() {
     fwprintf(stdout, L"double pointer d7: %i\n", d7);
 
     // Calculate char pointer addresses using various formulas and casts.
-    char* c0 = c; // unchanged
-    char* c1 = c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    char* c2 = (char*) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
+    char* c0 = c;                                                 // unchanged
+    char* c1 = c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;           // increased by 1
+    char* c2 = (char*) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;   // increased by 1
     char* c3 = ((char*) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
     char* c4 = (char*) (c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #ifdef _MSC_VER
-    char* c5 = (void*) ((size_t) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    char* c5 = (void*) ((size_t) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     char* c6 = (void*) (((size_t) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
-    char* c5 = (void*) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    char* c6 = ((void*) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
+    char* c5 = (void*) c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;              // increased by 1
+    char* c6 = ((void*) c) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;            // increased by 1
 #endif
     char* c7 = (void*) (c + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 
@@ -581,17 +580,17 @@ void test_pointer_addition() {
     fwprintf(stdout, L"char pointer c7: %i\n", c7);
 
     // Calculate wchar_t pointer addresses using various formulas and casts.
-    wchar_t* wc0 = wc; // unchanged
-    wchar_t* wc1 = wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
-    wchar_t* wc2 = (wchar_t*) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
+    wchar_t* wc0 = wc;                                                    // unchanged
+    wchar_t* wc1 = wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;              // increased by 4
+    wchar_t* wc2 = (wchar_t*) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;   // increased by 4
     wchar_t* wc3 = ((wchar_t*) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
     wchar_t* wc4 = (wchar_t*) (wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 #ifdef _MSC_VER
-    wchar_t* wc5 = (void*) ((size_t) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    wchar_t* wc5 = (void*) ((size_t) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     wchar_t* wc6 = (void*) (((size_t) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
-    wchar_t* wc5 = (void*) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
-    wchar_t* wc6 = ((void*) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
+    wchar_t* wc5 = (void*) wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;         // increased by 1
+    wchar_t* wc6 = ((void*) wc) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;       // increased by 1
 #endif
     wchar_t* wc7 = (void*) (wc + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 
@@ -605,16 +604,16 @@ void test_pointer_addition() {
     fwprintf(stdout, L"wchar_t pointer wc7: %i\n", wc7);
 
     // Calculate unsigned long pointer addresses using various formulas and casts.
-    unsigned long* ul0 = ul; // unchanged
-    unsigned long* ul1 = ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
-    unsigned long* ul2 = (unsigned long*) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
+    unsigned long* ul0 = ul;                                                          // unchanged
+    unsigned long* ul1 = ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;                    // increased by 4
+    unsigned long* ul2 = (unsigned long*) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;   // increased by 4
     unsigned long* ul3 = ((unsigned long*) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 4
     unsigned long* ul4 = (unsigned long*) (ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4
 #ifdef _MSC_VER
-    unsigned long* ul5 = (void*) ((size_t) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
+    unsigned long* ul5 = (void*) ((size_t) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);   // increased by 1
     unsigned long* ul6 = (void*) (((size_t) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 1
 #else
-    unsigned long* ul5 = (void*) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
+    unsigned long* ul5 = (void*) ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;   // increased by 1
     unsigned long* ul6 = ((void*) ul) + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL; // increased by 1
 #endif
     unsigned long* ul7 = (void*) (ul + *NUMBER_1_INTEGER_STATE_CYBOI_MODEL); // increased by 4

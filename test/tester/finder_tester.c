@@ -27,8 +27,8 @@
 #define FINDER_TESTER
 
 #include "../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"
-#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../executor/accessor/name_getter/part_name_getter.c"
+#include "../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../executor/representer/deserialiser/knowledge/knowledge_deserialiser.c"
 #include "../../../../executor/searcher/finder/array_finder.c"
 #include "../../../../executor/searcher/finder/item_finder.c"
@@ -420,9 +420,9 @@ void test_finder() {
 
     //@todo:Find segmentation fault.
     fwprintf(stdout, L"TODO: Find segmentation fault.");
-    //test_finder_part_hierarchical();
-    //test_finder_part_by_name();
-    //test_finder_array();
+    // test_finder_part_hierarchical();
+    // test_finder_part_by_name();
+    // test_finder_array();
 }
 
 /* FINDER_TESTER */

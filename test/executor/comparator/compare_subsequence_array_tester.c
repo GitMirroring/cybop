@@ -30,19 +30,17 @@
 #include "../../../src/constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../src/executor/comparator/all/array_all_comparator.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
+#include "../../../src/executor/comparator/basic/array_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/part_comparator.c"
+#include "../../../src/executor/comparator/subsequence/array_subsequence_comparator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/comparator/all/array_all_comparator.c"
-#include "../../../src/executor/comparator/basic/array_comparator.c"
-#include "../../../src/executor/comparator/basic/part_comparator.c"
-#include "../../../src/executor/comparator/all/part_all_comparator.c"
-#include "../../../src/executor/comparator/subsequence/array_subsequence_comparator.c"
 #include "../../../src/executor/modifier/emptier/array_emptier.c"
 #include "../../../src/executor/modifier/overwriter/part_overwriter.c"
 
@@ -57,7 +55,7 @@ void compare_subsequence_array_same_subsequence_should_succeed() {
 
 void compare_subsequence_array_contains_subsequence_should_succeed() {
 
-    //TODO: this one is failing, but shouldn't
+    // TODO: this one is failing, but shouldn't
     int result = 0;
 
     compare_subsequence_array((void*) &result, (void*) L"Hello, World!", (void*) L"o, Wor", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_6_INTEGER_STATE_CYBOI_MODEL);
@@ -67,7 +65,7 @@ void compare_subsequence_array_contains_subsequence_should_succeed() {
 
 void compare_subsequence_array_contains_one_letter_should_succeed() {
 
-    //TODO: this one is failing, but shouldn't
+    // TODO: this one is failing, but shouldn't
     int result = 0;
 
     compare_subsequence_array((void*) &result, (void*) L"Hello, World!", (void*) L"o", (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_13_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);

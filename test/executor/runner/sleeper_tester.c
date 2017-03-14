@@ -50,12 +50,12 @@ void test_sleep_duration() {
     void* type = SECOND_SLEEP_RUN_LOGIC_CYBOI_FORMAT;
 
     time_t start = time(0);
-    
+
     sleep_duration(dur, type);
-    
+
     time_t end = time(0);
 
-    int t = (int)difftime(end,start);
+    int t = (int) difftime(end, start);
 
     assert(t >= *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 }

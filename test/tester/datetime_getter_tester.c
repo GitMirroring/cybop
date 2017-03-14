@@ -114,7 +114,7 @@ void test_compound_datetime() {
     deallocate_array((void*) &s, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) DATETIME_STATE_CYBOI_TYPE);
 }
 
-void test_datetime_getter(){
+void test_datetime_getter() {
 
     test_compound_datetime();
 }

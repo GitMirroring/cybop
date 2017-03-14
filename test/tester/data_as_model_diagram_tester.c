@@ -33,7 +33,7 @@
 
 #ifdef WIN32
 #else
-    #include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
+#include "../executor/representer/serialiser/model_diagram/content_element_part_model_diagram_serialiser.c"
 #endif
 
 /**
@@ -93,13 +93,13 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &dd, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &dc, d, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST data as model diagram dc: %i\n", dc);
-//?? fwprintf(stdout, L"TEST data as model diagram *dc: %i\n", *((int*) dc));
+    //?? fwprintf(stdout, L"TEST data as model diagram dc: %i\n", dc);
+    //?? fwprintf(stdout, L"TEST data as model diagram *dc: %i\n", *((int*) dc));
 
     // Encode model diagram into multibyte character stream.
     encode_utf_8(b, dd, dc);
 
-//?? fwprintf(stdout, L"TEST data as model diagram encode post: %i\n", b);
+    //?? fwprintf(stdout, L"TEST data as model diagram encode post: %i\n", b);
 
     // Get multibyte character stream item data, count.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -108,13 +108,13 @@ void test_data_as_model_diagram(void* p0, void* p1, void* p2, void* p3, void* p4
     copy_array_forward((void*) &bd, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &bc, b, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
-//?? fwprintf(stdout, L"TEST data as model diagram bc: %i\n", bc);
-//?? fwprintf(stdout, L"TEST data as model diagram *bc: %i\n", *((int*) bc));
+    //?? fwprintf(stdout, L"TEST data as model diagram bc: %i\n", bc);
+    //?? fwprintf(stdout, L"TEST data as model diagram *bc: %i\n", *((int*) bc));
 
     // Write multibyte character stream to file system.
     write_file_stream(p0, (void*) &fc, bd, bc);
 
-//?? fwprintf(stdout, L"TEST data as model diagram write post fc: %i\n", fc);
+    //?? fwprintf(stdout, L"TEST data as model diagram write post fc: %i\n", fc);
 
     // Deallocate model diagram item.
     deallocate_item((void*) &d, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);

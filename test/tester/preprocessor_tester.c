@@ -35,7 +35,6 @@ void test_preprocessor_directives() {
 
     log_write((void*) stdout, L"Test preprocessor directives:\n");
 
-    
 #ifdef __APPLE__
     log_write((void*) stdout, L"MAC OS X\n");
 #elif WIN32

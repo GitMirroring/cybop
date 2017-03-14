@@ -35,16 +35,15 @@
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/manipulator/character/check_character_manipulator.c"
-#include "../../../src/executor/manipulator/character/shift_left_character_manipulator.c"
-#include "../../../src/executor/manipulator/character/shift_right_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/rotate_left_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/rotate_right_character_manipulator.c"
+#include "../../../src/executor/manipulator/character/shift_left_character_manipulator.c"
+#include "../../../src/executor/manipulator/character/shift_right_character_manipulator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../src/executor/modifier/copier/array_copier.c"
 #include "../../../src/executor/modifier/emptier/array_emptier.c"
 #include "../../../src/executor/modifier/overwriter/part_overwriter.c"
-
 
 void manipulate_character_shift_left_by_one() {
 
@@ -54,9 +53,8 @@ void manipulate_character_shift_left_by_one() {
 
     manipulate_character_shift_left((void*) &v, s);
 
-    assert(expected == (char)v);
+    assert(expected == (char) v);
 }
-
 
 void manipulate_character_shift_right_by_1() {
 
@@ -66,7 +64,7 @@ void manipulate_character_shift_right_by_1() {
 
     manipulate_character_shift_right((void*) &v, s);
 
-    assert(expected == (char)v);
+    assert(expected == (char) v);
 }
 
 void manipulate_character_rotate_right_by_2() {
@@ -77,7 +75,7 @@ void manipulate_character_rotate_right_by_2() {
 
     manipulate_character_rotate_right((void*) &v, s);
 
-    assert(expected == (char)v);
+    assert(expected == (char) v);
 }
 
 void manipulate_character_rotate_left_by_2() {
@@ -88,7 +86,7 @@ void manipulate_character_rotate_left_by_2() {
 
     manipulate_character_rotate_left((void*) &v, s);
 
-    assert(expected == (char)v);
+    assert(expected == (char) v);
 }
 
 void manipulate_character_check_of_ones() {
@@ -99,7 +97,7 @@ void manipulate_character_check_of_ones() {
 
     manipulate_character_check((void*) &v, s);
 
-    assert(expected == (char)v);
+    assert(expected == (char) v);
 }
 
 int main() {

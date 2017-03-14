@@ -31,7 +31,7 @@
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 
 #ifdef WIN32
-    #define swprintf _snwprintf
+#define swprintf _snwprintf
 #endif
 
 /**
@@ -67,7 +67,7 @@ void test_converter_decode_utf_8() {
     fwprintf(stdout, L"TEST pre dc: %i\n", *((int*) dc));
     fwprintf(stdout, L"TEST pre ds: %i\n", *((int*) ds));
 
-//??    decode_utf_8(d, (void*) PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    //??    decode_utf_8(d, (void*) PERCENT_SIGN_ASCII_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
     decode_utf_8(d, "blubla", (void*) NUMBER_4_INTEGER_STATE_CYBOI_MODEL);
 
     // Get destination item data.
@@ -108,21 +108,21 @@ void test_converter_deserialise_cybol_integer_vector() {
     allocate_array((void*) &d, (void*) &ds, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     // Decode character array into integer vector.
-//    deserialise_cybol_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
+    //    deserialise_cybol_integer_vector((void*) &d, (void*) &dc, (void*) &ds, s, (void*) &sc);
 
     // The integer values.
     int* i0 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int* i1 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
     int* i2 = (int*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
-/*??
-    // Get integer at index 0 from integer vector.
-    get((void*) &i0, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    // Get integer at index 1 from integer vector.
-    get((void*) &i1, d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-    // Get integer at index 2 from integer vector.
-    get((void*) &i2, d, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
-*/
+    /*??
+        // Get integer at index 0 from integer vector.
+        get((void*) &i0, d, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Get integer at index 1 from integer vector.
+        get((void*) &i1, d, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        // Get integer at index 2 from integer vector.
+        get((void*) &i2, d, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    */
 
     fwprintf(stdout, L"Integer 0: %i\n", *i0);
     fwprintf(stdout, L"Integer 1: %i\n", *i1);

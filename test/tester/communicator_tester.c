@@ -27,13 +27,13 @@
 #define COMMUNICATOR_TESTER
 
 #ifdef __APPLE__
-    #include <termios.h>
+#include <termios.h>
 #elif WIN32
-    #include <windows.h>
+#include <windows.h>
 #elif GNU_LINUX_OPERATING_SYSTEM
-    #include <termios.h>
+#include <termios.h>
 #else
-    #include <termios.h>
+#include <termios.h>
 #endif
 
 // The opengl library OpenGL32.
@@ -45,12 +45,12 @@
 //?? Didier Link <didier@famille-link.fr> said that glut.h would suffice
 //?? and freeglut.h would not be needed.
 //?? #include <GL/freeglut.h>
-#include <sys/types.h>
 #include <errno.h>
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 #ifndef _MSC_VER
 #include <dirent.h>
 #include <unistd.h>
@@ -108,31 +108,31 @@ void test_wide_character_wprintf() {
     // static wchar_t TEST_WIDE_CHARACTER_STRING_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', 0xE2, 0x94, 0x80, 'l', 'e'};
     // static wchar_t* TEST_WIDE_CHARACTER_STRING = TEST_WIDE_CHARACTER_STRING_ARRAY;
 
-//??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '為', 'l', 'e', '\0'};
-//    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '─', 'l', 'e', '\0'};
-//    static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY;
+    //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '為', 'l', 'e', '\0'};
+    //    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY[] = {'r', 'e', 'c', 't', 'a', 'n', '─', 'l', 'e', '\0'};
+    //    static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION_ARRAY;
 
-//??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e'};
+    //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e'};
 
-    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e'};
+    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e'};
     // Compiler warning in VS: L'─' doesn't work correctly
-    //static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e' };
+    // static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e' };
 
     static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_L = TEST_WIDE_CHARACTER_STRING_WITH_L_ARRAY;
 
-//??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e', 0x0000};
+    //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', L'為', L'l', L'e', 0x0000};
 
-    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e', 0x0000 };
+    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = {L'r', L'e', L'c', L't', L'a', L'n', 0x2500, L'l', L'e', 0x0000};
     // Compiler warning in VS: L'─' doesn't work correctly
-    //static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e', 0x0000 };
+    // static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY[] = { L'r', L'e', L'c', L't', L'a', L'n', L'─', L'l', L'e', 0x0000 };
 
     static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_L_AND_TERMINATION_ARRAY;
 
-//??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0xE7, 0x82, 0xBA, 0x006C, 0x0065, 0x0000};
+    //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0xE7, 0x82, 0xBA, 0x006C, 0x0065, 0x0000};
     static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0xE2, 0x94, 0x80, 0x006C, 0x0065, 0x0000};
     static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_UTF_8_CODES_AND_TERMINATION_ARRAY;
 
-//??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0x70BA, 0x006C, 0x0065, 0x0000};
+    //??    static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0x70BA, 0x006C, 0x0065, 0x0000};
     static wchar_t TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION_ARRAY[] = {0x0072, 0x0065, 0x0063, 0x0074, 0x0061, 0x006E, 0x2500, 0x006C, 0x0065, 0x0000};
     static wchar_t* TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION = TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION_ARRAY;
 
@@ -143,7 +143,7 @@ void test_wide_character_wprintf() {
     fwide(stdout, *NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
 
     log_write((void*) stdout, L"Test fputws.\n");
-//??    log_write((void*) stdout, (wchar_t*) TEST_WIDE_CHARACTER_STRING);
+    //??    log_write((void*) stdout, (wchar_t*) TEST_WIDE_CHARACTER_STRING);
     wprintf(L"Test wprintf without stream argument.\n");
 
     // Test wide character constants.
@@ -154,9 +154,9 @@ void test_wide_character_wprintf() {
     fwprintf(stdout, L"Test hello world L ls without cast: %10ls\n", L"hello world");
     fwprintf(stdout, L"Test hello world L s without cast: %10s\n", L"hello world");
 
-//??    fwprintf(stdout, L"Test wide character string ls: %5ls \n", TEST_WIDE_CHARACTER_STRING);
-//??    fwprintf(stdout, L"Test wide character string s: %5s \n", TEST_WIDE_CHARACTER_STRING);
-//    fwprintf(stdout, L"Test wide character string with termination: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION);
+    //??    fwprintf(stdout, L"Test wide character string ls: %5ls \n", TEST_WIDE_CHARACTER_STRING);
+    //??    fwprintf(stdout, L"Test wide character string s: %5s \n", TEST_WIDE_CHARACTER_STRING);
+    //    fwprintf(stdout, L"Test wide character string with termination: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_TERMINATION);
 
     fwprintf(stdout, L"Test wide character string L ls: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_L);
     fwprintf(stdout, L"Test wide character string L s: %5s \n", TEST_WIDE_CHARACTER_STRING_WITH_L);
@@ -167,8 +167,8 @@ void test_wide_character_wprintf() {
     fwprintf(stdout, L"Test wide character string with UTF-16 codes and termination ls: %5ls \n", TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION);
     fwprintf(stdout, L"Test wide character string with UTF-16 codes and termination s: %5s \n", TEST_WIDE_CHARACTER_STRING_WITH_UTF_16_CODES_AND_TERMINATION);
 
-//??    fwprintf(stdout, L"Test wide character string fourth letter with cast: %lc \n", (wchar_t*) TEST_WIDE_CHARACTER_STRING[3]);
-//??    fwprintf(stdout, L"Test wide character string fourth letter without cast: %lc \n", TEST_WIDE_CHARACTER_STRING[3]);
+    //??    fwprintf(stdout, L"Test wide character string fourth letter with cast: %lc \n", (wchar_t*) TEST_WIDE_CHARACTER_STRING[3]);
+    //??    fwprintf(stdout, L"Test wide character string fourth letter without cast: %lc \n", TEST_WIDE_CHARACTER_STRING[3]);
 
     log_write((void*) stdout, L"Test END.\n");
 }
@@ -182,7 +182,7 @@ void test_wide_character_output() {
     log_write((void*) stdout, L"Test wide character array with termination:\n");
 
 #ifdef WIN32
-        //?? Add Linux support
+//?? Add Linux support
 #else
     // Possible locales are: LANG, LC_CTYPE, LC_ALL.
     // CAUTION! This setting is necessary for UTF-8 Unicode characters to work.
@@ -198,9 +198,9 @@ void test_wide_character_output() {
     // Create terminal internals.
     // CAUTION! Due to memory allocation handling, the size MUST NOT
     // be negative or zero, but have at least a value of ONE.
-//??        allocate((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
-    to = (struct termios*) malloc(sizeof (struct termios));
-    tw = (struct termios*) malloc(sizeof (struct termios));
+    //??        allocate((void*) &t, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
+    to = (struct termios*) malloc(sizeof(struct termios));
+    tw = (struct termios*) malloc(sizeof(struct termios));
 
     // Initialise terminal internals.
     // Set file stream.
@@ -234,45 +234,45 @@ void test_wide_character_output() {
     // Set terminated control sequences string by first copying the actual
     // control sequences and then adding the null termination character.
     // (Termination character does not seem to be necessary for wide character strings.)
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_RIGHT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
 
     wprintf(L"\033[32mgreen colour\033[0mswitched off.");
 
     // \033
     wchar_t wc = 0x001B;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
     // [
     wc = 0x005B;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
     // 3
     wc = 0x0033;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
     // 2
     wc = 0x0032;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
     // m
     wc = 0x006d;
-//??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) &wc, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
 
-//??    overwrite_array(ts, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) LATIN_CAPITAL_LETTER_H_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_HORIZONTAL_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
-//??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    //??    overwrite_array(ts, (void*) BOX_DRAWINGS_LIGHT_DOWN_AND_LEFT_UNICODE_CHARACTER_CODE_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &tsc, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
     tsc++;
 
     // Write to terminal.
-//??    fwprintf(t, L"%s\n", ts);
+    //??    fwprintf(t, L"%s\n", ts);
     fwprintf(t, L"%ls\n", (wchar_t*) ts);
-//??    log_write((void*) stdout, (wchar_t*) ts, t);
+    //??    log_write((void*) stdout, (wchar_t*) ts, t);
 
     // Destroy terminated control sequences.
     // CAUTION! The second argument "count" is NULL,
@@ -280,14 +280,14 @@ void test_wide_character_output() {
     // in order to decrement the rubbish (garbage) collection counter.
     deallocate_array((void*) &ts, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &tss, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
-    // UTF-8 still allows you to use C1 control characters such as CSI, even
-    // though UTF-8 also uses bytes in the range 0x80-0x9F. It is important to
-    // understand that a terminal emulator in UTF-8 mode must apply the UTF-8
-    // decoder to the incoming byte stream before interpreting any control
-    // characters. C1 characters are UTF-8 decoded just like any other character
-    // above U+007F.
-    // VT100 terminal emulators accept ISO 2022 (=ECMA-35) ESC sequences in
-    // order to switch between different character sets.
+// UTF-8 still allows you to use C1 control characters such as CSI, even
+// though UTF-8 also uses bytes in the range 0x80-0x9F. It is important to
+// understand that a terminal emulator in UTF-8 mode must apply the UTF-8
+// decoder to the incoming byte stream before interpreting any control
+// characters. C1 characters are UTF-8 decoded just like any other character
+// above U+007F.
+// VT100 terminal emulators accept ISO 2022 (=ECMA-35) ESC sequences in
+// order to switch between different character sets.
 
 /*??
     char c = 67;
@@ -328,53 +328,53 @@ void test_communicator_file_read() {
     // A file named "/home/cybop/tmp/test.cybol" needs to be created
     // in a text editor, for this test to work.
 
-/*??
-    // The array.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The array size.
-    int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The array count.
-    int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    // The file name array.
-    char fna[] = {'/', 'h', 'o', 'm', 'e', '/', 'c', 'y', 'b', 'o', 'p', '/', 't', 'm', 'p', '/', 't', 'e', 's', 't', '.', 'c', 'y', 'b', 'o', 'l'};
-    // The file name.
-    char* fn = fna;
-    // The file name count.
-    int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
+    /*??
+        // The array.
+        void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+        // The array size.
+        int as = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The array count.
+        int ac = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        // The file name array.
+        char fna[] = {'/', 'h', 'o', 'm', 'e', '/', 'c', 'y', 'b', 'o', 'p', '/', 't', 'm', 'p', '/', 't', 'e', 's', 't', '.', 'c', 'y', 'b', 'o', 'l'};
+        // The file name.
+        char* fn = fna;
+        // The file name count.
+        int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
 
-    // CAUTION! Due to memory allocation handling, the size MUST NOT
-    // be negative or zero, but have at least a value of ONE.
-    allocate_array((void*) &a, (void*) &as, (void*) &CHARACTER_ARRAY);
-//??    receive_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
+        // CAUTION! Due to memory allocation handling, the size MUST NOT
+        // be negative or zero, but have at least a value of ONE.
+        allocate_array((void*) &a, (void*) &as, (void*) &CHARACTER_ARRAY);
+    //??    receive_file((void*) &a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
 
-    fwprintf(stdout, L"a: %i\n", a);
-    fwprintf(stdout, L"as: %i\n", as);
-    fwprintf(stdout, L"ac: %i\n", ac);
-    fwprintf(stdout, L"fn: %i\n", fn);
-    fwprintf(stdout, L"fnc: %i\n", fnc);
+        fwprintf(stdout, L"a: %i\n", a);
+        fwprintf(stdout, L"as: %i\n", as);
+        fwprintf(stdout, L"ac: %i\n", ac);
+        fwprintf(stdout, L"fn: %i\n", fn);
+        fwprintf(stdout, L"fnc: %i\n", fnc);
 
-    int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
-    int* cc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
+        int j = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+        char* c = (char*) *NULL_POINTER_STATE_CYBOI_MODEL;
+        int* cc = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
 
-    while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
+        while (*TRUE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        if (j >= ac) {
+            if (j >= ac) {
 
-            break;
+                break;
+            }
+
+            get_array_elements((void*) &c, (void*) &a, (void*) &j, (void*) CHARACTER_ARRAY);
+            fputs(c);
+
+            j++;
         }
 
-        get_array_elements((void*) &c, (void*) &a, (void*) &j, (void*) CHARACTER_ARRAY);
-        fputs(c);
-
-        j++;
-    }
-
-    // CAUTION! The second argument "count" is NULL,
-    // since it is only needed for looping elements of type PART,
-    // in order to decrement the rubbish (garbage) collection counter.
-    deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &as, (void*) &CHARACTER_ARRAY);
-*/
+        // CAUTION! The second argument "count" is NULL,
+        // since it is only needed for looping elements of type PART,
+        // in order to decrement the rubbish (garbage) collection counter.
+        deallocate_array((void*) &a, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) &as, (void*) &CHARACTER_ARRAY);
+    */
 }
 
 /**
@@ -399,7 +399,7 @@ void test_communicator_file_write() {
     // The file name count.
     int fnc = *NUMBER_26_INTEGER_STATE_CYBOI_MODEL;
 
-//??    send_file((void*) a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
+    //??    send_file((void*) a, (void*) &as, (void*) &ac, (void*) &fn, (void*) &fnc);
 }
 
 /**
@@ -410,7 +410,7 @@ void test_communicator_console_input() {
     log_write((void*) stdout, L"Test communicator console input:\n");
 
 #ifdef WIN32
-    //?? Add Win32 support
+//?? Add Win32 support
 #else
     // The terminal device name.
     FILE* t = (FILE*) *NULL_POINTER_STATE_CYBOI_MODEL;
@@ -420,8 +420,8 @@ void test_communicator_console_input() {
     struct termios* tn = (struct termios*) *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Allocate terminal internals.
-    to = (struct termios*) malloc(sizeof (struct termios));
-    tn = (struct termios*) malloc(sizeof (struct termios));
+    to = (struct termios*) malloc(sizeof(struct termios));
+    tn = (struct termios*) malloc(sizeof(struct termios));
 
     // Set file stream.
     t = stdin;
@@ -501,47 +501,47 @@ void test_communicator_console_output() {
 
     log_write((void*) stdout, L"Test communicator console output:\n");
 
-/*??
-    if (strcmp("linux", getenv("TERM")) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-*/
+    /*??
+        if (strcmp("linux", getenv("TERM")) == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
+    */
 
-        // This is a terminal.
-        log_write((void*) stdout, L"This is a terminal.\n");
+    // This is a terminal.
+    log_write((void*) stdout, L"This is a terminal.\n");
 
-/*??
-        // Determine device name of controlling terminal.
-        int n = ttyname();
-        fwprintf(stdout, L"The terminal device name is: %i\n", n);
-*/
+    /*??
+            // Determine device name of controlling terminal.
+            int n = ttyname();
+            fwprintf(stdout, L"The terminal device name is: %i\n", n);
+    */
 
-        // Declare test string.
-        char* s;
+    // Declare test string.
+    char* s;
 
-        // Beep \007 twice with system loudspeaker.
-        s = "Beep:\n\007";
-        fputs(s, stdout);
+    // Beep \007 twice with system loudspeaker.
+    s = "Beep:\n\007";
+    fputs(s, stdout);
 
-        //
-        // Start ESCAPE CSI sequence with: \033[
-        //
+    //
+    // Start ESCAPE CSI sequence with: \033[
+    //
 
-        // Print bold word.
-        log_write((void*) stdout, L"This is a \033[1mbold\033[0m word.\n");
+    // Print bold word.
+    log_write((void*) stdout, L"This is a \033[1mbold\033[0m word.\n");
 
-        // Set colours.
-        // CAUTION! The "m" has to stand after the colour number
-        // and it must NOT be a capital letter.
-        log_write((void*) stdout, L"Set colour to \033[32mgreen\033[0m.\n");
-        log_write((void*) stdout, L"Set colour to \033[32myellow\041[0m.\n");
-        log_write((void*) stdout, L"Set colour to \033[32mred\031[0m.\n");
+    // Set colours.
+    // CAUTION! The "m" has to stand after the colour number
+    // and it must NOT be a capital letter.
+    log_write((void*) stdout, L"Set colour to \033[32mgreen\033[0m.\n");
+    log_write((void*) stdout, L"Set colour to \033[32myellow\041[0m.\n");
+    log_write((void*) stdout, L"Set colour to \033[32mred\031[0m.\n");
 
-/*??
-    } else {
+    /*??
+        } else {
 
-        // This is a normal serial terminal.
-        log_write((void*) stdout, L"This is a normal serial terminal.\n");
-    }
-*/
+            // This is a normal serial terminal.
+            log_write((void*) stdout, L"This is a normal serial terminal.\n");
+        }
+    */
 }
 
 /*??
@@ -605,49 +605,49 @@ void test_communicator_mesa_opengl() {
 
     log_write((void*) stdout, L"Test communicator mesa opengl:\n");
 
-/*??
-    // This example will draw a green square on the screen.
-    // OpenGL has several ways to accomplish this task, but this is the easiest to understand.
+    /*??
+        // This example will draw a green square on the screen.
+        // OpenGL has several ways to accomplish this task, but this is the easiest to understand.
 
-    // This statement clears the color buffer, so that the screen will start blank.
-    glClear(GL_COLOR_BUFFER_BIT);
+        // This statement clears the color buffer, so that the screen will start blank.
+        glClear(GL_COLOR_BUFFER_BIT);
 
-    // These statements initialize the projection matrix,
-    // setting a 3d frustum matrix that represents the viewable area.
-    // This matrix transforms objects from camera-relative space to OpenGL's projection space.
-    glMatrixMode(GL_PROJECTION);      /* Subsequent matrix commands will affect the projection matrix */
-/*??
-    glLoadIdentity();                   /* Initialise the projection matrix to identity */
-/*??
-    glFrustum(-1, 1, -1, 1, 1, 1000); /* Apply a perspective-projection matrix */
+        // These statements initialize the projection matrix,
+        // setting a 3d frustum matrix that represents the viewable area.
+        // This matrix transforms objects from camera-relative space to OpenGL's projection space.
+        glMatrixMode(GL_PROJECTION);      /* Subsequent matrix commands will affect the projection matrix */
+    /*??
+        glLoadIdentity();                   /* Initialise the projection matrix to identity */
+    /*??
+        glFrustum(-1, 1, -1, 1, 1, 1000); /* Apply a perspective-projection matrix */
 
     // These statements initialize the modelview matrix.
     // This matrix defines a transform from model-relative coordinates to camera space.
     // The combination of the modelview matrix and the projection matrix
     // transforms objects from model-relative space to projection screen space.
-/*??
-    glMatrixMode(GL_MODELVIEW);       /* Subsequent matrix commands will affect the modelview matrix */
-/*??
-    glLoadIdentity();                   /* Initialise the modelview to identity */
-/*??
-    glTranslatef(0, 0, -3);           /* Translate the modelview 3 units along the Z axis */
+    /*??
+        glMatrixMode(GL_MODELVIEW);       /* Subsequent matrix commands will affect the modelview matrix */
+    /*??
+        glLoadIdentity();                   /* Initialise the modelview to identity */
+    /*??
+        glTranslatef(0, 0, -3);           /* Translate the modelview 3 units along the Z axis */
 
     // These commands draw a green square in the XY plane.
-/*??
-    glBegin(GL_POLYGON);              /* Begin issuing a polygon */
-/*??
-    glColor3f(0, 1, 0);               /* Set the current color to green */
-/*??
-    glVertex3f(-1, -1, 0);            /* Issue a vertex */
-/*??
-    glVertex3f(-1, 1, 0);             /* Issue a vertex */
-/*??
-    glVertex3f(1, 1, 0);              /* Issue a vertex */
-/*??
-    glVertex3f(1, -1, 0);             /* Issue a vertex */
-/*??
-    glEnd();                            /* Finish issuing the polygon */
-//??
+    /*??
+        glBegin(GL_POLYGON);              /* Begin issuing a polygon */
+    /*??
+        glColor3f(0, 1, 0);               /* Set the current color to green */
+    /*??
+        glVertex3f(-1, -1, 0);            /* Issue a vertex */
+    /*??
+        glVertex3f(-1, 1, 0);             /* Issue a vertex */
+    /*??
+        glVertex3f(1, 1, 0);              /* Issue a vertex */
+    /*??
+        glVertex3f(1, -1, 0);             /* Issue a vertex */
+    /*??
+        glEnd();                            /* Finish issuing the polygon */
+    //??
 }
 
 /**
@@ -660,20 +660,20 @@ void test_communicator() {
 
     fwprintf(stdout, L"TEST communicator.\n");
 
-/*??
-    test_stdout_stdout();
-    test_wide_character_wprintf();
-    test_wide_character_output();
+    /*??
+        test_stdout_stdout();
+        test_wide_character_wprintf();
+        test_wide_character_output();
 
-    test_communicator_file_read();
-    test_communicator_file_write();
+        test_communicator_file_read();
+        test_communicator_file_write();
 
-    test_communicator_console_input();
-    test_communicator_console_output();
+        test_communicator_console_input();
+        test_communicator_console_output();
 
-    test_communicator_mesa_opengl_standard(int argc, char **argv);
-    test_communicator_mesa_opengl(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (char**) NULL_POINTER_STATE_CYBOI_MODEL);
-*/
+        test_communicator_mesa_opengl_standard(int argc, char **argv);
+        test_communicator_mesa_opengl(*NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (char**) NULL_POINTER_STATE_CYBOI_MODEL);
+    */
 }
 
 /* COMMUNICATOR_TESTER */

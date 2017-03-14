@@ -28,12 +28,6 @@
 
 #include <assert.h>
 #include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/double/equal_double_comparator.c"
 #include "../../../src/executor/comparator/basic/double/greater_double_comparator.c"
 #include "../../../src/executor/comparator/basic/double/greater_or_equal_double_comparator.c"
@@ -41,6 +35,10 @@
 #include "../../../src/executor/comparator/basic/double/smaller_or_equal_double_comparator.c"
 #include "../../../src/executor/comparator/basic/double/unequal_double_comparator.c"
 #include "../../../src/executor/comparator/basic/double_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../src/executor/modifier/copier/array_copier.c"

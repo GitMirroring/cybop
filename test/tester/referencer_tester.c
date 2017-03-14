@@ -30,10 +30,10 @@
 
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/converter/encoder/utf/utf_8_encoder.c"
-#include "../executor/modifier/copier/array_copier.c"
-#include "../executor/modifier/copier/part_copier.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
+#include "../executor/modifier/copier/array_copier.c"
+#include "../executor/modifier/copier/part_copier.c"
 #include "../executor/modifier/inserter/array_inserter.c"
 #include "../executor/modifier/overwriter/part_overwriter.c"
 #include "../executor/modifier/remover/array_remover.c"
@@ -81,7 +81,7 @@ void test_referencer_part() {
     overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
     overwrite_part_element(p, (void*) &c, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
-//??    overwrite_part_element(p, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    //??    overwrite_part_element(p, (void*) &c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
     // Get parent model, properties item.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!
@@ -104,7 +104,7 @@ void test_referencer_part() {
     test_data_as_model_diagram((void*) L"TEST_REFERENCER_1.txt", (void*) L"[selected_node]", (void*) NUMBER_15_INTEGER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, pmd, pmc, ppd, ppc);
 
     // Remove child from parent part.
-//??    remove_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+    //??    remove_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
     empty_part(p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Test knowledge tree.

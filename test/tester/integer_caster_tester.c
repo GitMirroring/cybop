@@ -36,7 +36,7 @@
 /**
  * Tests type caster double to integer.
  */
-void test_caster_double_integer(){
+void test_caster_double_integer() {
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Test caster double to integer.");
 
     int i = 0;
@@ -54,11 +54,10 @@ void test_caster_double_integer(){
 
     compare_integer_equal((void*) &r, (void*) NUMBER_5_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
 
-    if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
         fwprintf(stdout, L"TEST successfull.\n");
     else
         fwprintf(stdout, L"TEST failed.\n");
-
 }
 
 /**
@@ -74,7 +73,7 @@ void test_caster_char_integer_type() {
     fwprintf(stdout, L"TEST pre i: %i\n", i);
     fwprintf(stdout, L"TEST pre c: %c\n", c);
 
-    cast_integer((void*) &i, (void*)&c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    cast_integer((void*) &i, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     fwprintf(stdout, L"TEST post i: %i\n", i);
     fwprintf(stdout, L"TEST post c: %c\n", c);
@@ -84,7 +83,7 @@ void test_caster_char_integer_type() {
 
     compare_integer_equal((void*) &r, (void*) NUMBER_53_INTEGER_STATE_CYBOI_MODEL, (void*) &i);
 
-    if (r !=  *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
         fwprintf(stdout, L"TEST successfull.\n");
     else
         fwprintf(stdout, L"TEST failed.\n");
@@ -102,4 +101,3 @@ void test_caster_integer() {
 
 /* DOUBLE_CASTER_TESTER */
 #endif
-

@@ -56,7 +56,7 @@ void test_calculator_pointer() {
 
     int i = 10;
     void* p = (void*) &i;
-//??    int p1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+    //??    int p1 = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
     int p1 = *NUMBER_10_INTEGER_STATE_CYBOI_MODEL;
 
     fwprintf(stdout, L"Base adress: %i\n", p);
@@ -67,7 +67,7 @@ void test_calculator_pointer() {
     calculate_pointer(&p, (void*) &p1, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT);
     fwprintf(stdout, L"TEST calculator pointer subtract: %i\n", p);
 
-//??    calculate_pointer(p, (void*) &p1, (void*) DIFFERENCE_CALCULATE_LOGIC_CYBOI_FORMAT);
+    //??    calculate_pointer(p, (void*) &p1, (void*) DIFFERENCE_CALCULATE_LOGIC_CYBOI_FORMAT);
     fwprintf(stdout, L"TEST calculator pointer difference: %i\n", p);
 }
 
@@ -84,4 +84,3 @@ void test_pointer() {
 
 /* CALCULATOR_TESTER */
 #endif
-

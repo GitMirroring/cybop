@@ -31,6 +31,8 @@
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../src/constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../src/constant/type/cyboi/state_cyboi_type.c"
+#include "../../../src/executor/caster/basic/double/integer_double_caster.c"
+#include "../../../src/executor/caster/basic/double_caster.c"
 #include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
@@ -40,8 +42,6 @@
 #include "../../../src/executor/modifier/copier/array_copier.c"
 #include "../../../src/executor/modifier/emptier/array_emptier.c"
 #include "../../../src/executor/modifier/overwriter/part_overwriter.c"
-#include "../../../src/executor/caster/basic/double_caster.c"
-#include "../../../src/executor/caster/basic/double/integer_double_caster.c"
 
 void cast_double_from_integer() {
 
@@ -60,7 +60,7 @@ void cast_double_integer_to_double_with_type() {
     double d = 0.0;
     int expected = 2;
 
-    cast_double((void*) &d, (void*) &i, (void*)INTEGER_NUMBER_STATE_CYBOI_TYPE);
+    cast_double((void*) &d, (void*) &i, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
 
     assert(expected == d);
 }
@@ -75,5 +75,3 @@ int main() {
 
 /* INTEGERS_CASTER_TESTER */
 #endif
-
-
