@@ -29,6 +29,7 @@
 #include <assert.h>
 #include <stdio.h>
 
+#include "../../src/constant/model/character_code/unicode/unicode_character_code_model.c"
 #include "../../src/constant/model/cyboi/state/mathematics_state_cyboi_model.c"
 #include "../../src/constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../src/constant/model/cybol/border/border_cybol_model.c"
@@ -88,14 +89,23 @@ void test_colour_model() {
 }
 
 /**
+ * Tests the ascii character - wide character equality.
+ */
+void test_unicode_character_model() {
+
+    assert('a' == *LATIN_SMALL_LETTER_A_UNICODE_CHARACTER_CODE_MODEL);
+}
+
+/**
  * Tests the constant values and usage.
  */
 int main() {
 
-    test_mathematics_state_model();
-    test_pointer_state_model();
     test_border_model();
     test_colour_model();
+    test_mathematics_state_model();
+    test_pointer_state_model();
+    test_unicode_character_model();
 
     return 0;
 }
