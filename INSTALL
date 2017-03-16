@@ -278,9 +278,9 @@ cd cybop/doc/books/cybol
 OR:
 ../../../src/controller/cyboi --knowledge=api/run.cybol
 
+../src/controller/cyboi project_overview/run.cybol
 Source of the following cybol-generated website:
 http://www.ba-leipzig.de/index.php?id=153
-lehre/systems_implementation/project/overview/
 
 You may also want to have a look at the Res Medicinae project, where more CYBOL
 application modules for the healthcare domain might be provided some day:

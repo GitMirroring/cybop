@@ -52,8 +52,7 @@
     #include "../../constant/model/command/unix_command_model.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../constant/name/command_option/win32/system_messages_win32_command_option_name.c"
-    #include "../../constant/model/command/win32_command_model.c"
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -94,7 +93,7 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
     append_item_element(arg, (void*) SYSTEM_MESSAGES_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SYSTEM_MESSAGES_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    append_item_element(arg, (void*) SYSTEM_MESSAGES_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SYSTEM_MESSAGES_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -115,6 +114,7 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
         append_item_element(arg, (void*) HUMAN_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HUMAN_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -136,6 +136,7 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
         append_item_element(arg, (void*) CTIME_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) CTIME_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -157,6 +158,7 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
         append_item_element(arg, (void*) KERNEL_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) KERNEL_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -178,6 +180,7 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
         append_item_element(arg, (void*) COLOR_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) COLOR_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -199,6 +202,7 @@ void command_system_messages(void* hmd, void* cmd, void* kmd, void* lmd, void* u
         append_item_element(arg, (void*) USERSPACE_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) USERSPACE_SYSTEM_MESSAGES_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

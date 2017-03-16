@@ -54,7 +54,6 @@
     #include "../../constant/model/command/unix_command_model.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../constant/name/command_option/win32/ifconfig_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"

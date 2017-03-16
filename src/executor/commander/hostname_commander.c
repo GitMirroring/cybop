@@ -52,7 +52,6 @@
     #include "../../constant/model/command/unix_command_model.c"
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    #include "../../constant/name/command_option/win32/hostname_win32_command_option_name.c"
     #include "../../constant/model/command/win32_command_model.c"
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
@@ -93,7 +92,7 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
     append_item_element(arg, (void*) HOSTNAME_UNIX_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HOSTNAME_UNIX_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    append_item_element(arg, (void*) HOSTNAME_WIN32_COMMAND_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HOSTNAME_WIN32_COMMAND_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        //?? Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -114,7 +113,7 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
         append_item_element(arg, (void*) DNS_HOSTNAME_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DNS_HOSTNAME_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-        append_item_element(arg, (void*) DNS_HOSTNAME_WIN32_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) DNS_HOSTNAME_WIN32_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        //?? Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -136,6 +135,7 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
         append_item_element(arg, (void*) FQDN_HOSTNAME_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FQDN_HOSTNAME_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+        //?? Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -157,6 +157,7 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
         append_item_element(arg, (void*) IP_HOSTNAME_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) IP_HOSTNAME_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+        //?? Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -178,6 +179,7 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
         append_item_element(arg, (void*) ALLIP_HOSTNAME_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) ALLIP_HOSTNAME_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+        //?? Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -199,6 +201,7 @@ void command_hostname(void* dmd, void* fmd, void* imd, void* amd, void* smd) {
         append_item_element(arg, (void*) SHORT_HOSTNAME_UNIX_COMMAND_OPTION_NAME, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) SHORT_HOSTNAME_UNIX_COMMAND_OPTION_NAME_COUNT, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
+        //?? Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
