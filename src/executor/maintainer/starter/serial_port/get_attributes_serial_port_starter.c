@@ -101,14 +101,17 @@ void startup_serial_port_attributes_get(void* p0, void* p1, void* p2) {
             // the function that might cause an error.
             copy_integer((void*) &errno, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
+            // The error return value.
+            int e = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
+
             // Get original attributes.
 #if defined(__linux__) || defined(__unix__)
-            int e = tcgetattr(*d, (struct termios*) a);
+            e = tcgetattr(*d, (struct termios*) a);
 #elif defined(__APPLE__) && defined(__MACH__)
-            int e = tcgetattr(*d, (struct termios*) a);
+            e = tcgetattr(*d, (struct termios*) a);
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    //?? Port to Win32
+            // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif

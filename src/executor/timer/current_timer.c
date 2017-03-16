@@ -28,11 +28,16 @@
 
 #include <time.h>
 
-#ifdef __APPLE__
-#include <mach/clock.h>
-#include <mach/mach.h>
+#if defined(__linux__) || defined(__unix__)
+#elif defined(__APPLE__) && defined(__MACH__)
+    #include <mach/clock.h>
+    #include <mach/mach.h>
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+    // Empty.
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
-
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
@@ -60,25 +65,30 @@ void time_current(void* p0) {
         // CAUTION! In the GNU C Library, time_t is equivalent to long int.
         //*t = time((time_t*) *NULL_POINTER_STATE_CYBOI_MODEL) / 1000;
 
+#if defined(__linux__) || defined(__unix__)
+        struct timespec start;
+
+        clock_gettime(CLOCK_MONOTONIC_RAW, &start);
+
+        //*t = (start.tv_sec) * 1000000;
+        *t = (start.tv_nsec) / 1000;
+        //*t = (start.tv_sec) * 1000000 + (start.tv_nsec) / 1000;
+#elif defined(__APPLE__) && defined(__MACH__)
+        clock_serv_t cclock;
+        mach_timespec_t mts;
+
+        host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
         // OS X does not have clock_gettime, use clock_get_time
-        #ifdef __APPLE__
+        clock_get_time(cclock, &mts);
+        mach_port_deallocate(mach_task_self(), cclock);
 
-            clock_serv_t cclock;
-            mach_timespec_t mts;
-            host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
-            clock_get_time(cclock, &mts);
-            mach_port_deallocate(mach_task_self(), cclock);
-            *t = (mts.tv_nsec) / 1000;
-
-        #else
-
-            struct timespec start;
-            clock_gettime(CLOCK_MONOTONIC_RAW, &start);
-            //*t = (start.tv_sec) * 1000000;
-            *t = (start.tv_nsec) / 1000;
-            //*t = (start.tv_sec) * 1000000 + (start.tv_nsec) / 1000;
-
-        #endif
+        *t = (mts.tv_nsec) / 1000;
+// Use __CYGWIN__ too, if _WIN32 is not known to mingw.
+#elif defined(_WIN32) || defined(__CYGWIN__)
+        // Empty.
+#else
+    #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
+#endif
 
     } else {
 

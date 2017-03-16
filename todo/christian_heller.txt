@@ -11,25 +11,26 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Stack
-_____
-
-        * Check if there is an issue with looping and branching, so that only sequence works with stack variables
-
-        CAUTION! The following does not function yet (example "counter_stack_deep") -- test why
-        (probably, this is an old problem not existing anymore; it was caused by creating stack variables inside instead of outside the part element)
-        * Replace function call "handle_properties" with "append_item_element" in file "part_handler.c"
-        * Hand over properties as array and let array functions inside care about looping and copying
-        * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
-
 Clone
 _____
 
         * Complete cloning functionality in directory "executor/modifier/copier/"
+        (File "copier.c" is already DONE)
+        * Hand over deep copying flag to function "copy_array_backward" where it is currently set to "false" by default, and adapt all source code
         * Hand over deep copying flag to function "copy_array_forward" where it is currently set to "false" by default, and adapt all source code
         * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
         * Verify correct execution of cybol example application "copier"
         * Test for memory leaks with valgrind
+
+Stack
+_____
+
+        CAUTION! The following will (might) ONLY work, once the deep copying is activated (see above)!
+        * Use example "counter_stack_deep" for testing
+        (probably, this is an old problem not existing anymore; it was caused by creating stack variables inside instead of outside the part element)
+        * Replace function call "handle_properties" with "append_item_element" in file "part_handler.c"
+        * Hand over properties as array and let array functions inside care about looping and copying
+        * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
 
 Logger
 ______

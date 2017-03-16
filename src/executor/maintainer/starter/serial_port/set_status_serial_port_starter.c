@@ -27,17 +27,17 @@
 #define SET_STATUS_SERIAL_PORT_STARTER_SOURCE
 
 #if defined(__linux__) || defined(__unix__)
-#include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
+    #include <stdio.h>
+    #include <sys/ioctl.h>
+    #include <termios.h>
 #elif defined(__APPLE__) && defined(__MACH__)
     //?? Check for Apple - maybe some problems in the library
-#include <stdio.h>
-#include <sys/ioctl.h>
-#include <termios.h>
+    #include <stdio.h>
+    #include <sys/ioctl.h>
+    #include <termios.h>
 // Use __CYGWIN__ too, if _WIN32 is not known to mingw.
 #elif defined(_WIN32) || defined(__CYGWIN__)
-    //?? TODO
+    // Empty.
 #else
     #error "Could not compile system. The operating system is not supported. Check out defined preprocessor macros!"
 #endif
@@ -68,6 +68,7 @@ void startup_serial_port_status_set(void* p0, void* p1) {
 
             log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Startup serial port status set.");
 
+#ifndef _WIN32
             // Turn on DTR.
             *s |= TIOCM_DTR;
             // Turn on RTS.
@@ -83,6 +84,7 @@ void startup_serial_port_status_set(void* p0, void* p1) {
 
                 log_message_terminated((void*) WARNING_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not startup serial port status set. Could not set serial port status.");
             }
+#endif
 
         } else {
 
