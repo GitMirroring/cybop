@@ -15,9 +15,9 @@ Clone
 _____
 
         * THINK through first:
-            - copying: only allow deep copying, NOT shallow --> this avoids multiple pointers to one model and potential troubles with GC
+            - overwrite/copy: only allow deep copying, NOT shallow --> this avoids multiple pointers to one model and potential troubles with GC
             - e.g. primitive models like an integer are always copied by VALUE and models of type "element/part" are always copied DEEP with their whole subtree
-            - moving: it is not very efficient to handle this as: deep copy source model to destination + remove source, in case there is a large sub tree hanging on it
+            - move: it is not very efficient to handle this as: deep copy source model to destination + remove source, in case there is a large sub tree hanging on it
             - therefore, as alternative, moving is using SHALLOW copying INSIDE
             --> reflect on how to offer this as cybol operation
             - then first adapt cybol operations in "applicator/modify/"
