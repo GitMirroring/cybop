@@ -208,11 +208,12 @@ void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* 
  * @param p0 the destination array
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the source index
+ * @param p3 the deep copying flag
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the source index
  */
-void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
+void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
 
     // CAUTION! These null pointer comparisons are IMPORTANT, in order to
     // avoid a system crash if one or both of the two arrays are null!
@@ -231,10 +232,10 @@ void copy_array_backward(void* p0, void* p1, void* p2, void* p3, void* p4, void*
             void* d = p0;
             void* s = p1;
 
-            add_offset((void*) &d, p2, p4);
-            add_offset((void*) &s, p2, p5);
+            add_offset((void*) &d, p2, p5);
+            add_offset((void*) &s, p2, p6);
 
-            copy_array_elements_backward(d, s, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3);
+            copy_array_elements_backward(d, s, p2, p3, p4);
 
         } else {
 

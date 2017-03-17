@@ -141,7 +141,9 @@ void insert_array_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void*
                     // overlapping array elements might get overwritten!
                     // CAUTION! Call this function AFTER having resized the array
                     // since otherwise, it might not be big enough and elements be cut.
-                    copy_array_backward(*d, *d, p2, (void*) &c, (void*) &i, p4);
+                    // CAUTION! Set the deep copying flag to FALSE here, since
+                    // only POINTERS are to be moved, but NOT sub trees copied.
+                    copy_array_backward(*d, *d, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) &i, p4);
 
                     // Copy source to destination.
                     copy_array_forward(*d, p1, p2, p3, p4, p5);
