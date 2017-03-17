@@ -108,7 +108,7 @@ fwprintf(stdout, L"TEST reference part *rd: %i\n", *((int*) rd));
         if (res != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
             log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not reference part. The references data is negative.");
-            fwprintf(stdout, L"Could not reference part. The references data is negative *rd: %i\n", *((int*) rd));
+            fwprintf(stdout, L"Error: Could not reference part. The references data is negative *rd: %i\n", *((int*) rd));
         }
     }
 }

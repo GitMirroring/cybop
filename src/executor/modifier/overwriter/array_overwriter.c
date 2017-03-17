@@ -182,10 +182,10 @@ void overwrite_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5,
             // since afterwards, they are not reachable anymore from the destination.
             // CAUTION! Use the overwritten elements count and
             // NOT the count handed over as parametre p3 here!
-            // CAUTION! The overwritten elements count might be negative,
+            // CAUTION! The overwritten elements count oc might be negative,
             // e. g. if the destination index is greater than
             // the original destination array count.
-            // However, this case is tested for in the called function.
+            // However, this case was already handled further above.
             reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p4, p2);
 
             // Copy source to destination.
