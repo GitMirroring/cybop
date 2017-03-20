@@ -23,6 +23,10 @@ _____
             - then first adapt cybol operations in "applicator/modify/"
             - only afterwards (when it is clear how moving gets handled) continue with adapting function "copy_array_forward" below
 
+        * Provide "move" flag as parametre in functions "overwrite" and "insert"
+        * Hand over destination AND source as pointer reference void** ??
+            --> in case they need to get copied shallow (as pointer) ??
+
         * Complete cloning functionality in directory "executor/modifier/copier/" (File "copier.c" is already DONE)
         * Hand over deep copying flag to function "copy_array_forward" in file "array_copier.c" where it is currently set to "false" by default, and adapt all source code
         * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
