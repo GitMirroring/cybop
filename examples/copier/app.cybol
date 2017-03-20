@@ -7,8 +7,6 @@
     <node name="flag" channel="inline" format="logicvalue/boolean" model="false"/>
 
     <node name="clone_shallow" channel="inline" format="number/integer" model="0"/>
-<!--
     <node name="clone_deep" channel="inline" format="element/part" model=""/>
--->
 
 </node>

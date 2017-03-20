@@ -14,18 +14,19 @@
 Clone
 _____
 
+        * Provide "move" flag as property in cybol operations "overwrite", "append", "insert"
         * THINK through first:
             - overwrite/copy: only allow deep copying, NOT shallow --> this avoids multiple pointers to one model and potential troubles with GC
             - e.g. primitive models like an integer are always copied by VALUE and models of type "element/part" are always copied DEEP with their whole subtree
             - move: it is not very efficient to handle this as: deep copy source model to destination + remove source, in case there is a large sub tree hanging on it
             - therefore, as alternative, moving is using SHALLOW copying INSIDE
-            --> reflect on how to offer this as cybol operation
-            - then first adapt cybol operations in "applicator/modify/"
-            - only afterwards (when it is clear how moving gets handled) continue with adapting function "copy_array_forward" below
-
-        * Provide "move" flag as parametre in functions "overwrite" and "insert"
-        * Hand over destination AND source as pointer reference void** ??
-            --> in case they need to get copied shallow (as pointer) ??
+            - add an optional property "move" as boolean to cybol operations "overwrite", "append", "insert"
+            - when move is true, then use SHALLOW copy, otherwise DEEP copy (default)
+            - the pointers are references in both cases (already checked), so no problem
+            - only child nodes are copied/moved, NOT the parent node
+            - however, the destination node always has to exist already
+            - then adapt cybol operations in "applicator/modify/"
+            - afterwards, continue with adapting function "copy_array_forward" below
 
         * Complete cloning functionality in directory "executor/modifier/copier/" (File "copier.c" is already DONE)
         * Hand over deep copying flag to function "copy_array_forward" in file "array_copier.c" where it is currently set to "false" by default, and adapt all source code

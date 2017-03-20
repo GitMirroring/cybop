@@ -43,6 +43,9 @@
  * - destination (required): the destination part
  * - source (required): the source part
  * - type (required): the type of data
+ * - move (optional; if null, deep copying will be used by default):
+ *   the flag indicating whether or not to use deep copying;
+ *   move == true means SHALLOW copy; move == false means DEEP copy
  * - count (optional; if null, the source part model count will be used instead):
  *   the number of elements to be overwritten
  * - destination_index (optional; if null, an index of zero will be used instead):
