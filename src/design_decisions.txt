@@ -599,3 +599,19 @@ Reasons:
   but this would be improper, blow up source code and make it dirty
 - it just does not feel right or necessary
 
+Container Operations
+____________________
+
+- overwrite/copy: only allow deep copying, NOT shallow --> this avoids multiple pointers to one model and potential troubles with GC
+- e.g. primitive models like an integer are always copied by VALUE and models of type "element/part" are always copied DEEP with their whole subtree
+- move: it is not very efficient to handle this as: deep copy source model to destination + remove source, in case there is a large sub tree hanging on it
+
+- therefore, as alternative, moving is using SHALLOW copying INSIDE
+- add an optional property "move" as boolean to cybol operations "overwrite", "append", "insert"
+- when move is true, then use SHALLOW copy, otherwise DEEP copy (default)
+- the pointers are references in both cases (already checked), so no problem
+
+- only child nodes are copied/moved, NOT the parent node
+- however, the destination node always has to exist already
+- then adapt cybol operations in "applicator/modify/"
+

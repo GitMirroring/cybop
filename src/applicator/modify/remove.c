@@ -46,8 +46,6 @@
  * - index (optional; if null, the index of the LAST element will be used instead):
  *   the index from where to start removing elements from
  *
- * Constraints:
- *
  * @param p0 the parametres data
  * @param p1 the parametres count
  * @param p2 the knowledge memory part (pointer reference)
@@ -58,50 +56,50 @@ void apply_remove(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply remove.");
 
-    // The part.
+    // The part part.
     void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The part type, model.
-    void* pa = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part part type, model item.
+    void* pt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model.
+    // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model.
+    // The index part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The part type data, model count.
-    void* pad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The part part type, model item data, count.
+    void* ptd = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* pmc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model data.
+    // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model data.
+    // The index part model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get part.
+    // Get part part.
     get_part_name((void*) &p, p0, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
     get_part_name((void*) &c, p0, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get index part.
     get_part_name((void*) &i, p0, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
-    // Get part type, model.
-    copy_array_forward((void*) &pa, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    // Get part part type, model item.
+    copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pm, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get count part model.
+    // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    // Get index part model.
+    // Get index part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get part type data, model count.
-    copy_array_forward((void*) &pad, pa, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get part part type, model item data, count.
+    copy_array_forward((void*) &ptd, pt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &pmc, pm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get count part model data.
+    // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get index part model data.
+    // Get index part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The default values.
@@ -124,7 +122,7 @@ void apply_remove(void* p0, void* p1, void* p2, void* p3, void* p4) {
     copy_integer((void*) &index, imd);
 
     // Remove elements from part.
-    remove_part(p, pad, (void*) &count, (void*) &index);
+    remove_part(p, ptd, (void*) &count, (void*) &index);
 }
 
 /* REMOVE_SOURCE */

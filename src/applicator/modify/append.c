@@ -34,6 +34,7 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/modifier/appender/part_appender.c"
+#include "../../executor/modifier/remover/part_remover.c"
 #include "../../logger/logger.c"
 
 /**
@@ -43,12 +44,15 @@
  * - destination (required): the destination part
  * - source (required): the source part
  * - type (required): the operand type which is equal for both operands
+ * - move (optional; if null, deep copying will be used by default):
+ *   the flag indicating whether or not to remove source elements after having been copied;
+ *   true = SHALLOW copy; false = DEEP copy;
+ *   when moving elements, a shallow copy of the pointer suffices;
+ *   when copying elements, then their whole sub tree needs to be cloned as deep copy
  * - count (optional; if null, the source part model count will be used instead):
  *   the number of elements to be appended
  * - index (optional; if null, an index of zero will be used instead):
  *   the source index from which to start copying elements from
- *
- * Constraints:
  *
  * @param p0 the parametres data
  * @param p1 the parametres count
@@ -65,28 +69,40 @@ void apply_append(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // The source part.
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part.
-    void* a = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The move part.
+    void* m = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part.
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part.
     void* i = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model item.
+    // The destination part type item.
+    void* dt = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type, model item.
+    void* st = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The type part model item.
-    void* am = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* tm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The move part model item.
+    void* mm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The count part model item.
     void* cm = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The index part model item.
     void* im = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // The source part model item count.
+    // The destination part type item data.
+    void* dtd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The source part type, model item data, count.
+    void* std = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* smc = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The type part model item data, count.
-    void* amd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The count part model item data, count.
+    // The type part model item data.
+    void* tmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The move part model item data.
+    void* mmd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    // The count part model item data.
     void* cmd = *NULL_POINTER_STATE_CYBOI_MODEL;
-    // The index part model item data, count.
+    // The index part model item data.
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
@@ -94,7 +110,9 @@ void apply_append(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get source part.
     get_part_name((void*) &s, p0, (void*) SOURCE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SOURCE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get type part.
-    get_part_name((void*) &a, p0, (void*) TYPE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME, (void*) TYPE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &t, p0, (void*) TYPE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME, (void*) TYPE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    // Get move part.
+    get_part_name((void*) &m, p0, (void*) MOVE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME, (void*) MOVE_APPEND_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
     get_part_name((void*) &c, p0, (void*) COUNT_APPEND_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_APPEND_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get index part.
@@ -103,19 +121,26 @@ void apply_append(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get type part model item.
-    copy_array_forward((void*) &am, a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &tm, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    // Get move part model item.
+    copy_array_forward((void*) &mm, m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get count part model item.
     copy_array_forward((void*) &cm, c, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
     // Get index part model item.
     copy_array_forward((void*) &im, i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 
-    // Get source part model item count.
+    // Get destination part type item data.
+    copy_array_forward((void*) &dtd, dt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get source part type, model item data, count.
+    copy_array_forward((void*) &std, st, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     copy_array_forward((void*) &smc, sm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
-    // Get type part model item data, count.
-    copy_array_forward((void*) &amd, am, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get count part model item data, count.
+    // Get type part model item data.
+    copy_array_forward((void*) &tmd, tm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get move part model item data.
+    copy_array_forward((void*) &mmd, mm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    // Get count part model item data.
     copy_array_forward((void*) &cmd, cm, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-    // Get index part model item data, count.
+    // Get index part model item data.
     copy_array_forward((void*) &imd, im, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The default values.
@@ -134,8 +159,67 @@ void apply_append(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Use the explicit index that was given as parametre.
     copy_integer((void*) &index, imd);
 
-    // Append the source- to the destination part.
-    append_part(d, s, amd, (void*) &count, (void*) &index);
+    //
+    // CAUTION! The following comparisons ARE IMPORTANT.
+    //
+    // If a wrong knowledge path is given, e.g. with non-existing node-names,
+    // then a cybol operation might write data into a wrong destination,
+    // e.g. source data of format "text/plain" (type wide character)
+    // into a destination of format "element/part" (type pointer).
+    //
+    // Therefore, the destination- and source type
+    // as well as the given type property are compared here.
+    //
+
+    if (*((int*) dtd) == *((int*) std)) {
+
+        if (*((int*) dtd) == *((int*) tmd)) {
+
+            // The comparison result.
+            int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+            compare_integer_unequal((void*) &r, mmd, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+
+            // CAUTION! Do NOT easily change the compare logic here.
+            // The "move" flag might be null, since it is optional.
+            // Comparison ignores null values inside,
+            // so that the comparison result remains unchanged.
+            if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+                // The "move" flag is NOT set.
+                // Therefore, the source gets DEEP copied to the destination.
+
+                // Append the source- to the destination part as DEEP copy.
+                append_part(d, s, tmd, (void*) &count, (void*) &index);
+
+            } else {
+
+                // The "move" flag IS set.
+                // Therefore, the source gets SHALLOW copied to the destination,
+                // i.e. only pointers/references to its child nodes get copied.
+                // Afterwards, the source elements get REMOVED,
+                // i.e. only pointers/references, but not allocated memory.
+                // This is no problem, since the destination now holds
+                // pointers/references to the original child nodes.
+
+                // Append the source- to the destination part as SHALLOW copy.
+                append_part(d, s, tmd, (void*) &count, (void*) &index);
+
+                // Remove elements from source part.
+                remove_part(s, std, (void*) &count, (void*) &index);
+            }
+
+        } else {
+
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply append. The destination type and given type are different.");
+            fwprintf(stdout, L"ERROR: Could not apply append. The destination type: %i and given type: %i are different.\n", *((int*) dtd), *((int*) tmd));
+        }
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply append. The destination type and source type are different.");
+        fwprintf(stdout, L"ERROR: Could not apply append. The destination type: %i and source type: %i are different.\n", *((int*) dtd), *((int*) std));
+    }
 }
 
 /* APPEND_SOURCE */

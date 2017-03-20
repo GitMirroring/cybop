@@ -18,10 +18,14 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-20  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Provide "move" flag as property in cybol operations "overwrite", "append", "insert"
+
 2017-03-17  Christian Heller  <christian.heller@tuxtax.de>
 
         * Hand over deep copying flag to function "copy_array_backward" and adapt all source code
-        * Remove superfluous file "applicator/modify/build.c"
+        * Remove superfluous files "applicator/modify/build.c" and "build_modification_logic_cybol_name.c"
 
 2017-03-16  Christian Heller  <christian.heller@tuxtax.de>
 
