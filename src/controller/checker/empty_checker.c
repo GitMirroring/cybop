@@ -37,7 +37,6 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/checker/irq/irq_checker.c"
 #include "../../controller/checker/wait_checker.c"
-#include "../../controller/handler.c"
 #include "../../logger/logger.c"
 
 /**

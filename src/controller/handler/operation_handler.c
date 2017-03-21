@@ -91,12 +91,7 @@
 #include "../../applicator/manipulate/manipulate.c"
 #include "../../applicator/memorise/create.c"
 #include "../../applicator/memorise/destroy.c"
-#include "../../applicator/modify/append.c"
-#include "../../applicator/modify/empty.c"
-#include "../../applicator/modify/fill.c"
-#include "../../applicator/modify/insert.c"
-#include "../../applicator/modify/overwrite.c"
-#include "../../applicator/modify/remove.c"
+#include "../../applicator/modify/modify.c"
 #include "../../applicator/randomise/retrieve.c"
 #include "../../applicator/randomise/sow.c"
 #include "../../applicator/represent/deserialise.c"
@@ -1253,7 +1248,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_append(p0, p1, p3, p4, p2);
+            apply_modify(p0, p1, p3, p4, p2, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -1263,7 +1258,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_empty(p0, p1, p3, p4, p2);
+            apply_modify(p0, p1, p3, p4, p2, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -1273,7 +1268,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_fill(p0, p1, p3, p4, p2);
+            apply_modify(p0, p1, p3, p4, p2, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -1283,7 +1278,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_insert(p0, p1, p3, p4, p2);
+            apply_modify(p0, p1, p3, p4, p2, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -1293,7 +1288,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_overwrite(p0, p1, p3, p4, p2);
+            apply_modify(p0, p1, p3, p4, p2, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 
@@ -1303,7 +1298,7 @@ void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            apply_remove(p0, p1, p3, p4, p2);
+            apply_modify(p0, p1, p3, p4, p2, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
         }
     }
 

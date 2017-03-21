@@ -36,7 +36,6 @@
 #include "../../executor/modifier/appender/item_appender.c"
 #include "../../executor/modifier/copier/array_copier.c"
 #include "../../executor/modifier/copier/part_copier.c"
-#include "../../executor/modifier/overwriter/part_overwriter.c"
 #include "../../logger/logger.c"
 
 /**

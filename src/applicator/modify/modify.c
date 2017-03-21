@@ -295,6 +295,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply modify. The destination type and source type are different.");
         fwprintf(stdout, L"ERROR: Could not apply modify. The destination type: %i and source type: %i are different.\n", *((int*) dtd), *((int*) std));
     }
+*/
 }
 
 /* MODIFY_SOURCE */

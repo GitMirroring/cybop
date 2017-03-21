@@ -39,7 +39,7 @@
 // Forward declarations.
 //
 
-void empty_array(void* p0, void* p1, void* p2, void* p3, void* p4);
+void modify_empty(void* p0, void* p1, void* p2, void* p3, void* p4);
 
 /**
  * Deallocates the array.
@@ -75,7 +75,7 @@ void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
             // in order to decrement the reference count
             // for each element with type "element/part",
             // for rubbish (garbage) collection.
-            empty_array(p0, p3, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            modify_empty(p0, p3, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             // This function may cause an error if some wrong pointer
             // is forwarded to it as argument.
