@@ -65,16 +65,6 @@ static wchar_t* APPEND_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/append";
 static int* APPEND_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_13_INTEGER_STATE_CYBOI_MODEL_ARRAY;
 
 /**
- * The modify/build logic cybol format.
- *
- * Build a list name.
- *
- * This is a CYBOL extension.
- */
-static wchar_t* BUILD_MODIFY_LOGIC_CYBOL_FORMAT = L"modify/build";
-static int* BUILD_MODIFY_LOGIC_CYBOL_FORMAT_COUNT = NUMBER_12_INTEGER_STATE_CYBOI_MODEL_ARRAY;
-
-/**
  * The modify/empty logic cybol format.
  *
  * Empty all data.

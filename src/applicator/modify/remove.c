@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/modification/remove_modification_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/modification/modification_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/modifier/remover/part_remover.c"
@@ -80,11 +80,11 @@ void apply_remove(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* imd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get part part.
-    get_part_name((void*) &p, p0, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) PART_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &p, p0, (void*) DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
-    get_part_name((void*) &c, p0, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) COUNT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get index part.
-    get_part_name((void*) &i, p0, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) INDEX_REMOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &i, p0, (void*) DESTINATION_INDEX_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get part part type, model item.
     copy_array_forward((void*) &pt, p, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);

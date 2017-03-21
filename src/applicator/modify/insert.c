@@ -30,7 +30,7 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../constant/name/cybol/logic/modification/insert_modification_logic_cybol_name.c"
+#include "../../constant/name/cybol/logic/modification/modification_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../executor/modifier/inserter/part_inserter.c"
@@ -114,19 +114,19 @@ void apply_insert(void* p0, void* p1, void* p2, void* p3, void* p4) {
     void* simd = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part.
-    get_part_name((void*) &d, p0, (void*) DESTINATION_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &d, p0, (void*) DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get source part.
-    get_part_name((void*) &s, p0, (void*) SOURCE_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SOURCE_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &s, p0, (void*) SOURCE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SOURCE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get type part.
-    get_part_name((void*) &t, p0, (void*) TYPE_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) TYPE_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &t, p0, (void*) TYPE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) TYPE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get move part.
-    get_part_name((void*) &m, p0, (void*) MOVE_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) MOVE_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &m, p0, (void*) MOVE_MODIFICATION_LOGIC_CYBOL_NAME, (void*) MOVE_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get count part.
-    get_part_name((void*) &c, p0, (void*) COUNT_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &c, p0, (void*) COUNT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) COUNT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get destination index part.
-    get_part_name((void*) &di, p0, (void*) DESTINATION_INDEX_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_INDEX_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &di, p0, (void*) DESTINATION_INDEX_MODIFICATION_LOGIC_CYBOL_NAME, (void*) DESTINATION_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
     // Get source index part.
-    get_part_name((void*) &si, p0, (void*) SOURCE_INDEX_INSERT_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SOURCE_INDEX_INSERT_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
+    get_part_name((void*) &si, p0, (void*) SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME, (void*) SOURCE_INDEX_MODIFICATION_LOGIC_CYBOL_NAME_COUNT, p1, p2, p3, p4);
 
     // Get source part model item.
     copy_array_forward((void*) &sm, s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
