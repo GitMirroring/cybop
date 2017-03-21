@@ -46,16 +46,18 @@
  * name, type, model, properties.
  *
  * @param p0 the destination part
- * @param p1 the source data array
+ * @param p1 the source array
  * @param p2 the type
  * @param p3 the count
  * @param p4 the destination part index
- * @param p5 the source data array index
+ * @param p5 the source array index
  * @param p6 the adjust count flag
- * @param p7 the destination part element index
+ * @param p7 the model flag
+ * @param p8 the properties flag
+ * @param p9 the operation type
+ * @param p10 the destination part element index
  */
-/*??
-void modify_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void modify_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify part element.");
 
@@ -63,12 +65,11 @@ void modify_part_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination part element.
-    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p7);
+    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p10);
 
     // Modify item as element of the part container.
-    modify_item_element(e, p1, p2, p3, p4, p5, p6, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    modify_item_element(e, p1, p2, p3, p4, p5, p6, p7, p8, p9, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
-*/
 
 /**
  * Modifies the destination- with the source part.

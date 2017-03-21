@@ -21,7 +21,7 @@
 2017-03-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Merge container functionality "overwrite", "append", "insert", "remove", "empty", "fill" into cybol operation "modify"
-        * Clean up directories "applicator/modify/" and "executor/modifier/"
+        * Clean up directory "applicator/modify/"
 
 2017-03-20  Christian Heller  <christian.heller@tuxtax.de>
 

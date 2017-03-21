@@ -14,8 +14,9 @@
 Clone
 _____
 
-        * Merge container functionality "overwrite", "append", "insert", "remove", "empty", "fill" into cybol operation "modify"
-        * Clean up directories "applicator/modify/" and "executor/modifier/"
+        * Clean up directory "executor/modifier/"
+        * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
+        * Reintroduce type comparisons in file "applicator/modify/modify.c"
         * Adapt function calls at end of cybol operations in "applicator/" by forwarding property "move" as boolean value to "executor/" functions
 
         * Complete cloning functionality in directory "executor/modifier/copier/" (File "copier.c" is already DONE)

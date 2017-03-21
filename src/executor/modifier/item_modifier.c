@@ -53,10 +53,12 @@
  * @param p4 the destination item index
  * @param p5 the source array index
  * @param p6 the adjust count flag
- * @param p7 the destination item element index
+ * @param p7 the model flag
+ * @param p8 the properties flag
+ * @param p9 the operation type
+ * @param p10 the destination item element index
  */
-/*??
-void modify_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void modify_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify item element.");
 
@@ -64,12 +66,12 @@ void modify_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
     void* e = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get destination item element.
-    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p7);
+    copy_array_forward((void*) &e, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p10);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-    compare_integer_equal((void*) &r, p7, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    compare_integer_equal((void*) &r, p10, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -85,7 +87,7 @@ void modify_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
 
         // Modify array as element of the item container.
         // Since this is a data item element, the count and size are set inside.
-        modify_array((void*) &e, p1, p2, p3, p4, p5, c, s, p6);
+        modify_array((void*) &e, p1, p2, p3, p4, p5, c, s, p6, p7, p8, p9);
 
         // Set data array as element of the item container.
         // CAUTION! This IS NECESSARY, because reallocation may have happened
@@ -102,10 +104,9 @@ void modify_item_element(void* p0, void* p1, void* p2, void* p3, void* p4, void*
         // CAUTION! It never gets reallocated, since count and size
         // are integer primitives. Setting the count array or size array
         // as element of the item container is therefore not necessary.
-        modify_array((void*) &e, p1, p2, p3, p4, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+        modify_array((void*) &e, p1, p2, p3, p4, p5, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6, p7, p8, p9);
     }
 }
-*/
 
 /**
  * Modifies the destination- with the source item.
