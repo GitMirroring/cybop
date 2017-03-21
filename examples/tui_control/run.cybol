@@ -10,6 +10,7 @@
     </node>
 
     <!-- Write knowledge tree into file. -->
+<!--
     <node name="TEST" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -18,6 +19,7 @@
         <node name="message" channel="inline" format="text/cybol-path" model="."/>
         <node name="receiver" channel="inline" format="text/plain" model="test_tui_control.txt"/>
     </node>
+-->
 
     <node name="startup" channel="inline" format="text/cybol-path" model=".logic.lifecycle.startup"/>
 

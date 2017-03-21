@@ -14,7 +14,7 @@
 Clone
 _____
 
-        * Get cybol example application "tui_control" run again (memory access error)
+        * Make cybol example application "tui_control" run again (memory access error)
         * Adapt function calls at end of cybol operations "overwrite", "append", "insert" in "applicator/" by forwarding property "move" as boolean value to "executor/" functions
 
         * Complete cloning functionality in directory "executor/modifier/copier/" (File "copier.c" is already DONE)
