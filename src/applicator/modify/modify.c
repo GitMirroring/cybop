@@ -265,7 +265,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                 // Therefore, the source gets DEEP copied to the destination.
 
                 // Overwrite the destination- with the source part as DEEP copy.
-                overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
+                modify_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
 
             } else {
 
@@ -278,7 +278,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                 // pointers/references to the original child nodes.
 
                 // Overwrite the destination- with the source part as SHALLOW copy.
-                overwrite_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
+                modify_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
 
                 // Remove elements from source part.
                 remove_part(s, std, (void*) &count, (void*) &source_index);

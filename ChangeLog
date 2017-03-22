@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-22  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up directories "executor/modifier/filler/", "executor/modifier/overwriter/"
+
 2017-03-21  Christian Heller  <christian.heller@tuxtax.de>
 
         * Merge container functionality "overwrite", "append", "insert", "remove", "empty", "fill" into cybol operation "modify"

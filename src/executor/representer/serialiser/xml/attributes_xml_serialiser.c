@@ -33,7 +33,6 @@
 #include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/modifier/overwriter/array_overwriter.c"
 #include "../../../../executor/representer/serialiser/xml/attribute_xml_serialiser.c"
 #include "../../../../logger/logger.c"
 

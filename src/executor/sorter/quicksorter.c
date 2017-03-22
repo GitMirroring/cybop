@@ -28,9 +28,10 @@
 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/memoriser/allocator/item_allocator.c"
-#include "../../executor/runner/executor.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/memoriser/allocator/item_allocator.c"
+#include "../../executor/modifier/overwrite_modifier.c"
+#include "../../executor/runner/executor.c"
 #include "../../variable/reallocation_factor.c"
 
 /*
@@ -92,7 +93,7 @@ fwprintf(stdout, L"TEST quick *omd: %i\n", *((int*) omd));
 fwprintf(stdout, L"TEST quick **omd: %i\n", **((int**) omd));
 
     // Fill destination array in order to preserve input array values.
-    overwrite_array(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_overwrite(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
 fwprintf(stdout, L"TEST quick oms: %i\n", oms);
 fwprintf(stdout, L"TEST quick *oms: %i\n", *((int*) oms));

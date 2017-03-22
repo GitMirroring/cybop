@@ -34,7 +34,6 @@
 #include "../../executor/converter/decoder/utf/utf_16_decoder.c"
 #include "../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../executor/converter/decoder/windows/windows_decoder.c"
-#include "../../executor/modifier/overwriter/item_overwriter.c"
 #include "../../logger/logger.c"
 
 /**

@@ -33,10 +33,10 @@
 #include "../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/integer_copier.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../executor/memoriser/size_determiner.c"
+#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/modifier/copier/integer_copier.c"
 #include "../../executor/referencer/referencer.c"
 // CAUTION! Do NOT include the logger here.
 // It uses functions causing circular references.

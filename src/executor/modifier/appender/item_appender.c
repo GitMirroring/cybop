@@ -29,12 +29,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
-#include "../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -68,7 +69,7 @@ void append_item_element(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Append source- to destination item data array.
     // CAUTION! Use destination item count as destination index.
     // CAUTION! Set adjust count flag, since destination gets extended by append.
-    overwrite_item_element(p0, p1, p2, p3, c, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    modify_item_element(p0, p1, p2, p3, c, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
 /**
@@ -96,7 +97,7 @@ void append_item(void* p0, void* p1, void* p2, void* p3, void* p4) {
     // Append source- to destination item data array.
     // CAUTION! Use destination item count as destination index.
     // CAUTION! Set adjust count flag, since destination gets extended by append.
-    overwrite_item(p0, p1, p2, p3, dc, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_item(p0, p1, p2, p3, dc, p4, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* ITEM_APPENDER_SOURCE */

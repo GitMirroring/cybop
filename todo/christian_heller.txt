@@ -16,6 +16,9 @@ _____
 
         * Clean up directory "executor/modifier/"
         * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
+        * Merge "modify_item_element" and "modify_item" ??
+        * Merge "modify_part_element" and "modify_part" ??
+
         * Reintroduce type comparisons in file "applicator/modify/modify.c"
         * Adapt function calls at end of cybol operations in "applicator/" by forwarding property "move" as boolean value to "executor/" functions
 

@@ -33,7 +33,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/filler/item_filler.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -80,7 +80,7 @@ fwprintf(stdout, L"TEST deserialise cybol byte *id: %i\n", *((int*) id));
     // CAUTION! This IS NECESSARY in order to ensure that
     // source- and destination have an equal count of elements.
     // Otherwise, the elements will not be casted.
-    fill_item(p0, (void*) &c, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_item_element(p0, (void*) &c, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Cast all source- into destination array elements.
     // CAUTION! Assigning the destination array to the destination item

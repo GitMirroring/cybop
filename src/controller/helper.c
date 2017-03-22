@@ -32,7 +32,7 @@
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../executor/memoriser/allocator/array_allocator.c"
 #include "../executor/memoriser/deallocator/array_deallocator.c"
-#include "../executor/modifier/overwriter/array_overwriter.c"
+#include "../executor/modifier/overwrite_modifier.c"
 
 /**
  * Writes cyboi help message to given output stream.
@@ -55,11 +55,11 @@ void help(void* p0) {
     allocate_array((void*) &m, (void*) &ms, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Copy message.
-    overwrite_array((void*) &m, (void*) HELP_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_overwrite((void*) &m, (void*) HELP_IDENTIFICATION_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) HELP_IDENTIFICATION_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Copy line feed control wide character.
-    overwrite_array((void*) &m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_overwrite((void*) &m, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
     // Copy null termination wide character.
-    overwrite_array((void*) &m, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_overwrite((void*) &m, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &mc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &mc, (void*) &ms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Log message.
     log_write(p0, m);

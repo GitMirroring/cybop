@@ -36,7 +36,7 @@
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../executor/memoriser/size_determiner.c"
-#include "../../../executor/modifier/overwriter/array_overwriter.c"
+#include "../../../executor/modifier/copier/array_copier.c"
 #include "../../../logger/logger.c"
 
 /**

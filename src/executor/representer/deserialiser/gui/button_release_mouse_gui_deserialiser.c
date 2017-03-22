@@ -26,6 +26,7 @@
 #ifndef BUTTON_RELEASE_MOUSE_GUI_DESERIALISER_SOURCE
 #define BUTTON_RELEASE_MOUSE_GUI_DESERIALISER_SOURCE
 
+#include "../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
@@ -33,6 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/state/vector_state_cyboi_name.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -142,7 +144,7 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
                 // CAUTION! Do NOT assign action if it is null.
                 // However, this check is already implemented
                 // inside the called function.
-                overwrite_item_element(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                modify_item_element(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
                 // Process embedded parts recursively.
                 // CAUTION! Call this function ONLY for elements

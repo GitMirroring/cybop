@@ -27,6 +27,7 @@
 #define INITIALISER_SOURCE
 
 #include "../constant/encoding/cyboi/cyboi_encoding.c"
+#include "../constant/format/cyboi/logic_cyboi_format.c"
 #include "../constant/format/cyboi/state_cyboi_format.c"
 #include "../constant/language/cyboi/state_cyboi_language.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
@@ -38,7 +39,7 @@
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
 #include "../executor/modifier/appender/item_appender.c"
-#include "../executor/modifier/overwriter/part_overwriter.c"
+#include "../executor/modifier/part_modifier.c"
 #include "../logger/logger.c"
 
 /**
@@ -71,11 +72,11 @@ void initialise(void* p0, void* p1, void* p2) {
     // the actual model and properties are of interest.
 
     // Copy startup signal part format.
-    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FORMAT_PART_STATE_CYBOI_NAME);
+    modify_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) FORMAT_PART_STATE_CYBOI_NAME);
     // Copy startup signal part type.
     // CAUTION! Assigning the type IS ESSENTIAL for properly
     // deallocating the part and its child parts at shutdown.
-    overwrite_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    modify_part_element(s, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) TYPE_PART_STATE_CYBOI_NAME);
 
     // Get startup signal part model, properties.
     // CAUTION! Retrieve data ONLY AFTER having called desired functions!

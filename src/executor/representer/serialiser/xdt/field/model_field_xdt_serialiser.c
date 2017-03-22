@@ -26,13 +26,14 @@
 #ifndef MODEL_FIELD_XDT_SERIALISER_SOURCE
 #define MODEL_FIELD_XDT_SERIALISER_SOURCE
 
+#include "../../../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../../executor/modifier/overwriter/item_overwriter.c"
+#include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/ddmmyyyy/ddmmyyyy_datetime_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/mmyy/mmyy_datetime_xdt_serialiser.c"
 #include "../../../../../executor/representer/serialiser/xdt/datetime/qyyyy/qyyyy_datetime_xdt_serialiser.c"
@@ -167,7 +168,7 @@ void serialise_xdt_field_model(void* p0, void* p1, void* p2, void* p3) {
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            overwrite_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            modify_item_element(p0, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
