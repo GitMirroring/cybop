@@ -66,7 +66,8 @@
 #endif
 
 /**
- * Configure a network interface.
+ * Configures a network interface.
+ *
  * @param p0 resolve
  * @param p1 statistics
  * @param p2 version

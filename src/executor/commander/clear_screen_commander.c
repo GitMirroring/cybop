@@ -60,13 +60,11 @@
 #endif
 
 /**
-* Clear the screen.
-*
-*
-*/
+ * Clears the screen.
+ */
 void command_clear_screen() {
 
-    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command clear.");
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Command clear screen.");
 
     // The arguments item.
     void* arg = *NULL_POINTER_STATE_CYBOI_MODEL;
