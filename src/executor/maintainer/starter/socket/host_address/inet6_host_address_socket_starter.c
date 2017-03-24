@@ -50,7 +50,7 @@
 #include "../../../../../executor/converter/encoder/utf/utf_8_encoder.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
@@ -168,7 +168,7 @@ void startup_socket_host_address_inet6(void* p0, void* p1, void* p2) {
             encode_utf_8(t, p1, p2);
 
             // Add null termination character.
-            append_item_element(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            modify_item_element(t, (void*) NULL_ASCII_CHARACTER_CODE_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
             // Get terminated address item data.
             // CAUTION! Retrieve data ONLY AFTER having called desired functions!

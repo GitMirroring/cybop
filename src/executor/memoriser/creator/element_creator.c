@@ -32,7 +32,6 @@
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/modifier/appender/part_appender.c"
 #include "../../../executor/modifier/part_modifier.c"
 #include "../../../executor/representer/deserialiser/cybol/type_cybol_deserialiser.c"
 #include "../../../logger/logger.c"
@@ -98,7 +97,7 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
             // Append element (handed over as array reference) to whole model (being a part itself).
             // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
             // This is necessary in order to activate rubbish (garbage) collection.
-            append_part_element(p0, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+            modify_part_element(p0, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, p5);
 
         } else {
 
@@ -114,7 +113,7 @@ void create_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
             // Append element (handed over as array reference) to knowledge memory root model (being a part itself).
             // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
             // This is necessary in order to activate rubbish (garbage) collection.
-            append_part_element(*k, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5);
+            modify_part_element(*k, (void*) &e, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, p5);
         }
 
     } else {

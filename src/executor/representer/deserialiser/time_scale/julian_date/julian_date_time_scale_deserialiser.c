@@ -39,7 +39,7 @@
 #include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/modifier/copier/double_copier.c"
 #include "../../../../../logger/logger.c"
 

@@ -40,7 +40,7 @@
 #include "../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
@@ -218,8 +218,8 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                                 // they may have a special meaning.
 
                                 // Append source character to destination item.
-                                // append_item_element(p0, (void*) c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &n, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                                append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                                // modify_item_element(p0, (void*) c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                                modify_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
                                 // Increment character count.
                                 calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);
@@ -236,8 +236,8 @@ void read_serial_port_read(void* p0, void* p1, void* p2, void* p3, void* p4, voi
                                     // are appended to the destination as well.
 
                                     // Append source character to destination item.
-                                    // append_item_element(p0, (void*) c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &n, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
-                                    append_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                                    // modify_item_element(p0, (void*) c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &n, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                                    modify_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
                                     // Increment character count.
                                     calculate_integer_add(p5, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);

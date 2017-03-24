@@ -37,7 +37,7 @@
 #include "../../../../executor/converter/decoder/utf/utf_8_decoder.c"
 #include "../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../executor/modifier/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/cybol/cybol_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/part_gui_serialiser.c"

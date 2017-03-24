@@ -93,7 +93,7 @@ void serialise_cybol_complex_polar_element(void* p0, void* p1, void* p2) {
     set_complex_element(td, (void*) &a, (void*) IMAGINARY_COMPLEX_STATE_CYBOI_NAME);
 
     // Append complex to destination.
-    append_item_element(p0, td, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    modify_item_element(p0, td, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Deallocate temporary destination complex number.
     // CAUTION! The second argument "count" is NULL,

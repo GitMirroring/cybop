@@ -92,7 +92,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // Store variable values on stack memory (push).
     handle_properties(p2, p3, p6);
-//??    append_item_element(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p3, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+//??    modify_item_element(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 /*??
     //?? DELETE, only for testing!

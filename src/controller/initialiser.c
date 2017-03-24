@@ -38,7 +38,7 @@
 #include "../executor/communicator/receiver.c"
 #include "../executor/memoriser/allocator/part_allocator.c"
 #include "../executor/memoriser/deallocator/part_deallocator.c"
-#include "../executor/modifier/appender/item_appender.c"
+#include "../executor/modifier/item_modifier.c"
 #include "../executor/modifier/part_modifier.c"
 #include "../logger/logger.c"
 
@@ -115,7 +115,7 @@ void initialise(void* p0, void* p1, void* p2) {
     // After destruction, the second signal just points to null, which is ignored.
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
-    append_item_element(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    modify_item_element(p0, (void*) &s, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // The system is now started up and complete so that a loop
     // can be entered, checking for signals (events/ interrupts)

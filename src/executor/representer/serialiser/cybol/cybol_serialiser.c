@@ -239,7 +239,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, p8, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            modify_item_element(p0, p8, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -418,7 +418,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, p8, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            modify_item_element(p0, p8, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 
@@ -428,7 +428,7 @@ void serialise_xdt_datetime_ddmmyyyy(void* p0, void* p8);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            append_item_element(p0, p8, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            modify_item_element(p0, p8, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p9, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
     }
 

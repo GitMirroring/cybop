@@ -88,7 +88,7 @@ void serialise_cybol_integer_value_char(void* p0, void* p1, void* p2, void* p3) 
 
         // The value was converted successfully.
 
-        append_item_element(p0, td, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        modify_item_element(p0, td, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &tc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     } else {
 

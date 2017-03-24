@@ -35,7 +35,7 @@
 #include "../../../../executor/lifeguard/sensor/socket/socket_sensor.c"
 #include "../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 //
@@ -123,7 +123,7 @@ void read_socket(void* p0, void* p1) {
 //?? fwprintf(stdout, L"TEST: read socket bc > 0: %i \n", bc);
 
             // Append buffer to destination data.
-            append_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+            modify_item_element(p0, bd, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &bc, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         }
 
         if (ec > bs) {

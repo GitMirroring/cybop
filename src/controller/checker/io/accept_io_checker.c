@@ -34,7 +34,7 @@
 #include "../../../controller/checker/io/element_io_checker.c"
 #include "../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../executor/lifeguard/sensor/socket/accept_socket_sensor.c"
-#include "../../../executor/modifier/appender/item_appender.c"
+#include "../../../executor/modifier/item_modifier.c"
 #include "../../../logger/logger.c"
 
 /**
@@ -67,7 +67,7 @@ void check_io_accept(void* p0, void* p1) {
         log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check io accept success.");
 
         // Add client to list item.
-        append_item_element(p0, (void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        modify_item_element(p0, (void*) &c, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     }
 }
 

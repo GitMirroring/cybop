@@ -30,7 +30,7 @@
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/http/protocol_version_http_model.c"
-#include "../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 
 /**
@@ -42,7 +42,7 @@ void serialise_http_response_protocol(void* p0) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Serialise http response protocol.");
 
-    append_item_element(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    modify_item_element(p0, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) NUMBER_1_1_PROTOCOL_VERSION_HTTP_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 }
 
 /* PROTOCOL_HTTP_RESPONSE_SERIALISER_SOURCE */

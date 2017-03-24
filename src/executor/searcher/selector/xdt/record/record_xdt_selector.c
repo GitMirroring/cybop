@@ -34,7 +34,7 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../../executor/accessor/name_getter/array_name_getter.c"
-#include "../../../../../executor/modifier/appender/item_appender.c"
+#include "../../../../../executor/modifier/item_modifier.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../../executor/representer/deserialiser/xdt/record/part_record_xdt_deserialiser.c"
 #include "../../../../../logger/logger.c"
@@ -79,7 +79,7 @@ void select_xdt_record(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Append current field part to destination record model item.
         // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
         // This is necessary in order to activate rubbish (garbage) collection.
-        append_item_element(p2, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        modify_item_element(p2, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     }
 }
 

@@ -37,7 +37,7 @@
 
 /**
  * Selects a compound xdt bdt field by filtering its name (number).
- * 
+ *
  * CAUTION! Other, non-compound fields are ignored here.
  *
  * @param p0 the destination model item
@@ -125,11 +125,11 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     //
     // Record 0010
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_9806_INTEGER_STATE_CYBOI_MODEL);
@@ -219,7 +219,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record adrs
     //
@@ -313,7 +313,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                            
+
     //
     // Record term
     //
@@ -357,7 +357,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                            
+
     //
     // Record diag
     //
@@ -381,7 +381,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                
+
     //
     // Record grnk
     //
@@ -415,7 +415,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_1503_INTEGER_STATE_CYBOI_MODEL);
@@ -425,7 +425,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                       
+
     //
     // Record hapo
     //
@@ -439,7 +439,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6206_INTEGER_STATE_CYBOI_MODEL);
@@ -449,7 +449,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_925_INTEGER_STATE_CYBOI_MODEL);
@@ -459,7 +459,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_919_INTEGER_STATE_CYBOI_MODEL);
@@ -469,7 +469,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                       
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6207_INTEGER_STATE_CYBOI_MODEL);
@@ -479,7 +479,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                           
+
     //
     // Record bbst
     //
@@ -493,7 +493,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                              
+
     //
     // Record text
     //
@@ -521,7 +521,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3632_INTEGER_STATE_CYBOI_MODEL);
@@ -541,7 +541,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3120_INTEGER_STATE_CYBOI_MODEL);
@@ -551,7 +551,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3602_INTEGER_STATE_CYBOI_MODEL);
@@ -561,7 +561,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                              
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3310_INTEGER_STATE_CYBOI_MODEL);
@@ -631,7 +631,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3702_INTEGER_STATE_CYBOI_MODEL);
@@ -651,7 +651,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                                                                                              
+
     //
     // Record 6200
     //
@@ -705,7 +705,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6230_INTEGER_STATE_CYBOI_MODEL);
@@ -715,7 +715,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_925_INTEGER_STATE_CYBOI_MODEL);
@@ -735,7 +735,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3637_INTEGER_STATE_CYBOI_MODEL);
@@ -745,7 +745,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6325_INTEGER_STATE_CYBOI_MODEL);
@@ -755,7 +755,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_2803_INTEGER_STATE_CYBOI_MODEL);
@@ -875,7 +875,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     //
     // Record 0101
     //
@@ -889,7 +889,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     //
     // Record 0102
     //
@@ -903,7 +903,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-            
+
     //
     // Record 0103
     //
@@ -947,7 +947,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-            
+
     //
     // Record 0104
     //
@@ -1001,7 +1001,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-            
+
     //
     // Record 0109
     //
@@ -1015,7 +1015,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-            
+
     //
     // Record sad1
     //
@@ -1029,7 +1029,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -1039,7 +1039,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5012_INTEGER_STATE_CYBOI_MODEL);
@@ -1049,7 +1049,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-            
+
     //
     // Record sad2
     //
@@ -1063,7 +1063,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5000_INTEGER_STATE_CYBOI_MODEL);
@@ -1073,7 +1073,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -1083,7 +1083,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5012_INTEGER_STATE_CYBOI_MODEL);
@@ -1093,7 +1093,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record sad3
     //
@@ -1107,7 +1107,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5001_INTEGER_STATE_CYBOI_MODEL);
@@ -1117,7 +1117,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_5012_INTEGER_STATE_CYBOI_MODEL);
@@ -1127,7 +1127,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record gevk
     //
@@ -1239,7 +1239,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     //
     // Record Obj_Anhang
     //
@@ -1253,7 +1253,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     //
     // Record Obj_Basisdiagnostik
     //
@@ -1267,7 +1267,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3658_INTEGER_STATE_CYBOI_MODEL);
@@ -1277,7 +1277,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3660_INTEGER_STATE_CYBOI_MODEL);
@@ -1287,7 +1287,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3662_INTEGER_STATE_CYBOI_MODEL);
@@ -1297,7 +1297,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3700_INTEGER_STATE_CYBOI_MODEL);
@@ -1307,7 +1307,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-            
+
     //
     // Record Obj_Betriebsstätte
     //
@@ -1321,7 +1321,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     //
     // Record Obj_Diabetis
     //
@@ -1335,7 +1335,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3425_INTEGER_STATE_CYBOI_MODEL);
@@ -1345,7 +1345,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record Obj_Diagnose
     //
@@ -1359,7 +1359,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6007_INTEGER_STATE_CYBOI_MODEL);
@@ -1369,7 +1369,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record Obj_Epilepsie
     //
@@ -1383,7 +1383,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record Obj_Impfungen
     //
@@ -1397,7 +1397,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_8520_INTEGER_STATE_CYBOI_MODEL);
@@ -1407,7 +1407,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3541_INTEGER_STATE_CYBOI_MODEL);
@@ -1417,7 +1417,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                    
+
     //
     // Record Obj_Implantat
     //
@@ -1445,7 +1445,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     //
     // Record Obj_Laborergebnis
     //
@@ -1459,7 +1459,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_8430_INTEGER_STATE_CYBOI_MODEL);
@@ -1469,7 +1469,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_8445_INTEGER_STATE_CYBOI_MODEL);
@@ -1479,7 +1479,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     //
     // Record Obj_Medikationsplan
     //
@@ -1493,7 +1493,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6208_INTEGER_STATE_CYBOI_MODEL);
@@ -1503,7 +1503,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_6212_INTEGER_STATE_CYBOI_MODEL);
@@ -1513,7 +1513,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-                
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_8520_INTEGER_STATE_CYBOI_MODEL);
@@ -1533,7 +1533,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     //
     // Record Obj_Mutterschaft
     //
@@ -1557,7 +1557,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     //
     // Record Obj_Patient
     //
@@ -1585,7 +1585,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     //
     // Record Obj_Standardadresse
     //
@@ -1599,7 +1599,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_1290_INTEGER_STATE_CYBOI_MODEL);
@@ -1609,7 +1609,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-        
+
     //
     // Record Obj_Strahlenpass
     //
@@ -1623,7 +1623,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3505_INTEGER_STATE_CYBOI_MODEL);
@@ -1633,7 +1633,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3515_INTEGER_STATE_CYBOI_MODEL);
@@ -1643,7 +1643,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3510_INTEGER_STATE_CYBOI_MODEL);
@@ -1653,7 +1653,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
     }
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_3511_INTEGER_STATE_CYBOI_MODEL);
@@ -1715,7 +1715,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
     // Record Obj_Überweisung (GDT)
     //
- 
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_4217_INTEGER_STATE_CYBOI_MODEL);
@@ -1739,7 +1739,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
     //
     // Record besa
     //
-    
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         compare_integer_equal((void*) &r, p12, (void*) NUMBER_201_INTEGER_STATE_CYBOI_MODEL);
@@ -1758,7 +1758,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
-    }  
+    }
 
     //
     // Record adt0 (kvdt)
@@ -1772,11 +1772,11 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
-    } 
+    }
 
     //
     // Record rvsa (kvdt)
-    // 
+    //
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1786,7 +1786,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
-    } 
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1796,7 +1796,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
-    } 
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1806,7 +1806,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
-    } 
+    }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -1816,8 +1816,8 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
 
             deserialise_xdt_bdt_field_compound(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
         }
-    } 
-     
+    }
+
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         // The COMPOUND xdt fields have been filtered above.
@@ -1827,7 +1827,7 @@ void select_xdt_bdt_field(void* p0, void* p1, void* p2, void* p3, void* p4, void
         // Append source field part to destination model item.
         // CAUTION! Use PART_ELEMENT_STATE_CYBOI_TYPE and NOT just POINTER_STATE_CYBOI_TYPE here.
         // This is necessary in order to activate rubbish (garbage) collection.
-        append_item_element(p0, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        modify_item_element(p0, p7, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
     }
 }
 
