@@ -42,7 +42,6 @@
 #include "../../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../../executor/modifier/inserter/item_inserter.c"
 #include "../../../../../../logger/logger.c"
 
 /**
@@ -103,7 +102,7 @@ void deserialise_cybol_fraction_decimal_value(void* p0, void* p1, void* p2, void
 
         if (b != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            insert_item_element(p0, (void*) &d, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            modify_item_element(p0, (void*) &d, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
         } else {
 

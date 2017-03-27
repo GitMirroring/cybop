@@ -39,7 +39,6 @@
 #include "../../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../../executor/memoriser/deallocator/item_deallocator.c"
 #include "../../../../../../executor/modifier/item_modifier.c"
-#include "../../../../../../executor/modifier/inserter/item_inserter.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/fraction/decimal/value_decimal_fraction_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"
 

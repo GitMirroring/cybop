@@ -36,7 +36,7 @@
 #include "../../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../../executor/modifier/remover/array_remover.c"
+#include "../../../../../executor/modifier/array_modifier.c"
 #include "../../../../../logger/logger.c"
 
 /**
@@ -75,7 +75,7 @@ void shutdown_socket_client_element(void* p0, void* p1, void* p2, void* p3, void
             // The client was found in the list.
 
             // Remove entry from client list.
-            remove_array(p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            modify_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p4, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // Close client socket.
             shutdown_socket_close((void*) &c);

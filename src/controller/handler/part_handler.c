@@ -38,7 +38,7 @@
 //?? TEST properties
 #include "../../controller/handler/properties_handler.c"
 #include "../../executor/modifier/copier/integer_copier.c"
-#include "../../executor/modifier/remover/item_remover.c"
+#include "../../executor/modifier/item_modifier.c"
 
 /**
  * Handles the part signal.
@@ -175,7 +175,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //   (signal properties count) is removed from it again here
     // - the former (mc_old) stack memory item count is used as index for removal
     //
-    remove_item(p6, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) &pc_old, (void*) &mc_old);
+    modify_item(p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
 /*??
     //?? DELETE, only for testing!

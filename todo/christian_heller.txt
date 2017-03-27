@@ -14,7 +14,11 @@
 Clone
 _____
 
-        * Clean up directory "executor/modifier/"
+        * Debug forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
+            see svn archive in "executor/modifier/emptier/"
+        * Verify old "remove_array" for "remove" operation in directory "executor/modifier/"
+            see svn archive in "executor/modifier/remover/"
+
         * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
         * Merge "modify_item_element" and "modify_item" ??
         * Merge "modify_part_element" and "modify_part" ??

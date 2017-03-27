@@ -18,13 +18,20 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-27  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Clean up directory "executor/modifier/emptier/"
+        * Clean up directory "executor/modifier/inserter/"
+        * Clean up directory "executor/modifier/remover/"
+
 2017-03-24  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up directory "executor/modifier/appender/"
 
 2017-03-22  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Clean up directories "executor/modifier/filler/", "executor/modifier/overwriter/"
+        * Clean up directory "executor/modifier/filler/"
+        * Clean up directory "executor/modifier/overwriter/"
 
 2017-03-21  Christian Heller  <christian.heller@tuxtax.de>
 

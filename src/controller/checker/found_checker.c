@@ -31,7 +31,7 @@
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../controller/handler.c"
-#include "../../executor/modifier/remover/item_remover.c"
+#include "../../executor/modifier/item_modifier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -72,7 +72,7 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // After destruction, the second signal just points to null, which is ignored.
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
-    remove_item(p4, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5);
+    modify_item(p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Handle signal.
     handle(p0, p1, p2, p3, p4, (void*) &x, p6);
