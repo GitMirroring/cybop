@@ -50,7 +50,7 @@
  * @param p2 the knowledge memory part (pointer reference)
  * @param p3 the stack memory item
  * @param p4 the internal memory data
- * @param p5 the operation type
+ * @param p5 the element type
  */
 void apply_get(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
 

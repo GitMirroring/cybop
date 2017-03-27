@@ -14,10 +14,19 @@
 Clone
 _____
 
-        * Debug forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
+        * Restore forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
+            in function "modify_part_element" or "modify_part" ??
             see svn archive in "executor/modifier/emptier/"
-        * Verify old "remove_array" for "remove" operation in directory "executor/modifier/"
-            see svn archive in "executor/modifier/remover/"
+
+    <node name="reset_command" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model="#command"/>
+        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="get_category_name" channel="inline" format="access/get-name" model="">
+        <node name="element" channel="inline" format="text/cybol-path" model="#category_name"/>
+        <node name="part" channel="inline" format="text/cybol-path" model=".list.[#category_index]"/>
+    </node>
 
         * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
         * Merge "modify_item_element" and "modify_item" ??

@@ -45,7 +45,7 @@
  *
  * @param p0 the destination element part
  * @param p1 the source part
- * @param p2 the operation type
+ * @param p2 the element type
  */
 void get(void* p0, void* p1, void* p2) {
 
