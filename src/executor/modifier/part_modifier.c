@@ -92,13 +92,15 @@ void modify_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify part.");
 
-    // The destination model.
+    // The destination model, properties.
     void* dm = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* dp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The source model.
     void* sm = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-    // Get destination model.
+    // Get destination model, properties.
     copy_array_forward((void*) &dm, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &dp, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get source model.
     copy_array_forward((void*) &sm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
 

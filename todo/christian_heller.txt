@@ -15,8 +15,11 @@ Clone
 _____
 
         * Restore forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
-            in function "modify_part_element" or "modify_part" ??
-            see svn archive in "executor/modifier/emptier/"
+            in function "modify_part", NOT in "modify_part_element"
+            see svn backup file in "executor/modifier/emptier/part_emptier.c"
+            see file "executor/modifier/part_modifier.c"
+            ?? use cybol property "element" or "format" for ALL CONTAINER OPERATIONS (also overwrite etc., since the model AND its properties are a container)
+            --> adapt all cybol examples by adding new "element" property OR use "model" as default ??
 
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model="#command"/>
@@ -150,6 +153,13 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
         * Remove directory "src/windows/"
+
+Uniformisation
+______________
+
+        * Use uniform property name specifying "part" or "property" value in cybol operations "memorise/create", "communicate/receive", "modify/empty", "access/get-name"
+        * See e.g. file "examples/project_overview/logic/translate/category.cybol"
+        * See cyboi source files "executor/memoriser/creator/creator.c" and "executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
 
 Sensing Threads
 _______________
