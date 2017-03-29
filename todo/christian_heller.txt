@@ -11,8 +11,8 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Clone
-_____
+Container
+_________
 
         * Restore forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
             in function "modify_part", NOT in "modify_part_element"
@@ -21,15 +21,45 @@ _____
             ?? use cybol property "element" or "format" for ALL CONTAINER OPERATIONS (also overwrite etc., since the model AND its properties are a container)
             --> adapt all cybol examples by adding new "element" property OR use "model" as default ??
 
+    SUGGESTION for new property node: "hierarchy" with two possible values "model" and "property"
+    <node name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
+        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+    </node>
+
+    MODEL, PROPERTY (Boolscher Wert)
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model="#command"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
+    ELEMENT (ist das Ziel)
     <node name="get_category_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#category_name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".list.[#category_index]"/>
     </node>
+
+    ELEMENT (format bestimmt Typ des zu erstellenden Knotens; "model" or "property" (CHANGE ambiguous "part" into "model")
+    <node name="create_summand_1" channel="inline" format="memorise/create" model="">
+        <node name="name" channel="inline" format="text/plain" model="summand_1"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="element" channel="inline" format="text/plain" model="part"/>
+        <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
+    </node>
+
+    FORMAT (gibt Ziel vor, entweder element/part für MODEL oder element/property für PROPERTY)
+    "format" is used for two semantics: deserialisation (better use "element|node|compound|etc.") and destination hierarchy (better use new property "hierarchy" as suggested above)
+    <node name="initialise_wui_page_properties" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="element/property"/>
+        <node name="sender" channel="inline" format="text/plain" model="project_overview/wui/page/page_properties.cybol"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#category_name)"/>
+    </node>
+
+        * Fix terminology in special chapter of design document, e.g.: model (instead of part) and property (both, model and property are a part), item, array|data etc., xml node|element|tag|attribute etc.
 
         * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
         * Merge "modify_item_element" and "modify_item" ??
@@ -37,6 +67,9 @@ _____
 
         * Reintroduce type comparisons in file "applicator/modify/modify.c"
         * Adapt function calls at end of cybol operations in "applicator/" by forwarding property "move" as boolean value to "executor/" functions
+
+Clone
+_____
 
         * Complete cloning functionality in directory "executor/modifier/copier/" (File "copier.c" is already DONE)
         * Hand over deep copying flag to function "copy_array_forward" in file "array_copier.c" where it is currently set to "false" by default, and adapt all source code
