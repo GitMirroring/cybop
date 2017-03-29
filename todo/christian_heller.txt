@@ -14,33 +14,47 @@
 Container
 _________
 
+        * Continue in file "part_modifier.c"
+        * In function "modify_part": Is it necessary to use two parametre flags "destination properties flag" and "source properties flag"?
+        * Or, isn't that already provided in function "modify_part_element" through the parametre "destination part element index", which allows accessing model, properties and others?
+        * Problem: Here, the source is always an array, not a part (node), so that its properties may not be accessed
+        * Split both functions ("modify_part_element" and "modify_part") into TWO separate source files, in case both turn out to be necessary
+
         * Restore forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
+            --> possibly rename and reuse these two as "destination_property" and "source_property" flag
+                indicating one of the two hierarchies ("model" and "property" hierarchy) of a node
+            --> their original purpose for only the "modify/empty" cybol operation is superfluous
+            --> this is to become an optional property
+            --> if not specified, then the default value for both ("destination_property" and "source_property") is "false" which means "model hierarchy"
             in function "modify_part", NOT in "modify_part_element"
             see svn backup file in "executor/modifier/emptier/part_emptier.c"
             see file "executor/modifier/part_modifier.c"
             ?? use cybol property "element" or "format" for ALL CONTAINER OPERATIONS (also overwrite etc., since the model AND its properties are a container)
             --> adapt all cybol examples by adding new "element" property OR use "model" as default ??
 
-    SUGGESTION for new property node: "hierarchy" with two possible values "model" and "property"
+    SUGGESTION for new property node: "hierarchy" with two possible values "model" (NOT "part") and "property"
+    OR, BETTER: a property node called "property" of type "logicvalue/boolean"; "false" by default means that it is a model; if set to "true", then it means "property"
     <node name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
+        <!-- This is an optional property. The default value is "model". -->
+        <node name="hierarchy" channel="inline" format="text/plain" model="model"/>
     </node>
 
-    MODEL, PROPERTY (Boolscher Wert)
+    MODEL, PROPERTY (Boolscher Wert); CHANGE "part" into "node" and "model" into "property"
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model="#command"/>
         <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    ELEMENT (ist das Ziel)
+    ELEMENT (ist das Ziel); CHANGE "part" into "node" and "element" into "item"
     <node name="get_category_name" channel="inline" format="access/get-name" model="">
         <node name="element" channel="inline" format="text/cybol-path" model="#category_name"/>
         <node name="part" channel="inline" format="text/cybol-path" model=".list.[#category_index]"/>
     </node>
 
-    ELEMENT (format bestimmt Typ des zu erstellenden Knotens; "model" or "property" (CHANGE ambiguous "part" into "model")
+    ELEMENT ("model" or "property" --> CHANGE "element" into "property" of type "logicvalue/boolean"; "false" by default means that it is a model; if set to "true", then it means "property"; format bestimmt den Typ des zu erstellenden Knotens
     <node name="create_summand_1" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="summand_1"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -49,7 +63,9 @@ _________
     </node>
 
     FORMAT (gibt Ziel vor, entweder element/part für MODEL oder element/property für PROPERTY)
-    "format" is used for two semantics: deserialisation (better use "element|node|compound|etc.") and destination hierarchy (better use new property "hierarchy" as suggested above)
+    "format" is used for two semantics:
+    - deserialisation (better use "compound|element|node|etc.") and
+    - destination hierarchy (better use new, ADDITIONAL property node called "property", as suggested above)
     <node name="initialise_wui_page_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -61,6 +77,7 @@ _________
 
         * Fix terminology in special chapter of design document, e.g.: model (instead of part) and property (both, model and property are a part), item, array|data etc., xml node|element|tag|attribute etc.
 
+        * Eliminate "type" property node for all cybol container operations, e.g. "modify/overwrite" etc.
         * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
         * Merge "modify_item_element" and "modify_item" ??
         * Merge "modify_part_element" and "modify_part" ??

@@ -599,6 +599,18 @@ Reasons:
   but this would be improper, blow up source code and make it dirty
 - it just does not feel right or necessary
 
+CAUTION! It is NOT permitted to use a path ending with dot or colon, e.g.:
+.path.ending.with.model-dot.
+.path.ending.with.property-colon:
+
+Reasons:
+
+- it seems tempting to use these for accessing all model nodes or all property nodes, as container
+- however, internally to cyboi the "model" item and "properties" ITEM would have to be kept as pointer
+- but all of cyboi relies on and processes PART nodes, consisting of items
+- therefore, an additional property can be given to cybol container operations,
+  in order to identify either the "model" or the "property" hierarchy of a node
+
 Container Operations
 ____________________
 

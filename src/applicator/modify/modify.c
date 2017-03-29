@@ -231,7 +231,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
     copy_integer((void*) &adjust, admd);
 
     // Modify part by applying operation.
-    modify_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, momd, prmd, p5);
+    modify_part(d, s, dtd/*??tmd*/, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust, momd, prmd, p5);
 
 /*??
     //
@@ -265,6 +265,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                 // Therefore, the source gets DEEP copied to the destination.
 
                 // Overwrite the destination- with the source part as DEEP copy.
+                //?? TODO: Specify deep copying flag with value TRUE, as soon as it is added to all affected functions in cyboi
                 modify_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
 
             } else {
@@ -278,6 +279,7 @@ void apply_modify(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) {
                 // pointers/references to the original child nodes.
 
                 // Overwrite the destination- with the source part as SHALLOW copy.
+                //?? TODO: Specify deep copying flag with value FALSE, as soon as it is added to all affected functions in cyboi
                 modify_part(d, s, tmd, (void*) &count, (void*) &destination_index, (void*) &source_index, (void*) &adjust);
 
                 // Remove elements from source part.
