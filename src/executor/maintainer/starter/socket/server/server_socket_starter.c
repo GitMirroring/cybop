@@ -81,7 +81,7 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 //?? fwprintf(stdout, L"TEST: startup socket server io index with port: %i \n", i);
 
         // Get socket io entry.
-        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -124,7 +124,7 @@ void startup_socket_server(void* p0, void* p1, void* p2, void* p3, void* p4, voi
             // CAUTION! Do NOT use "overwrite_array" function here,
             // since it adapts the array count and size.
             // But the internal array's count and size are CONSTANT.
-            copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p0, (void*) &io, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &i, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {
 

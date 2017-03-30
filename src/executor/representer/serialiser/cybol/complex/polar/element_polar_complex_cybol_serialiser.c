@@ -68,7 +68,7 @@ void serialise_cybol_complex_polar_element(void* p0, void* p1, void* p2) {
     allocate_array((void*) &ts, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE);
 
     // Get temporary source complex number from source complex data at current index.
-    copy_array_forward(ts, p1, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward(ts, p1, (void*) COMPLEX_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Get real and imaginary value.
     get_complex_element((void*) &r, ts, (void*) REAL_COMPLEX_STATE_CYBOI_NAME);

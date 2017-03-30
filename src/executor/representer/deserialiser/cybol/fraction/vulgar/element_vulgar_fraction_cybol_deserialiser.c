@@ -52,8 +52,8 @@ void deserialise_cybol_fraction_vulgar_element(void* p0, void* p1, void* p2, voi
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get numerator and denominator value from source integer data at current indices.
-    copy_array_forward((void*) &n, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-    copy_array_forward((void*) &d, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
+    copy_array_forward((void*) &n, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &d, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
     // Allocate temporary fraction.
     // CAUTION! Due to memory allocation handling, the size MUST NOT

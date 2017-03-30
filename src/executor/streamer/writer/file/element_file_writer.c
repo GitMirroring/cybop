@@ -57,7 +57,7 @@ void write_file_element(void* p0, void* p1, void* p2, void* p3) {
         int c = *NULL_ASCII_CHARACTER_CODE_MODEL;
 
         // Read character from source array.
-        copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+        copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
         if (c != *NULL_ASCII_CHARACTER_CODE_MODEL) {
 

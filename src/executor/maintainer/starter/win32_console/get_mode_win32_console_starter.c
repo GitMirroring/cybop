@@ -72,7 +72,7 @@ void startup_win32_console_mode_get(void* p0, void* p1, void* p2, void* p3) {
 
                 // Store original mode in internal memory,
                 // in order to be restored on exit.
-                copy_array_forward(p1, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                copy_array_forward(p1, (void*) &m, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p2, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 // Set new mode.
                 startup_win32_console_mode_set(p0, p3);

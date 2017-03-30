@@ -76,7 +76,7 @@ void startup_unix_terminal_attributes_get(void* p0, void* p1) {
             if (e >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
                 // Set original attributes internals.
-                copy_array_forward(p1, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+                copy_array_forward(p1, (void*) &a, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
                 startup_unix_terminal_attributes_set(p0, a);
 

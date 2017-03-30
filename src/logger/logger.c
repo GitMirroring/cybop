@@ -102,7 +102,7 @@ void compare_integer_equal(void* p0, void* p1, void* p2);
 void compare_integer_smaller_or_equal(void* p0, void* p1, void* p2);
 void copy_integer(void* p0, void* p1);
 void copy_pointer(void* p0, void* p1);
-void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5);
+void copy_array_forward(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6);
 
 /**
  * Logs the given message.
@@ -148,32 +148,32 @@ void log_message(void* p0, void* p1, void* p2) {
         // However, the log message is an array of fixed size.
 
         // Copy log level.
-        copy_array_forward((void*) LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) &lnc, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) LOG_MESSAGE, ln, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &lnc, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Calculate new destination index.
         calculate_integer_add((void*) &di, (void*) &lnc);
 
         // Copy colon.
-        copy_array_forward((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward((void*) LOG_MESSAGE, (void*) COLON_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Calculate new destination index.
         calculate_integer_add((void*) &di, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
         // Copy space.
-        copy_array_forward((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward((void*) LOG_MESSAGE, (void*) SPACE_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Calculate new destination index.
         calculate_integer_add((void*) &di, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
         // Copy log message.
-        copy_array_forward((void*) LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, p2, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        copy_array_forward((void*) LOG_MESSAGE, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p2, (void*) &di, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
         // Calculate new destination index.
         calculate_integer_add((void*) &di, p2);
 
         // Copy line feed control wide character.
-        copy_array_forward((void*) LOG_MESSAGE, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward((void*) LOG_MESSAGE, (void*) LINE_FEED_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
         // Calculate new destination index.
         calculate_integer_add((void*) &di, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT);
 
         // Copy null termination wide character.
-        copy_array_forward((void*) LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward((void*) LOG_MESSAGE, (void*) NULL_UNICODE_CHARACTER_CODE_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &di, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // Log message.
         log_write(LOG_OUTPUT, (void*) LOG_MESSAGE);

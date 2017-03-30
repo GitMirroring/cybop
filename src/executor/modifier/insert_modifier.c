@@ -147,7 +147,10 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     copy_array_backward(*d, *d, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) &i, p4);
 
                     // Copy source to destination.
-                    copy_array_forward(*d, p1, p2, p3, p4, p5);
+                    //?? TODO: Instead of "FALSE_BOOLEAN_STATE_CYBOI_MODEL",
+                    //?? the real deep copying flag parametre has to be used here
+                    //?? as soon as it got added to the function signature of "modify_insert_inside".
+                    copy_array_forward(*d, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
 
                     // Set destination array count.
                     copy_integer(p6, (void*) &nc);

@@ -53,7 +53,7 @@ void indicate_item(void* p0, void* p1, void* p2) {
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get item count.
-    copy_array_forward((void*) &ic, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &ic, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 

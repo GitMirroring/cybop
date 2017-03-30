@@ -54,7 +54,7 @@ void get_part_index(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5) 
     void* s = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source model part at index.
-    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &s, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Get actual destination part behind source model part.
     get_part_knowledge(p0, (void*) &s, p3, p4, p5);

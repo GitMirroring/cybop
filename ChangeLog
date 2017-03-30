@@ -18,6 +18,11 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-03-30  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Hand over deep copying flag to function "copy_array_forward" in file "executor/modifier/copier/array_copier.c"
+        * Add deep copying flag to all function calls of "copy_array_forward"
+
 2017-03-27  Christian Heller  <christian.heller@tuxtax.de>
 
         * Clean up directory "executor/modifier/emptier/"

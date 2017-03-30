@@ -104,7 +104,7 @@ void sense_win32_display(void* p0, void* p1) {
     if (b != *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
         // Store event message in internal memory.
-        copy_array_forward(p1, (void*) &msg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+        copy_array_forward(p1, (void*) &msg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         // CAUTION! Setting a mutex is NOT necessary here,
         // since this is the main thread and no other threads

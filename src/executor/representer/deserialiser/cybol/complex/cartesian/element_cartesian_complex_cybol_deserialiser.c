@@ -52,8 +52,8 @@ void deserialise_cybol_complex_cartesian_element(void* p0, void* p1, void* p2, v
     void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get real and imaginary value from source double data at current indices.
-    copy_array_forward((void*) &r, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
-    copy_array_forward((void*) &i, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
+    copy_array_forward((void*) &r, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &i, p1, (void*) DOUBLE_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p3);
 
     // Allocate temporary complex.
     // CAUTION! Due to memory allocation handling, the size MUST NOT

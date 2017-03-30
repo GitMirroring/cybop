@@ -52,7 +52,7 @@ void decode_windows_element(void* p0, void* p1, void* p2, void* p3) {
     unsigned char c = *NULL_ASCII_CHARACTER_CODE_MODEL;
 
     // Get source character at given index.
-    copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &c, p1, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Decode source character.
     decode_windows_character(p0, (void*) &c, p3);

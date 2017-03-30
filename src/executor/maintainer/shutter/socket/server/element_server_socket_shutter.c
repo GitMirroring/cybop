@@ -47,7 +47,7 @@ void shutdown_socket_server_element(void* p0, void* p1) {
     int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
 
     // Get client at the given index.
-    copy_array_forward((void*) &c, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
+    copy_array_forward((void*) &c, p0, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
 
     // Close client socket.
     shutdown_socket_close((void*) &c);

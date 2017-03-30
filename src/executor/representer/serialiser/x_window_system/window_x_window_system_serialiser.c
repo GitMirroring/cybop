@@ -134,12 +134,12 @@ void serialise_x_window_system_window(void* p0, void* p1, void* p2, void* p3, vo
                             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
                             // Inside the structure, arrays may have been reallocated,
                             // with elements pointing to different memory areas now.
-                            copy_array_forward((void*) &tmdtd, tmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                            copy_array_forward((void*) &tmdtd, tmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
                             // Get icon title model data terminated item data.
                             // CAUTION! Retrieve data ONLY AFTER having called desired functions!
                             // Inside the structure, arrays may have been reallocated,
                             // with elements pointing to different memory areas now.
-                            copy_array_forward((void*) &itmdtd, itmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                            copy_array_forward((void*) &itmdtd, itmdt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
                             // Set title.
                             // CAUTION! The sixth parametre specifies

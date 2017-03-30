@@ -191,7 +191,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
             reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p4, p2);
 
             // Copy source to destination.
-            copy_array_forward(*d, p1, p2, p3, p4, p5);
+            copy_array_forward(*d, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
 
             // Increment reference count of new parts for rubbish (garbage) collection.
             // CAUTION! This has to be done AFTER having overwritten old elements with new elements,

@@ -66,7 +66,7 @@ void shutdown_socket_client(void* p0, void* p1, void* p2) {
         void* io = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get socket io entry.
-        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
+        copy_array_forward((void*) &io, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &i);
 
         if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

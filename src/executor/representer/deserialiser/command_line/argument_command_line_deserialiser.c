@@ -83,7 +83,7 @@ void deserialise_command_line_argument(void* p0, void* p1, void* p2, void* p3, v
     // char** tmp1 = (char**) p5;
     // char** tmp2 = tmp1 + (*((int*) p6));
     // ad = (void*) *tmp2;
-    copy_array_forward((void*) &ad, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    copy_array_forward((void*) &ad, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     if (ad != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

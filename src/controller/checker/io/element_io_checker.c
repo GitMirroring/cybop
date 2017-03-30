@@ -67,7 +67,7 @@ void check_io_element(void* p0, void* p1, void* p2, void* p3) {
     calculate_integer_add((void*) &idx, p3);
 
     // Get io entry.
-    copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
+    copy_array_forward((void*) &io, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &idx);
 
     if (io != *NULL_POINTER_STATE_CYBOI_MODEL) {
 

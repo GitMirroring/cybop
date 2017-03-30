@@ -72,7 +72,7 @@ void get_part_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // Get destination array from source part metadata item.
     get_item_metadata(p0, e, p2, p3, p4, p5, (void*) DATA_ITEM_STATE_CYBOI_NAME);

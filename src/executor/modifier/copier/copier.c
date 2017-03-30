@@ -113,29 +113,7 @@ void copy(void* p0, void* p1, void* p2, void* p3) {
             // Evaluate flag indicating shallow or deep copy.
             compare_integer_unequal((void*) &r2, p3, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
-            if (r2 != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                //
-                // This is going to be a DEEP COPY, also called CLONING.
-                //
-                // In this case, the destination node already HAS TO EXIST.
-                // Only the source's child nodes are copied to the destination,
-                // but the destination part pointer itself is left untouched.
-                //
-                // Why is deep copying necessary?
-                //
-                // For copying whole sub trees to another place.
-                //
-                // It is also used when storing variables on stack memory.
-                //
-
-fwprintf(stdout, L"TEST copy deep pre: %i\n", r);
-                // CAUTION! Both, the destination- as well as the source value
-                // will get interpreted as pointer reference inside.
-                copy_part(p0, p1);
-fwprintf(stdout, L"TEST copy deep post: %i\n", r);
-
-            } else {
+            if (r2 == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 //
                 // This is going to be a SHALLOW COPY.
@@ -163,6 +141,28 @@ fwprintf(stdout, L"TEST copy deep post: %i\n", r);
                 // CAUTION! Both, the destination- as well as the source value
                 // will get interpreted as pointer reference inside.
                 copy_pointer(p0, p1);
+
+            } else {
+
+                //
+                // This is going to be a DEEP COPY, also called CLONING.
+                //
+                // In this case, the destination node already HAS TO EXIST.
+                // Only the source's child nodes are copied to the destination,
+                // but the destination part pointer itself is left untouched.
+                //
+                // Why is deep copying necessary?
+                //
+                // For copying whole sub trees to another place.
+                //
+                // It is also used when storing variables on stack memory.
+                //
+
+fwprintf(stdout, L"TEST copy deep pre: %i\n", r);
+                // CAUTION! Both, the destination- as well as the source value
+                // will get interpreted as pointer reference inside.
+                copy_part(p0, p1);
+fwprintf(stdout, L"TEST copy deep post: %i\n", r);
             }
         }
     }

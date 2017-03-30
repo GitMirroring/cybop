@@ -84,7 +84,7 @@ void command_diff(void* f1md, void* f1mc, void* f2md, void* f2mc) {
             // Allocate arguments item.
             // CAUTION! Due to memory allocation handling, the size MUST NOT
             // be negative or zero, but have at least a value of ONE.
-            allocate_item((void *) &arg, (void *) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            allocate_item((void*) &arg, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
             // Append command.
 #if defined(__linux__) || defined(__unix__)
@@ -131,14 +131,14 @@ void command_diff(void* f1md, void* f1mc, void* f2md, void* f2mc) {
 #endif
 
             // Get arguments item data, count.
-            copy_array_forward((void *) &argd, arg, (void *) POINTER_STATE_CYBOI_TYPE, (void *) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void *) DATA_ITEM_STATE_CYBOI_NAME);
-            copy_array_forward((void *) &argc, arg, (void *) POINTER_STATE_CYBOI_TYPE, (void *) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void *) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void *) COUNT_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &argd, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+            copy_array_forward((void*) &argc, arg, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
             // Execute command line in shell.
             execute(argd, argc);
 
             // Deallocate arguments item.
-            deallocate_item((void *) &arg, (void *) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+            deallocate_item((void*) &arg, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
         } else {
 

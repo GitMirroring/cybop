@@ -93,7 +93,7 @@ fwprintf(stdout, L"TEST pre create: %i\n", i);
 fwprintf(stdout, L"TEST wnd: %i\n", wnd);
 
     // Set window.
-    copy_array_forward(p0, (void*) &wnd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+    copy_array_forward(p0, (void*) &wnd, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) WINDOW_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 }
 
 /* WIN32_DISPLAY_STARTER_SOURCE */

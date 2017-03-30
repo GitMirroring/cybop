@@ -15,6 +15,7 @@ Container
 _________
 
         * Continue in file "part_modifier.c"
+            --> DO USE index for destination AND source (similar to last parametre of functions "modify_part_element" and "modify_item_element")
         * In function "modify_part": Is it necessary to use two parametre flags "destination properties flag" and "source properties flag"?
         * Or, isn't that already provided in function "modify_part_element" through the parametre "destination part element index", which allows accessing model, properties and others?
         * Problem: Here, the source is always an array, not a part (node), so that its properties may not be accessed
@@ -88,9 +89,7 @@ _________
 Clone
 _____
 
-        * Complete cloning functionality in directory "executor/modifier/copier/" (File "copier.c" is already DONE)
-        * Hand over deep copying flag to function "copy_array_forward" in file "array_copier.c" where it is currently set to "false" by default, and adapt all source code
-        * Check way back up to overwrite functions, if deep copying flag is forwarded correctly
+        * Adapt "modifier" functions by forwarding deep copying flag
         * Verify correct execution of cybol example application "copier"
         * Test for memory leaks with valgrind
 

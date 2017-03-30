@@ -52,7 +52,7 @@ void write_terminal_file(void* p0, void* p1, void* p2) {
     void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get output file descriptor.
-    copy_array_forward((void*) &o, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &o, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     write_unix_terminal_stream(o, p0, p1);
 }

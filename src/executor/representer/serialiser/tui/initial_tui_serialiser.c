@@ -87,7 +87,7 @@ void serialise_tui_initial(void* p0, void* p1, void* p2, void* p3, void* p4, voi
 #endif
 
     // Get output.
-    copy_array_forward((void*) &op, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &op, p7, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) OUTPUT_TERMINAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     // CAUTION! Handing over the output item is necessary
     // for serialising into a win32 console, since

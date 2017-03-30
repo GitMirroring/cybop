@@ -66,7 +66,7 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
         void* o = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get original attributes.
-        copy_array_forward((void*) &o, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ORIGINAL_ATTRIBUTES_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &o, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) ORIGINAL_ATTRIBUTES_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
         if (o != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -133,7 +133,7 @@ void shutdown_serial_port_attributes(void* p0, void* p1) {
             // CAUTION! Assign NULL to the internal memory.
             // It is ESSENTIAL, since cyboi tests for null pointers.
             // Otherwise, wild pointers would lead to memory corruption.
-            copy_array_forward(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p1, (void*) NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) ORIGINAL_ATTRIBUTES_SERIAL_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
         } else {
 

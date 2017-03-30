@@ -82,7 +82,7 @@ void command_adapt_unix_to_windows_path(void* p0, void* p1, void* p2) {
         }
 
         // Get character.
-        copy_array_forward((void*) &c, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
+        copy_array_forward((void*) &c, p1, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) &j);
 
         compare_wide_character_equal((void*) &r, (void*) &c, (void*) SOLIDUS_UNICODE_CHARACTER_CODE_MODEL);
 

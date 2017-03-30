@@ -80,7 +80,7 @@ void serialise_cybol_integer_value_char(void* p0, void* p1, void* p2, void* p3) 
     allocate_array((void*) &td, (void*) &ts, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE);
 
     // Get value from vector at index.
-    copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward((void*) &v, p1, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
     // Serialise value according to given number base.
     serialise_cybol_integer_base_char(td, (void*) &tc, (void*) &ts, (void*) &v, p3);
 

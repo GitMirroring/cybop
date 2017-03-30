@@ -49,7 +49,7 @@ void sense_xcb(void* p0, void* p1) {
     void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get connexion.
-    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) CONNEXION_XCB_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME);
 
     if (c != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -111,7 +111,7 @@ void sense_xcb(void* p0, void* p1) {
         if (e != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
             // Store event in internal memory.
-            copy_array_forward(p1, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
+            copy_array_forward(p1, (void*) &e, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) EVENT_DISPLAY_INTERNAL_MEMORY_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME);
 
             // CAUTION! Setting a mutex is NOT necessary here,
             // since this is the main thread and no other threads

@@ -68,7 +68,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Get item element.");
 
     // CAUTION! Do NOT simplify the lines below to one line like:
-    // copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    // copy_array_forward(p0, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
     // If doing this, the parametres type, count, index etc.
     // will not be considered.
 
@@ -82,7 +82,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
     // with a fixed size of one which does not have to be changed.
     // Only a simple reference (pointer) of size one is copied here.
     // Using the "copy_array_forward" function is more efficient.
-    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
+    copy_array_forward((void*) &e, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6);
 
     // The comparison result.
     int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
@@ -97,7 +97,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         void* c = *NULL_POINTER_STATE_CYBOI_MODEL;
 
         // Get destination item element count.
-        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &c, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
 
         // Reset comparison result.
         copy_integer((void*) &r, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
@@ -123,7 +123,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
                 // Get destination array as element of the source item container.
-                copy_array_forward(p0, e, p2, p3, p4, p5);
+                copy_array_forward(p0, e, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
 
             } else {
 
@@ -145,7 +145,7 @@ void get_item_metadata(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // Therefore, nothing has to be checked here.
 
         // Get destination array as element of the source item container.
-        copy_array_forward(p0, e, p2, p3, p4, p5);
+        copy_array_forward(p0, e, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
     }
 }
 

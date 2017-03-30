@@ -127,7 +127,7 @@ void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
                     // CAUTION! If the array is to be emptied, then c is zero (see calculation above),
                     // so that NOTHING is copied from behind the end of the array,
                     // as that would break array boundaries and would copy unpredictable content.
-                    copy_array_forward(*d, *d, p1, (void*) &c, p3, (void*) &i);
+                    copy_array_forward(*d, *d, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, p3, (void*) &i);
 
                     compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 

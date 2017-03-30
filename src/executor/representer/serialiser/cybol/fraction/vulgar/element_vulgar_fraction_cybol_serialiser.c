@@ -56,7 +56,7 @@ void serialise_cybol_fraction_vulgar_element(void* p0, void* p1, void* p2) {
     allocate_array((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE);
 
     // Get temporary fraction number from source fraction data at current index.
-    copy_array_forward(t, p1, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
+    copy_array_forward(t, p1, (void*) FRACTION_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p2);
 
     // Get numerator and denominator value.
     get_fraction_element((void*) &n, t, (void*) NUMERATOR_FRACTION_STATE_CYBOI_NAME);

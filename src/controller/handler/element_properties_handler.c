@@ -57,7 +57,7 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     void* d = *NULL_POINTER_STATE_CYBOI_MODEL;
 
     // Get source property part with given index.
-    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
+    copy_array_forward((void*) &s, p0, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p1);
 
     // Clone (deep copy) source to destination.
     // CAUTION! The destination part gets allocated inside.
