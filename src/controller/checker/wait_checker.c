@@ -37,8 +37,8 @@
 #include "../../controller/checker/io/io_checker.c"
 #include "../../controller/checker/io/threads_io_checker.c"
 #include "../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../executor/runner/sleeper.c"
 #include "../../logger/logger.c"
 

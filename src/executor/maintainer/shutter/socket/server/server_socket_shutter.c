@@ -41,7 +41,7 @@
 #include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
 #include "../../../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**

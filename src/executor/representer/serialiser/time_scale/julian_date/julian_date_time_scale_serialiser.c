@@ -36,7 +36,7 @@
 #include "../../../../../executor/calculator/basic/double/add_double_calculator.c"
 #include "../../../../../executor/calculator/basic/double/divide_double_calculator.c"
 #include "../../../../../executor/caster/basic/double/integer_double_caster.c"
-#include "../../../../../executor/modifier/copier/double_copier.c"
+#include "../../../../../executor/copier/double_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**

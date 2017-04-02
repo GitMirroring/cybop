@@ -144,7 +144,7 @@ fwprintf(stdout, L"TEST deserialise gui mouse button release amd: %ls\n", (wchar
                 // CAUTION! Do NOT assign action if it is null.
                 // However, this check is already implemented
                 // inside the called function.
-                modify_item_element(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+                modify_item(p0, amd, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, amc, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
                 // Process embedded parts recursively.
                 // CAUTION! Call this function ONLY for elements

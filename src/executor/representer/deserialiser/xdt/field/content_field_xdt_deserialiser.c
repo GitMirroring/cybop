@@ -33,8 +33,8 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../../executor/copier/integer_copier.c"
+#include "../../../../../executor/copier/pointer_copier.c"
 #include "../../../../../executor/searcher/selector/xdt/field/end_field_xdt_selector.c"
 #include "../../../../../logger/logger.c"
 

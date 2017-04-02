@@ -31,7 +31,6 @@
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../executor/modifier/empty_modifier.c"
 #include "../../executor/modifier/fill_modifier.c"
 #include "../../executor/modifier/insert_modifier.c"
 #include "../../executor/modifier/overwrite_modifier.c"
@@ -44,17 +43,16 @@
  * @param p0 the destination array (pointer reference)
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the source index
- * @param p6 the destination array count
- * @param p7 the destination array size
- * @param p8 the adjust count flag
- * @param p9 the model flag
- * @param p10 the properties flag
- * @param p11 the operation type
+ * @param p3 the deep copying flag
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the source index
+ * @param p7 the destination array count
+ * @param p8 the destination array size
+ * @param p9 the adjust count flag
+ * @param p10 the operation type
  */
-void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11) {
+void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify array.");
 
@@ -63,65 +61,74 @@ void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            // CAUTION! Use destination array count p6 TWICE,
-            // as destination index (fifth parametre, INSTEAD of p4)
-            // and as destination array count.
-            // CAUTION! Set adjust count flag, since destination gets extended by append.
-            modify_overwrite(p0, p1, p2, p3, p6, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            // Append source to destination.
+            //
+            // CAUTION! Hand over the destination array count TWICE,
+            // as destination index (sixth parametre, INSTEAD of p5)
+            // AND as destination array count (eighth parametre)
+            //
+            // CAUTION! Set adjust count flag to TRUE,
+            // since destination gets extended by append.
+            modify_overwrite(p0, p1, p2, p3, p4, p7, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_empty(p0, p2, p6, p7, p8);
+            // Remove all elements from array.
+            //
+            // CAUTION! Hand over the destination array count TWICE,
+            // as count of elements to be removed (third parametre, INSTEAD of p4)
+            // AND as destination array count (fifth parametre).
+            modify_remove(p0, p2, p7, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_fill(p0, p1, p2, p3, p4, p6, p7, p8);
+            modify_fill(p0, p1, p2, p3, p4, p5, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) INSERT_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_insert(p0, p1, p2, p3, p4, p5, p6, p7);
+            modify_insert(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_overwrite(p0, p1, p2, p3, p4, p5, p6, p7, p8);
+            modify_overwrite(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p11, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+        compare_integer_equal((void*) &r, p10, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_remove(p0, p2, p3, p4, p6, p7, p8);
+            modify_remove(p0, p2, p4, p5, p7, p8, p9);
         }
     }
 

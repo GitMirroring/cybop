@@ -35,7 +35,7 @@
 #include "../../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/xdt/part_record_xdt_deserialiser.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"

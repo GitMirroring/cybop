@@ -23,47 +23,21 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef MODIFY_REMOVE_SOURCE
-#define MODIFY_REMOVE_SOURCE
+#ifndef REMOVE_MODIFIER_SOURCE
+#define REMOVE_MODIFIER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
 #include "../../executor/comparator/basic/integer/smaller_integer_comparator.c"
-#include "../../executor/memoriser/reallocator/array_reallocator.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/referencer/referencer.c"
+#include "../../executor/modifier/inside_remove_modifier.c"
 #include "../../logger/logger.c"
 
 /**
- * Removes the given number of array elements.
- *
- * All current elements existing behind the area to be removed
- * from the array are moved towards the beginning.
- *
- * CAUTION! This is done in a FORWARD order, starting from the
- * FIRST element (behind the area to be removed) since otherwise,
- * overlapping elements might get overwritten.
- *
- * The destination size is NOT changed.
- * See comment in source code for reasons!
- *
- * A new destination count is ONLY assigned,
- * if the "adjust count flag" is set.
- * The reason is that sometimes, constants are handed over
- * as count, which may NOT be changed. Otherwise, unpredictable
- * values and pointers would occur in the programme.
- *
- * Example:
- *
- * array: "Hello, XYZWorld!"
- * count: 3
- * index: 7
- * array count: 16
- * ==> result: "Hello, World!"
+ * Removes the given number of elements from the array,
+ * starting from the given index.
  *
  * @param p0 the destination array (pointer reference)
  * @param p1 the type
@@ -71,154 +45,6 @@
  * @param p3 the destination index
  * @param p4 the destination array count
  * @param p5 the destination array size
- * @param p6 the adjust count flag
- */
-void modify_remove_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
-
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        void** d = (void**) p0;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify remove inside.");
-
-        // The move source index.
-        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The move source count.
-        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The new destination array count.
-        int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The comparison result.
-        int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-        // Add index.
-        calculate_integer_add((void*) &i, p3);
-        // Add count of elements to be removed.
-        calculate_integer_add((void*) &i, p2);
-
-        // Add array count.
-        calculate_integer_add((void*) &c, p4);
-        // Subtract move source index.
-        calculate_integer_subtract((void*) &c, (void*) &i);
-
-        // Add array count.
-        calculate_integer_add((void*) &nc, p4);
-        // Subtract count of elements to be removed.
-        calculate_integer_subtract((void*) &nc, p2);
-
-        if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                if (nc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // Decrement reference count of removed parts for rubbish (garbage) collection.
-                    // CAUTION! This has to be done BEFORE actually removing elements,
-                    // since afterwards, they are not reachable anymore from the destination.
-                    reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, p2, p3, p1);
-
-                    // Move current elements behind area to be removed towards the beginning of the array.
-                    //
-                    // CAUTION! Move array elements starting from the FIRST since otherwise,
-                    // overlapping array elements might get overwritten!
-                    //
-                    // CAUTION! Call this function BEFORE resizing the array
-                    // since elements might get lost while shrinking the array.
-                    //
-                    // CAUTION! If the array is to be emptied, then c is zero (see calculation above),
-                    // so that NOTHING is copied from behind the end of the array,
-                    // as that would break array boundaries and would copy unpredictable content.
-                    copy_array_forward(*d, *d, p1, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, p3, (void*) &i);
-
-                    compare_integer_unequal((void*) &r, p6, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
-
-                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        //
-                        // It was decided NOT to shrink arrays when their size gets smaller,
-                        // in order to be more efficient.
-                        // When an array gets deallocated, there is no use in shrinking it beforehand.
-                        // Those arrays which contain less elements than their size is
-                        // probably won't occupy that much memory space and are left untouched.
-                        //
-                        // However, here comes the source code how shrinking might work:
-                        //
-                        // // The comparison result.
-                        // int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-                        //
-                        // // Test if new size is smaller than array size.
-                        // compare_integer_smaller((void*) &r, (void*) &n, p5);
-                        //
-                        // if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-                        //
-                        //     if (n > *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                        //
-                        //         // Shrink array using new count as size.
-                        //         // CAUTION! Due to memory allocation handling, the size MUST NOT
-                        //         // be negative or zero, but have at least a value of ONE.
-                        //         reallocate_array(p0, p4, (void*) &n, p1);
-                        //
-                        //     } else if (n == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                        //
-                        //         // Set new size to value one.
-                        //         // CAUTION! It is just normal that the calculated new size is zero,
-                        //         // e.g. if a part was emptied and all of its child elements removed.
-                        //         // However, in such cases it has to be made sure,
-                        //         // that allocation size is at least one.
-                        //         n = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                        //
-                        //         // Shrink array using new count as size.
-                        //         // CAUTION! Due to memory allocation handling, the size MUST NOT
-                        //         // be negative or zero, but have at least a value of ONE.
-                        //         reallocate_array(p0, p4, (void*) &n, p1);
-                        //
-                        //     } else {
-                        //
-                        //         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The new size is negative.");
-                        //     }
-                        //
-                        //     // Set new size.
-                        //     copy_integer(p5, (void*) &n);
-                        // }
-                        //
-
-                        // Assign destination array count.
-                        copy_integer(p4, (void*) &nc);
-                    }
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The new size is negative.");
-                    fwprintf(stdout, L"ERROR: Could not modify remove inside. The new size is negative n: %i\n", nc);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The move source count is negative.");
-                fwprintf(stdout, L"ERROR: Could not modify remove inside. The move source count is negative c: %i\n", c);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The move source index is negative.");
-            fwprintf(stdout, L"ERROR: Could not modify remove inside. The move source index is negative i: %i\n", i);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove inside. The array is null.");
-    }
-}
-
-/**
- * Removes the given number of elements from the array,
- * starting from the given index.
- *
- * @param p0 the array (pointer reference)
- * @param p1 the type
- * @param p2 the count
- * @param p3 the index
- * @param p4 the array count
- * @param p5 the array size
  * @param p6 the adjust count flag
  */
 void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
@@ -230,7 +56,7 @@ void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &r, p3, p4);
+        compare_integer_smaller((void*) &r, p4, p5);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -240,7 +66,7 @@ void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_equal((void*) &r, p4, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
+        compare_integer_equal((void*) &r, p5, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -251,23 +77,8 @@ void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove. The destination index is outside the array boundaries.");
-//??        fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p3: %i\n", *((int*) p3));
-//??        fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p4: %i\n", *((int*) p4));
-
-/*??
-        if (p4 == *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p0 array: %i\n", *((void**) p0));
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p1 type: %i\n", *((int*) p1));
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries p2 count: %i\n", p2);
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p3 index: %i\n", *((int*) p3));
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries p4 array count: %i\n", p4);
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p5 array size: %i\n", *((int*) p5));
-            fwprintf(stdout, L"Could not modify remove. The destination index is outside the array boundaries *p6 flag: %i\n", *((int*) p6));
-        }
-*/
     }
 }
 
-/* MODIFY_REMOVE_SOURCE */
+/* REMOVE_MODIFIER_SOURCE */
 #endif

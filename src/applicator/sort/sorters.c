@@ -32,7 +32,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/sort/sort_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../executor/sorter/quicksorter.c"
 #include "../../executor/sorter/bubblesorter.c"
 #include "../../executor/accessor/getter/part/name_part_getter.c"

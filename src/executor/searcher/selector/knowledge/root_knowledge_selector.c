@@ -37,7 +37,7 @@
 #include "../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/searcher/selector/knowledge/begin_knowledge_selector.c"
 #include "../../../../logger/logger.c"
 

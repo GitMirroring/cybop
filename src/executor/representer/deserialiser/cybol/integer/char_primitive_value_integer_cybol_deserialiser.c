@@ -41,8 +41,8 @@
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
 #include "../../../../../executor/memoriser/deallocator/item_deallocator.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../executor/representer/deserialiser/cybol/integer/char_value_integer_cybol_deserialiser.c"
 #include "../../../../../logger/logger.c"
 

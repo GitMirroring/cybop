@@ -80,7 +80,7 @@ fwprintf(stdout, L"TEST deserialise cybol byte *id: %i\n", *((int*) id));
     // CAUTION! This IS NECESSARY in order to ensure that
     // source- and destination have an equal count of elements.
     // Otherwise, the elements will not be casted.
-    modify_item_element(p0, (void*) &c, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    modify_item(p0, (void*) &c, (void*) BYTE_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, ic, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) FILL_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Cast all source- into destination array elements.
     // CAUTION! Assigning the destination array to the destination item

@@ -31,8 +31,8 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/lifeguard/sensor/socket/socket_sensor.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

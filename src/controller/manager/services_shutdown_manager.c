@@ -33,7 +33,7 @@
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/maintainer/shutter.c"
-#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../logger/logger.c"
 
 /**

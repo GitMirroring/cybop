@@ -34,7 +34,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/border/border_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/copier/wide_character_copier.c"
+#include "../../../../executor/copier/wide_character_copier.c"
 #include "../../../../logger/logger.c"
 
 /**

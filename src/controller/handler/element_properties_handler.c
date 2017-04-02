@@ -34,8 +34,8 @@
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/memoriser/allocator/part_allocator.c"
 #include "../../executor/modifier/item_modifier.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/part_copier.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/part_copier.c"
 #include "../../logger/logger.c"
 
 /**
@@ -74,7 +74,7 @@ void handle_properties_element(void* p0, void* p1, void* p2) {
     // Hence, these parts may get deallocated automatically by rubbish
     // (garbage) collection, since nothing else is referencing them.
     //
-    modify_item_element(p2, (void*) &d, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    modify_item(p2, (void*) &d, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 }
 
 /* ELEMENT_PROPERTIES_HANDLER_SOURCE */

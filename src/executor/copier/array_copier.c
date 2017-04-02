@@ -26,23 +26,23 @@
 #ifndef ARRAY_COPIER_SOURCE
 #define ARRAY_COPIER_SOURCE
 
-#include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../executor/calculator/basic/integer/subtract_integer_calculator.c"
-#include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
-#include "../../../executor/memoriser/offset_adder.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../constant/type/cyboi/state_cyboi_type.c"
+#include "../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
+#include "../../executor/comparator/basic/integer/smaller_integer_comparator.c"
+#include "../../executor/memoriser/offset_adder.c"
+#include "../../logger/logger.c"
 
 //
 // Forward declarations.
 //
 
-#include "../../../executor/modifier/copier/copier.c"
+#include "../../executor/copier/copier.c"
 
 /**
  * Copies count source array elements into the destination array.

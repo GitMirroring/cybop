@@ -28,7 +28,7 @@
 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
 
 /**
  * Compares the left- with the right pointer for smallerness.

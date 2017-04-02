@@ -36,8 +36,8 @@
 #include "../../../executor/accessor/getter/io_entry_getter.c"
 #include "../../../executor/accessor/setter/io_entry_setter.c"
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

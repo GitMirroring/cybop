@@ -14,33 +14,20 @@
 Container
 _________
 
-        * Continue in file "part_modifier.c"
-            --> DO USE index for destination AND source (similar to last parametre of functions "modify_part_element" and "modify_item_element")
-        * In function "modify_part": Is it necessary to use two parametre flags "destination properties flag" and "source properties flag"?
-        * Or, isn't that already provided in function "modify_part_element" through the parametre "destination part element index", which allows accessing model, properties and others?
-        * Problem: Here, the source is always an array, not a part (node), so that its properties may not be accessed
-        * Split both functions ("modify_part_element" and "modify_part") into TWO separate source files, in case both turn out to be necessary
+        * Call "empty" TWICE, for model AND property separately, where necessary, in all cybol example applications using it
+        * Remove "type" property from "modify" operations in all cybol example applications
+        * Adapt those cybol example applications modifying a node's properties (the others are fine, since "model" is the default)
+        * Unify cybol property "element" or "format" with "destination_property" and "source_property"
+            for ALL container operations, since the model AND its properties are a container
 
-        * Restore forgotten flags "model" and "properties" for "empty" operation in directory "executor/modifier/"
-            --> possibly rename and reuse these two as "destination_property" and "source_property" flag
-                indicating one of the two hierarchies ("model" and "property" hierarchy) of a node
-            --> their original purpose for only the "modify/empty" cybol operation is superfluous
-            --> this is to become an optional property
-            --> if not specified, then the default value for both ("destination_property" and "source_property") is "false" which means "model hierarchy"
-            in function "modify_part", NOT in "modify_part_element"
-            see svn backup file in "executor/modifier/emptier/part_emptier.c"
-            see file "executor/modifier/part_modifier.c"
-            ?? use cybol property "element" or "format" for ALL CONTAINER OPERATIONS (also overwrite etc., since the model AND its properties are a container)
-            --> adapt all cybol examples by adding new "element" property OR use "model" as default ??
+        * Fix terminology in special chapter of design document, e.g.: model (instead of part) and property (both, model and property are a part), item, array|data etc., xml node|element|tag|attribute etc.
 
-    SUGGESTION for new property node: "hierarchy" with two possible values "model" (NOT "part") and "property"
-    OR, BETTER: a property node called "property" of type "logicvalue/boolean"; "false" by default means that it is a model; if set to "true", then it means "property"
     <node name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
         <!-- This is an optional property. The default value is "model". -->
-        <node name="hierarchy" channel="inline" format="text/plain" model="model"/>
+        <node name="destination_property" channel="inline" format="text/plain" model="model"/>
     </node>
 
     MODEL, PROPERTY (Boolscher Wert); CHANGE "part" into "node" and "model" into "property"
@@ -76,20 +63,9 @@ _________
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#category_name)"/>
     </node>
 
-        * Fix terminology in special chapter of design document, e.g.: model (instead of part) and property (both, model and property are a part), item, array|data etc., xml node|element|tag|attribute etc.
-
-        * Eliminate "type" property node for all cybol container operations, e.g. "modify/overwrite" etc.
-        * Move directory "executor/modifier/copier/" one level up (outside of "executor/modifier/)
-        * Merge "modify_item_element" and "modify_item" ??
-        * Merge "modify_part_element" and "modify_part" ??
-
-        * Reintroduce type comparisons in file "applicator/modify/modify.c"
-        * Adapt function calls at end of cybol operations in "applicator/" by forwarding property "move" as boolean value to "executor/" functions
-
 Clone
 _____
 
-        * Adapt "modifier" functions by forwarding deep copying flag
         * Verify correct execution of cybol example application "copier"
         * Test for memory leaks with valgrind
 

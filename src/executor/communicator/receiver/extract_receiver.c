@@ -32,8 +32,8 @@
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 //?? #include "../../../executor/packer/extractor.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

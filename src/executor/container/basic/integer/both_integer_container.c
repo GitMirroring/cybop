@@ -32,7 +32,7 @@
 #include "../../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"
 #include "../../../../executor/logifier/boolean/and_boolean_logifier.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**

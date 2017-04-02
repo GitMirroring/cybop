@@ -55,11 +55,11 @@ void bubblesort(int *omd, int *elements) {
     int i = 0;
 
     while (1)
-    {        
-        if (n <= 1) break;        
+    {
+        if (n <= 1) break;
         newn = 1;
         i = 0;
-        
+
         while (1)
         {
             if (i >= (n - 1)) break;
@@ -68,7 +68,7 @@ void bubblesort(int *omd, int *elements) {
             if (*a1 > *a2)
             {
                 swap(a1, a2);
-                newn = i + 1;                
+                newn = i + 1;
             }
             i++;
         }
@@ -93,21 +93,21 @@ void sorter_bubble(void* imd, void* imc, void* omd, void* omc, void* oms) {
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Sort bubble.");
 
     // Fill destination array in order to preserve input array values.
-    modify_overwrite(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+    modify_overwrite(omd, imd, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, imc, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, omc, oms, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
 
     // Call actual bubble sort algorithm.
     bubblesort((int*) *((void**) omd), (int*) omc);
-   
-/*??    
-       
+
+/*??
+
     int i = -1;
     if(*((int* ) imc) == *((int* ) omc))
-    {    
+    {
         while(++i < *((int* ) imc))
             *((int* ) omd + i) = *((int* ) imd + i);
 
         bubblesort((int*) omd, (int* ) omc);
-    } 
+    }
     else
         fwprintf(stderr, L"input data count (%d) != output datacount (%d) !!\n", *((int* ) imc),*((int* ) omc));
 */

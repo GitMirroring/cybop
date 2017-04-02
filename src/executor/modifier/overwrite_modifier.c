@@ -35,8 +35,8 @@
 #include "../../executor/memoriser/reallocator/array_reallocator.c"
 #include "../../executor/memoriser/offset_adder.c"
 #include "../../executor/memoriser/size_determiner.c"
-#include "../../executor/modifier/copier/array_copier.c"
-#include "../../executor/modifier/copier/integer_copier.c"
+#include "../../executor/copier/array_copier.c"
+#include "../../executor/copier/integer_copier.c"
 #include "../../executor/referencer/referencer.c"
 // CAUTION! Do NOT include the logger here.
 // It uses functions causing circular references.
@@ -76,14 +76,15 @@
  * @param p0 the destination array (pointer reference)
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the source index
- * @param p6 the destination array count
- * @param p7 the destination array size
- * @param p8 the adjust count flag
+ * @param p3 the deep copying flag
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the source index
+ * @param p7 the destination array count
+ * @param p8 the destination array size
+ * @param p9 the adjust count flag
  */
-void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
+void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9) {
 
     if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -117,17 +118,17 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         //
 
         // Add destination index.
-        calculate_integer_add((void*) &nc, p4);
+        calculate_integer_add((void*) &nc, p5);
         // Add count of source elements to be written over destination elements.
-        calculate_integer_add((void*) &nc, p3);
+        calculate_integer_add((void*) &nc, p4);
 
         // CAUTION! An element may be added far behind the end of the array.
         // In such a case, the result will be negative.
 
         // Initialise with original destination array count.
-        copy_integer((void*) &oc, p6);
+        copy_integer((void*) &oc, p7);
         // Subtract destination index.
-        calculate_integer_subtract((void*) &oc, p4);
+        calculate_integer_subtract((void*) &oc, p5);
 
         if (oc < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
@@ -143,7 +144,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
         if (nc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
 
             // Test if new destination count exceeds original destination array size.
-            compare_integer_greater((void*) &r, (void*) &nc, p7);
+            compare_integer_greater((void*) &r, (void*) &nc, p8);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -154,6 +155,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                 int ns = nc;
 
                 // Multiply new destination size with factor.
+                //
                 // CAUTION! This multiplication has to be done AFTER the comparison
                 // of new size and old size since otherwise, the new size is falsified,
                 // which would lead to runtime errors.
@@ -171,38 +173,48 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                 }
 
                 // Enlarge array using new destination size.
+                //
                 // CAUTION! Due to memory allocation handling, the size MUST NOT
                 // be negative or zero, but have at least a value of ONE.
-                reallocate_array(p0, p6, (void*) &ns, p2);
+                reallocate_array(p0, p7, (void*) &ns, p2);
 
                 // Set new size.
-                copy_integer(p7, (void*) &ns);
+                copy_integer(p8, (void*) &ns);
             }
 
             // Decrement reference count of overwritten parts for rubbish (garbage) collection.
+            //
             // CAUTION! This has to be done BEFORE actually overwriting old elements,
             // since afterwards, they are not reachable anymore from the destination.
+            //
             // CAUTION! Use the overwritten elements count and
-            // NOT the count handed over as parametre p3 here!
+            // NOT the count handed over as parametre p4 here!
+            //
             // CAUTION! The overwritten elements count oc might be negative,
             // e. g. if the destination index is greater than
             // the original destination array count.
             // However, this case was already handled further above.
-            reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p4, p2);
+            reference(*d, (void*) SUBTRACT_CALCULATE_LOGIC_CYBOI_FORMAT, (void*) &oc, p5, p2);
 
             // Copy source to destination.
-            copy_array_forward(*d, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
+            //
+            // CAUTION! Set the deep copying flag to the PARAMETRE here,
+            // since the source may be of primitive types like pointer or integer,
+            // but also of a compound node type with sub tree.
+            copy_array_forward(*d, p1, p2, p3, p4, p5, p6);
 
             // Increment reference count of new parts for rubbish (garbage) collection.
+            //
             // CAUTION! This has to be done AFTER having overwritten old elements with new elements,
             // since beforehand, the latter are not known to the destination yet.
-            // CAUTION! Use the count handed over as parametre p3 and NOT the overwritten elements count here!
-            reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
+            //
+            // CAUTION! Use the count handed over as parametre p4 and NOT the overwritten elements count here!
+            reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p4, p5, p2);
 
             // Reset comparison result.
             r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
-            compare_integer_unequal((void*) &r, p8, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            compare_integer_unequal((void*) &r, p9, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
 
             if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -261,7 +273,7 @@ void modify_overwrite(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5
                 // but also if the number of elements decreases (shrinking).
                 // If this was not done, false results would occur.
                 //
-                copy_integer(p6, (void*) &nc);
+                copy_integer(p7, (void*) &nc);
             }
 
         } else {

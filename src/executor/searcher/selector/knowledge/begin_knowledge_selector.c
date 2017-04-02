@@ -34,7 +34,7 @@
 #include "../../../../constant/name/cyboi/knowledge/separator_knowledge_cyboi_name.c"
 #include "../../../../constant/name/cyboi/state/part_state_cyboi_name.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../executor/representer/deserialiser/knowledge/identification_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/name_knowledge_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/knowledge/part_knowledge_deserialiser.c"

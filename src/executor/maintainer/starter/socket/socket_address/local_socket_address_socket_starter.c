@@ -36,7 +36,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../executor/maintainer/starter/socket/socket_address/initialise_local_socket_address_socket_starter.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/type_size/integral_type_size.c"
 

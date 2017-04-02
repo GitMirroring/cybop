@@ -42,7 +42,7 @@
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
 #include "../../../../../variable/symbolic_name/address_family_socket_symbolic_name.c"
 

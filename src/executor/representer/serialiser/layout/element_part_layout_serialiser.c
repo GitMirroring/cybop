@@ -32,7 +32,7 @@
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/layout/position_layout_serialiser.c"
 #include "../../../../logger/logger.c"
 

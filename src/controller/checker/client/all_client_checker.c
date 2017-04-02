@@ -34,7 +34,7 @@
 #include "../../../controller/checker/client/element_client_checker.c"
 #include "../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

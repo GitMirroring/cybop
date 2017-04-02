@@ -35,8 +35,8 @@
 #include "../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../executor/comparator/comparator.c"
-#include "../../../executor/modifier/copier/array_copier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/copier/array_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

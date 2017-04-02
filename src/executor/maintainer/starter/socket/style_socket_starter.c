@@ -42,7 +42,7 @@
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/socket/style_socket_cybol_model.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 #include "../../../../variable/symbolic_name/style_socket_symbolic_name.c"
 

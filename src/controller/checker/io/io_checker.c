@@ -34,7 +34,7 @@
 #include "../../../executor/lifeguard/sensor/display/display_sensor.c"
 #include "../../../executor/lifeguard/sensor/terminal/terminal_sensor.c"
 #include "../../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../controller/checker/io/all_io_checker.c"
 #include "../../../logger/logger.c"
 

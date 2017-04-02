@@ -33,8 +33,8 @@
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/complex_state_cyboi_name.c"
 #include "../../../executor/calculator/basic/pointer/add_pointer_calculator.c"
-#include "../../../executor/modifier/copier/double_copier.c"
-#include "../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../executor/copier/double_copier.c"
+#include "../../../executor/copier/pointer_copier.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/type_size/real_type_size.c"
 

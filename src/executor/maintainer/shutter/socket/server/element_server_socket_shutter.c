@@ -30,7 +30,7 @@
 #include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../executor/maintainer/shutter/socket/close_socket_shutter.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../../executor/copier/array_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**

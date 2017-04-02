@@ -35,7 +35,7 @@
 #include "../../../../executor/accessor/name_getter/item_name_getter.c"
 #include "../../../../executor/accessor/name_getter/part_name_getter.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**

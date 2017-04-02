@@ -34,7 +34,7 @@
 #include "../../executor/calculator/basic/integer_calculator.c"
 #include "../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../executor/memoriser/deallocator/part_deallocator.c"
-#include "../../executor/modifier/copier/array_copier.c"
+#include "../../executor/copier/array_copier.c"
 #include "../../logger/logger.c"
 
 /**

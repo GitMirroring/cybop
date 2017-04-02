@@ -26,163 +26,14 @@
 #ifndef INSERT_MODIFIER_SOURCE
 #define INSERT_MODIFIER_SOURCE
 
-#include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../executor/comparator/basic/integer/smaller_integer_comparator.c"
-#include "../../executor/comparator/basic/value_comparator.c"
-#include "../../executor/memoriser/reallocator/array_reallocator.c"
+#include "../../executor/modifier/inside_insert_modifier.c"
 #include "../../executor/modifier/overwrite_modifier.c"
-#include "../../executor/referencer/referencer.c"
 #include "../../logger/logger.c"
-
-/**
- * Inserts the source- INSIDE the destination array.
- *
- * All current elements existing behind the given index in the destination array
- * are moved towards the end by the number of elements inserted.
- *
- * CAUTION! This is done in a backwards order, starting from the last element,
- * since otherwise, some elements might overlap and get overwritten.
- *
- * Example:
- *
- * destination array: "HelloWorld!"
- * source array: "blubla, blubla"
- * count: 2
- * destination index: 5
- * source index: 6
- * destination array count: 11
- * ==> result: "Hello, World"
- *
- * @param p0 the destination array (pointer reference)
- * @param p1 the source array
- * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the source index
- * @param p6 the destination array count
- * @param p7 the destination array size
- */
-void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
-
-    if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-        void** d = (void**) p0;
-
-        log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify insert inside.");
-
-        // The move destination index.
-        int i = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The move count.
-        int c = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-        // The new destination array count.
-        int nc = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-
-        // Add destination index.
-        calculate_integer_add((void*) &i, p4);
-        // Add count of source elements to be inserted.
-        calculate_integer_add((void*) &i, p3);
-
-        // Add destination array count.
-        calculate_integer_add((void*) &c, p6);
-        // Subtract destination index.
-        calculate_integer_subtract((void*) &c, p4);
-
-        // Add destination array count.
-        calculate_integer_add((void*) &nc, p6);
-        // Add count of new elements to be inserted.
-        calculate_integer_add((void*) &nc, p3);
-
-        if (i >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-            if (c >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                if (nc >= *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-
-                    // The comparison result.
-                    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-
-                    compare_integer_greater((void*) &r, (void*) &nc, p7);
-
-                    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
-
-                        // Initialise new destination size with new destination count.
-                        int ns = nc;
-
-                        // Multiply new destination size with factor.
-                        // CAUTION! This multiplication has to be done AFTER the comparison
-                        // of new size and old size since otherwise, the new size is falsified,
-                        // which would lead to runtime errors.
-                        calculate_integer_multiply((void*) &ns, (void*) NUMBER_2_INTEGER_STATE_CYBOI_MODEL);
-
-                        // Make sure allocation size is at least one.
-                        if (ns < *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                            fwprintf(stdout, L"ERROR: Could not modify insert inside. The new size is negative ns: %i\n", ns);
-                        } else if (ns == *NUMBER_0_INTEGER_STATE_CYBOI_MODEL) {
-                            fwprintf(stdout, L"ERROR: Could not modify insert inside. The new size is zero ns: %i\n", ns);
-//??                            ns = *NUMBER_1_INTEGER_STATE_CYBOI_MODEL;
-                        }
-
-                        // Enlarge array using new destination size.
-                        // CAUTION! Due to memory allocation handling, the size MUST NOT
-                        // be negative or zero, but have at least a value of ONE.
-                        reallocate_array(p0, p6, (void*) &ns, p2);
-
-                        // Set new size.
-                        copy_integer(p7, (void*) &ns);
-                    }
-
-                    // Move current elements behind given index towards the end of the array.
-                    // CAUTION! Move array elements starting from the LAST since otherwise,
-                    // overlapping array elements might get overwritten!
-                    // CAUTION! Call this function AFTER having resized the array
-                    // since otherwise, it might not be big enough and elements be cut.
-                    // CAUTION! Set the deep copying flag to FALSE here, since
-                    // only POINTERS are to be moved, but NOT sub trees copied.
-                    copy_array_backward(*d, *d, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &c, (void*) &i, p4);
-
-                    // Copy source to destination.
-                    //?? TODO: Instead of "FALSE_BOOLEAN_STATE_CYBOI_MODEL",
-                    //?? the real deep copying flag parametre has to be used here
-                    //?? as soon as it got added to the function signature of "modify_insert_inside".
-                    copy_array_forward(*d, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, p4, p5);
-
-                    // Set destination array count.
-                    copy_integer(p6, (void*) &nc);
-
-                    // Increment reference count of inserted parts for rubbish (garbage) collection.
-                    // CAUTION! This has to be done AFTER having inserted elements,
-                    // since beforehand, these are not known to the destination yet.
-                    reference(*d, (void*) ADD_CALCULATE_LOGIC_CYBOI_FORMAT, p3, p4, p2);
-
-                } else {
-
-                    log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The new size is negative.");
-                    fwprintf(stdout, L"ERROR: Could not modify insert inside. The new size is negative n: %i\n", nc);
-                }
-
-            } else {
-
-                log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The move count is negative.");
-                fwprintf(stdout, L"ERROR: Could not modify insert inside. The move count is negative c: %i\n", c);
-            }
-
-        } else {
-
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The move destination index is negative.");
-            fwprintf(stdout, L"ERROR: Could not modify insert inside. The move destination index is negative i: %i\n", i);
-        }
-
-    } else {
-
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify insert inside. The destination array is null.");
-    }
-}
 
 /**
  * Inserts the source- into the destination array,
@@ -191,13 +42,14 @@ void modify_insert_inside(void* p0, void* p1, void* p2, void* p3, void* p4, void
  * @param p0 the destination array (pointer reference)
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the source index
- * @param p6 the destination array count
- * @param p7 the destination array size
+ * @param p3 the deep copying flag
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the source index
+ * @param p7 the destination array count
+ * @param p8 the destination array size
  */
-void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify insert.");
 
@@ -206,7 +58,7 @@ void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_greater_or_equal((void*) &r, p4, p6);
+        compare_integer_greater_or_equal((void*) &r, p5, p7);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
@@ -215,17 +67,17 @@ void modify_insert(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
             // elements, since none have to be moved.
             //
             // CAUTION! Don't forget to set the "adjust count" flag!
-            modify_overwrite(p0, p1, p2, p3, p4, p5, p6, p7, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
+            modify_overwrite(p0, p1, p2, p3, p4, p5, p6, p7, p8, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL);
         }
     }
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-        compare_integer_smaller((void*) &r, p4, p6);
+        compare_integer_smaller((void*) &r, p5, p7);
 
         if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
-            modify_insert_inside(p0, p1, p2, p3, p4, p5, p6, p7);
+            modify_insert_inside(p0, p1, p2, p3, p4, p5, p6, p7, p8);
         }
     }
 }

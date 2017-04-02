@@ -35,8 +35,8 @@
 #include "../../../../executor/comparator/basic/integer/greater_or_equal_integer_comparator.c"
 #include "../../../../executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
 #include "../../../../executor/modifier/item_modifier.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
-#include "../../../../executor/modifier/copier/pointer_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
+#include "../../../../executor/copier/pointer_copier.c"
 #include "../../../../executor/representer/deserialiser/cybol/integer/char_primitive_value_integer_cybol_deserialiser.c"
 #include "../../../../executor/searcher/mover/position_mover.c"
 #include "../../../../logger/logger.c"
@@ -125,7 +125,7 @@ void deserialise_percent_encoding_character(void* p0, void* p1, void* p2) {
         unsigned char c = (unsigned char) i;
 
         // Append character to destination.
-        modify_item_element(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        modify_item(p0, (void*) &c, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     } else {
 

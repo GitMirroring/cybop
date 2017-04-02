@@ -18,10 +18,26 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-02  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt source code to changed function signatures of directory "executor/modifier/"
+
+2017-04-01  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Rename functions "modify_part_element" into "modify_part" and "modify_item_element" into "modify_item"
+
+2017-03-31  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Adapt modifier functions by forwarding deep copying flag in directory "executor/modifier/"
+        * Support cybol properties "destination_property" and "source_property" in file "applicator/modify/modify.c"
+        * Evaluate cybol property flag "move", in order to use shallow- or deep copying
+        * Reintroduce type comparison of destination- and source part in file "applicator/modify/modify.c"
+        * Eliminate explicit cybol property "type" in file "applicator/modify/modify.c"
+
 2017-03-30  Christian Heller  <christian.heller@tuxtax.de>
 
-        * Hand over deep copying flag to function "copy_array_forward" in file "executor/modifier/copier/array_copier.c"
-        * Add deep copying flag to all function calls of "copy_array_forward"
+        * Move directory "executor/modifier/copier/" one level up to "executor/copier/"
+        * Add deep copying flag to function "copy_array_forward" in file "executor/copier/array_copier.c"
 
 2017-03-27  Christian Heller  <christian.heller@tuxtax.de>
 

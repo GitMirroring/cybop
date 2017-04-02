@@ -36,8 +36,8 @@
 #include "../../../../../executor/maintainer/starter/socket/server/lifecycle_server_socket_starter.c"
 #include "../../../../../executor/memoriser/allocator/array_allocator.c"
 #include "../../../../../executor/memoriser/allocator/item_allocator.c"
-#include "../../../../../executor/modifier/copier/array_copier.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/copier/array_copier.c"
+#include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**

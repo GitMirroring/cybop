@@ -23,47 +23,54 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef DOUBLE_COPIER_SOURCE
-#define DOUBLE_COPIER_SOURCE
+#ifndef WIDE_CHARACTER_COPIER_SOURCE
+#define WIDE_CHARACTER_COPIER_SOURCE
 
 #include <stdlib.h>
 #include <string.h>
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../logger/logger.c"
+
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../logger/logger.c"
 
 /**
- * Copies the double.
+ * Copies the wide character.
  *
  * @param p0 the destination
  * @param p1 the source
  */
-void copy_double(void* p0, void* p1) {
+void copy_wide_character(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        double* se = (double*) p1;
+        wchar_t* se = (wchar_t*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            double* de = (double*) p0;
+            wchar_t* de = (wchar_t*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy double.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy wide character.");
 
             // Assign source- to destination.
             *de = *se;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy double. The destination is null.");
+            // CAUTION! Do NOT call the logger here.
+            // It uses functions causing circular references.
+            // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy wide character. The destination is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy double. The source is null.");
+        // CAUTION! Do NOT call the logger here.
+        // It uses functions causing circular references.
+        // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy wide character. The source is null.");
     }
 }
 
-/* DOUBLE_COPIER_SOURCE */
+/* WIDE_CHARACTER_COPIER_SOURCE */
 #endif

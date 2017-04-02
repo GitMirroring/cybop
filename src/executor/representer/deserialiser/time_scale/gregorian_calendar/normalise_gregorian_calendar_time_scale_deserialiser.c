@@ -41,8 +41,8 @@
 #include "../../../../../executor/caster/basic/double/integer_double_caster.c"
 #include "../../../../../executor/caster/basic/integer/double_integer_caster.c"
 #include "../../../../../executor/comparator/basic/double/smaller_double_comparator.c"
-#include "../../../../../executor/modifier/copier/double_copier.c"
-#include "../../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../../executor/copier/double_copier.c"
+#include "../../../../../executor/copier/integer_copier.c"
 #include "../../../../../logger/logger.c"
 
 /**

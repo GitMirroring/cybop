@@ -23,48 +23,47 @@
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
-#ifndef CHARACTER_COPIER_SOURCE
-#define CHARACTER_COPIER_SOURCE
+#ifndef DOUBLE_COPIER_SOURCE
+#define DOUBLE_COPIER_SOURCE
 
 #include <stdlib.h>
 #include <string.h>
-
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
-#include "../../../logger/logger.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
+#include "../../logger/logger.c"
 
 /**
- * Copies the character.
+ * Copies the double.
  *
  * @param p0 the destination
  * @param p1 the source
  */
-void copy_character(void* p0, void* p1) {
+void copy_double(void* p0, void* p1) {
 
     if (p1 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-        unsigned char* s = (unsigned char*) p1;
+        double* se = (double*) p1;
 
         if (p0 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
-            unsigned char* d = (unsigned char*) p0;
+            double* de = (double*) p0;
 
-            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy character.");
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy double.");
 
-            // Set source- to destination.
-            *d = *s;
+            // Assign source- to destination.
+            *de = *se;
 
         } else {
 
-            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy character. The destination is null.");
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy double. The destination is null.");
         }
 
     } else {
 
-        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy character. The source is null.");
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy double. The source is null.");
     }
 }
 
-/* CHARACTER_COPIER_SOURCE */
+/* DOUBLE_COPIER_SOURCE */
 #endif

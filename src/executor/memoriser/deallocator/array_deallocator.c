@@ -28,9 +28,10 @@
 
 #include <stdlib.h>
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reference_counter.c"
@@ -39,7 +40,7 @@
 // Forward declarations.
 //
 
-void modify_empty(void* p0, void* p1, void* p2, void* p3, void* p4);
+void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Deallocates the array.
@@ -75,7 +76,7 @@ void deallocate_array(void* p0, void* p1, void* p2, void* p3) {
             // in order to decrement the reference count
             // for each element with type "element/part",
             // for rubbish (garbage) collection.
-            modify_empty(p0, p3, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL);
+            modify_array(p0, *NULL_POINTER_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
             // This function may cause an error if some wrong pointer
             // is forwarded to it as argument.

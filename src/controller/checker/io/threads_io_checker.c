@@ -31,7 +31,7 @@
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/logifier/boolean/and_boolean_logifier.c"
 #include "../../../executor/logifier/boolean/or_boolean_logifier.c"
-#include "../../../executor/modifier/copier/integer_copier.c"
+#include "../../../executor/copier/integer_copier.c"
 #include "../../../logger/logger.c"
 
 /**

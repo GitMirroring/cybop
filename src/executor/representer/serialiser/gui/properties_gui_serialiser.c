@@ -37,7 +37,7 @@
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/accessor/getter/part/name_part_getter.c"
 #include "../../../../executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../../executor/modifier/copier/array_copier.c"
+#include "../../../../executor/copier/array_copier.c"
 #include "../../../../executor/representer/serialiser/gui/element_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/gui/window_gui_serialiser.c"
 #include "../../../../executor/representer/serialiser/layout/layout_serialiser.c"

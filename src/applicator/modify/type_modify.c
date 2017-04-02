@@ -1,0 +1,86 @@
+/*
+ * Copyright (C) 1999-2016. Christian Heller.
+ *
+ * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
+ *
+ * CYBOI is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License,
+ * or (at your option) any later version.
+ *
+ * CYBOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with CYBOI. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
+ * CYBOP Developers <cybop-developers@nongnu.org>
+ *
+ * @version CYBOP 0.18.0 2016-12-21
+ * @author Christian Heller <christian.heller@tuxtax.de>
+ */
+
+#ifndef TYPE_MODIFY_SOURCE
+#define TYPE_MODIFY_SOURCE
+
+#include "../../applicator/modify/deep_modify.c"
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
+#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../logger/logger.c"
+
+/**
+ * Compares the type of destination- and source node.
+ *
+ * CAUTION! Both have to be IDENTICAL.
+ *
+ * If a wrong knowledge path is given, e.g. with non-existing node-names,
+ * then a cybol operation might write data into a wrong destination,
+ * e.g. source data of format "text/plain" (type wide character)
+ * into a destination of format "element/part" (type pointer).
+ *
+ * Therefore, the destination- and source type are compared here.
+ *
+ * @param p0 the destination part
+ * @param p1 the source array
+ * @param p2 the type
+ * @param p3 the move flag (NOT deep copying flag)
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the source index
+ * @param p7 the adjust count flag
+ * @param p8 the operation type
+ * @param p9 the destination part item index
+ * @param p10 the source part item index
+ * @param p11 the source part
+ * @param p12 the source type
+ */
+void apply_modify_type(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12) {
+
+    log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Apply modify type.");
+
+    // The comparison result.
+    int r = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+
+    compare_integer_equal((void*) &r, p2, p12);
+
+    if (r != *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
+
+        // The destination- and source type are identical.
+
+        apply_modify_deep(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+
+    } else {
+
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not apply modify type. The destination type and source type are different.");
+        fwprintf(stdout, L"ERROR: Could not apply modify type. The destination type and source type are different.\n");
+        fwprintf(stdout, L"ERROR: Destination type: %i. Source type: %i.\n", *((int*) p2), *((int*) p12));
+    }
+}
+
+/* TYPE_MODIFY_SOURCE */
+#endif

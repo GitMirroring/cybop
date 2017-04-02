@@ -37,39 +37,19 @@
 #include "../../logger/logger.c"
 
 /**
- * Fills the array element.
- *
- * @param p0 the destination array (pointer reference)
- * @param p1 the source array
- * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the destination array count
- * @param p6 the destination array size
- * @param p7 the adjust count flag
- */
-void modify_fill_element(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
-
-    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify fill element.");
-
-    // Fill given element repeatedly into array.
-    // The count and size are adjusted inside.
-    modify_overwrite(p0, p1, p2, p3, p4, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p5, p6, p7);
-}
-
-/**
  * Fills the array.
  *
  * @param p0 the destination array (pointer reference)
  * @param p1 the source array
  * @param p2 the type
- * @param p3 the count
- * @param p4 the destination index
- * @param p5 the destination array count
- * @param p6 the destination array size
- * @param p7 the adjust count flag
+ * @param p3 the deep copying flag
+ * @param p4 the count
+ * @param p5 the destination index
+ * @param p6 the destination array count
+ * @param p7 the destination array size
+ * @param p8 the adjust count flag
  */
-void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
+void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Modify fill.");
 
@@ -82,12 +62,12 @@ void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
 
     // Initialise loop count with destination index parametre
     // PLUS the count parametre.
+    calculate_integer_add((void*) &c, p5);
     calculate_integer_add((void*) &c, p4);
-    calculate_integer_add((void*) &c, p3);
     // Initialise loop variable with destination index parametre.
     // That way, all destination entries starting from
     // the given index parametre are processed.
-    calculate_integer_add((void*) &j, p4);
+    calculate_integer_add((void*) &j, p5);
 
     // CAUTION! The usual loop count parametre test for NULL
     // is NOT necessary here, since a local variable is used.
@@ -103,7 +83,9 @@ void modify_fill(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
             break;
         }
 
-        modify_fill_element(p0, p1, p2, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, p5, p6, p7);
+        // Fill given element repeatedly into array.
+        // The count and size are adjusted inside.
+        modify_overwrite(p0, p1, p2, p3, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) &j, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, p6, p7, p8);
 
         // Increment loop variable.
         calculate_integer_add((void*) &j, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL);

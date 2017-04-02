@@ -35,7 +35,7 @@
 #include "../../../../constant/model/cybol/xcb/line_style_xcb_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/comparator/all/array_all_comparator.c"
-#include "../../../../executor/modifier/copier/integer_copier.c"
+#include "../../../../executor/copier/integer_copier.c"
 #include "../../../../logger/logger.c"
 
 /**
