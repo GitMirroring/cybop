@@ -3,8 +3,8 @@
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
 <!--
     <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model="#command"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination" channel="inline" format="text/cybol-path" model="#command"/>
+        <node name="destination_model" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 -->
 

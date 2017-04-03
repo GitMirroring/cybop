@@ -15,7 +15,7 @@ Container
 _________
 
         * Call "empty" TWICE, for model AND property separately, where necessary, in all cybol example applications using it
-        * Remove "type" property from "modify" operations in all cybol example applications
+        * ?? (at first testwise !!): Remove "type" property from "modify" operations in all cybol example applications
         * Adapt those cybol example applications modifying a node's properties (the others are fine, since "model" is the default)
         * Unify cybol property "element" or "format" with "destination_property" and "source_property"
             for ALL container operations, since the model AND its properties are a container

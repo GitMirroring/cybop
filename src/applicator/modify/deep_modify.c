@@ -92,7 +92,13 @@ void apply_modify_deep(void* p0, void* p1, void* p2, void* p3, void* p4, void* p
         // CAUTION! Set deep copying flag to FALSE.
         modify_part(p0, p1, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p5, p6, p7, p8, p9);
 
+        //
         // Remove elements from source part.
+        //
+        // CAUTION! Set the adjust flag to TRUE since otherwise,
+        // the destination item will hold a wrong "count" number
+        // leading to unpredictable errors in further processing.
+        //
         modify_part(p11, *NULL_POINTER_STATE_CYBOI_MODEL, p2, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p4, p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT, p10);
     }
 }

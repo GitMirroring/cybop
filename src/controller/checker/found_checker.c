@@ -54,6 +54,7 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // The direct execution flag.
     int x = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
+    //
     // Remove signal from signal memory.
     //
     // CAUTION! Use simple POINTER_STATE_CYBOI_TYPE and NOT PART_ELEMENT_STATE_CYBOI_TYPE here.
@@ -72,7 +73,12 @@ void check_found(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // After destruction, the second signal just points to null, which is ignored.
     // Hence, rubbish (garbage) collection would only disturb here
     // and should be left to the knowledge memory.
-    modify_item(p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+    //
+    // CAUTION! Set the adjust flag to TRUE since otherwise,
+    // the destination item will hold a wrong "count" number
+    // leading to unpredictable errors in further processing.
+    //
+    modify_item(p4, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, p5, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
     // Handle signal.
     handle(p0, p1, p2, p3, p4, (void*) &x, p6);

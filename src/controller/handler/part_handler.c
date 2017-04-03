@@ -151,6 +151,7 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     fwprintf(stdout, L"TEST handle part element 2 COUNT: %i\n", COUNT);
 */
 
+    //
     // Remove variable values from stack memory (pop).
     //
     // Solution 1: Read properties again
@@ -175,7 +176,13 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     //   (signal properties count) is removed from it again here
     // - the former (mc_old) stack memory item count is used as index for removal
     //
-    modify_item(p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
+    // Therefore, solution 3 is applied here.
+    //
+    // CAUTION! Set the adjust flag to TRUE since otherwise,
+    // the destination item will hold a wrong "count" number
+    // leading to unpredictable errors in further processing.
+    //
+    modify_item(p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
 
 /*??
     //?? DELETE, only for testing!
