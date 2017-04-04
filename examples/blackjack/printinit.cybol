@@ -111,10 +111,10 @@
    //clear result
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".result"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    
+
     <node name="create_result" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>

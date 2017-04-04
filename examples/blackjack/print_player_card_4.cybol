@@ -10,7 +10,7 @@
         <node name="message" channel="inline" format="text/plain" model=""/>
         <node name="clear" channel="inline" format="logicvalue/boolean" model="false"/>
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node> 
+    </node>
 
     <node name="field_Player" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -111,7 +111,7 @@
    //clear result
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".result"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     //check loose
@@ -187,7 +187,7 @@
 
     <node name="reset_flag" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.flag_loose"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="compare_player_over_21" channel="inline" format="compare/greater" model="">

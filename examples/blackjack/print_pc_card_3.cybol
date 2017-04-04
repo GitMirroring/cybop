@@ -41,7 +41,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    //print field 2 
+    //print field 2
     <node name="field_2" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -62,7 +62,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
-    //print field 3 
+    //print field 3
     <node name="field_3" channel="inline" format="communicate/send" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -89,7 +89,7 @@
    //clear result
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".result_pc"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     //check loose
@@ -157,7 +157,7 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-//// Over 21 
+//// Over 21
 
     <node name="compare_pc_over_21" channel="inline" format="compare/greater" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.flag_loose"/>

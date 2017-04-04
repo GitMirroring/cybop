@@ -3,7 +3,7 @@
     <!-- CAUTION! This is IMPORTANT since serialised values are appended below. -->
     <node name="empty_week" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.week_string"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="serialise_week" channel="inline" format="represent/serialise" model="">

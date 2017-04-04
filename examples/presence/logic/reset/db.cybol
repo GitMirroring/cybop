@@ -1,27 +1,39 @@
 <node>
 
-    <node name="empty_file" channel="inline" format="modify/empty" model="">
+    <node name="empty_file_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="empty_file_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="empty_dbday" channel="inline" format="modify/empty" model="">
+    <node name="empty_dbday_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.dbday"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="empty_dbday_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.dbday"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="empty_unref" channel="inline" format="modify/empty" model="">
+    <node name="empty_unref_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.unref"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="empty_unref_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.unref"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
-    <node name="empty_db" channel="inline" format="modify/empty" model="">
+    <node name="empty_db_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.db"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="empty_db_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.db"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="reset_flag" channel="inline" format="modify/overwrite" model="">

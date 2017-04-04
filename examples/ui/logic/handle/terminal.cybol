@@ -2,7 +2,7 @@
     <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command in the receive operation below. -->
     <node name="reset_command" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.tui.command"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

@@ -27,10 +27,14 @@
 
 <!-- lese Zugriffe für heute -->
 
-<node name="reset_path_today" channel="inline" format="modify/empty" model="">
+<node name="reset_path_today_model" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+</node>
+
+<node name="reset_path_today_properties" channel="inline" format="modify/empty" model="">
+    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
 </node>
 
 <node name="append_root_path" channel="inline" format="modify/append" model="">
@@ -53,7 +57,7 @@
 
 <node name="reset_visits_today" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="receive_file_today" channel="inline" format="communicate/receive" model="">
@@ -70,7 +74,7 @@
 
 <node name="reset_path_yesterday" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="append_root_path" channel="inline" format="modify/append" model="">
@@ -93,7 +97,7 @@
 
     <node name="reset_visits_yesterday" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="receive_file_yesterday" channel="inline" format="communicate/receive" model="">
@@ -109,7 +113,7 @@
 <!-- lese Gesamtzugriffe ein -->
 <node name="reset_visits_total" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="receive_file_total" channel="inline" format="communicate/receive" model="">
@@ -205,7 +209,7 @@
 <!-- setze Aufrufe heute -->
 <node name="reset_row_content_today" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="serialise_visits_today" channel="inline" format="represent/serialise" model="">
@@ -218,7 +222,7 @@
 <!-- setze Aufrufe gestern -->
 <node name="reset_row_content_yesterday" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="serialise_visits_yesterday" channel="inline" format="represent/serialise" model="">
@@ -231,7 +235,7 @@
 <!-- setze Aufrufe total -->
 <node name="reset_row_content_total" channel="inline" format="modify/empty" model="">
     <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
-    <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
 </node>
 
 <node name="serialise_visits_total" channel="inline" format="represent/serialise" model="">

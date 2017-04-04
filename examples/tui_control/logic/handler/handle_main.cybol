@@ -1,13 +1,5 @@
 <node>
 
-    <!-- The command HAS TO BE EMPTIED since otherwise, the new is appended to the old command. -->
-<!--
-    <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model="#command"/>
-        <node name="destination_model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
--->
-
     <node name="receive_command" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
         <!-- CAUTION! Do NOT use an encoding here, since terminal input is already in wide characters. -->

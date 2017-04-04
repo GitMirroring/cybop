@@ -1,10 +1,13 @@
 <node>
 
     <!-- hole Datum -->
-    <node name="reset_date_command" channel="inline" format="modify/empty" model="">
+    <node name="reset_date_command_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_date_command_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="build_command_first_step" channel="inline" format="modify/append" model="">
@@ -13,10 +16,13 @@
         <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
-    <node name="reset_count_text" channel="inline" format="modify/empty" model="">
+    <node name="reset_count_text_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.count_text"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_count_text_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.count_text"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="serialise_count" channel="inline" format="represent/serialise" model="">
@@ -48,10 +54,13 @@
         <node name="programme" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
     </node>
 
-    <node name="reset_loop_date" channel="inline" format="modify/empty" model="">
+    <node name="reset_loop_date_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_loop_date_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="receive_loop_date_file" channel="inline" format="communicate/receive" model="">
@@ -66,10 +75,13 @@
 
     <!-- lese Besuchszahl ein -->
 
-    <node name="reset_loop_date_path" channel="inline" format="modify/empty" model="">
+    <node name="reset_loop_date_path_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="meta" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_loop_date_path_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
 
     <node name="build_loop_date_path_first_step" channel="inline" format="modify/append" model="">
@@ -92,7 +104,7 @@
 
     <node name="reset_loop_visits" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.loop_visits"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="receive_loop_visits_file" channel="inline" format="communicate/receive" model="">

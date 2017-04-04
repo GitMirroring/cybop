@@ -3,7 +3,7 @@
 //Zeichen löschen
     <node name="reset_sonder" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.sonder"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
 //Speichern der Nachricht in Variable

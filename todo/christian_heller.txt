@@ -14,35 +14,12 @@
 Container
 _________
 
-        * Call "empty" TWICE, for model AND property separately, where necessary, in all cybol example applications using it
         * ?? (at first testwise !!): Remove "type" property from "modify" operations in all cybol example applications
-        * Adapt those cybol example applications modifying a node's properties (the others are fine, since "model" is the default)
-        * Unify cybol property "element" or "format" with "destination_property" and "source_property"
-            for ALL container operations, since the model AND its properties are a container
 
-        * Fix terminology in special chapter of design document, e.g.: model (instead of part) and property (both, model and property are a part), item, array|data etc., xml node|element|tag|attribute etc.
+        * Adapt cybol operation "memorise/create" in cybol example applications
+        * Rename cybol property "whole" into "destination"
+        * Rename cybol property "element" into "destination_property" of type "logicvalue/boolean" (false adds new node to "model"; true to "properties" container)
 
-    <node name="assemble_current_element_background_1" channel="inline" format="modify/overwrite" model="">
-        <node name="destination" channel="inline" format="text/cybol-path" model=".var.character"/>
-        <node name="source" channel="inline" format="text/cybol-path" model=".tui.main.menu:focus"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-        <!-- This is an optional property. The default value is "model". -->
-        <node name="destination_property" channel="inline" format="text/plain" model="model"/>
-    </node>
-
-    MODEL, PROPERTY (Boolscher Wert); CHANGE "part" into "node" and "model" into "property"
-    <node name="reset_command" channel="inline" format="modify/empty" model="">
-        <node name="part" channel="inline" format="text/cybol-path" model="#command"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-    </node>
-
-    ELEMENT (ist das Ziel); CHANGE "part" into "node" and "element" into "item"
-    <node name="get_category_name" channel="inline" format="access/get-name" model="">
-        <node name="element" channel="inline" format="text/cybol-path" model="#category_name"/>
-        <node name="part" channel="inline" format="text/cybol-path" model=".list.[#category_index]"/>
-    </node>
-
-    ELEMENT ("model" or "property" --> CHANGE "element" into "property" of type "logicvalue/boolean"; "false" by default means that it is a model; if set to "true", then it means "property"; format bestimmt den Typ des zu erstellenden Knotens
     <node name="create_summand_1" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="summand_1"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
@@ -50,18 +27,7 @@ _________
         <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
     </node>
 
-    FORMAT (gibt Ziel vor, entweder element/part für MODEL oder element/property für PROPERTY)
-    "format" is used for two semantics:
-    - deserialisation (better use "compound|element|node|etc.") and
-    - destination hierarchy (better use new, ADDITIONAL property node called "property", as suggested above)
-    <node name="initialise_wui_page_properties" channel="inline" format="communicate/receive" model="">
-        <node name="channel" channel="inline" format="meta/channel" model="file"/>
-        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-        <node name="format" channel="inline" format="meta/format" model="element/property"/>
-        <node name="sender" channel="inline" format="text/plain" model="project_overview/wui/page/page_properties.cybol"/>
-        <node name="message" channel="inline" format="text/cybol-path" model=".wui.(#category_name)"/>
-    </node>
+        * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.
 
 Clone
 _____

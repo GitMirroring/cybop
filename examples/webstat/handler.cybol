@@ -18,10 +18,13 @@
     </node>
 
     <!-- CAUTION! If the request was not reset here, then the last valid previous request would be used again and again, neverendingly. -->
-    <node name="reset_request" channel="inline" format="modify/empty" model="">
+    <node name="reset_request_model" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.request"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="properties" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+    <node name="reset_request_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.request"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="receive_request" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="socket"/>
@@ -87,7 +90,7 @@
 
     <node name="reset_request" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="receive_file" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>

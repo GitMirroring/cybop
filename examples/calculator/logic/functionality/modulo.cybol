@@ -17,7 +17,7 @@
     -->
     <node name="reset_operand" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.tmp.operand"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="deserialise_operand" channel="inline" format="represent/deserialise" model="">

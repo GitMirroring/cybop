@@ -21,6 +21,7 @@
 2017-04-03  Christian Heller  <christian.heller@tuxtax.de>
 
         * Fix errors caused by forgotten setting of adjust count flag in function calls of "modify_item" with "REMOVE_MODIFY_LOGIC_CYBOI_FORMAT"
+        * Use "destination_properties" property for operation "modify/empty" in all cybol example applications using it
 
 2017-04-02  Christian Heller  <christian.heller@tuxtax.de>
 

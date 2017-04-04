@@ -1,7 +1,7 @@
 <node>
     <node name="reset_buffer" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
     <node name="reset_count" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_count"/>

@@ -18,7 +18,7 @@
     -->
     <node name="reset_operand" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.tmp.operand"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="reset_new_operand" channel="inline" format="modify/overwrite" model="">
@@ -35,7 +35,7 @@
 
     <node name="reset_display" channel="inline" format="modify/empty" model="">
         <node name="part" channel="inline" format="text/cybol-path" model=".app.tui.main.menu.display.value"/>
-        <node name="model" channel="inline" format="logicvalue/boolean" model="true"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
     </node>
 
     <node name="send_tui" channel="inline" format="communicate/send" model="">
