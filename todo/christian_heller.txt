@@ -14,55 +14,10 @@
 Logger
 ______
 
-        * Debug memory error when logging with "debug" log level (all other levels work fine)
-            see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
-        * Check if error is caused by decrementing rubbish (garbage) collection references
-            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
-        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
+        SMALL CHANGE:
 
         * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
-
-CYBOL Application
-_________________
-
-        * Rewrite cybol example application "clean_result_directory"
-            - make pipes work in cyboi, before continuing, needed for: n=$(ls -a $1 | wc -l);
-            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
-            - change "verbal" into "verbose", also in cyboi interpreter
-            - change "tape_archiver" into a verb, also in cyboi interpreter
-        * Optimise cybol example application "presence"
-            - make datetime work in cyboi, before continuing
-            - use stack properties instead of duplicate loop indices etc.
-        * Optimise resmedicinae application "xdt2html"
-            - make deep copy work in cyboi, before continuing
-            - use stack properties instead of duplicate loop indices etc.
-            - consider file "tmp/cybop_stack.pdf"
-        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
-
-        Hints for migrating cybol application to new knowledge path syntax:
-        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
-        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
-        * Adapt stack variables by adding knowledge path prefix "#"
-        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
-        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
-            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
-
-String
-______
-
-        * Verify and possibly merge directory "executor/container/" with other container functionality, e.g. in "executor/modifier/"
-        * Provide cybol operations similar to Java, e.g. "startsWith()", "subString()"
-            OR are these already possible by using array functions and index?
-
-        * Provide newline and other escape characters for cybol operation "modify/append"
-        * Possibilities:
-            - flag for send/overwrite/append and similar operations
-            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
-            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
-                so that regular expression gets evaluated internally before copying the resulting string
-        * Eliminate file "newline.txt" in cybol example application "webstat"
-
-        * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
+        * Delete all includes of file "constant/model/cyboi/log/message_log_cyboi_model.c"
 
 GUI
 ___
@@ -71,8 +26,8 @@ ___
 
         * Create io entry array structure for display i/o at startup and destroy at shutdown
 
-        * Think through design of gui using cybol (box model, layout manager, look'n'feel)
-        * Use css box model with relative positioning also for tui, gui etc.?
+        * Think through design of gui using cybol (css box model, layout manager, look'n'feel)
+        * Use css box model as in JavaFX with relative positioning also for tui, gui etc.?
 
         * Move the following hints on layout usage into source code:
             "stretch" property for border layout with possible values "horizontal" and "vertical",
@@ -111,6 +66,31 @@ ___
 
         * Remove directory "src/windows/"
 
+CYBOL Application
+_________________
+
+        * Rewrite cybol example application "clean_result_directory"
+            - make PIPES work in cyboi (e.g. as named pipes in the background), before continuing, needed for: n=$(ls -a $1 | wc -l);
+            - continue file "remove_superfluous_element.cybol", see original script, count contained elements first, delete if > 2
+            - change "verbal" into "verbose", also in cyboi interpreter
+            - change "tape_archiver" into a verb, also in cyboi interpreter
+        * Optimise cybol example application "presence"
+            - make datetime work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+        * Optimise resmedicinae application "xdt2html"
+            - make deep copy work in cyboi, before continuing
+            - use stack properties instead of duplicate loop indices etc.
+            - consider file "tmp/cybop_stack.pdf"
+        * Create new web application for administrator Martin (Ausleihe Geräte auf Arbeit)
+
+        Hints for migrating cybol application to new knowledge path syntax:
+        * Rename "path/knowledge" and "path/reference" with "text/cybol-path"
+        * Replace OLD property prefix "#" with ":" (CAUTION! for webpage generation the html anchor sign has to REMAIN a #)
+        * Adapt stack variables by adding knowledge path prefix "#"
+        * Delete operation "create" at beginning of "run.cybol" and initialise to knowledge memory root "." instead
+        * Replace all code where knowledge path was assembled manually a la "[index]" --> search for "["
+            --> many operations only adding path elements or an index like "[", "index", "]" may get deleted in the future
+
 Container
 _________
 
@@ -130,6 +110,35 @@ _________
         * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.
 
         * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
+
+String
+______
+
+        * Verify and possibly merge directory "executor/container/" with other container functionality, e.g. in "executor/modifier/"
+        * Provide cybol operations similar to Java, e.g. "startsWith()", "subString()"
+            OR are these already possible by using array functions and index?
+
+        * Provide newline and other escape characters for cybol operation "modify/append"
+        * Possibilities:
+            - flag for send/overwrite/append and similar operations
+            - new cybol data type "text/regular-expression" which gets converted to "text/plain" internally
+            - only use datatype "text/regular-expression" as property/argument for operations such as "overwrite",
+                so that regular expression gets evaluated internally before copying the resulting string
+        * Eliminate file "newline.txt" in cybol example application "webstat"
+
+        * See ideas for further functions in http://www.w3schools.com/xml/xsl_functions.asp
+
+Logger
+______
+
+        * Debug memory error when logging with "debug" log level
+            the following works fine with log levels: off, error, warning, information, but NOT with log level "debug":
+                ../src/controller/cyboi --knowledge=counter/run.cybol --loglevel=debug --logfile=log.log
+            valgrind did not help
+        * See variable "LOG_OUTPUT" in file "variable/log_setting.c"
+        * Check if error is caused by decrementing rubbish (garbage) collection references
+            (the calls of function "deallocate_array" were already verified and "null" handed over as second "count" argument)
+        * Test by only using an "exit" as initial (and only) part/signal (has to be changed temporarily in cyboi code file "initialiser.c")
 
 Sensing Threads
 _______________
