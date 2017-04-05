@@ -14,11 +14,6 @@
 Logger
 ______
 
-        CONTINUE WITH:
-        * Investigate errors in file "remove_modifier.c"
-            ../src/controller/cyboi --knowledge=counter/run.cybol --loglevel=error --logfile=log.log
-        * Search in source code for "REMOVE_MODIFY_LOGIC_CYBOI_FORMAT"
-
         * Debug memory error when logging with "debug" log level (all other levels work fine)
             see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
         * Check if error is caused by decrementing rubbish (garbage) collection references
@@ -133,9 +128,6 @@ _________
         * Delete superfluous property "type" for bit manipulation operations like "manipulate/shift-left" or "manipulate/rotate-right" in all cybol example applications
 
         * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.
-
-        * Test for memory leaks with valgrind
-        * Debug memory leak in xml- or cybol deserialiser
 
         * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
 
