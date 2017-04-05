@@ -21,6 +21,8 @@
 2017-04-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Delete superfluous property "type" for container operations like "modify/overwrite" or "modify/append" in all cybol example applications
+        * Verify correct execution of cybol example application "copier" for testing shallow- and deep (cloning) copying
+        * Eliminate temporary format- and type item parametres in order to simplify the cybol deserialiser
 
 2017-04-03  Christian Heller  <christian.heller@tuxtax.de>
 

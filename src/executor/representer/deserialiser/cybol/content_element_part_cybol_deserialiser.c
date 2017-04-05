@@ -56,7 +56,7 @@
 // Forward declaration.
 //
 
-void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4);
+void deserialise_cybol_part(void* p0, void* p1, void* p2);
 void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10, void* p11, void* p12, void* p13, void* p14, void* p15);
 
 /**
@@ -109,10 +109,8 @@ void receive_data(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, vo
  * @param p2 the source model count
  * @param p3 the source properties data
  * @param p4 the source properties count
- * @param p5 the temporary type item
- * @param p6 the temporary format item
  */
-void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6) {
+void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* p3, void* p4) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part element content.");
 
@@ -234,9 +232,13 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
 
         // This is a standard node.
 
+        // The temporary format, type item.
+        void* f = *NULL_POINTER_STATE_CYBOI_MODEL;
+        void* t = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The temporary format, type item data.
         void* fd = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* td = *NULL_POINTER_STATE_CYBOI_MODEL;
+
         // The part.
         void* p = *NULL_POINTER_STATE_CYBOI_MODEL;
         // The part name, channel, encoding, language, format, type, model, properties item.
@@ -253,59 +255,48 @@ void deserialise_cybol_part_element_content(void* p0, void* p1, void* p2, void* 
         void* ped = *NULL_POINTER_STATE_CYBOI_MODEL;
         void* pld = *NULL_POINTER_STATE_CYBOI_MODEL;
 
-        // Reset temporary format item.
-        // The count does NOT have to be set, since the p6 has a fixed size and count of one.
-        modify_item(p6, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-        // Reset temporary type item.
-        modify_item(p5, (void*) NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+        // Allocate temporary format, type item.
+        allocate_item((void*) &f, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        allocate_item((void*) &t, (void*) NUMBER_1_INTEGER_STATE_CYBOI_MODEL, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
+        // Initialise temporary format, type item.
+        //
+        // CAUTION! Assign format "ascii_text" and type "character_text" by default.
+        // If the language is e.g. "message/binary", then NO FORMAT has to be given.
+        // Without format, the deserialised type will be null as well.
+        // But a type IS NECESSARY for allocating the part below.
+        // Therefore, use type "char" in these cases.
+        // (It might be any other type as well.)
+        //
+        // CAUTION! A type IS ESSENTIAL in order to avoid memory leaks.
+        // Logic formats like "live/exit" do not have a counterpart as type.
+        // Also, invalid formats may have been used in a cybol file.
+        // Therefore, for these cases, assign a default type here.
+        //
+        // CAUTION! Do NOT delegate this initialisation to the functions
+        // "deserialise_cybol_format" and "deserialise_cybol_type" respectively,
+        // since it is not in their context and responsibility.
+        modify_item(f, (void*) ASCII_TEXT_STATE_CYBOI_FORMAT, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
+        modify_item(t, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Decode cybol source format (mime type as string) into cyboi-internal format (an integer).
-        deserialise_cybol_format(p6, sfmd, sfmc);
+        deserialise_cybol_format(f, sfmd, sfmc);
         // Get temporary format item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &fd, p6, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+        copy_array_forward((void*) &fd, f, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         // Decode cyboi-internal type into cyboi runtime type.
         // CAUTION! Both are not always equal in their meaning.
         // For example, an "xdt" file is converted into a cyboi "part".
         // Therefore, a runtime type has to be figured out here.
         // It is needed for allocating the new part.
-        deserialise_cybol_type(p5, fd);
+        deserialise_cybol_type(t, fd);
         // Get temporary type item data.
         // CAUTION! Retrieve data ONLY AFTER having called desired functions!
         // Inside the structure, arrays may have been reallocated,
         // with elements pointing to different memory areas now.
-        copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-
-        if (td != *NULL_POINTER_STATE_CYBOI_MODEL) {
-
-            int* tdi = (int*) td;
-
-            if (*tdi == *NUMBER_MINUS_1_INTEGER_STATE_CYBOI_MODEL) {
-
-                // The deserialised type is null.
-
-                //
-                // Assign type "character" by default.
-                //
-                // CAUTION! If the language is e.g. "message/binary",
-                // then NO FORMAT has to be given.
-                // Without format, the deserialised type will be null as well.
-                // But a type IS NECESSARY for allocating the part below.
-                // Therefore, use type "char" in these cases.
-                // (It might be any other type as well.)
-                //
-                // CAUTION! A type IS ESSENTIAL in order to avoid memory leaks.
-                // Logic formats like "live/exit" do not have a counterpart as type.
-                // Also, invalid formats may have been used in a cybol file.
-                // Therefore, for these cases, assign a default type here.
-                //
-                modify_item(p5, (void*) CHARACTER_TEXT_STATE_CYBOI_TYPE, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) OVERWRITE_MODIFY_LOGIC_CYBOI_FORMAT);
-                copy_array_forward((void*) &td, p5, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
-//?? fwprintf(stdout, L"TEST content element part cybol deserialiser *td: %i\n", *((int*) td));
-            }
-        }
+        copy_array_forward((void*) &td, t, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
 /*??
 fwprintf(stdout, L"TEST content element part cybol deserialiser *slmc: %i\n", *((int*) slmc));
@@ -453,7 +444,7 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         // Fill part properties item taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-        deserialise_cybol_part(pp, p1, p2, p5, p6);
+        deserialise_cybol_part(pp, p1, p2);
 
         //?? TEST ONLY:
         if (pld != *NULL_POINTER_STATE_CYBOI_MODEL) {
@@ -478,6 +469,13 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         // This is necessary in order to activate rubbish (garbage) collection.
         modify_item(p0, (void*) &p, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
+        // Deallocate temporary format, type item.
+        //
+        // CAUTION! Deallocate these ONLY HERE, since they are used
+        // as arguments to the function call "receive_data" above.
+        deallocate_item((void*) &f, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+        deallocate_item((void*) &t, (void*) INTEGER_NUMBER_STATE_CYBOI_TYPE);
+
     } else {
 
         // This is a root node.
@@ -485,7 +483,7 @@ fwprintf(stdout, L"TEST content element part cybol deserialiser td: %i\n", *((in
         // Fill part properties taken from cybol source part model.
         // CAUTION! What is the model hierarchy in a parsed xml/cybol file,
         // becomes the properties (meta data) in the cyboi-internal knowledge tree.
-        deserialise_cybol_part(p0, p1, p2, p5, p6);
+        deserialise_cybol_part(p0, p1, p2);
     }
 }
 

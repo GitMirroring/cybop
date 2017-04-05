@@ -16,7 +16,7 @@ _________
 
         * Adapt cybol operation "memorise/create" in cybol example applications
         * Rename cybol property "whole" into "destination"
-        * Rename cybol property "element" into "destination_property" of type "logicvalue/boolean" (false adds new node to "model"; true to "properties" container)
+        * Rename cybol property "element" into "destination_properties" of type "logicvalue/boolean" (false adds new node to "model"; true to "properties" container)
 
     <node name="create_summand_1" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="summand_1"/>
@@ -33,10 +33,6 @@ _________
         * Adapt applicator to use the type of one operand instead of explicitly given property
         * Compare both operand types as done in "modify" container operations
 
-Clone
-_____
-
-        * Verify correct execution of cybol example application "copier"
         * Test for memory leaks with valgrind
 
 Stack

@@ -45,10 +45,8 @@
  * @param p0 the destination item
  * @param p1 the source model data
  * @param p2 the source model count
- * @param p3 the temporary type item
- * @param p4 the temporary format item
  */
-void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
+void deserialise_cybol_part(void* p0, void* p1, void* p2) {
 
     log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Deserialise cybol part.");
 
@@ -78,7 +76,7 @@ void deserialise_cybol_part(void* p0, void* p1, void* p2, void* p3, void* p4) {
             break;
         }
 
-        deserialise_cybol_part_element(p0, p1, (void*) &j, p3, p4);
+        deserialise_cybol_part_element(p0, p1, (void*) &j);
 
         // Increment loop variable.
         j++;
