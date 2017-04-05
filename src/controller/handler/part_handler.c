@@ -35,8 +35,6 @@
 #include "../../controller/handler/element_part_handler.c"
 #include "../../executor/comparator/all/array_all_comparator.c"
 #include "../../logger/logger.c"
-//?? TEST properties
-#include "../../controller/handler/properties_handler.c"
 #include "../../executor/copier/integer_copier.c"
 #include "../../executor/modifier/item_modifier.c"
 
@@ -82,24 +80,8 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // Therefore, the OLD value is saved here.
     copy_integer((void*) &mc_old, mc);
 
-/*??
-    //?? DELETE, only for testing!
-    int COUNT = *NUMBER_0_INTEGER_STATE_CYBOI_MODEL;
-    copy_integer((void*) &COUNT, mc);
-    fwprintf(stdout, L"TEST handle part element 0 mc_old: %i\n", mc_old);
-    fwprintf(stdout, L"TEST handle part element 0 COUNT: %i\n", COUNT);
-*/
-
     // Store variable values on stack memory (push).
-    handle_properties(p2, p3, p6);
-//??    modify_item(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
-
-/*??
-    //?? DELETE, only for testing!
-    copy_integer((void*) &COUNT, mc);
-    fwprintf(stdout, L"TEST handle part element 1 mc_old: %i\n", mc_old);
-    fwprintf(stdout, L"TEST handle part element 1 COUNT: %i\n", COUNT);
-*/
+    modify_item(p6, p2, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, p3, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) NUMBER_0_INTEGER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) APPEND_MODIFY_LOGIC_CYBOI_FORMAT);
 
     if (p1 == *NULL_POINTER_STATE_CYBOI_MODEL) {
 
@@ -144,13 +126,6 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
         j++;
     }
 
-/*??
-    //?? DELETE, only for testing!
-    copy_integer((void*) &COUNT, mc);
-    fwprintf(stdout, L"TEST handle part element 2 mc_old: %i\n", mc_old);
-    fwprintf(stdout, L"TEST handle part element 2 COUNT: %i\n", COUNT);
-*/
-
     //
     // Remove variable values from stack memory (pop).
     //
@@ -183,13 +158,6 @@ void handle_part(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, voi
     // leading to unpredictable errors in further processing.
     //
     modify_item(p6, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) PART_ELEMENT_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) &pc_old, (void*) &mc_old, *NULL_POINTER_STATE_CYBOI_MODEL, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) REMOVE_MODIFY_LOGIC_CYBOI_FORMAT);
-
-/*??
-    //?? DELETE, only for testing!
-    copy_integer((void*) &COUNT, mc);
-    fwprintf(stdout, L"TEST handle part element 3 mc_old: %i\n", mc_old);
-    fwprintf(stdout, L"TEST handle part element 3 COUNT: %i\n", COUNT);
-*/
 }
 
 /* PART_HANDLER_SOURCE */

@@ -34,16 +34,7 @@ _________
         * Compare both operand types as done in "modify" container operations
 
         * Test for memory leaks with valgrind
-
-Stack
-_____
-
-        CAUTION! The following will (might) ONLY work, once the deep copying is activated (see above)!
-        * Use example "counter_stack_deep" for testing
-        (probably, this is an old problem not existing anymore; it was caused by creating stack variables inside instead of outside the part element)
-        * Replace function call "handle_properties" with "append_item_element" in file "part_handler.c"
-        * Hand over properties as array and let array functions inside care about looping and copying
-        * Remove files "properties_handler.c" and "element_properties_handler.c" (if the approach above turns out to work fine)
+        * Debug memory leak in xml- or cybol deserialiser
 
 Logger
 ______
@@ -144,13 +135,6 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
         * Remove directory "src/windows/"
-
-Uniformisation
-______________
-
-        * Use uniform property name specifying "part" or "property" value in cybol operations "memorise/create", "communicate/receive", "modify/empty", "access/get-name"
-        * See e.g. file "examples/project_overview/logic/translate/category.cybol"
-        * See cyboi source files "executor/memoriser/creator/creator.c" and "executor/representer/deserialiser/cybol/element_cybol_deserialiser.c"
 
 Sensing Threads
 _______________
