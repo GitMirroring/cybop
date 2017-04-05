@@ -4,12 +4,10 @@
     <node name="reset_r1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.r1"/>
         <node name="source" channel="inline" format="text/plain" model=""/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_r2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.r2"/>
         <node name="source" channel="inline" format="text/plain" model=""/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!--   Zufallszahlen bestimmen   -->
@@ -73,37 +71,30 @@
     <node name="get_random_field1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/plain" model=".app.tui.window.menu."/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_random_field2" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.r1"/>
-        <node name="type" channel="inline" format="meta/type" model="text/cybol-path"/>
     </node>
     <node name="get_random_field3" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/plain" model="_"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_random_field4" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.r2"/>
-        <node name="type" channel="inline" format="meta/type" model="text/cybol-path"/>
     </node>
     <node name="get_field" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.focused_field_text"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.field"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_field2" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.focused_field_text"/>
         <node name="source" channel="inline" format="text/plain" model=".value"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_random_field5" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.field"/>
         <node name="source" channel="inline" format="text/plain" model=":mine"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- Minenfeld wird markiert  -->

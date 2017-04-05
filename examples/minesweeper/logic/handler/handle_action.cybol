@@ -3,19 +3,15 @@
     <node name="copy_focused_part_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.temporary.action"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.tui.window.menu:focus"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
-
 
     <node name="copy_action_property_name" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.temporary.action"/>
         <node name="source" channel="inline" format="text/plain" model=":action"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="get_action_reference" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.temporary.action"/>
         <node name="source" channel="inline" format="text/cybol-path" model="*.app.temporary.action"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!--

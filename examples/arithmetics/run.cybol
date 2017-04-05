@@ -20,7 +20,6 @@
     <node name="init_add" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="test_add" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
@@ -39,7 +38,6 @@
     <node name="init_subtract" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="test_subtract" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
@@ -58,7 +56,6 @@
     <node name="init_multiply" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="test_multiply" channel="inline" format="calculate/multiply" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
@@ -77,7 +74,6 @@
     <node name="init_divide" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="test_divide" channel="inline" format="calculate/divide" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>
@@ -96,7 +92,6 @@
     <node name="init_modulo" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="5"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="test_modulo" channel="inline" format="calculate/modulo" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".result"/>

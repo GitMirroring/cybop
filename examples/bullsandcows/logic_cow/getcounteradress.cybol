@@ -3,17 +3,14 @@
     <node name="reset_comp_adress" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.comp_adress"/>
         <node name="source" channel="inline" format="text/plain" model=".app.comp_array.["/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_guess_adress" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.guess_adress"/>
         <node name="source" channel="inline" format="text/plain" model=".app.guess_array.["/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_help_adress" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.help_adress"/>
         <node name="source" channel="inline" format="text/plain" model=".app.help_array.["/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="serialise_counter_x" channel="inline" format="represent/serialise" model="">
@@ -40,19 +37,16 @@
     <node name="append_suffix_x" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.comp_adress"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_suffix_y" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.guess_adress"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_suffix_x2" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.help_adress"/>
         <node name="source" channel="inline" format="text/plain" model="]"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!--<node name="print_adress_comp" channel="inline" format="communicate/send" model="">-->

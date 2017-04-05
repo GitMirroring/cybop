@@ -1,5 +1,5 @@
 <node>
-    
+
     <node name="increment_mine_count" channel="inline" format="calculate/add" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.mine_count"/>
         <node name="operand" channel="inline" format="number/integer" model="1"/>

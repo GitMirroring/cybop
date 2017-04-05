@@ -5,55 +5,46 @@
     <node name="reset_klein_1" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.flag_klein_1"/>
     <node name="source" channel="inline" format="text/plain" model="false"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_gross_2" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.flag_gross_2"/>
     <node name="source" channel="inline" format="text/plain" model="false"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_zahlen_3" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.flag_zahlen_3"/>
     <node name="source" channel="inline" format="text/plain" model="false"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_sonder_4" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.flag_sonder_4"/>
     <node name="source" channel="inline" format="text/plain" model="false"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_laenge" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.laenge"/>
     <node name="source" channel="inline" format="text/plain" model=""/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_laenge" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.klein_1"/>
     <node name="source" channel="inline" format="text/plain" model=""/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_laenge" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.gross_2"/>
     <node name="source" channel="inline" format="text/plain" model=""/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_laenge" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.zahlen_3"/>
     <node name="source" channel="inline" format="text/plain" model=""/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_laenge" channel="inline" format="modify/overwrite" model="">
     <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.sonder_4"/>
     <node name="source" channel="inline" format="text/plain" model=""/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 // Wechsel zu auswahl
@@ -62,4 +53,4 @@
     </node>
 
 
-</node> 
+</node>

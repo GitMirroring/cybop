@@ -2,21 +2,18 @@
     <node name="copy_high_byte" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_high_byte"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
-        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
         <node name="count" channel="inline" format="number/integer" model="1"/>
         <node name="source_index" channel="inline" format="number/integer" model="0"/>
     </node>
     <node name="copy_low_byte" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_low_byte"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
-        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
         <node name="count" channel="inline" format="number/integer" model="1"/>
         <node name="source_index" channel="inline" format="number/integer" model="1"/>
     </node>
     <node name="copy_checksum" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer"/>
-        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
         <node name="count" channel="inline" format="number/integer" model="1"/>
         <node name="source_index" channel="inline" format="number/integer" model="2"/>
     </node>

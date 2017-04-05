@@ -8,7 +8,6 @@
     <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="source" channel="inline" format="number/integer" model="1"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="cast_double" channel="inline" format="cast/integer" model="">
@@ -16,7 +15,6 @@
         <node name="source" channel="inline" format="number/byte" model="12"/>
         <node name="type" channel="inline" format="meta/type" model="number/byte"/>
     </node>
-
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
@@ -30,4 +28,5 @@
         <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
     </node>
     <node name="exit_application" channel="inline" format="live/exit" model=""/>
+
 </node>

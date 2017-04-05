@@ -3,59 +3,48 @@
     <node name="copy_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.name"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_version" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.version"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.version"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_date" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.date"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.date"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_slogan" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.slogan"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.slogan"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 <!--
     <node name="copy_logo" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.logo"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.logo"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 -->
     <node name="copy_copyright" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.copyright"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.copyright"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_contact" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.contact"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.contact"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_description" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.description"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.description"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_authors" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.authors"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.authors"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_helpers" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.helpers"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.helpers"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="copy_licence" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".tui.about.licence"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".appinfo.licence"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>

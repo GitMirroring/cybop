@@ -8,7 +8,6 @@
     <node name="reset_result" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.result"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <!--
@@ -24,13 +23,11 @@
     <node name="reset_new_operand" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.new_operand"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="reset_operation" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.operation"/>
         <node name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.add"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_display" channel="inline" format="modify/empty" model="">

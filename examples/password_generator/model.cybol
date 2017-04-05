@@ -20,12 +20,10 @@
     <node name="initialise_seed" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".seed"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="initialise_number" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".number"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">
@@ -69,7 +67,6 @@
     <node name="initialise_klein" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".klein"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Abfrage 1
@@ -111,7 +108,6 @@
     <node name="initialise_gross" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".gross"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Abfrage 2
@@ -152,7 +148,6 @@
     <node name="initialise_zahlen" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".zahlen"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Abfrage 3
@@ -192,7 +187,6 @@
     <node name="initialise_sonder" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".sonder"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
 //Abfrage 4

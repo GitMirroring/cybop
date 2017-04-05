@@ -17,8 +17,7 @@
     <node name="append" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".value"/>
         <node name="source" channel="inline" format="text/plain" model="end"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-    </node>    
+    </node>
 
     <node name="startup" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>

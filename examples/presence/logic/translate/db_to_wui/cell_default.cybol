@@ -3,7 +3,6 @@
     <node name="overwrite_link" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.choices.teaching"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="translate_href" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.translate.db_to_wui.href_default"/>
@@ -11,12 +10,10 @@
     <node name="overwrite_href" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day).link:href"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_column.element.href"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_class" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.lecturers.table.(.app.var.db_to_wui_lecturer.element.name).(.app.var.db_to_wui_column.element.day):class"/>
         <node name="source" channel="inline" format="text/plain" model="teaching"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>

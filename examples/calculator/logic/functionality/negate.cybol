@@ -35,7 +35,6 @@
     <node name="store_operation" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.tmp.operation"/>
         <node name="source" channel="inline" format="text/plain" model=".app.logic.functionality.calculate.negate"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     -->
     <node name="negate" channel="inline" format="calculate/negate" model="">

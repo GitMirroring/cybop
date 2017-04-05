@@ -27,42 +27,34 @@
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).anchor.heading"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#project_name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).anchor:name"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#project_name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_description" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).table.description.content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".list.(#category_name).(#project_name).description"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_technology" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).table.technology.content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".list.(#category_name).(#project_name).technology"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_licence" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).table.licence.content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".list.(#category_name).(#project_name).licence"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_portal" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).table.portal.content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".list.(#category_name).(#project_name).portal"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_contact" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).table.contact.content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".list.(#category_name).(#project_name).contact"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_remark" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.(#category_name).body.content.(#project_name).table.remark.content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".list.(#category_name).(#project_name).remark"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>

@@ -14,12 +14,10 @@
     <node name="initialise_part_1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_1"/>
         <node name="source" channel="inline" format="number/integer" model="2"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="initialise_part_2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".part_2"/>
         <node name="source" channel="inline" format="text/plain" model="blubla"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="copy_name_of_part_1_into_model_of_part_2" channel="inline" format="access/get-name" model="">

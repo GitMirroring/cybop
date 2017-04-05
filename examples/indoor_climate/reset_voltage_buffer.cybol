@@ -11,38 +11,21 @@
     <node name="reset_count" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_count"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_count_default"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="reset_criterion" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_criterion"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_criterion_default"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
     <node name="reset_high_byte" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_high_byte"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_high_byte_default"/>
-        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
     </node>
     <node name="reset_low_byte" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_low_byte"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_low_byte_default"/>
-        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
     </node>
     <node name="reset_checksum" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".settings.voltage_buffer_checksum_default"/>
-        <node name="type" channel="inline" format="meta/type" model="number/byte"/>
     </node>
 </node>
-
-<!--
-    Copyright (C) 2012-2013. Ingolf Brunner, Ronny Mauersberger, Christian Heller.
-
-    This knowledge model uses the Cybernetics Oriented Language (CYBOL).
-    Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
-
-    @version Indoor Climate 1.0.0 2013-03-05
-    @author Ingolf Brunner <ingolf.brunner@ba-leipzig.de>
-    @author Ronny Mauersberger <mauigeyer2@web.de>
-    @author Christian Heller <christian.heller@tuxtax.de>
--->

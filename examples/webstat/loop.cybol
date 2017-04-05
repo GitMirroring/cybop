@@ -13,7 +13,6 @@
     <node name="build_command_first_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="source" channel="inline" format="text/plain" model="date -d '-"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_count_text_model" channel="inline" format="modify/empty" model="">
@@ -35,19 +34,16 @@
     <node name="build_command_second_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.count_text"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_command_third_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="source" channel="inline" format="text/plain" model=" days' +%F |  tr -d '\n' > "/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_command_fourth_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.date_command"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.date_path"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="get_date" channel="inline" format="run/run" model="">
@@ -87,19 +83,16 @@
     <node name="build_loop_date_path_first_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.statistics_root_path"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_loop_date_path_second_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_loop_date_path_third_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.loop_date_path"/>
         <node name="source" channel="inline" format="text/plain" model=".txt"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="reset_loop_visits" channel="inline" format="modify/empty" model="">
@@ -123,33 +116,22 @@
     <node name="build_csv_content_first_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.loop_date"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_csv_content_second_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
         <node name="source" channel="inline" format="text/plain" model=","/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_csv_content_third_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.loop_visits"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="build_csv_content_fourth_step" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.linefeed"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
-
-
-
-
-
-
-
 
     <node name="decrement_loop_count" channel="inline" format="calculate/subtract" model="">
         <node name="result" channel="inline" format="text/cybol-path" model=".app.var.count"/>
@@ -166,4 +148,3 @@
     </node>
 
 </node>
-

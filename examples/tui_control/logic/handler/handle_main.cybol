@@ -11,12 +11,10 @@
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
         <node name="source" channel="inline" format="text/plain" model=".tui.main_actions."/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_command" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".var.path"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#command"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <!-- CAUTION! The path is NOT a reference. -->

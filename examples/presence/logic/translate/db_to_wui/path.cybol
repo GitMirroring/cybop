@@ -8,62 +8,51 @@
     <node name="overwrite_application" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.application"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_database_separator" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_database" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.db"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_year_separator" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_year" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.year_string"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_week_separator" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_week" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.week_string"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_lecturer_separator" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.separator"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_lecturer" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.db_to_wui_lecturer.element.name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="append_suffix_separator" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.suffix_separator"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_file_suffix" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.path.file_suffix"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>

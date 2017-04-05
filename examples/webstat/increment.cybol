@@ -1,258 +1,253 @@
-<!-- lese Datum aus (heute, gestern) -->
+<node>
 
-<node name="get_date" channel="inline" format="run/run" model="">
-    <node name="programme" channel="inline" format="text/plain" model="date +%F | tr -d '\n' > webstat/tmp/date_today.txt; date -d yesterday +%F | tr -d '\n' > webstat/tmp/date_yesterday.txt"/>
-</node>
+    <!-- lese Datum aus (heute, gestern) -->
 
-<node name="receive_file_date_today" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_date_today"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.today"/>
-</node>
-
-<node name="receive_file_date_yesterday" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_date_yesterday"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.yesterday"/>
-</node>
-
-
-<!-- lese Zugriffe aus Datei -->
-
-<!-- lese Zugriffe für heute -->
-
-<node name="reset_path_today_model" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="reset_path_today_properties" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
-
-<node name="append_root_path" channel="inline" format="modify/append" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.statistics_root_path"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-</node>
-
-<node name="build_path_today" channel="inline" format="modify/append" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.today"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-</node>
-
-<node name="append_suffix" channel="inline" format="modify/append" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="source" channel="inline" format="text/plain" model=".txt"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-</node>
-
-<node name="reset_visits_today" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="receive_file_today" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
-</node>
-
-
-<!-- lese Zugriffe für gestern -->
-
-<node name="reset_path_yesterday" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="append_root_path" channel="inline" format="modify/append" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.statistics_root_path"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-</node>
-
-<node name="build_path_yesterday" channel="inline" format="modify/append" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.yesterday"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-</node>
-
-<node name="append_suffix" channel="inline" format="modify/append" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
-    <node name="source" channel="inline" format="text/plain" model=".txt"/>
-    <node name="type" channel="inline" format="meta/type" model="text/plain"/>
-</node>
-
-    <node name="reset_visits_yesterday" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="receive_file_yesterday" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
-</node>
-
-
-<!-- lese Gesamtzugriffe ein -->
-<node name="reset_visits_total" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="receive_file_total" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_total"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
-</node>
-
-<!-- erhöhe Zähler -->
-<node name="increment_today" channel="inline" format="calculate/add" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
-    <node name="operand" channel="inline" format="number/integer" model="1"/>
-    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-</node>
-
-<node name="increment_total" channel="inline" format="calculate/add" model="">
-    <node name="result" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
-    <node name="operand" channel="inline" format="number/integer" model="1"/>
-    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-</node>
-
-<!-- speicher Zaehler -->
-<node name="store_visits_today" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
-    <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
-
-<node name="store_visits_total" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
-    <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_total"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
-
-
-<!-- fuehre Loop fuer csv aus -->
-
-  <node name="read_linefeed" channel="inline" format="communicate/receive" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_linefeed"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.linefeed"/>
-</node>
-
-<node name="set_count_zero" channel="inline" format="modify/overwrite" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.count"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.maximum"/>
-    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-</node>
-
-<node name="reset_csv_content" channel="inline" format="modify/overwrite" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
-    <node name="source" channel="inline" format="text/plain" model=""/>
-    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
-</node>
-
-<node name="set_break_false" channel="inline" format="modify/overwrite" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.break"/>
-    <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-    <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
-</node>
-
-<node name="create_csv" channel="inline" format="flow/loop" model="">
-    <node name="break" channel="inline" format="text/cybol-path" model=".app.var.break"/>
-    <node name="model" channel="inline" format="text/cybol-path" model=".app.loop"/>
-</node>
-
-<node name="store_csv_data" channel="inline" format="communicate/send" model="">
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="text/plain"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
-    <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_csv_data"/>
-    <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
-</node>
-
-<!-- erstelle HTMl Seite -->
-
-<!-- setze Aufrufe heute -->
-<node name="reset_row_content_today" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="serialise_visits_today" channel="inline" format="represent/serialise" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-</node>
-
-<!-- setze Aufrufe gestern -->
-<node name="reset_row_content_yesterday" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="serialise_visits_yesterday" channel="inline" format="represent/serialise" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-</node>
-
-<!-- setze Aufrufe total -->
-<node name="reset_row_content_total" channel="inline" format="modify/empty" model="">
-    <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
-    <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
-</node>
-
-<node name="serialise_visits_total" channel="inline" format="represent/serialise" model="">
-    <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
-    <node name="source" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
-    <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
-    <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-</node>
-
-<!-- erstelle counter.html -->
-<node name="generate_html" channel="inline" format="communicate/send" model="">
-    <node name="receiver" channel="inline" format="text/plain" model="webstat/files/counter.html"/>
-    <node name="message" channel="inline" format="text/cybol-path" model=".app.webstat.counter"/>
-    <node name="language" channel="inline" format="meta/language" model="text/html">
-    <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+    <node name="get_date" channel="inline" format="run/run" model="">
+        <node name="programme" channel="inline" format="text/plain" model="date +%F | tr -d '\n' > webstat/tmp/date_today.txt; date -d yesterday +%F | tr -d '\n' > webstat/tmp/date_yesterday.txt"/>
     </node>
-    <node name="format" channel="inline" format="meta/format" model="element/part"/>
-    <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
-    <node name="channel" channel="inline" format="meta/channel" model="file"/>
+
+    <node name="receive_file_date_today" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_date_today"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.today"/>
+    </node>
+
+    <node name="receive_file_date_yesterday" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_date_yesterday"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.yesterday"/>
+    </node>
+
+
+    <!-- lese Zugriffe aus Datei -->
+
+    <!-- lese Zugriffe für heute -->
+
+    <node name="reset_path_today_model" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="reset_path_today_properties" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="append_root_path" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.statistics_root_path"/>
+    </node>
+
+    <node name="build_path_today" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.today"/>
+    </node>
+
+    <node name="append_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="source" channel="inline" format="text/plain" model=".txt"/>
+    </node>
+
+    <node name="reset_visits_today" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="receive_file_today" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
+    </node>
+
+
+    <!-- lese Zugriffe für gestern -->
+
+    <node name="reset_path_yesterday" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="append_root_path" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.statistics_root_path"/>
+    </node>
+
+    <node name="build_path_yesterday" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.yesterday"/>
+    </node>
+
+    <node name="append_suffix" channel="inline" format="modify/append" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
+        <node name="source" channel="inline" format="text/plain" model=".txt"/>
+    </node>
+
+        <node name="reset_visits_yesterday" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="receive_file_yesterday" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_yesterday"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
+    </node>
+
+
+    <!-- lese Gesamtzugriffe ein -->
+    <node name="reset_visits_total" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="receive_file_total" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_total"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
+    </node>
+
+    <!-- erhöhe Zähler -->
+    <node name="increment_today" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <node name="increment_total" channel="inline" format="calculate/add" model="">
+        <node name="result" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
+        <node name="operand" channel="inline" format="number/integer" model="1"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+    </node>
+
+    <!-- speicher Zaehler -->
+    <node name="store_visits_today" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_today"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <node name="store_visits_total" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_total"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+
+    <!-- fuehre Loop fuer csv aus -->
+
+    <node name="read_linefeed" channel="inline" format="communicate/receive" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="sender" channel="inline" format="text/cybol-path" model=".app.var.file_path_linefeed"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.linefeed"/>
+    </node>
+
+    <node name="set_count_zero" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.count"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.maximum"/>
+    </node>
+
+    <node name="reset_csv_content" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
+        <node name="source" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="set_break_false" channel="inline" format="modify/overwrite" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.break"/>
+        <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="create_csv" channel="inline" format="flow/loop" model="">
+        <node name="break" channel="inline" format="text/cybol-path" model=".app.var.break"/>
+        <node name="model" channel="inline" format="text/cybol-path" model=".app.loop"/>
+    </node>
+
+    <node name="store_csv_data" channel="inline" format="communicate/send" model="">
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="text/plain"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.var.csv_content"/>
+        <node name="receiver" channel="inline" format="text/cybol-path" model=".app.var.file_path_csv_data"/>
+        <node name="newline" channel="inline" format="logicvalue/boolean" model="true"/>
+    </node>
+
+    <!-- erstelle HTMl Seite -->
+
+    <!-- setze Aufrufe heute -->
+    <node name="reset_row_content_today" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="serialise_visits_today" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_0.column_1"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.visits_today"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- setze Aufrufe gestern -->
+    <node name="reset_row_content_yesterday" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="serialise_visits_yesterday" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_1.column_1"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.visits_yesterday"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- setze Aufrufe total -->
+    <node name="reset_row_content_total" channel="inline" format="modify/empty" model="">
+        <node name="part" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
+        <node name="destination_properties" channel="inline" format="logicvalue/boolean" model="false"/>
+    </node>
+
+    <node name="serialise_visits_total" channel="inline" format="represent/serialise" model="">
+        <node name="destination" channel="inline" format="text/cybol-path" model=".app.webstat.counter.body.table.row_2.column_1"/>
+        <node name="source" channel="inline" format="text/cybol-path" model=".app.var.visits_total"/>
+        <node name="language" channel="inline" format="meta/language" model="text/cybol"/>
+        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
+    </node>
+
+    <!-- erstelle counter.html -->
+    <node name="generate_html" channel="inline" format="communicate/send" model="">
+        <node name="receiver" channel="inline" format="text/plain" model="webstat/files/counter.html"/>
+        <node name="message" channel="inline" format="text/cybol-path" model=".app.webstat.counter"/>
+        <node name="language" channel="inline" format="meta/language" model="text/html">
+        <node name="indentation" channel="inline" format="logicvalue/boolean" model="true"/>
+        </node>
+        <node name="format" channel="inline" format="meta/format" model="element/part"/>
+        <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
+        <node name="channel" channel="inline" format="meta/channel" model="file"/>
+    </node>
+
 </node>

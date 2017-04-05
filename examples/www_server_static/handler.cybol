@@ -48,12 +48,10 @@
     <node name="overwrite_path" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="source" channel="inline" format="text/plain" model="www_server_static/files"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="append_path" channel="inline" format="modify/append" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.path"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.request:uri:path"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
     <node name="print_path_label" channel="inline" format="communicate/send" model="">

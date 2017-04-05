@@ -1,4 +1,4 @@
-<node>    
+<node>
     <!-- bool: flag  -->
     <node name="flag" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="flag"/>
@@ -9,9 +9,8 @@
     <node name="init_flag" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".flag"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
-    
+
     <node name="startup" channel="inline" format="maintain/startup" model="">
         <node name="channel" channel="inline" format="meta/channel" model="terminal"/>
     </node>
@@ -19,6 +18,6 @@
                 <node name="criterion" channel="inline" format="text/cybol-path" model=".flag"/>
             <node name="true" channel="file" format="element/part" model="true.cybol"/>
         <node name="false" channel="file" format="element/part" model="manual/control-struct/if-then-else/false.cybol"/>
-        </node> 
+        </node>
     <node name="shutdown" channel="inline" format="live/exit" model=""/>
 </node>

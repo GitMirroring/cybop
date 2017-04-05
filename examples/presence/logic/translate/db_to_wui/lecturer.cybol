@@ -5,7 +5,6 @@
     <node name="initialise_reset" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.reset"/>
         <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="reset_element" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.reset.stack.element"/>
@@ -15,17 +14,14 @@
     <node name="overwrite_identify_prefix" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.identify_prefix"/>
         <node name="source" channel="inline" format="text/plain" model=".app.domain."/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_identify_source" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.identify_source"/>
         <node name="source" channel="inline" format="text/plain" model="lecturers"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_identify" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.identify"/>
         <node name="source" channel="inline" format="text/plain" model="db_to_wui_lecturer"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="identify_lecturer_number" channel="inline" format="flow/sequence" model="">
         <node name="model" channel="inline" format="text/cybol-path" model=".app.logic.identify.number"/>

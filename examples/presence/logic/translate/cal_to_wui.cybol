@@ -3,7 +3,6 @@
     <node name="overwrite_calendar_week" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.wui.index.body.navigation.table.row.week"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.domain.calendar.(.app.var.year_string).(.app.var.week_string)"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>

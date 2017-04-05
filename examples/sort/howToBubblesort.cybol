@@ -5,24 +5,22 @@
         <node name="name" channel="inline" format="text/plain" model="unsorted"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-    </node> 
+    </node>
     <node name="initialiseUnsorted" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".unsorted"/>
         <node name="source" channel="file" format="number/integer" model="sort/unsorted.txt"/>
 <!--
         <node name="source" channel="inline" format="number/integer" model="5,8,4,7,6,9,3,2"/>
 -->
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="variableResult" channel="inline" format="memorise/create" model="">
         <node name="name" channel="inline" format="text/plain" model="result"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="element" channel="inline" format="text/plain" model="part"/>
-    </node> 
+    </node>
     <node name="initialiseResult" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".result"/>
         <node name="source" channel="inline" format="number/integer" model="0,0,0,0,0,0,0,0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <!-- show results -->

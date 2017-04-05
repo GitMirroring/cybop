@@ -2,25 +2,21 @@
     <node name="reset_helparray1" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.help_array.flag1"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="reset_helparray2" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.help_array.flag2"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="reset_helparray3" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.help_array.flag3"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="reset_helparray4" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.help_array.flag4"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <node name="compare_equal" channel="inline" format="compare/equal" model="">
@@ -88,7 +84,6 @@
     <node name="reset_bull" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".app.var.bull"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".app.var.bull_default"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 
     <node name="if-then-else" channel="inline" format="flow/branch" model="">

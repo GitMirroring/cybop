@@ -4,6 +4,6 @@
     <node name="operation" channel="inline" format="logify/xnor" model="">
         <node name="output" channel="inline" format="text/cybol-path" model=".app.result"/>
         <node name="input" channel="inline" format="text/cybol-path" model=".app.operand"/>
-    <node name="type" channel="inline" format="meta/type" model="number/integer"/>
+        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
 </node>
