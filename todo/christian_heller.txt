@@ -137,6 +137,8 @@ _________
         * Test for memory leaks with valgrind
         * Debug memory leak in xml- or cybol deserialiser
 
+        * Delete superfluous parametres "count", "size", "type" in function "deallocate_array"
+
 Sensing Threads
 _______________
 

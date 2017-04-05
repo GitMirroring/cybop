@@ -23,10 +23,12 @@
         * Delete superfluous property "type" for container operations like "modify/overwrite" or "modify/append" in all cybol example applications and api documentation
         * Verify correct execution of cybol example application "copier" for testing shallow- and deep (cloning) copying
 
-        * Replace function call "handle_properties" with "modify_item" (append) in file "controller/handler/part_handler.c"
-        * Remove superfluous files "controller/handler/properties_handler.c" and "controller/handler/element_properties_handler.c"
+        * Replace function call "handle_properties" with "modify_item" (append) in file "controller/handler/part_handler.c", for stack memory
+        * Remove then superfluous files "controller/handler/properties_handler.c" and "controller/handler/element_properties_handler.c"
 
         * Eliminate temporary format- and type item parametres in order to simplify cybol deserialiser
+
+        * Move function call "modify_array" (empty) from "array_deallocator" to "item_deallocator", so that only data array but not count and size trigger it
 
 2017-04-03  Christian Heller  <christian.heller@tuxtax.de>
 

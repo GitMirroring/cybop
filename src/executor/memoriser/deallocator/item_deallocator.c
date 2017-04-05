@@ -26,8 +26,11 @@
 #ifndef ITEM_DEALLOCATOR_SOURCE
 #define ITEM_DEALLOCATOR_SOURCE
 
+#include "../../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
+#include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/item_state_cyboi_name.c"
 #include "../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
@@ -35,6 +38,12 @@
 #include "../../../executor/memoriser/deallocator/array_deallocator.c"
 #include "../../../logger/logger.c"
 #include "../../../variable/reference_counter.c"
+
+//
+// Forward declarations.
+//
+
+void modify_array(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7, void* p8, void* p9, void* p10);
 
 /**
  * Deallocates the item.
@@ -59,6 +68,23 @@ void deallocate_item(void* p0, void* p1) {
         copy_array_forward((void*) &d, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &c, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) COUNT_ITEM_STATE_CYBOI_NAME);
         copy_array_forward((void*) &s, *i, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) SIZE_ITEM_STATE_CYBOI_NAME);
+
+        // Remove all elements from data.
+        //
+        // CAUTION! This IS IMPORTANT in order to decrement
+        // the reference count for each element with type "element/part",
+        // for rubbish (garbage) collection.
+        //
+        // CAUTION! The necessary "reference" function is called
+        // automatically inside the "modify_array" ("empty") function
+        // (and "remove" function, respectively).
+        //
+        // CAUTION! The adjust count flag is set to TRUE here,
+        // but its value does not really matter anymore,
+        // since the array gets deallocated anyway below.
+        // Setting the array count has nothing to do with shrinking or reallocation.
+        // The array size remains untouched inside.
+        modify_array((void*) &d, *NULL_POINTER_STATE_CYBOI_MODEL, p1, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, *NULL_POINTER_STATE_CYBOI_MODEL, c, s, (void*) TRUE_BOOLEAN_STATE_CYBOI_MODEL, (void*) EMPTY_MODIFY_LOGIC_CYBOI_FORMAT);
 
         // Deallocate data, count, size.
         //
