@@ -11,33 +11,13 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Container
-_________
-
-        * Adapt cybol operation "memorise/create" in cybol example applications
-        * Rename cybol property "whole" into "destination"
-        * Rename cybol property "element" into "destination_properties" of type "logicvalue/boolean" (false adds new node to "model"; true to "properties" container)
-
-    <node name="create_summand_1" channel="inline" format="memorise/create" model="">
-        <node name="name" channel="inline" format="text/plain" model="summand_1"/>
-        <node name="format" channel="inline" format="meta/format" model="number/integer"/>
-        <node name="element" channel="inline" format="text/plain" model="part"/>
-        <node name="whole" channel="inline" format="text/cybol-path" model=".addition_application"/>
-    </node>
-
-        * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.
-
-        * Delete superfluous property "type" for arithmetic operations like "calculate/add" or "calculate/subtract" in all cybol example applications
-        * Delete superfluous property "type" for comparison operations like "compare/equal" or "compare/greater-or-equal" in all cybol example applications
-        * Delete superfluous property "type" for boolean logic operations like "logify/and" or "logify/or" in all cybol example applications
-        * Adapt applicator to use the type of one operand instead of explicitly given property
-        * Compare both operand types as done in "modify" container operations
-
-        * Test for memory leaks with valgrind
-        * Debug memory leak in xml- or cybol deserialiser
-
 Logger
 ______
+
+        CONTINUE WITH:
+        * Investigate errors in file "remove_modifier.c"
+            ../src/controller/cyboi --knowledge=counter/run.cybol --loglevel=error --logfile=log.log
+        * Search in source code for "REMOVE_MODIFY_LOGIC_CYBOI_FORMAT"
 
         * Debug memory error when logging with "debug" log level (all other levels work fine)
             see variable "LOG_OUTPUT" in file "variable/log_setting.c"; valgrind did not help
@@ -135,6 +115,27 @@ ___
             http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751%28v=vs.85%29.aspx
 
         * Remove directory "src/windows/"
+
+Container
+_________
+
+        * Adapt applicator for "memorise/create" to use new cybol property "whole_properties"
+        * Rename property "element" of cybol operation "memorise/create" into "whole_properties" of type "logicvalue/boolean" in all cybol example applications
+            (false adds new node to "model"; true to "properties" container)
+
+        * Adapt applicators for calculate | cast | compare | logify | manipulate to use the type of one operand instead of explicitly given property
+        * Compare both operand types as done in "modify" container operations
+
+        * Delete superfluous property "type" for arithmetic operations like "calculate/add" or "calculate/subtract" in all cybol example applications
+        * Delete superfluous property "type" for casting operations like "cast/integer" or "cast/double" in all cybol example applications
+        * Delete superfluous property "type" for comparison operations like "compare/equal" or "compare/greater-or-equal" in all cybol example applications
+        * Delete superfluous property "type" for boolean logic operations like "logify/and" or "logify/or" in all cybol example applications
+        * Delete superfluous property "type" for bit manipulation operations like "manipulate/shift-left" or "manipulate/rotate-right" in all cybol example applications
+
+        * Fix terminology in special chapter at begin of design document, e.g.: model and property, both of them are a part|node, item, array|data etc., xml node|element|tag|attribute etc.
+
+        * Test for memory leaks with valgrind
+        * Debug memory leak in xml- or cybol deserialiser
 
 Sensing Threads
 _______________

@@ -14,17 +14,14 @@
     <node name="reset_count" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#topic_count"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="reset_index" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#topic_index"/>
         <node name="source" channel="inline" format="number/integer" model="0"/>
-        <node name="type" channel="inline" format="meta/type" model="number/integer"/>
     </node>
     <node name="reset_break" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model="#topic_break"/>
         <node name="source" channel="inline" format="logicvalue/boolean" model="false"/>
-        <node name="type" channel="inline" format="meta/type" model="logicvalue/boolean"/>
     </node>
 
     <!-- Model creation. -->

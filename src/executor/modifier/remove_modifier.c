@@ -76,6 +76,14 @@ void modify_remove(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, v
 
     if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
+/*??
+        fwprintf(stdout, L"ERROR: Could not modify remove. The destination index is outside the array boundaries.\n");
+        fwprintf(stdout, L"ERROR: Could not modify remove. The destination array count p4: %i\n", p4);
+        fwprintf(stdout, L"ERROR: Could not modify remove. The destination array count *p4: %i\n", *((int*) p4));
+        fwprintf(stdout, L"ERROR: Could not modify remove. The destination array size p5: %i\n", p5);
+        fwprintf(stdout, L"ERROR: Could not modify remove. The destination array size *p5: %i\n", *((int*) p5));
+*/
+
         log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not modify remove. The destination index is outside the array boundaries.");
     }
 }

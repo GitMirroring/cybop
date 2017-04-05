@@ -637,11 +637,6 @@
                         </a>
                     </div>
                     <div class="part_toc">
-                        <a href="#build">
-                            build
-                        </a>
-                    </div>
-                    <div class="part_toc">
                         <a href="#empty">
                             empty
                         </a>
@@ -11377,26 +11372,10 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        type
-                                    </div>
-                                    <div class="gridCell">
-                                        the operand type which is equal for both operands
-                                    </div>
-                                    <div class="gridCell">
-                                        true
-                                    </div>
-                                    <div class="gridCell">
-                                        meta/type
-                                    </div>
-                                    <div class="gridCell">
-                                    </div>
-                                </div>
-                                <div class="gridRow">
-                                    <div class="gridCell">
                                         count
                                     </div>
                                     <div class="gridCell">
-                                        If null, the source part model count will be used instead. The number of elements to be appended.
+                                        If null, the part model count will be used instead. The number of elements to be overwritten.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -11409,7 +11388,23 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        destination_index
+                                    </div>
+                                    <div class="gridCell">
+                                        If null, an index of zero will be used instead. The destination index from which to start copying elements to.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        number/integer
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        source_index
                                     </div>
                                     <div class="gridCell">
                                         If null, an index of zero will be used instead. The source index from which to start copying elements from.
@@ -11423,105 +11418,50 @@
                                     <div class="gridCell">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <a name="build">
-                            <h3>
-                                build
-                            </h3>
-                        </a>
-                        <div>
-                            <h5>
-                                Description
-                            </h5>
-                            <p>
-                                 Builds a part name to be used in a list of many parts.
- Uses a base name and adds an index to retrieve a unique resulting composed name.
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Format
-                            </h5>
-                            <p>
-                                modify/build
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Example
-                            </h5>
-                            <p class="part_example">
-                            </p>
-                        </div>
-                        <div>
-                            <h5>
-                                Properties
-                            </h5>
-                            <div class="exampleGrid">
-                                <div class="gridRow">
-                                    <div class="gridHead">
-                                        name
-                                    </div>
-                                    <div class="gridHead">
-                                        description
-                                    </div>
-                                    <div class="gridHead">
-                                        required
-                                    </div>
-                                    <div class="gridHead">
-                                        format
-                                    </div>
-                                    <div class="gridHead">
-                                        model
-                                    </div>
-                                </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        result
+                                        adjust
                                     </div>
                                     <div class="gridCell">
-                                        The knowledge part where to store the resulting composed name.
+                                        The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.
                                     </div>
                                     <div class="gridCell">
-                                        true
+                                        false
                                     </div>
                                     <div class="gridCell">
-                                        text/cybol-path
+                                        logicvalue/boolean
                                     </div>
                                     <div class="gridCell">
                                     </div>
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        base
+                                        destination_properties
                                     </div>
                                     <div class="gridCell">
-                                        the base name
+                                        The default is &#x27;false&#x27;. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.
                                     </div>
                                     <div class="gridCell">
-                                        true
+                                        false
                                     </div>
                                     <div class="gridCell">
-                                        text/plain
+                                        logicvalue/boolean
                                     </div>
                                     <div class="gridCell">
                                     </div>
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        source_properties
                                     </div>
                                     <div class="gridCell">
-                                        The index to add to the base name.
+                                        The default is &#x27;false&#x27;. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.
                                     </div>
                                     <div class="gridCell">
-                                        true
+                                        false
                                     </div>
                                     <div class="gridCell">
-                                        number/integer
+                                        logicvalue/boolean
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -11587,10 +11527,10 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        part
+                                        destination
                                     </div>
                                     <div class="gridCell">
-                                        the part
+                                        the destination part
                                     </div>
                                     <div class="gridCell">
                                         true
@@ -11603,32 +11543,64 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        model
+                                        count
                                     </div>
                                     <div class="gridCell">
-                                        ???
+                                        If null, the part model count will be used instead. The number of elements to be overwritten.
                                     </div>
                                     <div class="gridCell">
-                                        true
+                                        false
                                     </div>
                                     <div class="gridCell">
-                                        meta/type
+                                        number/integer
                                     </div>
                                     <div class="gridCell">
                                     </div>
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        properties
+                                        destination_index
                                     </div>
                                     <div class="gridCell">
-                                        ???
+                                        If null, an index of zero will be used instead. The destination index from which to start copying elements to.
                                     </div>
                                     <div class="gridCell">
-                                        true
+                                        false
                                     </div>
                                     <div class="gridCell">
-                                        ???
+                                        number/integer
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        adjust
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -11689,10 +11661,10 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        part
+                                        destination
                                     </div>
                                     <div class="gridCell">
-                                        the part
+                                        the destination part
                                     </div>
                                     <div class="gridCell">
                                         true
@@ -11705,16 +11677,16 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        element
+                                        source
                                     </div>
                                     <div class="gridCell">
-                                        the element
+                                        the source part
                                     </div>
                                     <div class="gridCell">
                                         true
                                     </div>
                                     <div class="gridCell">
-                                        element/*
+                                        text/cybol-path
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -11724,7 +11696,7 @@
                                         count
                                     </div>
                                     <div class="gridCell">
-                                        If null, the part model count will be used instead. The number of elements to be filled in.
+                                        If null, the part model count will be used instead. The number of elements to be overwritten.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -11737,10 +11709,10 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        destination_index
                                     </div>
                                     <div class="gridCell">
-                                        If null, an index of zero will be used instead. The index from which to start copying elements to.
+                                        If null, an index of zero will be used instead. The destination index from which to start copying elements to.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -11753,10 +11725,58 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        source_index
                                     </div>
                                     <div class="gridCell">
-                                        The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the part shall be adjusted to.
+                                        If null, an index of zero will be used instead. The source index from which to start copying elements from.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        number/integer
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        adjust
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        source_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -11855,26 +11875,10 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        type
-                                    </div>
-                                    <div class="gridCell">
-                                        the type of data.
-                                    </div>
-                                    <div class="gridCell">
-                                        true
-                                    </div>
-                                    <div class="gridCell">
-                                        meta/type
-                                    </div>
-                                    <div class="gridCell">
-                                    </div>
-                                </div>
-                                <div class="gridRow">
-                                    <div class="gridCell">
                                         count
                                     </div>
                                     <div class="gridCell">
-                                        If null, the part model count will be used instead. The number of elements to be inserted.
+                                        If null, the part model count will be used instead. The number of elements to be overwritten.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -11887,7 +11891,7 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        destination_index
                                     </div>
                                     <div class="gridCell">
                                         If null, an index of zero will be used instead. The destination index from which to start copying elements to.
@@ -11903,7 +11907,7 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        source_index
                                     </div>
                                     <div class="gridCell">
                                         If null, an index of zero will be used instead. The source index from which to start copying elements from.
@@ -11913,6 +11917,54 @@
                                     </div>
                                     <div class="gridCell">
                                         number/integer
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        adjust
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        source_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
                                     </div>
                                     <div class="gridCell">
                                     </div>
@@ -11948,12 +12000,12 @@
                             </h5>
                             <p class="part_example">
 &#x3C;node name=&#x22;reset_count&#x22; channel=&#x22;inline&#x22; format=&#x22;modify/overwrite&#x22; model=&#x22;&#x22;&#x3E;
-    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22;
-      model=&#x22;.settings.voltage_buffer_count&#x22;/&#x3E;
-    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22;
-      model=&#x22;.settings.voltage_buffer_count_default&#x22;/&#x3E;
-    &#x3C;node name=&#x22;type&#x22; channel=&#x22;inline&#x22; format=&#x22;meta/type&#x22; model=&#x22;number/integer&#x22;/&#x3E;
+
+    &#x3C;node name=&#x22;destination&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_count&#x22;/&#x3E;
+    &#x3C;node name=&#x22;source&#x22; channel=&#x22;inline&#x22; format=&#x22;text/cybol-path&#x22; model=&#x22;.settings.voltage_default&#x22;/&#x3E;
+
 &#x3C;/node&#x3E;
+
                             </p>
                         </div>
                         <div>
@@ -12012,22 +12064,6 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        type
-                                    </div>
-                                    <div class="gridCell">
-                                        the type of data.
-                                    </div>
-                                    <div class="gridCell">
-                                        true
-                                    </div>
-                                    <div class="gridCell">
-                                        meta/type
-                                    </div>
-                                    <div class="gridCell">
-                                    </div>
-                                </div>
-                                <div class="gridRow">
-                                    <div class="gridCell">
                                         count
                                     </div>
                                     <div class="gridCell">
@@ -12044,7 +12080,7 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        destination_index
                                     </div>
                                     <div class="gridCell">
                                         If null, an index of zero will be used instead. The destination index from which to start copying elements to.
@@ -12060,7 +12096,7 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        source_index
                                     </div>
                                     <div class="gridCell">
                                         If null, an index of zero will be used instead. The source index from which to start copying elements from.
@@ -12076,10 +12112,42 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        adjust
                                     </div>
                                     <div class="gridCell">
                                         The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        source_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the source model (NOT properties) container will be used. The flag indicating whether to use the source model or properties container.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -12149,10 +12217,10 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        part
+                                        destination
                                     </div>
                                     <div class="gridCell">
-                                        the part
+                                        the destination part
                                     </div>
                                     <div class="gridCell">
                                         true
@@ -12168,7 +12236,7 @@
                                         count
                                     </div>
                                     <div class="gridCell">
-                                        If null, ALL elements will be removed. The number of elements to be removed.
+                                        If null, the part model count will be used instead. The number of elements to be overwritten.
                                     </div>
                                     <div class="gridCell">
                                         false
@@ -12181,16 +12249,48 @@
                                 </div>
                                 <div class="gridRow">
                                     <div class="gridCell">
-                                        index
+                                        destination_index
                                     </div>
                                     <div class="gridCell">
-                                        If null, the index of the LAST element will be used instead. The index from where to start removing elements from.
+                                        If null, an index of zero will be used instead. The destination index from which to start copying elements to.
                                     </div>
                                     <div class="gridCell">
                                         false
                                     </div>
                                     <div class="gridCell">
                                         number/integer
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        adjust
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;true&#x27;. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
+                                    </div>
+                                    <div class="gridCell">
+                                    </div>
+                                </div>
+                                <div class="gridRow">
+                                    <div class="gridCell">
+                                        destination_properties
+                                    </div>
+                                    <div class="gridCell">
+                                        The default is &#x27;false&#x27;. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container.
+                                    </div>
+                                    <div class="gridCell">
+                                        false
+                                    </div>
+                                    <div class="gridCell">
+                                        logicvalue/boolean
                                     </div>
                                     <div class="gridCell">
                                     </div>

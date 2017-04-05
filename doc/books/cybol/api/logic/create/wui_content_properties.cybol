@@ -15,7 +15,7 @@
         <node name="sender" channel="inline" format="text/plain" model="api/wui/content/properties/data.cybol"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name)"/>
     </node>
-    
+
     <node name="initialise_wui_content_properties_properties" channel="inline" format="communicate/receive" model="">
         <node name="channel" channel="inline" format="meta/channel" model="file"/>
         <node name="encoding" channel="inline" format="meta/encoding" model="utf-8"/>
@@ -28,12 +28,10 @@
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).name"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_description" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).description"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):description"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="serialise_required" channel="inline" format="represent/serialise" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).required"/>
@@ -44,12 +42,10 @@
     <node name="overwrite_format" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).format"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):format"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_model" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).(#category_name).(#part_name).properties.grid.(#property_name).model"/>
         <node name="source" channel="inline" format="text/cybol-path" model=".spec.(#topic_name).(#category_name).(#part_name).properties.(#property_name):model"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>

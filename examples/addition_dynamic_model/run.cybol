@@ -44,7 +44,7 @@
         <node name="language" channel="inline" format="meta/language" model="text/model-diagram"/>
         <node name="format" channel="inline" format="meta/format" model="number/integer"/>
         <node name="message" channel="inline" format="text/cybol-path" model=".sum"/>
-        <node name="receiver" channel="inline" format="text/plain" model="TEST_ADDITION_DYNAMIC_SUM.txt"/>
+        <node name="receiver" channel="inline" format="text/plain" model="test_addition_dynamic_model.txt"/>
     </node>
 -->
     <node name="startup_terminal" channel="inline" format="maintain/startup" model="">

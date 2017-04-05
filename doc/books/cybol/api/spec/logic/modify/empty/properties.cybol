@@ -1,23 +1,43 @@
 <node>
-    <node name="part" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="part"/>
-        <node name="description" channel="inline" format="text/plain" model="the part"/>
+
+    <node name="destination" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="destination"/>
+        <node name="description" channel="inline" format="text/plain" model="the destination part"/>
         <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
         <node name="format" channel="inline" format="text/plain" model="text/cybol-path"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-    <node name="model" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="model"/>
-        <node name="description" channel="inline" format="text/plain" model="???"/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="meta/type"/>
+
+    <node name="count" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="count"/>
+        <node name="description" channel="inline" format="text/plain" model="If null, the part model count will be used instead. The number of elements to be overwritten."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="number/integer"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
-    <node name="properties" channel="inline" format="text/plain" model="">
-        <node name="name" channel="inline" format="text/plain" model="properties"/>
-        <node name="description" channel="inline" format="text/plain" model="???"/>
-        <node name="required" channel="inline" format="logicvalue/boolean" model="true"/>
-        <node name="format" channel="inline" format="text/plain" model="???"/>
+
+    <node name="destination_index" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="destination_index"/>
+        <node name="description" channel="inline" format="text/plain" model="If null, an index of zero will be used instead. The destination index from which to start copying elements to."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="number/integer"/>
         <node name="model" channel="inline" format="text/plain" model=""/>
     </node>
+
+    <node name="adjust" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="adjust"/>
+        <node name="description" channel="inline" format="text/plain" model="The default is 'true'. If null, the count WILL BE adjusted. The flag indicating whether or not the destination shall be adjusted to."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+
+    <node name="destination_properties" channel="inline" format="text/plain" model="">
+        <node name="name" channel="inline" format="text/plain" model="destination_properties"/>
+        <node name="description" channel="inline" format="text/plain" model="The default is 'false'. If null, the destination model (NOT properties) container will be used. The flag indicating whether to use the destination model or properties container."/>
+        <node name="required" channel="inline" format="logicvalue/boolean" model="false"/>
+        <node name="format" channel="inline" format="text/plain" model="logicvalue/boolean"/>
+        <node name="model" channel="inline" format="text/plain" model=""/>
+    </node>
+
 </node>

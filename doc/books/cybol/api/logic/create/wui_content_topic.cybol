@@ -27,12 +27,10 @@
     <node name="overwrite_heading" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).anchor.heading"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#topic_name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
     <node name="overwrite_name" channel="inline" format="modify/overwrite" model="">
         <node name="destination" channel="inline" format="text/cybol-path" model=".wui.body.content.(#topic_name).anchor:name"/>
         <node name="source" channel="inline" format="text/cybol-path" model="#topic_name"/>
-        <node name="type" channel="inline" format="meta/type" model="text/plain"/>
     </node>
 
 </node>
