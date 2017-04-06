@@ -27,7 +27,7 @@
 #define DISPLAY_WRITER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../logger/logger.c"
 
 #if defined(__linux__) || defined(__unix__)

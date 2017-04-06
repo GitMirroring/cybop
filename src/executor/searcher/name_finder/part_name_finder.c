@@ -29,7 +29,7 @@
 #include "../../../constant/format/cybol/number_cybol_type.c"
 #include "../../../constant/format/cybol/path_cybol_type.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cybol/separator_cybol_name.c"

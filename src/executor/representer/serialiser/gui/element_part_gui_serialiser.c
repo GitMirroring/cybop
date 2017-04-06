@@ -27,7 +27,7 @@
 #define ELEMENT_PART_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../executor/representer/serialiser/gui/content_element_part_gui_serialiser.c"

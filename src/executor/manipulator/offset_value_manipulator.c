@@ -27,7 +27,7 @@
 #define OFFSET_VALUE_MANIPULATOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../executor/manipulator/value_manipulator.c"
 #include "../../logger/logger.c"
 

@@ -27,7 +27,7 @@
 #define GET_INDEX_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/access/get_index_access_logic_cybol_name.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"

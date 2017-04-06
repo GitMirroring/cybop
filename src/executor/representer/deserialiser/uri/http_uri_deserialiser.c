@@ -26,7 +26,7 @@
 #ifndef HTTP_URI_DESERIALISER_SOURCE
 #define HTTP_URI_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../executor/representer/deserialiser/uri/http/authority_http_uri_deserialiser.c"
 #include "../../../../logger/logger.c"
 

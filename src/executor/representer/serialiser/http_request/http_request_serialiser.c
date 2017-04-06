@@ -26,7 +26,7 @@
 #ifndef HTTP_REQUEST_SERIALISER_SOURCE
 #define HTTP_REQUEST_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../logger/logger.c"
 
 //

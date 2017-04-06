@@ -28,7 +28,7 @@
 
 #include "../../../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/representer/deserialiser/xdt/bdt/bdt_xdt_deserialiser.c"
 #include "../../../../executor/representer/deserialiser/xdt/gdt/gdt_xdt_deserialiser.c"

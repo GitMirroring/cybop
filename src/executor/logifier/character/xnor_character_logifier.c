@@ -27,7 +27,7 @@
 #define XNOR_CHARACTER_LOGIFIER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/copier/integer_copier.c"

@@ -27,7 +27,7 @@
 #define LINE_MODEL_DIAGRAM_SERIALISER_SOURCE
 
 #include "../../../../constant/model/character_code/unicode/unicode_character_code_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../../../logger/logger.c"
 

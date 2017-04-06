@@ -28,7 +28,7 @@
 
 #include "../../constant/language/cyboi/state_cyboi_language.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/model/html/document_type_html_model.c"

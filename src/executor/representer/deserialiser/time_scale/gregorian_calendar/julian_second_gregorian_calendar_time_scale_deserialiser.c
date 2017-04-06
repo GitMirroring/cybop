@@ -27,7 +27,7 @@
 #define JULIAN_SECOND_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../constant/model/time_scale/duration_time_scale_model.c"
 #include "../../../../../executor/calculator/basic/double/add_double_calculator.c"

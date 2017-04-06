@@ -27,7 +27,7 @@
 #define INLINE_READER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../executor/modifier/item_modifier.c"
 #include "../../../../logger/logger.c"
 

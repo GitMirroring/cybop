@@ -27,7 +27,7 @@
 #define POSITION_GRID_LAYOUT_SERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../executor/calculator/basic/integer/add_integer_calculator.c"
 #include "../../../../../executor/calculator/basic/integer/multiply_integer_calculator.c"
 #include "../../../../../executor/copier/integer_copier.c"

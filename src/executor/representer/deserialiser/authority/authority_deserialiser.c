@@ -26,7 +26,7 @@
 #ifndef AUTHORITY_DESERIALISER_SOURCE
 #define AUTHORITY_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../executor/representer/deserialiser/authority/userinfo_authority_deserialiser.c"
 #include "../../../../logger/logger.c"
 

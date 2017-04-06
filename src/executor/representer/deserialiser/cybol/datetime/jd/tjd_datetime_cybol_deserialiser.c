@@ -27,7 +27,7 @@
 #define TJD_DATETIME_CYBOL_DESERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../../constant/model/time_scale/julian_date_time_scale_model.c"
 #include "../../../../../../executor/representer/deserialiser/cybol/datetime/jd/basic_jd_datetime_cybol_deserialiser.c"
 #include "../../../../../../logger/logger.c"

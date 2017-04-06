@@ -27,7 +27,7 @@
 #define MOVE_KNOWLEDGE_SELECTOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/searcher/selector/knowledge/end_knowledge_selector.c"

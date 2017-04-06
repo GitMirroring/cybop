@@ -27,7 +27,7 @@
 #define NAME_PARAMETRE_QUERY_HTTP_URI_SELECTOR_SOURCE
 
 #include "../../../../../constant/type/cyboi/state_cyboi_type.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/uri/uri_cyboi_name.c"

@@ -26,7 +26,7 @@
 #ifndef HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
 #define HEADER_ENTRY_HTTP_RESPONSE_SERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/http_cyboi_name.c"

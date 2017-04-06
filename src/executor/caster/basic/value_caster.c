@@ -28,7 +28,7 @@
 
 #include "../../../constant/format/cybol/logic/cast_logic_cybol_format.c"
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/caster/basic/character_caster.c"

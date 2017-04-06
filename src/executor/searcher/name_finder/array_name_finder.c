@@ -27,7 +27,7 @@
 #define ARRAY_NAME_FINDER_SOURCE
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../executor/searcher/name_finder/fifo_array_name_finder.c"

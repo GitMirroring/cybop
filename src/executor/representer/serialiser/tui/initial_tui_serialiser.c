@@ -27,7 +27,7 @@
 #define INITIAL_TUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 // CAUTION! Do NOT include the "content_element_part_tui_serialiser.c" module.
 // It is true, the "serialise_tui_part_element_content" function is called from here,
 // but the module dependency hierarchy slightly differs and just goes top-down

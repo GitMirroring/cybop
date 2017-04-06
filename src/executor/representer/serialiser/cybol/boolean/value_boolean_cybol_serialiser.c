@@ -26,7 +26,7 @@
 #ifndef VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE
 #define VALUE_BOOLEAN_CYBOL_SERIALISER_SOURCE
 
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/negative_integer_state_cyboi_model.c"

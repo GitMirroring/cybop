@@ -27,7 +27,7 @@
 #define TAPE_ARCHIVER_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/tape_archiver_commander_logic_cybol_name.c"

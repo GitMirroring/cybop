@@ -28,7 +28,7 @@
 
 #include "../../../../constant/format/cyboi/state_cyboi_format.c"
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/name/cyboi/http/header/entity_header_http_cyboi_name.c"
 #include "../../../../constant/name/cyboi/http/header/general_header_http_cyboi_name.c"

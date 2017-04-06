@@ -18,6 +18,12 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-06  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code
+        * Delete all includes of file "constant/model/cyboi/log/message_log_cyboi_model.c"
+        * Delete file "constant/model/cyboi/log/message_log_cyboi_model.c"
+
 2017-04-05  Christian Heller  <christian.heller@tuxtax.de>
 
         * Delete superfluous property "type" for container operations like "modify/overwrite" or "modify/append" in all cybol example applications and api documentation

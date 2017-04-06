@@ -27,7 +27,7 @@
 #define JULIAN_DAY_GREGORIAN_CALENDAR_TIME_SCALE_DESERIALISER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../../constant/model/time_scale/calendar_time_scale_model.c"
 #include "../../../../../constant/model/time_scale/julian_date_time_scale_model.c"

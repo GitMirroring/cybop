@@ -26,7 +26,7 @@
 #ifndef ARRAY_ALL_CALCULATOR_SOURCE
 #define ARRAY_ALL_CALCULATOR_SOURCE
 
-#include "../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../executor/calculator/basic/array_calculator.c"
 #include "../../../executor/comparator/basic/integer/equal_integer_comparator.c"

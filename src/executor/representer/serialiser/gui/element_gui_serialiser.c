@@ -27,7 +27,7 @@
 #define ELEMENT_GUI_SERIALISER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../constant/name/cybol/state/gui/gui_state_cybol_name.c"
 #include "../../../../constant/name/cybol/super_cybol_name.c"

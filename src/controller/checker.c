@@ -28,7 +28,7 @@
 
 #include "../constant/type/cyboi/state_cyboi_type.c"
 #include "../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -45,7 +45,7 @@
 void check(void* p0) {
 
     log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"\n");
-    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL, (void*) CHECK_FOR_SIGNALS_MESSAGE_LOG_CYBOI_MODEL_COUNT);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Check for signals.");
 
     // CAUTION! The parametres were not handed over as function arguments,
     // since it is more flexible to just hand over the internal memory as argument.

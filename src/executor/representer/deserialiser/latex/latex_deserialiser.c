@@ -26,7 +26,7 @@
 #ifndef LATEX_DESERIALISER_SOURCE
 #define LATEX_DESERIALISER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../logger/logger.c"
 
 /**

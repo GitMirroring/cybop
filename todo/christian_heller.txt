@@ -11,8 +11,7 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-        * Replace log constants of file "constant/model/cyboi/log/message_log_cyboi_model.c" in all code and delete file afterwards
-        * Delete all includes of file "constant/model/cyboi/log/message_log_cyboi_model.c"
+2017-04-xx  Christian Heller  <christian.heller@tuxtax.de>
 
         * Release CYBOP 0.19.0
 

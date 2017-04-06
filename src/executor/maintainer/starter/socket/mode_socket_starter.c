@@ -27,7 +27,7 @@
 #define MODE_SOCKET_STARTER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cybol/socket/mode_socket_cybol_model.c"
 #include "../../../../constant/type/cyboi/state_cyboi_type.c"

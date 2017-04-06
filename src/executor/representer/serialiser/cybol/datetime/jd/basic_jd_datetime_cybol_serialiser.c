@@ -27,7 +27,7 @@
 #define BASIC_JD_DATETIME_CYBOL_SERIALISER_SOURCE
 
 #include "../../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../../constant/model/cyboi/state/double_state_cyboi_model.c"
 #include "../../../../../../constant/name/cyboi/state/primitive_state_cyboi_name.c"
 #include "../../../../../../executor/calculator/basic/double/subtract_double_calculator.c"

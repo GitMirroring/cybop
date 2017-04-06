@@ -26,7 +26,7 @@
 #ifndef LIST_TASKS_SOURCE
 #define LIST_TASKS_SOURCE
 
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../constant/name/cybol/logic/commander/list_tasks_commander_logic_cybol_name.c"

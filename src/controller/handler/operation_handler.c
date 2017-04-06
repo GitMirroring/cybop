@@ -102,7 +102,7 @@
 #include "../../applicator/time/time.c"
 #include "../../constant/format/cyboi/logic_cyboi_format.c"
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../logger/logger.c"
 
 /**
@@ -119,7 +119,7 @@
  */
 void handle_operation(void* p0, void* p1, void* p2, void* p3, void* p4, void* p5, void* p6, void* p7) {
 
-    log_message((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL, (void*) HANDLE_OPERATION_MESSAGE_LOG_CYBOI_MODEL_COUNT);
+    log_message_terminated((void*) INFORMATION_LEVEL_LOG_CYBOI_MODEL, (void*) L"Handle operation.");
 
 //?? fwprintf(stdout, L"TEST handle operation: %i\n", p7);
 //?? fwprintf(stdout, L"TEST handle operation: %i\n", *((int*) p7));

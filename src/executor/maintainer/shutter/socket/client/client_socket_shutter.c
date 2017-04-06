@@ -27,7 +27,7 @@
 #define CLIENT_SOCKET_SHUTTER_SOURCE
 
 #include "../../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../../constant/model/cyboi/state/state_cyboi_model.c"
 #include "../../../../../constant/name/cyboi/state/input_output_state_cyboi_name.c"

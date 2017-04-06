@@ -26,7 +26,7 @@
 #ifndef UTF_16_DECODER_SOURCE
 #define UTF_16_DECODER_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../logger/logger.c"
 
 //

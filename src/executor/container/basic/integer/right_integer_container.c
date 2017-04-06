@@ -27,7 +27,7 @@
 #define RIGHT_INTEGER_CONTAINER_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../executor/comparator/basic/integer/greater_integer_comparator.c"
 #include "../../../../executor/comparator/basic/integer/smaller_integer_comparator.c"

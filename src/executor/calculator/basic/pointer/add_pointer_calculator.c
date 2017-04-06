@@ -26,7 +26,7 @@
 #ifndef ADD_POINTER_CALCULATOR_SOURCE
 #define ADD_POINTER_CALCULATOR_SOURCE
 
-#include "../../../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../logger/logger.c"

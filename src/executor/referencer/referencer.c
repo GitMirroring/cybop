@@ -26,7 +26,7 @@
 #ifndef REFERENCER_SOURCE
 #define REFERENCER_SOURCE
 
-#include "../../constant/model/cyboi/log/message_log_cyboi_model.c"
+ 
 #include "../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../constant/type/cyboi/state_cyboi_type.c"
 #include "../../executor/referencer/array_referencer.c"
