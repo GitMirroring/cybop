@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 #
 # Copyright (C) 1999-2016. Christian Heller.
 #
@@ -20,12 +20,10 @@ cybop=".."
 # CAUTION! Do NOT replace this file "dist/prepare_release.sh"
 # itself since otherwise, the tabulation character below
 # will get replaced by spaces.
-input="$cybop/dist/release.txt $cybop/examples $cybop/src $cybop/todo $cybop/AUTHORS $cybop/autogen.sh $cybop/ChangeLog $cybop/configure.ac $cybop/COPYING $cybop/INSTALL $cybop/Makefile.am $cybop/NEWS $cybop/README"
+input="$cybop/dist/release.txt $cybop/examples $cybop/src $cybop/todo $cybop/AUTHORS $cybop/ChangeLog $cybop/COPYING $cybop/INSTALL $cybop/NEWS $cybop/README"
 # The filter using wild cards which get
 # replaced, what is called "globbing".
 # It is NOT using strict regular expressions.
-ac_filter="*.ac"
-am_filter="*.am"
 c_filter="*.c"
 cybol_filter="*.cybol"
 sh_filter="*.sh"
@@ -40,17 +38,17 @@ readme_filter=README
 old_tabulator="	"
 new_tabulator="    "
 # The old and new copyright.
-old_copyright="Copyright (C) 1999-2015. Christian Heller."
-new_copyright="Copyright (C) 1999-2016. Christian Heller."
+old_copyright="Copyright (C) 1999-2016. Christian Heller."
+new_copyright="Copyright (C) 1999-2017. Christian Heller."
 # The old and new version.
-old_version="CYBOP 0.17.0 2015-04-20"
-new_version="CYBOP 0.18.0 2016-12-21"
+old_version="CYBOP 0.18.0 2016-12-21"
+new_version="CYBOP 0.19.0 2017-04-07"
 
 # Determine files.
 # CAUTION! The files without suffix HAVE TO BE
 # mentioned here since otherwise, they will not
 # be processed.
-files=$(find $input -type f -name "$ac_filter" -or -name "$am_filter" -or -name "$c_filter" -or -name "$cybol_filter" -or -name "$sh_filter" -or -name "$txt_filter" -or -name "$authors_filter" -or -name "$changelog_filter" -or -name "$copying_filter" -or -name "$install_filter" -or -name "$news_filter" -or -name "$readme_filter")
+files=$(find $input -type f -name "$c_filter" -or -name "$cybol_filter" -or -name "$sh_filter" -or -name "$txt_filter" -or -name "$authors_filter" -or -name "$changelog_filter" -or -name "$copying_filter" -or -name "$install_filter" -or -name "$news_filter" -or -name "$readme_filter")
 
 # Loop through files.
 for file in $files
@@ -85,3 +83,4 @@ done
 
 # Exit normally.
 exit 0
+

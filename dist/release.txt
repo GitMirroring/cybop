@@ -1,19 +1,19 @@
 #
-# Copyright (C) 1999-2014. Christian Heller.
+# Copyright (C) 1999-2017. Christian Heller.
 #
 # This file describes the release procedure.
 #
 # Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
 # CYBOP Developers <cybop-developers@nongnu.org>
 #
-# @version CYBOP 0.16.0 2014-03-31
+# @version CYBOP 0.19.0 2017-04-07
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
 Source Code
 ___________
 
-Compile cyboi (make clean; ./autogen.sh; ./configure; make)
+Compile cyboi
 Test cybol applications
 
 
@@ -22,14 +22,14 @@ ___________________
 
 Adapt file "dist/prepare_release.sh"
 Execute file "dist/prepare_release.sh"
-Adapt version in configure.ac
+Adapt directories, files, version in build/cmake/packaging.cmake
 Update and delete old todo/* files
 Update ChangeLog
 Update AUTHORS reading ChangeLog entries
 Update NEWS subsumpting ChangeLog entries
 Commit SVN
 Tag SVN
-Pack (make dist) -- DON'T WORRY on compile errors, the tar.gz is fine, test it, error probably caused by missing source files in controller/, see below
+Pack
 Upload tarball file to sftp://USERNAME@download.savannah.gnu.org/releases/cybop
 
 
@@ -49,34 +49,4 @@ Announcement
 ____________
 
 Announce release in mailing list
-
-
-TODO: Problem when executing "make dist"
-________________________________________
-
-...
-make[2]: Entering directory `/home/project/cybop/src/controller'
-gcc -g -O2    deoptionaliser.c   -o deoptionaliser
-/usr/bin/ld: cannot open output file deoptionaliser: Is a directory
-collect2: Fehler: ld gab 1 als Ende-Status zurück
-make[2]: *** [deoptionaliser] Fehler 1
-make[2]: Leaving directory `/home/project/cybop/src/controller'
-make[1]: *** [distdir] Fehler 1
-make[1]: Leaving directory `/home/project/cybop/src'
-make: *** [distdir] Fehler 1
-
-The reason is that in directory "controller", there are equally
-named files and directories. For example, there is a directory
-"deoptionaliser". If file "deoptionaliser.c" is to be compiled
-into file "deoptionaliser", then that latter makes problems,
-because an equally named directory already exists.
-How to solve this?
-(Using "deoptionaliser/" in "Makefile.am" is NOT an option,
-since it wrongly creates two nested directories "deoptionaliser".)
-
-One solution could be to manually add necessary directories
-and files, since "make dist" creates a temporary directory,
-e.g. "cybop-0.14.0", which is later compressed using tar.gz.
-The problematic directories and files could be added to it,
-before starting the previously failed compression manually.
 

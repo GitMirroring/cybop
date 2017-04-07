@@ -1,38 +1,56 @@
-# --- setup project specific vars --- #
-
+#
+# The project-specific variables.
+#
 set(CPACK_PACKAGE_NAME "CYBOP")
 set(CPACK_PACKAGE_CONTACT "christian.heller@tuxtax.de")
-set(CPACK_PACKAGE_DESCRIPTION_FILE "${PROJECT_SOURCE_DIR}/../README")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>")
-set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/../COPYING")
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING")
 
-# --- setup project version number --- #
+#
+# The version information.
+#
 SET(CPACK_PACKAGE_VERSION_MAJOR "0")
 SET(CPACK_PACKAGE_VERSION_MINOR "19")
 SET(CPACK_PACKAGE_VERSION_PATCH "0")
 
-# --- setup the release content --- #
-# TODO: what should be included, what's about all the papers and so on?
-# we can include directories using file patterns and so on, the more generic,
-# the less adjustments we need to do here later on when the files change
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/books/cybol/api.html DESTINATION doc/books/cybol)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/books/cybol/api.css DESTINATION doc/books/cybol)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/manual/manual-en.pdf DESTINATION doc/manual)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/manual/manual-de.pdf DESTINATION doc/manual)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../doc/lightning_talk/cybop.pdf DESTINATION doc/lightning_talk)
-#INSTALL(DIRECTORY ${PROJECT_SOURCE_DIR}/../doc/lightning_talk/ DESTINATION doc/lightning_talk FILES_MATCHING PATTERN "*.pdf")
-INSTALL(DIRECTORY ${PROJECT_SOURCE_DIR}/../examples/ DESTINATION examples)
-INSTALL(DIRECTORY ${PROJECT_SOURCE_DIR}/../src/ DESTINATION src)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../AUTHORS DESTINATION .)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../ChangeLog DESTINATION .)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../COPYING DESTINATION .)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../INSTALL DESTINATION .)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../NEWS DESTINATION .)
-INSTALL(FILES ${PROJECT_SOURCE_DIR}/../README DESTINATION .)
+#
+# The components.
+#
+# The files to be added to the release,
+# distributed in specific components.
+# One can include directories and files using file patterns.
+#
 
-# --- setup packaging configuration --- #
+# The cyboi component.
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/ DESTINATION src)
+
+# The cybol component.
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api/ DESTINATION doc/books/cybol/api)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/schema/ DESTINATION doc/books/cybol/schema)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/syntax/ DESTINATION doc/books/cybol/syntax)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.html DESTINATION doc/books/cybol)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.css DESTINATION doc/books/cybol)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/examples/ DESTINATION examples)
+
+# The cybop component.
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/lightning_talk/cybop.pdf DESTINATION doc/lightning_talk)
+#INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/lightning_talk/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/AUTHORS DESTINATION .)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ChangeLog DESTINATION .)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/COPYING DESTINATION .)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/INSTALL DESTINATION .)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/NEWS DESTINATION .)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README DESTINATION .)
+
+# Setup packaging configuration.
 if(UNIX AND NOT APPLE)
     set(CPACK_GENERATOR "TGZ")
 elseif (APPLE)
@@ -41,5 +59,6 @@ else()
     message( SEND_ERROR "Windows is not supported yet" )
 endif()
 
-# --- load global setting file --- #
+# Load global setting file.
 include(CPack)
+
