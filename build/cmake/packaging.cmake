@@ -3,9 +3,9 @@
 #
 set(CPACK_PACKAGE_NAME "CYBOP")
 set(CPACK_PACKAGE_CONTACT "christian.heller@tuxtax.de")
-set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README")
+set(CPACK_PACKAGE_DESCRIPTION_FILE "${ROOT_DIR}/README")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>")
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/COPYING")
+set(CPACK_RESOURCE_FILE_LICENSE "${ROOT_DIR}/COPYING")
 
 #
 # The version information.
@@ -23,32 +23,32 @@ SET(CPACK_PACKAGE_VERSION_PATCH "0")
 #
 
 # The cyboi component.
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
-INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/ DESTINATION src)
+INSTALL(FILES ${ROOT_DIR}/build/manpage/cyboi.1.gz DESTINATION build/manpage)
+INSTALL(DIRECTORY ${ROOT_DIR}/src/ DESTINATION src)
 
 # The cybol component.
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
-INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api/ DESTINATION doc/books/cybol/api)
-INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/schema/ DESTINATION doc/books/cybol/schema)
-INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/syntax/ DESTINATION doc/books/cybol/syntax)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.html DESTINATION doc/books/cybol)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/api.css DESTINATION doc/books/cybol)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
-INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/examples/ DESTINATION examples)
+INSTALL(FILES ${ROOT_DIR}/build/manpage/cybol.5.gz DESTINATION build/manpage)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/api/ DESTINATION doc/books/cybol/api)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/schema/ DESTINATION doc/books/cybol/schema)
+INSTALL(DIRECTORY ${ROOT_DIR}/doc/books/cybol/syntax/ DESTINATION doc/books/cybol/syntax)
+INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/api.html DESTINATION doc/books/cybol)
+INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/api.css DESTINATION doc/books/cybol)
+INSTALL(FILES ${ROOT_DIR}/doc/books/cybol/cybol_2007-07-31.pdf DESTINATION doc/books/cybol)
+INSTALL(DIRECTORY ${ROOT_DIR}/examples/ DESTINATION examples)
 
 # The cybop component.
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/lightning_talk/cybop.pdf DESTINATION doc/lightning_talk)
-#INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/doc/lightning_talk/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/AUTHORS DESTINATION .)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/ChangeLog DESTINATION .)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/COPYING DESTINATION .)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/INSTALL DESTINATION .)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/NEWS DESTINATION .)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/README DESTINATION .)
+INSTALL(FILES ${ROOT_DIR}/build/manpage/cybop.7.gz DESTINATION build/manpage)
+INSTALL(FILES ${ROOT_DIR}/doc/books/cybop/cybop.pdf DESTINATION doc/books/cybop)
+INSTALL(FILES ${ROOT_DIR}/doc/lightning_talk/cybop.pdf DESTINATION doc/lightning_talk)
+#INSTALL(DIRECTORY ${ROOT_DIR}/doc/lightning_talk/ DESTINATION doc/lightning_talk COMPONENT cybop FILES_MATCHING PATTERN "*.pdf")
+INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-de.pdf DESTINATION doc/manual)
+INSTALL(FILES ${ROOT_DIR}/doc/manual/manual-en.pdf DESTINATION doc/manual)
+INSTALL(FILES ${ROOT_DIR}/AUTHORS DESTINATION .)
+INSTALL(FILES ${ROOT_DIR}/ChangeLog DESTINATION .)
+INSTALL(FILES ${ROOT_DIR}/COPYING DESTINATION .)
+INSTALL(FILES ${ROOT_DIR}/INSTALL DESTINATION .)
+INSTALL(FILES ${ROOT_DIR}/NEWS DESTINATION .)
+INSTALL(FILES ${ROOT_DIR}/README DESTINATION .)
 
 # Setup packaging configuration.
 if(UNIX AND NOT APPLE)
@@ -61,4 +61,3 @@ endif()
 
 # Load global setting file.
 include(CPack)
-

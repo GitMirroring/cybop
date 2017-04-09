@@ -331,7 +331,7 @@ __________________
 CYBOP Distribution
 __________________
 
-- Modify the CYBOP version number in the build/packaging.cmake file:
+- Modify the CYBOP version number in the build/cmake/packaging.cmake file:
 
     SET(CPACK_PACKAGE_VERSION_MAJOR "0")
     SET(CPACK_PACKAGE_VERSION_MINOR "19")

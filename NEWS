@@ -13,6 +13,47 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+CYBOP 0.19.0, 2017-04-09, Christian Heller  <christian.heller@tuxtax.de>
+
+        * CYBOI:
+            - Replace preprocessor macros with posix-compliant ones
+            - Let last preprocessor branch report an error instead of using linux as fallback OS
+            - Simplify string arrays in directory "constant/"
+            - Delete log message constants and use string literals in source code context
+            - Extend knowledge path deserialiser to retrieve all kinds of memory (knowledge, signal, stack)
+            - Rewrite knowledge deserialiser and knowledge selector for path () and index [] as well as nested paths and path references
+            - Tailor files "handler.c" and "knowledge_part_getter.c" since common code was moved to unified knowledge path deserialiser
+            - Merge container functionality "overwrite", "append", "insert", "remove", "empty", "fill" into cybol operation "modify"
+            - Reintroduce type comparison of destination- and source part in "modify" applicator
+            - Support cybol properties "destination_properties" and "source_properties" in "modify" applicator
+            - Evaluate cybol property flag "move" in "modify" applicator, in order to use shallow- or deep copying
+            - Adapt modifier functions by forwarding deep copying flag in directory "executor/modifier/"
+            - Move stack handling from file "element_part_handler.c" to "part_handler.c"
+            - Replace function call "handle_properties" for stack memory variables with "modify_item" (append)
+            - Move function call "modify_array" (empty) from "array_deallocator" to "item_deallocator", so that only data array but not count and size trigger it
+        * CYBOL:
+            - Replace knowledge path character number sign "#" with colon ":" as separator for property access
+            - Provide memory root paths ".", "#", "|", for knowledge-, stack-, signal memory, respectively
+            - Extend knowledge deserialiser to accept path references, e.g. *.app.node and unlimited nested references, e.g. **.app.node
+            - Migrate cybol example applications to new knowledge path syntax with mime type "text/cybol-path"
+            - Remove old mime types "path/knowledge", "path/reference", "path/stack"
+            - Write cybol example application "cybol-path" for testing knowledge path variants
+            - Delete superfluous property "type" for "modify/" container operations in cybol example applications and api documentation
+            - Use "destination_properties" property for operation "modify/empty" in cybol example applications using it
+            - Verify correct execution of cybol example application "copier" for testing shallow- and deep copying (cloning)
+            - Optimise cybol example application "counter_stack_deep" using stack variables
+            - Optimise cybol example application "tui_control" using stack variables
+            - Add cybol example application "project_overview"
+            - Continue cybol example application "clean_result_directory"
+        * Project:
+            - Add cmake build scripts to new directory "build/"
+            - Include doxygen configuration to cmake
+            - Move icons and manpages to directory "build/"
+            - Move testing functionality from "src/tester/" to new directory "test/"
+            - Remove autotools configuration files, since they got replaced with cmake
+            - Use file "build/.clang-format" for code formatting
+            - Add python script "tools/changeString.py" for simplifying string arrays in directory "constant/"
+
 CYBOP 0.18.0, 2016-12-21, Christian Heller  <christian.heller@tuxtax.de>
         * CYBOI:
             - Provide blocking input on channel "terminal" for "communicate/receive" operation
