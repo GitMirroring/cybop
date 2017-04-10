@@ -40,9 +40,9 @@
 #include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/memoriser/allocator/array_allocator.c"
 #include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/modifier/copier/array_copier.c"
-#include "../../../src/executor/modifier/emptier/array_emptier.c"
-#include "../../../src/executor/modifier/overwriter/part_overwriter.c"
+#include "../../../src/executor/copier/array_copier.c"
+#include "../../../src/executor/modifier/array_modifier.c"
+#include "../../../src/executor/modifier/part_modifier.c"
 
 #ifndef INTEGER_CALCULATOR_TESTER_SOURCE
 #define INTEGER_CALCULATOR_TESTER_SOURCE

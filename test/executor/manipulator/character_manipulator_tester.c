@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 1999-2016. Christian Heller.
-
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -30,20 +29,11 @@
 #include <assert.h>
 
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
-#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
-#include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
 #include "../../../src/executor/manipulator/character/check_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/rotate_left_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/rotate_right_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/shift_right_character_manipulator.c"
-#include "../../../src/executor/memoriser/allocator/array_allocator.c"
-#include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
-#include "../../../src/executor/modifier/copier/array_copier.c"
-#include "../../../src/executor/modifier/emptier/array_emptier.c"
-#include "../../../src/executor/modifier/overwriter/part_overwriter.c"
 
 void manipulate_character_shift_left_by_one() {
 

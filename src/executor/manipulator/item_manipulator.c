@@ -27,7 +27,6 @@
 #define ITEM_MANIPULATOR_SOURCE
 
 #include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../executor/manipulator/array_manipulator.c"
 #include "../../logger/logger.c"

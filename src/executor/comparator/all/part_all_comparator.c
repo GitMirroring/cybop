@@ -111,47 +111,47 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
 
     // The left part name, type, model, properties.
     void* ln = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* la = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* lm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ld = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* lp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right part name, type, model, properties.
     void* rn = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* ra = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rt = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
-    void* rd = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right part elements data, count.
     void* rad = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The name, type, model, properties comparison results.
     int nr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    int ar = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int tr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int mr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
-    int dr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
+    int pr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
 
     // Get left name, type, model, properties.
     copy_array_forward((void*) &ln, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &la, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lt, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &lm, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ld, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &lp, p1, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get right part name, type, model, properties.
     copy_array_forward((void*) &rn, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) NAME_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &ra, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rt, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) TYPE_PART_STATE_CYBOI_NAME);
     copy_array_forward((void*) &rm, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) MODEL_PART_STATE_CYBOI_NAME);
-    copy_array_forward((void*) &rd, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rp, p2, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) PROPERTIES_PART_STATE_CYBOI_NAME);
     // Get right part item data, count.
-    copy_array_forward((void*) &rad, ra, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
+    copy_array_forward((void*) &rtd, rt, (void*) POINTER_STATE_CYBOI_TYPE, (void*) FALSE_BOOLEAN_STATE_CYBOI_MODEL, (void*) PRIMITIVE_STATE_CYBOI_MODEL_COUNT, (void*) VALUE_PRIMITIVE_STATE_CYBOI_NAME, (void*) DATA_ITEM_STATE_CYBOI_NAME);
 
     // Overwrite left- with right part model item.
     // CAUTION! Do NOT use the basic function "compare_item" here,
     // since it does not compare the item counts.
     compare_all_item((void*) &nr, ln, rn, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    compare_all_item((void*) &ar, la, ra, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
-    compare_all_item((void*) &mr, lm, rm, p3, rad);
-    compare_all_item((void*) &dr, ld, rd, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &tr, lt, rt, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) WIDE_CHARACTER_TEXT_STATE_CYBOI_TYPE);
+    compare_all_item((void*) &mr, lm, rm, p3, rtd);
+    compare_all_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
     if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-        && (ar == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
+        && (tr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
         && (mr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-        && (dr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+        && (pr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
         // Set result to TRUE only if all comparisons of
         // name, type, model, properties delivered true.

@@ -43,9 +43,9 @@
 #include "../../../src/executor/comparator/basic/array_comparator.c"
 #include "../../../src/executor/comparator/basic/part_comparator.c"
 #include "../../../src/executor/comparator/all/part_all_comparator.c"
-#include "../../../src/executor/modifier/copier/array_copier.c"
-#include "../../../src/executor/modifier/emptier/array_emptier.c"
-#include "../../../src/executor/modifier/overwriter/part_overwriter.c"
+#include "../../../src/executor/copier/array_copier.c"
+#include "../../../src/executor/modifier/array_modifier.c"
+#include "../../../src/executor/modifier/part_modifier.c"
 #include "../../../src/executor/comparator/prefix/part_prefix_comparator.c"
 #include "../../../src/executor/comparator/suffix/part_suffix_comparator.c"
 
