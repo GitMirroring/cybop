@@ -29,11 +29,29 @@
 #include <assert.h>
 
 #include "../../../src/constant/model/cyboi/state/integer_state_cyboi_model.c"
+#include "../../../src/executor/calculator/basic/integer/absolute_integer_calculator.c"
+#include "../../../src/executor/calculator/basic/integer/add_integer_calculator.c"
+#include "../../../src/executor/calculator/basic/integer/divide_integer_calculator.c"
+#include "../../../src/executor/calculator/basic/integer/modulo_integer_calculator.c"
+#include "../../../src/executor/calculator/basic/integer/multiply_integer_calculator.c"
+#include "../../../src/executor/calculator/basic/integer/negate_integer_calculator.c"
+#include "../../../src/executor/calculator/basic/integer/subtract_integer_calculator.c"
+#include "../../../src/executor/comparator/basic/integer/equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/greater_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/smaller_or_equal_integer_comparator.c"
+#include "../../../src/executor/comparator/basic/integer/unequal_integer_comparator.c"
+#include "../../../src/executor/memoriser/allocator/array_allocator.c"
+#include "../../../src/executor/memoriser/deallocator/array_deallocator.c"
+#include "../../../src/executor/copier/array_copier.c"
+#include "../../../src/executor/modifier/array_modifier.c"
+#include "../../../src/executor/modifier/part_modifier.c"
 #include "../../../src/executor/manipulator/character/check_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/rotate_left_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/rotate_right_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/shift_left_character_manipulator.c"
 #include "../../../src/executor/manipulator/character/shift_right_character_manipulator.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
+
 
 void manipulate_character_shift_left_by_one() {
 

@@ -42,6 +42,7 @@
 #include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/modifier/array_modifier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
 #include "../../../src/executor/runner/sleeper.c"
 
 void test_sleep_duration() {

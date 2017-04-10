@@ -42,6 +42,7 @@
 #include "../../../src/executor/copier/array_copier.c"
 #include "../../../src/executor/modifier/array_modifier.c"
 #include "../../../src/executor/modifier/part_modifier.c"
+#include "../../../src/executor/comparator/all/part_all_comparator.c"
 
 void cast_double_from_integer() {
 
