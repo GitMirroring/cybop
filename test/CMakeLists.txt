@@ -1,6 +1,6 @@
 # --- set output configuration --- #
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
-set(CTEST_OUTPUT_ON_FAILURE	ON)
+set(CTEST_OUTPUT_ON_FAILURE    ON)
 
 # activate coverage flag
 SET(CMAKE_C_FLAGS "--coverage")
