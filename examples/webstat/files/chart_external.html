@@ -1,63 +1,63 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Line Chart</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-	</head>
-	<body>
-		<div style="width:95%;height:95%">
-			<div>
-				<canvas id="canvas"></canvas>
-			</div>
-		</div>
-	<script>
-	$(document).ready(function() {
-		var description = new Array();
-		var myvalues = new Array();
-		$.ajax({
-		    type: "GET",
-		    url: "data.csv",
-		    dataType: "text",
-		    success: function(data) {
-			    //alert("Data recived");
-			    var allTextLines =  data.split(/\r\n|\n/);
-			    for (var i=0; i<allTextLines.length; i++) {
-					var entry = allTextLines[i].split(',');
-					if( entry[0].length > 0){
-						description.push(entry[0]);
-						if( entry[1].length > 0){
-							myvalues.push(entry[1]);
-						}
-						else{
-							myvalues.push(0);
-						}
-					}
-				}		    	
-				var lineChartData = {
-					labels : description,//["02.02.16","03.02.16","04.02.16","05.02.16","06.02.16","Gestern","Heute"],
-					datasets : [
-						{
-							label: "My Second dataset",
-							fillColor : "rgba(151,187,205,0.2)",
-							strokeColor : "rgba(151,187,205,1)",
-							pointColor : "rgba(151,187,205,1)",
-							pointStrokeColor : "#fff",
-							pointHighlightFill : "#fff",
-							pointHighlightStroke : "rgba(151,187,205,1)",
-							data : myvalues//[10,70,10,40,30,50,30]
-						}
-					]
-				}
-				var ctx = document.getElementById("canvas").getContext("2d");
-				window.myLine = new Chart(ctx).Line(lineChartData, {
-					responsive: true,
-					scaleBeginAtZero: true
-				});
-		
-		    }
-		 });
-	});
-	</script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
-	</body>
+    <head>
+        <title>Line Chart</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div style="width:95%;height:95%">
+            <div>
+                <canvas id="canvas"></canvas>
+            </div>
+        </div>
+    <script>
+    $(document).ready(function() {
+        var description = new Array();
+        var myvalues = new Array();
+        $.ajax({
+            type: "GET",
+            url: "data.csv",
+            dataType: "text",
+            success: function(data) {
+                //alert("Data recived");
+                var allTextLines =  data.split(/\r\n|\n/);
+                for (var i=0; i<allTextLines.length; i++) {
+                    var entry = allTextLines[i].split(',');
+                    if( entry[0].length > 0){
+                        description.push(entry[0]);
+                        if( entry[1].length > 0){
+                            myvalues.push(entry[1]);
+                        }
+                        else{
+                            myvalues.push(0);
+                        }
+                    }
+                }                
+                var lineChartData = {
+                    labels : description,//["02.02.16","03.02.16","04.02.16","05.02.16","06.02.16","Gestern","Heute"],
+                    datasets : [
+                        {
+                            label: "My Second dataset",
+                            fillColor : "rgba(151,187,205,0.2)",
+                            strokeColor : "rgba(151,187,205,1)",
+                            pointColor : "rgba(151,187,205,1)",
+                            pointStrokeColor : "#fff",
+                            pointHighlightFill : "#fff",
+                            pointHighlightStroke : "rgba(151,187,205,1)",
+                            data : myvalues//[10,70,10,40,30,50,30]
+                        }
+                    ]
+                }
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myLine = new Chart(ctx).Line(lineChartData, {
+                    responsive: true,
+                    scaleBeginAtZero: true
+                });
+        
+            }
+         });
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    </body>
 </html>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-    Copyright (C) 1999-2015. Christian Heller.
+    Copyright (C) 1999-2017. Christian Heller.
 
     This file is part of the Cybernetics Oriented Language (CYBOL).
 
@@ -21,7 +21,7 @@
     Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
     CYBOP Developers <cybop-developers@nongnu.org>
 
-    @version CYBOP 0.17.0 2015-04-20
+    @version CYBOP 0.19.0 2017-04-10
     @author Christian Heller <christian.heller@tuxtax.de>
 -->
 
