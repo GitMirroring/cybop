@@ -18,6 +18,10 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
+2017-04-11  Christian Heller  <christian.heller@tuxtax.de>
+
+        * Fix potential memory leak on reallocation error in file "array_reallocator.c"
+
 2017-04-10  Christian Heller  <christian.heller@tuxtax.de>
 
         * Add python script "build/cmake/adjustcopyright.py" of Enrico Gallus

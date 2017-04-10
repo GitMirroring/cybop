@@ -29,7 +29,7 @@
 #include <stdlib.h>
 
 #include "../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
@@ -122,11 +122,21 @@ void reallocate_array(void* p0, void* p1, void* p2, void* p3) {
                     // The value of realloc is the new address of the block.
                     // If the block needs to be moved, realloc copies the old contents.
                     //
-                    // CAUTION! The "ma" variable MAY NOT be casted to "size_t",
+                    // CAUTION! Do NOT assign the returned pointer to *a right away.
+                    // If it is null and assigned to *a, then the original array
+                    // is not reachable anymore and thus cannot be deallocated properly,
+                    // leading to memory leaks.
+                    // Therefore, assign to a temporary variable
+                    // which gets tested for NULL below.
+                    //
+                    // CAUTION! The "ma" variable may NOT be casted to "size_t",
                     // because it is NOT a pointer, but an integer value!
-                    *a = realloc(*a, tma);
+                    void* tmp = realloc(*a, tma);
 
-                    if (*a != *NULL_POINTER_STATE_CYBOI_MODEL) {
+                    if (tmp != *NULL_POINTER_STATE_CYBOI_MODEL) {
+
+                        // Assign pointer to reallocated array ONLY if successful.
+                        *a = tmp;
 
                         if (*s > *c) {
 

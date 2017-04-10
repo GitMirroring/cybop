@@ -15,6 +15,7 @@ ___________
 
 Compile cyboi using "make cyboi"
 Test cybol applications, e.g. "../src/controller/cyboi counter/run.cybol"
+Analyse code using tools "valgrind" and "cppcheck"
 
 
 Administrative Data

@@ -27,7 +27,7 @@
 #define MEMORY_KNOWLEDGE_SELECTOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
@@ -104,7 +104,7 @@ void select_knowledge_memory(void* p0, void* p1, void* p2, void* p3, void* p4, v
 fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. p2: %ls\n", (wchar_t*) p2);
 fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. *p3: %i\n", *((int*) p3));
 
-fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. p5: %i\n", p5);
+fwprintf(stdout, L"WARNING: Could not select knowledge memory. The source whole part element index is unknown. p5: %p\n", p5);
     }
 }
 
