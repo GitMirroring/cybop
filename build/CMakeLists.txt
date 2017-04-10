@@ -32,7 +32,7 @@ include(cmake/codestyling.cmake)
 #
 
 # --- CTest Configuration --- #
-#include(../test/CMakeLists.txt)
+include(../test/CMakeLists.txt)
 
 # --- codecovarage command --- #
 include(cmake/codecoverage.cmake)

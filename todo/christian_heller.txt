@@ -11,12 +11,6 @@
 # @author Christian Heller <christian.heller@tuxtax.de>
 #
 
-Testing
-_______
-
-        * Uncomment include of "../test/CMakeLists.txt" in file "build/CMakeLists.txt"
-        * Fix module dependencies and include conflicts between test- and cyboi source files
-
 GUI
 ___
 
