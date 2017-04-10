@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2016. Christian Heller.
+ * Copyright (C) 1999-2017. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,7 +19,7 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.18.0 2016-12-21
+ * @version CYBOP 0.19.0 2017-04-10
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
@@ -29,7 +29,7 @@
 #include <stdlib.h>
 #include <string.h>
 
- 
+#include "../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../logger/logger.c"
@@ -51,10 +51,8 @@ void copy_integer(void* p0, void* p1) {
             int* de = (int*) p0;
 
             // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
-
-            // CAUTION! Do NOT call the logger here.
             // This function is used in threads for sensing data input.
+            // log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Copy integer.");
 
             // Assign source- to destination.
             *de = *se;
@@ -62,14 +60,14 @@ void copy_integer(void* p0, void* p1) {
         } else {
 
             // CAUTION! Do NOT call the logger here.
-            // It uses functions causing circular references.
+            // This function is used in threads for sensing data input.
             // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The destination is null.");
         }
 
     } else {
 
         // CAUTION! Do NOT call the logger here.
-        // It uses functions causing circular references.
+        // This function is used in threads for sensing data input.
         // log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not copy integer. The source is null.");
     }
 }

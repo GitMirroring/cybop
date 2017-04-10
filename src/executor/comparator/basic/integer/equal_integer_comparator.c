@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 1999-2016. Christian Heller.
+ * Copyright (C) 1999-2017. Christian Heller.
  *
  * This file is part of the Cybernetics Oriented Interpreter (CYBOI).
  *
@@ -19,16 +19,18 @@
  * Cybernetics Oriented Programming (CYBOP) <http://www.cybop.org/>
  * CYBOP Developers <cybop-developers@nongnu.org>
  *
- * @version CYBOP 0.18.0 2016-12-21
+ * @version CYBOP 0.19.0 2017-04-10
  * @author Christian Heller <christian.heller@tuxtax.de>
  */
 
 #ifndef EQUAL_INTEGER_COMPARATOR_SOURCE
 #define EQUAL_INTEGER_COMPARATOR_SOURCE
 
+#include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/copier/integer_copier.c"
+#include "../../../../logger/logger.c"
 
 /**
  * Compares the left- with the right integer for equality.
@@ -49,6 +51,7 @@ void compare_integer_equal(void* p0, void* p1, void* p2) {
 
             // CAUTION! Do NOT call the logger here.
             // It might use functions that cause circular references.
+            log_message_terminated((void*) DEBUG_LEVEL_LOG_CYBOI_MODEL, (void*) L"Compare integer equal.");
 
             if (*lv == *rv) {
 
@@ -59,12 +62,14 @@ void compare_integer_equal(void* p0, void* p1, void* p2) {
 
             // CAUTION! Do NOT call the logger here.
             // It might use functions that cause circular references.
+            log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer equal. The left value is null.");
         }
 
     } else {
 
         // CAUTION! Do NOT call the logger here.
         // It might use functions that cause circular references.
+        log_message_terminated((void*) ERROR_LEVEL_LOG_CYBOI_MODEL, (void*) L"Could not compare integer equal. The right value is null.");
     }
 }
 
