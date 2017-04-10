@@ -27,7 +27,7 @@
 #define UNEQUAL_COMPLEX_COMPARATOR_SOURCE
 
 #include "../../../../constant/model/cyboi/log/level_log_cyboi_model.c"
- 
+
 #include "../../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../../executor/accessor/getter/complex_getter.c"
@@ -36,13 +36,13 @@
 
 /**
  * Compares the left- with the right complex for unequality.
- * 
+ *
  * CAUTION! Complex numbers can ONLY be compared for identity!
- * 
+ *
  * Due to their two-dimensional field nature, they cannot
  * be represented on a number line (German: Zahlenstrahl).
  * Thus, a comparison (greater, smaller) is NOT possible.
- * 
+ *
  * http://www.informatik.uni-leipzig.de/~meiler/Schuelerseiten.dir/DPlotzki/html/complex.htm
  * http://answers.yahoo.com/question/index?qid=20081223173853AAAbUug
  *

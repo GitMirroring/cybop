@@ -30,14 +30,14 @@
 #include <string.h>
 
 #include "../../../constant/format/cyboi/logic_cyboi_format.c"
- 
+
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/pointer/equal_pointer_comparator.c"
-#include "../../../executor/comparator/basic/pointer/greater_pointer_comparator.c"
 #include "../../../executor/comparator/basic/pointer/greater_or_equal_pointer_comparator.c"
-#include "../../../executor/comparator/basic/pointer/smaller_pointer_comparator.c"
+#include "../../../executor/comparator/basic/pointer/greater_pointer_comparator.c"
 #include "../../../executor/comparator/basic/pointer/smaller_or_equal_pointer_comparator.c"
+#include "../../../executor/comparator/basic/pointer/smaller_pointer_comparator.c"
 #include "../../../executor/comparator/basic/pointer/unequal_pointer_comparator.c"
 #include "../../../logger/logger.c"
 
@@ -87,7 +87,6 @@ void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_pointer_greater_or_equal(p0, p1, p2);
-
             }
         }
 
@@ -108,7 +107,6 @@ void compare_pointer(void* p0, void* p1, void* p2, void* p3) {
                 r = *TRUE_BOOLEAN_STATE_CYBOI_MODEL;
 
                 compare_pointer_smaller_or_equal(p0, p1, p2);
-
             }
         }
 

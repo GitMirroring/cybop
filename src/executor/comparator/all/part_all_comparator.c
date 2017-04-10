@@ -147,10 +147,7 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
     compare_all_item((void*) &mr, lm, rm, p3, rtd);
     compare_all_item((void*) &pr, lp, rp, (void*) EQUAL_COMPARE_LOGIC_CYBOI_FORMAT, (void*) PART_ELEMENT_STATE_CYBOI_TYPE);
 
-    if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-        && (tr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-        && (mr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)
-        && (pr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
+    if ((nr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) && (tr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) && (mr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) && (pr == *FALSE_BOOLEAN_STATE_CYBOI_MODEL)) {
 
         // Set result to TRUE only if all comparisons of
         // name, type, model, properties delivered true.

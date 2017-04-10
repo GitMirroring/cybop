@@ -30,7 +30,7 @@
 #include <string.h>
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
- 
+
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/fraction/equal_fraction_comparator.c"

@@ -30,7 +30,7 @@
 #include <string.h>
 
 #include "../../../constant/type/cyboi/state_cyboi_type.c"
- 
+
 #include "../../../constant/model/cyboi/state/boolean_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../executor/comparator/basic/complex/equal_complex_comparator.c"
@@ -46,7 +46,7 @@
  * @param p3 the operation type
  */
 void compare_complex(void* p0, void* p1, void* p2, void* p3) {
-  
+
     if (p3 != *NULL_POINTER_STATE_CYBOI_MODEL) {
 
         int* a = (int*) p3;
@@ -65,7 +65,6 @@ void compare_complex(void* p0, void* p1, void* p2, void* p3) {
                 compare_complex_equal(p0, p1, p2);
             }
         }
-
 
         if (r == *FALSE_BOOLEAN_STATE_CYBOI_MODEL) {
 
