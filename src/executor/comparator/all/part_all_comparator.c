@@ -26,7 +26,6 @@
 #ifndef PART_ALL_COMPARATOR_SOURCE
 #define PART_ALL_COMPARATOR_SOURCE
 
- 
 #include "../../../constant/model/cyboi/state/integer_state_cyboi_model.c"
 #include "../../../constant/model/cyboi/state/pointer_state_cyboi_model.c"
 #include "../../../constant/name/cyboi/state/part_state_cyboi_name.c"
@@ -120,7 +119,7 @@ void compare_all_part_all(void* p0, void* p1, void* p2, void* p3) {
     void* rm = *NULL_POINTER_STATE_CYBOI_MODEL;
     void* rp = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The right part elements data, count.
-    void* rad = *NULL_POINTER_STATE_CYBOI_MODEL;
+    void* rtd = *NULL_POINTER_STATE_CYBOI_MODEL;
     // The name, type, model, properties comparison results.
     int nr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
     int tr = *FALSE_BOOLEAN_STATE_CYBOI_MODEL;
